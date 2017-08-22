@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, August 22, 2017 09:40:11}
+%TCIDATA{LastRevised=Tuesday, August 22, 2017 22:52:31}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -128,8 +128,8 @@ All of the following is a rough draft, and proofs are merely outlined.
 
 \section{Extending enriched $P$-partitions and the exterior peak set}
 
-I am going to define \textit{$\mathcal{Z}$-enriched }$P$\textit{-partitions}, which are a
-straightforward generalization of the notions of \textquotedblleft%
+I am going to define \textit{$\mathcal{Z}$-enriched }$P$\textit{-partitions},
+which are a straightforward generalization of the notions of \textquotedblleft%
 $P$-partitions\textquotedblright, \textquotedblleft enriched $P$%
 -partitions\textquotedblright\ and \textquotedblleft left enriched
 $P$-partitions\textquotedblright. I will then consider a new particular case
@@ -166,9 +166,9 @@ $\mathbb{Q}$ in the indeterminates $x_{n}$ for $n\in\mathcal{N}$.
 
 \begin{definition}
 \label{def.ambivPp}Now, let $\left(  P,\gamma\right)  $ be a labeled poset. An
-\textit{$\mathcal{Z}$-enriched }$\left(  P,\gamma\right)  $\textit{-partition} means a map
-$f:P\rightarrow\mathcal{Z}$ such that for all $x<y$ in $P$, the following
-conditions hold:
+\textit{$\mathcal{Z}$-enriched }$\left(  P,\gamma\right)  $\textit{-partition}
+means a map $f:P\rightarrow\mathcal{Z}$ such that for all $x<y$ in $P$, the
+following conditions hold:
 
 \begin{enumerate}
 \item[\textbf{(i)}] We have $f\left(  x\right)  \preccurlyeq f\left(
@@ -194,16 +194,16 @@ $\mathcal{N}\rightarrow\mathcal{Z},\ n\mapsto\left(  +n\right)  $.
 
 \textbf{(b)} If $\mathcal{N}=\mathbb{P}$ (the totally ordered set of positive
 integers) and $\mathcal{Z}=\mathcal{N}\times\left\{  +,-\right\}  $, then the
-$\mathcal{Z}$-enriched $\left(  P,\gamma\right)  $-partitions are the enriched $\left(
-P,\gamma\right)  $-partitions.
+$\mathcal{Z}$-enriched $\left(  P,\gamma\right)  $-partitions are the enriched
+$\left(  P,\gamma\right)  $-partitions.
 
 \textbf{(c)} If $\mathcal{N}=\mathbb{N}$ (the totally ordered set of
 nonnegative integers) and $\mathcal{Z}=\left(  \mathcal{N}\times\left\{
-+,-\right\}  \right)  \setminus\left\{  -0\right\}  $, then the $\mathcal{Z}$-enriched
-$\left(  P,\gamma\right)  $-partitions are the left enriched $\left(
-P,\gamma\right)  $-partitions. Note that $+0$ and $-0$ here stand for the
-pairs $\left(  0,+\right)  $ and $\left(  0,-\right)  $; thus, they are not
-the same thing.
++,-\right\}  \right)  \setminus\left\{  -0\right\}  $, then the $\mathcal{Z}%
+$-enriched $\left(  P,\gamma\right)  $-partitions are the left enriched
+$\left(  P,\gamma\right)  $-partitions. Note that $+0$ and $-0$ here stand for
+the pairs $\left(  0,+\right)  $ and $\left(  0,-\right)  $; thus, they are
+not the same thing.
 \end{example}
 
 \begin{definition}
@@ -220,12 +220,12 @@ w_{1},w_{2},\ldots,w_{n}\right)  $ of all elements of $P$ such that no $i<j$
 satisfy $w_{i}\geq w_{j}$ in $P$.
 \end{definition}
 
-Let us prove some basic facts about $\mathcal{Z}$-enriched $\left(  P,\gamma\right)
-$-partitions, straightforwardly generalizing classical results proven by
-Stanley and Gessel (for the case of \textquotedblleft plain\textquotedblright%
-\ $\left(  P,\gamma\right)  $-partitions), Stembridge (for enriched $\left(
-P,\gamma\right)  $-partitions) and Petersen (for left enriched $\left(
-P,\gamma\right)  $-partitions):
+Let us prove some basic facts about $\mathcal{Z}$-enriched $\left(
+P,\gamma\right)  $-partitions, straightforwardly generalizing classical
+results proven by Stanley and Gessel (for the case of \textquotedblleft
+plain\textquotedblright\ $\left(  P,\gamma\right)  $-partitions), Stembridge
+(for enriched $\left(  P,\gamma\right)  $-partitions) and Petersen (for left
+enriched $\left(  P,\gamma\right)  $-partitions):
 
 \begin{proposition}
 \label{prop.fund-lem}For any labeled poset $\left(  P,\gamma\right)  $, we
@@ -326,7 +326,7 @@ _{\mathcal{Z}}\left(  w,\gamma\right)  =\Gamma_{\mathcal{Z}}\left(
 \begin{align*}
 \mathcal{E}\left(  w,\gamma\right)   &  \rightarrow\mathcal{E}\left(  \left[
 n\right]  ,\gamma\circ\overline{w}^{-1}\right)  ,\\
-f &  \mapsto f\circ\overline{w}^{-1}%
+f  &  \mapsto f\circ\overline{w}^{-1}%
 \end{align*}
 is a bijection.
 \end{proof}
@@ -354,7 +354,7 @@ P\right)  }\underbrace{\Gamma_{\mathcal{Z}}\left(  w,\gamma\right)
 }_{\substack{=\Gamma_{\mathcal{Z}}\left(  \gamma\circ\overline{w}^{-1}\right)
 \\\text{(by Proposition \ref{prop.Gamma=Gamma})}}}=\sum_{w\in\mathcal{L}%
 \left(  P\right)  }\Gamma_{\mathcal{Z}}\left(  \gamma\circ\overline{w}%
-^{-1}\right)  .\label{pf.cor.fund-lem2.1}%
+^{-1}\right)  . \label{pf.cor.fund-lem2.1}%
 \end{equation}
 But the linear extensions of $P$ are in bijection with the bijective poset
 homomorphisms $x:P\rightarrow\left[  n\right]  $; the bijection sends a linear
@@ -401,14 +401,14 @@ $\Gamma_{\mathcal{Z}}\left(  \sigma\right)  $ yield%
 \begin{align*}
 \Gamma_{\mathcal{Z}}\left(  \pi\right)  \Gamma_{\mathcal{Z}}\left(
 \sigma\right)   &  =\Gamma_{\mathcal{Z}}\left(  \left[  n\right]  ,\pi\right)
-\Gamma_{\mathcal{Z}}\left(  \left[  m\right]  ,\sigma\right)  \\
+\Gamma_{\mathcal{Z}}\left(  \left[  m\right]  ,\sigma\right) \\
 &  =\Gamma_{\mathcal{Z}}\left(  \left[  n\right]  \sqcup\left[  m\right]
 ,\varepsilon\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.prod1}}\right)  \\
+\ref{prop.prod1}}\right) \\
 &  =\sum_{\substack{x:\left[  n\right]  \sqcup\left[  m\right]  \rightarrow
 \left[  n+m\right]  \\\text{bijective poset}\\\text{homomorphism}}%
 }\Gamma_{\mathcal{Z}}\left(  \varepsilon\circ x^{-1}\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary \ref{cor.fund-lem2}}\right)  \\
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary \ref{cor.fund-lem2}}\right) \\
 &  =\sum_{\tau\in S\left(  \sigma,\pi\right)  }\Gamma_{\mathcal{Z}}\left(
 \tau\right)  .
 \end{align*}
@@ -417,7 +417,7 @@ Here, the last equality sign makes use of the (easy) fact that the map%
 \left\{  \text{bijective poset homomorphisms }x:\left[  n\right]
 \sqcup\left[  m\right]  \rightarrow\left[  n+m\right]  \right\}   &
 \rightarrow S\left(  \sigma,\pi\right)  ,\\
-x &  \mapsto\varepsilon\circ x^{-1}%
+x  &  \mapsto\varepsilon\circ x^{-1}%
 \end{align*}
 is a well-defined bijection.
 \end{proof}
@@ -534,12 +534,12 @@ $\left\vert f\right\vert =g$.
 But both of these observations are easy:
 
 [\textit{Proof of Observation 1:} This is a simple consequence of the
-definition of an $\mathcal{Z}$-enriched $\left(  \left[  n\right]  ,\pi\right)
-$-partition. Let me spell it out: Let $f\in\mathcal{E}\left(  \left[
-n\right]  ,\pi\right)  $. Thus, $f$ is an $\mathcal{Z}$-enriched $\left(  \left[
-n\right]  ,\pi\right)  $-partition. In other words, $f$ is a map $\left[
-n\right]  \rightarrow\mathcal{Z}$ such that for all $x<y$ in $\left[
-n\right]  $, the following conditions hold:
+definition of an $\mathcal{Z}$-enriched $\left(  \left[  n\right]
+,\pi\right)  $-partition. Let me spell it out: Let $f\in\mathcal{E}\left(
+\left[  n\right]  ,\pi\right)  $. Thus, $f$ is an $\mathcal{Z}$-enriched
+$\left(  \left[  n\right]  ,\pi\right)  $-partition. In other words, $f$ is a
+map $\left[  n\right]  \rightarrow\mathcal{Z}$ such that for all $x<y$ in
+$\left[  n\right]  $, the following conditions hold:
 
 \begin{enumerate}
 \item[\textbf{(i)}] We have $f\left(  x\right)  \preccurlyeq f\left(
@@ -1232,12 +1232,17 @@ Now, let me focus on a feature of shuffle-compatible descent statistics that
 seems to have been overlooked so far: their kernels.
 
 \begin{definition}
-Let $\operatorname*{st}$ be a descent statistic. Then, $\mathcal{K}%
-_{\operatorname*{st}}$ shall mean the $\mathbb{Q}$-vector subspace of
-$\operatorname*{QSym}$ spanned by all elements of the form $F_{J}-F_{K}$,
-where $J$ and $K$ are two compositions of the same size satisfying
-$\operatorname*{st}J=\operatorname*{st}K$. We shall refer to $\mathcal{K}%
-_{\operatorname*{st}}$ as the \textit{kernel} of $\operatorname*{st}$.
+Let $\operatorname*{st}$ be a descent statistic.
+
+\textbf{(a)} Two compositions $J$ and $K$ are said to be $\operatorname*{st}%
+$\textit{-equivalent} if and only if they have the same size and satisfy
+$\operatorname*{st}J=\operatorname*{st}K$.
+
+\textbf{(b)} Furthermore, $\mathcal{K}_{\operatorname*{st}}$ shall mean the
+$\mathbb{Q}$-vector subspace of $\operatorname*{QSym}$ spanned by all elements
+of the form $F_{J}-F_{K}$, where $J$ and $K$ are two $\operatorname*{st}%
+$-equivalent compositions. We shall refer to $\mathcal{K}_{\operatorname*{st}%
+}$ as the \textit{kernel} of $\operatorname*{st}$.
 \end{definition}
 
 \cite[Theorem 4.3]{part1} easily yields the following fact:
@@ -1302,16 +1307,16 @@ Since the family $\left\{  u_{\alpha}\right\}  $ is linearly independent
 for each $\operatorname*{st}$-equivalence class $\alpha$ of compositions.
 
 Now, for each $\operatorname*{st}$-equivalence class $\alpha$ of compositions,
-we fix an element $L_{\alpha}$ of $\alpha$. Then, each $\operatorname*{st}%
-$-equivalence class $\alpha$ of compositions and each composition $L\in\alpha$
-satisfy $\operatorname*{st}L=\operatorname*{st}\left(  L_{\alpha}\right)  $
-(because both compositions $L$ and $L_{\alpha}$ lie in the same
-$\operatorname*{st}$-equivalence class $\alpha$) and therefore
+we fix an element $L_{\alpha}$ of $\alpha$. Then, for each $\operatorname*{st}%
+$-equivalence class $\alpha$ of compositions and each composition $L\in\alpha
+$, we have
 \begin{equation}
-F_{L}-F_{L_{\alpha}}\in\mathcal{K}_{\operatorname*{st}}.
+F_{L}-F_{L_{\alpha}}\in\mathcal{K}_{\operatorname*{st}}
 \label{pf.prop.K.ideal.dir1.3}%
 \end{equation}
-
+(since the compositions $L$ and $L_{\alpha}$ are $\operatorname*{st}%
+$-equivalent\footnote{since both compositions $L$ and $L_{\alpha}$ lie in the
+same $\operatorname*{st}$-equivalence class $\alpha$}).
 
 Now,%
 \begin{align*}
@@ -1349,23 +1354,19 @@ Conversely, it is easy to see that $\mathcal{K}_{\operatorname*{st}}%
 $\ \ \ \ \footnote{\textit{Proof.} Recall that $\mathcal{K}%
 _{\operatorname*{st}}$ is the $\mathbb{Q}$-vector subspace of
 $\operatorname*{QSym}$ spanned by all elements of the form $F_{J}-F_{K}$,
-where $J$ and $K$ are two compositions of the same size satisfying
-$\operatorname*{st}J=\operatorname*{st}K$. Hence, in order to prove that
-$\mathcal{K}_{\operatorname*{st}}\subseteq\operatorname*{Ker}\left(
-\phi_{\operatorname*{st}}\right)  $, it suffices to show that $F_{J}-F_{K}%
-\in\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)  $, whenever
-$J$ and $K$ are two compositions of the same size satisfying
-$\operatorname*{st}J=\operatorname*{st}K$. So let $J$ and $K$ be two
-compositions of the same size satisfying $\operatorname*{st}%
-J=\operatorname*{st}K$. We must show that $F_{J}-F_{K}\in\operatorname*{Ker}%
-\left(  \phi_{\operatorname*{st}}\right)  $.
+where $J$ and $K$ are two $\operatorname*{st}$-equivalent compositions. Hence,
+in order to prove that $\mathcal{K}_{\operatorname*{st}}\subseteq
+\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)  $, it suffices to
+show that $F_{J}-F_{K}\in\operatorname*{Ker}\left(  \phi_{\operatorname*{st}%
+}\right)  $, whenever $J$ and $K$ are two $\operatorname*{st}$-equivalent
+compositions. So let $J$ and $K$ be two $\operatorname*{st}$-equivalent
+compositions. We must show that $F_{J}-F_{K}\in\operatorname*{Ker}\left(
+\phi_{\operatorname*{st}}\right)  $.
 \par
-The two compositions $J$ and $K$ have the same size and satisfy
-$\operatorname*{st}J=\operatorname*{st}K$. In other words, the two
-compositions $J$ and $K$ are $\operatorname*{st}$-equivalence. Hence, they lie
-in one and the same $\operatorname*{st}$-equivalence class. Let $\alpha$ be
-this $\operatorname*{st}$-equivalence class. Then, $J\in\alpha$ and therefore
-$\phi_{\operatorname*{st}}\left(  F_{J}\right)  =u_{\alpha}$ (by
+The two compositions $J$ and $K$ are $\operatorname*{st}$-equivalent. Hence,
+they lie in one and the same $\operatorname*{st}$-equivalence class. Let
+$\alpha$ be this $\operatorname*{st}$-equivalence class. Then, $J\in\alpha$
+and therefore $\phi_{\operatorname*{st}}\left(  F_{J}\right)  =u_{\alpha}$ (by
 (\ref{pf.prop.K.ideal.dir1.1}), applied to $L=J$). Similarly, $\phi
 _{\operatorname*{st}}\left(  F_{K}\right)  =u_{\alpha}$. Now, $\phi
 _{\operatorname*{st}}\left(  F_{J}-F_{K}\right)  =\underbrace{\phi
@@ -1387,10 +1388,13 @@ $-vector space $A$ is contained in the image of $\phi_{\operatorname*{st}}$
 (because of (\ref{pf.prop.K.ideal.dir1.1})). Therefore, the homomorphism
 $\phi_{\operatorname*{st}}$ is surjective. Thus, $\phi_{\operatorname*{st}%
 }\left(  \operatorname*{QSym}\right)  =A$. Hence, $A=\phi_{\operatorname*{st}%
-}\left(  \operatorname*{QSym}\right)  \cong\operatorname*{QSym}/\mathcal{K}%
-_{\operatorname*{st}}$. But the second sentence of \cite[Theorem 4.3]{part1}
+}\left(  \operatorname*{QSym}\right)  \cong\operatorname*{QSym}%
+/\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)  $ (by the
+homomorphism theorem). But the second sentence of \cite[Theorem 4.3]{part1}
 shows that $\mathcal{A}_{\operatorname*{st}}\cong A$. Thus, $\mathcal{A}%
-_{\operatorname*{st}}\cong A\cong\operatorname*{QSym}/\mathcal{K}%
+_{\operatorname*{st}}\cong A\cong\operatorname*{QSym}%
+/\underbrace{\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)
+}_{=\mathcal{K}_{\operatorname*{st}}}=\operatorname*{QSym}/\mathcal{K}%
 _{\operatorname*{st}}$. This finishes the proof of the $\Longrightarrow$
 direction of Proposition \ref{prop.K.ideal}.
 
@@ -1964,18 +1968,19 @@ this rewrites as $F_{J}-F_{K}\in\mathcal{K}^{\prime}$. This proves Claim 6.]
 
 [\textit{Proof of Claim 7:} Recall that $\mathcal{K}_{\operatorname*{Epk}}$ is
 the $\mathbb{Q}$-vector subspace of $\operatorname*{QSym}$ spanned by all
-elements of the form $F_{J}-F_{K}$, where $J$ and $K$ are two compositions of
-the same size satisfying $\operatorname*{Epk}J=\operatorname*{Epk}K$. Thus, it
-suffices to show that if $J$ and $K$ are two compositions of the same size
-satisfying $\operatorname*{Epk}J=\operatorname*{Epk}K$, then $F_{J}-F_{K}%
-\in\mathcal{K}^{\prime}$.
+elements of the form $F_{J}-F_{K}$, where $J$ and $K$ are two
+$\operatorname*{Epk}$-equivalent compositions. Thus, it suffices to show that
+if $J$ and $K$ are two $\operatorname*{Epk}$-equivalent compositions, then
+$F_{J}-F_{K}\in\mathcal{K}^{\prime}$.
 
-So let $J$ and $K$ be two compositions of the same size satisfying
-$\operatorname*{Epk}J=\operatorname*{Epk}K$. We must prove that $F_{J}%
--F_{K}\in\mathcal{K}^{\prime}$.
+So let $J$ and $K$ be two $\operatorname*{Epk}$-equivalent compositions. We
+must prove that $F_{J}-F_{K}\in\mathcal{K}^{\prime}$.
 
-Let $n=\left\vert J\right\vert =\left\vert K\right\vert $. (This is
-well-defined, since $J$ and $K$ are compositions of the same size.)
+The compositions $J$ and $K$ are $\operatorname*{Epk}$-equivalent; in other
+words, they have the same size and satisfy $\operatorname*{Epk}%
+J=\operatorname*{Epk}K$. Let $n=\left\vert J\right\vert =\left\vert
+K\right\vert $. (This is well-defined, since the compositions $J$ and $K$ have
+the same size.)
 
 Claim 4 yields $\left(  \operatorname*{Des}J\right)  _{n}^{\circ}=\left(
 \operatorname*{Des}K\right)  _{n}^{\circ}$. But Claim 5 yields

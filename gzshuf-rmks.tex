@@ -1,0 +1,3609 @@
+\documentclass[numbers=enddot,12pt,final,onecolumn,notitlepage]{scrartcl}%
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[all,cmtip]{xy}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{framed}
+\usepackage{amsmath}
+\usepackage{comment}
+\usepackage{color}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{needspace}
+\usepackage{allrunes}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{LastRevised=Tuesday, August 22, 2017 09:40:11}
+%TCIDATA{SuppressPackageManagement}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%BeginMSIPreambleData
+\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
+%EndMSIPreambleData
+\theoremstyle{definition}
+\newtheorem{theo}{Theorem}[section]
+\newenvironment{theorem}[1][]
+{\begin{theo}[#1]\begin{leftbar}}
+{\end{leftbar}\end{theo}}
+\newtheorem{lem}[theo]{Lemma}
+\newenvironment{lemma}[1][]
+{\begin{lem}[#1]\begin{leftbar}}
+{\end{leftbar}\end{lem}}
+\newtheorem{prop}[theo]{Proposition}
+\newenvironment{proposition}[1][]
+{\begin{prop}[#1]\begin{leftbar}}
+{\end{leftbar}\end{prop}}
+\newtheorem{defi}[theo]{Definition}
+\newenvironment{definition}[1][]
+{\begin{defi}[#1]\begin{leftbar}}
+{\end{leftbar}\end{defi}}
+\newtheorem{remk}[theo]{Remark}
+\newenvironment{remark}[1][]
+{\begin{remk}[#1]\begin{leftbar}}
+{\end{leftbar}\end{remk}}
+\newtheorem{coro}[theo]{Corollary}
+\newenvironment{corollary}[1][]
+{\begin{coro}[#1]\begin{leftbar}}
+{\end{leftbar}\end{coro}}
+\newtheorem{conv}[theo]{Convention}
+\newenvironment{convention}[1][]
+{\begin{conv}[#1]\begin{leftbar}}
+{\end{leftbar}\end{conv}}
+\newtheorem{quest}[theo]{Question}
+\newenvironment{question}[1][]
+{\begin{quest}[#1]\begin{leftbar}}
+{\end{leftbar}\end{quest}}
+\newtheorem{warn}[theo]{Warning}
+\newenvironment{warning}[1][]
+{\begin{warn}[#1]\begin{leftbar}}
+{\end{leftbar}\end{warn}}
+\newtheorem{conj}[theo]{Conjecture}
+\newenvironment{conjecture}[1][]
+{\begin{conj}[#1]\begin{leftbar}}
+{\end{leftbar}\end{conj}}
+\newtheorem{exmp}[theo]{Example}
+\newenvironment{example}[1][]
+{\begin{exmp}[#1]\begin{leftbar}}
+{\end{leftbar}\end{exmp}}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\iffalse
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newenvironment{convention}[1][Convention]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newenvironment{warning}[1][Warning]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newenvironment{question}[1][Question]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\fi
+\newenvironment{verlong}{}{}
+\newenvironment{vershort}{}{}
+\newenvironment{noncompile}{}{}
+\excludecomment{verlong}
+\includecomment{vershort}
+\excludecomment{noncompile}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\ev}{\operatorname{ev}}
+\newcommand{\Comp}{\operatorname{Comp}}
+\newcommand{\QSym}{\operatorname{QSym}_{\mathbf{k}}}
+\newcommand{\QSYM}{\operatorname{QSYM}_{\mathbf{k}}}
+\newcommand{\Powser}{\mathbf{k}\left[\left[x_1,x_2,x_3,\ldots\right]\right]}
+\newcommand{\bdd}{\operatorname{bdd}}
+\newcommand{\Bdd}{\Powser_{\bdd}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bk}{\mathbf{k}}
+\newcommand{\Nplus}{\mathbb{N}_{+}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\tvi}{\left. \textarm{\tvimadur} \right.}
+\newcommand{\bel}{\left. \textarm{\belgthor} \right.}
+\iffalse
+\NOEXPAND{\tvi}{\left. \textarm{\tvimadur} \right.}
+\NOEXPAND{\bel}{\left. \textarm{\belgthor} \right.}
+\fi
+\newcommand\arxiv[1]{\href{http://www.arxiv.org/abs/#1}{\texttt{arXiv:#1}}}
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\setlength\textheight{22.5cm}
+\setlength\textwidth{15cm}
+\begin{document}
+
+\title{Shuffle-compatible permutation statistics II: the exterior peak set}
+\author{Darij Grinberg}
+\date{\today}
+\maketitle
+\tableofcontents
+
+\section*{***}
+
+This draft is a continuation of
+\href{http://lanl.arxiv.org/abs/1706.00750v1}{the preprint \textquotedblleft
+Shuffle-compatible permutation statistics\textquotedblright\ by Ira M. Gessel
+and Yan Zhuang (\cite{part1})}. I shall liberally use the notations introduced
+in \cite{part1} as well as its numbering of results and references.
+
+All of the following is a rough draft, and proofs are merely outlined.
+
+\setcounter{section}{9}
+
+\section{Extending enriched $P$-partitions and the exterior peak set}
+
+I am going to define \textit{$\mathcal{Z}$-enriched }$P$\textit{-partitions}, which are a
+straightforward generalization of the notions of \textquotedblleft%
+$P$-partitions\textquotedblright, \textquotedblleft enriched $P$%
+-partitions\textquotedblright\ and \textquotedblleft left enriched
+$P$-partitions\textquotedblright. I will then consider a new particular case
+of this notion, which leads to a proof of the shuffle-compatibility of
+$\operatorname*{Epk}$ conjectured in the preprint.
+
+\subsection{$\mathcal{Z}$-enriched $\left(  P,\gamma\right)  $-partitions}
+
+Recall that a \textit{labeled poset} means a pair $\left(  P,\gamma\right)  $
+consisting of a finite poset $P=\left(  X,\leq\right)  $ and an injective map
+$\gamma:X\rightarrow A$ for some set $A$. The injective map $\gamma$ is called
+the \textit{labeling} of the labeled poset $\left(  P,\gamma\right)  $.
+
+\begin{convention}
+Let $\mathcal{N}$ be a totally ordered set, whose (strict) order relation will
+be denoted by $\prec$. Let $+$ and $-$ be two distinct symbols. Let
+$\mathcal{Z}$ be a subset of the set $\mathcal{N}\times\left\{  +,-\right\}
+$. For each $q=\left(  n,s\right)  \in\mathcal{Z}$, we denote the element
+$n\in\mathcal{N}$ by $\left\vert q\right\vert $, and we call the element
+$s\in\left\{  +,-\right\}  $ the \textit{sign} of $q$. If $n\in\mathcal{N}$,
+then we will denote the two elements $\left(  n,+\right)  $ and $\left(
+n,-\right)  $ of $\mathcal{N}\times\left\{  +,-\right\}  $ by $+n$ and $-n$, respectively.
+
+Let us totally order the set $\mathcal{Z}$ in such a way that the (strict)
+order relation $\prec$ satisfies%
+\[
+\left(  n,s\right)  \prec\left(  n^{\prime},s^{\prime}\right)  \text{ if and
+only if either }n\prec n^{\prime}\text{ or }\left(  n=n^{\prime}\text{ and
+}s=-\text{ and }s^{\prime}=+\right)  .
+\]
+Let $\operatorname*{Pow}\mathcal{N}$ be the set of all power series over
+$\mathbb{Q}$ in the indeterminates $x_{n}$ for $n\in\mathcal{N}$.
+\end{convention}
+
+\begin{definition}
+\label{def.ambivPp}Now, let $\left(  P,\gamma\right)  $ be a labeled poset. An
+\textit{$\mathcal{Z}$-enriched }$\left(  P,\gamma\right)  $\textit{-partition} means a map
+$f:P\rightarrow\mathcal{Z}$ such that for all $x<y$ in $P$, the following
+conditions hold:
+
+\begin{enumerate}
+\item[\textbf{(i)}] We have $f\left(  x\right)  \preccurlyeq f\left(
+y\right)  $.
+
+\item[\textbf{(ii)}] If $f\left(  x\right)  =f\left(  y\right)  =+n$ for some
+$n\in\mathcal{N}$, then $\gamma\left(  x\right)  <\gamma\left(  y\right)  $.
+
+\item[\textbf{(iii)}] If $f\left(  x\right)  =f\left(  y\right)  =-n$ for some
+$n\in\mathcal{N}$, then $\gamma\left(  x\right)  >\gamma\left(  y\right)  $.
+\end{enumerate}
+
+(Of course, this concept depends on $\mathcal{N}$ and $\mathcal{Z}$, but these
+will always be clear from the context.)
+\end{definition}
+
+\begin{example}
+\textbf{(a)} If $\mathcal{Z}=\mathcal{N}\times\left\{  +\right\}  =\left\{
++n\ \mid\ n\in\mathcal{N}\right\}  $, then the $\mathcal{Z}$-enriched $\left(
+P,\gamma\right)  $-partitions are simply the $\left(  P,\gamma\right)
+$-partitions into $\mathcal{N}$, composed with the canonical bijection
+$\mathcal{N}\rightarrow\mathcal{Z},\ n\mapsto\left(  +n\right)  $.
+
+\textbf{(b)} If $\mathcal{N}=\mathbb{P}$ (the totally ordered set of positive
+integers) and $\mathcal{Z}=\mathcal{N}\times\left\{  +,-\right\}  $, then the
+$\mathcal{Z}$-enriched $\left(  P,\gamma\right)  $-partitions are the enriched $\left(
+P,\gamma\right)  $-partitions.
+
+\textbf{(c)} If $\mathcal{N}=\mathbb{N}$ (the totally ordered set of
+nonnegative integers) and $\mathcal{Z}=\left(  \mathcal{N}\times\left\{
++,-\right\}  \right)  \setminus\left\{  -0\right\}  $, then the $\mathcal{Z}$-enriched
+$\left(  P,\gamma\right)  $-partitions are the left enriched $\left(
+P,\gamma\right)  $-partitions. Note that $+0$ and $-0$ here stand for the
+pairs $\left(  0,+\right)  $ and $\left(  0,-\right)  $; thus, they are not
+the same thing.
+\end{example}
+
+\begin{definition}
+If $\left(  P,\gamma\right)  $ is a labeled poset, then $\mathcal{E}\left(
+P,\gamma\right)  $ shall denote the set of all $\mathcal{Z}$-enriched $\left(
+P,\gamma\right)  $-partitions.
+\end{definition}
+
+\begin{definition}
+If $P$ is any poset, then $\mathcal{L}\left(  P\right)  $ shall denote the set
+of all linear extensions of $P$. A linear extension of $P$ shall be understood
+simultaneously as a totally ordered set extending $P$ and as a list $\left(
+w_{1},w_{2},\ldots,w_{n}\right)  $ of all elements of $P$ such that no $i<j$
+satisfy $w_{i}\geq w_{j}$ in $P$.
+\end{definition}
+
+Let us prove some basic facts about $\mathcal{Z}$-enriched $\left(  P,\gamma\right)
+$-partitions, straightforwardly generalizing classical results proven by
+Stanley and Gessel (for the case of \textquotedblleft plain\textquotedblright%
+\ $\left(  P,\gamma\right)  $-partitions), Stembridge (for enriched $\left(
+P,\gamma\right)  $-partitions) and Petersen (for left enriched $\left(
+P,\gamma\right)  $-partitions):
+
+\begin{proposition}
+\label{prop.fund-lem}For any labeled poset $\left(  P,\gamma\right)  $, we
+have%
+\[
+\mathcal{E}\left(  P,\gamma\right)  =\bigsqcup_{w\in\mathcal{L}\left(
+P\right)  }\mathcal{E}\left(  w,\gamma\right)  .
+\]
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.fund-lem}.]Imitate, e.g., the proof of
+\cite[Lemma 2.1]{23}.
+\end{proof}
+
+\begin{definition}
+Let $\left(  P,\gamma\right)  $ be a labeled poset. We define a power series
+$\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  \in\operatorname*{Pow}%
+\mathcal{N}$ by%
+\[
+\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  =\sum_{f\in\mathcal{E}\left(
+P,\gamma\right)  }\prod_{p\in P}x_{\left\vert f\left(  p\right)  \right\vert
+}.
+\]
+This is easily seen to be convergent in the usual topology on
+$\operatorname*{Pow}\mathcal{N}$.
+\end{definition}
+
+\begin{corollary}
+\label{cor.fund-lem}For any labeled poset $\left(  P,\gamma\right)  $, we have%
+\[
+\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  =\sum_{w\in\mathcal{L}\left(
+P\right)  }\Gamma_{\mathcal{Z}}\left(  w,\gamma\right)  .
+\]
+
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.fund-lem}.]Follows straight from Proposition
+\ref{prop.fund-lem}.
+\end{proof}
+
+\begin{proposition}
+\label{prop.prod1}Let $\left(  P,\gamma\right)  $ and $\left(  Q,\delta
+\right)  $ be two labeled posets. Let $\left(  P\sqcup Q,\varepsilon\right)  $
+be the labeled poset whose ground poset $P\sqcup Q$ is the disjoint union of
+$P$ and $Q$, and whose labeling $\varepsilon$ is such that the restriction of
+$\varepsilon$ to $P$ is order-equivalent to $\gamma$ and such that the
+restriction of $\varepsilon$ to $Q$ is order-equivalent to $\delta$. Then,%
+\[
+\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  \Gamma_{\mathcal{Z}}\left(
+Q,\delta\right)  =\Gamma_{\mathcal{Z}}\left(  P\sqcup Q,\varepsilon\right)  .
+\]
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.prod1}.]Fairly obvious. (There is a bijection
+$\mathcal{E}\left(  P,\gamma\right)  \times\mathcal{E}\left(  Q,\delta\right)
+\rightarrow\mathcal{E}\left(  P\sqcup Q,\varepsilon\right)  $.)
+\end{proof}
+
+\begin{definition}
+Let $n\in\mathbb{N}$. We shall use the notation $\left[  n\right]  $ for the
+totally ordered set $\left\{  1,2,\ldots,n\right\}  $ (with the usual order
+relation inherited from $\mathbb{Z}$).
+
+Recall that an $n$\textit{-permutation} (in the sense of \cite{part1}) means a
+word with $n$ letters, which are distinct and belong to $\left\{
+1,2,3,\ldots\right\}  $. Equivalently, an $n$-permutation shall be regarded as
+an injective map $\left[  n\right]  \rightarrow\left\{  1,2,3,\ldots\right\}
+$ (the image of $i$ under this map being the $i$-th letter of the word).
+\end{definition}
+
+\begin{definition}
+Let $n\in\mathbb{N}$. Let $\pi$ be any $n$-permutation. Then, $\left(  \left[
+n\right]  ,\pi\right)  $ is a labeled poset (in fact, $\pi$ is an injective
+map $\left[  n\right]  \rightarrow\left\{  1,2,3,\ldots\right\}  $, and thus
+can be considered a labeling). We define $\Gamma_{\mathcal{Z}}\left(
+\pi\right)  $ to be the power series $\Gamma_{\mathcal{Z}}\left(  \left[
+n\right]  ,\pi\right)  $.
+\end{definition}
+
+We shall now prove two simple facts of auxiliary use:
+
+\begin{proposition}
+\label{prop.Gamma=Gamma}Let $w$ be a finite totally ordered set with ground
+set $W$. Let $n=\left\vert W\right\vert $. Let $\overline{w}$ be the unique
+poset isomorphism $w\rightarrow\left[  n\right]  $. Let $\gamma:W\rightarrow
+\left\{  1,2,3,\ldots\right\}  $ be any injective map. Then, $\Gamma
+_{\mathcal{Z}}\left(  w,\gamma\right)  =\Gamma_{\mathcal{Z}}\left(
+\gamma\circ\overline{w}^{-1}\right)  $.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Gamma=Gamma}.]The map%
+\begin{align*}
+\mathcal{E}\left(  w,\gamma\right)   &  \rightarrow\mathcal{E}\left(  \left[
+n\right]  ,\gamma\circ\overline{w}^{-1}\right)  ,\\
+f &  \mapsto f\circ\overline{w}^{-1}%
+\end{align*}
+is a bijection.
+\end{proof}
+
+\begin{corollary}
+\label{cor.fund-lem2}Let $\left(  P,\gamma\right)  $ be a labeled poset. Let
+$n=\left\vert P\right\vert $. Then,%
+\[
+\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  =\sum_{\substack{x:P\rightarrow
+\left[  n\right]  \\\text{bijective poset}\\\text{homomorphism}}%
+}\Gamma_{\mathcal{Z}}\left(  \gamma\circ x^{-1}\right)  .
+\]
+
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.fund-lem2}.]For each totally ordered set $w$ with
+ground set $P$, we let $\overline{w}$ be the unique poset isomorphism
+$w\rightarrow\left[  n\right]  $.
+
+Corollary \ref{cor.fund-lem} yields%
+\begin{equation}
+\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  =\sum_{w\in\mathcal{L}\left(
+P\right)  }\underbrace{\Gamma_{\mathcal{Z}}\left(  w,\gamma\right)
+}_{\substack{=\Gamma_{\mathcal{Z}}\left(  \gamma\circ\overline{w}^{-1}\right)
+\\\text{(by Proposition \ref{prop.Gamma=Gamma})}}}=\sum_{w\in\mathcal{L}%
+\left(  P\right)  }\Gamma_{\mathcal{Z}}\left(  \gamma\circ\overline{w}%
+^{-1}\right)  .\label{pf.cor.fund-lem2.1}%
+\end{equation}
+But the linear extensions of $P$ are in bijection with the bijective poset
+homomorphisms $x:P\rightarrow\left[  n\right]  $; the bijection sends a linear
+extension $w$ of $P$ to the bijective poset homomorphism $\overline
+{w}:P\rightarrow\left[  n\right]  $. Thus, we can substitute $x$ for $w$ in
+the sum $\sum_{w\in\mathcal{L}\left(  P\right)  }\Gamma_{\mathcal{Z}}\left(
+\gamma\circ\overline{w}^{-1}\right)  $, obtaining%
+\[
+\sum_{w\in\mathcal{L}\left(  P\right)  }\Gamma_{\mathcal{Z}}\left(
+\gamma\circ\overline{w}^{-1}\right)  =\sum_{\substack{x:P\rightarrow\left[
+n\right]  \\\text{bijective poset}\\\text{homomorphism}}}\Gamma_{\mathcal{Z}%
+}\left(  \gamma\circ x^{-1}\right)  .
+\]
+Combining this with (\ref{pf.cor.fund-lem2.1}), we end up with the claim of
+Corollary \ref{cor.fund-lem2}.
+\end{proof}
+
+\begin{corollary}
+\label{cor.prod2}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $\pi$ be an
+$n$-permutation and let $\sigma$ be an $m$-permutation such that $\pi$ and
+$\sigma$ are disjoint. Then,%
+\[
+\Gamma_{\mathcal{Z}}\left(  \pi\right)  \Gamma_{\mathcal{Z}}\left(
+\sigma\right)  =\sum_{\tau\in S\left(  \pi,\sigma\right)  }\Gamma
+_{\mathcal{Z}}\left(  \tau\right)  .
+\]
+
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.prod2}.]Let $\varepsilon$ be the map $\left[
+n\right]  \sqcup\left[  m\right]  \rightarrow\left\{  1,2,3,\ldots\right\}  $
+which restricts to $\pi$ on the $\left[  n\right]  $ part and restricts to
+$\sigma$ on the $\left[  m\right]  $ part. This map $\varepsilon$ is an
+$\left(  n+m\right)  $-permutation, since $\pi$ and $\sigma$ are disjoint.
+
+Let $\rho:\left[  n\right]  \sqcup\left[  m\right]  \rightarrow\left[
+n+m\right]  $ be the strictly order-preserving bijection which sends the
+elements of $\left[  n\right]  $ to $1,2,\ldots,n$ and sends the elements of
+$\left[  m\right]  $ to $n+1,n+2,\ldots,n+m$.
+
+The definitions of $\Gamma_{\mathcal{Z}}\left(  \pi\right)  $ and
+$\Gamma_{\mathcal{Z}}\left(  \sigma\right)  $ yield%
+\begin{align*}
+\Gamma_{\mathcal{Z}}\left(  \pi\right)  \Gamma_{\mathcal{Z}}\left(
+\sigma\right)   &  =\Gamma_{\mathcal{Z}}\left(  \left[  n\right]  ,\pi\right)
+\Gamma_{\mathcal{Z}}\left(  \left[  m\right]  ,\sigma\right)  \\
+&  =\Gamma_{\mathcal{Z}}\left(  \left[  n\right]  \sqcup\left[  m\right]
+,\varepsilon\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.prod1}}\right)  \\
+&  =\sum_{\substack{x:\left[  n\right]  \sqcup\left[  m\right]  \rightarrow
+\left[  n+m\right]  \\\text{bijective poset}\\\text{homomorphism}}%
+}\Gamma_{\mathcal{Z}}\left(  \varepsilon\circ x^{-1}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary \ref{cor.fund-lem2}}\right)  \\
+&  =\sum_{\tau\in S\left(  \sigma,\pi\right)  }\Gamma_{\mathcal{Z}}\left(
+\tau\right)  .
+\end{align*}
+Here, the last equality sign makes use of the (easy) fact that the map%
+\begin{align*}
+\left\{  \text{bijective poset homomorphisms }x:\left[  n\right]
+\sqcup\left[  m\right]  \rightarrow\left[  n+m\right]  \right\}   &
+\rightarrow S\left(  \sigma,\pi\right)  ,\\
+x &  \mapsto\varepsilon\circ x^{-1}%
+\end{align*}
+is a well-defined bijection.
+\end{proof}
+
+\subsection{Exterior peaks}
+
+So far we have been doing general nonsense. Let us now specialize to a
+situation that is connected to exterior peaks.
+
+\begin{convention}
+From now on, we set $\mathcal{N}=\left\{  0,1,2,\ldots\right\}  \cup\left\{
+\infty\right\}  $, with total order given by $0\prec1\prec2\prec\cdots
+\prec\infty$, and we set
+\begin{align*}
+\mathcal{Z}  &  =\left(  \mathcal{N}\times\left\{  +,-\right\}  \right)
+\setminus\left\{  -0,+\infty\right\} \\
+&  =\left\{  +0\right\}  \cup\left\{  +n\ \mid\ n\in\left\{  1,2,3,\ldots
+\right\}  \right\}  \cup\left\{  -n\ \mid\ n\in\left\{  1,2,3,\ldots\right\}
+\right\}  \cup\left\{  -\infty\right\}  .
+\end{align*}
+Recall that the total order on $\mathcal{Z}$ has%
+\[
++0\prec-1\prec+1\prec-2\prec+2\prec\cdots\prec-\infty.
+\]
+
+\end{convention}
+
+\begin{definition}
+A map $\chi$ from a subset $S$ of $\mathbb{Z}$ to a totally ordered set $K$ is
+said to be \textit{V-shaped} if there exists some $t\in S$ such that the map
+$\chi\mid_{\left\{  s\in S\ \mid\ s\leq t\right\}  }$ is strictly decreasing
+while the map $\chi\mid_{\left\{  s\in S\ \mid\ s\geq t\right\}  }$ is
+strictly increasing. Notice that this $t\in S$ is uniquely determined in this
+case; namely, it is the unique $k\in S$ that minimizes $\chi\left(  k\right)
+$.
+\end{definition}
+
+Thus, roughly speaking, a map from a totally ordered set is \textit{V-shaped}
+if and only if it is strictly decreasing up until a certain value of its
+argument, and then strictly increasing afterwards.
+
+\begin{definition}
+Let $n\in\mathbb{N}$.
+
+\begin{enumerate}
+\item[\textbf{(a)}] Let $f:\left[  n\right]  \rightarrow\mathcal{Z}$ be any
+map. Then, $\left\vert f\right\vert $ shall denote the map $\left[  n\right]
+\rightarrow\mathcal{N},\ i\mapsto\left\vert f\left(  i\right)  \right\vert $.
+
+\item[\textbf{(b)}] Let $g:\left[  n\right]  \rightarrow\mathcal{N}$ be any
+map. Then, we define a monomial $\mathbf{x}_{g}$ in $\operatorname*{Pow}%
+\mathcal{N}$ by $\mathbf{x}_{g}=\prod_{i=1}^{n}x_{g\left(  i\right)  }$. Note
+that this allows us to rewrite the definition of $\Gamma_{\mathcal{Z}}\left(
+\pi\right)  $ as follows: If $\pi$ is any $n$-permutation, then%
+\begin{equation}
+\Gamma_{\mathcal{Z}}\left(  \pi\right)  =\sum_{f\in\mathcal{E}\left(  \left[
+n\right]  ,\pi\right)  }\prod_{p\in\left[  n\right]  }x_{\left\vert f\left(
+p\right)  \right\vert }=\sum_{f\in\mathcal{E}\left(  \left[  n\right]
+,\pi\right)  }\mathbf{x}_{\left\vert f\right\vert }. \label{eq.Gamma.rewr}%
+\end{equation}
+
+
+\item[\textbf{(c)}] Let $g:\left[  n\right]  \rightarrow\mathcal{N}$ be any
+map. Let $\pi$ be an $n$-permutation. We shall say that $g$ is $\pi
+$\textit{-amenable} if it has the following properties:
+
+\begin{enumerate}
+\item[\textbf{(i')}] The map $\pi\mid_{g^{-1}\left(  0\right)  }$ is strictly
+increasing. (This allows the case when $g^{-1}\left(  0\right)  =\varnothing$.)
+
+\item[\textbf{(ii')}] For each $h\in g\left(  \left[  n\right]  \right)
+\cap\left\{  1,2,3,\ldots\right\}  $, the map $\pi\mid_{g^{-1}\left(
+h\right)  }$ is V-shaped.
+
+\item[\textbf{(iii')}] The map $\pi\mid_{g^{-1}\left(  \infty\right)  }$ is
+strictly decreasing. (This allows the case when $g^{-1}\left(  \infty\right)
+=\varnothing$.)
+
+\item[\textbf{(iv')}] The map $g$ is weakly increasing.
+\end{enumerate}
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+\label{prop.Epk-formula}Let $n\in\mathbb{N}$. Let $\pi$ be any $n$%
+-permutation. Then,%
+\[
+\Gamma_{\mathcal{Z}}\left(  \pi\right)  =\sum_{\substack{g:\left[  n\right]
+\rightarrow\mathcal{N}\\\text{is }\pi\text{-amenable}}}2^{\left\vert g\left(
+\left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert
+}\mathbf{x}_{g}.
+\]
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Epk-formula}.]The claim will immediately
+follow from (\ref{eq.Gamma.rewr}) once we have shown the following two observations:
+
+\begin{statement}
+\textit{Observation 1:} If $f\in\mathcal{E}\left(  \left[  n\right]
+,\pi\right)  $, then the map $\left\vert f\right\vert :\left[  n\right]
+\rightarrow\mathcal{N}$ is $\pi$-amenable.
+\end{statement}
+
+\begin{statement}
+\textit{Observation 2:} If $g:\left[  n\right]  \rightarrow\mathcal{N}$ is a
+$\pi$-amenable map, then there exist precisely $2^{\left\vert g\left(  \left[
+n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }$ maps
+$f\in\mathcal{E}\left(  \left[  n\right]  ,\pi\right)  $ satisfying
+$\left\vert f\right\vert =g$.
+\end{statement}
+
+But both of these observations are easy:
+
+[\textit{Proof of Observation 1:} This is a simple consequence of the
+definition of an $\mathcal{Z}$-enriched $\left(  \left[  n\right]  ,\pi\right)
+$-partition. Let me spell it out: Let $f\in\mathcal{E}\left(  \left[
+n\right]  ,\pi\right)  $. Thus, $f$ is an $\mathcal{Z}$-enriched $\left(  \left[
+n\right]  ,\pi\right)  $-partition. In other words, $f$ is a map $\left[
+n\right]  \rightarrow\mathcal{Z}$ such that for all $x<y$ in $\left[
+n\right]  $, the following conditions hold:
+
+\begin{enumerate}
+\item[\textbf{(i)}] We have $f\left(  x\right)  \preccurlyeq f\left(
+y\right)  $.
+
+\item[\textbf{(ii)}] If $f\left(  x\right)  =f\left(  y\right)  =+h$ for some
+$h\in\mathcal{N}$, then $\pi\left(  x\right)  <\pi\left(  y\right)  $.
+
+\item[\textbf{(iii)}] If $f\left(  x\right)  =f\left(  y\right)  =-h$ for some
+$h\in\mathcal{N}$, then $\pi\left(  x\right)  >\pi\left(  y\right)  $.
+\end{enumerate}
+
+Condition \textbf{(i)} shows that the map $f$ is weakly increasing. Condition
+\textbf{(ii)} shows that for each $h\in\mathcal{N}$, the map $\pi\mid
+_{f^{-1}\left(  +h\right)  }$ is strictly increasing. Condition \textbf{(iii)}
+shows that for each $h\in\mathcal{N}$, the map $\pi\mid_{f^{-1}\left(
+-h\right)  }$ is strictly decreasing.
+
+Now, set $g=\left\vert f\right\vert $. Then, $g^{-1}\left(  0\right)
+=f^{-1}\left(  +0\right)  $ (since $-0\notin\mathcal{Z}$). But the map
+$\pi\mid_{f^{-1}\left(  +0\right)  }$ is strictly increasing\footnote{because
+for each $h\in\mathcal{N}$, the map $\pi\mid_{f^{-1}\left(  +h\right)  }$ is
+strictly increasing}. Thus, the map $\pi\mid_{g^{-1}\left(  0\right)  }$ is
+strictly increasing (since $g^{-1}\left(  0\right)  =f^{-1}\left(  +0\right)
+$). Hence, Condition \textbf{(i')} in the definition of \textquotedblleft$\pi
+$-amenable\textquotedblright\ holds. Similarly, Condition \textbf{(iii')} in
+that definition also holds.
+
+Now, fix $h\in g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  $. Then, the set $g^{-1}\left(  h\right)  $ is nonempty (since $h\in
+g\left(  \left[  n\right]  \right)  $), and can be written as the union of its
+two disjoint subsets $f^{-1}\left(  +h\right)  $ and $f^{-1}\left(  -h\right)
+$. Furthermore, each element of $f^{-1}\left(  -h\right)  $ is smaller than
+each element of $f^{-1}\left(  +h\right)  $ (since $f$ is weakly increasing),
+and we know that the map $\pi\mid_{f^{-1}\left(  -h\right)  }$ is strictly
+decreasing while the map $\pi\mid_{f^{-1}\left(  +h\right)  }$ is strictly
+increasing. Hence, the map $\pi\mid_{g^{-1}\left(  h\right)  }$ is strictly
+decreasing up until some value of its argument, and then strictly increasing
+afterwards. In other words, the map $\pi\mid_{g^{-1}\left(  h\right)  }$ is
+V-shaped. Thus, Condition \textbf{(ii')} in the definition of
+\textquotedblleft$\pi$-amenable\textquotedblright\ holds. Finally, Condition
+\textbf{(iv')} in the definition of \textquotedblleft$\pi$%
+-amenable\textquotedblright\ holds because $f$ is weakly increasing. We have
+hence checked all four conditions; thus, $g$ is $\pi$-amenable. This proves
+Observation 1.]
+
+[\textit{Proof of Observation 2:} Let $g:\left[  n\right]  \rightarrow
+\mathcal{N}$ be a $\pi$-amenable map. Consider a map $f\in\mathcal{E}\left(
+\left[  n\right]  ,\pi\right)  $ satisfying $\left\vert f\right\vert =g$. We
+are wondering to what extent the map $f$ is determined by $g$ and $\pi$.
+
+Everything that we said in the proof of Observation 1 is true.
+
+In order to determine the map $f$, it clearly suffices to determine the sets
+$f^{-1}\left(  q\right)  $ for all $q\in\mathcal{Z}$. In other words, it
+suffices to determine the set $f^{-1}\left(  +0\right)  $, the set
+$f^{-1}\left(  -\infty\right)  $ and the sets $f^{-1}\left(  +h\right)  $ and
+$f^{-1}\left(  -h\right)  $ for all $h\in\left\{  1,2,3,\ldots\right\}  $.
+
+Recall from the proof of Observation 1 that $g^{-1}\left(  0\right)
+=f^{-1}\left(  +0\right)  $. Thus, $f^{-1}\left(  +0\right)  $ is uniquely
+determined by $g$. Similarly, $f^{-1}\left(  -\infty\right)  $ is uniquely
+determined by $g$. Thus, we can focus on the remaining sets $f^{-1}\left(
++h\right)  $ and $f^{-1}\left(  -h\right)  $ for $h\in\left\{  1,2,3,\ldots
+\right\}  $.
+
+Fix $h\in\left\{  1,2,3,\ldots\right\}  $. Recall that the set $g^{-1}\left(
+h\right)  $ is the union of its two disjoint subsets $f^{-1}\left(  +h\right)
+$ and $f^{-1}\left(  -h\right)  $. Thus, $f^{-1}\left(  +h\right)  $ and
+$f^{-1}\left(  -h\right)  $ are complementary subsets of $g^{-1}\left(
+h\right)  $. If $g^{-1}\left(  h\right)  =\varnothing$, then this uniquely
+determines $f^{-1}\left(  +h\right)  $ and $f^{-1}\left(  -h\right)  $. Thus,
+we focus only on the case when $g^{-1}\left(  h\right)  \neq\varnothing$.
+
+So assume that $g^{-1}\left(  h\right)  \neq\varnothing$. Hence, $h\in
+g\left(  \left[  n\right]  \right)  $, so that $h\in g\left(  \left[
+n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  $. Since the map $g$ is
+$\pi$-amenable, we thus conclude that the map $\pi\mid_{g^{-1}\left(
+h\right)  }$ is V-shaped (by Condition \textbf{(ii')} in the definition of
+\textquotedblleft$\pi$-amenable\textquotedblright).
+
+The map $g$ is weakly increasing (by Condition \textbf{(iv')} in the
+definition of \textquotedblleft$\pi$-amenable\textquotedblright). Hence,
+$g^{-1}\left(  h\right)  $ is an interval of $\left[  n\right]  $. Let
+$\alpha\in\mathbb{Z}$ and $\gamma\in\mathbb{Z}$ be such that $g^{-1}\left(
+h\right)  =\left[  \alpha,\gamma\right]  $ (where $\left[  \alpha
+,\gamma\right]  $ means the interval $\left\{  \alpha,\alpha+1,\ldots
+,\gamma\right\}  $).
+
+As in the proof of Observation 1, we can see that each element of
+$f^{-1}\left(  -h\right)  $ is smaller than each element of $f^{-1}\left(
++h\right)  $. Since the union of $f^{-1}\left(  -h\right)  $ and
+$f^{-1}\left(  +h\right)  $ is $g^{-1}\left(  h\right)  =\left[  \alpha
+,\gamma\right]  $, we thus conclude that there exists some $\beta\in\left[
+\alpha-1,\gamma\right]  $ such that $f^{-1}\left(  -h\right)  =\left[
+\alpha,\beta\right]  $ and $f^{-1}\left(  +h\right)  =\left[  \beta
++1,\gamma\right]  $. Consider this $\beta$. Clearly, $f^{-1}\left(  -h\right)
+$ and $f^{-1}\left(  +h\right)  $ are uniquely determined by $\beta$; we just
+need to find out which values $\beta$ can take.
+
+As in the proof of Observation 1, we can see that the map $\pi\mid
+_{f^{-1}\left(  -h\right)  }$ is strictly decreasing while the map $\pi
+\mid_{f^{-1}\left(  +h\right)  }$ is strictly increasing. Let $k$ be the
+element of $g^{-1}\left(  h\right)  $ minimizing $\pi\left(  k\right)  $.
+Then, the map $\pi$ is strictly decreasing on the set $\left\{  u\in
+g^{-1}\left(  h\right)  \ \mid\ u\leq k\right\}  $ and strictly increasing on
+the set $\left\{  u\in g^{-1}\left(  h\right)  \ \mid\ u\geq k\right\}  $
+(since the map $\pi\mid_{g^{-1}\left(  h\right)  }$ is V-shaped).
+
+The map $\pi\mid_{f^{-1}\left(  -h\right)  }$ is strictly decreasing. In other
+words, the map $\pi$ is strictly decreasing on the set $f^{-1}\left(
+-h\right)  =\left[  \alpha,\beta\right]  $. On the other hand, the map $\pi$
+is strictly increasing on the set $\left\{  u\in g^{-1}\left(  h\right)
+\ \mid\ u\geq k\right\}  $. Hence, the two sets $\left[  \alpha,\beta\right]
+$ and $\left\{  u\in g^{-1}\left(  h\right)  \ \mid\ u\geq k\right\}  $ cannot
+have more than one point in common (since $\pi$ is strictly decreasing on one
+and strictly increasing on the other). Thus, $k\geq\beta$. A similar argument
+shows that $k\leq\beta+1$. Combining these inequalities, we obtain
+$k\in\left\{  \beta,\beta+1\right\}  $, so that $\beta\in\left\{
+k,k-1\right\}  $. This shows that $\beta$ can take only two values: $k$ and
+$k-1$.
+
+Now, let us take a bird's eye view. We have shown that for each $h\in g\left(
+\left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  $, the sets
+$f^{-1}\left(  +h\right)  $ and $f^{-1}\left(  -h\right)  $ are uniquely
+determined once the integer $\beta$ is chosen, and that this integer $\beta$
+can be chosen in two ways. (As we have seen, all other values of $h$ do not
+matter.) Thus, in total, the map $f$ is uniquely determined up to $\left\vert
+g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}
+\right\vert $ decisions, where each decision allows choosing from two values.
+Thus, there are at most $2^{\left\vert g\left(  \left[  n\right]  \right)
+\cap\left\{  1,2,3,\ldots\right\}  \right\vert }$ maps $f\in\mathcal{E}\left(
+\left[  n\right]  ,\pi\right)  $ satisfying $\left\vert f\right\vert =g$.
+Working the above argument backwards, we see that each possible decision
+actually leads to a map $f\in\mathcal{E}\left(  \left[  n\right]  ,\pi\right)
+$ satisfying $\left\vert f\right\vert =g$; thus, there are \textbf{exactly}
+$2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  \right\vert }$ maps $f\in\mathcal{E}\left(  \left[  n\right]
+,\pi\right)  $ satisfying $\left\vert f\right\vert =g$. This proves
+Observation 2.]
+\end{proof}
+
+\begin{definition}
+\label{def.fiberends}Let $n\in\mathbb{N}$. Let $g:\left[  n\right]
+\rightarrow\mathcal{N}$ be any map. We define a subset $\operatorname*{FE}%
+\left(  g\right)  $ of $\left[  n\right]  $ as follows:%
+\begin{align*}
+\operatorname*{FE}\left(  g\right)   &  =\left\{  \min\left(  g^{-1}\left(
+h\right)  \right)  \ \mid\ h\in\left\{  1,2,3,\ldots,\infty\right\}  \right\}
+\\
+&  \ \ \ \ \ \ \ \ \ \ \cup\left\{  \max\left(  g^{-1}\left(  h\right)
+\right)  \ \mid\ h\in\left\{  0,1,2,3,\ldots\right\}  \right\}  .
+\end{align*}
+In other words, $\operatorname*{FE}\left(  g\right)  $ is the set comprising
+the smallest elements of all nonempty fibers of $g$ except for $g^{-1}\left(
+0\right)  $ as well as the largest elements of all nonempty fibers of $g$
+except for $g^{-1}\left(  \infty\right)  $. We shall refer to the elements of
+$\operatorname*{FE}\left(  g\right)  $ as the \textit{fiber-ends} of $g$.
+\end{definition}
+
+We can rewrite Proposition \ref{prop.Epk-formula} as follows, exhibiting its
+analogy with \cite[Proposition 2.2]{23}:
+
+\begin{proposition}
+\label{prop.Epk-formula2}Let $n\in\mathbb{N}$. Let $\pi$ be any $n$%
+-permutation. Then,%
+\[
+\Gamma_{\mathcal{Z}}\left(  \pi\right)  =\sum_{\substack{g:\left[  n\right]
+\rightarrow\mathcal{N}\text{ is}\\\text{weakly increasing;}%
+\\\operatorname*{Epk}\pi\subseteq\operatorname*{FE}\left(  g\right)
+}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}.
+\]
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Epk-formula2}.]This follow from Proposition
+\ref{prop.Epk-formula} once we know that the $\pi$-amenable maps $g:\left[
+n\right]  \rightarrow\mathcal{N}$ are precisely the weakly increasing maps
+$g:\left[  n\right]  \rightarrow\mathcal{N}$ satisfying $\operatorname*{Epk}%
+\pi\subseteq\operatorname*{FE}\left(  g\right)  $. But this is easy to check.
+(The main idea: If $g:\left[  n\right]  \rightarrow\mathcal{N}$ is a weakly
+increasing map, then all nonempty fibers $g^{-1}\left(  h\right)  $ of $g$ are
+intervals, and Conditions \textbf{(i')}, \textbf{(ii')} and \textbf{(iii')} in
+the definition of \textquotedblleft$\pi$-amenable\textquotedblright\ say
+precisely that no peak of $\pi$ can appear in the interior of any such fiber;
+i.e., all peaks must appear at fiber-ends. Of course, this needs some
+exceptions for $g^{-1}\left(  0\right)  $ and $g^{-1}\left(  \infty\right)  $,
+but this is all straightforward.)
+\end{proof}
+
+\begin{definition}
+\label{def.KnL}Let $n\in\mathbb{N}$. If $\Lambda$ is any subset of $\left[
+n\right]  $, then we define a power series $K_{n,\Lambda}^{\mathcal{Z}}%
+\in\operatorname*{Pow}\mathcal{N}$ by%
+\begin{equation}
+K_{n,\Lambda}^{\mathcal{Z}}=\sum_{\substack{g:\left[  n\right]  \rightarrow
+\mathcal{N}\text{ is}\\\text{weakly increasing;}\\\Lambda\subseteq
+\operatorname*{FE}\left(  g\right)  }}2^{\left\vert g\left(  \left[  n\right]
+\right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}.
+\label{eq.def.KnL.1}%
+\end{equation}
+Thus, if $\Lambda=\operatorname*{Epk}\pi$ for some $n$-permutation $\pi$, then
+Proposition \ref{prop.Epk-formula2} shows that%
+\begin{equation}
+\Gamma_{\mathcal{Z}}\left(  \pi\right)  =K_{n,\Lambda}^{\mathcal{Z}}.
+\label{eq.def.KnL.2}%
+\end{equation}
+
+\end{definition}
+
+\begin{definition}
+A set $S$ of integers is said to be \textit{lacunar} if each $s\in S$
+satisfies $s+1\notin S$.
+\end{definition}
+
+The following observation is easy:
+
+\begin{proposition}
+\label{prop.when-Epk}Let $n\in\mathbb{N}$. Let $\Lambda$ be a subset of
+$\left[  n\right]  $. Then, there exists an $n$-permutation $\pi$ satisfying
+$\Lambda=\operatorname*{Epk}\pi$ if and only if $\Lambda$ is lacunar and nonempty.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.when-Epk}.]Left to the reader.
+\end{proof}
+
+\begin{proposition}
+\label{prop.KnL.lindep}Let $n\in\mathbb{N}$. Then, the family%
+\[
+\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda\subseteq\left[
+n\right]  \text{ is lacunar and nonempty}}%
+\]
+is $\mathbb{Q}$-linearly independent.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.KnL.lindep}.]Let $\Omega$ be the subset
+$\left\{  1,3,5,\ldots\right\}  \cap\left[  n\right]  =\left\{  i\in\left[
+n\right]  \ \mid\ i\text{ is odd}\right\}  $ of $\left[  n\right]  $. This is
+clearly a lacunar subset of $\left[  n\right]  $.
+
+We are going to prove the following claim:
+
+\begin{statement}
+\textit{Claim 1:} \textbf{(a)} If $n$ is odd, then the only syzygy\footnote{If
+$\left(  v_{h}\right)  _{h\in H}$ is a family of vectors in a vector space
+over a field $\mathbb{F}$, then a \textit{syzygy} of this family $\left(
+v_{h}\right)  _{h\in H}$ means a family $\left(  \lambda_{h}\right)  _{h\in
+H}\in\mathbb{F}^{H}$ of scalars in $\mathbb{F}$ satisfying $\sum_{h\in
+H}\lambda_{h}v_{h}=0$.
+\par
+Thus, a syzygy is what is commonly called a \textquotedblleft linear
+dependence relation\textquotedblright\ (at least when the scalars $\lambda
+_{h}$ are not all $0$). By abuse of notation, we shall speak of the
+\textquotedblleft syzygy $\sum_{h\in H}\lambda_{h}v_{h}=0$\textquotedblright%
+\ meaning not the equality $\sum_{h\in H}\lambda_{h}v_{h}=0$ but the family of
+coefficients $\left(  \lambda_{h}\right)  _{h\in H}$.
+\par
+When we say \textquotedblleft the only syzygy\textquotedblright, we mean
+\textquotedblleft the only nonzero syzygy up to scalar
+multiples\textquotedblright.} of the family $\left(  K_{n,\Lambda
+}^{\mathcal{Z}}\right)  _{\Lambda\subseteq\left[  n\right]  \text{ is
+lacunar}}$ is $\sum_{\Lambda\subseteq\Omega}\left(  -1\right)  ^{\left\vert
+\Lambda\right\vert }K_{n,\Lambda}^{\mathcal{Z}}=0$.
+
+\textbf{(b)} If $n$ is even, then the family $\left(  K_{n,\Lambda
+}^{\mathcal{Z}}\right)  _{\Lambda\subseteq\left[  n\right]  \text{ is
+lacunar}}$ is $\mathbb{Q}$-linearly independent.
+\end{statement}
+
+For each subset $\Lambda$ of $\left[  n\right]  $, define a power series
+$L_{n,\Lambda}^{\mathcal{Z}}\in\operatorname*{Pow}\mathcal{N}$ by%
+\[
+L_{n,\Lambda}^{\mathcal{Z}}=\sum_{\substack{g:\left[  n\right]  \rightarrow
+\mathcal{N}\text{ is}\\\text{weakly increasing;}\\\Lambda\cap
+\operatorname*{FE}\left(  g\right)  =\varnothing}}2^{\left\vert g\left(
+\left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert
+}\mathbf{x}_{g}.
+\]
+Then, for each lacunar subset $\Lambda$ of $\left[  n\right]  $, the equality
+(\ref{eq.def.KnL.1}) becomes%
+\[
+K_{n,\Lambda}^{\mathcal{Z}}=\sum_{\substack{g:\left[  n\right]  \rightarrow
+\mathcal{N}\text{ is}\\\text{weakly increasing;}\\\Lambda\subseteq
+\operatorname*{FE}\left(  g\right)  }}2^{\left\vert g\left(  \left[  n\right]
+\right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}%
+=\sum_{Q\subseteq\Lambda}\left(  -1\right)  ^{\left\vert Q\right\vert }%
+L_{n,Q}^{\mathcal{Z}}%
+\]
+(by the principle of inclusion and exclusion). Thus, (again by inclusion and
+exclusion) each lacunar subset $\Lambda$ of $\left[  n\right]  $ satisfies%
+\[
+L_{n,\Lambda}^{\mathcal{Z}}=\sum_{Q\subseteq\Lambda}\left(  -1\right)
+^{\left\vert Q\right\vert }K_{n,Q}^{\mathcal{Z}}.
+\]
+Hence, the two families $\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)
+_{\Lambda\subseteq\left[  n\right]  \text{ is lacunar}}$ and $\left(
+L_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda\subseteq\left[  n\right]  \text{
+is lacunar}}$ can be obtained from each other by a unitriangular transition
+matrix (unitriangular with respect to inclusion\footnote{We are using the fact
+that a subset of a lacunar subset is lacunar.}). Thus, the syzygies of these
+two families are in bijection with each other. Hence, in order to prove Claim
+1, it suffices to prove the following claim:
+
+\begin{statement}
+\textit{Claim 2:} \textbf{(a)} If $n$ is odd, then the only syzygy of the
+family $\left(  L_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda\subseteq\left[
+n\right]  \text{ is lacunar}}$ is $L_{n,\Omega}=0$.
+
+\textbf{(b)} If $n$ is even, then the family $\left(  L_{n,\Lambda
+}^{\mathcal{Z}}\right)  _{\Lambda\subseteq\left[  n\right]  \text{ is
+lacunar}}$ is $\mathbb{Q}$-linearly independent.
+\end{statement}
+
+Let $G$ be the set of all weakly increasing maps $g:\left[  n\right]
+\rightarrow\mathcal{N}$. Let $R$ be the free $\mathbb{Q}$-vector space with
+basis $G$; its standard basis will be denoted by $\left(  \left[  g\right]
+\right)  _{g\in G}$. We define a $\mathbb{Q}$-linear map%
+\begin{align*}
+\Phi:R  &  \rightarrow\operatorname*{Pow}\mathcal{N},\\
+\left[  g\right]   &  \mapsto2^{\left\vert g\left(  \left[  n\right]  \right)
+\cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}.
+\end{align*}
+This map $\Phi$ is easily seen to be injective (since the maps $g\in G$ are
+weakly increasing, and thus can be uniquely recovered from the monomials
+$\mathbf{x}_{g}$).
+
+For each subset $\Lambda$ of $\left[  n\right]  $, we define an element
+$\widetilde{L}_{\Lambda}$ of $R$ by%
+\[
+\widetilde{L}_{\Lambda}=\sum_{\substack{g\in G;\\\Lambda\cap\operatorname*{FE}%
+\left(  g\right)  =\varnothing}}\left[  g\right]  .
+\]
+Then, each subset $\Lambda$ of $\left[  n\right]  $ satisfies%
+\begin{align*}
+L_{n,\Lambda}^{\mathcal{Z}}  &  =\underbrace{\sum_{\substack{g:\left[
+n\right]  \rightarrow\mathcal{N}\text{ is}\\\text{weakly increasing;}%
+\\\Lambda\cap\operatorname*{FE}\left(  g\right)  =\varnothing}}}%
+_{\substack{=\sum_{\substack{g\in G;\\\Lambda\cap\operatorname*{FE}\left(
+g\right)  =\varnothing}}\\\text{(by the definition of }G\text{)}%
+}}\underbrace{2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}}_{\substack{=\Phi\left(
+\left[  g\right]  \right)  \\\text{(by the definition of }\Phi\text{)}}%
+}=\sum_{\substack{g\in G;\\\Lambda\cap\operatorname*{FE}\left(  g\right)
+=\varnothing}}\Phi\left(  \left[  g\right]  \right) \\
+&  =\Phi\left(  \underbrace{\sum_{\substack{g\in G;\\\Lambda\cap
+\operatorname*{FE}\left(  g\right)  =\varnothing}}\left[  g\right]
+}_{=\widetilde{L}_{\Lambda}}\right)  =\Phi\left(  \widetilde{L}_{\Lambda
+}\right)  .
+\end{align*}
+Hence, the family $\left(  L_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda
+\subseteq\left[  n\right]  \text{ is lacunar}}$ is the image of the family
+$\left(  \widetilde{L}_{\Lambda}\right)  _{\Lambda\subseteq\left[  n\right]
+\text{ is lacunar}}$ under the map $\Phi$. Thus, the syzygies of the two
+families are in bijection (since the map $\Phi$ is injective\footnote{We are
+here using the following obvious fact:
+\par
+Let $V$ and $W$ be two vector spaces over a field $\mathbb{F}$. Let $\left(
+v_{h}\right)  _{h\in H}\in V^{H}$ be a family of vectors in $V$. Let
+$\phi:V\rightarrow W$ be an injective $\mathbb{F}$-linear map. Then, the
+syzygies of the families $\left(  v_{h}\right)  _{h\in H}\in V^{H}$ and
+$\left(  f\left(  v_{h}\right)  \right)  _{h\in H}\in W^{H}$ are in bijection.
+(Actually, these syzygies, when regarded as families of scalars, are literally
+the same.) In particular, the family $\left(  v_{h}\right)  _{h\in H}$ is
+$\mathbb{F}$-linearly independent if and only if the family $\left(  f\left(
+v_{h}\right)  \right)  _{h\in H}$ is $\mathbb{F}$-linearly independent.}).
+Hence, in order to prove Claim 2, it suffices to prove the following claim:
+
+\begin{statement}
+\textit{Claim 3:} \textbf{(a)} If $n$ is odd, then the only syzygy of the
+family $\left(  \widetilde{L}_{\Lambda}\right)  _{\Lambda\subseteq\left[
+n\right]  \text{ is lacunar}}$ is $\widetilde{L}_{\Omega}=0$.
+
+\textbf{(b)} If $n$ is even, then the family $\left(  \widetilde{L}_{\Lambda
+}\right)  _{\Lambda\subseteq\left[  n\right]  \text{ is lacunar}}$ is
+$\mathbb{Q}$-linearly independent.
+\end{statement}
+
+Let us agree that if $g\in G$, then we will set $g\left(  0\right)  =0$ and
+$g\left(  n+1\right)  =\infty$. Hence, $g\left(  i\right)  $ will be a
+well-defined value of $\mathcal{N}$ for each $i\in\left\{  0,1,\ldots
+,n+1\right\}  $.
+
+If $g\in G$, then we let $\operatorname*{Stag}\left(  g\right)  $ be the
+subset $\left\{  i\in\left[  n+1\right]  \ \mid\ g\left(  i\right)  =g\left(
+i-1\right)  \right\}  $ of $\left[  n+1\right]  $. It is easy to see that the
+family $\left(  \sum_{\substack{g\in G;\\\operatorname*{Stag}\left(  g\right)
+=T}}\left[  g\right]  \right)  _{T\subseteq\left[  n+1\right]  ;\ T\neq\left[
+n+1\right]  }$ of elements of $R$ is $\mathbb{Q}$-linearly
+independent\footnote{\textit{Proof.} Clearly, any two elements of this family
+are supported on different basis elements (i.e., any $\left[  g\right]  $
+appearing in one of them cannot appear in any other). It thus remains to show
+that these elements are $\neq0$. In other words, it remains to show that for
+any proper subset $T$ of $\left[  n+1\right]  $, we have $\sum_{\substack{g\in
+G;\\\operatorname*{Stag}\left(  g\right)  =T}}\left[  g\right]  \neq0$. But
+this is easy: Just construct some $g\in G$ satisfying $\operatorname*{Stag}%
+\left(  g\right)  =T$.}. Hence, the family $\left(  \sum_{\substack{g\in
+G;\\\operatorname*{Stag}\left(  g\right)  \supseteq T}}\left[  g\right]
+\right)  _{T\subseteq\left[  n+1\right]  ;\ T\neq\left[  n+1\right]  }$ of
+elements of $R$ is $\mathbb{Q}$-linearly independent, too (because this family
+is obtained from the previous family $\left(  \sum_{\substack{g\in
+G;\\\operatorname*{Stag}\left(  g\right)  =T}}\left[  g\right]  \right)
+_{T\subseteq\left[  n+1\right]  ;\ T\neq\left[  n+1\right]  }$ via a
+unitriangular change-of-basis matrix\footnote{unitriangular with respect to
+the reverse inclusion order (notice that $\sum_{\substack{g\in
+G;\\\operatorname*{Stag}\left(  g\right)  =T}}\left[  g\right]  =0$ for
+$T=\left[  n+1\right]  $, so the exclusion of $\left[  n+1\right]  $ makes
+sense and does not mess up our computations)}). Therefore, the only syzygy of
+the family \newline$\left(  \sum_{\substack{g\in G;\\\operatorname*{Stag}%
+\left(  g\right)  \supseteq T}}\left[  g\right]  \right)  _{T\subseteq\left[
+n+1\right]  }$ is $\sum_{\substack{g\in G;\\\operatorname*{Stag}\left(
+g\right)  \supseteq\left[  n+1\right]  }}\left[  g\right]  =0$ (since it is
+easy to see that no $g\in G$ satisfies $\operatorname*{Stag}\left(  g\right)
+\supseteq\left[  n+1\right]  $, which is why $\sum_{\substack{g\in
+G;\\\operatorname*{Stag}\left(  g\right)  \supseteq\left[  n+1\right]
+}}\left[  g\right]  $ is indeed $0$).
+
+But if $\Lambda$ is a lacunar subset of $\left[  n\right]  $, and if $g\in G$,
+then we have the following logical equivalence:%
+\begin{align*}
+&  \ \left(  \Lambda\cap\operatorname*{FE}\left(  g\right)  =\varnothing
+\right) \\
+&  \Longleftrightarrow\ \left(  \text{no }i\in\Lambda\text{ satisfies }%
+i\in\operatorname*{FE}\left(  g\right)  \right) \\
+&  \Longleftrightarrow\ \left(  \text{each }i\in\Lambda\text{ satisfies
+}i\notin\operatorname*{FE}\left(  g\right)  \right) \\
+&  \Longleftrightarrow\ \left(  \text{each }i\in\Lambda\text{ satisfies
+}\underbrace{i\neq\min\left(  g^{-1}\left(  h\right)  \right)  \text{ for all
+}h\in\left\{  1,2,3,\ldots,\infty\right\}  }_{\substack{\Longleftrightarrow
+\ \left(  g\left(  i\right)  =g\left(  i-1\right)  \right)  \\\text{(since
+}g\text{ is weakly increasing, and }g\left(  0\right)  =0\text{)}}}\right. \\
+&  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left.  \text{and }%
+\underbrace{i\neq\max\left(  g^{-1}\left(  h\right)  \right)  \ \text{for
+all}\ h\in\left\{  0,1,2,3,\ldots\right\}  }_{\substack{\Longleftrightarrow
+\ \left(  g\left(  i\right)  =g\left(  i+1\right)  \right)  \\\text{(since
+}g\text{ is weakly increasing, and }g\left(  n+1\right)  =\infty\text{)}%
+}}\right) \\
+&  \Longleftrightarrow\ \left(  \text{each }i\in\Lambda\text{ satisfies
+}\underbrace{g\left(  i\right)  =g\left(  i-1\right)  }_{\Longleftrightarrow
+\ \left(  i\in\operatorname*{Stag}\left(  g\right)  \right)  }\text{ and
+}\underbrace{g\left(  i\right)  =g\left(  i+1\right)  }_{\Longleftrightarrow
+\ \left(  i+1\in\operatorname*{Stag}\left(  g\right)  \right)  }\right) \\
+&  \Longleftrightarrow\ \left(  \text{each }i\in\Lambda\text{ satisfies }%
+i\in\operatorname*{Stag}\left(  g\right)  \text{ and }i+1\in
+\operatorname*{Stag}\left(  g\right)  \right) \\
+&  \Longleftrightarrow\ \left(  \Lambda\cup\left(  \Lambda+1\right)
+\subseteq\operatorname*{Stag}\left(  g\right)  \right)  \ \Longleftrightarrow
+\ \left(  \operatorname*{Stag}\left(  g\right)  \supseteq\Lambda\cup\left(
+\Lambda+1\right)  \right)  .
+\end{align*}
+Hence, if $\Lambda$ is a lacunar subset of $\left[  n\right]  $, then the
+condition $\Lambda\cap\operatorname*{FE}\left(  g\right)  =\varnothing$ is
+equivalent to the condition $\operatorname*{Stag}\left(  g\right)
+\supseteq\Lambda\cup\left(  \Lambda+1\right)  $. Thus, for each lacunar subset
+$\Lambda$ of $\left[  n\right]  $, the definition of $\widetilde{L}_{\Lambda}$
+becomes%
+\[
+\widetilde{L}_{\Lambda}=\sum_{\substack{g\in G;\\\Lambda\cap\operatorname*{FE}%
+\left(  g\right)  =\varnothing}}\left[  g\right]  =\sum_{\substack{g\in
+G;\\\operatorname*{Stag}\left(  g\right)  \supseteq\Lambda\cup\left(
+\Lambda+1\right)  }}\left[  g\right]  .
+\]
+Hence, the family $\left(  \widetilde{L}_{\Lambda}\right)  _{\Lambda
+\subseteq\left[  n\right]  \text{ is lacunar}}$ is a subfamily of the family
+$\left(  \sum_{\substack{g\in G;\\\operatorname*{Stag}\left(  g\right)
+\supseteq T}}\left[  g\right]  \right)  _{T\subseteq\left[  n+1\right]  }$
+(because if $\Lambda$ is a lacunar subset of $\left[  n\right]  $, then
+$\Lambda\cup\left(  \Lambda+1\right)  $ is a well-defined subset of $\left[
+n+1\right]  $, and moreover $\Lambda$ can be uniquely recovered from
+$\Lambda\cup\left(  \Lambda+1\right)  $\ \ \ \ \footnote{This takes a bit of
+thought to check. You need to show that if $\Lambda_{1}$ and $\Lambda_{2}$ are
+two lacunar subsets of $\left[  n\right]  $ satisfying $\Lambda_{1}\cup\left(
+\Lambda_{1}+1\right)  =\Lambda_{2}\cup\left(  \Lambda_{2}+1\right)  $, then
+$\Lambda_{1}=\Lambda_{2}$. In order to prove this, assume the contrary, and
+conclude that there is a smallest element $h$ of the symmetric difference
+$\Lambda_{1}\bigtriangleup\Lambda_{2}$. WLOG assume that $h\in\Lambda
+_{1}\setminus\Lambda_{2}$, and argue that $h$ belongs to $\Lambda_{1}%
+\cup\left(  \Lambda_{1}+1\right)  $ but not to $\Lambda_{2}\cup\left(
+\Lambda_{2}+1\right)  $, which contradicts $\Lambda_{1}\cup\left(  \Lambda
+_{1}+1\right)  =\Lambda_{2}\cup\left(  \Lambda_{2}+1\right)  $.}). The further
+argument depends on the parity of $n$:
+
+\begin{itemize}
+\item If $n$ is odd, then the vanishing element $\sum_{\substack{g\in
+G;\\\operatorname*{Stag}\left(  g\right)  \supseteq\left[  n+1\right]
+}}\left[  g\right]  $ does appear in the family $\left(  \widetilde{L}%
+_{\Lambda}\right)  _{\Lambda\subseteq\left[  n\right]  \text{ is lacunar}}$,
+because there exists a lacunar subset $\Lambda$ of $\left[  n\right]  $
+satisfying $\Lambda\cup\left(  \Lambda+1\right)  =\left[  n+1\right]  $:
+Namely, this $\Lambda$ is $\Omega$. Thus, the only syzygy of the family
+$\left(  \widetilde{L}_{\Lambda}\right)  _{\Lambda\subseteq\left[  n\right]
+\text{ is lacunar}}$ is $\widetilde{L}_{\Omega}=0$ (since the only syzygy of
+the family $\left(  \sum_{\substack{g\in G;\\\operatorname*{Stag}\left(
+g\right)  \supseteq T}}\left[  g\right]  \right)  _{T\subseteq\left[
+n+1\right]  }$ is $\sum_{\substack{g\in G;\\\operatorname*{Stag}\left(
+g\right)  \supseteq\left[  n+1\right]  }}\left[  g\right]  =0$).
+
+\item If $n$ is even, then the vanishing element $\sum_{\substack{g\in
+G;\\\operatorname*{Stag}\left(  g\right)  \supseteq\left[  n+1\right]
+}}\left[  g\right]  $ does not appear in the family $\left(  \widetilde{L}%
+_{\Lambda}\right)  _{\Lambda\subseteq\left[  n\right]  \text{ is lacunar}}$,
+since no lacunar subset $\Lambda$ of $\left[  n\right]  $ satisfies
+$\Lambda\cup\left(  \Lambda+1\right)  =\left[  n+1\right]  $. Hence, the
+syzygy $\sum_{\substack{g\in G;\\\operatorname*{Stag}\left(  g\right)
+\supseteq\left[  n+1\right]  }}\left[  g\right]  =0$ of the family $\left(
+\sum_{\substack{g\in G;\\\operatorname*{Stag}\left(  g\right)  \supseteq
+T}}\left[  g\right]  \right)  _{T\subseteq\left[  n+1\right]  }$ disappears
+when we pass to the subfamily $\left(  \widetilde{L}_{\Lambda}\right)
+_{\Lambda\subseteq\left[  n\right]  \text{ is lacunar}}$. Consequently, the
+subfamily $\left(  \widetilde{L}_{\Lambda}\right)  _{\Lambda\subseteq\left[
+n\right]  \text{ is lacunar}}$ is $\mathbb{Q}$-linearly independent.
+\end{itemize}
+
+This proves Claim 3. As explained above, this yields Claim 2, hence also Claim
+1, and thus completes the proof of Proposition \ref{prop.KnL.lindep}.
+\end{proof}
+
+\begin{corollary}
+\label{cor.KnL.lindep-all}The family%
+\[
+\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{n\in\mathbb{N};\ \Lambda
+\subseteq\left[  n\right]  \text{ is lacunar and nonempty}}%
+\]
+is $\mathbb{Q}$-linearly independent.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.KnL.lindep-all}.]For each $n\in\mathbb{N}$, the
+family $\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda\subseteq\left[
+n\right]  \text{ is lacunar and nonempty}}$ is $\mathbb{Q}$-linearly
+independent (by Proposition \ref{prop.KnL.lindep}). Furthermore, these
+families for varying $n\in\mathbb{N}$ live in linearly disjoint subspaces of
+$\operatorname*{Pow}\mathcal{N}$ (because for each $n\in\mathbb{N}$, the power
+series $K_{n,\Lambda}^{\mathcal{Z}}$ is homogeneous of degree $n$). Thus, the
+union $\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{n\in\mathbb{N}%
+;\ \Lambda\subseteq\left[  n\right]  \text{ is lacunar and nonempty}}$ of all
+these families must also be $\mathbb{Q}$-linearly independent. This proves
+Corollary \ref{cor.KnL.lindep-all}.
+\end{proof}
+
+\begin{definition}
+Let $\Pi_{\mathcal{Z}}$ be the $\mathbb{Q}$-vector subspace of
+$\operatorname*{Pow}\mathcal{N}$ spanned by the family $\left(  K_{n,\Lambda
+}^{\mathcal{Z}}\right)  _{n\in\mathbb{N};\ \Lambda\subseteq\left[  n\right]
+\text{ is lacunar and nonempty}}$. Then, $\Pi_{\mathcal{Z}}$ is also the
+$\mathbb{Q}$-vector subspace of $\operatorname*{Pow}\mathcal{N}$ spanned by
+the family $\left(  K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}\right)
+_{n\in\mathbb{N};\ \pi\text{ is an }n\text{-permutation}}$ (by Proposition
+\ref{prop.when-Epk}). In other words, $\Pi_{\mathcal{Z}}$ is also the
+$\mathbb{Q}$-vector subspace of $\operatorname*{Pow}\mathcal{N}$ spanned by
+the family $\left(  \Gamma_{\mathcal{Z}}\left(  \pi\right)  \right)
+_{n\in\mathbb{N};\ \pi\text{ is an }n\text{-permutation}}$ (because of
+(\ref{eq.def.KnL.2})). Hence, Corollary \ref{cor.prod2} shows that
+$\Pi_{\mathcal{Z}}$ is closed under multiplication. Since furthermore
+$\Gamma_{\mathcal{Z}}\left(  \operatorname*{id}\nolimits_{0}\right)  =1$ (for
+the empty $0$-permutation $\operatorname*{id}\nolimits_{0}$), we can thus
+conclude that $\Pi_{\mathcal{Z}}$ is a $\mathbb{Q}$-subalgebra of
+$\operatorname*{Pow}\mathcal{N}$.
+\end{definition}
+
+We can now finally prove what we came here for:
+
+\begin{theorem}
+\label{thm.Epk.sh-co}\textbf{(a)} The statistic $\operatorname*{Epk}$ on
+permutations is shuffle-compatible.
+
+\textbf{(b)} The map given by%
+\[
+\left[  \pi\right]  _{\operatorname*{Epk}}\mapsto K_{n,\operatorname*{Epk}%
+}^{\mathcal{Z}}%
+\]
+is a $\mathbb{Q}$-algebra isomorphism from $\mathcal{A}_{\operatorname*{Epk}}$
+to $\Pi_{\mathcal{Z}}$.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.Epk.sh-co}.]For each $n\in\mathbb{N}$ and each
+composition $L$ of $n$, we define a subset $\operatorname*{Epk}L$ of $\left[
+n\right]  $ by
+\[
+\operatorname*{Epk}L=\operatorname*{Lpk}L\cup\operatorname*{Rpk}L=\left(
+\operatorname*{Des}L\cup\left\{  n\right\}  \right)  \setminus\left(
+\operatorname*{Des}L+1\right)  .
+\]
+Thus, $\operatorname*{Epk}L=\operatorname*{Epk}\pi$ whenever $\pi$ is an
+$n$-permutation satisfying $\operatorname*{Des}\pi=L$. Hence,
+$\operatorname*{Epk}$ is a descent statistic.
+
+Let $\phi_{\operatorname*{Epk}}:\operatorname*{QSym}\rightarrow\Pi
+_{\mathcal{Z}}$ be the $\mathbb{Q}$-linear map that sends each $F_{L}$ (for
+each $n\in\mathbb{N}$ and each composition $L$ of $n$) to
+$K_{n,\operatorname*{Epk}L}^{\mathcal{Z}}\in\Pi_{\mathcal{Z}}$. This
+$\mathbb{Q}$-linear map $\phi_{\operatorname*{Epk}}$ respects
+multiplication\footnote{\textit{Proof.} Let $n\in\mathbb{N}$ and
+$m\in\mathbb{N}$. Let $J$ be a composition of $n$, and let $K$ be a
+composition of $m$. Fix an $n$-permutation $\pi$ satisfying
+$\operatorname*{Comp}\pi=J$, and fix an $m$-permutation $\sigma$ satisfying
+$\operatorname*{Comp}\sigma=K$. Now,%
+\begin{align*}
+&  \underbrace{\phi_{\operatorname*{Epk}}\left(  F_{J}\right)  }%
+_{\substack{=K_{n,\operatorname*{Epk}J}^{\mathcal{Z}}=K_{n,\operatorname*{Epk}%
+\pi}^{\mathcal{Z}}\\\text{(since }\operatorname*{Epk}J=\operatorname*{Epk}%
+\pi\text{)}}}\cdot\underbrace{\phi_{\operatorname*{Epk}}\left(  F_{K}\right)
+}_{\substack{=K_{m,\operatorname*{Epk}K}^{\mathcal{Z}}%
+=K_{m,\operatorname*{Epk}\sigma}^{\mathcal{Z}}\\\text{(since }%
+\operatorname*{Epk}K=\operatorname*{Epk}\sigma\text{)}}}\\
+&  =\underbrace{K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}}_{\substack{=\Gamma
+_{\mathcal{Z}}\left(  \pi\right)  \\\text{(by (\ref{eq.def.KnL.2}))}}%
+}\cdot\underbrace{K_{m,\operatorname*{Epk}\sigma}^{\mathcal{Z}}}%
+_{\substack{=\Gamma_{\mathcal{Z}}\left(  \sigma\right)  \\\text{(by
+(\ref{eq.def.KnL.2}))}}}=\Gamma_{\mathcal{Z}}\left(  \pi\right)  \cdot
+\Gamma_{\mathcal{Z}}\left(  \sigma\right)  =\sum_{\tau\in S\left(  \pi
+,\sigma\right)  }\underbrace{\Gamma_{\mathcal{Z}}\left(  \tau\right)
+}_{\substack{=K_{n+m,\operatorname*{Epk}\tau}^{\mathcal{Z}}\\\text{(by
+(\ref{eq.def.KnL.2}))}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary
+\ref{cor.prod2}}\right) \\
+&  =\sum_{\tau\in S\left(  \pi,\sigma\right)  }K_{n+m,\operatorname*{Epk}\tau
+}^{\mathcal{Z}}.
+\end{align*}
+Comparing this with%
+\begin{align*}
+\phi_{\operatorname*{Epk}}\left(  \underbrace{F_{J}F_{K}}_{\substack{=\sum
+_{\tau\in S\left(  \pi,\sigma\right)  }F_{\operatorname*{Comp}\tau
+}\\\text{(this is a restatement of}\\\text{\cite[Theorem 4.1]{part1})}%
+}}\right)   &  =\phi_{\operatorname*{Epk}}\left(  \sum_{\tau\in S\left(
+\pi,\sigma\right)  }F_{\operatorname*{Comp}\tau}\right)  =\sum_{\tau\in
+S\left(  \pi,\sigma\right)  }\underbrace{\phi_{\operatorname*{Epk}}\left(
+F_{\operatorname*{Comp}\tau}\right)  }_{\substack{=K_{n+m,\operatorname*{Epk}%
+\left(  \operatorname*{Comp}\tau\right)  }^{\mathcal{Z}}%
+=K_{n+m,\operatorname*{Epk}\tau}^{\mathcal{Z}}\\\text{(since }%
+\operatorname*{Epk}\left(  \operatorname*{Comp}\tau\right)
+=\operatorname*{Epk}\tau\text{)}}}\\
+&  =\sum_{\tau\in S\left(  \pi,\sigma\right)  }K_{n+m,\operatorname*{Epk}\tau
+}^{\mathcal{Z}},
+\end{align*}
+we obtain $\phi_{\operatorname*{Epk}}\left(  F_{J}\right)  \cdot
+\phi_{\operatorname*{Epk}}\left(  F_{K}\right)  =\phi_{\operatorname*{Epk}%
+}\left(  F_{J}F_{K}\right)  $. Since the map $\phi_{\operatorname*{Epk}}$ is
+$\mathbb{Q}$-linear, this yields that $\phi_{\operatorname*{Epk}}$ respects
+multiplication (since $\left(  F_{L}\right)  _{L\text{ is a composition}}$ is
+a basis of the $\mathbb{Q}$-vector space $\operatorname*{QSym}$).} and sends
+$1\in\operatorname*{QSym}$ to $1\in\Pi_{\mathcal{Z}}$\ \ \ \ \footnote{This is
+easy, since $1=F_{\left(  {}\right)  }$.}. Thus, $\phi_{\operatorname*{Epk}}$
+is a $\mathbb{Q}$-algebra homomorphism.
+
+The family $\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{n\in\mathbb{N}%
+;\ \Lambda\subseteq\left[  n\right]  \text{ is lacunar and nonempty}}$ spans
+$\Pi_{\mathcal{Z}}$ (by the definition of $\Pi_{\mathcal{Z}}$) and is
+$\mathbb{Q}$-linearly independent (by Corollary \ref{cor.KnL.lindep-all}).
+Thus, it is a basis of $\Pi_{\mathcal{Z}}$.
+
+For each $n\in\mathbb{N}$, there is a canonical bijection between the
+$\operatorname*{Epk}$-equivalence classes of permutations and the nonempty
+lacunar subsets $\Lambda$ of $\left[  n\right]  $ (indeed, the bijection sends
+any equivalence class $\left[  \pi\right]  _{\operatorname*{Epk}}$ to
+$\operatorname*{Epk}\pi$)\ \ \ \ \footnote{Proposition \ref{prop.when-Epk}
+shows that this is indeed a bijection.}. Hence, the first sentence of
+\cite[Theorem 4.3]{part1} (applied to $\operatorname*{st}=\operatorname*{Epk}$
+and $u_{\alpha}=K_{n,\Lambda}^{\mathcal{Z}}$, where $\alpha$ is an
+$\operatorname*{Epk}$-equivalence class of $n$-permutations and where
+$\Lambda$ is the corresponding nonempty lacunar subset) shows that the descent
+statistic $\operatorname*{Epk}$ is shuffle-compatible. The second sentence of
+\cite[Theorem 4.3]{part1} then yields that the map given by%
+\[
+\left[  \pi\right]  _{\operatorname*{Epk}}\mapsto K_{n,\operatorname*{Epk}%
+}^{\mathcal{Z}}%
+\]
+is a $\mathbb{Q}$-algebra isomorphism from $\mathcal{A}_{\operatorname*{Epk}}$
+to $\Pi_{\mathcal{Z}}$. Hence, Theorem \ref{thm.Epk.sh-co} is proven.
+\end{proof}
+
+The permutation statistic $\left(  \operatorname*{Lpk},\operatorname*{val}%
+\right)  $ is equivalent to $\operatorname*{Epk}$\ \ \ \ \footnote{Indeed,
+$\operatorname*{val}$ is equivalent to $\operatorname*{epk}$ by \cite[Lemma
+2.1 \textbf{(e)}]{part1}; but knowing $\operatorname*{epk}$ allows you to
+compute $\operatorname*{Epk}$ from $\operatorname*{Lpk}$ and vice versa (since
+$\operatorname*{Epk}$ differs from $\operatorname*{Lpk}$ only in the possible
+element $n$).}. Thus, an analogue of Theorem \ref{thm.Epk.sh-co} holds for the
+statistic $\left(  \operatorname*{Lpk},\operatorname*{val}\right)  $.
+
+\section{The kernel of the map $\operatorname*{QSym}\rightarrow\mathcal{A}%
+_{\operatorname*{Epk}}$}
+
+\subsection{The kernel of a descent statistic}
+
+Now, let me focus on a feature of shuffle-compatible descent statistics that
+seems to have been overlooked so far: their kernels.
+
+\begin{definition}
+Let $\operatorname*{st}$ be a descent statistic. Then, $\mathcal{K}%
+_{\operatorname*{st}}$ shall mean the $\mathbb{Q}$-vector subspace of
+$\operatorname*{QSym}$ spanned by all elements of the form $F_{J}-F_{K}$,
+where $J$ and $K$ are two compositions of the same size satisfying
+$\operatorname*{st}J=\operatorname*{st}K$. We shall refer to $\mathcal{K}%
+_{\operatorname*{st}}$ as the \textit{kernel} of $\operatorname*{st}$.
+\end{definition}
+
+\cite[Theorem 4.3]{part1} easily yields the following fact:
+
+\begin{proposition}
+\label{prop.K.ideal}Let $\operatorname*{st}$ be a descent statistic. Then,
+$\operatorname*{st}$ is shuffle-compatible if and only if $\mathcal{K}%
+_{\operatorname*{st}}$ is an ideal of $\operatorname*{QSym}$. Furthermore, in
+this case, $\mathcal{A}_{\operatorname*{st}}\cong\operatorname*{QSym}%
+/\mathcal{K}_{\operatorname*{st}}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.K.ideal}.]$\Longrightarrow:$ Assume that
+$\operatorname*{st}$ is shuffle-compatible. Thus, the first sentence of
+\cite[Theorem 4.3]{part1} shows that there exists a $\mathbb{Q}$-algebra
+homomorphism $\phi_{\operatorname*{st}}:\operatorname*{QSym}\rightarrow A$,
+where $A$ is a $\mathbb{Q}$-algebra with basis $\left\{  u_{\alpha}\right\}  $
+indexed by $\operatorname*{st}$-equivalence classes $\alpha$ of compositions,
+such that%
+\begin{equation}
+\phi_{\operatorname*{st}}\left(  F_{L}\right)  =u_{\alpha}%
+\ \ \ \ \ \ \ \ \ \ \text{whenever }L\in\alpha. \label{pf.prop.K.ideal.dir1.1}%
+\end{equation}
+Consider this $A$ and this $\phi_{\operatorname*{st}}$.
+
+The map $\phi_{\operatorname*{st}}$ is a $\mathbb{Q}$-algebra homomorphism.
+Thus, its kernel $\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)
+$ is an ideal of $\operatorname*{QSym}$.
+
+Let us first show that $\operatorname*{Ker}\left(  \phi_{\operatorname*{st}%
+}\right)  \subseteq\mathcal{K}_{\operatorname*{st}}$.
+
+Indeed, let $x\in\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)
+$ be arbitrary. Write $x\in\operatorname*{QSym}$ in the form $x=\sum_{L}%
+x_{L}F_{L}$, where the sum ranges over all compositions $L$, and where the
+$x_{L}$ are elements of $\mathbb{Q}$ (all but finitely many of which are
+zero). Now, $x\in\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)
+$, so that $\phi_{\operatorname*{st}}\left(  x\right)  =0$. Thus,%
+\begin{align*}
+0  &  =\phi_{\operatorname*{st}}\left(  x\right)  =\sum_{L}x_{L}%
+\phi_{\operatorname*{st}}\left(  F_{L}\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{since }x=\sum_{L}x_{L}F_{L}\right) \\
+&  =\sum_{\alpha}\sum_{L\in\alpha}x_{L}\underbrace{\phi_{\operatorname*{st}%
+}\left(  F_{L}\right)  }_{\substack{=u_{\alpha}\\\text{(by
+(\ref{pf.prop.K.ideal.dir1.1}))}}}\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{where the first sum is over}\\
+\text{all }\operatorname*{st}\text{-equivalence classes }\alpha\text{ of
+compositions}%
+\end{array}
+\right) \\
+&  =\sum_{\alpha}\sum_{L\in\alpha}x_{L}u_{\alpha}=\sum_{\alpha}\left(
+\sum_{L\in\alpha}x_{L}\right)  u_{\alpha}.
+\end{align*}
+Since the family $\left\{  u_{\alpha}\right\}  $ is linearly independent
+(because it is a basis of $A$), we thus conclude that
+\begin{equation}
+\sum_{L\in\alpha}x_{L}=0 \label{pf.prop.K.ideal.dir1.2}%
+\end{equation}
+for each $\operatorname*{st}$-equivalence class $\alpha$ of compositions.
+
+Now, for each $\operatorname*{st}$-equivalence class $\alpha$ of compositions,
+we fix an element $L_{\alpha}$ of $\alpha$. Then, each $\operatorname*{st}%
+$-equivalence class $\alpha$ of compositions and each composition $L\in\alpha$
+satisfy $\operatorname*{st}L=\operatorname*{st}\left(  L_{\alpha}\right)  $
+(because both compositions $L$ and $L_{\alpha}$ lie in the same
+$\operatorname*{st}$-equivalence class $\alpha$) and therefore
+\begin{equation}
+F_{L}-F_{L_{\alpha}}\in\mathcal{K}_{\operatorname*{st}}.
+\label{pf.prop.K.ideal.dir1.3}%
+\end{equation}
+
+
+Now,%
+\begin{align*}
+x  &  =\sum_{L}x_{L}F_{L}\\
+&  =\sum_{\alpha}\sum_{L\in\alpha}x_{L}\underbrace{F_{L}}_{=\left(
+F_{L}-F_{L_{\alpha}}\right)  +F_{L_{\alpha}}}\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{where the first sum is over}\\
+\text{all }\operatorname*{st}\text{-equivalence classes }\alpha\text{ of
+compositions}%
+\end{array}
+\right) \\
+&  =\sum_{\alpha}\sum_{L\in\alpha}x_{L}\left(  \left(  F_{L}-F_{L_{\alpha}%
+}\right)  +F_{L_{\alpha}}\right) \\
+&  =\sum_{\alpha}\sum_{L\in\alpha}x_{L}\underbrace{\left(  F_{L}-F_{L_{\alpha
+}}\right)  }_{\substack{\in\mathcal{K}_{\operatorname*{st}}\\\text{(by
+(\ref{pf.prop.K.ideal.dir1.3}))}}}+\sum_{\alpha}\underbrace{\sum_{L\in\alpha
+}x_{L}}_{\substack{=0\\\text{(by (\ref{pf.prop.K.ideal.dir1.2}))}%
+}}F_{L_{\alpha}}\\
+&  \in\underbrace{\sum_{\alpha}\sum_{L\in\alpha}x_{L}\mathcal{K}%
+_{\operatorname*{st}}}_{\subseteq\mathcal{K}_{\operatorname*{st}}%
+}+\underbrace{\sum_{\alpha}0F_{L_{\alpha}}}_{=0}\subseteq\mathcal{K}%
+_{\operatorname*{st}}.
+\end{align*}
+
+
+Now, forget that we fixed $x$. We thus have proven that $x\in\mathcal{K}%
+_{\operatorname*{st}}$ for each $x\in\operatorname*{Ker}\left(  \phi
+_{\operatorname*{st}}\right)  $. In other words, $\operatorname*{Ker}\left(
+\phi_{\operatorname*{st}}\right)  \subseteq\mathcal{K}_{\operatorname*{st}}$.
+
+Conversely, it is easy to see that $\mathcal{K}_{\operatorname*{st}}%
+\subseteq\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)
+$\ \ \ \ \footnote{\textit{Proof.} Recall that $\mathcal{K}%
+_{\operatorname*{st}}$ is the $\mathbb{Q}$-vector subspace of
+$\operatorname*{QSym}$ spanned by all elements of the form $F_{J}-F_{K}$,
+where $J$ and $K$ are two compositions of the same size satisfying
+$\operatorname*{st}J=\operatorname*{st}K$. Hence, in order to prove that
+$\mathcal{K}_{\operatorname*{st}}\subseteq\operatorname*{Ker}\left(
+\phi_{\operatorname*{st}}\right)  $, it suffices to show that $F_{J}-F_{K}%
+\in\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)  $, whenever
+$J$ and $K$ are two compositions of the same size satisfying
+$\operatorname*{st}J=\operatorname*{st}K$. So let $J$ and $K$ be two
+compositions of the same size satisfying $\operatorname*{st}%
+J=\operatorname*{st}K$. We must show that $F_{J}-F_{K}\in\operatorname*{Ker}%
+\left(  \phi_{\operatorname*{st}}\right)  $.
+\par
+The two compositions $J$ and $K$ have the same size and satisfy
+$\operatorname*{st}J=\operatorname*{st}K$. In other words, the two
+compositions $J$ and $K$ are $\operatorname*{st}$-equivalence. Hence, they lie
+in one and the same $\operatorname*{st}$-equivalence class. Let $\alpha$ be
+this $\operatorname*{st}$-equivalence class. Then, $J\in\alpha$ and therefore
+$\phi_{\operatorname*{st}}\left(  F_{J}\right)  =u_{\alpha}$ (by
+(\ref{pf.prop.K.ideal.dir1.1}), applied to $L=J$). Similarly, $\phi
+_{\operatorname*{st}}\left(  F_{K}\right)  =u_{\alpha}$. Now, $\phi
+_{\operatorname*{st}}\left(  F_{J}-F_{K}\right)  =\underbrace{\phi
+_{\operatorname*{st}}\left(  F_{J}\right)  }_{=u_{\alpha}}-\underbrace{\phi
+_{\operatorname*{st}}\left(  F_{K}\right)  }_{=u_{\alpha}}=u_{\alpha
+}-u_{\alpha}=0$. In other words, $F_{J}-F_{K}\in\operatorname*{Ker}\left(
+\phi_{\operatorname*{st}}\right)  $. This completes our proof.}. Combining
+this with $\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)
+\subseteq\mathcal{K}_{\operatorname*{st}}$, we obtain $\mathcal{K}%
+_{\operatorname*{st}}=\operatorname*{Ker}\left(  \phi_{\operatorname*{st}%
+}\right)  $. Hence, $\mathcal{K}_{\operatorname*{st}}$ is an ideal of
+$\operatorname*{QSym}$ (since $\operatorname*{Ker}\left(  \phi
+_{\operatorname*{st}}\right)  $ is an ideal of $\operatorname*{QSym}$).
+
+It remains to show that $\mathcal{A}_{\operatorname*{st}}\cong%
+\operatorname*{QSym}/\mathcal{K}_{\operatorname*{st}}$. This is easy: Each
+element of the basis $\left\{  u_{\alpha}\right\}  $ of the $\mathbb{Q}%
+$-vector space $A$ is contained in the image of $\phi_{\operatorname*{st}}$
+(because of (\ref{pf.prop.K.ideal.dir1.1})). Therefore, the homomorphism
+$\phi_{\operatorname*{st}}$ is surjective. Thus, $\phi_{\operatorname*{st}%
+}\left(  \operatorname*{QSym}\right)  =A$. Hence, $A=\phi_{\operatorname*{st}%
+}\left(  \operatorname*{QSym}\right)  \cong\operatorname*{QSym}/\mathcal{K}%
+_{\operatorname*{st}}$. But the second sentence of \cite[Theorem 4.3]{part1}
+shows that $\mathcal{A}_{\operatorname*{st}}\cong A$. Thus, $\mathcal{A}%
+_{\operatorname*{st}}\cong A\cong\operatorname*{QSym}/\mathcal{K}%
+_{\operatorname*{st}}$. This finishes the proof of the $\Longrightarrow$
+direction of Proposition \ref{prop.K.ideal}.
+
+$\Longleftarrow:$ Assume that $\mathcal{K}_{\operatorname*{st}}$ is an ideal
+of $\operatorname*{QSym}$. We must prove that $\operatorname*{st}$ is shuffle-compatible.
+
+We shall not use this direction of Proposition \ref{prop.K.ideal}, so let us
+merely sketch the proof. Let $A$ be the $\mathbb{Q}$-algebra
+$\operatorname*{QSym}/\mathcal{K}_{\operatorname*{st}}$. Let $\phi
+_{\operatorname*{st}}$ be the canonical projection $\operatorname*{QSym}%
+\rightarrow A$; this is clearly a $\mathbb{Q}$-algebra homomorphism.
+
+For each $\operatorname*{st}$-equivalence class $\alpha$ of compositions, we
+define an element $u_{\alpha}$ of $A$ by requiring that%
+\[
+u_{\alpha}=\phi_{\operatorname*{st}}\left(  F_{L}\right)
+\ \ \ \ \ \ \ \ \ \ \text{whenever }L\in\alpha.
+\]
+This is easily seen to be well-defined, because the image $\phi
+_{\operatorname*{st}}\left(  F_{L}\right)  $ depends only on $\alpha$ but not
+on $L$ (indeed, if $J$ and $K$ are two elements of $\alpha$, then $J$ and $K$
+are $\operatorname*{st}$-equivalent, whence $F_{J}-F_{K}\in\mathcal{K}%
+_{\operatorname*{st}}$, whence $F_{J}\equiv F_{K}\operatorname{mod}%
+\mathcal{K}_{\operatorname*{st}}$ and therefore $\phi_{\operatorname*{st}%
+}\left(  F_{J}\right)  =\phi_{\operatorname*{st}}\left(  F_{K}\right)  $).
+
+It is not hard to see that $\left\{  u_{\alpha}\right\}  $ (where $\alpha$
+ranges over all $\operatorname*{st}$-equivalence classes of compositions) is a
+basis of the $\mathbb{Q}$-algebra $A$. Hence, the first sentence of
+\cite[Theorem 4.3]{part1} yields that $\operatorname*{st}$ is
+shuffle-compatible. This proves the $\Longleftarrow$ direction of Proposition
+\ref{prop.K.ideal}.
+\end{proof}
+
+\begin{corollary}
+\label{cor.Epk.ideal}The kernel $\mathcal{K}_{\operatorname*{Epk}}$ of the
+descent statistic $\operatorname*{Epk}$ is an ideal of $\operatorname*{QSym}$.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.Epk.ideal}.]This follows from Proposition
+\ref{prop.K.ideal} (applied to $\operatorname*{st}=\operatorname*{Epk}$),
+because of Theorem \ref{thm.Epk.sh-co} \textbf{(a)}.
+\end{proof}
+
+We can study the kernel of any descent statistic; in particular, the case of
+shuffle-compatible descent statistics appears interesting. Since
+$\operatorname*{QSym}$ is isomorphic to a polynomial ring (as an algebra), it
+has many ideals, which are rather hopeless to classify or tame; but the ones
+obtained as kernels of shuffle-compatible descent statistics might be worth discussing.
+
+\subsection{The F-generating set of $\mathcal{K}_{\operatorname*{Epk}}$}
+
+Let us now focus on $\mathcal{K}_{\operatorname*{Epk}}$, the kernel of
+$\operatorname*{Epk}$.
+
+\begin{proposition}
+\label{prop.K.Epk.F}If $J=\left(  j_{1},j_{2},\ldots,j_{m}\right)  $ and $K$
+are two compositions, then we shall write $J\rightarrow K$ if there exists an
+$\ell\in\left\{  2,3,\ldots,m\right\}  $ such that $j_{\ell}>2$ and $K=\left(
+j_{1},j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
+,j_{m}\right)  $. (In other words, we write $J\rightarrow K$ if $K$ can be
+obtained from $J$ by \textquotedblleft splitting\textquotedblright\ some entry
+$j_{\ell}>2$ into two consecutive entries $1$ and $j_{\ell}-1$, provided that
+this entry was not the first entry -- i.e., we had $\ell>1$ -- and that this
+entry was greater than $2$.)
+
+The ideal $\mathcal{K}_{\operatorname*{Epk}}$ of $\operatorname*{QSym}$ is
+spanned (as a $\mathbb{Q}$-vector space) by all differences of the form
+$F_{J}-F_{K}$, where $J$ and $K$ are two compositions satisfying $J\rightarrow
+K$.
+\end{proposition}
+
+\begin{example}
+We have $\left(  2,1,4,4\right)  \rightarrow\left(  2,1,1,3,4\right)  $, since
+the composition $\left(  2,1,1,3,4\right)  $ is obtained from $\left(
+2,1,4,4\right)  $ by splitting the third entry (which is $4>2$) into two
+consecutive entries $1$ and $3$.
+
+Similarly, $\left(  2,1,4,4\right)  \rightarrow\left(  2,1,4,1,3\right)  $.
+
+But we do not have $\left(  3,1\right)  \rightarrow\left(  1,2,1\right)  $,
+because splitting the first entry of the composition is not allowed in the
+definition of the relation $\rightarrow$. Also, we do not have $\left(
+1,2,1\right)  \rightarrow\left(  1,1,1,1\right)  $, because the entry we are
+splitting must be $>2$.
+
+Two compositions $J$ and $K$ satisfying $J\rightarrow K$ must necessarily
+satisfy $\left\vert J\right\vert =\left\vert K\right\vert $.
+
+Here are all relations $\rightarrow$ between compositions of size $4$:%
+\[
+\left(  1,3\right)  \rightarrow\left(  1,1,2\right)  .
+\]
+
+
+Here are all relations $\rightarrow$ between compositions of size $5$:%
+\begin{align*}
+\left(  1,4\right)   &  \rightarrow\left(  1,1,3\right)  ,\\
+\left(  1,3,1\right)   &  \rightarrow\left(  1,1,2,1\right)  ,\\
+\left(  1,1,3\right)   &  \rightarrow\left(  1,1,1,2\right)  ,\\
+\left(  2,3\right)   &  \rightarrow\left(  2,1,2\right)  .
+\end{align*}
+There are no relations $\rightarrow$ between compositions of size $\leq3$.
+\end{example}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.K.Epk.F}.]We begin by proving some simple claims.
+
+\begin{statement}
+\textit{Claim 1:} Let $n\in\mathbb{N}$. Let $J$ and $K$ be two compositions of
+size $n$. Then, $J\rightarrow K$ if and only if there exists some $k\in\left[
+n-1\right]  $ such that
+\begin{align*}
+\operatorname*{Des}K  &  =\operatorname*{Des}J\cup\left\{  k\right\}
+,\ \ \ \ \ \ \ \ \ \ k\notin\operatorname*{Des}J,\\
+k-1  &  \in\operatorname*{Des}J\ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ k+1\notin\operatorname*{Des}J\cup\left\{  n\right\}  .
+\end{align*}
+
+\end{statement}
+
+[\textit{Proof of Claim 1:} This is straightforward to check:
+\textquotedblleft Splitting\textquotedblright\ an entry of a composition $C$
+into two consecutive entries (summing up to the original entry) is always
+tantamount to adding a new element to $\operatorname*{Des}C$. The rest is
+translating conditions.]
+
+Recall that
+\begin{equation}
+\operatorname*{Epk}L=\operatorname*{Lpk}L\cup\operatorname*{Rpk}L=\left(
+\operatorname*{Des}L\cup\left\{  n\right\}  \right)  \setminus\left(
+\operatorname*{Des}L+1\right)  \label{pf.prop.K.Epk.F.1}%
+\end{equation}
+for any composition $L$ of $n$.
+
+\begin{statement}
+\textit{Claim 2:} Let $J$ and $K$ be two compositions satisfying $J\rightarrow
+K$. Then, $\operatorname*{Epk}J=\operatorname*{Epk}K$.
+\end{statement}
+
+[\textit{Proof of Claim 2:} Easy consequence of Claim 1 and
+(\ref{pf.prop.K.Epk.F.1}).]
+
+For any two integers $a$ and $b$, we set $\left[  a,b\right]  =\left\{
+a,a+1,\ldots,b\right\}  $. (This is an empty set if $a>b$.)
+
+It is easy to see that every composition $J$ of size $n>0$ satisfies%
+\begin{equation}
+\left[  \max\left(  \operatorname*{Epk}J\right)  ,n-1\right]  \subseteq
+\operatorname*{Des}J \label{pf.prop.K.Epk.F.2}%
+\end{equation}
+\footnote{\textit{Proof of (\ref{pf.prop.K.Epk.F.2}):} Let $J$ be a
+composition of size $n>0$. We shall show that $\left[  \max\left(
+\operatorname*{Epk}J\right)  ,n-1\right]  \subseteq\operatorname*{Des}J$.
+\par
+Indeed, assume the contrary. Thus, $\left[  \max\left(  \operatorname*{Epk}%
+J\right)  ,n-1\right]  \not \subseteq \operatorname*{Des}J$. Hence, there
+exists some $q\in\left[  \max\left(  \operatorname*{Epk}J\right)  ,n-1\right]
+$ satisfying $q\notin\operatorname*{Des}J$. Let $r$ be the \textbf{largest}
+such $q$.
+\par
+Thus, $r\in\left[  \max\left(  \operatorname*{Epk}J\right)  ,n-1\right]  $ but
+$r\notin\operatorname*{Des}J$. From $r\in\left[  \max\left(
+\operatorname*{Epk}J\right)  ,n-1\right]  \subseteq\left[  n-1\right]  $, we
+obtain $r+1\in\left[  n\right]  $. Also, from $r\notin\operatorname*{Des}J$,
+we obtain $r+1\notin\operatorname*{Des}J+1$.
+\par
+From $r\in\left[  \max\left(  \operatorname*{Epk}J\right)  ,n-1\right]  $, we
+obtain $r\geq\max\left(  \operatorname*{Epk}J\right)  $, so that
+$r+1>r\geq\max\left(  \operatorname*{Epk}J\right)  $ and therefore
+$r+1\notin\operatorname*{Epk}J$ (since a number that is higher than
+$\max\left(  \operatorname*{Epk}J\right)  $ cannot belong to
+$\operatorname*{Epk}J$).
+\par
+From (\ref{pf.prop.K.Epk.F.1}), we obtain $\operatorname*{Epk}J=\left(
+\operatorname*{Des}J\cup\left\{  n\right\}  \right)  \setminus\left(
+\operatorname*{Des}J+1\right)  $.
+\par
+If we had $r+1\in\operatorname*{Des}J\cup\left\{  n\right\}  $, then we would
+have $r+1\in\left(  \operatorname*{Des}J\cup\left\{  n\right\}  \right)
+\setminus\left(  \operatorname*{Des}J+1\right)  $ (since $r+1\notin%
+\operatorname*{Des}J+1$). This would contradict $r+1\notin\operatorname*{Epk}%
+J=\left(  \operatorname*{Des}J\cup\left\{  n\right\}  \right)  \setminus
+\left(  \operatorname*{Des}J+1\right)  $. Thus, we cannot have $r+1\in
+\operatorname*{Des}J\cup\left\{  n\right\}  $. Therefore, $r+1\notin%
+\operatorname*{Des}J\cup\left\{  n\right\}  $.
+\par
+Hence, $r+1\neq n$ (since $r+1\notin\operatorname*{Des}J\cup\left\{
+n\right\}  $ but $n\in\left\{  n\right\}  \subseteq\operatorname*{Des}%
+J\cup\left\{  n\right\}  $). Combined with $r+1\in\left[  n\right]  $, this
+yields $r+1\in\left[  n\right]  \setminus\left\{  n\right\}  =\left[
+n-1\right]  $. Combined with $r+1>\max\left(  \operatorname*{Epk}J\right)  $,
+this yields $r+1\in\left[  \max\left(  \operatorname*{Epk}J\right)
+,n-1\right]  $. Also, $r+1\notin\operatorname*{Des}J$ (since $r+1\notin%
+\operatorname*{Des}J\cup\left\{  n\right\}  $).
+\par
+Thus, $r+1$ is a $q\in\left[  \max\left(  \operatorname*{Epk}J\right)
+,n-1\right]  $ satisfying $q\notin\operatorname*{Des}J$. This contradicts the
+fact that $r$ is the \textbf{largest} such $q$ (since $r+1$ is clearly larger
+than $r$). This contradiction proves that our assumption was wrong; thus,
+(\ref{pf.prop.K.Epk.F.2}) is proven.}.
+
+For each $n\in\mathbb{N}$ and each subset $S$ of $\left[  n-1\right]  $, we
+define a subset $S^{\circ}$ of $\left[  n-1\right]  $ as follows:%
+\[
+S_{n}^{\circ}=\left\{  s\in S\ \mid\ s-1\notin S\text{ or }\left[
+s,n-1\right]  \subseteq S\right\}  .
+\]
+
+
+Also, for each $n\in\mathbb{N}$ and each nonempty subset $T$ of $\left[
+n\right]  $, we define a subset $\rho_{n}\left(  T\right)  $ of $\left[
+n-1\right]  $ as follows:%
+\[
+\rho_{n}\left(  T\right)  =%
+\begin{cases}
+T\setminus\left\{  n\right\}  , & \text{if }n\in T;\\
+T\cup\left[  \max T,n-1\right]  , & \text{if }n\notin T
+\end{cases}
+.
+\]
+
+
+\begin{statement}
+\textit{Claim 3:} Let $n\in\mathbb{N}$. Let $J$ be a composition of size $n$.
+Then, $\left(  \operatorname*{Des}J\right)  _{n}^{\circ}=\rho_{n}\left(
+\operatorname*{Epk}J\right)  $.
+\end{statement}
+
+[\textit{Proof of Claim 3:} Let $g\in\left(  \operatorname*{Des}J\right)
+_{n}^{\circ}$. We shall show that $g\in\rho_{n}\left(  \operatorname*{Epk}%
+J\right)  $.
+
+From (\ref{pf.prop.K.Epk.F.1}), we obtain $\operatorname*{Epk}J=\left(
+\operatorname*{Des}J\cup\left\{  n\right\}  \right)  \setminus\left(
+\operatorname*{Des}J+1\right)  $. Thus, the set $\operatorname*{Epk}J$ is
+disjoint from $\operatorname*{Des}J+1$.
+
+We have $g\in\left(  \operatorname*{Des}J\right)  _{n}^{\circ}$. Thus, $g$ is
+an element of $\operatorname*{Des}J$ satisfying $g-1\notin\operatorname*{Des}%
+J$ or $\left[  g,n-1\right]  \subseteq\operatorname*{Des}J$ (by the definition
+of $\left(  \operatorname*{Des}J\right)  _{n}^{\circ}$). We are thus in one of
+the following two cases:
+
+\textit{Case 1:} We have $g-1\notin\operatorname*{Des}J$.
+
+\textit{Case 2:} We have $\left[  g,n-1\right]  \subseteq\operatorname*{Des}J$.
+
+Let us first consider Case 1. In this case, we have $g-1\notin%
+\operatorname*{Des}J$. In other words, $g\notin\operatorname*{Des}J+1$.
+Combined with $g\in\operatorname*{Des}J\subseteq\operatorname*{Des}%
+J\cup\left\{  n\right\}  $, this yields $g\in\left(  \operatorname*{Des}%
+J\cup\left\{  n\right\}  \right)  \setminus\left(  \operatorname*{Des}%
+J+1\right)  =\operatorname*{Epk}J$. Moreover, $g\neq n$ (since $g\in
+\operatorname*{Des}J\subseteq\left[  n-1\right]  $) and thus $g\in\left(
+\operatorname*{Epk}J\right)  \setminus\left\{  n\right\}  $ (since
+$g\in\operatorname*{Epk}J$). But each nonempty subset $T$ of $\left[
+n\right]  $ satisfies $T\setminus\left\{  n\right\}  \subseteq\rho_{n}\left(
+T\right)  $ (by the definition of $\rho_{n}\left(  T\right)  $). Applying this
+to $T=\operatorname*{Epk}J$, we obtain $\left(  \operatorname*{Epk}J\right)
+\setminus\left\{  n\right\}  \subseteq\rho_{n}\left(  \operatorname*{Epk}%
+J\right)  $. Hence, $g\in\left(  \operatorname*{Epk}J\right)  \setminus
+\left\{  n\right\}  \subseteq\rho_{n}\left(  \operatorname*{Epk}J\right)  $.
+Thus, $g\in\rho_{n}\left(  \operatorname*{Epk}J\right)  $ is proven in Case 1.
+
+Let us now consider Case 2. In this case, we have $\left[  g,n-1\right]
+\subseteq\operatorname*{Des}J$. Hence, each of the elements $g,g+1,\ldots,n-1$
+belongs to $\operatorname*{Des}J$. In other words, each of the elements
+$g+1,g+2,\ldots,n$ belongs to $\operatorname*{Des}J+1$. Hence, none of the
+elements $g+1,g+2,\ldots,n$ belongs to $\operatorname*{Epk}J$ (since the set
+$\operatorname*{Epk}J$ is disjoint from $\operatorname*{Des}J+1$). Thus,
+$\max\left(  \operatorname*{Epk}J\right)  \leq g$. Therefore, $g\in\left[
+\max\left(  \operatorname*{Epk}J\right)  ,n-1\right]  $ (since $g\in
+\operatorname*{Des}J\subseteq\left[  n-1\right]  $).
+
+Also, $n\notin\operatorname*{Epk}J$\ \ \ \ \footnote{\textit{Proof.} Assume
+the contrary. Thus, $n\in\operatorname*{Epk}J$. But none of the elements
+$g+1,g+2,\ldots,n$ belongs to $\operatorname*{Epk}J$. Hence, $n$ is not among
+the elements $g+1,g+2,\ldots,n$. Therefore, $g\geq n$, so that $g=n$. This
+contradicts $g\in\operatorname*{Des}J\subseteq\left[  n-1\right]  $. This
+contradiction shows that our assumption was wrong, qed.}. Hence, the
+definition of $\rho_{n}\left(  \operatorname*{Epk}J\right)  $ yields $\rho
+_{n}\left(  \operatorname*{Epk}J\right)  =\operatorname*{Epk}J\cup\left[
+\max\left(  \operatorname*{Epk}J\right)  ,n-1\right]  $. Now,%
+\[
+g\in\left[  \max\left(  \operatorname*{Epk}J\right)  ,n-1\right]
+\subseteq\operatorname*{Epk}J\cup\left[  \max\left(  \operatorname*{Epk}%
+J\right)  ,n-1\right]  =\rho_{n}\left(  \operatorname*{Epk}J\right)  .
+\]
+Hence, $g\in\rho_{n}\left(  \operatorname*{Epk}J\right)  $ is proven in Case 2.
+
+Thus, $g\in\rho_{n}\left(  \operatorname*{Epk}J\right)  $ is proven in both
+Cases 1 and 2. This shows that $g\in\rho_{n}\left(  \operatorname*{Epk}%
+J\right)  $ always holds.
+
+Forget that we fixed $g$. We thus have proven that $g\in\rho_{n}\left(
+\operatorname*{Epk}J\right)  $ for each $g\in\left(  \operatorname*{Des}%
+J\right)  _{n}^{\circ}$. In other words, $\left(  \operatorname*{Des}J\right)
+_{n}^{\circ}\subseteq\rho_{n}\left(  \operatorname*{Epk}J\right)  $.
+
+Now, let $h\in\rho_{n}\left(  \operatorname*{Epk}J\right)  $ be arbitrary. We
+shall prove that $h\in\left(  \operatorname*{Des}J\right)  _{n}^{\circ}$.
+
+We are in one of the following two cases:
+
+\textit{Case 1:} We have $n\in\operatorname*{Epk}J$.
+
+\textit{Case 2:} We have $n\notin\operatorname*{Epk}J$.
+
+Let us first consider Case 1. In this case, we have $n\in\operatorname*{Epk}%
+J$, and thus $\rho_{n}\left(  \operatorname*{Epk}J\right)
+=\operatorname*{Epk}J\setminus\left\{  n\right\}  $ (by the definition of
+$\rho_{n}\left(  \operatorname*{Epk}J\right)  $). Hence,
+\[
+h\in\rho_{n}\left(  \operatorname*{Epk}J\right)  =\operatorname*{Epk}%
+J\setminus\left\{  n\right\}  \subseteq\operatorname*{Epk}J=\left(
+\operatorname*{Des}J\cup\left\{  n\right\}  \right)  \setminus\left(
+\operatorname*{Des}J+1\right)  .
+\]
+In other words, $h\in\operatorname*{Des}J\cup\left\{  n\right\}  $ and
+$h\notin\operatorname*{Des}J+1$. Since $h\in\operatorname*{Des}J\cup\left\{
+n\right\}  $ and $h\neq n$ (because $h\in\rho_{n}\left(  \operatorname*{Epk}%
+J\right)  \subseteq\left[  n-1\right]  $), we obtain $h\in\left(
+\operatorname*{Des}J\cup\left\{  n\right\}  \right)  \setminus\left\{
+j\right\}  \subseteq\operatorname*{Des}J$. From $h\notin\operatorname*{Des}%
+J+1$, we obtain $h-1\notin\operatorname*{Des}J$. Thus, $h$ is an element of
+$\operatorname*{Des}J$ satisfying $h-1\notin\operatorname*{Des}J$ or $\left[
+h,n-1\right]  \subseteq\operatorname*{Des}J$ (in fact, $h-1\notin%
+\operatorname*{Des}J$ holds). Thus, $h\in\left(  \operatorname*{Des}J\right)
+_{n}^{\circ}$ (by the definition of $\left(  \operatorname*{Des}J\right)
+_{n}^{\circ}$). Thus, $h\in\left(  \operatorname*{Des}J\right)  _{n}^{\circ}$
+is proven in Case 1.
+
+Let us now consider Case 2. In this case, we have $n\notin\operatorname*{Epk}%
+J$. Hence, the definition of $\rho_{n}\left(  \operatorname*{Epk}J\right)  $
+yields $\rho_{n}\left(  \operatorname*{Epk}J\right)  =\left(
+\operatorname*{Epk}J\right)  \cup\left[  \max\left(  \operatorname*{Epk}%
+J\right)  ,n-1\right]  $. Thus, $h\in\rho_{n}\left(  \operatorname*{Epk}%
+J\right)  =\left(  \operatorname*{Epk}J\right)  \cup\left[  \max\left(
+\operatorname*{Epk}J\right)  ,n-1\right]  $.
+
+If $h\in\operatorname*{Epk}J$, then we can prove $h\in\left(
+\operatorname*{Des}J\right)  _{n}^{\circ}$ just as in Case 1. Hence, let us
+WLOG assume that we don't have $h\in\operatorname*{Epk}J$. Thus,
+$h\notin\operatorname*{Epk}J$. Combined with $h\in\left(  \operatorname*{Epk}%
+J\right)  \cup\left[  \max\left(  \operatorname*{Epk}J\right)  ,n-1\right]  $,
+this yields%
+\begin{align*}
+h  &  \in\left(  \left(  \operatorname*{Epk}J\right)  \cup\left[  \max\left(
+\operatorname*{Epk}J\right)  ,n-1\right]  \right)  \setminus\left(
+\operatorname*{Epk}J\right)  =\left[  \max\left(  \operatorname*{Epk}J\right)
+,n-1\right]  \setminus\left(  \operatorname*{Epk}J\right) \\
+&  \subseteq\left[  \max\left(  \operatorname*{Epk}J\right)  ,n-1\right]
+\subseteq\operatorname*{Des}J\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.prop.K.Epk.F.2})}\right)  .
+\end{align*}
+Moreover, from $h\in\left[  \max\left(  \operatorname*{Epk}J\right)
+,n-1\right]  $, we obtain $h\geq\max\left(  \operatorname*{Epk}J\right)  $, so
+that%
+\[
+\left[  h,n-1\right]  \subseteq\left[  \max\left(  \operatorname*{Epk}%
+J\right)  ,n-1\right]  \subseteq\operatorname*{Des}%
+J\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.K.Epk.F.2})}\right)  .
+\]
+Hence, $h$ is an element of $\operatorname*{Des}J$ satisfying $h-1\notin%
+\operatorname*{Des}J$ or $\left[  h,n-1\right]  \subseteq\operatorname*{Des}J$
+(namely, $\left[  h,n-1\right]  \subseteq\operatorname*{Des}J$). In other
+words, $h\in\left(  \operatorname*{Des}J\right)  _{n}^{\circ}$ (by the
+definition of $\left(  \operatorname*{Des}J\right)  _{n}^{\circ}$). Thus,
+$h\in\left(  \operatorname*{Des}J\right)  _{n}^{\circ}$ is proven in Case 2.
+
+We have now proven $h\in\left(  \operatorname*{Des}J\right)  _{n}^{\circ}$ in
+both Cases 1 and 2. Hence, $h\in\left(  \operatorname*{Des}J\right)
+_{n}^{\circ}$ always holds.
+
+Forget that we fixed $h$. We thus have shown that $h\in\left(
+\operatorname*{Des}J\right)  _{n}^{\circ}$ for each $h\in\rho_{n}\left(
+\operatorname*{Epk}J\right)  $. In other words, $\rho_{n}\left(
+\operatorname*{Epk}J\right)  \subseteq\left(  \operatorname*{Des}J\right)
+_{n}^{\circ}$. Combining this with $\left(  \operatorname*{Des}J\right)
+_{n}^{\circ}\subseteq\rho_{n}\left(  \operatorname*{Epk}J\right)  $, we obtain
+$\left(  \operatorname*{Des}J\right)  _{n}^{\circ}=\rho_{n}\left(
+\operatorname*{Epk}J\right)  $. This proves Claim 3.]
+
+\begin{statement}
+\textit{Claim 4:} Let $n\in\mathbb{N}$. Let $J$ and $K$ be two compositions of
+size $n$ satisfying $\operatorname*{Epk}J=\operatorname*{Epk}K$. Then,
+$\left(  \operatorname*{Des}J\right)  _{n}^{\circ}=\left(  \operatorname*{Des}%
+K\right)  _{n}^{\circ}$.
+\end{statement}
+
+[\textit{Proof of Claim 4:} Claim 3 yields $\left(  \operatorname*{Des}%
+J\right)  _{n}^{\circ}=\rho_{n}\left(  \operatorname*{Epk}J\right)  $ and
+similarly $\left(  \operatorname*{Des}K\right)  _{n}^{\circ}=\rho_{n}\left(
+\operatorname*{Epk}K\right)  $. Hence,%
+\[
+\left(  \operatorname*{Des}J\right)  _{n}^{\circ}=\rho_{n}\left(
+\underbrace{\operatorname*{Epk}J}_{=\operatorname*{Epk}K}\right)  =\rho
+_{n}\left(  \operatorname*{Epk}K\right)  =\left(  \operatorname*{Des}K\right)
+_{n}^{\circ}.
+\]
+This proves Claim 4.]
+
+We let $\overset{\ast}{\rightarrow}$ be the transitive-and-reflexive closure
+of the relation $\rightarrow$. Thus, two compositions $J$ and $K$ satisfy
+$J\overset{\ast}{\rightarrow}K$ if and only if there exists a sequence
+$\left(  L_{0},L_{1},\ldots,L_{\ell}\right)  $ of compositions satisfying
+$L_{0}=J$ and $L_{\ell}=K$ and $L_{0}\rightarrow L_{1}\rightarrow
+\cdots\rightarrow L_{\ell}$.
+
+\begin{statement}
+\textit{Claim 5:} Let $n\in\mathbb{N}$. Let $K$ be a composition of size $n$.
+Then, $\operatorname*{Comp}\left(  \left(  \operatorname*{Des}K\right)
+_{n}^{\circ}\right)  \overset{\ast}{\rightarrow}K$.
+\end{statement}
+
+[\textit{Proof of Claim 5:} We shall prove Claim 5 by strong induction on
+$\left\vert \left(  \operatorname*{Des}K\right)  \setminus\left(
+\operatorname*{Des}K\right)  _{n}^{\circ}\right\vert $. Thus, we fix an
+$n\in\mathbb{N}$ and a composition $K$ of size $n$, and we assume (as the
+induction hypothesis) that each composition $J$ of size $n$ satisfying
+$\left\vert \left(  \operatorname*{Des}J\right)  \setminus\left(
+\operatorname*{Des}J\right)  _{n}^{\circ}\right\vert <\left\vert \left(
+\operatorname*{Des}K\right)  \setminus\left(  \operatorname*{Des}K\right)
+_{n}^{\circ}\right\vert $ satisfies $\operatorname*{Comp}\left(  \left(
+\operatorname*{Des}J\right)  _{n}^{\circ}\right)  \overset{\ast}{\rightarrow
+}J$. Our goal is to prove that $\operatorname*{Comp}\left(  \left(
+\operatorname*{Des}K\right)  _{n}^{\circ}\right)  \overset{\ast}{\rightarrow
+}K$.
+
+Let $A=\operatorname*{Des}K$. Thus, $K=\operatorname*{Comp}A$ and
+$A\subseteq\left[  n-1\right]  $.
+
+Applying (\ref{pf.prop.K.Epk.F.1}) to $L=K$, we obtain $\operatorname*{Epk}%
+K=\left(  \operatorname*{Des}K\cup\left\{  n\right\}  \right)  \setminus
+\left(  \operatorname*{Des}K+1\right)  =\left(  A\cup\left\{  n\right\}
+\right)  \setminus\left(  A+1\right)  $ (since $\operatorname*{Des}K=A$).
+
+Also, $A_{n}^{\circ}\subseteq A$ (since $S_{n}^{\circ}\subseteq S$ for any
+subset $S$ of $\left[  n-1\right]  $). If $A_{n}^{\circ}=A$, then we are done
+(because if $A_{n}^{\circ}=A$, then $\operatorname*{Comp}\left(  \left(
+\underbrace{\operatorname*{Des}K}_{=A}\right)  _{n}^{\circ}\right)
+=\operatorname*{Comp}\left(  \underbrace{A_{n}^{\circ}}_{=A}\right)
+=\operatorname*{Comp}A=K$, and therefore the reflexivity of $\overset{\ast
+}{\rightarrow}$ shows that $\operatorname*{Comp}\left(  \left(
+\operatorname*{Des}K\right)  _{n}^{\circ}\right)  \overset{\ast}{\rightarrow
+}K$). Hence, we WLOG assume that $A_{n}^{\circ}\neq A$. Thus, $A_{n}^{\circ}$
+is a proper subset of $A$ (since $A_{n}^{\circ}\subseteq A$). Therefore, there
+exists a $q\in A$ satisfying $q\notin A_{n}^{\circ}$. Let $k$ be the
+\textbf{largest} such $q$. Thus, $k\in A$ and $k\notin A_{n}^{\circ}$. Hence,
+$k\in A\setminus A_{n}^{\circ}$. Also, $k\in A\subseteq\left[  n-1\right]  $.
+
+Let $J=\operatorname*{Comp}\left(  A\setminus\left\{  k\right\}  \right)  $.
+Thus, $\operatorname*{Des}J=A\setminus\left\{  k\right\}  $, so that
+$A=\operatorname*{Des}J\cup\left\{  k\right\}  $ (since $k\in A$). Hence,
+$\operatorname*{Des}K=A=\operatorname*{Des}J\cup\left\{  k\right\}  $. Also,
+$k\notin A\setminus\left\{  k\right\}  =\operatorname*{Des}J$.
+
+Furthermore, $k-1\notin\operatorname*{Des}J$\ \ \ \ \footnote{\textit{Proof.}
+Assume the contrary. Thus, $k-1\in\operatorname*{Des}J$. Hence, $k-1\in
+\operatorname*{Des}J=A\setminus\left\{  k\right\}  \subseteq A$. Therefore,
+the element $k$ of $A$ satisfies $k-1\in A$ or $\left[  k,n-1\right]
+\subseteq A$. Thus, the definition of $A_{n}^{\circ}$ yields $k\in
+A_{n}^{\circ}$. This contradicts $k\notin A_{n}^{\circ}$. This contradiction
+shows that our assumption was false; qed.} and $k+1\notin\operatorname*{Des}%
+J\cup\left\{  n\right\}  $\ \ \ \ \footnote{\textit{Proof.} Assume the
+contrary. Thus, $k+1\in\operatorname*{Des}J\cup\left\{  n\right\}  $. In other
+words, we have $k+1\in\operatorname*{Des}J$ or $k+1=n$. In other words, we are
+in one of the following two cases:
+\par
+\textit{Case 1:} We have $k+1\in\operatorname*{Des}J$.
+\par
+\textit{Case 2:} We have $k+1=n$.
+\par
+Let us first consider Case 1. In this case, we have $k+1\in\operatorname*{Des}%
+J$. Hence, $k+1\in\operatorname*{Des}J\subseteq\operatorname*{Des}%
+J\cup\left\{  k\right\}  =A$. If we had $k+1\notin A_{n}^{\circ}$, then $k+1$
+would be a $q\in A$ satisfying $q\notin A_{n}^{\circ}$; this would contradict
+the fact that $k$ is the \textbf{largest} such $q$ (since $k+1$ is larger than
+$k$). Hence, we cannot have $k+1\notin A_{n}^{\circ}$. Thus, we must have
+$k+1\in A_{n}^{\circ}$. In other words, $k+1$ is an element of $A$ satisfying
+$\left(  k+1\right)  -1\notin A$ or $\left[  k+1,n-1\right]  \subseteq A$ (by
+the definition of $A_{n}^{\circ}$). Since $\left(  k+1\right)  -1\notin A$ is
+impossible (because $\left(  k+1\right)  -1=k\in A$), we thus have $\left[
+k+1,n-1\right]  \subseteq A$. Now, $\left[  k,n-1\right]
+=\underbrace{\left\{  k\right\}  }_{\substack{\subseteq A\\\text{(since }k\in
+A\text{)}}}\cup\underbrace{\left[  k+1,n-1\right]  }_{\subseteq A}\subseteq
+A\cup A=A$. Thus, the element $k$ of $A$ satisfies $k-1\notin A$ or $\left[
+k,n-1\right]  \subseteq A$. In other words, $k\in A_{n}^{\circ}$ (by the
+definition of $A_{n}^{\circ}$). This contradicts $k\notin A_{n}^{\circ}$.
+Thus, we have found a contradiction in Case 1.
+\par
+Let us now consider Case 2. In this case, we have $k+1=n$. Hence, $k=n-1$, so
+that $\left[  k,n-1\right]  =\left\{  k\right\}  \subseteq A$ (since $k\in
+A$). Thus, the element $k$ of $A$ satisfies $k-1\notin A$ or $\left[
+k,n-1\right]  \subseteq A$. In other words, $k\in A_{n}^{\circ}$ (by the
+definition of $A_{n}^{\circ}$). This contradicts $k\notin A_{n}^{\circ}$.
+Thus, we have found a contradiction in Case 2.
+\par
+We have therefore found a contradiction in each of the two Cases 1 and 2.
+Thus, we always get a contradiction, so our assumption must have been wrong.
+Qed.}. Hence, we have found a $k\in\left[  n-1\right]  $ satisfying%
+\begin{align*}
+\operatorname*{Des}K  &  =\operatorname*{Des}J\cup\left\{  k\right\}
+,\ \ \ \ \ \ \ \ \ \ k\notin\operatorname*{Des}J,\\
+k-1  &  \in\operatorname*{Des}J\ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ k+1\notin\operatorname*{Des}J\cup\left\{  n\right\}  .
+\end{align*}
+Therefore, Claim 1 yields $J\rightarrow K$. Thus, Claim 2 yields
+$\operatorname*{Epk}J=\operatorname*{Epk}K$. Claim 4 therefore yields $\left(
+\operatorname*{Des}J\right)  _{n}^{\circ}=\left(  \operatorname*{Des}K\right)
+_{n}^{\circ}=A_{n}^{\circ}$ (since $\operatorname*{Des}K=A$). Thus,%
+\begin{align*}
+\left\vert \underbrace{\left(  \operatorname*{Des}J\right)  }_{=A\setminus
+\left\{  k\right\}  }\setminus\underbrace{\left(  \operatorname*{Des}J\right)
+_{n}^{\circ}}_{=A_{n}^{\circ}}\right\vert  &  =\left\vert \underbrace{\left(
+A\setminus\left\{  k\right\}  \right)  \setminus A_{n}^{\circ}}_{=\left(
+A\setminus A_{n}^{\circ}\right)  \setminus\left\{  k\right\}  }\right\vert
+=\left\vert \left(  A\setminus A_{n}^{\circ}\right)  \setminus\left\{
+k\right\}  \right\vert \\
+&  =\left\vert A\setminus A_{n}^{\circ}\right\vert
+-1\ \ \ \ \ \ \ \ \ \ \left(  \text{since }k\in A\setminus A_{n}^{\circ
+}\right) \\
+&  =\left\vert \left(  \operatorname*{Des}K\right)  \setminus\left(
+\operatorname*{Des}K\right)  _{n}^{\circ}\right\vert
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }A=\operatorname*{Des}K\right)  .
+\end{align*}
+Thus, the induction hypothesis shows that $\operatorname*{Comp}\left(  \left(
+\operatorname*{Des}J\right)  _{n}^{\circ}\right)  \overset{\ast}{\rightarrow
+}J$. Combining this with $J\rightarrow K$, we obtain $\operatorname*{Comp}%
+\left(  \left(  \operatorname*{Des}J\right)  _{n}^{\circ}\right)
+\overset{\ast}{\rightarrow}K$ (since $\overset{\ast}{\rightarrow}$ is the
+transitive-and-reflexive closure of the relation $\rightarrow$). In light of
+$\left(  \operatorname*{Des}J\right)  _{n}^{\circ}=\left(  \operatorname*{Des}%
+K\right)  _{n}^{\circ}$, this rewrites as $\operatorname*{Comp}\left(  \left(
+\operatorname*{Des}K\right)  _{n}^{\circ}\right)  \overset{\ast}{\rightarrow
+}K$. Thus, Claim 5 is proven by induction.]
+
+Now, let $\mathcal{K}^{\prime}$ be the $\mathbb{Q}$-vector subspace of
+$\operatorname*{QSym}$ spanned by all differences of the form $F_{J}-F_{K}$,
+where $J$ and $K$ are two compositions satisfying $J\rightarrow K$.
+
+\begin{statement}
+\textit{Claim 6:} Let $J$ and $K$ be two compositions such that
+$J\overset{\ast}{\rightarrow}K$. Then, $F_{J}-F_{K}\in\mathcal{K}^{\prime}$.
+\end{statement}
+
+[\textit{Proof of Claim 6:} We have $J\overset{\ast}{\rightarrow}K$. By the
+definition of the relation $\overset{\ast}{\rightarrow}$, this means that
+there exists a sequence $\left(  L_{0},L_{1},\ldots,L_{\ell}\right)  $ of
+compositions satisfying $L_{0}=J$ and $L_{\ell}=K$ and $L_{0}\rightarrow
+L_{1}\rightarrow\cdots\rightarrow L_{\ell}$. Consider this sequence. For each
+$i\in\left\{  0,1,\ldots,\ell-1\right\}  $, we have $L_{i}\rightarrow L_{i+1}$
+and thus $F_{L_{i}}-F_{L_{i+1}}\in\mathcal{K}^{\prime}$ (by the definition of
+$\mathcal{K}^{\prime}$). Therefore, $\sum_{i=0}^{\ell-1}\left(  F_{L_{i}%
+}-F_{L_{i+1}}\right)  \in\mathcal{K}^{\prime}$. In light of%
+\begin{align*}
+\sum_{i=0}^{\ell-1}\left(  F_{L_{i}}-F_{L_{i+1}}\right)   &  =F_{L_{0}%
+}-F_{L_{\ell}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by the telescope
+principle}\right) \\
+&  =F_{J}-F_{K}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }L_{0}=J\text{ and
+}L_{\ell}=K\right)  ,
+\end{align*}
+this rewrites as $F_{J}-F_{K}\in\mathcal{K}^{\prime}$. This proves Claim 6.]
+
+\begin{statement}
+\textit{Claim 7:} We have $\mathcal{K}_{\operatorname*{Epk}}\subseteq
+\mathcal{K}^{\prime}$.
+\end{statement}
+
+[\textit{Proof of Claim 7:} Recall that $\mathcal{K}_{\operatorname*{Epk}}$ is
+the $\mathbb{Q}$-vector subspace of $\operatorname*{QSym}$ spanned by all
+elements of the form $F_{J}-F_{K}$, where $J$ and $K$ are two compositions of
+the same size satisfying $\operatorname*{Epk}J=\operatorname*{Epk}K$. Thus, it
+suffices to show that if $J$ and $K$ are two compositions of the same size
+satisfying $\operatorname*{Epk}J=\operatorname*{Epk}K$, then $F_{J}-F_{K}%
+\in\mathcal{K}^{\prime}$.
+
+So let $J$ and $K$ be two compositions of the same size satisfying
+$\operatorname*{Epk}J=\operatorname*{Epk}K$. We must prove that $F_{J}%
+-F_{K}\in\mathcal{K}^{\prime}$.
+
+Let $n=\left\vert J\right\vert =\left\vert K\right\vert $. (This is
+well-defined, since $J$ and $K$ are compositions of the same size.)
+
+Claim 4 yields $\left(  \operatorname*{Des}J\right)  _{n}^{\circ}=\left(
+\operatorname*{Des}K\right)  _{n}^{\circ}$. But Claim 5 yields
+$\operatorname*{Comp}\left(  \left(  \operatorname*{Des}K\right)  _{n}^{\circ
+}\right)  \overset{\ast}{\rightarrow}K$. Hence, Claim 6 (applied to
+$\operatorname*{Comp}\left(  \left(  \operatorname*{Des}K\right)  _{n}^{\circ
+}\right)  $ instead of $J$) shows that $F_{\operatorname*{Comp}\left(  \left(
+\operatorname*{Des}K\right)  _{n}^{\circ}\right)  }-F_{K}\in\mathcal{K}%
+^{\prime}$. The same argument (applied to $J$ instead of $K$) shows that
+$F_{\operatorname*{Comp}\left(  \left(  \operatorname*{Des}J\right)
+_{n}^{\circ}\right)  }-F_{J}\in\mathcal{K}^{\prime}$. Now,%
+\begin{align*}
+&  \left(  F_{\operatorname*{Comp}\left(  \left(  \operatorname*{Des}K\right)
+_{n}^{\circ}\right)  }-F_{K}\right)  -\left(  F_{\operatorname*{Comp}\left(
+\left(  \operatorname*{Des}J\right)  _{n}^{\circ}\right)  }-F_{J}\right) \\
+&  =\left(  F_{\operatorname*{Comp}\left(  \left(  \operatorname*{Des}%
+K\right)  _{n}^{\circ}\right)  }-\underbrace{F_{\operatorname*{Comp}\left(
+\left(  \operatorname*{Des}J\right)  _{n}^{\circ}\right)  }}%
+_{\substack{=F_{\operatorname*{Comp}\left(  \left(  \operatorname*{Des}%
+K\right)  _{n}^{\circ}\right)  }\\\text{(since }\left(  \operatorname*{Des}%
+J\right)  _{n}^{\circ}=\left(  \operatorname*{Des}K\right)  _{n}^{\circ
+}\text{)}}}\right)  +F_{J}-F_{K}\\
+&  =\underbrace{\left(  F_{\operatorname*{Comp}\left(  \left(
+\operatorname*{Des}K\right)  _{n}^{\circ}\right)  }-F_{\operatorname*{Comp}%
+\left(  \left(  \operatorname*{Des}K\right)  _{n}^{\circ}\right)  }\right)
+}_{=0}+F_{J}-F_{K}=F_{J}-F_{K},
+\end{align*}
+so that%
+\[
+F_{J}-F_{K}=\underbrace{\left(  F_{\operatorname*{Comp}\left(  \left(
+\operatorname*{Des}K\right)  _{n}^{\circ}\right)  }-F_{K}\right)  }%
+_{\in\mathcal{K}^{\prime}}-\underbrace{\left(  F_{\operatorname*{Comp}\left(
+\left(  \operatorname*{Des}J\right)  _{n}^{\circ}\right)  }-F_{J}\right)
+}_{\in\mathcal{K}^{\prime}}\in\mathcal{K}^{\prime}-\mathcal{K}^{\prime
+}\subseteq\mathcal{K}^{\prime}.
+\]
+This proves Claim 7.]
+
+\begin{statement}
+\textit{Claim 8:} We have $\mathcal{K}^{\prime}\subseteq\mathcal{K}%
+_{\operatorname*{Epk}}$.
+\end{statement}
+
+[\textit{Proof of Claim 8:} Recall that $\mathcal{K}^{\prime}$ is the
+$\mathbb{Q}$-vector subspace of $\operatorname*{QSym}$ spanned by all
+differences of the form $F_{J}-F_{K}$, where $J$ and $K$ are two compositions
+satisfying $J\rightarrow K$. Thus, it suffices to show that if $J$ and $K$ are
+two compositions satisfying $J\rightarrow K$, then $F_{J}-F_{K}\in
+\mathcal{K}_{\operatorname*{Epk}}$.
+
+So let $J$ and $K$ be two compositions satisfying $J\rightarrow K$. We must
+prove that $F_{J}-F_{K}\in\mathcal{K}_{\operatorname*{Epk}}$.
+
+We have $J\rightarrow K$ and thus $J\overset{\ast}{\rightarrow}K$ (since
+$\overset{\ast}{\rightarrow}$ is the transitive-and-reflexive closure of the
+relation $\rightarrow$). Hence, Claim 6 shows that $F_{J}-F_{K}\in
+\mathcal{K}^{\prime}$. This proves Claim 8.]
+
+Combining Claim 7 and Claim 8, we obtain $\mathcal{K}_{\operatorname*{Epk}%
+}=\mathcal{K}^{\prime}$. Recalling the definition of $\mathcal{K}^{\prime}$,
+we can rewrite this as follows: $\mathcal{K}_{\operatorname*{Epk}}$ is the
+$\mathbb{Q}$-vector subspace of $\operatorname*{QSym}$ spanned by all
+differences of the form $F_{J}-F_{K}$, where $J$ and $K$ are two compositions
+satisfying $J\rightarrow K$. This proves Proposition \ref{prop.K.Epk.F}.
+\end{proof}
+
+\subsection{The M-generating set of $\mathcal{K}_{\operatorname*{Epk}}$}
+
+Another characterization of the ideal $\mathcal{K}_{\operatorname*{Epk}}$ of
+$\operatorname*{QSym}$ can be obtained using the monomial basis of
+$\operatorname*{QSym}$. Let us first recall how said basis is defined:
+
+For any composition $\alpha=\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{\ell
+}\right)  $, we let%
+\[
+M_{\alpha}=\sum_{i_{1}<i_{2}<\cdots<i_{\ell}}x_{i_{1}}^{\alpha_{1}}x_{i_{2}%
+}^{\alpha_{2}}\cdots x_{i_{\ell}}^{\alpha_{\ell}}%
+\]
+(where the sum is over all strictly increasing $\ell$-tuples $\left(
+i_{1},i_{2},\ldots,i_{\ell}\right)  $ of positive integers). This power series
+$M_{\alpha}$ belongs to $\operatorname*{QSym}$. The family $\left(  M_{\alpha
+}\right)  _{\alpha\text{ is a composition}}$ is a basis of the $\mathbb{Q}%
+$-vector space $\operatorname*{QSym}$; it is called the \textit{monomial
+basis} of $\operatorname*{QSym}$.
+
+\begin{proposition}
+\label{prop.K.Epk.M}If $J=\left(  j_{1},j_{2},\ldots,j_{m}\right)  $ and $K$
+are two compositions, then we shall write $J\underset{M}{\rightarrow}K$ if
+there exists an $\ell\in\left\{  2,3,\ldots,m\right\}  $ such that $j_{\ell
+}>2$ and $K=\left(  j_{1},j_{2},\ldots,j_{\ell-1},2,j_{\ell}-2,j_{\ell
++1},j_{\ell+2},\ldots,j_{m}\right)  $. (In other words, we write
+$J\underset{M}{\rightarrow}K$ if $K$ can be obtained from $J$ by
+\textquotedblleft splitting\textquotedblright\ some entry $j_{\ell}>2$ into
+two consecutive entries $2$ and $j_{\ell}-2$, provided that this entry was not
+the first entry -- i.e., we had $\ell>1$ -- and that this entry was greater
+than $2$.)
+
+The ideal $\mathcal{K}_{\operatorname*{Epk}}$ of $\operatorname*{QSym}$ is
+spanned (as a $\mathbb{Q}$-vector space) by all sums of the form $M_{J}+M_{K}%
+$, where $J$ and $K$ are two compositions satisfying
+$J\underset{M}{\rightarrow}K$.
+\end{proposition}
+
+\begin{example}
+We have $\left(  2,1,4,4\right)  \underset{M}{\rightarrow}\left(
+2,1,2,2,4\right)  $, since the composition $\left(  2,1,2,2,4\right)  $ is
+obtained from $\left(  2,1,4,4\right)  $ by splitting the third entry (which
+is $4>2$) into two consecutive entries $2$ and $2$.
+
+Similarly, $\left(  2,1,4,4\right)  \underset{M}{\rightarrow}\left(
+2,1,4,2,2\right)  $ and $\left(  2,1,5,4\right)  \underset{M}{\rightarrow
+}\left(  2,1,2,3,4\right)  $.
+
+But we do not have $\left(  3,1\right)  \underset{M}{\rightarrow}\left(
+2,1,1\right)  $, because splitting the first entry of the composition is not
+allowed in the definition of the relation $\underset{M}{\rightarrow}$.
+
+Two compositions $J$ and $K$ satisfying $J\underset{M}{\rightarrow}K$ must
+necessarily satisfy $\left\vert J\right\vert =\left\vert K\right\vert $.
+
+Here are all relations $\underset{M}{\rightarrow}$ between compositions of
+size $4$:%
+\[
+\left(  1,3\right)  \underset{M}{\rightarrow}\left(  1,2,1\right)  .
+\]
+
+
+Here are all relations $\underset{M}{\rightarrow}$ between compositions of
+size $5$:%
+\begin{align*}
+\left(  1,4\right)   &  \underset{M}{\rightarrow}\left(  1,2,2\right)  ,\\
+\left(  1,3,1\right)   &  \underset{M}{\rightarrow}\left(  1,2,1,1\right)  ,\\
+\left(  1,1,3\right)   &  \underset{M}{\rightarrow}\left(  1,1,2,1\right)  ,\\
+\left(  2,3\right)   &  \underset{M}{\rightarrow}\left(  2,2,1\right)  .
+\end{align*}
+There are no relations $\underset{M}{\rightarrow}$ between compositions of
+size $\leq3$.
+\end{example}
+
+Before we start proving Proposition \ref{prop.K.Epk.M}, let us recall a basic
+formula that connects the monomial quasisymmetric functions with the
+fundamental quasisymmetric functions:
+
+\begin{proposition}
+\label{prop.M-through-F.1}Let $n\in\mathbb{N}$. Let $\alpha$ be any
+composition of $n$. Then,%
+\[
+M_{\alpha}=\sum_{\substack{\beta\text{ is a composition}\\\text{of }n\text{
+that refines }\alpha}}\left(  -1\right)  ^{\ell\left(  \beta\right)
+-\ell\left(  \alpha\right)  }F_{\beta}.
+\]
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.M-through-F.1}.]This precisely \cite[(5.2.2)]%
+{HopfComb}. (If the numbering shifts: This is the formula in Proposition 5.2.8.)
+\end{proof}
+
+\begin{proposition}
+\label{prop.M-through-F.2}Let $n$ be a positive integer. Let $C$ be a subset
+of $\left[  n-1\right]  $.
+
+\textbf{(a)} Then,%
+\[
+M_{\operatorname*{Comp}C}=\sum_{B\supseteq C}\left(  -1\right)  ^{\left\vert
+B\setminus C\right\vert }F_{\operatorname*{Comp}B}.
+\]
+(The bound variable $B$ in this sum and any similar sums is supposed to be a
+subset of $\left[  n-1\right]  $; thus, the above sum ranges over all subsets
+$B$ of $\left[  n-1\right]  $ satisfying $B\supseteq C$.)
+
+\textbf{(b)} Let $k\in\left[  n-1\right]  $ be such that $k\notin C$. Then,%
+\[
+M_{\operatorname*{Comp}C}+M_{\operatorname*{Comp}\left(  C\cup\left\{
+k\right\}  \right)  }=\sum_{\substack{B\supseteq C;\\k\notin B}}\left(
+-1\right)  ^{\left\vert B\setminus C\right\vert }F_{\operatorname*{Comp}B}.
+\]
+
+
+\textbf{(c)} Let $k\in\left[  n-1\right]  $ be such that $k\notin C$ and
+$k-1\notin C\cup\left\{  0\right\}  $. Then,%
+\[
+M_{\operatorname*{Comp}C}+M_{\operatorname*{Comp}\left(  C\cup\left\{
+k\right\}  \right)  }=\sum_{\substack{B\supseteq C;\\k\notin B;\\k-1\notin
+B}}\left(  -1\right)  ^{\left\vert B\setminus C\right\vert }\left(
+F_{\operatorname*{Comp}B}-F_{\operatorname*{Comp}\left(  B\cup\left\{
+k-1\right\}  \right)  }\right)  .
+\]
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.M-through-F.2}.]\textbf{(a)} Proposition
+\ref{prop.M-through-F.2} \textbf{(a)} is the result of applying Proposition
+\ref{prop.M-through-F.1} to $\alpha=\operatorname*{Comp}C$ and using the
+standard dictionary between compositions of $n$ and subsets of $\left[
+n-1\right]  $.
+
+\textbf{(b)} Proposition \ref{prop.M-through-F.2} \textbf{(a)} (applied to
+$C\cup\left\{  k\right\}  $ instead of $C$) yields%
+\begin{align}
+M_{\operatorname*{Comp}\left(  C\cup\left\{  k\right\}  \right)  }  &
+=\underbrace{\sum_{B\supseteq C\cup\left\{  k\right\}  }}_{=\sum
+_{\substack{B\supseteq C;\\k\in B}}}\underbrace{\left(  -1\right)
+^{\left\vert B\setminus\left(  C\cup\left\{  k\right\}  \right)  \right\vert
+}}_{\substack{=\left(  -1\right)  ^{\left\vert B\setminus C\right\vert
+-1}\\\text{(since }\left\vert B\setminus\left(  C\cup\left\{  k\right\}
+\right)  \right\vert =\left\vert B\setminus C\right\vert -1\\\text{(since
+}k\notin C\text{))}}}F_{\operatorname*{Comp}B}=\sum_{\substack{B\supseteq
+C;\\k\in B}}\underbrace{\left(  -1\right)  ^{\left\vert B\setminus
+C\right\vert -1}}_{=-\left(  -1\right)  ^{\left\vert B\setminus C\right\vert
+}}F_{\operatorname*{Comp}B}\nonumber\\
+&  =-\sum_{\substack{B\supseteq C;\\k\in B}}\left(  -1\right)  ^{\left\vert
+B\setminus C\right\vert }F_{\operatorname*{Comp}B}.
+\label{pf.prop.M-through-F.2.b.1}%
+\end{align}
+But Proposition \ref{prop.M-through-F.2} \textbf{(a)} yields
+\begin{align*}
+M_{\operatorname*{Comp}C}  &  =\sum_{B\supseteq C}\left(  -1\right)
+^{\left\vert B\setminus C\right\vert }F_{\operatorname*{Comp}B}\\
+&  =\sum_{\substack{B\supseteq C;\\k\in B}}\left(  -1\right)  ^{\left\vert
+B\setminus C\right\vert }F_{\operatorname*{Comp}B}+\sum_{\substack{B\supseteq
+C;\\k\notin B}}\left(  -1\right)  ^{\left\vert B\setminus C\right\vert
+}F_{\operatorname*{Comp}B}.
+\end{align*}
+Adding (\ref{pf.prop.M-through-F.2.b.1}) to this equality, we obtain%
+\begin{align*}
+&  M_{\operatorname*{Comp}C}+M_{\operatorname*{Comp}\left(  C\cup\left\{
+k\right\}  \right)  }\\
+&  =\sum_{\substack{B\supseteq C;\\k\in B}}\left(  -1\right)  ^{\left\vert
+B\setminus C\right\vert }F_{\operatorname*{Comp}B}+\sum_{\substack{B\supseteq
+C;\\k\notin B}}\left(  -1\right)  ^{\left\vert B\setminus C\right\vert
+}F_{\operatorname*{Comp}B}+\left(  -\sum_{\substack{B\supseteq C;\\k\in
+B}}\left(  -1\right)  ^{\left\vert B\setminus C\right\vert }%
+F_{\operatorname*{Comp}B}\right) \\
+&  =\sum_{\substack{B\supseteq C;\\k\notin B}}\left(  -1\right)  ^{\left\vert
+B\setminus C\right\vert }F_{\operatorname*{Comp}B}.
+\end{align*}
+This proves Proposition \ref{prop.M-through-F.2} \textbf{(b)}.
+
+\textbf{(c)} We have $k-1\notin C\cup\left\{  0\right\}  $. Thus, $k-1\notin
+C$ and $k-1\neq0$. From $k-1\neq0$, we obtain $k-1\in\left[  n-1\right]  $.
+
+The map%
+\begin{align}
+&  \left\{  B\subseteq\left[  n-1\right]  \ \mid\ B\supseteq C\text{ and
+}k\notin B\text{ and }k-1\notin B\right\} \nonumber\\
+&  \rightarrow\left\{  B\subseteq\left[  n-1\right]  \ \mid\ B\supseteq
+C\text{ and }k\notin B\text{ and }k-1\in B\right\} \nonumber
+\end{align}
+sending each $B$ to $B\cup\left\{  k-1\right\}  $ is a bijection (this is easy
+to check using the facts that $k-1\notin C$ and $k-1\in\left[  n-1\right]  $).
+We shall denote this map by $\Phi$.
+
+Proposition \ref{prop.M-through-F.2} \textbf{(b)} yields
+\begin{align*}
+&  M_{\operatorname*{Comp}C}+M_{\operatorname*{Comp}\left(  C\cup\left\{
+k\right\}  \right)  }\\
+&  =\sum_{\substack{B\supseteq C;\\k\notin B}}\left(  -1\right)  ^{\left\vert
+B\setminus C\right\vert }F_{\operatorname*{Comp}B}\\
+&  =\sum_{\substack{B\supseteq C;\\k\notin B;\\k-1\notin B}}\left(  -1\right)
+^{\left\vert B\setminus C\right\vert }F_{\operatorname*{Comp}B}%
++\underbrace{\sum_{\substack{B\supseteq C;\\k\notin B;\\k-1\in B}}\left(
+-1\right)  ^{\left\vert B\setminus C\right\vert }F_{\operatorname*{Comp}B}%
+}_{\substack{=\sum_{\substack{B\supseteq C;\\k\notin B;\\k-1\notin B}}\left(
+-1\right)  ^{\left\vert \left(  B\cup\left\{  k-1\right\}  \right)  \setminus
+C\right\vert }F_{\operatorname*{Comp}\left(  B\cup\left\{  k-1\right\}
+\right)  }\\\text{(here, we have substituted }B\cup\left\{  k-1\right\}
+\text{ for }B\text{ in the sum}\\\text{(since the map }\Phi\text{ is a
+bijection))}}}\\
+&  =\sum_{\substack{B\supseteq C;\\k\notin B;\\k-1\notin B}}\left(  -1\right)
+^{\left\vert B\setminus C\right\vert }F_{\operatorname*{Comp}B}+\sum
+_{\substack{B\supseteq C;\\k\notin B;\\k-1\notin B}}\underbrace{\left(
+-1\right)  ^{\left\vert \left(  B\cup\left\{  k-1\right\}  \right)  \setminus
+C\right\vert }}_{\substack{=\left(  -1\right)  ^{\left\vert B\setminus
+C\right\vert +1}\\\text{(since }\left\vert \left(  B\cup\left\{  k-1\right\}
+\right)  \setminus C\right\vert =\left\vert B\setminus C\right\vert
++1\\\text{(since }k-1\notin B\text{ and }k-1\notin C\text{))}}%
+}F_{\operatorname*{Comp}\left(  B\cup\left\{  k-1\right\}  \right)  }\\
+&  =\sum_{\substack{B\supseteq C;\\k\notin B;\\k-1\notin B}}\left(  -1\right)
+^{\left\vert B\setminus C\right\vert }F_{\operatorname*{Comp}B}+\sum
+_{\substack{B\supseteq C;\\k\notin B;\\k-1\notin B}}\underbrace{\left(
+-1\right)  ^{\left\vert B\setminus C\right\vert +1}}_{=-\left(  -1\right)
+^{\left\vert B\setminus C\right\vert }}F_{\operatorname*{Comp}\left(
+B\cup\left\{  k-1\right\}  \right)  }\\
+&  =\sum_{\substack{B\supseteq C;\\k\notin B;\\k-1\notin B}}\left(  -1\right)
+^{\left\vert B\setminus C\right\vert }F_{\operatorname*{Comp}B}-\sum
+_{\substack{B\supseteq C;\\k\notin B;\\k-1\notin B}}\left(  -1\right)
+^{\left\vert B\setminus C\right\vert }F_{\operatorname*{Comp}\left(
+B\cup\left\{  k-1\right\}  \right)  }\\
+&  =\sum_{\substack{B\supseteq C;\\k\notin B;\\k-1\notin B}}\left(  -1\right)
+^{\left\vert B\setminus C\right\vert }\left(  F_{\operatorname*{Comp}%
+B}-F_{\operatorname*{Comp}\left(  B\cup\left\{  k-1\right\}  \right)
+}\right)  .
+\end{align*}
+This proves Proposition \ref{prop.M-through-F.2} \textbf{(c)}.
+\end{proof}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.K.Epk.M}.]We shall use the notation
+$\left\langle f_{i}\ \mid\ i\in I\right\rangle $ for the $\mathbb{Q}$-linear
+span of a family $\left(  f_{i}\right)  _{i\in I}$ of elements of a
+$\mathbb{Q}$-vector space.
+
+Define a $\mathbb{Q}$-vector subspace $\mathcal{M}$ of $\operatorname*{QSym}$
+by%
+\[
+\mathcal{M}=\left\langle M_{J}+M_{K}\ \mid\ J\text{ and }K\text{ are
+compositions satisfying }J\underset{M}{\rightarrow}K\right\rangle .
+\]
+Then, our goal is to prove that $\mathcal{K}_{\operatorname*{Epk}}%
+=\mathcal{M}$.
+
+We have%
+\begin{align*}
+\mathcal{M}  &  =\left\langle M_{J}+M_{K}\ \mid\ J\text{ and }K\text{ are
+compositions satisfying }J\underset{M}{\rightarrow}K\right\rangle \\
+&  =\sum_{n\in\mathbb{N}}\left\langle M_{J}+M_{K}\ \mid\ J\text{ and }K\text{
+are compositions of }n\text{ satisfying }J\underset{M}{\rightarrow
+}K\right\rangle
+\end{align*}
+(because if $J$ and $K$ are two compositions satisfying
+$J\underset{M}{\rightarrow}K$, then $J$ and $K$ have the same size).
+
+Consider the binary relation $\rightarrow$ defined in Proposition
+\ref{prop.K.Epk.F}. Then, Proposition \ref{prop.K.Epk.F} yields%
+\begin{align*}
+\mathcal{K}_{\operatorname*{Epk}}  &  =\left\langle F_{J}-F_{K}\ \mid\ J\text{
+and }K\text{ are compositions satisfying }J\rightarrow K\right\rangle \\
+&  =\sum_{n\in\mathbb{N}}\left\langle F_{J}-F_{K}\ \mid\ J\text{ and }K\text{
+are compositions of }n\text{ satisfying }J\rightarrow K\right\rangle
+\end{align*}
+(because if $J$ and $K$ are two compositions satisfying $J\rightarrow K$, then
+$J$ and $K$ have the same size).
+
+Now, fix $n\in\mathbb{N}$. Let $\Omega$ be the set of all pairs $\left(
+C,k\right)  $ in which $C$ is a subset of $\left[  n-1\right]  $ and $k$ is an
+element of $\left[  n-1\right]  $ satisfying $k\notin C$, $k-1\in C$ and
+$k+1\notin C\cup\left\{  n\right\}  $.
+
+For every $\left(  C,k\right)  \in\Omega$, we define two elements
+$\mathbf{m}_{C,k}$ and $\mathbf{f}_{C,k}$ of $\operatorname*{QSym}$ by%
+\begin{align}
+\mathbf{m}_{C,k}  &  =M_{\operatorname*{Comp}C}+M_{\operatorname*{Comp}\left(
+C\cup\left\{  k+1\right\}  \right)  }\ \ \ \ \ \ \ \ \ \ \text{and}%
+\label{pf.prop.K.Epk.M.mCk=}\\
+\mathbf{f}_{C,k}  &  =F_{\operatorname*{Comp}C}-F_{\operatorname*{Comp}\left(
+C\cup\left\{  k\right\}  \right)  }. \label{pf.prop.K.Epk.M.fCk=}%
+\end{align}
+\footnote{These two elements are well-defined, because both $C\cup\left\{
+k\right\}  $ and $C\cup\left\{  k+1\right\}  $ are subsets of $\left[
+n-1\right]  $ (since $k+1\notin C\cup\left\{  n\right\}  $ shows that $k+1\neq
+n$).}
+
+We have the following:
+
+\begin{statement}
+\textit{Claim 1:} We have%
+\begin{align*}
+&  \left\langle M_{J}+M_{K}\ \mid\ J\text{ and }K\text{ are compositions of
+}n\text{ satisfying }J\underset{M}{\rightarrow}K\right\rangle \\
+&  =\left\langle \mathbf{m}_{C,k}\ \mid\ \left(  C,k\right)  \in
+\Omega\right\rangle .
+\end{align*}
+
+\end{statement}
+
+[\textit{Proof of Claim 1:} It is easy to see that two subsets $C$ and $D$ of
+$\left[  n-1\right]  $ satisfy $\operatorname*{Comp}C\underset{M}{\rightarrow
+}\operatorname*{Comp}D$ if and only if there exists some $k\in\left[
+n-1\right]  $ satisfying $D=C\cup\left\{  k+1\right\}  $, $k\notin C$, $k-1\in
+C$ and $k+1\notin C\cup\left\{  n\right\}  $.\ \ \ \ \footnote{To prove this,
+recall that \textquotedblleft splitting\textquotedblright\ an entry of a
+composition $J$ into two consecutive entries (summing up to the original
+entry) is always tantamount to adding a new element to $\operatorname*{Des}J$.
+It suffices to show that the conditions under which an entry of a composition
+$J$ can be split in the definition of the relation $\underset{M}{\rightarrow}$
+are precisely the conditions $k\notin C$, $k-1\in C$ and $k+1\notin
+C\cup\left\{  n\right\}  $ on $C=\operatorname*{Des}J$. This is
+straightforward.}. Thus,%
+\begin{align*}
+&  \left\langle M_{\operatorname*{Comp}C}+M_{\operatorname*{Comp}D}%
+\ \mid\ C\text{ and }D\text{ are subsets of }\left[  n-1\right]  \right. \\
+&  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left.  \text{satisfying
+}\operatorname*{Comp}C\underset{M}{\rightarrow}\operatorname*{Comp}%
+D\right\rangle \\
+&  =\left\langle M_{\operatorname*{Comp}C}+M_{\operatorname*{Comp}D}%
+\ \mid\ \text{there exists some }k\in\left[  n-1\right]  \right. \\
+&  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left.  \text{satisfying }%
+D=C\cup\left\{  k+1\right\}  \text{, }k\notin C\text{, }k-1\in C\text{ and
+}k+1\notin C\cup\left\{  n\right\}  \right\rangle \\
+&  =\left\langle M_{\operatorname*{Comp}C}+M_{\operatorname*{Comp}\left(
+C\cup\left\{  k+1\right\}  \right)  }\ \mid\ k\in\left[  n-1\right]  \right.
+\\
+&  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left.  \text{satisfies }k\notin
+C\text{, }k-1\in C\text{ and }k+1\notin C\cup\left\{  n\right\}  \right\rangle
+\\
+&  =\left\langle M_{\operatorname*{Comp}C}+M_{\operatorname*{Comp}\left(
+C\cup\left\{  k+1\right\}  \right)  }\ \mid\ k\in\left[  n-1\right]
+\ \text{satisfies }\left(  C,k\right)  \in\Omega\right\rangle \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }\Omega\right) \\
+&  =\left\langle \underbrace{M_{\operatorname*{Comp}C}+M_{\operatorname*{Comp}%
+\left(  C\cup\left\{  k+1\right\}  \right)  }}_{\substack{=\mathbf{m}%
+_{C,k}\\\text{(by (\ref{pf.prop.K.Epk.M.mCk=}))}}}\ \mid\ \left(  C,k\right)
+\in\Omega\right\rangle \\
+&  =\left\langle \mathbf{m}_{C,k}\ \mid\ \left(  C,k\right)  \in
+\Omega\right\rangle .
+\end{align*}
+Now, recall that $\operatorname*{Comp}$ is a bijection between the subsets of
+$\left[  n-1\right]  $ and the compositions of $n$. Hence,%
+\begin{align*}
+&  \left\langle M_{J}+M_{K}\ \mid\ J\text{ and }K\text{ are compositions of
+}n\text{ satisfying }J\underset{M}{\rightarrow}K\right\rangle \\
+&  =\left\langle M_{\operatorname*{Comp}C}+M_{\operatorname*{Comp}D}%
+\ \mid\ C\text{ and }D\text{ are subsets of }\left[  n-1\right]  \right. \\
+&  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left.  \text{satisfying
+}\operatorname*{Comp}C\underset{M}{\rightarrow}\operatorname*{Comp}%
+D\right\rangle \\
+&  =\left\langle \mathbf{m}_{C,k}\ \mid\ \left(  C,k\right)  \in
+\Omega\right\rangle .
+\end{align*}
+This proves Claim 1.]
+
+\begin{statement}
+\textit{Claim 2:} We have%
+\begin{align*}
+&  \left\langle F_{J}-F_{K}\ \mid\ J\text{ and }K\text{ are compositions of
+}n\text{ satisfying }J\rightarrow K\right\rangle \\
+&  =\left\langle \mathbf{f}_{C,k}\ \mid\ \left(  C,k\right)  \in
+\Omega\right\rangle .
+\end{align*}
+
+\end{statement}
+
+[\textit{Proof of Claim 1:} It is easy to see that two subsets $C$ and $D$ of
+$\left[  n-1\right]  $ satisfy $\operatorname*{Comp}C\rightarrow
+\operatorname*{Comp}D$ if and only if there exists some $k\in\left[
+n-1\right]  $ satisfying $D=C\cup\left\{  k\right\}  $, $k\notin C$, $k-1\in
+C$ and $k+1\notin C\cup\left\{  n\right\}  $.\ \ \ \ \footnote{To prove this,
+recall that \textquotedblleft splitting\textquotedblright\ an entry of a
+composition $J$ into two consecutive entries (summing up to the original
+entry) is always tantamount to adding a new element to $\operatorname*{Des}J$.
+It suffices to show that the conditions under which an entry of a composition
+$J$ can be split in the definition of the relation $\rightarrow$ are precisely
+the conditions $k\notin C$, $k-1\in C$ and $k+1\notin C\cup\left\{  n\right\}
+$ on $C=\operatorname*{Des}J$. This is straightforward.}. Thus,%
+\begin{align*}
+&  \left\langle F_{\operatorname*{Comp}C}-F_{\operatorname*{Comp}D}%
+\ \mid\ C\text{ and }D\text{ are subsets of }\left[  n-1\right]  \right. \\
+&  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left.  \text{satisfying
+}\operatorname*{Comp}C\rightarrow\operatorname*{Comp}D\right\rangle \\
+&  =\left\langle F_{\operatorname*{Comp}C}-F_{\operatorname*{Comp}D}%
+\ \mid\ \text{there exists some }k\in\left[  n-1\right]  \right. \\
+&  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left.  \text{satisfying }%
+D=C\cup\left\{  k\right\}  \text{, }k\notin C\text{, }k-1\in C\text{ and
+}k+1\notin C\cup\left\{  n\right\}  \right\rangle \\
+&  =\left\langle F_{\operatorname*{Comp}C}-F_{\operatorname*{Comp}\left(
+C\cup\left\{  k\right\}  \right)  }\ \mid\ \text{there exists some }%
+k\in\left[  n-1\right]  \right. \\
+&  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left.  \text{satisfying }k\notin
+C\text{, }k-1\in C\text{ and }k+1\notin C\cup\left\{  n\right\}  \right\rangle
+\\
+&  =\left\langle F_{\operatorname*{Comp}C}-F_{\operatorname*{Comp}\left(
+C\cup\left\{  k\right\}  \right)  }\ \mid\ \text{there exists some }%
+k\in\left[  n-1\right]  \right. \\
+&  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left.  \text{satisfying }\left(
+C,k\right)  \in\Omega\right\rangle \\
+&  =\left\langle \underbrace{F_{\operatorname*{Comp}C}-F_{\operatorname*{Comp}%
+\left(  C\cup\left\{  k\right\}  \right)  }}_{\substack{=\mathbf{f}%
+_{C,k}\\\text{(by (\ref{pf.prop.K.Epk.M.fCk=}))}}}\ \mid\ \left(  C,k\right)
+\in\Omega\right\rangle \\
+&  =\left\langle \mathbf{f}_{C,k}\ \mid\ \left(  C,k\right)  \in
+\Omega\right\rangle .
+\end{align*}
+Now, recall that $\operatorname*{Comp}$ is a bijection between the subsets of
+$\left[  n-1\right]  $ and the compositions of $n$. Hence,%
+\begin{align*}
+&  \left\langle F_{J}-F_{K}\ \mid\ J\text{ and }K\text{ are compositions of
+}n\text{ satisfying }J\rightarrow K\right\rangle \\
+&  =\left\langle F_{\operatorname*{Comp}C}-F_{\operatorname*{Comp}D}%
+\ \mid\ C\text{ and }D\text{ are subsets of }\left[  n-1\right]  \right. \\
+&  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left.  \text{satisfying
+}\operatorname*{Comp}C\rightarrow\operatorname*{Comp}D\right\rangle \\
+&  =\left\langle \mathbf{f}_{C,k}\ \mid\ \left(  C,k\right)  \in
+\Omega\right\rangle .
+\end{align*}
+This proves Claim 2.]
+
+We define a partial order on the set $\Omega$ by setting%
+\[
+\left(  B,k\right)  \geq\left(  C,\ell\right)  \ \ \ \ \ \ \ \ \ \ \text{if
+and only if}\ \ \ \ \ \ \ \ \ \ \left(  k=\ell\text{ and }B\supseteq C\right)
+.
+\]
+Thus, $\Omega$ is a finite poset.
+
+\begin{statement}
+\textit{Claim 3:} For every $\left(  C,\ell\right)  \in\Omega$, we have%
+\[
+\mathbf{m}_{C,\ell}=\sum_{\substack{\left(  B,k\right)  \in\Omega;\\\left(
+B,k\right)  \geq\left(  C,\ell\right)  }}\left(  -1\right)  ^{\left\vert
+B\setminus C\right\vert }\mathbf{f}_{B,k}.
+\]
+
+\end{statement}
+
+[\textit{Proof of Claim 3:} Let $\left(  C,\ell\right)  \in\Omega$. Thus, $C$
+is a subset of $\left[  n-1\right]  $ and $\ell$ is an element of $\left[
+n-1\right]  $ satisfying $\ell\notin C$, $\ell-1\in C$ and $\ell+1\notin
+C\cup\left\{  n\right\}  $. From $\ell+1\notin C\cup\left\{  n\right\}  $, we
+obtain $\ell+1\notin C$ and $\ell+1\neq n$. From $\ell+1\neq n$, we obtain
+$\ell+1\in\left[  n-1\right]  $. Also, $\left(  \ell+1\right)  -1=\ell\notin
+C\cup\left\{  0\right\}  $ (since $\ell\notin C$ and $\ell\neq0$). Thus,
+Proposition \ref{prop.M-through-F.2} \textbf{(c)} (applied to $k=\ell+1$)
+yields\footnote{Here and in the following, the bound variable $B$ in a sum
+always is understood to be a subset of $\left[  n-1\right]  $.}%
+\[
+M_{\operatorname*{Comp}C}+M_{\operatorname*{Comp}\left(  C\cup\left\{
+\ell+1\right\}  \right)  }=\sum_{\substack{B\supseteq C;\\\ell+1\notin
+B;\\\ell\notin B}}\left(  -1\right)  ^{\left\vert B\setminus C\right\vert
+}\left(  F_{\operatorname*{Comp}B}-F_{\operatorname*{Comp}\left(
+B\cup\left\{  \ell\right\}  \right)  }\right)  .
+\]
+
+
+But every $B\subseteq\left[  n-1\right]  $ satisfying $B\supseteq C$ must
+satisfy $\ell-1\in B$ (since $\ell-1\in C\subseteq B$). Hence, we can
+manipulate summation signs as follows:%
+\begin{align}
+\sum_{\substack{B\supseteq C;\\\ell+1\notin B;\\\ell\notin B}}  &
+=\sum_{\substack{B\supseteq C;\\\ell+1\notin B;\\\ell\notin B;\\\ell-1\in
+B}}=\sum_{\substack{B\supseteq C;\\\ell+1\notin B\cup\left\{  n\right\}
+;\\\ell\notin B;\\\ell-1\in B}}\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since }\ell+1\notin B\text{ is equivalent to }\ell+1\notin B\cup\left\{
+n\right\} \\
+\text{(because }\ell+1\neq n\text{)}%
+\end{array}
+\right) \nonumber\\
+&  =\sum_{\substack{B\supseteq C;\\\ell\notin B;\\\ell-1\in B;\\\ell+1\notin
+B\cup\left\{  n\right\}  }}\nonumber\\
+&  =\sum_{\substack{B\supseteq C;\\\left(  B,\ell\right)  \in\Omega
+}}\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since the}\\
+\text{condition }\left(  \ell\notin B\text{, }\ell-1\in B\text{ and }%
+\ell+1\notin B\cup\left\{  n\right\}  \right) \\
+\text{on a subset }B\text{ of }\left[  n-1\right]  \text{ is equivalent to
+}\left(  B,\ell\right)  \in\Omega\\
+\text{(by the definition of }\Omega\text{)}%
+\end{array}
+\right) \nonumber\\
+&  =\sum_{\substack{\left(  B,\ell\right)  \in\Omega;\\B\supseteq C}%
+}=\sum_{\substack{\left(  B,k\right)  \in\Omega;\\k=\ell;\\B\supseteq C}%
+}=\sum_{\substack{\left(  B,k\right)  \in\Omega;\\\left(  B,k\right)
+\geq\left(  C,\ell\right)  }} \label{pf.prop.K.Epk.M.sum-man}%
+\end{align}
+(since the condition $\left(  k=\ell\text{ and }B\supseteq C\right)  $ on a
+$\left(  B,k\right)  \in\Omega$ is equivalent to $\left(  B,k\right)
+\geq\left(  C,\ell\right)  $ (by the definition of the partial order on
+$\Omega$)).
+
+Now, the definition of $\mathbf{m}_{C,\ell}$ yields%
+\begin{align*}
+\mathbf{m}_{C,\ell}  &  =M_{\operatorname*{Comp}C}+M_{\operatorname*{Comp}%
+\left(  C\cup\left\{  \ell+1\right\}  \right)  }\\
+&  =\underbrace{\sum_{\substack{B\supseteq C;\\\ell+1\notin B;\\\ell\notin
+B}}}_{\substack{=\sum_{\substack{\left(  B,k\right)  \in\Omega;\\\left(
+B,k\right)  \geq\left(  C,\ell\right)  }}\\\text{(by
+(\ref{pf.prop.K.Epk.M.sum-man}))}}}\left(  -1\right)  ^{\left\vert B\setminus
+C\right\vert }\left(  F_{\operatorname*{Comp}B}-F_{\operatorname*{Comp}\left(
+B\cup\left\{  \ell\right\}  \right)  }\right) \\
+&  =\sum_{\substack{\left(  B,k\right)  \in\Omega;\\\left(  B,k\right)
+\geq\left(  C,\ell\right)  }}\left(  -1\right)  ^{\left\vert B\setminus
+C\right\vert }\left(  F_{\operatorname*{Comp}B}%
+-\underbrace{F_{\operatorname*{Comp}\left(  B\cup\left\{  \ell\right\}
+\right)  }}_{\substack{=F_{\operatorname*{Comp}\left(  B\cup\left\{
+k\right\}  \right)  }\\\text{(since }\ell=k\\\text{(since }\left(  B,k\right)
+\geq\left(  C,\ell\right)  \text{ and thus }k=\ell\text{))}}}\right) \\
+&  =\sum_{\substack{\left(  B,k\right)  \in\Omega;\\\left(  B,k\right)
+\geq\left(  C,\ell\right)  }}\left(  -1\right)  ^{\left\vert B\setminus
+C\right\vert }\underbrace{\left(  F_{\operatorname*{Comp}B}%
+-F_{\operatorname*{Comp}\left(  B\cup\left\{  k\right\}  \right)  }\right)
+}_{\substack{=\mathbf{f}_{B,k}\\\text{(since (\ref{pf.prop.K.Epk.M.fCk=})
+yields}\\\mathbf{f}_{B,k}=F_{\operatorname*{Comp}B}-F_{\operatorname*{Comp}%
+\left(  B\cup\left\{  k\right\}  \right)  }\text{)}}}\\
+&  =\sum_{\substack{\left(  B,k\right)  \in\Omega;\\\left(  B,k\right)
+\geq\left(  C,\ell\right)  }}\left(  -1\right)  ^{\left\vert B\setminus
+C\right\vert }\mathbf{f}_{B,k}.
+\end{align*}
+This proves Claim 3.]
+
+Now, Claim 3 shows that the family $\left(  \mathbf{m}_{C,k}\right)  _{\left(
+C,k\right)  \in\Omega}$ expands triangularly with respect to the family
+$\left(  \mathbf{f}_{C,k}\right)  _{\left(  C,k\right)  \in\Omega}$ with
+respect to the poset structure on $\Omega$. Moreover, the expansion is
+\textbf{uni}triangular (because if $\left(  B,k\right)  =\left(
+C,\ell\right)  $, then $B=C$ and thus $\left(  -1\right)  ^{\left\vert
+B\setminus C\right\vert }=\left(  -1\right)  ^{\left\vert C\setminus
+C\right\vert }=\left(  -1\right)  ^{0}=1$) and thus invertibly triangular
+(this means that the diagonal entries are invertible). Therefore, by a
+standard fact from linear algebra (see, e.g., \cite[Corollary 11.1.19
+\textbf{(b)}]{HopfComb}), we conclude that the span of the family $\left(
+\mathbf{m}_{C,k}\right)  _{\left(  C,k\right)  \in\Omega}$ equals the span of
+the family $\left(  \mathbf{f}_{C,k}\right)  _{\left(  C,k\right)  \in\Omega}%
+$. In other words,%
+\[
+\left\langle \mathbf{m}_{C,k}\ \mid\ \left(  C,k\right)  \in\Omega
+\right\rangle =\left\langle \mathbf{f}_{C,k}\ \mid\ \left(  C,k\right)
+\in\Omega\right\rangle .
+\]
+Now, Claim 1 yields%
+\begin{align*}
+&  \left\langle M_{J}+M_{K}\ \mid\ J\text{ and }K\text{ are compositions of
+}n\text{ satisfying }J\underset{M}{\rightarrow}K\right\rangle \\
+&  =\left\langle \mathbf{m}_{C,k}\ \mid\ \left(  C,k\right)  \in
+\Omega\right\rangle =\left\langle \mathbf{f}_{C,k}\ \mid\ \left(  C,k\right)
+\in\Omega\right\rangle \\
+&  =\left\langle F_{J}-F_{K}\ \mid\ J\text{ and }K\text{ are compositions of
+}n\text{ satisfying }J\rightarrow K\right\rangle
+\end{align*}
+(by Claim 2).
+
+Now, forget that we fixed $n$. We thus have proven that
+\begin{align*}
+&  \left\langle M_{J}+M_{K}\ \mid\ J\text{ and }K\text{ are compositions of
+}n\text{ satisfying }J\underset{M}{\rightarrow}K\right\rangle \\
+&  =\left\langle F_{J}-F_{K}\ \mid\ J\text{ and }K\text{ are compositions of
+}n\text{ satisfying }J\rightarrow K\right\rangle
+\end{align*}
+for each $n\in\mathbb{N}$. Thus,%
+\begin{align*}
+&  \sum_{n\in\mathbb{N}}\left\langle M_{J}+M_{K}\ \mid\ J\text{ and }K\text{
+are compositions of }n\text{ satisfying }J\underset{M}{\rightarrow
+}K\right\rangle \\
+&  =\sum_{n\in\mathbb{N}}\left\langle F_{J}-F_{K}\ \mid\ J\text{ and }K\text{
+are compositions of }n\text{ satisfying }J\rightarrow K\right\rangle .
+\end{align*}
+In light of%
+\[
+\mathcal{K}_{\operatorname*{Epk}}=\sum_{n\in\mathbb{N}}\left\langle
+F_{J}-F_{K}\ \mid\ J\text{ and }K\text{ are compositions of }n\text{
+satisfying }J\rightarrow K\right\rangle
+\]
+and%
+\[
+\mathcal{M}=\sum_{n\in\mathbb{N}}\left\langle M_{J}+M_{K}\ \mid\ J\text{ and
+}K\text{ are compositions of }n\text{ satisfying }J\underset{M}{\rightarrow
+}K\right\rangle ,
+\]
+this rewrites as $\mathcal{M}=\mathcal{K}_{\operatorname*{Epk}}$. In other
+words, $\mathcal{K}_{\operatorname*{Epk}}=\mathcal{M}$. This proves
+Proposition \ref{prop.K.Epk.M}.
+\end{proof}
+
+\section{Dendriform structures}
+
+Next, we shall study how the ideal $\mathcal{K}_{\operatorname*{Epk}}$
+interacts with some additional structure on $\operatorname*{QSym}$, viz. the
+\textit{dendriform operations }$\left.  \prec\right.  $ and $\left.
+\succeq\right.  $ and the \textquotedblleft runic\textquotedblright%
+\ operations $\bel$ and $\tvi$. These operations were introduced in
+\cite{dimcr}. Our study shall lead us to a notion of \textquotedblleft
+dendriform-shuffle-compatibility\textquotedblright, which is a property
+similar to shuffle-compatibility, and which may and may not be related to
+$\mathcal{K}_{\operatorname*{Epk}}$. Similar studies can probably be made for
+other descent statistics; we have so far restricted ourselves to
+$\operatorname*{Epk}$.
+
+\subsection{Four operations on $\operatorname*{QSym}$}
+
+We begin with some definitions. We will use some notations from \cite{dimcr},
+but we set $\mathbf{k}=\mathbb{Q}$ in order for the notations to match better.
+Monomials always mean formal expressions of the form $x_{1}^{a_{1}}%
+x_{2}^{a_{2}}x_{3}^{a_{3}}\cdots$ with $a_{1}+a_{2}+a_{3}+\cdots<\infty$ (see
+\cite[Section 2]{dimcr} for details). If $\mathfrak{m}$ is a monomial, then
+$\operatorname*{Supp}\mathfrak{m}$ will denote the finite subset
+\[
+\left\{  i\in\left\{  1,2,3,\ldots\right\}  \ \mid\ \text{the exponent with
+which }x_{i}\text{ occurs in }\mathfrak{m}\text{ is }>0\right\}
+\]
+of $\left\{  1,2,3,\ldots\right\}  $. Next, we define four binary operations
+\begin{align*}
+&  \left.  \prec\right.  \ \left(  \text{called \textquotedblleft dendriform
+less-than\textquotedblright; but it's an operation, not a relation}\right)
+,\\
+&  \left.  \succeq\right.  \ \left(  \text{called \textquotedblleft dendriform
+greater-or-equal\textquotedblright; but it's an operation, not a
+relation}\right)  ,\\
+&  \bel \ \left(  \text{called \textquotedblleft belgthor\textquotedblright%
+}\right)  ,\\
+&  \tvi \ \left(  \text{called \textquotedblleft tvimadur\textquotedblright%
+}\right)
+\end{align*}
+on the ring $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
+\right]  $ of power series by first defining how they act on monomials:%
+\begin{align*}
+\mathfrak{m}\left.  \prec\right.  \mathfrak{n}  &  =\left\{
+\begin{array}
+[c]{l}%
+\mathfrak{m}\cdot\mathfrak{n},\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(
+\operatorname*{Supp}\mathfrak{m}\right)  <\min\left(  \operatorname*{Supp}%
+\mathfrak{n}\right)  ;\\
+0,\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(  \operatorname*{Supp}%
+\mathfrak{m}\right)  \geq\min\left(  \operatorname*{Supp}\mathfrak{n}\right)
+\end{array}
+\right.  ;\\
+\mathfrak{m}\left.  \succeq\right.  \mathfrak{n}  &  =\left\{
+\begin{array}
+[c]{l}%
+\mathfrak{m}\cdot\mathfrak{n},\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(
+\operatorname*{Supp}\mathfrak{m}\right)  \geq\min\left(  \operatorname*{Supp}%
+\mathfrak{n}\right)  ;\\
+0,\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(  \operatorname*{Supp}%
+\mathfrak{m}\right)  <\min\left(  \operatorname*{Supp}\mathfrak{n}\right)
+\end{array}
+\right.  ;\\
+\mathfrak{m}\bel \mathfrak{n}  &  =\left\{
+\begin{array}
+[c]{l}%
+\mathfrak{m}\cdot\mathfrak{n},\ \ \ \ \ \ \ \ \ \ \text{if }\max\left(
+\operatorname*{Supp}\mathfrak{m}\right)  \leq\min\left(  \operatorname*{Supp}%
+\mathfrak{n}\right)  ;\\
+0,\ \ \ \ \ \ \ \ \ \ \text{if }\max\left(  \operatorname*{Supp}%
+\mathfrak{m}\right)  >\min\left(  \operatorname*{Supp}\mathfrak{n}\right)
+\end{array}
+\right.  ;\\
+\mathfrak{m}\tvi \mathfrak{n}  &  =\left\{
+\begin{array}
+[c]{l}%
+\mathfrak{m}\cdot\mathfrak{n},\ \ \ \ \ \ \ \ \ \ \text{if }\max\left(
+\operatorname*{Supp}\mathfrak{m}\right)  <\min\left(  \operatorname*{Supp}%
+\mathfrak{n}\right)  ;\\
+0,\ \ \ \ \ \ \ \ \ \ \text{if }\max\left(  \operatorname*{Supp}%
+\mathfrak{m}\right)  \geq\min\left(  \operatorname*{Supp}\mathfrak{n}\right)
+\end{array}
+\right.  ;
+\end{align*}
+and then requiring that they all be $\mathbf{k}$-bilinear and continuous (so
+their action on pairs of arbitrary power series can be computed by
+\textquotedblleft opening the parentheses\textquotedblright). These operations
+$\left.  \prec\right.  $, $\left.  \succeq\right.  $, $\bel  $ and $\tvi  $
+all restrict to the subset $\operatorname*{QSym}$ of $\mathbf{k}\left[
+\left[  x_{1},x_{2},x_{3},\ldots\right]  \right]  $ (this is proven in
+\cite[detailed version, Section 3]{dimcr}). They furthermore satisfy numerous
+relations (some of which are proven in \cite[detailed version, Section
+3]{dimcr}, the others being easy):
+
+\begin{itemize}
+\item The dendriform operations satisfy the four rules
+\begin{align}
+a\left.  \prec\right.  b+a\left.  \succeq\right.  b  &
+=ab;\label{eq.dendriform.1}\\
+\left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c  &  =a\left.
+\prec\right.  \left(  bc\right)  ;\nonumber\\
+\left(  a\left.  \succeq\right.  b\right)  \left.  \prec\right.  c  &
+=a\left.  \succeq\right.  \left(  b\left.  \prec\right.  c\right)
+;\nonumber\\
+a\left.  \succeq\right.  \left(  b\left.  \succeq\right.  c\right)   &
+=\left(  ab\right)  \left.  \succeq\right.  c\nonumber
+\end{align}
+for all $a,b,c\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
+\right]  $. (In other words, they turn $\mathbf{k}\left[  \left[  x_{1}%
+,x_{2},x_{3},\ldots\right]  \right]  $ into what is called a dendriform algebra.)
+
+\item The binary operation $\bel  $ is associative and unital (with $1$
+serving as the unity).
+
+\item The binary operation $\tvi  $ is associative and unital (with $1$
+serving as the unity).
+\end{itemize}
+
+Now, let me use my usual notations $M_{\alpha}$ for the monomial
+quasisymmetric functions and $F_{\alpha}$ for the fundamental quasisymmetric functions.
+
+\begin{itemize}
+\item For any two nonempty compositions $\alpha$ and $\beta$, we have
+$M_{\alpha}\bel  M_{\beta}=M_{\left[  \alpha,\beta\right]  }+M_{\alpha
+\odot\beta}$, where $\left[  \alpha,\beta\right]  $ and $\alpha\odot\beta$ are
+two compositions defined by%
+\begin{align*}
+\left[  \left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{\ell}\right)  ,\left(
+\beta_{1},\beta_{2},\ldots,\beta_{m}\right)  \right]   &  =\left(  \alpha
+_{1},\alpha_{2},\ldots,\alpha_{\ell},\beta_{1},\beta_{2},\ldots,\beta
+_{m}\right)  ;\\
+\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{\ell}\right)  \odot\left(
+\beta_{1},\beta_{2},\ldots,\beta_{m}\right)   &  =\left(  \alpha_{1}%
+,\alpha_{2},\ldots,\alpha_{\ell-1},\alpha_{\ell}+\beta_{1},\beta_{2},\beta
+_{3},\ldots,\beta_{m}\right)  .
+\end{align*}
+
+
+\item For any two compositions $\alpha$ and $\beta$, we have $M_{\alpha
+}\tvi  M_{\beta}=M_{\left[  \alpha,\beta\right]  }$.
+
+\item For any two compositions $\alpha$ and $\beta$, we have $F_{\alpha
+}\bel  F_{\beta}=F_{\alpha\odot\beta}$. (Here, $\alpha\odot\beta$ is defined
+to be $\alpha$ if $\beta=\varnothing$, and is defined to be $\beta$ if
+$\alpha=\varnothing$.)
+
+\item For any two compositions $\alpha$ and $\beta$, we have $F_{\alpha
+}\tvi  F_{\beta}=F_{\left[  \alpha,\beta\right]  }$.
+\end{itemize}
+
+Furthermore, we shall use two theorems from \cite[detailed version, Section
+3]{dimcr}:
+
+\begin{theorem}
+\label{thm.beldend}Let $S$ denote the antipode of the Hopf algebra
+$\operatorname*{QSym}$. Let us use Sweedler's notation $\sum_{\left(
+b\right)  }b_{\left(  1\right)  }\otimes b_{\left(  2\right)  }$ for
+$\Delta\left(  b\right)  $, where $b$ is any element of $\operatorname*{QSym}%
+$. Then,%
+\[
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left(  1\right)  }\right)
+\bel  a\right)  b_{\left(  2\right)  }=a\left.  \prec\right.  b
+\]
+for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
+\right]  $ and $b\in\operatorname*{QSym}$.
+\end{theorem}
+
+\begin{theorem}
+\label{thm.tvidend'}Let $S$ denote the antipode of the Hopf algebra
+$\operatorname*{QSym}$. Let us use Sweedler's notation $\sum_{\left(
+b\right)  }b_{\left(  1\right)  }\otimes b_{\left(  2\right)  }$ for
+$\Delta\left(  b\right)  $, where $b$ is any element of $\operatorname*{QSym}%
+$. Then,%
+\[
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left(  1\right)  }\right)
+\tvi  a\right)  b_{\left(  2\right)  }=b\left.  \succeq\right.  a
+\]
+for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
+\right]  $ and $b\in\operatorname*{QSym}$.
+\end{theorem}
+
+(Notice that Theorem \ref{thm.tvidend'} differs from \cite[detailed version,
+Theorem 3.15]{dimcr} in that we are writing $b\left.  \succeq\right.  a$
+instead of $a\left.  \preceq\right.  b$. But this is the same thing, since
+$a\left.  \preceq\right.  b=b\left.  \succeq\right.  a$ for all $a,b\in
+\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]  \right]  $.)
+
+\subsection{Ideals}
+
+\begin{definition}
+Let $A$ be a $\mathbf{k}$-module equipped with some binary operation $\ast$
+(written infix).
+
+\textbf{(a)} If $B$ and $C$ are two $\mathbf{k}$-submodules of $A$, then
+$B\ast C$ shall mean the $\mathbf{k}$-submodule of $A$ spanned by all elements
+of the form $b\ast c$ with $b\in B$ and $c\in C$.
+
+\textbf{(b)} A $\mathbf{k}$-submodule $M$ of $A$ is said to be a \textit{left
+}$\ast$\textit{-ideal} if and only if it satisfies $A\ast M\subseteq M$.
+
+\textbf{(c)} A $\mathbf{k}$-submodule $M$ of $A$ is said to be a \textit{right
+}$\ast$\textit{-ideal} if and only if it satisfies $M\ast A\subseteq M$.
+
+\textbf{(d)} A $\mathbf{k}$-submodule $M$ of $A$ is said to be a\textit{
+}$\ast$\textit{-ideal} if and only if it is both a left $\ast$-ideal and a
+right $\ast$-ideal.
+\end{definition}
+
+\begin{theorem}
+\label{thm.ideal-crit2}Let $M$ be an ideal of $\operatorname*{QSym}$. Let
+$A=\operatorname*{QSym}$.
+
+\textbf{(a)} If $A\bel  M\subseteq M$, then $M\left.  \prec\right.  A\subseteq
+M$.
+
+\textbf{(b)} If $A\tvi  M\subseteq M$, then $A\left.  \succeq\right.
+M\subseteq M$.
+
+\textbf{(c)} If $A\tvi  M\subseteq M$ and $A\bel  M\subseteq M$, then $M$ is a
+$\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
+$\operatorname*{QSym}$.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ideal-crit2}.]\textbf{(a)} Assume that
+$A\bel  M\subseteq M$. If $a\in M$ and $b\in A$, then%
+\begin{align*}
+a\left.  \prec\right.  b  &  =\sum_{\left(  b\right)  }\left(
+\underbrace{S\left(  b_{\left(  1\right)  }\right)  }_{\in A}%
+\bel \underbrace{a}_{\in M}\right)  \underbrace{b_{\left(  2\right)  }}_{\in
+A}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.beldend}}\right) \\
+&  \in\underbrace{\left(  A\bel M\right)  }_{\subseteq M}A\subseteq
+MA\subseteq M\ \ \ \ \ \ \ \ \ \ \left(  \text{since }M\text{ is an ideal of
+}A\right)  .
+\end{align*}
+Thus, $M\left.  \prec\right.  A\subseteq M$. This proves Theorem
+\ref{thm.ideal-crit2} \textbf{(a)}.
+
+\textbf{(b)} Assume that $A\tvi  M\subseteq M$. If $a\in M$ and $b\in A$, then%
+\begin{align*}
+b\left.  \succeq\right.  a  &  =\sum_{\left(  b\right)  }\left(
+\underbrace{S\left(  b_{\left(  1\right)  }\right)  }_{\in A}%
+\tvi \underbrace{a}_{\in M}\right)  \underbrace{b_{\left(  2\right)  }}_{\in
+A}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.tvidend'}}\right) \\
+&  \in\underbrace{\left(  A\tvi M\right)  }_{\subseteq M}A\subseteq
+MA\subseteq M\ \ \ \ \ \ \ \ \ \ \left(  \text{since }M\text{ is an ideal of
+}A\right)  .
+\end{align*}
+Thus, $A\left.  \succeq\right.  M\subseteq M$. This proves Theorem
+\ref{thm.ideal-crit2} \textbf{(b)}.
+
+\textbf{(c)} Assume that $A\tvi  M\subseteq M$ and $A\bel  M\subseteq M$.
+Then, Theorem \ref{thm.ideal-crit2} \textbf{(b)} yields $A\left.
+\succeq\right.  M\subseteq M$. Thus, $M$ is a left $\left.  \succeq\right.  $-ideal.
+
+Now, any $b\in M$ and $a\in A$ satisfy%
+\begin{align*}
+a\left.  \prec\right.  b  &  =\underbrace{a}_{\in A}\underbrace{b}_{\in
+M}-\underbrace{a}_{\in A}\left.  \succeq\right.  \underbrace{b}_{\in
+M}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.dendriform.1})}\right) \\
+&  \in\underbrace{AM}_{\substack{\subseteq M\\\text{(since }M\text{ is an
+ideal of }A\text{)}}}-\underbrace{A\left.  \succeq\right.  M}_{\subseteq
+M}\subseteq M-M\subseteq M.
+\end{align*}
+In other words, $A\left.  \prec\right.  M\subseteq M$. In other words, $M$ is
+a left $\left.  \prec\right.  $-ideal.
+
+But Theorem \ref{thm.ideal-crit2} \textbf{(a)} yields $M\left.  \prec\right.
+A\subseteq M$. In other words, $M$ is a right $\left.  \prec\right.  $-ideal.
+
+Any $a\in M$ and $b\in A$ satisfy%
+\begin{align*}
+a\left.  \succeq\right.  b  &  =\underbrace{a}_{\in M}\underbrace{b}_{\in
+A}-\underbrace{a}_{\in M}\left.  \prec\right.  \underbrace{b}_{\in
+A}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.dendriform.1})}\right) \\
+&  \in\underbrace{MA}_{\substack{\subseteq M\\\text{(since }M\text{ is an
+ideal of }A\text{)}}}-\underbrace{M\left.  \prec\right.  A}_{\subseteq
+M}\subseteq M-M\subseteq M.
+\end{align*}
+In other words, $M\left.  \succeq\right.  A\subseteq M$. In other words, $M$
+is a right $\left.  \succeq\right.  $-ideal.
+
+Hence, $M$ is a $\left.  \prec\right.  $-ideal (since $M$ is a left $\left.
+\prec\right.  $-ideal and a right $\left.  \prec\right.  $-ideal) and a
+$\left.  \succeq\right.  $-ideal (since $M$ is a left $\left.  \succeq\right.
+$-ideal and a right $\left.  \succeq\right.  $-ideal). This proves Theorem
+\ref{thm.ideal-crit2} \textbf{(c)}.
+\end{proof}
+
+\subsection{Application to $\mathcal{K}_{\operatorname*{Epk}}$}
+
+We now claim the following:
+
+\begin{theorem}
+\label{thm.Epk.dend}The ideal $\mathcal{K}_{\operatorname*{Epk}}$ of
+$\operatorname*{QSym}$ is a $\tvi  $-ideal, a $\bel  $-ideal, a $\left.
+\prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
+$\operatorname*{QSym}$.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.Epk.dend}.]Let $A=\operatorname*{QSym}$. Corollary
+\ref{cor.Epk.ideal} shows that $\mathcal{K}_{\operatorname*{Epk}}$ is an ideal
+of $\operatorname*{QSym}$.
+
+Let us recall the binary relation $\rightarrow$ on the set of compositions
+defined in Proposition \ref{prop.K.Epk.F}.
+
+\begin{statement}
+\textit{Claim 1:} Let $J$ and $K$ be two compositions satisfying $J\rightarrow
+K$. Let $G$ be a further composition. Then, $\left[  G,J\right]
+\rightarrow\left[  G,K\right]  $.
+\end{statement}
+
+[\textit{Proof of Claim 1:} Write the composition $J$ in the form $J=\left(
+j_{1},j_{2},\ldots,j_{m}\right)  $. Write the composition $G$ in the form
+$G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $.
+
+We have $J\rightarrow K$. In other words, there exists an $\ell\in\left\{
+2,3,\ldots,m\right\}  $ such that $j_{\ell}>2$ and $K=\left(  j_{1}%
+,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
+,j_{m}\right)  $ (by the definition of the relation $\rightarrow$). Consider
+this $\ell$. Clearly, $\ell>1$ (since $\ell\in\left\{  2,3,\ldots,m\right\}
+$), so that $p+\ell>\underbrace{p}_{\geq0}+1\geq1$.
+
+From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $J=\left(  j_{1}%
+,j_{2},\ldots,j_{m}\right)  $, we obtain%
+\begin{equation}
+\left[  G,J\right]  =\left(  g_{1},g_{2},\ldots,g_{p},j_{1},j_{2},\ldots
+,j_{m}\right)  . \label{pf.thm.Epk.dend.c1.pf.GJ=}%
+\end{equation}
+From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $K=\left(  j_{1}%
+,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
+,j_{m}\right)  $, we obtain%
+\begin{equation}
+\left[  G,K\right]  =\left(  g_{1},g_{2},\ldots,g_{p},j_{1},j_{2}%
+,\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots,j_{m}\right)  .
+\label{pf.thm.Epk.dend.c1.pf.GK=}%
+\end{equation}
+From looking at (\ref{pf.thm.Epk.dend.c1.pf.GJ=}) and
+(\ref{pf.thm.Epk.dend.c1.pf.GK=}), we conclude immediately that the
+composition $\left[  G,K\right]  $ is obtained by \textquotedblleft
+splitting\textquotedblright\ the entry $j_{\ell}>2$ into two consecutive
+entries $1$ and $j_{\ell}-1$, and that this entry $j_{\ell}$ was not the first
+entry (indeed, this entry is the $\left(  p+\ell\right)  $-th entry, but
+$p+\ell>1$). Hence, $\left[  G,J\right]  \rightarrow\left[  G,K\right]  $ (by
+the definition of the relation $\rightarrow$). This proves Claim 1.]
+
+\begin{statement}
+\textit{Claim 2:} We have $A\tvi  \mathcal{K}_{\operatorname*{Epk}}%
+\subseteq\mathcal{K}_{\operatorname*{Epk}}$.
+\end{statement}
+
+[\textit{Proof of Claim 2:} We must show that $a\tvi  m\in\mathcal{K}%
+_{\operatorname*{Epk}}$ for every $a\in A$ and $m\in\mathcal{K}%
+_{\operatorname*{Epk}}$. So let us fix $a\in A$ and $m\in\mathcal{K}%
+_{\operatorname*{Epk}}$.
+
+Proposition \ref{prop.K.Epk.F} shows that the $\mathbb{Q}$-vector space
+$\mathcal{K}_{\operatorname*{Epk}}$ is spanned by all differences of the form
+$F_{J}-F_{K}$, where $J$ and $K$ are two compositions satisfying $J\rightarrow
+K$. Hence, we can WLOG assume that $m$ is such a difference (because the
+relation $a\tvi  m\in\mathcal{K}_{\operatorname*{Epk}}$, which we must prove,
+is $\mathbb{Q}$-linear in $m$). Assume this. Thus, $m=F_{J}-F_{K}$ for some
+two compositions $J$ and $K$ satisfying $J\rightarrow K$. Consider these $J$
+and $K$.
+
+From $J\rightarrow K$, we easily conclude that the composition $J$ is
+nonempty. Thus, $\left\vert J\right\vert \neq0$. But from $J\rightarrow K$, we
+also obtain $\left\vert J\right\vert =\left\vert K\right\vert $. Hence,
+$\left\vert K\right\vert =\left\vert J\right\vert \neq0$. Thus, the
+composition $K$ is nonempty.
+
+Recall that the family $\left(  F_{L}\right)  _{L\text{ is a composition}}$ is
+a basis of the $\mathbb{Q}$-vector space $\operatorname*{QSym}=A$. Hence, we
+can WLOG assume that $a$ belongs to this family (since the relation
+$a\tvi  m\in\mathcal{K}_{\operatorname*{Epk}}$, which we must prove, is
+$\mathbb{Q}$-linear in $a$). Assume this. Thus, $a=F_{G}$ for some composition
+$G$. Consider this $G$.
+
+If $G$ is the empty composition, then $a=F_{G}=1$, and therefore
+$\underbrace{a}_{=1}\tvi  m=1\tvi  m=m\in\mathcal{K}_{\operatorname*{Epk}}$
+holds. Thus, for the rest of this proof, we WLOG assume that $G$ is not the
+empty composition. Thus, $G$ is nonempty.
+
+Recall that for any two compositions $\alpha$ and $\beta$, we have $F_{\alpha
+}\tvi  F_{\beta}=F_{\left[  \alpha,\beta\right]  }$. Applying this to
+$\alpha=G$ and $\beta=J$, we obtain $F_{G}\tvi  F_{J}=F_{\left[  G,J\right]
+}$. Similarly, $F_{G}\tvi  F_{K}=F_{\left[  G,K\right]  }$.
+
+But Claim 1 yields $\left[  G,J\right]  \rightarrow\left[  G,K\right]  $.
+Hence, the difference $F_{\left[  G,J\right]  }-F_{\left[  G,K\right]  }$ is
+one of the differences which span the ideal $\mathcal{K}_{\operatorname*{Epk}%
+}$ according to Proposition \ref{prop.K.Epk.F}. Thus, in particular, this
+difference lies in $\mathcal{K}_{\operatorname*{Epk}}$. In other words,
+$F_{\left[  G,J\right]  }-F_{\left[  G,K\right]  }\in\mathcal{K}%
+_{\operatorname*{Epk}}$.
+
+Now,%
+\begin{align*}
+\underbrace{a}_{=F_{G}}\tvi \underbrace{m}_{=F_{J}-F_{K}}  &  =F_{G}%
+\tvi \left(  F_{J}-F_{K}\right)  =\underbrace{F_{G}\tvi F_{J}}_{=F_{\left[
+G,J\right]  }}-\underbrace{F_{G}\tvi F_{K}}_{=F_{\left[  G,K\right]  }}\\
+&  =F_{\left[  G,J\right]  }-F_{\left[  G,K\right]  }\in\mathcal{K}%
+_{\operatorname*{Epk}}.
+\end{align*}
+This proves Claim 2.]
+
+\begin{statement}
+\textit{Claim 3:} Let $J$ and $K$ be two compositions satisfying $J\rightarrow
+K$. Let $G$ be a further composition. Then, $\left[  J,G\right]
+\rightarrow\left[  K,G\right]  $.
+\end{statement}
+
+[\textit{Proof of Claim 3:} This is proven in the same way as we proved Claim
+1, with the only difference that $j_{\ell}$ is now the $\ell$-th entry of
+$\left[  J,G\right]  $ and not the $\left(  p+\ell\right)  $-th entry (but
+this is still sufficient, since $\ell>1$).]
+
+\begin{statement}
+\textit{Claim 4:} We have $\mathcal{K}_{\operatorname*{Epk}}\tvi  A\subseteq
+\mathcal{K}_{\operatorname*{Epk}}$.
+\end{statement}
+
+[\textit{Proof of Claim 4:} This is proven in the same way as we proved Claim
+2, with the only difference that now we need to use Claim 3 instead of Claim 1.]
+
+Combining Claim 2 and Claim 4, we conclude that $\mathcal{K}%
+_{\operatorname*{Epk}}$ is a $\tvi  $-ideal of $A=\operatorname*{QSym}$.
+
+\begin{statement}
+\textit{Claim 5:} Let $J$ and $K$ be two nonempty compositions satisfying
+$J\rightarrow K$. Let $G$ be a further nonempty composition. Then, $G\odot
+J\rightarrow G\odot K$.
+\end{statement}
+
+[\textit{Proof of Claim 5:} Write the composition $J$ in the form $J=\left(
+j_{1},j_{2},\ldots,j_{m}\right)  $. Write the composition $G$ in the form
+$G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $. Thus, $p>0$ (since the
+composition $G$ is nonempty).
+
+We have $J\rightarrow K$. In other words, there exists an $\ell\in\left\{
+2,3,\ldots,m\right\}  $ such that $j_{\ell}>2$ and $K=\left(  j_{1}%
+,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
+,j_{m}\right)  $ (by the definition of the relation $\rightarrow$). Consider
+this $\ell$. Clearly, $\ell\geq2$ (since $\ell\in\left\{  2,3,\ldots
+,m\right\}  $), so that $\underbrace{p}_{>0}+\underbrace{\ell}_{\geq
+2}-1>0+2-1=1$.
+
+From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $J=\left(  j_{1}%
+,j_{2},\ldots,j_{m}\right)  $, we obtain%
+\begin{equation}
+G\odot J=\left(  g_{1},g_{2},\ldots,g_{p-1},g_{p}+j_{1},j_{2},j_{3}%
+,\ldots,j_{m}\right)  . \label{pf.thm.Epk.dend.c5.pf.GJ=}%
+\end{equation}
+From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $K=\left(  j_{1}%
+,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
+,j_{m}\right)  $, we obtain%
+\begin{equation}
+G\odot K=\left(  g_{1},g_{2},\ldots,g_{p-1},g_{p}+j_{1},j_{2},j_{3}%
+,\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots,j_{m}\right)
+\label{pf.thm.Epk.dend.c5.pf.GK=}%
+\end{equation}
+(notice that the $g_{p}+j_{1}$ term is \textbf{not} a $g_{p}+1$ term, because
+$\ell\geq2$).
+
+From looking at (\ref{pf.thm.Epk.dend.c5.pf.GJ=}) and
+(\ref{pf.thm.Epk.dend.c5.pf.GK=}), we conclude immediately that the
+composition $G\odot K$ is obtained by \textquotedblleft
+splitting\textquotedblright\ the entry $j_{\ell}>2$ into two consecutive
+entries $1$ and $j_{\ell}-1$, and that this entry $j_{\ell}$ was not the first
+entry (indeed, this entry is the $\left(  p+\ell-1\right)  $-th entry, but
+$p+\ell-1>1$). Hence, $G\odot J\rightarrow G\odot K$ (by the definition of the
+relation $\rightarrow$). This proves Claim 5.]
+
+\begin{statement}
+\textit{Claim 6:} We have $\mathcal{K}_{\operatorname*{Epk}}\bel  A\subseteq
+\mathcal{K}_{\operatorname*{Epk}}$.
+\end{statement}
+
+[\textit{Proof of Claim 6:} This is proven in the same way as we proved Claim
+2, with the only difference that now we need to use Claim 5 instead of Claim 1
+and that we need to use the formula $F_{\alpha}\bel  F_{\beta}=F_{\alpha
+\odot\beta}$ instead of $F_{\alpha}\tvi  F_{\beta}=F_{\left[  \alpha
+,\beta\right]  }$.]
+
+\begin{statement}
+\textit{Claim 7:} Let $J$ and $K$ be two nonempty compositions satisfying
+$J\rightarrow K$. Let $G$ be a further nonempty composition. Then, $J\odot
+G\rightarrow K\odot G$.
+\end{statement}
+
+[\textit{Proof of Claim 7:} Write the composition $J$ in the form $J=\left(
+j_{1},j_{2},\ldots,j_{m}\right)  $. Write the composition $G$ in the form
+$G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $. Thus, $p>0$ (since the
+composition $G$ is nonempty).
+
+We have $J\rightarrow K$. In other words, there exists an $\ell\in\left\{
+2,3,\ldots,m\right\}  $ such that $j_{\ell}>2$ and $K=\left(  j_{1}%
+,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
+,j_{m}\right)  $ (by the definition of the relation $\rightarrow$). Consider
+this $\ell$. Clearly, $\ell\geq2$ (since $\ell\in\left\{  2,3,\ldots
+,m\right\}  $), so that $\ell>1$.
+
+From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $J=\left(  j_{1}%
+,j_{2},\ldots,j_{m}\right)  $, we obtain%
+\begin{equation}
+J\odot G=\left(  j_{1},j_{2},\ldots,j_{m-1},j_{m}+g_{1},g_{2},g_{3}%
+,\ldots,g_{p}\right)  . \label{pf.thm.Epk.dend.c7.pf.JG=}%
+\end{equation}
+Now, we distinguish between the following two cases:
+
+\textit{Case 1:} We have $\ell=m$.
+
+\textit{Case 2:} We have $\ell\neq m$.
+
+Let us first consider Case 1. In this case, we have $\ell=m$. Thus,
+$m=\ell\geq2>1$ and $j_{m}+g_{1}=\underbrace{j_{\ell}}_{>2}+\underbrace{g_{1}%
+}_{\geq0}>2$.
+
+From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and
+\begin{align*}
+K  &  =\left(  j_{1},j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1}%
+,j_{\ell+2},\ldots,j_{m}\right) \\
+&  =\left(  j_{1},j_{2},\ldots,j_{m-1},1,j_{m}-1\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\ell=m\right)  ,
+\end{align*}
+we obtain%
+\begin{align}
+K\odot G  &  =\left(  j_{1},j_{2},\ldots,j_{m-1},1,\left(  j_{m}-1\right)
++g_{1},g_{2},g_{3},\ldots,g_{p}\right) \nonumber\\
+&  =\left(  j_{1},j_{2},\ldots,j_{m-1},1,j_{m}+g_{1}-1,g_{2},g_{3}%
+,\ldots,g_{p}\right)  . \label{pf.thm.Epk.dend.c7.pf.KG=c1}%
+\end{align}
+
+
+From looking at (\ref{pf.thm.Epk.dend.c7.pf.JG=}) and
+(\ref{pf.thm.Epk.dend.c7.pf.KG=c1}), we conclude immediately that the
+composition $K\odot G$ is obtained by \textquotedblleft
+splitting\textquotedblright\ the entry $j_{m}+g_{1}>2$ into two consecutive
+entries $1$ and $j_{m}+g_{1}-1$, and that this entry $j_{m}+g_{1}$ was not the
+first entry (indeed, this entry is the $m$-th entry, but $m>1$). Hence,
+$J\odot G\rightarrow K\odot G$ (by the definition of the relation
+$\rightarrow$). This proves Claim 7 in Case 1.
+
+Let us next consider Case 2. In this case, we have $\ell\neq m$. Hence,
+$\ell\in\left\{  2,3,\ldots,m-1\right\}  $ (since $\ell\in\left\{
+2,3,\ldots,m\right\}  $).
+
+From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $K=\left(  j_{1}%
+,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
+,j_{m}\right)  $, we obtain%
+\begin{align}
+&  K\odot G\nonumber\\
+&  =\left(  j_{1},j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell
++2},\ldots,j_{m-1},j_{m}+g_{1},g_{2},g_{3},\ldots,g_{p}\right)
+\label{pf.thm.Epk.dend.c7.pf.KG=c2}%
+\end{align}
+(notice that the $j_{m}+g_{1}$ term is \textbf{not} a $\left(  j_{\ell
+}-1\right)  +g_{1}$ term, because $\ell\neq m$).
+
+From looking at (\ref{pf.thm.Epk.dend.c7.pf.JG=}) and
+(\ref{pf.thm.Epk.dend.c7.pf.KG=c2}), we conclude immediately that the
+composition $K\odot G$ is obtained by \textquotedblleft
+splitting\textquotedblright\ the entry $j_{\ell}>2$ into two consecutive
+entries $1$ and $j_{\ell}$, and that this entry $j_{\ell}$ was not the first
+entry (indeed, this entry is the $\ell$-th entry, but $\ell>1$). Hence,
+$J\odot G\rightarrow K\odot G$ (by the definition of the relation
+$\rightarrow$). This proves Claim 7 in Case 2.
+
+We have now proven Claim 7 in both Cases 1 and 2. Thus, Claim 7 always holds.]
+
+\begin{statement}
+\textit{Claim 8:} We have $A\bel  \mathcal{K}_{\operatorname*{Epk}}%
+\subseteq\mathcal{K}_{\operatorname*{Epk}}$.
+\end{statement}
+
+[\textit{Proof of Claim 8:} This is proven in the same way as we proved Claim
+6, with the only difference that now we need to use Claim 7 instead of Claim 5.]
+
+Combining Claim 6 and Claim 8, we conclude that $\mathcal{K}%
+_{\operatorname*{Epk}}$ is a $\bel  $-ideal of $A=\operatorname*{QSym}$.
+
+Finally, Theorem \ref{thm.ideal-crit2} \textbf{(c)} (applied to $M=\mathcal{K}%
+_{\operatorname*{Epk}}$) shows that $\mathcal{K}_{\operatorname*{Epk}}$ is a
+$\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
+$\operatorname*{QSym}$.
+
+Thus, altogether, we have proven that $\mathcal{K}_{\operatorname*{Epk}}$ is a
+$\tvi  $-ideal, a $\bel  $-ideal, a $\left.  \prec\right.  $-ideal and a
+$\left.  \succeq\right.  $-ideal of $\operatorname*{QSym}$. This proves
+Theorem \ref{thm.Epk.dend}.
+\end{proof}
+
+\subsection{Questions}
+
+\begin{question}
+\label{quest.dendri-shuf-comp}Does Theorem \ref{thm.Epk.dend} have a
+combinatorial meaning, similarly to how Corollary \ref{cor.Epk.ideal} has the
+meaning that the descent statistic $\operatorname*{Epk}$ is
+shuffle-compatible? In other words, are there analogues of Proposition
+\ref{prop.K.ideal} for $\tvi  $-ideals, $\bel  $-ideals, $\left.
+\prec\right.  $-ideals and $\left.  \succeq\right.  $-ideals?
+\end{question}
+
+\begin{question}
+It is clear that if a $\mathbb{Q}$-vector subspace $M$ of
+$\operatorname*{QSym}$ is simultaneously a $\left.  \prec\right.  $-ideal and
+an $\left.  \succeq\right.  $-ideal, then it is also an ideal. Similarly, if
+$M$ is an ideal and a $\left.  \prec\right.  $-ideal, then it is a $\left.
+\succeq\right.  $-ideal. Can we state any other such criteria?
+\end{question}
+
+\begin{question}
+What other descent statistics $\operatorname*{st}$ have the property that
+$\mathcal{K}_{\operatorname*{st}}$ is an $\tvi  $-ideal, $\bel  $-ideal,
+$\left.  \prec\right.  $-ideal and/or $\left.  \succeq\right.  $-ideal?
+\end{question}
+
+A first step towards resolving Question \ref{quest.dendri-shuf-comp} for
+$\left.  \prec\right.  $-ideals is to study dendriform shuffles. There is a
+well-known notion of dendriform shuffles of words. Specialized to
+permutations, it can be defined in a simple way as follows: If $\pi$ and
+$\sigma$ are two disjoint permutations, then:
+
+\begin{itemize}
+\item a \textit{left shuffle} of $\pi$ and $\sigma$ means a shuffle $\tau$ of
+$\pi$ and $\sigma$ such that the first letter of $\tau$ is the first letter of
+$\pi$.
+
+\item a \textit{right shuffle} of $\pi$ and $\sigma$ means a shuffle $\tau$ of
+$\pi$ and $\sigma$ such that the first letter of $\tau$ is the first letter of
+$\sigma$.
+
+\item we let $S_{\prec}\left(  \pi,\sigma\right)  $ denote the set of all left
+shuffles of $\pi$ and $\sigma$.
+
+\item we let $S_{\succ}\left(  \pi,\sigma\right)  $ denote the set of all
+right shuffles of $\pi$ and $\sigma$.
+\end{itemize}
+
+Also, if $\pi$ is a nonempty word, then $\min\pi$ shall mean the smallest
+letter that appears in $\pi$.
+
+The following theorem is analogous to a particular case of \cite[Theorem
+4.1]{part1}:
+
+\begin{theorem}
+\label{thm.dendri.4.1}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $\pi$ be
+a permutation with descent composition $J$. Let $\sigma$ be a permutation with
+descent composition $K$. Assume that%
+\begin{equation}
+\text{each entry of }\pi\text{ is greater than each entry of }\sigma\text{.}
+\label{eq.thm.dendri.4.1.ass}%
+\end{equation}
+For any composition $L$, let $c_{J,K}^{L,\prec}$ be the number of permutations
+with descent composition $L$ among the left shuffles of $\pi$ and $\sigma$,
+and let $c_{J,K}^{L,\succ}$ be the number of permutations with descent
+composition $L$ among the right shuffles of $\pi$ and $\sigma$. Then,%
+\[
+F_{J}\left.  \prec\right.  F_{K}=\sum_{L}c_{J,K}^{L,\prec}F_{L}%
+\]
+and%
+\[
+F_{J}\left.  \succeq\right.  F_{K}=\sum_{L}c_{J,K}^{L,\succeq}F_{L}.
+\]
+
+\end{theorem}
+
+Note the condition (\ref{eq.thm.dendri.4.1.ass}), which is not present in
+\cite[Theorem 4.1]{part1}, and which makes Theorem \ref{thm.dendri.4.1}
+somewhat less remarkable.
+
+Theorem \ref{thm.dendri.4.1} can be proven similarly to \cite[(5.2.6)]%
+{HopfComb}, but in lieu of the application of \cite[Lemma 5.2.17]{HopfComb},
+it requires the following fact:
+
+\begin{proposition}
+\label{prop.dendri.4.1.lem}We shall use the notations of \cite[Section
+5.2]{HopfComb}. Let $P$ and $Q$ be two disjoint labelled posets, each of which
+has a minimum element. Assume that each $p\in P$ and $q\in Q$ satisfy
+$p>_{\mathbb{Z}}q$. Consider the disjoint union $P\sqcup Q$ of $P$ and $Q$.
+
+\textbf{(a)} Add a further relation $\min P<\min Q$ to $P\sqcup Q$; denote the
+resulting labelled poset by $P\left.  \prec\right.  Q$. Then, $F_{P}\left(
+\mathbf{x}\right)  \left.  \prec\right.  F_{Q}\left(  \mathbf{x}\right)
+=F_{P\left.  \prec\right.  Q}\left(  \mathbf{x}\right)  $.
+
+\textbf{(b)} Add a further relation $\min P>\min Q$ to $P\sqcup Q$; denote the
+resulting labelled poset by $P\left.  \succeq\right.  Q$. Then, $F_{P}\left(
+\mathbf{x}\right)  \left.  \succeq\right.  F_{Q}\left(  \mathbf{x}\right)
+=F_{P\left.  \succeq\right.  Q}\left(  \mathbf{x}\right)  $.
+\end{proposition}
+
+We leave the details to the reader.
+
+Now, let us define a notion of dendriform-shuffle-compatible statistics. We
+are not sure whether this notion is the \textquotedblleft
+right\textquotedblright\ one, or there are better:
+
+\begin{definition}
+Let $\operatorname*{st}$ be a permutation statistic. We say that
+$\operatorname*{st}$ is \textit{dendriform-shuffle-compatible} if for any two
+disjoint permutations $\pi$ and $\sigma$ having the property that%
+\begin{equation}
+\text{each entry of }\pi\text{ is greater than each entry of }\sigma,
+\label{eq.def.dendri.dsc.ass}%
+\end{equation}
+the two multisets%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \left\{  \operatorname*{st}\left(  \tau\right)
+\ \mid\ \tau\in S_{\succ}\left(  \pi,\sigma\right)  \right\}
+\]
+depend only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
+\left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
+\sigma\right\vert $.
+\end{definition}
+
+Then, the following analogue to the first part of Proposition
+\ref{prop.K.ideal} holds:
+
+\begin{theorem}
+\label{prop.dendri.K.ideal}Let $\operatorname*{st}$ be a descent statistic.
+Then, $\operatorname*{st}$ is dendriform-shuffle-compatible if and only if
+$\mathcal{K}_{\operatorname*{st}}$ is an $\left.  \prec\right.  $-ideal and a
+$\left.  \succeq\right.  $-ideal of $\operatorname*{QSym}$.
+\end{theorem}
+
+I omit the proof, which is not too hard. (It is rather direct, without using
+shuffle algebras!)
+
+Thus, in particular, any dendriform-shuffle-compatible descent statistic must
+be shuffle-compatible. Note that this is only true for descent statistics! As
+far as arbitrary permutation statistics are concerned, this is false; for
+example, the number of inversions is dendriform-shuffle-compatible but not
+shuffle-compatible. The reason is that the condition
+(\ref{eq.def.dendri.dsc.ass}) makes the concept of
+dendriform-shuffle-compatible weaker than one might expect.
+
+Using Theorem \ref{thm.dendri.4.1}, we can try to state an analogue of
+\cite[Theorem 4.3]{part1}. Let us first define the notion of dendriform algebras:
+
+\begin{definition}
+A \textit{dendriform algebra} over a field $\mathbf{k}$ means a $\mathbf{k}%
+$-algebra $A$ equipped with two further $\mathbf{k}$-bilinear binary
+operations $\left.  \prec\right.  $ and $\left.  \succeq\right.  $ (these are
+operations, not relations, despite the symbols) that satisfy the four rules%
+\begin{align*}
+a\left.  \prec\right.  b+a\left.  \succeq\right.  b  &  =ab;\\
+\left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c  &  =a\left.
+\prec\right.  \left(  bc\right)  ;\\
+\left(  a\left.  \succeq\right.  b\right)  \left.  \prec\right.  c  &
+=a\left.  \succeq\right.  \left(  b\left.  \prec\right.  c\right)  ;\\
+a\left.  \succeq\right.  \left(  b\left.  \succeq\right.  c\right)   &
+=\left(  ab\right)  \left.  \succeq\right.  c
+\end{align*}
+for all $a,b,c\in A$. (This definition may need some extra rules regarding
+products such as $1\left.  \prec\right.  a$, $a\left.  \prec\right.  1$,
+$1\left.  \succeq\right.  a$ and $a\left.  \succeq\right.  1$. Some authors
+require such rules, some don't.)
+
+The notion of dendriform algebra homomorphisms is defined as expected.
+\end{definition}
+
+Of course, $\operatorname*{QSym}$ (with its two operations $\left.
+\prec\right.  $ and $\left.  \succeq\right.  $) thus becomes a dendriform
+algebra over $\mathbb{Q}$.
+
+\begin{question}
+If a descent statistic $\operatorname*{st}$ is dendriform-shuffle-compatible,
+then does it follow that its shuffle algebra canonically becomes a dendriform algebra?
+\end{question}
+
+\begin{question}
+Must any dendriform-shuffle-compatible permutation statistic (not just a
+descent statistic!) be shuffle-compatible?
+\end{question}
+
+\begin{question}
+Do we have an analogue of \cite[Theorem 4.3]{part1}, along the following lines?
+\end{question}
+
+\begin{conjecture}
+\label{thm.dendri.4.3}Let $\operatorname*{st}$ be a descent statistic.
+
+\textbf{(a)} The descent statistic $\operatorname*{st}$ is
+dendriform-shuffle-compatible if and only if there exists a homomorphism
+$\phi_{\operatorname*{st}}:\operatorname*{QSym}\rightarrow A$ of dendriform
+algebras, where $A$ is a dendriform algebra with basis $\left(  u_{\alpha
+}\right)  $ indexed by $\operatorname*{st}$-equivalence classes $\alpha$ of
+compositions, such that $\phi_{\operatorname*{st}}\left(  F_{L}\right)
+=u_{\alpha}$ whenever $L\in\alpha$.
+
+\textbf{(b)} In this case, the $\mathbb{Q}$-linear map $\mathcal{A}%
+_{\operatorname*{st}}\rightarrow A$ given by%
+\[
+\left[  \pi\right]  _{\operatorname*{st}}\mapsto u_{\alpha}=\phi
+_{\operatorname*{st}}\left(  F_{\operatorname*{Comp}\left(  \pi\right)
+}\right)  \ \ \ \ \ \ \ \ \ \ \text{where }\operatorname*{Comp}\left(
+\pi\right)  =\alpha
+\]
+is an isomorphism of dendriform algebras.
+\end{conjecture}
+
+\begin{noncompile}
+\textbf{[From here on, everything is scratch work and speculation!]}
+
+In preparation for things to come, we shall restate Theorem \ref{thm.beldend}
+and Theorem \ref{thm.tvidend'} using a slight variation on the
+comultiplication map $\Delta$:
+
+\begin{theorem}
+\label{thm.beldend.Del'}Let $S$ denote the antipode of the Hopf algebra
+$\operatorname*{QSym}$. Let us use the Sweedler-like notation $\sum_{\left(
+b\right)  }b_{\left[  1\right]  }\otimes b_{\left[  2\right]  }$ for
+$\Delta\left(  b\right)  -1\otimes b$, where $b$ is any element of
+$\operatorname*{QSym}$. Then,%
+\[
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
+\bel  a\right)  b_{\left[  2\right]  }=-a\mathfrak{\left.  \succeq\right.  }b
+\]
+for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
+\right]  $ and $b\in\operatorname*{QSym}$.
+\end{theorem}
+
+\begin{theorem}
+\label{thm.tvidend'.Del'}Let $S$ denote the antipode of the Hopf algebra
+$\operatorname*{QSym}$. Let us use the Sweedler-like notation $\sum_{\left(
+b\right)  }b_{\left[  1\right]  }\otimes b_{\left[  2\right]  }$ for
+$\Delta\left(  b\right)  -1\otimes b$, where $b$ is any element of
+$\operatorname*{QSym}$. Then,%
+\[
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
+\tvi  a\right)  b_{\left[  2\right]  }=-b\left.  \prec\right.  a
+\]
+for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
+\right]  $ and $b\in\operatorname*{QSym}$.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.beldend.Del'}.]Let us use Sweedler's notation, too.
+From $\sum_{\left(  b\right)  }b_{\left[  1\right]  }\otimes b_{\left[
+2\right]  }=\Delta\left(  b\right)  -1\otimes b=\sum_{\left(  b\right)
+}b_{\left(  1\right)  }\otimes b_{\left(  2\right)  }-1\otimes b$, we have%
+\begin{align*}
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
+\bel a\right)  b_{\left[  2\right]  }  &  =\underbrace{\sum_{\left(  b\right)
+}\left(  S\left(  b_{\left(  1\right)  }\right)  \bel a\right)  b_{\left(
+2\right)  }}_{\substack{=a\left.  \prec\right.  b\\\text{(by Theorem
+\ref{thm.beldend})}}}-\underbrace{\left(  1\bel a\right)  }_{=a}b\\
+&  =a\left.  \prec\right.  b-ab=-a\left.  \succeq\right.  b
+\end{align*}
+(since $a\left.  \prec\right.  b+a\left.  \succeq\right.  b=ab$). This proves
+Theorem \ref{thm.beldend.Del'}.
+\end{proof}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.tvidend'.Del'}.]Analogous.
+\end{proof}
+
+Here is an old stub of a theorem that I don't know how to correct:
+
+\begin{theorem}
+\label{thm.ideal-crit1}Let $M$ be a $\mathbf{k}$-submodule of
+$\operatorname*{QSym}$. Assume that $M$ is a left $\tvi  $-ideal and a right
+$\bel  $-ideal of $\operatorname*{QSym}$.
+
+I wanted to claim that $M$ is an ideal of $\operatorname*{QSym}$. But this is
+not always correct. Maybe adding the condition $S\left(  M\right)  \subseteq
+M$ would help?
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ideal-crit1}.]Set $A=\operatorname*{QSym}$. We have
+$A\tvi  M\subseteq M$ (since $M$ is a left $\tvi  $-ideal) and
+$M\bel  A\subseteq M$ (since $M$ is a right $\bel  $-ideal).
+
+Recall that $A=\operatorname*{QSym}$ is a graded $\mathbf{k}$-algebra. For
+each $n\in\mathbb{N}$, let $A_{n}$ be its $n$-th graded component.
+
+We now claim the following:
+
+\textit{Claim 1:} We have $A_{n}M\subseteq M$
+
+...
+\end{proof}
+
+It is an interesting question which of the shuffle-compatible statistics
+discussed in \cite{part1} are dendriform-shuffle-compatible. One basic fact is
+the following analogue of \cite[Theorem 4.3]{part1}:
+
+Theorem \ref{thm.dendri.4.3} is actually a particular case of the following
+simple fact, analogous to Proposition \ref{prop.prod1}:
+
+\begin{proposition}
+\label{prop.dendri.prod1}Let $\left(  P,\gamma\right)  $ and $\left(
+Q,\delta\right)  $ be two labeled posets. Assume that each of the posets $P$
+and $Q$ has a minimum element; denote these elements by $\min P$ and $\min Q$,
+respectively. Let $\left(  P\sqcup Q,\varepsilon\right)  $ be the labeled
+poset whose ground set $P\sqcup Q$ is the disjoint union of $P$ and $Q$, and
+whose labeling $\varepsilon$ is such that the restriction of $\varepsilon$ to
+$P$ is order-equivalent to $\gamma$ and such that the restriction of
+$\varepsilon$ to $Q$ is order-equivalent to $\delta$.
+
+\textbf{(a)} Let $P\left.  \prec\right.  Q$ be the poset obtained from
+$P\sqcup Q$ by adding the relation $\min P<\min Q$. Then, $\Gamma
+_{\mathcal{Z}}\left(  P,\gamma\right)  \left.  \prec\right.  \Gamma
+_{\mathcal{Z}}\left(  Q,\delta\right)  =\Gamma_{\mathcal{Z}}\left(  P\left.
+\prec\right.  Q,\varepsilon\right)  $.
+
+\textbf{(b)} Let $P\left.  \succ\right.  Q$ be the poset obtained from
+$P\sqcup Q$ by adding the relation $\min Q<\min P$. Then, $\Gamma
+_{\mathcal{Z}}\left(  P,\gamma\right)  \left.  \succeq\right.  \Gamma
+_{\mathcal{Z}}\left(  Q,\delta\right)  =\Gamma_{\mathcal{Z}}\left(  P\left.
+\succ\right.  Q,\varepsilon\right)  $.
+
+THIS IS NOT QUITE CORRECT! Not sure how to fix it. (Actually, it doesn't make
+sense, because the $\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  $ etc. don't
+live inside a dendriform algebra. But maybe we can make them...
+\end{proposition}
+
+....
+\end{noncompile}
+
+\subsection{$\left(  \operatorname*{Epk},\operatorname*{des}\right)  $ aka
+$\left(  \operatorname*{Lpk},\operatorname*{val},\operatorname*{des}\right)  $
+(speculations)}
+
+I suspect the arguments used to prove Theorem \ref{thm.Epk.sh-co} can also be
+tweaked to prove the shuffle-compatibility of the descent statistic $\left(
+\operatorname*{Epk},\operatorname*{des}\right)  $ (and thus also of the
+equivalent descent statistic $\left(  \operatorname*{Lpk},\operatorname*{val}%
+,\operatorname*{des}\right)  $). The main change should be to replace
+$x_{\left\vert f\left(  p\right)  \right\vert }$ (wherever it appears) by%
+\[%
+\begin{cases}
+x_{\left\vert f\left(  p\right)  \right\vert }, & \text{if }f\left(  p\right)
+=\left(  h,+\right)  \text{ for some }h\in\mathcal{N};\\
+x_{\left\vert f\left(  p\right)  \right\vert }t, & \text{if }f\left(
+p\right)  =\left(  h,-\right)  \text{ for some }h\in\mathcal{N}%
+\end{cases}
+,
+\]
+where $t$ is some new indeterminate. I am not saying this will definitely
+work, but it sounds plausible.
+
+\begin{thebibliography}{99999999}                                                                                         %
+
+
+\bibitem[GesZhu17]{part1}\href{http://arxiv.org/abs/1706.00750v1}{Ira M.
+Gessel, Yan Zhuang, \textit{Shuffle-compatible permutation statistics},
+arXiv:1706.00750v1}.
+
+\bibitem[Grinbe16]{dimcr}Darij Grinberg, \textit{Dual immaculate creation
+operators and a dendriform algebra structure on the quasisymmetric functions},
+version 6, \href{https://arxiv.org/abs/1410.0079v6}{arXiv:1410.0079v6}.
+(Version 5 has been published in:
+\href{https://cms.math.ca/10.4153/CJM-2016-018-8?abfmt=ltx}{Canad. J. Math.
+\textbf{69} (2017), 21--53}.)
+
+\bibitem[GriRei17]{HopfComb}Darij Grinberg, Victor Reiner, \textit{Hopf
+algebras in Combinatorics}, version of 27 July 2017. \newline%
+\url{http://www.cip.ifi.lmu.de/~grinberg/algebra/HopfComb-sols.pdf} .
+
+\bibitem[Stembr97]{23}%
+\href{http://www.ams.org/journals/tran/1997-349-02/S0002-9947-97-01804-7/}{John
+R. Stembridge, \textit{Enriched P-partitions}, Trans. Amer. Math. Soc.
+\textbf{349} (1997), no. 2, pp. 763--788}.
+\end{thebibliography}
+
+
+\end{document}

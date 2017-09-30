@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, September 30, 2017 13:57:05}
+%TCIDATA{LastRevised=Saturday, September 30, 2017 13:57:56}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -791,11 +791,13 @@ that there exists an $n$-permutation $\pi$ satisfying $\Lambda
 Thus, $\ell\geq1$ (since $\Lambda$ is nonempty), and we can represent the set
 $\left[  n\right]  \setminus\Lambda$ as a union of disjoint intervals as
 follows:
-\[
-\left[  n\right]  \setminus\Lambda=\left[  1,u_{1}-1\right]  \cup\left[
-u_{1}+1,u_{2}-1\right]  \cup\left[  u_{2}+1,u_{3}-1\right]  \cup\cdots
-\cup\left[  u_{\ell-1}+1,u_{\ell}-1\right]  \cup\left[  u_{\ell}+1,n\right]  .
-\]
+\begin{align*}
+& \left[  n\right]  \setminus\Lambda\\
+& =\left[  1,u_{1}-1\right]  \cup\left[  u_{1}+1,u_{2}-1\right]  \cup\left[
+u_{2}+1,u_{3}-1\right]  \cup\cdots\cup\left[  u_{\ell-1}+1,u_{\ell}-1\right]
+\\
+& \ \ \ \ \ \ \ \ \ \ \cup\left[  u_{\ell}+1,n\right]  .
+\end{align*}
 
 
 \item Let $\pi$ take the values $n,n-1,\ldots,n-\ell+1$ on the elements of
@@ -807,9 +809,9 @@ $\left[  n\right]  \setminus\Lambda$ in such a way that:
 
 \begin{itemize}
 \item[(A)] on each of the intervals $\left[  1,u_{1}-1\right]  ,\left[
-u_{1}+1,u_{2}-1\right]  ,\left[  u_{2}+1,u_{3}-1\right]  ,\ldots,\left[
-u_{\ell-1}+1,u_{\ell}-1\right]  ,\left[  u_{\ell}+1,n\right]  $, the map $\pi$
-is either strictly increasing or strictly decreasing;
+u_{1}+1,u_{2}-1\right]  ,\left[  u_{2}+1,u_{3}-1\right]  ,\ldots,$%
+\newline$\left[  u_{\ell-1}+1,u_{\ell}-1\right]  ,\left[  u_{\ell}+1,n\right]
+$, the map $\pi$ is either strictly increasing or strictly decreasing;
 
 \item[(B)] if the interval $\left[  1,u_{1}-1\right]  $ is nonempty, then the
 map $\pi$ is strictly increasing on this interval;

@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, September 30, 2017 09:05:56}
+%TCIDATA{LastRevised=Saturday, September 30, 2017 13:57:05}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -171,7 +171,7 @@ $\mathbb{Q}$ in the indeterminates $x_{n}$ for $n\in\mathcal{N}$.
 \end{convention}
 
 \begin{definition}
-\label{def.ambivPp}Now, let $\left(  P,\gamma\right)  $ be a labeled poset. An
+\label{def.ambivPp}Now, let $\left(  P,\gamma\right)  $ be a labeled poset. A
 \textit{$\mathcal{Z}$-enriched }$\left(  P,\gamma\right)  $\textit{-partition}
 means a map $f:P\rightarrow\mathcal{Z}$ such that for all $x<y$ in $P$, the
 following conditions hold:
@@ -540,12 +540,12 @@ $\left\vert f\right\vert =g$.
 But both of these observations are easy:
 
 [\textit{Proof of Observation 1:} This is a simple consequence of the
-definition of an $\mathcal{Z}$-enriched $\left(  \left[  n\right]
-,\pi\right)  $-partition. Let me spell it out: Let $f\in\mathcal{E}\left(
-\left[  n\right]  ,\pi\right)  $. Thus, $f$ is an $\mathcal{Z}$-enriched
-$\left(  \left[  n\right]  ,\pi\right)  $-partition. In other words, $f$ is a
-map $\left[  n\right]  \rightarrow\mathcal{Z}$ such that for all $x<y$ in
-$\left[  n\right]  $, the following conditions hold:
+definition of a $\mathcal{Z}$-enriched $\left(  \left[  n\right]  ,\pi\right)
+$-partition. Let me spell it out: Let $f\in\mathcal{E}\left(  \left[
+n\right]  ,\pi\right)  $. Thus, $f$ is an $\mathcal{Z}$-enriched $\left(
+\left[  n\right]  ,\pi\right)  $-partition. In other words, $f$ is a map
+$\left[  n\right]  \rightarrow\mathcal{Z}$ such that for all $x<y$ in $\left[
+n\right]  $, the following conditions hold:
 
 \begin{enumerate}
 \item[\textbf{(i)}] We have $f\left(  x\right)  \preccurlyeq f\left(
@@ -723,19 +723,19 @@ analogy with \cite[Proposition 2.2]{23}:
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.Epk-formula2}.]This follow from Proposition
-\ref{prop.Epk-formula} once we know that the $\pi$-amenable maps $g:\left[
-n\right]  \rightarrow\mathcal{N}$ are precisely the weakly increasing maps
-$g:\left[  n\right]  \rightarrow\mathcal{N}$ satisfying $\operatorname*{Epk}%
-\pi\subseteq\operatorname*{FE}\left(  g\right)  $. But this is easy to check.
-(The main idea: If $g:\left[  n\right]  \rightarrow\mathcal{N}$ is a weakly
-increasing map, then all nonempty fibers $g^{-1}\left(  h\right)  $ of $g$ are
-intervals, and Conditions \textbf{(i')}, \textbf{(ii')} and \textbf{(iii')} in
-the definition of \textquotedblleft$\pi$-amenable\textquotedblright\ say
-precisely that no peak of $\pi$ can appear in the interior of any such fiber;
-i.e., all peaks must appear at fiber-ends. Of course, this needs some
-exceptions for $g^{-1}\left(  0\right)  $ and $g^{-1}\left(  \infty\right)  $,
-but this is all straightforward.)
+[Proof of Proposition \ref{prop.Epk-formula2}.]This will follow from
+Proposition \ref{prop.Epk-formula} once we know that the $\pi$-amenable maps
+$g:\left[  n\right]  \rightarrow\mathcal{N}$ are precisely the weakly
+increasing maps $g:\left[  n\right]  \rightarrow\mathcal{N}$ satisfying
+$\operatorname*{Epk}\pi\subseteq\operatorname*{FE}\left(  g\right)  $. But
+this is easy to check. (The main idea: If $g:\left[  n\right]  \rightarrow
+\mathcal{N}$ is a weakly increasing map, then all nonempty fibers
+$g^{-1}\left(  h\right)  $ of $g$ are intervals, and Conditions \textbf{(i')},
+\textbf{(ii')} and \textbf{(iii')} in the definition of \textquotedblleft$\pi
+$-amenable\textquotedblright\ say precisely that no peak of $\pi$ can appear
+in the interior of any such fiber; i.e., all peaks must appear at fiber-ends.
+Of course, this needs some exceptions for $g^{-1}\left(  0\right)  $ and
+$g^{-1}\left(  \infty\right)  $, but this is all straightforward.)
 \end{proof}
 
 \begin{definition}
@@ -772,7 +772,73 @@ $\Lambda=\operatorname*{Epk}\pi$ if and only if $\Lambda$ is lacunar and nonempt
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.when-Epk}.]Left to the reader.
+[Proof of Proposition \ref{prop.when-Epk}.]$\Longrightarrow:$ We need to prove
+that for any $n$-permutation $\pi$, the set $\operatorname*{Epk}\pi$ is
+lacunar and nonempty. But this set $\operatorname*{Epk}\pi$ is clearly lacunar
+(since two consecutive integers cannot both be exterior peaks of $\pi$), and
+is also nonempty (because otherwise, $\pi$ would have no peaks, so that $\pi$
+would be either strictly increasing or strictly decreasing; but then, either
+$n$ or $1$ would be an exterior peak of $\pi$). This proves the
+$\Longrightarrow$ direction of Proposition \ref{prop.when-Epk}.
+
+$\Longleftarrow:$ Assume that $\Lambda$ is lacunar and nonempty. We must prove
+that there exists an $n$-permutation $\pi$ satisfying $\Lambda
+=\operatorname*{Epk}\pi$. Such a permutation $\pi$ can be constructed as follows.:
+
+\begin{itemize}
+\item Write the set $\Lambda$ in the form $\Lambda=\left\{  u_{1}<u_{2}%
+<\cdots<u_{\ell}\right\}  $ (where $\ell=\left\vert \Lambda\right\vert $).
+Thus, $\ell\geq1$ (since $\Lambda$ is nonempty), and we can represent the set
+$\left[  n\right]  \setminus\Lambda$ as a union of disjoint intervals as
+follows:
+\[
+\left[  n\right]  \setminus\Lambda=\left[  1,u_{1}-1\right]  \cup\left[
+u_{1}+1,u_{2}-1\right]  \cup\left[  u_{2}+1,u_{3}-1\right]  \cup\cdots
+\cup\left[  u_{\ell-1}+1,u_{\ell}-1\right]  \cup\left[  u_{\ell}+1,n\right]  .
+\]
+
+
+\item Let $\pi$ take the values $n,n-1,\ldots,n-\ell+1$ on the elements of
+$\Lambda$. (For example, this can be achieved by setting $\pi\left(
+u_{i}\right)  =n+1-i$ for each $i\in\left[  \ell\right]  $.)
+
+\item Let $\pi$ take the values $1,2,\ldots,n-\ell$ on the elements of
+$\left[  n\right]  \setminus\Lambda$ in such a way that:
+
+\begin{itemize}
+\item[(A)] on each of the intervals $\left[  1,u_{1}-1\right]  ,\left[
+u_{1}+1,u_{2}-1\right]  ,\left[  u_{2}+1,u_{3}-1\right]  ,\ldots,\left[
+u_{\ell-1}+1,u_{\ell}-1\right]  ,\left[  u_{\ell}+1,n\right]  $, the map $\pi$
+is either strictly increasing or strictly decreasing;
+
+\item[(B)] if the interval $\left[  1,u_{1}-1\right]  $ is nonempty, then the
+map $\pi$ is strictly increasing on this interval;
+
+\item[(C)] if the interval $\left[  u_{\ell}+1,n\right]  $ is nonempty, then
+the map $\pi$ is strictly decreasing on this interval.
+\end{itemize}
+
+(This is indeed possible, because if the two intervals $\left[  1,u_{1}%
+-1\right]  $ and $\left[  u_{\ell}+1,n\right]  $ are both nonempty, then they
+are distinct (since $\ell\geq1$).)
+\end{itemize}
+
+Any $n$-permutation $\pi$ constructed in this way will satisfy $\Lambda
+=\operatorname*{Epk}\pi$. Indeed, it is clear that $\pi$ satisfies%
+\[
+\pi\left(  u\right)  >\pi\left(  v\right)  \ \ \ \ \ \ \ \ \ \ \text{for all
+}u\in\Lambda\text{ and }v\in\left[  n\right]  \setminus\Lambda.
+\]
+Hence, any element of $\Lambda$ is an exterior peak of $\pi$. Conversely, an
+element of $\left[  n\right]  \setminus\Lambda$ cannot be an exterior peak of
+$\pi$ (because our construction of $\pi$ guarantees that any $s\in\left[
+n\right]  \setminus\Lambda$ satisfies either $\left(  s-1\in\left[  n\right]
+\text{ and }\pi\left(  s-1\right)  >\pi\left(  s\right)  \right)  $ or
+$\left(  s+1\in\left[  n\right]  \text{ and }\pi\left(  s+1\right)
+>\pi\left(  s\right)  \right)  $). Thus, the exterior peaks of $\pi$ are
+precisely the elements of $\Lambda$; in other words, we have $\Lambda
+=\operatorname*{Epk}\pi$. This proves the $\Longleftarrow$ direction of
+Proposition \ref{prop.when-Epk}.
 \end{proof}
 
 \begin{proposition}

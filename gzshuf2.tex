@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, September 30, 2017 13:57:56}
+%TCIDATA{LastRevised=Sunday, October 01, 2017 01:01:15}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -792,11 +792,11 @@ Thus, $\ell\geq1$ (since $\Lambda$ is nonempty), and we can represent the set
 $\left[  n\right]  \setminus\Lambda$ as a union of disjoint intervals as
 follows:
 \begin{align*}
-& \left[  n\right]  \setminus\Lambda\\
-& =\left[  1,u_{1}-1\right]  \cup\left[  u_{1}+1,u_{2}-1\right]  \cup\left[
+&  \left[  n\right]  \setminus\Lambda\\
+&  =\left[  1,u_{1}-1\right]  \cup\left[  u_{1}+1,u_{2}-1\right]  \cup\left[
 u_{2}+1,u_{3}-1\right]  \cup\cdots\cup\left[  u_{\ell-1}+1,u_{\ell}-1\right]
 \\
-& \ \ \ \ \ \ \ \ \ \ \cup\left[  u_{\ell}+1,n\right]  .
+&  \ \ \ \ \ \ \ \ \ \ \cup\left[  u_{\ell}+1,n\right]  .
 \end{align*}
 
 
@@ -2722,10 +2722,10 @@ interacts with some additional structure on $\operatorname*{QSym}$, viz. the
 \ operations $\bel$ and $\tvi$. These operations were introduced in
 \cite{dimcr}. Our study shall lead us to a notion of \textquotedblleft
 dendriform-shuffle-compatibility\textquotedblright, which is a property
-similar to shuffle-compatibility, and which may and may not be related to
-$\mathcal{K}_{\operatorname*{Epk}}$. Similar studies can probably be made for
-other descent statistics; we have so far restricted ourselves to
-$\operatorname*{Epk}$.
+similar to shuffle-compatibility (but stronger, at least for descent
+statistics). We shall prove that $\operatorname*{Epk}$ is
+dendriform-shuffle-compatible; similar studies can probably be made for other
+descent statistics.
 
 \subsection{Four operations on $\operatorname*{QSym}$}
 
@@ -3450,8 +3450,8 @@ be shuffle-compatible. Note that this is only true for descent statistics! As
 far as arbitrary permutation statistics are concerned, this is false; for
 example, the number of inversions is dendriform-shuffle-compatible but not
 shuffle-compatible. The reason is that the condition
-(\ref{eq.def.dendri.dsc.ass}) makes the concept of
-dendriform-shuffle-compatible weaker than one might expect.
+(\ref{eq.def.dendri.dsc.ass}) weakens the concept of
+dendriform-shuffle-compatible in a way that does not affect (regular) shuffle-compatibility.
 
 Using Theorem \ref{thm.dendri.4.1}, we can try to state an analogue of
 \cite[Theorem 4.3]{part1}. Let us first define the notion of dendriform algebras:
@@ -3485,11 +3485,6 @@ algebra over $\mathbb{Q}$.
 \begin{question}
 If a descent statistic $\operatorname*{st}$ is dendriform-shuffle-compatible,
 then does it follow that its shuffle algebra canonically becomes a dendriform algebra?
-\end{question}
-
-\begin{question}
-Must any dendriform-shuffle-compatible permutation statistic (not just a
-descent statistic!) be shuffle-compatible?
 \end{question}
 
 \begin{question}
@@ -3532,8 +3527,8 @@ b\right)  }b_{\left[  1\right]  }\otimes b_{\left[  2\right]  }$ for
 $\Delta\left(  b\right)  -1\otimes b$, where $b$ is any element of
 $\operatorname*{QSym}$. Then,%
 \[
-\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
-\bel  a\right)  b_{\left[  2\right]  }=-a\mathfrak{\left.  \succeq\right.  }b
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)  \bel
+a\right)  b_{\left[  2\right]  }=-a\mathfrak{\left.  \succeq\right.  }b
 \]
 for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 \right]  $ and $b\in\operatorname*{QSym}$.
@@ -3546,8 +3541,8 @@ b\right)  }b_{\left[  1\right]  }\otimes b_{\left[  2\right]  }$ for
 $\Delta\left(  b\right)  -1\otimes b$, where $b$ is any element of
 $\operatorname*{QSym}$. Then,%
 \[
-\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
-\tvi  a\right)  b_{\left[  2\right]  }=-b\left.  \prec\right.  a
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)  \tvi
+a\right)  b_{\left[  2\right]  }=-b\left.  \prec\right.  a
 \]
 for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 \right]  $ and $b\in\operatorname*{QSym}$.
@@ -3559,8 +3554,8 @@ From $\sum_{\left(  b\right)  }b_{\left[  1\right]  }\otimes b_{\left[
 2\right]  }=\Delta\left(  b\right)  -1\otimes b=\sum_{\left(  b\right)
 }b_{\left(  1\right)  }\otimes b_{\left(  2\right)  }-1\otimes b$, we have%
 \begin{align*}
-\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
-\bel a\right)  b_{\left[  2\right]  }  &  =\underbrace{\sum_{\left(  b\right)
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)  \bel
+a\right)  b_{\left[  2\right]  } &  =\underbrace{\sum_{\left(  b\right)
 }\left(  S\left(  b_{\left(  1\right)  }\right)  \bel a\right)  b_{\left(
 2\right)  }}_{\substack{=a\left.  \prec\right.  b\\\text{(by Theorem
 \ref{thm.beldend})}}}-\underbrace{\left(  1\bel a\right)  }_{=a}b\\
@@ -3578,8 +3573,8 @@ Here is an old stub of a theorem that I don't know how to correct:
 
 \begin{theorem}
 \label{thm.ideal-crit1}Let $M$ be a $\mathbf{k}$-submodule of
-$\operatorname*{QSym}$. Assume that $M$ is a left $\tvi  $-ideal and a right
-$\bel  $-ideal of $\operatorname*{QSym}$.
+$\operatorname*{QSym}$. Assume that $M$ is a left $\tvi$-ideal and a right
+$\bel$-ideal of $\operatorname*{QSym}$.
 
 I wanted to claim that $M$ is an ideal of $\operatorname*{QSym}$. But this is
 not always correct. Maybe adding the condition $S\left(  M\right)  \subseteq
@@ -3588,8 +3583,8 @@ M$ would help?
 
 \begin{proof}
 [Proof of Theorem \ref{thm.ideal-crit1}.]Set $A=\operatorname*{QSym}$. We have
-$A\tvi  M\subseteq M$ (since $M$ is a left $\tvi  $-ideal) and
-$M\bel  A\subseteq M$ (since $M$ is a right $\bel  $-ideal).
+$A\tvi M\subseteq M$ (since $M$ is a left $\tvi$-ideal) and $M\bel A\subseteq
+M$ (since $M$ is a right $\bel$-ideal).
 
 Recall that $A=\operatorname*{QSym}$ is a graded $\mathbf{k}$-algebra. For
 each $n\in\mathbb{N}$, let $A_{n}$ be its $n$-th graded component.

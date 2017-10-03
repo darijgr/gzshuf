@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, October 01, 2017 01:01:15}
+%TCIDATA{LastRevised=Monday, October 02, 2017 20:17:31}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2490,7 +2490,7 @@ This proves Claim 1.]
 
 \end{statement}
 
-[\textit{Proof of Claim 1:} It is easy to see that two subsets $C$ and $D$ of
+[\textit{Proof of Claim 2:} It is easy to see that two subsets $C$ and $D$ of
 $\left[  n-1\right]  $ satisfy $\operatorname*{Comp}C\rightarrow
 \operatorname*{Comp}D$ if and only if there exists some $k\in\left[
 n-1\right]  $ satisfying $D=C\cup\left\{  k\right\}  $, $k\notin C$, $k-1\in
@@ -3053,12 +3053,13 @@ From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $K=\left(  j_{1}%
 \end{equation}
 From looking at (\ref{pf.thm.Epk.dend.c1.pf.GJ=}) and
 (\ref{pf.thm.Epk.dend.c1.pf.GK=}), we conclude immediately that the
-composition $\left[  G,K\right]  $ is obtained by \textquotedblleft
-splitting\textquotedblright\ the entry $j_{\ell}>2$ into two consecutive
-entries $1$ and $j_{\ell}-1$, and that this entry $j_{\ell}$ was not the first
-entry (indeed, this entry is the $\left(  p+\ell\right)  $-th entry, but
-$p+\ell>1$). Hence, $\left[  G,J\right]  \rightarrow\left[  G,K\right]  $ (by
-the definition of the relation $\rightarrow$). This proves Claim 1.]
+composition $\left[  G,K\right]  $ is obtained from $\left[  G,J\right]  $ by
+\textquotedblleft splitting\textquotedblright\ the entry $j_{\ell}>2$ into two
+consecutive entries $1$ and $j_{\ell}-1$, and that this entry $j_{\ell}$ was
+not the first entry (indeed, this entry is the $\left(  p+\ell\right)  $-th
+entry, but $p+\ell>1$). Hence, $\left[  G,J\right]  \rightarrow\left[
+G,K\right]  $ (by the definition of the relation $\rightarrow$). This proves
+Claim 1.]
 
 \begin{statement}
 \textit{Claim 2:} We have $A\tvi  \mathcal{K}_{\operatorname*{Epk}}%
@@ -3180,7 +3181,7 @@ $\ell\geq2$).
 
 From looking at (\ref{pf.thm.Epk.dend.c5.pf.GJ=}) and
 (\ref{pf.thm.Epk.dend.c5.pf.GK=}), we conclude immediately that the
-composition $G\odot K$ is obtained by \textquotedblleft
+composition $G\odot K$ is obtained from $G\odot J$ by \textquotedblleft
 splitting\textquotedblright\ the entry $j_{\ell}>2$ into two consecutive
 entries $1$ and $j_{\ell}-1$, and that this entry $j_{\ell}$ was not the first
 entry (indeed, this entry is the $\left(  p+\ell-1\right)  $-th entry, but
@@ -3250,7 +3251,7 @@ K\odot G  &  =\left(  j_{1},j_{2},\ldots,j_{m-1},1,\left(  j_{m}-1\right)
 
 From looking at (\ref{pf.thm.Epk.dend.c7.pf.JG=}) and
 (\ref{pf.thm.Epk.dend.c7.pf.KG=c1}), we conclude immediately that the
-composition $K\odot G$ is obtained by \textquotedblleft
+composition $K\odot G$ is obtained from $J\odot G$ by \textquotedblleft
 splitting\textquotedblright\ the entry $j_{m}+g_{1}>2$ into two consecutive
 entries $1$ and $j_{m}+g_{1}-1$, and that this entry $j_{m}+g_{1}$ was not the
 first entry (indeed, this entry is the $m$-th entry, but $m>1$). Hence,
@@ -3275,7 +3276,7 @@ From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $K=\left(  j_{1}%
 
 From looking at (\ref{pf.thm.Epk.dend.c7.pf.JG=}) and
 (\ref{pf.thm.Epk.dend.c7.pf.KG=c2}), we conclude immediately that the
-composition $K\odot G$ is obtained by \textquotedblleft
+composition $K\odot G$ is obtained from $J\odot G$ by \textquotedblleft
 splitting\textquotedblright\ the entry $j_{\ell}>2$ into two consecutive
 entries $1$ and $j_{\ell}-1$, and that this entry $j_{\ell}$ was not the first
 entry (indeed, this entry is the $\ell$-th entry, but $\ell>1$). Hence,
@@ -3457,41 +3458,67 @@ Using Theorem \ref{thm.dendri.4.1}, we can try to state an analogue of
 \cite[Theorem 4.3]{part1}. Let us first define the notion of dendriform algebras:
 
 \begin{definition}
-A \textit{dendriform algebra} over a field $\mathbf{k}$ means a $\mathbf{k}%
-$-algebra $A$ equipped with two further $\mathbf{k}$-bilinear binary
-operations $\left.  \prec\right.  $ and $\left.  \succeq\right.  $ (these are
-operations, not relations, despite the symbols) that satisfy the four rules%
+\textbf{(a)} A \textit{dendriform algebra} over a field $\mathbf{k}$ means a
+$\mathbf{k}$-algebra $A$ equipped with two further $\mathbf{k}$-bilinear
+binary operations $\left.  \prec\right.  $ and $\left.  \succeq\right.  $
+(these are operations, not relations, despite the symbols) from $A\times A$ to
+$A$ that satisfy the four rules%
 \begin{align*}
-a\left.  \prec\right.  b+a\left.  \succeq\right.  b  &  =ab;\\
-\left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c  &  =a\left.
+a\left.  \prec\right.  b+a\left.  \succeq\right.  b &  =ab;\\
+\left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c &  =a\left.
 \prec\right.  \left(  bc\right)  ;\\
-\left(  a\left.  \succeq\right.  b\right)  \left.  \prec\right.  c  &
+\left(  a\left.  \succeq\right.  b\right)  \left.  \prec\right.  c &
 =a\left.  \succeq\right.  \left(  b\left.  \prec\right.  c\right)  ;\\
 a\left.  \succeq\right.  \left(  b\left.  \succeq\right.  c\right)   &
 =\left(  ab\right)  \left.  \succeq\right.  c
 \end{align*}
-for all $a,b,c\in A$. (This definition may need some extra rules regarding
-products such as $1\left.  \prec\right.  a$, $a\left.  \prec\right.  1$,
-$1\left.  \succeq\right.  a$ and $a\left.  \succeq\right.  1$. Some authors
-require such rules, some don't.)
+for all $a,b,c\in A$. (Depending on the situation, it is useful to also impose
+a few axioms that relate the unity $1$ of the $\mathbf{k}$-algebra $A$ with
+the operations $\left.  \prec\right.  $ and $\left.  \succeq\right.  $. For
+example, we could require $1\left.  \prec\right.  a=a$ for each $a\in A$. For
+what we are going to do in the following, it does not matter whether we make
+this requirement.)
 
-The notion of dendriform algebra homomorphisms is defined as expected.
+\textbf{(b)} If $A$ and $B$ are two dendriform algebras over $\mathbf{k}$,
+then a \textit{dendriform algebra homomorphism} from $A$ to $B$ means a
+$\mathbf{k}$-algebra homomorphism $\phi:A\rightarrow B$ preserving the
+operations $\left.  \prec\right.  $ and $\left.  \succeq\right.  $ (that is,
+satisfying $\phi\left(  a\left.  \prec\right.  b\right)  =\phi\left(
+a\right)  \left.  \prec\right.  \phi\left(  b\right)  $ and $\phi\left(
+a\left.  \succeq\right.  b\right)  =\phi\left(  a\right)  \left.
+\succeq\right.  \phi\left(  b\right)  $ for all $a,b\in A$). (Some authors
+only require it to be a $\mathbf{k}$-linear map instead of being a
+$\mathbf{k}$-algebra homomorphism; this boils down to the question whether
+$\phi\left(  1\right)  $ must be $1$ or not. This does not make a difference
+for us here.)
 \end{definition}
 
 Of course, $\operatorname*{QSym}$ (with its two operations $\left.
 \prec\right.  $ and $\left.  \succeq\right.  $) thus becomes a dendriform
 algebra over $\mathbb{Q}$.
 
-\begin{question}
-If a descent statistic $\operatorname*{st}$ is dendriform-shuffle-compatible,
-then does it follow that its shuffle algebra canonically becomes a dendriform algebra?
-\end{question}
+Notice that if $A$ and $B$ are two dendriform algebras over $\mathbf{k}$, then
+the kernel of any dendriform algebra homomorphism $A\rightarrow B$ is an
+$\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of $A$.
+Conversely, if $A$ is a dendriform algebra over $\mathbf{k}$, and $I$ is
+simultaneously an $\left.  \prec\right.  $-ideal and a $\left.  \succeq
+\right.  $-ideal of $A$, then $A/I$ canonically becomes a dendriform algebra,
+and the canonical projection $A\rightarrow A/I$ becomes a dendriform algebra homomorphism.
 
-\begin{question}
-Do we have an analogue of \cite[Theorem 4.3]{part1}, along the following lines?
-\end{question}
+Therefore, Theorem \ref{prop.dendri.K.ideal} (and the $\mathcal{A}%
+_{\operatorname*{st}}\cong\operatorname*{QSym}/\mathcal{K}_{\operatorname*{st}%
+}$ isomorphism from Proposition \ref{prop.K.ideal}) yields the following:
 
-\begin{conjecture}
+\begin{corollary}
+\label{cor.dendri.quotient-dendri}If a descent statistic $\operatorname*{st}$
+is dendriform-shuffle-compatible, then its shuffle algebra $\mathcal{A}%
+_{\operatorname*{st}}$ canonically becomes a dendriform algebra.
+\end{corollary}
+
+We furthermore have the following analogue of \cite[Theorem 4.3]{part1}, which
+easily follows from Theorem \ref{prop.dendri.K.ideal}:
+
+\begin{theorem}
 \label{thm.dendri.4.3}Let $\operatorname*{st}$ be a descent statistic.
 
 \textbf{(a)} The descent statistic $\operatorname*{st}$ is
@@ -3511,7 +3538,7 @@ _{\operatorname*{st}}\left(  F_{\operatorname*{Comp}\left(  \pi\right)
 \pi\right)  =\alpha
 \]
 is an isomorphism of dendriform algebras.
-\end{conjecture}
+\end{theorem}
 
 \begin{noncompile}
 \textbf{[From here on, everything is scratch work and speculation!]}

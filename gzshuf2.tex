@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, October 02, 2017 20:17:31}
+%TCIDATA{LastRevised=Monday, October 02, 2017 20:41:05}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1296,6 +1296,50 @@ compute $\operatorname*{Epk}$ from $\operatorname*{Lpk}$ and vice versa (since
 $\operatorname*{Epk}$ differs from $\operatorname*{Lpk}$ only in the possible
 element $n$).}. Thus, an analogue of Theorem \ref{thm.Epk.sh-co} holds for the
 statistic $\left(  \operatorname*{Lpk},\operatorname*{val}\right)  $.
+
+\begin{question}
+Our concept of a \textquotedblleft$\mathcal{Z}$-enriched $\left(
+P,\gamma\right)  $-partition\textquotedblright\ generalizes the concept of
+\textquotedblleft$\left(  P,\gamma\right)  $-partition\textquotedblright\ by
+restricting ourselves to a subset $\mathcal{Z}$ of $\mathcal{N}\times\left\{
++,-\right\}  $. (This does not sound like much of a generalization when stated
+like this, but as we have seen the behavior of the power series $\Gamma
+_{\mathcal{Z}}\left(  P,\gamma\right)  $ depends strongly on what
+$\mathcal{Z}$ is, and is not all anticipated by the $\mathcal{Z}%
+=\mathcal{N}\times\left\{  +,-\right\}  $ case.) A different generalization of
+$\left(  P,\gamma\right)  $-partitions (introduced by Hsiao and Petersen in
+\cite{HsiPet10}) are the \textit{colored }$\left(  P,\gamma\right)
+$\textit{-partitions}, where the two-element set $\left\{  +,-\right\}  $ is
+replaced by the set $\left\{  1,\omega,\ldots,\omega^{m-1}\right\}  $ of all
+$m$-th roots of unity (where $m$ is a chosen positive integer, and $\omega$ is
+a fixed primitive $m$-th root of unity). We can play various games with this
+concept. The most natural thing to do seems to be to consider $m$ arbitrary
+total orders $<_{0},<_{1},\ldots,<_{m-1}$ on the set $\mathbb{Z}$ (perhaps
+with some nice properties such as all intervals being finite) and an arbitrary
+subset $\mathcal{Z}$ of $\mathcal{N}\times\left\{  1,\omega,\ldots
+,\omega^{m-1}\right\}  $, and define a $\mathcal{Z}$-enriched colored $\left(
+P,\gamma\right)  $-partition to be a map $f:P\rightarrow\mathcal{Z}$ such that
+every $x<y$ in $P$ satisfy the following conditions:
+
+\begin{enumerate}
+\item[\textbf{(i)}] We have $f\left(  x\right)  \preccurlyeq f\left(
+y\right)  $. (Here, the total order on $\mathcal{N}\times\left\{
+1,\omega,\ldots,\omega^{m-1}\right\}  $ is defined by%
+\[
+\left(  n,\omega^{i}\right)  \prec\left(  n^{\prime},\omega^{i^{\prime}%
+}\right)  \text{ if and only if either }n\prec n^{\prime}\text{ or }\left(
+n=n^{\prime}\text{ and }i<i^{\prime}\right)
+\]
+(for $i,i^{\prime}\in\left\{  0,1,\ldots,m-1\right\}  $).)
+
+\item[\textbf{(ii)}] If $f\left(  x\right)  =f\left(  y\right)  =\left(
+n,\omega^{i}\right)  $ for some $n\in\mathcal{N}$ and $i\in\left\{
+0,1,\ldots,m-1\right\}  $, then $\gamma\left(  x\right)  <_{i}\gamma\left(
+y\right)  $.
+\end{enumerate}
+
+Is this a useful concept, and can it be used to study descent statistics?
+\end{question}
 
 \section{The kernel of the map $\operatorname*{QSym}\rightarrow\mathcal{A}%
 _{\operatorname*{Epk}}$}
@@ -2713,6 +2757,18 @@ words, $\mathcal{K}_{\operatorname*{Epk}}=\mathcal{M}$. This proves
 Proposition \ref{prop.K.Epk.M}.
 \end{proof}
 
+\begin{question}
+It is worth analyzing the kernels of other known descent statistics
+(shuffle-compatible of not). We have seen above that $\mathcal{K}%
+_{\operatorname*{Epk}}$ is a \textquotedblleft binomial
+subspace\textquotedblright\ of $\operatorname*{QSym}$ in the fundamental basis
+(i.e., it can be spanned by elements of the form $\lambda F_{J}+\mu F_{K}$ for
+$J,K\in\operatorname*{Comp}$) and a \textquotedblleft binomial
+subspace\textquotedblright\ of $\operatorname*{QSym}$ in the monomial basis
+(i.e., it can be spanned by elements of the form $\lambda M_{J}+\mu M_{K}$ for
+$J,K\in\operatorname*{Comp}$). What other descent statistics have this property?
+\end{question}
+
 \section{Dendriform structures}
 
 Next, we shall study how the ideal $\mathcal{K}_{\operatorname*{Epk}}$
@@ -3464,10 +3520,10 @@ binary operations $\left.  \prec\right.  $ and $\left.  \succeq\right.  $
 (these are operations, not relations, despite the symbols) from $A\times A$ to
 $A$ that satisfy the four rules%
 \begin{align*}
-a\left.  \prec\right.  b+a\left.  \succeq\right.  b &  =ab;\\
-\left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c &  =a\left.
+a\left.  \prec\right.  b+a\left.  \succeq\right.  b  &  =ab;\\
+\left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c  &  =a\left.
 \prec\right.  \left(  bc\right)  ;\\
-\left(  a\left.  \succeq\right.  b\right)  \left.  \prec\right.  c &
+\left(  a\left.  \succeq\right.  b\right)  \left.  \prec\right.  c  &
 =a\left.  \succeq\right.  \left(  b\left.  \prec\right.  c\right)  ;\\
 a\left.  \succeq\right.  \left(  b\left.  \succeq\right.  c\right)   &
 =\left(  ab\right)  \left.  \succeq\right.  c
@@ -3554,7 +3610,8 @@ b\right)  }b_{\left[  1\right]  }\otimes b_{\left[  2\right]  }$ for
 $\Delta\left(  b\right)  -1\otimes b$, where $b$ is any element of
 $\operatorname*{QSym}$. Then,%
 \[
-\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)  \bel
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
+\bel
 a\right)  b_{\left[  2\right]  }=-a\mathfrak{\left.  \succeq\right.  }b
 \]
 for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
@@ -3568,7 +3625,8 @@ b\right)  }b_{\left[  1\right]  }\otimes b_{\left[  2\right]  }$ for
 $\Delta\left(  b\right)  -1\otimes b$, where $b$ is any element of
 $\operatorname*{QSym}$. Then,%
 \[
-\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)  \tvi
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
+\tvi
 a\right)  b_{\left[  2\right]  }=-b\left.  \prec\right.  a
 \]
 for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
@@ -3581,8 +3639,8 @@ From $\sum_{\left(  b\right)  }b_{\left[  1\right]  }\otimes b_{\left[
 2\right]  }=\Delta\left(  b\right)  -1\otimes b=\sum_{\left(  b\right)
 }b_{\left(  1\right)  }\otimes b_{\left(  2\right)  }-1\otimes b$, we have%
 \begin{align*}
-\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)  \bel
-a\right)  b_{\left[  2\right]  } &  =\underbrace{\sum_{\left(  b\right)
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
+\bel a\right)  b_{\left[  2\right]  }  &  =\underbrace{\sum_{\left(  b\right)
 }\left(  S\left(  b_{\left(  1\right)  }\right)  \bel a\right)  b_{\left(
 2\right)  }}_{\substack{=a\left.  \prec\right.  b\\\text{(by Theorem
 \ref{thm.beldend})}}}-\underbrace{\left(  1\bel a\right)  }_{=a}b\\
@@ -3699,6 +3757,11 @@ version 6, \href{https://arxiv.org/abs/1410.0079v6}{arXiv:1410.0079v6}.
 \bibitem[GriRei17]{HopfComb}Darij Grinberg, Victor Reiner, \textit{Hopf
 algebras in Combinatorics}, version of 27 July 2017. \newline%
 \url{http://www.cip.ifi.lmu.de/~grinberg/algebra/HopfComb-sols.pdf} .
+
+\bibitem[HsiPet10]{HsiPet10}Samuel K. Hsiao, T. Kyle Petersen, \textit{Colored
+Posets and Colored Quasisymmetric Functions}, Ann. Comb. 14 (2010), pp.
+251--289, \url{https://doi.org/10.1007/s00026-010-0059-0} . See
+\arxiv{math/0610984v1} for a preprint.
 
 \bibitem[SageMath]{SageMath}\href{http://www.sagemath.org}{The Sage
 Developers, \textit{SageMath, the Sage Mathematics Software System (Version

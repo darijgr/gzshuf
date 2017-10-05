@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, October 03, 2017 00:43:41}
+%TCIDATA{LastRevised=Thursday, October 05, 2017 18:22:35}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -142,12 +142,20 @@ $P$-partitions\textquotedblright. We will then consider a new particular case
 of this notion, which leads to a proof of the shuffle-compatibility of
 $\operatorname*{Epk}$ conjectured in \cite{part1}.
 
-\subsection{$\mathcal{Z}$-enriched $\left(  P,\gamma\right)  $-partitions}
+\subsection{\label{subsect.Zenri.gen}$\mathcal{Z}$-enriched $\left(
+P,\gamma\right)  $-partitions}
+
+By abuse of notation, we will often use the same notation for a poset
+$P=\left(  X,\leq\right)  $ and its ground set $X$ when there is no danger of
+confusion. In particular, if $x$ is some object, then \textquotedblleft$x\in
+P$\textquotedblright\ shall mean \textquotedblleft$x\in X$\textquotedblright.
 
 Recall that a \textit{labeled poset} means a pair $\left(  P,\gamma\right)  $
 consisting of a finite poset $P=\left(  X,\leq\right)  $ and an injective map
 $\gamma:X\rightarrow A$ for some set $A$. The injective map $\gamma$ is called
-the \textit{labeling} of the labeled poset $\left(  P,\gamma\right)  $.
+the \textit{labeling} of the labeled poset $\left(  P,\gamma\right)  $. The
+poset $P$ is called the \textit{ground poset} of the labeled poset $\left(
+P,\gamma\right)  $.
 
 \begin{convention}
 Let $\mathcal{N}$ be a totally ordered set, whose (strict) order relation will
@@ -166,12 +174,19 @@ order relation $\prec$ satisfies%
 only if either }n\prec n^{\prime}\text{ or }\left(  n=n^{\prime}\text{ and
 }s=-\text{ and }s^{\prime}=+\right)  .
 \]
-Let $\operatorname*{Pow}\mathcal{N}$ be the set of all power series over
+Let $\operatorname*{Pow}\mathcal{N}$ be the ring of all power series over
 $\mathbb{Q}$ in the indeterminates $x_{n}$ for $n\in\mathcal{N}$.
+
+We fix $\mathcal{N}$ and $\mathcal{Z}$ throughout Subsection
+\ref{subsect.Zenri.gen}. That is, any result in this subsection is tacitly
+understood to begin with \textquotedblleft Let $\mathcal{N}$ be a totally
+ordered set, whose (strict) order relation will be denoted by $\prec$, and let
+$\mathcal{Z}$ be a subset of the set $\mathcal{N}\times\left\{  +,-\right\}
+$\textquotedblright.
 \end{convention}
 
 \begin{definition}
-\label{def.ambivPp}Now, let $\left(  P,\gamma\right)  $ be a labeled poset. A
+\label{def.ambivPp}Let $\left(  P,\gamma\right)  $ be a labeled poset. A
 \textit{$\mathcal{Z}$-enriched }$\left(  P,\gamma\right)  $\textit{-partition}
 means a map $f:P\rightarrow\mathcal{Z}$ such that for all $x<y$ in $P$, the
 following conditions hold:
@@ -222,8 +237,8 @@ P,\gamma\right)  $-partitions.
 If $P$ is any poset, then $\mathcal{L}\left(  P\right)  $ shall denote the set
 of all linear extensions of $P$. A linear extension of $P$ shall be understood
 simultaneously as a totally ordered set extending $P$ and as a list $\left(
-w_{1},w_{2},\ldots,w_{n}\right)  $ of all elements of $P$ such that no $i<j$
-satisfy $w_{i}\geq w_{j}$ in $P$.
+w_{1},w_{2},\ldots,w_{n}\right)  $ of all elements of $P$ such that no two
+integers $i<j$ satisfy $w_{i}\geq w_{j}$ in $P$.
 \end{definition}
 
 Let us prove some basic facts about $\mathcal{Z}$-enriched $\left(
@@ -274,6 +289,15 @@ P\right)  }\Gamma_{\mathcal{Z}}\left(  w,\gamma\right)  .
 [Proof of Corollary \ref{cor.fund-lem}.]Follows straight from Proposition
 \ref{prop.fund-lem}.
 \end{proof}
+
+\begin{definition}
+Let $P$ be any set. Let $A$ be a totally ordered set. Let $\gamma:P\rightarrow
+A$ and $\delta:P\rightarrow A$ be two maps. We say that $\gamma$ and $\delta$
+are \textit{order-equivalent} if the following holds: For every pair $\left(
+p,q\right)  \in P\times P$, we have $\gamma\left(  p\right)  \leq\gamma\left(
+q\right)  $ if and only if $\delta\left(  p\right)  \leq\delta\left(
+q\right)  $.
+\end{definition}
 
 \begin{proposition}
 \label{prop.prod1}Let $\left(  P,\gamma\right)  $ and $\left(  Q,\delta
@@ -328,13 +352,25 @@ _{\mathcal{Z}}\left(  w,\gamma\right)  =\Gamma_{\mathcal{Z}}\left(
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.Gamma=Gamma}.]The map%
+[Proof of Proposition \ref{prop.Gamma=Gamma}.]The map $\gamma\circ\overline
+{w}^{-1}:\left[  n\right]  \rightarrow\left\{  1,2,3,\ldots\right\}  $ is an
+injective map, thus an $n$-permutation. Hence, $\Gamma_{\mathcal{Z}}\left(
+\gamma\circ\overline{w}^{-1}\right)  $ is well-defined, and in fact we have
+$\Gamma_{\mathcal{Z}}\left(  \gamma\circ\overline{w}^{-1}\right)
+=\Gamma_{\mathcal{Z}}\left(  \left[  n\right]  ,\gamma\circ\overline{w}%
+^{-1}\right)  $. Now, the map%
 \begin{align*}
 \mathcal{E}\left(  w,\gamma\right)   &  \rightarrow\mathcal{E}\left(  \left[
 n\right]  ,\gamma\circ\overline{w}^{-1}\right)  ,\\
-f  &  \mapsto f\circ\overline{w}^{-1}%
+f &  \mapsto f\circ\overline{w}^{-1}%
 \end{align*}
-is a bijection.
+is a bijection. Furthermore, it satisfies $\prod_{p\in w}x_{\left\vert
+f\left(  p\right)  \right\vert }=\prod_{p\in\left[  n\right]  }x_{\left\vert
+\left(  f\circ\overline{w}^{-1}\right)  \left(  p\right)  \right\vert }$ for
+each $f\in\mathcal{E}\left(  w,\gamma\right)  $. Hence, $\Gamma_{\mathcal{Z}%
+}\left(  w,\gamma\right)  =\Gamma_{\mathcal{Z}}\left(  \left[  n\right]
+,\gamma\circ\overline{w}^{-1}\right)  =\Gamma_{\mathcal{Z}}\left(  \gamma
+\circ\overline{w}^{-1}\right)  $.
 \end{proof}
 
 \begin{corollary}
@@ -924,7 +960,7 @@ two families are in bijection with each other. Hence, in order to prove Claim
 \begin{statement}
 \textit{Claim 2:} \textbf{(a)} If $n$ is odd, then the only syzygy of the
 family $\left(  L_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda\subseteq\left[
-n\right]  \text{ is lacunar}}$ is $L_{n,\Omega}=0$.
+n\right]  \text{ is lacunar}}$ is $L_{n,\Omega}^{\mathcal{Z}}=0$.
 
 \textbf{(b)} If $n$ is even, then the family $\left(  L_{n,\Lambda
 }^{\mathcal{Z}}\right)  _{\Lambda\subseteq\left[  n\right]  \text{ is

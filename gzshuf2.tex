@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, October 05, 2017 22:36:50}
+%TCIDATA{LastRevised=Thursday, October 05, 2017 22:42:17}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3372,7 +3372,7 @@ relation}\right)  ,\\
 on the ring $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 \right]  $ of power series by first defining how they act on monomials:%
 \begin{align*}
-\mathfrak{m}\left.  \prec\right.  \mathfrak{n} &  =\left\{
+\mathfrak{m}\left.  \prec\right.  \mathfrak{n}  &  =\left\{
 \begin{array}
 [c]{l}%
 \mathfrak{m}\cdot\mathfrak{n},\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(
@@ -3382,7 +3382,7 @@ on the ring $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 \mathfrak{m}\right)  \geq\min\left(  \operatorname*{Supp}\mathfrak{n}\right)
 \end{array}
 \right.  ;\\
-\mathfrak{m}\left.  \succeq\right.  \mathfrak{n} &  =\left\{
+\mathfrak{m}\left.  \succeq\right.  \mathfrak{n}  &  =\left\{
 \begin{array}
 [c]{l}%
 \mathfrak{m}\cdot\mathfrak{n},\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(
@@ -3392,7 +3392,7 @@ on the ring $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 \mathfrak{m}\right)  <\min\left(  \operatorname*{Supp}\mathfrak{n}\right)
 \end{array}
 \right.  ;\\
-\mathfrak{m}\bel\mathfrak{n} &  =\left\{
+\mathfrak{m}\bel\mathfrak{n}  &  =\left\{
 \begin{array}
 [c]{l}%
 \mathfrak{m}\cdot\mathfrak{n},\ \ \ \ \ \ \ \ \ \ \text{if }\max\left(
@@ -3402,7 +3402,7 @@ on the ring $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 \mathfrak{m}\right)  >\min\left(  \operatorname*{Supp}\mathfrak{n}\right)
 \end{array}
 \right.  ;\\
-\mathfrak{m}\tvi\mathfrak{n} &  =\left\{
+\mathfrak{m}\tvi\mathfrak{n}  &  =\left\{
 \begin{array}
 [c]{l}%
 \mathfrak{m}\cdot\mathfrak{n},\ \ \ \ \ \ \ \ \ \ \text{if }\max\left(
@@ -3428,11 +3428,11 @@ straightforward). A proof of the associativity of $\bel$ was given in
 \begin{itemize}
 \item The dendriform operations satisfy the four rules
 \begin{align}
-a\left.  \prec\right.  b+a\left.  \succeq\right.  b &
+a\left.  \prec\right.  b+a\left.  \succeq\right.  b  &
 =ab;\label{eq.dendriform.1}\\
-\left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c &  =a\left.
+\left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c  &  =a\left.
 \prec\right.  \left(  bc\right)  ;\nonumber\\
-\left(  a\left.  \succeq\right.  b\right)  \left.  \prec\right.  c &
+\left(  a\left.  \succeq\right.  b\right)  \left.  \prec\right.  c  &
 =a\left.  \succeq\right.  \left(  b\left.  \prec\right.  c\right)
 ;\nonumber\\
 a\left.  \succeq\right.  \left(  b\left.  \succeq\right.  c\right)   &
@@ -4555,6 +4555,37 @@ _{\operatorname*{st}}\left(  F_{\operatorname*{Comp}\left(  \pi\right)
 is an isomorphism of dendriform algebras.
 \end{theorem}
 
+Another part of Question \ref{quest.dendri-shuf-comp} is answered by the
+following (easily verified) proposition:
+
+\begin{proposition}
+\label{prop.bel-tvi-comp}Let $\operatorname*{st}$ be a descent statistic.
+
+\textbf{(a)} The set $\mathcal{K}_{\operatorname*{st}}$ is a left $\bel$-ideal
+of $\operatorname*{QSym}$ if and only if $\operatorname*{st}$ has the
+following property: If $J$ and $K$ are two $\operatorname*{st}$-equivalent
+nonempty compositions, and if $G$ is any nonempty composition, then $G\odot J$
+and $G\odot K$ are $\operatorname*{st}$-equivalent.
+
+\textbf{(b)} The set $\mathcal{K}_{\operatorname*{st}}$ is a right
+$\bel$-ideal of $\operatorname*{QSym}$ if and only if $\operatorname*{st}$ has
+the following property: If $J$ and $K$ are two $\operatorname*{st}$-equivalent
+nonempty compositions, and if $G$ is any nonempty composition, then $J\odot G$
+and $K\odot G$ are $\operatorname*{st}$-equivalent.
+
+\textbf{(c)} The set $\mathcal{K}_{\operatorname*{st}}$ is a left $\tvi$-ideal
+of $\operatorname*{QSym}$ if and only if $\operatorname*{st}$ has the
+following property: If $J$ and $K$ are two $\operatorname*{st}$-equivalent
+nonempty compositions, and if $G$ is any nonempty composition, then $\left[
+G,J\right]  $ and $\left[  G,K\right]  $ are $\operatorname*{st}$-equivalent.
+
+\textbf{(d)} The set $\mathcal{K}_{\operatorname*{st}}$ is a right
+$\tvi$-ideal of $\operatorname*{QSym}$ if and only if $\operatorname*{st}$ has
+the following property: If $J$ and $K$ are two $\operatorname*{st}$-equivalent
+nonempty compositions, and if $G$ is any nonempty composition, then $\left[
+J,G\right]  $ and $\left[  K,G\right]  $ are $\operatorname*{st}$-equivalent.
+\end{proposition}
+
 \begin{noncompile}
 \textbf{[From here on, everything is scratch work and speculation!]}
 
@@ -4569,8 +4600,7 @@ b\right)  }b_{\left[  1\right]  }\otimes b_{\left[  2\right]  }$ for
 $\Delta\left(  b\right)  -1\otimes b$, where $b$ is any element of
 $\operatorname*{QSym}$. Then,%
 \[
-\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
-\bel
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)  \bel
 a\right)  b_{\left[  2\right]  }=-a\mathfrak{\left.  \succeq\right.  }b
 \]
 for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
@@ -4584,8 +4614,7 @@ b\right)  }b_{\left[  1\right]  }\otimes b_{\left[  2\right]  }$ for
 $\Delta\left(  b\right)  -1\otimes b$, where $b$ is any element of
 $\operatorname*{QSym}$. Then,%
 \[
-\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
-\tvi
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)  \tvi
 a\right)  b_{\left[  2\right]  }=-b\left.  \prec\right.  a
 \]
 for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
@@ -4598,8 +4627,8 @@ From $\sum_{\left(  b\right)  }b_{\left[  1\right]  }\otimes b_{\left[
 2\right]  }=\Delta\left(  b\right)  -1\otimes b=\sum_{\left(  b\right)
 }b_{\left(  1\right)  }\otimes b_{\left(  2\right)  }-1\otimes b$, we have%
 \begin{align*}
-\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
-\bel a\right)  b_{\left[  2\right]  }  &  =\underbrace{\sum_{\left(  b\right)
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)  \bel
+a\right)  b_{\left[  2\right]  } &  =\underbrace{\sum_{\left(  b\right)
 }\left(  S\left(  b_{\left(  1\right)  }\right)  \bel a\right)  b_{\left(
 2\right)  }}_{\substack{=a\left.  \prec\right.  b\\\text{(by Theorem
 \ref{thm.beldend})}}}-\underbrace{\left(  1\bel a\right)  }_{=a}b\\

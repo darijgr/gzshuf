@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, October 05, 2017 22:24:10}
+%TCIDATA{LastRevised=Thursday, October 05, 2017 22:31:00}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -430,11 +430,11 @@ and $\operatorname*{Rpk}$ (and, of course, $\operatorname*{Comp}$) are descent
 statistics as well, as one can easily check.
 
 \begin{definition}
-Let $\operatorname*{st}$ be a descent statistic. Then, we can regard
-$\operatorname*{st}$ as a map from the set of all compositions (rather than
-from the set of all permutations). Namely, for any composition $I$, we define
-$\operatorname*{st}I$ (an element of the codomain of $\operatorname*{st}$) by
-setting%
+\label{def.des-stat.stI}Let $\operatorname*{st}$ be a descent statistic. Then,
+we can regard $\operatorname*{st}$ as a map from the set of all compositions
+(rather than from the set of all permutations). Namely, for any composition
+$I$, we define $\operatorname*{st}I$ (an element of the codomain of
+$\operatorname*{st}$) by setting%
 \[
 \operatorname*{st}I=\operatorname*{st}\pi\ \ \ \ \ \ \ \ \ \ \text{for any
 permutation }\pi\text{ satisfying }\operatorname*{Comp}\pi=I.
@@ -1744,25 +1744,36 @@ to $\Pi_{\mathcal{Z}}$.
 
 \begin{proof}
 [Proof of Theorem \ref{thm.Epk.sh-co}.]For each $n\in\mathbb{N}$ and each
-composition $L$ of $n$, we define a subset $\operatorname*{Epk}L$ of $\left[
-n\right]  $ by
+$n$-permutation $\pi$, we have%
+\[
+\operatorname*{Epk}\pi=\operatorname*{Lpk}\pi\cup\operatorname*{Rpk}%
+\pi=\left(  \operatorname*{Des}\pi\cup\left\{  n\right\}  \right)
+\setminus\left(  \operatorname*{Des}\pi+1\right)  .
+\]
+Thus, $\operatorname*{Epk}\pi$ is uniquely determined by $\operatorname*{Des}%
+\pi$ and $n$. Hence, $\operatorname*{Epk}$ is a descent statistic. Thus, for
+every composition $L$, a set $\operatorname*{Epk}L$ is defined (according to
+Definition \ref{def.des-stat.stI}); explicitly, $\operatorname*{Epk}%
+L=\operatorname*{Epk}\pi$ whenever $\pi$ is a permutation satisfying
+$\operatorname*{Comp}\pi=L$. Let us spell out this definition: For each
+$n\in\mathbb{N}$ and each composition $L$ of $n$, the subset
+$\operatorname*{Epk}L$ of $\left[  n\right]  $ is given by%
 \[
 \operatorname*{Epk}L=\operatorname*{Lpk}L\cup\operatorname*{Rpk}L=\left(
 \operatorname*{Des}L\cup\left\{  n\right\}  \right)  \setminus\left(
 \operatorname*{Des}L+1\right)  .
 \]
-Thus, $\operatorname*{Epk}L=\operatorname*{Epk}\pi$ whenever $\pi$ is an
-$n$-permutation satisfying $\operatorname*{Des}\pi=L$. Hence,
-$\operatorname*{Epk}$ is a descent statistic.
 
-Let $\phi_{\operatorname*{Epk}}:\operatorname*{QSym}\rightarrow\Pi
-_{\mathcal{Z}}$ be the $\mathbb{Q}$-linear map that sends each $F_{L}$ (for
-each $n\in\mathbb{N}$ and each composition $L$ of $n$) to
-$K_{n,\operatorname*{Epk}L}^{\mathcal{Z}}\in\Pi_{\mathcal{Z}}$. This
-$\mathbb{Q}$-linear map $\phi_{\operatorname*{Epk}}$ respects
-multiplication\footnote{\textit{Proof.} Let $n\in\mathbb{N}$ and
-$m\in\mathbb{N}$. Let $J$ be a composition of $n$, and let $K$ be a
-composition of $m$. Fix an $n$-permutation $\pi$ satisfying
+
+Recall that $\left(  F_{L}\right)  _{L\text{ is a composition}}$ is a basis of
+the $\mathbb{Q}$-vector space $\operatorname*{QSym}$. Let $\phi
+_{\operatorname*{Epk}}:\operatorname*{QSym}\rightarrow\Pi_{\mathcal{Z}}$ be
+the $\mathbb{Q}$-linear map that sends each $F_{L}$ (for each $n\in\mathbb{N}$
+and each composition $L$ of $n$) to $K_{n,\operatorname*{Epk}L}^{\mathcal{Z}%
+}\in\Pi_{\mathcal{Z}}$. This $\mathbb{Q}$-linear map $\phi
+_{\operatorname*{Epk}}$ respects multiplication\footnote{\textit{Proof.} Let
+$n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $J$ be a composition of $n$, and
+let $K$ be a composition of $m$. Fix an $n$-permutation $\pi$ satisfying
 $\operatorname*{Comp}\pi=J$, and fix an $m$-permutation $\sigma$ satisfying
 $\operatorname*{Comp}\sigma=K$. Now,%
 \begin{align*}
@@ -1782,7 +1793,7 @@ _{\substack{=\Gamma_{\mathcal{Z}}\left(  \sigma\right)  \\\text{(by
 ,\sigma\right)  }\underbrace{\Gamma_{\mathcal{Z}}\left(  \tau\right)
 }_{\substack{=K_{n+m,\operatorname*{Epk}\tau}^{\mathcal{Z}}\\\text{(by
 (\ref{eq.def.KnL.2}))}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary
-\ref{cor.prod2}}\right) \\
+\ref{cor.prod2}}\right)  \\
 &  =\sum_{\tau\in S\left(  \pi,\sigma\right)  }K_{n+m,\operatorname*{Epk}\tau
 }^{\mathcal{Z}}.
 \end{align*}
@@ -1840,13 +1851,14 @@ to $\Pi_{\mathcal{Z}}$. Hence, Theorem \ref{thm.Epk.sh-co} is proven.
 \end{proof}
 
 The permutation statistic $\left(  \operatorname*{Lpk},\operatorname*{val}%
-\right)  $ is equivalent to $\operatorname*{Epk}$\ \ \ \ \footnote{Indeed,
-$\operatorname*{val}$ is equivalent to $\operatorname*{epk}$ by \cite[Lemma
-2.1 \textbf{(e)}]{part1}; but knowing $\operatorname*{epk}$ allows you to
-compute $\operatorname*{Epk}$ from $\operatorname*{Lpk}$ and vice versa (since
-$\operatorname*{Epk}$ differs from $\operatorname*{Lpk}$ only in the possible
-element $n$).}. Thus, an analogue of Theorem \ref{thm.Epk.sh-co} holds for the
-statistic $\left(  \operatorname*{Lpk},\operatorname*{val}\right)  $.
+\right)  $ (see \cite{part1} for its definition) is equivalent to
+$\operatorname*{Epk}$\ \ \ \ \footnote{Indeed, $\operatorname*{val}$ is
+equivalent to $\operatorname*{epk}$ by \cite[Lemma 2.1 \textbf{(e)}]{part1};
+but knowing $\operatorname*{epk}$ allows you to compute $\operatorname*{Epk}$
+from $\operatorname*{Lpk}$ and vice versa (since $\operatorname*{Epk}$ differs
+from $\operatorname*{Lpk}$ only in the possible element $n$).}. Thus, an
+analogue of Theorem \ref{thm.Epk.sh-co} holds for the statistic $\left(
+\operatorname*{Lpk},\operatorname*{val}\right)  $.
 
 \begin{question}
 Our concept of a \textquotedblleft$\mathcal{Z}$-enriched $\left(

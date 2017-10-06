@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, October 05, 2017 18:22:35}
+%TCIDATA{LastRevised=Thursday, October 05, 2017 21:53:10}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -119,18 +119,505 @@
 This draft is a continuation of
 \href{http://lanl.arxiv.org/abs/1706.00750v1}{the preprint \textquotedblleft
 Shuffle-compatible permutation statistics\textquotedblright\ by Ira M. Gessel
-and Yan Zhuang (\cite{part1})}. We shall liberally use the notations
-introduced in \cite{part1} as well as its numbering of results and references.
+and Yan Zhuang (\cite{part1})}.
 
 All of the following is a rough draft, and proofs are merely outlined.
-
-\setcounter{section}{9}
 
 \subsection*{Acknowledgments}
 
 We thank Yan Zhuang and Ira Gessel for helpful conversations and a few
 corrections. The SageMath computer algebra system \cite{SageMath} has been
 used in finding some of the results below.
+
+\section{Notations and definitions}
+
+Let us first introduce the definitions and notations that we will use in the
+rest of this paper. Many of these definitions appear in \cite{part1} already;
+we have tried to deviate from the notations of \cite{part1} as little as possible.
+
+\subsection{Permutations and other basic concepts}
+
+\begin{definition}
+We let $\mathbb{N}=\left\{  0,1,2,3,\ldots\right\}  $ and $\mathbb{P}=\left\{
+1,2,3,\ldots\right\}  $.
+\end{definition}
+
+\begin{definition}
+\label{def.perm}Let $n\in\mathbb{Z}$. We shall use the notation $\left[
+n\right]  $ for the totally ordered set $\left\{  1,2,\ldots,n\right\}  $
+(with the usual order relation inherited from $\mathbb{Z}$). Note that
+$\left[  n\right]  =\varnothing$ when $n\leq0$.
+
+An $n$\textit{-permutation} shall mean a word with $n$ letters, which are
+distinct and belong to $\left\{  1,2,3,\ldots\right\}  $. Equivalently, an
+$n$-permutation shall be regarded as an injective map $\left[  n\right]
+\rightarrow\left\{  1,2,3,\ldots\right\}  $ (the image of $i$ under this map
+being the $i$-th letter of the word).
+\end{definition}
+
+For example, $\left(  3,6,4\right)  $ and $\left(  9,1,2\right)  $ are
+$3$-permutations, but $\left(  2,1,2\right)  $ is not.
+
+\begin{definition}
+A \textit{permutation} is defined to be an $n$-permutation for some
+$n\in\mathbb{N}$. If $\pi$ is an $n$-permutation for some $n\in\mathbb{N}$,
+then the number $n$ is called the \textit{size} (or \textit{length}) of the
+permutation $\pi$ and is denoted by $\left\vert \pi\right\vert $. A
+permutation is said to be \textit{nonempty} if it is nonempty as a word (i.e.,
+if its size is $>0$).
+\end{definition}
+
+Note that the meaning of \textquotedblleft permutation\textquotedblright\ we
+have just defined is slightly unusual (most authors define a permutation to be
+a bijection from a set to itself); we are following \cite{part1} in defining
+permutations this way.
+
+\begin{definition}
+Let $n\in\mathbb{N}$. Two $n$-permutations $\alpha$ and $\beta$ are said to be
+\textit{order-equivalent} if they have the following property: For every two
+integers $i,j\in\left[  n\right]  $, we have $\alpha\left(  i\right)
+<\alpha\left(  j\right)  $ if and only if $\beta\left(  i\right)
+<\beta\left(  j\right)  $.
+\end{definition}
+
+\begin{definition}
+\textbf{(a)} A \textit{permutation statistic} is a map $\operatorname*{st}$
+from the set of all permutations to an arbitrary set that has the following
+property: Whenever $\alpha$ and $\beta$ are two order-equivalent permutations,
+we have $\operatorname*{st}\left(  \alpha\right)  =\operatorname*{st}\left(
+\beta\right)  $.
+
+\textbf{(b)} Let $\operatorname*{st}$ be a permutation statistic. Two
+permutations $\alpha$ and $\beta$ are said to be $\operatorname*{st}%
+$\textit{-equivalent} if they satisfy $\left\vert \alpha\right\vert
+=\left\vert \beta\right\vert $ and $\operatorname*{st}\alpha
+=\operatorname*{st}\beta$. The relation \textquotedblleft$\operatorname*{st}%
+$-equivalent\textquotedblright\ is an equivalence relation; its equivalence
+classes are called $\operatorname*{st}$\textit{-equivalence classes}.
+\end{definition}
+
+\subsection{Compositions}
+
+\begin{definition}
+A \textit{composition} is a finite list of positive integers. If $I=\left(
+i_{1},i_{2},\ldots,i_{n}\right)  $ is a composition, then the nonnegative
+integer $i_{1}+i_{2}+\cdots+i_{n}$ is called the \textit{size} of $I$ and is
+denoted by $\left\vert I\right\vert $; we furthermore say that $I$ is a
+\textit{composition of }$\left\vert I\right\vert $.
+\end{definition}
+
+\begin{definition}
+\label{def.comps-to-sets}Let $n\in\mathbb{N}$. For each composition $I=\left(
+i_{1},i_{2},\ldots,i_{k}\right)  $ of $n$, we define a subset
+$\operatorname*{Des}I$ of $\left[  n-1\right]  $ by%
+\begin{align*}
+\operatorname*{Des}I  &  =\left\{  i_{1},i_{1}+i_{2},i_{1}+i_{2}+i_{3}%
+,\ldots,i_{1}+i_{2}+\cdots+i_{k-1}\right\} \\
+&  =\left\{  i_{1}+i_{2}+\cdots+i_{s}\ \mid\ s\in\left[  k-1\right]  \right\}
+.
+\end{align*}
+
+
+On the other hand, for each subset $A=\left\{  a_{1}<a_{2}<\cdots
+<a_{k}\right\}  $ of $\left[  n-1\right]  $, we define a composition
+$\operatorname*{Comp}A$ of $n$ by%
+\[
+\operatorname*{Comp}A=\left(  a_{1},a_{2}-a_{1},a_{3}-a_{2},\ldots
+,a_{k}-a_{k-1},n-a_{k}\right)  .
+\]
+(Note that $\operatorname*{Comp}A$ depends not only on the set $A$ itself, but
+also on $n$. We hope that $n$ will always be clear from the context when we
+use this notation.)
+
+We thus have defined a map $\operatorname*{Des}$ (from the set of all
+compositions of $n$ to the set of all subsets of $\left[  n-1\right]  $) and a
+map $\operatorname*{Comp}$ (in the opposite direction). These two maps are
+mutually inverse bijections.
+\end{definition}
+
+\begin{definition}
+\label{def.Des-et-al}Let $n\in\mathbb{N}$. Let $\pi=\left(  \pi_{1},\pi
+_{2},\ldots,\pi_{n}\right)  $ be an $n$-permutation.
+
+\textbf{(a)} The \textit{descents} of $\pi$ are the elements $i\in\left[
+n-1\right]  $ satisfying $\pi_{i}>\pi_{i+1}$.
+
+\textbf{(b)} The \textit{descent set} of $\pi$ is defined to be the set of all
+descents of $\pi$. This set is denoted by $\operatorname*{Des}\pi$, and is
+always a subset of $\left[  n-1\right]  $.
+
+\textbf{(c)} The \textit{descent composition} of $\pi$ is defined to be the
+composition $\operatorname*{Comp}\left(  \operatorname*{Des}\pi\right)  $ of
+$n$. This composition is denoted by $\operatorname*{Comp}\pi$.
+
+\textbf{(d)} The \textit{peaks} of $\pi$ are the elements $i\in\left\{
+2,3,\ldots,n-1\right\}  $ satisfying $\pi_{i-1}<\pi_{i}>\pi_{i+1}$.
+
+\textbf{(e)} The \textit{peak set} of $\pi$ is defined to be the set of all
+peaks of $\pi$. This set is denoted by $\operatorname*{Pk}\pi$, and is always
+a subset of $\left\{  2,3,\ldots,n-1\right\}  $.
+
+\textbf{(f)} The \textit{left peaks} of $\pi$ are the elements $i\in\left[
+n-1\right]  $ satisfying $\pi_{i-1}<\pi_{i}>\pi_{i+1}$, where we set $\pi
+_{0}=0$.
+
+\textbf{(g)} The \textit{left peak set} of $\pi$ is defined to be the set of
+all left peaks of $\pi$. This set is denoted by $\operatorname*{Lpk}\pi$, and
+is always a subset of $\left[  n-1\right]  $. It is easy to see that (for
+$n\geq2$) we have%
+\[
+\operatorname*{Lpk}\pi=\operatorname*{Pk}\pi\cup\left\{  1\ \mid\ \pi_{1}%
+>\pi_{2}\right\}  .
+\]
+(Of course, $\left\{  1\ \mid\ \pi_{1}>\pi_{2}\right\}  $ is the $1$-element
+set $\left\{  1\right\}  $ if $\pi_{1}>\pi_{2}$, and the empty set
+$\varnothing$ otherwise.)
+
+\textbf{(h)} The \textit{right peaks} of $\pi$ are the elements $i\in\left\{
+2,3,\ldots,n\right\}  $ satisfying $\pi_{i-1}<\pi_{i}>\pi_{i+1}$, where we set
+$\pi_{n+1}=0$.
+
+\textbf{(i)} The \textit{right peak set} of $\pi$ is defined to be the set of
+all right peaks of $\pi$. This set is denoted by $\operatorname*{Rpk}\pi$, and
+is always a subset of $\left\{  2,3,\ldots,n\right\}  $. It is easy to see
+that (for $n\geq2$) we have%
+\[
+\operatorname*{Rpk}\pi=\operatorname*{Pk}\pi\cup\left\{  n\ \mid\ \pi
+_{n-1}<\pi_{n}\right\}  .
+\]
+
+
+\textbf{(j)} The \textit{exterior peaks} of $\pi$ are the elements
+$i\in\left[  n\right]  $ satisfying $\pi_{i-1}<\pi_{i}>\pi_{i+1}$, where we
+set $\pi_{0}=0$ and $\pi_{n+1}=0$.
+
+\textbf{(k)} The \textit{exterior peak set} of $\pi$ is defined to be the set
+of all exterior peaks of $\pi$. This set is denoted by $\operatorname*{Epk}%
+\pi$, and is always a subset of $\left[  n\right]  $. It is easy to see that
+(for $n\geq2$) we have%
+\begin{align*}
+\operatorname*{Epk}\pi &  =\operatorname*{Pk}\pi\cup\left\{  1\ \mid\ \pi
+_{1}>\pi_{2}\right\}  \cup\left\{  n\ \mid\ \pi_{n-1}<\pi_{n}\right\} \\
+&  =\operatorname*{Lpk}\pi\cup\operatorname*{Rpk}\pi.
+\end{align*}
+(For $n=1$, we have $\operatorname*{Epk}\pi=\left\{  1\right\}  $.)
+\end{definition}
+
+For example, the $6$-permutation $\pi=\left(  4,1,3,9,6,8\right)  $ has%
+\begin{align*}
+\operatorname*{Des}\pi &  =\left\{  1,4\right\}
+,\ \ \ \ \ \ \ \ \ \ \operatorname*{Comp}\pi=\left(  1,3,2\right)
+,\ \ \ \ \ \ \ \ \ \ \operatorname*{Pk}\pi=\left\{  4\right\}  ,\\
+\operatorname*{Lpk}\pi &  =\left\{  1,4\right\}
+,\ \ \ \ \ \ \ \ \ \ \operatorname*{Rpk}\pi=\left\{  4,6\right\}
+,\ \ \ \ \ \ \ \ \ \ \operatorname*{Epk}\pi=\left\{  1,4,6\right\}  .
+\end{align*}
+For another example, the $6$-permutation $\pi=\left(  1,4,3,2,9,8\right)  $
+has%
+\begin{align*}
+\operatorname*{Des}\pi &  =\left\{  2,3,5\right\}
+,\ \ \ \ \ \ \ \ \ \ \operatorname*{Comp}\pi=\left(  2,1,2,1\right)
+,\ \ \ \ \ \ \ \ \ \ \operatorname*{Pk}\pi=\left\{  2,5\right\}  ,\\
+\operatorname*{Lpk}\pi &  =\left\{  2,5\right\}
+,\ \ \ \ \ \ \ \ \ \ \operatorname*{Rpk}\pi=\left\{  2,5\right\}
+,\ \ \ \ \ \ \ \ \ \ \operatorname*{Epk}\pi=\left\{  2,5\right\}  .
+\end{align*}
+
+
+Notice that Definition \ref{def.Des-et-al} actually defines several
+permutation statistics. For example, Definition \ref{def.Des-et-al}
+\textbf{(b)} defines the permutation statistic $\operatorname*{Des}$, whose
+codomain is the set of all subsets of $\mathbb{P}$. Also, Definition
+\ref{def.Des-et-al} \textbf{(c)} defines the permutation statistic
+$\operatorname*{Comp}$, whose codomain is the set of all compositions. The
+main permutation statistic that we will study in this paper is
+$\operatorname*{Epk}$, which is defined in Definition \ref{def.Des-et-al}
+\textbf{(k)}; its codomain is the set of all subsets of $\mathbb{P}$.
+
+\subsection{Shuffles and shuffle-compatibility}
+
+\begin{definition}
+Let $\pi$ and $\sigma$ be two permutations.
+
+\textbf{(a)} We say that $\pi$ and $\sigma$ are \textit{disjoint} if no letter
+appears in both $\pi$ and $\sigma$.
+
+\textbf{(b)} Assume that $\pi$ and $\sigma$ are disjoint. Set $m=\left\vert
+\pi\right\vert $ and $n=\left\vert \sigma\right\vert $. Let $\tau$ be an
+$\left(  m+n\right)  $-permutation. Then, we say that $\tau$ is a
+\textit{shuffle} of $\pi$ and $\sigma$ if both $\pi$ and $\sigma$ appear as
+subsequences of $\tau$.
+
+\textbf{(c)} We let $S\left(  \pi,\sigma\right)  $ be the set of all shuffles
+of $\pi$ and $\sigma$.
+\end{definition}
+
+For example, the permutations $\left(  3,1\right)  $ and $\left(
+6,2,9\right)  $ are disjoint, whereas the permutations $\left(  3,2\right)  $
+and $\left(  6,2,9\right)  $ are not. The shuffles of the two disjoint
+permutations $\left(  3,1\right)  $ and $\left(  2,6\right)  $ are%
+\begin{align*}
+&  \left(  3,1,2,6\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  3,2,1,6\right)
+,\ \ \ \ \ \ \ \ \ \ \left(  3,2,6,1\right)  ,\\
+&  \left(  2,3,1,6\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  2,3,6,1\right)
+,\ \ \ \ \ \ \ \ \ \ \left(  2,6,3,1\right)  .
+\end{align*}
+
+
+If $\pi$ and $\sigma$ are two disjoint permutations, then $S\left(  \pi
+,\sigma\right)  =S\left(  \sigma,\pi\right)  $ is an $\dbinom{m+n}{m}$-element
+set, where $m=\left\vert \pi\right\vert $ and $n=\left\vert \sigma\right\vert
+$.
+
+\begin{definition}
+Let $\operatorname*{st}$ be a permutation statistic. We say that
+$\operatorname*{st}$ is \textit{shuffle-compatible} if and only if it has the
+following property: For any two disjoint permutations $\pi$ and $\sigma$, the
+multiset%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}
+\]
+depends only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
+\left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
+\sigma\right\vert $.
+\end{definition}
+
+\subsection{Descent statistics}
+
+\begin{definition}
+Let $\operatorname*{st}$ be a permutation statistic. We say that
+$\operatorname*{st}$ is a \textit{descent statistic} if and only if
+$\operatorname*{st}\pi$ (for $\pi$ a permutation) depends only on the descent
+composition $\operatorname*{Comp}\pi$ of $\pi$. In other words,
+$\operatorname*{st}$ is a descent statistic if and only if every two
+permutations $\pi$ and $\sigma$ satisfying $\operatorname*{Comp}%
+\pi=\operatorname*{Comp}\sigma$ satisfy $\operatorname*{st}\pi
+=\operatorname*{st}\sigma$.
+\end{definition}
+
+Equivalently, a permutation statistic $\operatorname*{st}$ is a descent
+statistic if and only if every two permutations $\pi$ and $\sigma$ satisfying
+$\left\vert \pi\right\vert =\left\vert \sigma\right\vert $ and
+$\operatorname*{Des}\pi=\operatorname*{Des}\sigma$ satisfy $\operatorname*{st}%
+\pi=\operatorname*{st}\sigma$. (This is indeed equivalent, because for two
+permutations $\pi$ and $\sigma$, the condition $\left(  \left\vert
+\pi\right\vert =\left\vert \sigma\right\vert \text{ and }\operatorname*{Des}%
+\pi=\operatorname*{Des}\sigma\right)  $ is equivalent to $\left(
+\operatorname*{Comp}\pi=\operatorname*{Comp}\sigma\right)  $.)
+
+For example, the permutation statistic $\operatorname*{Des}$ is a descent
+statistic, because each permutation $\pi$ satisfies $\operatorname*{Des}%
+\pi=\operatorname*{Des}\left(  \operatorname*{Comp}\pi\right)  $. Also,
+$\operatorname*{Pk}$ is a descent statistic, since each permutation $\pi$
+satisfies%
+\[
+\operatorname*{Pk}\pi=\left(  \operatorname*{Des}\pi\right)  \setminus\left(
+\left\{  1\right\}  \cup\left(  \operatorname*{Des}\pi+1\right)  \right)  ,
+\]
+where $\operatorname*{Des}\pi+1$ denotes the set $\left\{  i+1\ \mid
+\ i\in\operatorname*{Des}\pi\right\}  $ (and, as we have just said,
+$\operatorname*{Des}\pi$ can be recovered from $\operatorname*{Comp}\pi$).
+Furthermore, $\operatorname*{Epk}$ is a descent statistic, since each
+$n$-permutation $\pi$ (for $n\in\mathbb{N}$) satisfies%
+\[
+\operatorname*{Epk}\pi=\left(  \operatorname*{Des}\pi\cup\left\{  n\right\}
+\right)  \setminus\left(  \operatorname*{Des}\pi+1\right)
+\]
+(and both $\operatorname*{Des}\pi$ and $n$ can be recovered from
+$\operatorname*{Comp}\pi$). The permutation statistics $\operatorname*{Lpk}$
+and $\operatorname*{Rpk}$ (and, of course, $\operatorname*{Comp}$) are descent
+statistics as well, as one can easily check.
+
+\begin{definition}
+Let $\operatorname*{st}$ be a descent statistic. Then, we can regard
+$\operatorname*{st}$ as a map from the set of all compositions (rather than
+from the set of all permutations). Namely, for any composition $I$, we define
+$\operatorname*{st}I$ (an element of the codomain of $\operatorname*{st}$) by
+setting%
+\[
+\operatorname*{st}I=\operatorname*{st}\pi\ \ \ \ \ \ \ \ \ \ \text{for any
+permutation }\pi\text{ satisfying }\operatorname*{Comp}\pi=I.
+\]
+This is well-defined (because for every composition $I$, there exists at least
+one permutation $\pi$ satisfying $\operatorname*{Comp}\pi=I$, and all such
+permutations $\pi$ have the same value of $\operatorname*{st}\pi$). In the
+following, we shall regard every descent statistic $\operatorname*{st}$
+simultaneously as a map from the set of all permutations and as a map from the
+set of all compositions.
+\end{definition}
+
+Note that this definition leads to a new interpretation of
+$\operatorname*{Des}I$ for a composition $I$: It is now defined as
+$\operatorname*{Des}\pi$ for any permutation $\pi$ satisfying
+$\operatorname*{Comp}\pi=I$. This could clash with the old meaning of
+$\operatorname*{Des}I$ introduced in Definition \ref{def.comps-to-sets}.
+Fortunately, these two meanings of $\operatorname*{Des}I$ are exactly the
+same, so there is no conflict of notation.
+
+\begin{definition}
+\label{def.des-stat.eq-comp}Let $\operatorname*{st}$ be a descent statistic.
+
+\textbf{(a)} Two compositions $J$ and $K$ are said to be $\operatorname*{st}%
+$\textit{-equivalent} if and only if they have the same size and satisfy
+$\operatorname*{st}J=\operatorname*{st}K$. Equivalently, two compositions $J$
+and $K$ are $\operatorname*{st}$-equivalent if and only if there exist two
+$\operatorname*{st}$-equivalent permutations $\pi$ and $\sigma$ satisfying
+$J=\operatorname*{Comp}\pi$ and $K=\operatorname*{Comp}\sigma$.
+
+\textbf{(b)} The relation \textquotedblleft$\operatorname*{st}$%
+-equivalent\textquotedblright\ is an equivalence relation on compositions; its
+equivalence classes are called $\operatorname*{st}$\textit{-equivalence
+classes of compositions}.
+\end{definition}
+
+\subsection{Quasisymmetric functions}
+
+We now recall the definition of quasisymmetric functions; see \cite[Chapter
+5]{HopfComb} (and various other modern textbooks) for more details about this:
+
+\begin{definition}
+Consider the ring of power series $\mathbb{Q}\left[  \left[  x_{1},x_{2}%
+,x_{3},\ldots\right]  \right]  $ in infinitely many commuting indeterminates
+over $\mathbb{Q}$. A power series $f\in\mathbb{Q}\left[  \left[  x_{1}%
+,x_{2},x_{3},\ldots\right]  \right]  $ is said to be \textit{quasisymmetric}
+if it has the following property: For any positive integers $a_{1}%
+,a_{2},\ldots,a_{k}$ and any two strictly increasing sequences $\left(
+i_{1}<i_{2}<\cdots<i_{k}\right)  $ and $\left(  j_{1}<j_{2}<\cdots
+<j_{k}\right)  $ of positive integers, the coefficient of $x_{i_{1}}^{a_{1}%
+}x_{i_{2}}^{a_{2}}\cdots x_{i_{k}}^{a_{k}}$ in $f$ equals the coefficient of
+$x_{j_{1}}^{a_{1}}x_{j_{2}}^{a_{2}}\cdots x_{j_{k}}^{a_{k}}$ in $f$. A
+\textit{quasisymmetric function} is a quasisymmetric power series
+$f\in\mathbb{Q}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]  \right]  $
+that has bounded degree (i.e., there exists an $N\in\mathbb{N}$ such that each
+monomial appearing in $f$ has degree $\leq N$). The quasisymmetric functions
+form a $\mathbb{Q}$-subalgebra of $\mathbb{Q}\left[  \left[  x_{1},x_{2}%
+,x_{3},\ldots\right]  \right]  $; this $\mathbb{Q}$-subalgebra is denoted by
+$\operatorname*{QSym}$ and called the \textit{ring of quasisymmetric
+functions} over $\mathbb{Q}$.
+\end{definition}
+
+The $\mathbb{Q}$-algebra $\operatorname*{QSym}$ has much interesting structure
+(e.g., it is a Hopf algebra), but we will need very little of it (and we will
+introduce it whenever it becomes important). One simple yet crucial feature of
+$\operatorname*{QSym}$ that we will immediately use is the \textit{fundamental
+basis} of $\operatorname*{QSym}$:
+
+\begin{definition}
+For any composition $\alpha$, we define the \textit{fundamental quasisymmetric
+function} $F_{\alpha}$ to be the power series%
+\[
+\sum_{\substack{i_{1}\leq i_{2}\leq\cdots\leq i_{n};\\i_{j}<i_{j+1}\text{ for
+each }j\in\operatorname*{Des}\alpha}}x_{i_{1}}x_{i_{2}}\cdots x_{i_{n}}%
+\in\operatorname*{QSym},
+\]
+where $n=\left\vert \alpha\right\vert $ is the size of $\alpha$. The family
+$\left(  F_{\alpha}\right)  _{\alpha\text{ is a composition}}$ is a basis of
+the $\mathbb{Q}$-vector space $\operatorname*{QSym}$; it is known as the
+\textit{fundamental basis} of $\operatorname*{QSym}$.
+\end{definition}
+
+We notice that the fundamental quasisymmetric function $F_{\alpha}$ is denoted
+by $L_{\alpha}$ in \cite[\S 5.2]{HopfComb}.
+
+The multiplication of fundamental quasisymmetric functions is intimately
+related to shuffles of permutations:
+
+\begin{theorem}
+\label{thm.4.1}Let $\pi$ and $\sigma$ be two disjoint permutations. Let
+$J=\operatorname*{Comp}\pi$ and $K=\operatorname*{Comp}\sigma$. For any
+composition $L$, let $c_{J,K}^{L}$ be the number of permutations with descent
+composition $L$ among the shuffles of $\pi$ and $\sigma$. Then,%
+\[
+F_{J}F_{K}=\sum_{L}c_{J,K}^{L}F_{L}%
+\]
+(where the sum is over all permutations $L$).
+\end{theorem}
+
+Theorem \ref{thm.4.1} is \cite[Theorem 4.1]{part1}; it can also be written in
+the following form:
+
+\begin{proposition}
+\label{prop.4.1.rewr}Let $\pi$ and $\sigma$ be two disjoint permutations.
+Then,%
+\[
+F_{\operatorname*{Comp}\pi}F_{\operatorname*{Comp}\sigma}=\sum_{\chi\in
+S\left(  \pi,\sigma\right)  }F_{\operatorname*{Comp}\chi}.
+\]
+
+\end{proposition}
+
+For a proof of Proposition \ref{prop.4.1.rewr} (and therefore also of the
+equivalent Theorem \ref{thm.4.1}), we refer to \cite[(5.2.6)]{HopfComb} (which
+makes the additional requirement that the letters of $\pi$ are $1,2,\ldots
+,\left\vert \pi\right\vert $ and the letters of $\sigma$ are $\left\vert
+\pi\right\vert +1,\left\vert \pi\right\vert +2,\ldots,\left\vert
+\pi\right\vert +\left\vert \sigma\right\vert $; but this requirement is not
+used in the proof and thus can be dropped).
+
+\subsection{Shuffle algebras}
+
+Any shuffle-compatible permutation statistic $\operatorname*{st}$ gives rise
+to a \textit{shuffle algebra} $\mathcal{A}_{\operatorname*{st}}$, defined as follows:
+
+\begin{definition}
+\label{def.Ast}Let $\operatorname*{st}$ be a shuffle-compatible permutation
+statistic. For each permutation $\pi$, let $\left[  \pi\right]
+_{\operatorname*{st}}$ denote the $\operatorname*{st}$-equivalence class of
+$\pi$.
+
+Let $\mathcal{A}_{\operatorname*{st}}$ be the free $\mathbb{Q}$-vector space
+whose basis is the set of all $\operatorname*{st}$-equivalence classes of
+permutations. We define a multiplication on $\mathcal{A}_{\operatorname*{st}}$
+by setting%
+\[
+\left[  \pi\right]  _{\operatorname*{st}}\left[  \sigma\right]
+_{\operatorname*{st}}=\sum_{\tau\in S\left(  \pi,\sigma\right)  }\left[
+\tau\right]  _{\operatorname*{st}}%
+\]
+for any two disjoint permutations $\pi$ and $\sigma$. It is easy to see that
+this multiplication is well-defined and associative, and turns $\mathcal{A}%
+_{\operatorname*{st}}$ into a $\mathbb{Q}$-algebra whose unity is the
+$\operatorname*{st}$-equivalence class of the empty permutation. This
+$\mathbb{Q}$-algebra is denoted by $\mathcal{A}_{\operatorname*{st}}$, and is
+called the \textit{shuffle algebra} of $\operatorname*{st}$. It is a graded
+$\mathbb{Q}$-algebra; its $n$-th graded component (for each $n\in\mathbb{N}$)
+is spanned by the $\operatorname*{st}$-equivalence classes of all $n$-permutations.
+\end{definition}
+
+A central property of the shuffle algebra $\mathcal{A}_{\operatorname*{st}}$
+of a shuffle-compatible descent statistic is their relation to
+$\operatorname*{QSym}$. This relation is given by \cite[Theorem 4.3]{part1},
+which we restate as follows:
+
+\begin{theorem}
+\label{thm.4.3}Let $\operatorname*{st}$ be a descent statistic.
+
+\textbf{(a)} The descent statistic $\operatorname*{st}$ is shuffle-compatible
+if and only if there exist a $\mathbb{Q}$-algebra $A$ with basis $\left(
+u_{\alpha}\right)  $ (indexed by $\operatorname*{st}$-equivalence classes
+$\alpha$ of compositions) and a $\mathbb{Q}$-algebra homomorphism
+$\phi_{\operatorname*{st}}:\operatorname*{QSym}\rightarrow A$ with the
+property that whenever $\alpha$ is an $\operatorname*{st}$-equivalence class
+of compositions, we have%
+\[
+\phi_{\operatorname*{st}}\left(  F_{L}\right)  =u_{\alpha}%
+\ \ \ \ \ \ \ \ \ \ \text{for each }L\in\alpha.
+\]
+
+
+\textbf{(b)} In this case, the $\mathbb{Q}$-linear map%
+\[
+\mathcal{A}_{\operatorname*{st}}\rightarrow A,\ \ \ \ \ \ \ \ \ \ \left[
+\pi\right]  _{\operatorname*{st}}\mapsto u_{\alpha},
+\]
+where $\alpha$ is the $\operatorname*{st}$-equivalence class of the
+composition $\operatorname*{Comp}\pi$, is a $\mathbb{Q}$-algebra isomorphism
+$\mathcal{A}_{\operatorname*{st}}\rightarrow A$.
+\end{theorem}
+
+We shall perhaps also use some other notations that were introduced in
+\cite{part1}. The reader should thus consult \cite{part1} for unexplained notations.
 
 \section{Extending enriched $P$-partitions and the exterior peak set}
 
@@ -320,24 +807,13 @@ $\mathcal{E}\left(  P,\gamma\right)  \times\mathcal{E}\left(  Q,\delta\right)
 \end{proof}
 
 \begin{definition}
-Let $n\in\mathbb{N}$. We shall use the notation $\left[  n\right]  $ for the
-totally ordered set $\left\{  1,2,\ldots,n\right\}  $ (with the usual order
-relation inherited from $\mathbb{Z}$).
-
-Recall that an $n$\textit{-permutation} (in the sense of \cite{part1}) means a
-word with $n$ letters, which are distinct and belong to $\left\{
-1,2,3,\ldots\right\}  $. Equivalently, an $n$-permutation shall be regarded as
-an injective map $\left[  n\right]  \rightarrow\left\{  1,2,3,\ldots\right\}
-$ (the image of $i$ under this map being the $i$-th letter of the word).
-\end{definition}
-
-\begin{definition}
-Let $n\in\mathbb{N}$. Let $\pi$ be any $n$-permutation. Then, $\left(  \left[
-n\right]  ,\pi\right)  $ is a labeled poset (in fact, $\pi$ is an injective
-map $\left[  n\right]  \rightarrow\left\{  1,2,3,\ldots\right\}  $, and thus
-can be considered a labeling). We define $\Gamma_{\mathcal{Z}}\left(
-\pi\right)  $ to be the power series $\Gamma_{\mathcal{Z}}\left(  \left[
-n\right]  ,\pi\right)  $.
+Let $n\in\mathbb{N}$. Let $\pi$ be any $n$-permutation. (Recall that we have
+defined the concept of an \textquotedblleft$n$-permutation\textquotedblright%
+\ in Definition \ref{def.perm}.) Then, $\left(  \left[  n\right]  ,\pi\right)
+$ is a labeled poset (in fact, $\pi$ is an injective map $\left[  n\right]
+\rightarrow\left\{  1,2,3,\ldots\right\}  $, and thus can be considered a
+labeling). We define $\Gamma_{\mathcal{Z}}\left(  \pi\right)  $ to be the
+power series $\Gamma_{\mathcal{Z}}\left(  \left[  n\right]  ,\pi\right)  $.
 \end{definition}
 
 We shall now prove two simple facts of auxiliary use:
@@ -362,7 +838,7 @@ $\Gamma_{\mathcal{Z}}\left(  \gamma\circ\overline{w}^{-1}\right)
 \begin{align*}
 \mathcal{E}\left(  w,\gamma\right)   &  \rightarrow\mathcal{E}\left(  \left[
 n\right]  ,\gamma\circ\overline{w}^{-1}\right)  ,\\
-f &  \mapsto f\circ\overline{w}^{-1}%
+f  &  \mapsto f\circ\overline{w}^{-1}%
 \end{align*}
 is a bijection. Furthermore, it satisfies $\prod_{p\in w}x_{\left\vert
 f\left(  p\right)  \right\vert }=\prod_{p\in\left[  n\right]  }x_{\left\vert
@@ -819,7 +1295,7 @@ $\Longrightarrow$ direction of Proposition \ref{prop.when-Epk}.
 
 $\Longleftarrow:$ Assume that $\Lambda$ is lacunar and nonempty. We must prove
 that there exists an $n$-permutation $\pi$ satisfying $\Lambda
-=\operatorname*{Epk}\pi$. Such a permutation $\pi$ can be constructed as follows.:
+=\operatorname*{Epk}\pi$. Such an $n$-permutation $\pi$ can be constructed as follows:
 
 \begin{itemize}
 \item Write the set $\Lambda$ in the form $\Lambda=\left\{  u_{1}<u_{2}%
@@ -1216,8 +1692,8 @@ $\operatorname*{Pow}\mathcal{N}$.
 We can now finally prove what we came here for:
 
 \begin{theorem}
-\label{thm.Epk.sh-co}\textbf{(a)} The statistic $\operatorname*{Epk}$ on
-permutations is shuffle-compatible.
+\label{thm.Epk.sh-co}\textbf{(a)} The permutation statistic
+$\operatorname*{Epk}$ is shuffle-compatible.
 
 \textbf{(b)} The map given by%
 \[
@@ -1275,15 +1751,14 @@ _{\substack{=\Gamma_{\mathcal{Z}}\left(  \sigma\right)  \\\text{(by
 Comparing this with%
 \begin{align*}
 \phi_{\operatorname*{Epk}}\left(  \underbrace{F_{J}F_{K}}_{\substack{=\sum
-_{\tau\in S\left(  \pi,\sigma\right)  }F_{\operatorname*{Comp}\tau
-}\\\text{(this is a restatement of}\\\text{\cite[Theorem 4.1]{part1})}%
-}}\right)   &  =\phi_{\operatorname*{Epk}}\left(  \sum_{\tau\in S\left(
-\pi,\sigma\right)  }F_{\operatorname*{Comp}\tau}\right)  =\sum_{\tau\in
-S\left(  \pi,\sigma\right)  }\underbrace{\phi_{\operatorname*{Epk}}\left(
-F_{\operatorname*{Comp}\tau}\right)  }_{\substack{=K_{n+m,\operatorname*{Epk}%
-\left(  \operatorname*{Comp}\tau\right)  }^{\mathcal{Z}}%
-=K_{n+m,\operatorname*{Epk}\tau}^{\mathcal{Z}}\\\text{(since }%
-\operatorname*{Epk}\left(  \operatorname*{Comp}\tau\right)
+_{\tau\in S\left(  \pi,\sigma\right)  }F_{\operatorname*{Comp}\tau}\\\text{(by
+Proposition~\ref{prop.4.1.rewr})}}}\right)   &  =\phi_{\operatorname*{Epk}%
+}\left(  \sum_{\tau\in S\left(  \pi,\sigma\right)  }F_{\operatorname*{Comp}%
+\tau}\right)  =\sum_{\tau\in S\left(  \pi,\sigma\right)  }\underbrace{\phi
+_{\operatorname*{Epk}}\left(  F_{\operatorname*{Comp}\tau}\right)
+}_{\substack{=K_{n+m,\operatorname*{Epk}\left(  \operatorname*{Comp}%
+\tau\right)  }^{\mathcal{Z}}=K_{n+m,\operatorname*{Epk}\tau}^{\mathcal{Z}%
+}\\\text{(since }\operatorname*{Epk}\left(  \operatorname*{Comp}\tau\right)
 =\operatorname*{Epk}\tau\text{)}}}\\
 &  =\sum_{\tau\in S\left(  \pi,\sigma\right)  }K_{n+m,\operatorname*{Epk}\tau
 }^{\mathcal{Z}},
@@ -1305,20 +1780,22 @@ $\mathbb{Q}$-linearly independent (by Corollary \ref{cor.KnL.lindep-all}).
 Thus, it is a basis of $\Pi_{\mathcal{Z}}$.
 
 For each $n\in\mathbb{N}$, there is a canonical bijection between the
-$\operatorname*{Epk}$-equivalence classes of permutations and the nonempty
+$\operatorname*{Epk}$-equivalence classes of $n$-permutations and the nonempty
 lacunar subsets $\Lambda$ of $\left[  n\right]  $ (indeed, the bijection sends
 any equivalence class $\left[  \pi\right]  _{\operatorname*{Epk}}$ to
 $\operatorname*{Epk}\pi$)\ \ \ \ \footnote{Proposition \ref{prop.when-Epk}
-shows that this is indeed a bijection.}. Hence, the first sentence of
-\cite[Theorem 4.3]{part1} (applied to $\operatorname*{st}=\operatorname*{Epk}$
-and $u_{\alpha}=K_{n,\Lambda}^{\mathcal{Z}}$, where $\alpha$ is an
-$\operatorname*{Epk}$-equivalence class of $n$-permutations and where
-$\Lambda$ is the corresponding nonempty lacunar subset) shows that the descent
-statistic $\operatorname*{Epk}$ is shuffle-compatible. The second sentence of
-\cite[Theorem 4.3]{part1} then yields that the map given by%
+shows that this is indeed a bijection.}. Hence, Theorem~\ref{thm.4.3}
+\textbf{(a)} (applied to $A=\Pi_{\mathcal{Z}}$, $\operatorname*{st}%
+=\operatorname*{Epk}$ and $u_{\alpha}=K_{n,\Lambda}^{\mathcal{Z}}$, where
+$\alpha$ is an $\operatorname*{Epk}$-equivalence class of $n$-permutations and
+where $\Lambda$ is the corresponding nonempty lacunar subset) shows that the
+descent statistic $\operatorname*{Epk}$ is shuffle-compatible.
+Theorem~\ref{thm.4.3} \textbf{(b)} then yields that the $\mathbb{Q}$-linear
+map%
 \[
-\left[  \pi\right]  _{\operatorname*{Epk}}\mapsto K_{n,\operatorname*{Epk}\pi
-}^{\mathcal{Z}}%
+\mathcal{A}_{\operatorname*{Epk}}\rightarrow\Pi_{\mathcal{Z}}%
+,\ \ \ \ \ \ \ \ \ \ \left[  \pi\right]  _{\operatorname*{Epk}}\mapsto
+K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}%
 \]
 is a $\mathbb{Q}$-algebra isomorphism from $\mathcal{A}_{\operatorname*{Epk}}$
 to $\Pi_{\mathcal{Z}}$. Hence, Theorem \ref{thm.Epk.sh-co} is proven.
@@ -1386,20 +1863,17 @@ Now, let me focus on a feature of shuffle-compatible descent statistics that
 seems to have been overlooked so far: their kernels.
 
 \begin{definition}
-Let $\operatorname*{st}$ be a descent statistic.
-
-\textbf{(a)} Two compositions $J$ and $K$ are said to be $\operatorname*{st}%
-$\textit{-equivalent} if and only if they have the same size and satisfy
-$\operatorname*{st}J=\operatorname*{st}K$.
-
-\textbf{(b)} Furthermore, $\mathcal{K}_{\operatorname*{st}}$ shall mean the
-$\mathbb{Q}$-vector subspace of $\operatorname*{QSym}$ spanned by all elements
-of the form $F_{J}-F_{K}$, where $J$ and $K$ are two $\operatorname*{st}%
-$-equivalent compositions. We shall refer to $\mathcal{K}_{\operatorname*{st}%
-}$ as the \textit{kernel} of $\operatorname*{st}$.
+Let $\operatorname*{st}$ be a descent statistic. Then, $\mathcal{K}%
+_{\operatorname*{st}}$ shall mean the $\mathbb{Q}$-vector subspace of
+$\operatorname*{QSym}$ spanned by all elements of the form $F_{J}-F_{K}$,
+where $J$ and $K$ are two $\operatorname*{st}$-equivalent compositions. (See
+Definition \ref{def.des-stat.eq-comp} for the definition of \textquotedblleft%
+$\operatorname*{st}$-equivalent compositions\textquotedblright.) We shall
+refer to $\mathcal{K}_{\operatorname*{st}}$ as the \textit{kernel} of
+$\operatorname*{st}$.
 \end{definition}
 
-\cite[Theorem 4.3]{part1} easily yields the following fact:
+Theorem~\ref{thm.4.3} easily yields the following fact:
 
 \begin{proposition}
 \label{prop.K.ideal}Let $\operatorname*{st}$ be a descent statistic. Then,
@@ -1411,15 +1885,16 @@ this case, $\mathcal{A}_{\operatorname*{st}}\cong\operatorname*{QSym}%
 
 \begin{proof}
 [Proof of Proposition \ref{prop.K.ideal}.]$\Longrightarrow:$ Assume that
-$\operatorname*{st}$ is shuffle-compatible. Thus, the first sentence of
-\cite[Theorem 4.3]{part1} shows that there exists a $\mathbb{Q}$-algebra
-homomorphism $\phi_{\operatorname*{st}}:\operatorname*{QSym}\rightarrow A$,
-where $A$ is a $\mathbb{Q}$-algebra with basis $\left\{  u_{\alpha}\right\}  $
-indexed by $\operatorname*{st}$-equivalence classes $\alpha$ of compositions,
-such that%
+$\operatorname*{st}$ is shuffle-compatible. Thus, Theorem~\ref{thm.4.3}
+\textbf{(a)} shows that there exist a $\mathbb{Q}$-algebra $A$ with basis
+$\left(  u_{\alpha}\right)  $ indexed by $\operatorname*{st}$-equivalence
+classes $\alpha$ of compositions, and a $\mathbb{Q}$-algebra homomorphism
+$\phi_{\operatorname*{st}}:\operatorname*{QSym}\rightarrow A$ with the
+property that whenever $\alpha$ is an $\operatorname*{st}$-equivalence class
+of compositions, we have%
 \begin{equation}
 \phi_{\operatorname*{st}}\left(  F_{L}\right)  =u_{\alpha}%
-\ \ \ \ \ \ \ \ \ \ \text{whenever }L\in\alpha. \label{pf.prop.K.ideal.dir1.1}%
+\ \ \ \ \ \ \ \ \ \ \text{for each }L\in\alpha. \label{pf.prop.K.ideal.dir1.1}%
 \end{equation}
 Consider this $A$ and this $\phi_{\operatorname*{st}}$.
 
@@ -1453,7 +1928,7 @@ compositions}%
 &  =\sum_{\alpha}\sum_{L\in\alpha}x_{L}u_{\alpha}=\sum_{\alpha}\left(
 \sum_{L\in\alpha}x_{L}\right)  u_{\alpha}.
 \end{align*}
-Since the family $\left\{  u_{\alpha}\right\}  $ is linearly independent
+Since the family $\left(  u_{\alpha}\right)  $ is linearly independent
 (because it is a basis of $A$), we thus conclude that
 \begin{equation}
 \sum_{L\in\alpha}x_{L}=0 \label{pf.prop.K.ideal.dir1.2}%
@@ -1537,20 +2012,19 @@ _{\operatorname*{st}}\right)  $ is an ideal of $\operatorname*{QSym}$).
 
 It remains to show that $\mathcal{A}_{\operatorname*{st}}\cong%
 \operatorname*{QSym}/\mathcal{K}_{\operatorname*{st}}$. This is easy: Each
-element of the basis $\left\{  u_{\alpha}\right\}  $ of the $\mathbb{Q}%
-$-vector space $A$ is contained in the image of $\phi_{\operatorname*{st}}$
-(because of (\ref{pf.prop.K.ideal.dir1.1})). Therefore, the homomorphism
-$\phi_{\operatorname*{st}}$ is surjective. Thus, $\phi_{\operatorname*{st}%
-}\left(  \operatorname*{QSym}\right)  =A$. Hence, $A=\phi_{\operatorname*{st}%
-}\left(  \operatorname*{QSym}\right)  \cong\operatorname*{QSym}%
-/\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)  $ (by the
-homomorphism theorem). But the second sentence of \cite[Theorem 4.3]{part1}
-shows that $\mathcal{A}_{\operatorname*{st}}\cong A$. Thus, $\mathcal{A}%
-_{\operatorname*{st}}\cong A\cong\operatorname*{QSym}%
-/\underbrace{\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)
-}_{=\mathcal{K}_{\operatorname*{st}}}=\operatorname*{QSym}/\mathcal{K}%
-_{\operatorname*{st}}$. This finishes the proof of the $\Longrightarrow$
-direction of Proposition \ref{prop.K.ideal}.
+element of the basis $\left(  u_{\alpha}\right)  $ of the $\mathbb{Q}$-vector
+space $A$ is contained in the image of $\phi_{\operatorname*{st}}$ (because of
+(\ref{pf.prop.K.ideal.dir1.1})). Therefore, the homomorphism $\phi
+_{\operatorname*{st}}$ is surjective. Thus, $\phi_{\operatorname*{st}}\left(
+\operatorname*{QSym}\right)  =A$. Hence, $A=\phi_{\operatorname*{st}}\left(
+\operatorname*{QSym}\right)  \cong\operatorname*{QSym}/\operatorname*{Ker}%
+\left(  \phi_{\operatorname*{st}}\right)  $ (by the homomorphism theorem). But
+Theorem \ref{thm.4.3} \textbf{(b)} shows that $\mathcal{A}_{\operatorname*{st}%
+}\cong A$. Thus, $\mathcal{A}_{\operatorname*{st}}\cong A\cong%
+\operatorname*{QSym}/\underbrace{\operatorname*{Ker}\left(  \phi
+_{\operatorname*{st}}\right)  }_{=\mathcal{K}_{\operatorname*{st}}%
+}=\operatorname*{QSym}/\mathcal{K}_{\operatorname*{st}}$. This finishes the
+proof of the $\Longrightarrow$ direction of Proposition \ref{prop.K.ideal}.
 
 $\Longleftarrow:$ Assume that $\mathcal{K}_{\operatorname*{st}}$ is an ideal
 of $\operatorname*{QSym}$. We must prove that $\operatorname*{st}$ is shuffle-compatible.
@@ -1575,10 +2049,10 @@ _{\operatorname*{st}}$, whence $F_{J}\equiv F_{K}\operatorname{mod}%
 \mathcal{K}_{\operatorname*{st}}$ and therefore $\phi_{\operatorname*{st}%
 }\left(  F_{J}\right)  =\phi_{\operatorname*{st}}\left(  F_{K}\right)  $).
 
-It is not hard to see that $\left\{  u_{\alpha}\right\}  $ (where $\alpha$
-ranges over all $\operatorname*{st}$-equivalence classes of compositions) is a
-basis of the $\mathbb{Q}$-algebra $A$. Hence, the first sentence of
-\cite[Theorem 4.3]{part1} yields that $\operatorname*{st}$ is
+It is not hard to see that the family $\left(  u_{\alpha}\right)  $ (where
+$\alpha$ ranges over all $\operatorname*{st}$-equivalence classes of
+compositions) is a basis of the $\mathbb{Q}$-algebra $A$. Hence, Theorem
+\ref{thm.4.3} \textbf{(a)} yields that $\operatorname*{st}$ is
 shuffle-compatible. This proves the $\Longleftarrow$ direction of Proposition
 \ref{prop.K.ideal}.
 \end{proof}
@@ -3433,8 +3907,8 @@ Theorem \ref{thm.Epk.dend}.
 combinatorial meaning, similarly to how Corollary \ref{cor.Epk.ideal} has the
 meaning that the descent statistic $\operatorname*{Epk}$ is
 shuffle-compatible? In other words, are there analogues of Proposition
-\ref{prop.K.ideal} for $\tvi  $-ideals, $\bel  $-ideals, $\left.
-\prec\right.  $-ideals and $\left.  \succeq\right.  $-ideals?
+\ref{prop.K.ideal} for $\tvi$-ideals, $\bel$-ideals, $\left.  \prec\right.
+$-ideals and $\left.  \succeq\right.  $-ideals?
 \end{question}
 
 \begin{question}
@@ -3482,8 +3956,7 @@ Also, if $\pi$ is a nonempty word, then $\min\pi$ shall mean the smallest
 letter that appears in $\pi$.
 \end{definition}
 
-The following theorem is analogous to a particular case of \cite[Theorem
-4.1]{part1}:
+The following theorem is analogous to Theorem~\ref{thm.4.1}:
 
 \begin{theorem}
 \label{thm.dendri.4.1}Let $\pi$ be a nonempty permutation with descent
@@ -3509,8 +3982,8 @@ F_{J}\left.  \succeq\right.  F_{K}=\sum_{L}c_{J,K}^{L,\succeq}F_{L}.
 \end{theorem}
 
 Note the condition (\ref{eq.thm.dendri.4.1.ass}), which is not present in
-\cite[Theorem 4.1]{part1}, and which makes Theorem \ref{thm.dendri.4.1}
-somewhat harder to apply.
+Theorem~\ref{thm.4.1}, and which makes Theorem \ref{thm.dendri.4.1} somewhat
+harder to apply.
 
 Theorem \ref{thm.dendri.4.1} can be proven similarly to \cite[(5.2.6)]%
 {HopfComb}, but in lieu of the application of \cite[Lemma 5.2.17]{HopfComb},
@@ -3564,12 +4037,13 @@ resulting labelled poset by $P\left.  \succeq\right.  Q$. Then,
 
 We leave the details to the reader.
 
-We can rewrite Theorem \ref{thm.dendri.4.1} as follows:
+We can rewrite Theorem \ref{thm.dendri.4.1} as follows:\footnote{Recall that
+for any permutation $\varphi$, we have let $\operatorname*{Comp}\varphi$
+denote the descent composition of $\varphi$.}
 
 \begin{corollary}
-\label{cor.dendri.4.1}For any permutation $\varphi$, let $\operatorname*{Comp}%
-\varphi$ denote the descent composition of $\varphi$. Let $\pi$ and $\sigma$
-be two disjoint nonempty permutations. Assume that%
+\label{cor.dendri.4.1}Let $\pi$ and $\sigma$ be two disjoint nonempty
+permutations. Assume that%
 \[
 \text{the first entry of }\pi\text{ is greater than the first entry of }%
 \sigma\text{.}%
@@ -3942,8 +4416,8 @@ $S_{\prec}\left(  \pi,\sigma\right)  =S_{\succ}\left(  \sigma,\pi\right)  $
 and $S_{\succ}\left(  \pi,\sigma\right)  =S_{\prec}\left(  \sigma,\pi\right)
 $ for any two disjoint permutations $\pi$ and $\sigma$.
 
-Using Theorem \ref{thm.dendri.4.1}, we can try to state an analogue of
-\cite[Theorem 4.3]{part1}. Let us first define the notion of dendriform algebras:
+Using Theorem \ref{thm.dendri.4.1}, we can try to state an analogue of Theorem
+\ref{thm.4.3} \textbf{(a)}. Let us first define the notion of dendriform algebras:
 
 \begin{definition}
 \textbf{(a)} A \textit{dendriform algebra} over a field $\mathbf{k}$ means a
@@ -4003,8 +4477,8 @@ is dendriform-shuffle-compatible, then its shuffle algebra $\mathcal{A}%
 _{\operatorname*{st}}$ canonically becomes a dendriform algebra.
 \end{corollary}
 
-We furthermore have the following analogue of \cite[Theorem 4.3]{part1}, which
-easily follows from Theorem \ref{thm.dendri.K.ideal}:
+We furthermore have the following analogue of Theorem~\ref{thm.4.3}
+\textbf{(a)}, which easily follows from Theorem \ref{thm.dendri.K.ideal}:
 
 \begin{theorem}
 \label{thm.dendri.4.3}Let $\operatorname*{st}$ be a descent statistic.
@@ -4115,7 +4589,7 @@ We now claim the following:
 
 It is an interesting question which of the shuffle-compatible statistics
 discussed in \cite{part1} are dendriform-shuffle-compatible. One basic fact is
-the following analogue of \cite[Theorem 4.3]{part1}:
+the following analogue of Theorem~\ref{thm.4.3}:
 
 Theorem \ref{thm.dendri.4.3} is actually a particular case of the following
 simple fact, analogous to Proposition \ref{prop.prod1}:
@@ -4153,6 +4627,12 @@ live inside a dendriform algebra. But maybe we can make them...
 \subsection{$\left(  \operatorname*{Epk},\operatorname*{des}\right)  $ aka
 $\left(  \operatorname*{Lpk},\operatorname*{val},\operatorname*{des}\right)  $
 (speculations)}
+
+Let us finish with a speculative remark regarding the statistics
+$\operatorname*{des}$ and $\operatorname*{val}$ and the compound statistics
+$\left(  \operatorname*{Epk},\operatorname*{des}\right)  $ and $\left(
+\operatorname*{Lpk},\operatorname*{val},\operatorname*{des}\right)  $
+introduced in \cite{part1}.
 
 I suspect the arguments used to prove Theorem \ref{thm.Epk.sh-co} can also be
 tweaked to prove the shuffle-compatibility of the descent statistic $\left(
@@ -4192,7 +4672,7 @@ algebras in Combinatorics}, version of 27 July 2017. \newline%
 
 \bibitem[HsiPet10]{HsiPet10}Samuel K. Hsiao, T. Kyle Petersen, \textit{Colored
 Posets and Colored Quasisymmetric Functions}, Ann. Comb. 14 (2010), pp.
-251--289, \url{https://doi.org/10.1007/s00026-010-0059-0} . See
+251--289,\newline\url{https://doi.org/10.1007/s00026-010-0059-0} . See
 \href{http://www.arxiv.org/abs/math/0610984v1}{\texttt{arXiv:math/0610984v1}}
 for a preprint.
 

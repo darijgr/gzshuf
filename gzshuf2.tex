@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, October 05, 2017 22:31:00}
+%TCIDATA{LastRevised=Thursday, October 05, 2017 22:36:50}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1793,7 +1793,7 @@ _{\substack{=\Gamma_{\mathcal{Z}}\left(  \sigma\right)  \\\text{(by
 ,\sigma\right)  }\underbrace{\Gamma_{\mathcal{Z}}\left(  \tau\right)
 }_{\substack{=K_{n+m,\operatorname*{Epk}\tau}^{\mathcal{Z}}\\\text{(by
 (\ref{eq.def.KnL.2}))}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary
-\ref{cor.prod2}}\right)  \\
+\ref{cor.prod2}}\right) \\
 &  =\sum_{\tau\in S\left(  \pi,\sigma\right)  }K_{n+m,\operatorname*{Epk}\tau
 }^{\mathcal{Z}}.
 \end{align*}
@@ -3346,11 +3346,12 @@ descent statistics.
 \subsection{Four operations on $\operatorname*{QSym}$}
 
 We begin with some definitions. We will use some notations from \cite{dimcr},
-but we set $\mathbf{k}=\mathbb{Q}$ in order for the notations to match better.
-Monomials always mean formal expressions of the form $x_{1}^{a_{1}}%
-x_{2}^{a_{2}}x_{3}^{a_{3}}\cdots$ with $a_{1}+a_{2}+a_{3}+\cdots<\infty$ (see
-\cite[Section 2]{dimcr} for details). If $\mathfrak{m}$ is a monomial, then
-$\operatorname*{Supp}\mathfrak{m}$ will denote the finite subset
+but we set $\mathbf{k}=\mathbb{Q}$ because we are working over the ring
+$\mathbb{Q}$ in this paper. Monomials always mean formal expressions of the
+form $x_{1}^{a_{1}}x_{2}^{a_{2}}x_{3}^{a_{3}}\cdots$ with $a_{1}+a_{2}%
++a_{3}+\cdots<\infty$ (see \cite[Section 2]{dimcr} for details). If
+$\mathfrak{m}$ is a monomial, then $\operatorname*{Supp}\mathfrak{m}$ will
+denote the finite subset
 \[
 \left\{  i\in\left\{  1,2,3,\ldots\right\}  \ \mid\ \text{the exponent with
 which }x_{i}\text{ occurs in }\mathfrak{m}\text{ is }>0\right\}
@@ -3363,15 +3364,15 @@ less-than\textquotedblright; but it's an operation, not a relation}\right)
 &  \left.  \succeq\right.  \ \left(  \text{called \textquotedblleft dendriform
 greater-or-equal\textquotedblright; but it's an operation, not a
 relation}\right)  ,\\
-&  \bel \ \left(  \text{called \textquotedblleft belgthor\textquotedblright%
+&  \bel\ \left(  \text{called \textquotedblleft belgthor\textquotedblright%
 }\right)  ,\\
-&  \tvi \ \left(  \text{called \textquotedblleft tvimadur\textquotedblright%
+&  \tvi\ \left(  \text{called \textquotedblleft tvimadur\textquotedblright%
 }\right)
 \end{align*}
 on the ring $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 \right]  $ of power series by first defining how they act on monomials:%
 \begin{align*}
-\mathfrak{m}\left.  \prec\right.  \mathfrak{n}  &  =\left\{
+\mathfrak{m}\left.  \prec\right.  \mathfrak{n} &  =\left\{
 \begin{array}
 [c]{l}%
 \mathfrak{m}\cdot\mathfrak{n},\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(
@@ -3381,7 +3382,7 @@ on the ring $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 \mathfrak{m}\right)  \geq\min\left(  \operatorname*{Supp}\mathfrak{n}\right)
 \end{array}
 \right.  ;\\
-\mathfrak{m}\left.  \succeq\right.  \mathfrak{n}  &  =\left\{
+\mathfrak{m}\left.  \succeq\right.  \mathfrak{n} &  =\left\{
 \begin{array}
 [c]{l}%
 \mathfrak{m}\cdot\mathfrak{n},\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(
@@ -3391,7 +3392,7 @@ on the ring $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 \mathfrak{m}\right)  <\min\left(  \operatorname*{Supp}\mathfrak{n}\right)
 \end{array}
 \right.  ;\\
-\mathfrak{m}\bel \mathfrak{n}  &  =\left\{
+\mathfrak{m}\bel\mathfrak{n} &  =\left\{
 \begin{array}
 [c]{l}%
 \mathfrak{m}\cdot\mathfrak{n},\ \ \ \ \ \ \ \ \ \ \text{if }\max\left(
@@ -3401,7 +3402,7 @@ on the ring $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 \mathfrak{m}\right)  >\min\left(  \operatorname*{Supp}\mathfrak{n}\right)
 \end{array}
 \right.  ;\\
-\mathfrak{m}\tvi \mathfrak{n}  &  =\left\{
+\mathfrak{m}\tvi\mathfrak{n} &  =\left\{
 \begin{array}
 [c]{l}%
 \mathfrak{m}\cdot\mathfrak{n},\ \ \ \ \ \ \ \ \ \ \text{if }\max\left(
@@ -3415,21 +3416,23 @@ on the ring $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 and then requiring that they all be $\mathbf{k}$-bilinear and continuous (so
 their action on pairs of arbitrary power series can be computed by
 \textquotedblleft opening the parentheses\textquotedblright). These operations
-$\left.  \prec\right.  $, $\left.  \succeq\right.  $, $\bel  $ and $\tvi  $
-all restrict to the subset $\operatorname*{QSym}$ of $\mathbf{k}\left[
-\left[  x_{1},x_{2},x_{3},\ldots\right]  \right]  $ (this is proven in
-\cite[detailed version, Section 3]{dimcr}). They furthermore satisfy numerous
-relations (some of which are proven in \cite[detailed version, Section
-3]{dimcr}, the others being easy):
+$\left.  \prec\right.  $, $\left.  \succeq\right.  $, $\bel$ and $\tvi$ all
+restrict to the subset $\operatorname*{QSym}$ of $\mathbf{k}\left[  \left[
+x_{1},x_{2},x_{3},\ldots\right]  \right]  $ (this is proven in \cite[detailed
+version, Section 3]{dimcr}). They furthermore satisfy numerous
+relations\footnote{These relations are all easy to prove (by linearity, it
+suffices to verify them on monomials only, and this verification is
+straightforward). A proof of the associativity of $\bel$ was given in
+\cite[detailed version, Proposition 3.4]{dimcr}.}:
 
 \begin{itemize}
 \item The dendriform operations satisfy the four rules
 \begin{align}
-a\left.  \prec\right.  b+a\left.  \succeq\right.  b  &
+a\left.  \prec\right.  b+a\left.  \succeq\right.  b &
 =ab;\label{eq.dendriform.1}\\
-\left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c  &  =a\left.
+\left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c &  =a\left.
 \prec\right.  \left(  bc\right)  ;\nonumber\\
-\left(  a\left.  \succeq\right.  b\right)  \left.  \prec\right.  c  &
+\left(  a\left.  \succeq\right.  b\right)  \left.  \prec\right.  c &
 =a\left.  \succeq\right.  \left(  b\left.  \prec\right.  c\right)
 ;\nonumber\\
 a\left.  \succeq\right.  \left(  b\left.  \succeq\right.  c\right)   &
@@ -3439,14 +3442,14 @@ for all $a,b,c\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 \right]  $. (In other words, they turn $\mathbf{k}\left[  \left[  x_{1}%
 ,x_{2},x_{3},\ldots\right]  \right]  $ into what is called a dendriform algebra.)
 
-\item The binary operation $\bel  $ is associative and unital (with $1$
-serving as the unity).
+\item The binary operation $\bel$ is associative and unital (with $1$ serving
+as the unity).
 
-\item The binary operation $\tvi  $ is associative and unital (with $1$
-serving as the unity).
+\item The binary operation $\tvi$ is associative and unital (with $1$ serving
+as the unity).
 \end{itemize}
 
-Now, let me use my usual notations $M_{\alpha}$ for the monomial
+Recall that we are using the notations $M_{\alpha}$ for the monomial
 quasisymmetric functions and $F_{\alpha}$ for the fundamental quasisymmetric functions.
 
 \begin{itemize}
@@ -3471,8 +3474,8 @@ _{3},\ldots,\beta_{m}\right)  .
 
 \item For any two compositions $\alpha$ and $\beta$, we have $F_{\alpha
 }\bel  F_{\beta}=F_{\alpha\odot\beta}$. (Here, $\alpha\odot\beta$ is defined
-to be $\alpha$ if $\beta=\varnothing$, and is defined to be $\beta$ if
-$\alpha=\varnothing$.)
+to be $\alpha$ if $\beta$ is the empty composition, and is defined to be
+$\beta$ if $\alpha$ is the empty composition.)
 
 \item For any two compositions $\alpha$ and $\beta$, we have $F_{\alpha
 }\tvi  F_{\beta}=F_{\left[  \alpha,\beta\right]  }$.

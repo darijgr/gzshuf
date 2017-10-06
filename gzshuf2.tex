@@ -801,9 +801,43 @@ Q,\delta\right)  =\Gamma_{\mathcal{Z}}\left(  P\sqcup Q,\varepsilon\right)  .
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.prod1}.]Fairly obvious. (There is a bijection
-$\mathcal{E}\left(  P,\gamma\right)  \times\mathcal{E}\left(  Q,\delta\right)
-\rightarrow\mathcal{E}\left(  P\sqcup Q,\varepsilon\right)  $.)
+[Proof of Proposition \ref{prop.prod1}.]We WLOG assume that the ground sets
+$P$ and $Q$ are disjoint; thus, we can identify $P\sqcup Q$ with the union
+$P\cup Q$. The map%
+\begin{align}
+\mathcal{E}\left(  P\sqcup Q,\varepsilon\right)   &  \rightarrow
+\mathcal{E}\left(  P,\gamma\right)  \times\mathcal{E}\left(  Q,\delta\right)
+,\nonumber\\
+f  &  \mapsto\left(  f\mid_{P},f\mid_{Q}\right)  \label{pf.prop.prod1.bij}%
+\end{align}
+is a bijection (this is easy to see). Now,%
+\begin{align*}
+\Gamma_{\mathcal{Z}}\left(  P\sqcup Q,\varepsilon\right)   &  =\sum
+_{f\in\mathcal{E}\left(  P\sqcup Q,\varepsilon\right)  }\underbrace{\prod
+_{p\in P\sqcup Q}x_{\left\vert f\left(  p\right)  \right\vert }}_{=\left(
+\prod_{p\in P}x_{\left\vert f\left(  p\right)  \right\vert }\right)  \left(
+\prod_{p\in Q}x_{\left\vert f\left(  p\right)  \right\vert }\right)  }%
+=\sum_{f\in\mathcal{E}\left(  P\sqcup Q,\varepsilon\right)  }\left(
+\prod_{p\in P}x_{\left\vert f\left(  p\right)  \right\vert }\right)  \left(
+\prod_{p\in Q}x_{\left\vert f\left(  p\right)  \right\vert }\right) \\
+&  =\underbrace{\left(  \sum_{g\in\mathcal{E}\left(  P,\gamma\right)  }%
+\prod_{p\in P}x_{\left\vert g\left(  p\right)  \right\vert }\right)
+}_{=\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  }\underbrace{\left(
+\sum_{h\in\mathcal{E}\left(  Q,\delta\right)  }\prod_{p\in Q}x_{\left\vert
+h\left(  p\right)  \right\vert }\right)  }_{=\Gamma_{\mathcal{Z}}\left(
+Q,\delta\right)  }\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have substituted }\left(  g,h\right)  \text{ for }\left(
+f\mid_{P},f\mid_{Q}\right)  \text{, since}\\
+\text{the map (\ref{pf.prop.prod1.bij}) is a bijection}%
+\end{array}
+\right) \\
+&  =\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  \Gamma_{\mathcal{Z}}\left(
+Q,\delta\right)  .
+\end{align*}
+
 \end{proof}
 
 \begin{definition}

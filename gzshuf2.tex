@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, October 07, 2017 01:03:01}
+%TCIDATA{LastRevised=Saturday, October 07, 2017 15:03:56}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -755,9 +755,9 @@ P\right)  }\mathcal{E}\left(  w,\gamma\right)  .
 \end{proof}
 
 \begin{definition}
-Let $\left(  P,\gamma\right)  $ be a labeled poset. We define a power series
-$\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  \in\operatorname*{Pow}%
-\mathcal{N}$ by%
+\label{def.GammaZ}Let $\left(  P,\gamma\right)  $ be a labeled poset. We
+define a power series $\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)
+\in\operatorname*{Pow}\mathcal{N}$ by%
 \[
 \Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  =\sum_{f\in\mathcal{E}\left(
 P,\gamma\right)  }\prod_{p\in P}x_{\left\vert f\left(  p\right)  \right\vert
@@ -3336,12 +3336,13 @@ interacts with some additional structure on $\operatorname*{QSym}$, viz. the
 \textit{dendriform operations }$\left.  \prec\right.  $ and $\left.
 \succeq\right.  $ and the \textquotedblleft runic\textquotedblright%
 \ operations $\bel$ and $\tvi$. These operations were introduced in
-\cite{dimcr}. Our study shall lead us to a notion of \textquotedblleft
-dendriform-shuffle-compatibility\textquotedblright, which is a property
-similar to shuffle-compatibility (but stronger, at least for descent
-statistics). We shall prove that $\operatorname*{Epk}$ is
-dendriform-shuffle-compatible; similar studies can probably be made for other
-descent statistics.
+\cite{dimcr}. Our study shall lead us to the notions of \textquotedblleft
+left-shuffle-compatibility\textquotedblright\ and \textquotedblleft
+right-shuffle-compatibility\textquotedblright, which are two properties
+similar to shuffle-compatibility (which, when combined, are stronger than
+shuffle-compatibility). We shall prove that $\operatorname*{Epk}$ is
+left-shuffle-compatible and right-shuffle-compatible; similar studies can
+probably be made for other descent statistics.
 
 \subsection{Four operations on $\operatorname*{QSym}$}
 
@@ -3428,11 +3429,11 @@ straightforward). A proof of the associativity of $\bel$ was given in
 \begin{itemize}
 \item The dendriform operations satisfy the four rules
 \begin{align}
-a\left.  \prec\right.  b+a\left.  \succeq\right.  b &
+a\left.  \prec\right.  b+a\left.  \succeq\right.  b  &
 =ab;\label{eq.dendriform.1}\\
-\left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c &  =a\left.
+\left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c  &  =a\left.
 \prec\right.  \left(  bc\right)  ;\nonumber\\
-\left(  a\left.  \succeq\right.  b\right)  \left.  \prec\right.  c &
+\left(  a\left.  \succeq\right.  b\right)  \left.  \prec\right.  c  &
 =a\left.  \succeq\right.  \left(  b\left.  \prec\right.  c\right)
 ;\nonumber\\
 a\left.  \succeq\right.  \left(  b\left.  \succeq\right.  c\right)   &
@@ -3444,12 +3445,14 @@ for all $a,b,c\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 
 \item For any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 \right]  $, we have%
-\begin{align*}
-1\left.  \prec\right.  a  & =0;\\
-a\left.  \prec\right.  1  & =a-\varepsilon\left(  a\right)  ;\\
-1\left.  \succeq\right.  a  & =a;\\
-a\left.  \succeq\right.  1  & =\varepsilon\left(  a\right)  ,
-\end{align*}
+\begin{align}
+1\left.  \prec\right.  a  &  =0;\label{eq.dendriform.1<a}\\
+a\left.  \prec\right.  1  &  =a-\varepsilon\left(  a\right)
+;\label{eq.dendriform.a<1}\\
+1\left.  \succeq\right.  a  &  =a;\label{eq.dendriform.1>=a}\\
+a\left.  \succeq\right.  1  &  =\varepsilon\left(  a\right)  ,
+\label{eq.dendriform.a>=1}%
+\end{align}
 where $\varepsilon\left(  a\right)  $ denotes the constant term of the power
 series $a$.
 
@@ -3657,6 +3660,14 @@ _{\substack{\subseteq M\\\text{(since }M\text{ is a }\left.  \prec\right.
 In other words, $M$ is an ideal of $\operatorname*{QSym}$. This proves
 Proposition \ref{prop.ideal-crit3}.
 \end{proof}
+
+\begin{question}
+Proposition \ref{prop.ideal-crit3} says that if a $\mathbb{Q}$-vector subspace
+$M$ of $\operatorname*{QSym}$ is simultaneously a $\left.  \prec\right.
+$-ideal and an $\left.  \succeq\right.  $-ideal, then it is also an ideal.
+Similarly, if $M$ is an ideal and a $\left.  \prec\right.  $-ideal, then it is
+a $\left.  \succeq\right.  $-ideal. Can we state any other such criteria?
+\end{question}
 
 \subsection{Application to $\mathcal{K}_{\operatorname*{Epk}}$}
 
@@ -3959,29 +3970,10 @@ $\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
 $\operatorname*{QSym}$.
 
 Thus, altogether, we have proven that $\mathcal{K}_{\operatorname*{Epk}}$ is a
-$\tvi  $-ideal, a $\bel  $-ideal, a $\left.  \prec\right.  $-ideal and a
-$\left.  \succeq\right.  $-ideal of $\operatorname*{QSym}$. This proves
-Theorem \ref{thm.Epk.dend}.
+$\tvi$-ideal, a $\bel$-ideal, a $\left.  \prec\right.  $-ideal and a $\left.
+\succeq\right.  $-ideal of $\operatorname*{QSym}$. This proves Theorem
+\ref{thm.Epk.dend}.
 \end{proof}
-
-\subsection{Questions}
-
-\begin{question}
-\label{quest.dendri-shuf-comp}Does Theorem \ref{thm.Epk.dend} have a
-combinatorial meaning, similarly to how Corollary \ref{cor.Epk.ideal} has the
-meaning that the descent statistic $\operatorname*{Epk}$ is
-shuffle-compatible? In other words, are there analogues of Proposition
-\ref{prop.K.ideal} for $\tvi$-ideals, $\bel$-ideals, $\left.  \prec\right.
-$-ideals and $\left.  \succeq\right.  $-ideals?
-\end{question}
-
-\begin{question}
-Proposition \ref{prop.ideal-crit3} says that if a $\mathbb{Q}$-vector subspace
-$M$ of $\operatorname*{QSym}$ is simultaneously a $\left.  \prec\right.
-$-ideal and an $\left.  \succeq\right.  $-ideal, then it is also an ideal.
-Similarly, if $M$ is an ideal and a $\left.  \prec\right.  $-ideal, then it is
-a $\left.  \succeq\right.  $-ideal. Can we state any other such criteria?
-\end{question}
 
 \begin{question}
 What other descent statistics $\operatorname*{st}$ have the property that
@@ -3991,11 +3983,18 @@ $\mathcal{K}_{\operatorname*{st}}$ is an $\tvi$-ideal, $\bel$-ideal, $\left.
 
 \subsection{Dendriform shuffle-compatibility}
 
-A first step towards resolving Question \ref{quest.dendri-shuf-comp} for
-$\left.  \prec\right.  $-ideals is to study dendriform shuffles (i.e., left
-shuffles and right shuffles). There is a well-known notion of dendriform
-shuffles of words. Specialized to permutations, it can be defined in a simple
-way as follows:
+We have seen (in Proposition \ref{prop.K.ideal}) that the kernel
+$\mathcal{K}_{\operatorname*{st}}$ of a descent statistic $\operatorname*{st}$
+is an ideal of $\operatorname*{QSym}$ if and only if $\operatorname*{st}$ is
+shuffle-compatible. It is natural to ask whether similar combinatorial
+interpretations exist for when the kernel $\mathcal{K}_{\operatorname*{st}}$
+of a descent statistic $\operatorname*{st}$ is a $\tvi$-ideal, a $\bel$-ideal,
+a $\left.  \prec\right.  $-ideals or a $\left.  \succeq\right.  $-ideal. In
+this section, we shall prove such interpretations.
+
+We begin by introducing dendriform shuffles (i.e., left shuffles and right
+shuffles). There is a well-known notion of dendriform shuffles of words.
+Specialized to permutations, it can be defined in a simple way as follows:
 
 \begin{definition}
 If $\pi$ and $\sigma$ are two disjoint nonempty permutations, then:
@@ -4019,6 +4018,11 @@ right shuffles of $\pi$ and $\sigma$.
 Also, if $\pi$ is a nonempty word, then $\min\pi$ shall mean the smallest
 letter that appears in $\pi$.
 \end{definition}
+
+We have restricted ourselves to nonempty permutations in this definition
+because it is not clear what the \textquotedblleft first
+letter\textquotedblright\ of an empty permutation would be (and either way,
+allowing empty permutations do not change much in our analysis).
 
 The following theorem is analogous to Theorem~\ref{thm.4.1}:
 
@@ -4127,51 +4131,64 @@ F_{\operatorname*{Comp}\chi}.
 
 \end{corollary}
 
-Now, let us define a notion of dendriform-shuffle-compatible statistics. We
-are not sure whether this notion is the \textquotedblleft
-right\textquotedblright\ one, or there are better:
+Now, let us define dendriform analogues to the concept of shuffle-compatibility:
 
 \begin{definition}
 Let $\operatorname*{st}$ be a permutation statistic.
 
 \textbf{(a)} We say that $\operatorname*{st}$ is
-\textit{dendriform-shuffle-compatible} if for any two disjoint nonempty
-permutations $\pi$ and $\sigma$ having the property that%
+\textit{left-shuffle-compatible} if for any two disjoint nonempty permutations
+$\pi$ and $\sigma$ having the property that%
 \begin{equation}
 \text{the first entry of }\pi\text{ is greater than the first entry of }%
-\sigma\text{.} \label{eq.def.dendri.dsc.ass}%
+\sigma, \label{eq.def.dendri.dsc.ass}%
 \end{equation}
-the two multisets%
-\[
-\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
-}\left(  \pi,\sigma\right)  \right\}  \ \ \ \ \ \ \ \ \ \ \text{and}%
-\ \ \ \ \ \ \ \ \ \ \left\{  \operatorname*{st}\left(  \tau\right)
-\ \mid\ \tau\in S_{\succ}\left(  \pi,\sigma\right)  \right\}
-\]
-depend only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
-\left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
-\sigma\right\vert $.
+the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+S_{\prec}\left(  \pi,\sigma\right)  \right\}  $ depends only on
+$\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}\left(
+\sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert \sigma
+\right\vert $.
 
 \textbf{(b)} We say that $\operatorname*{st}$ is \textit{weakly
-dendriform-shuffle-compatible} if for any two disjoint nonempty permutations
-$\pi$ and $\sigma$ having the property that%
+left-shuffle-compatible} if for any two disjoint nonempty permutations $\pi$
+and $\sigma$ having the property that%
 \begin{equation}
 \text{each entry of }\pi\text{ is greater than each entry of }\sigma,
 \label{eq.def.dendri.dsc.weak-ass}%
 \end{equation}
-the two multisets%
+the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+S_{\prec}\left(  \pi,\sigma\right)  \right\}  $ depends only on
+$\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}\left(
+\sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert \sigma
+\right\vert $.
+
+\textbf{(c)} We say that $\operatorname*{st}$ is
+\textit{right-shuffle-compatible} if for any two disjoint nonempty
+permutations $\pi$ and $\sigma$ having the property that%
 \[
-\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
-}\left(  \pi,\sigma\right)  \right\}  \ \ \ \ \ \ \ \ \ \ \text{and}%
-\ \ \ \ \ \ \ \ \ \ \left\{  \operatorname*{st}\left(  \tau\right)
-\ \mid\ \tau\in S_{\succ}\left(  \pi,\sigma\right)  \right\}
+\text{the first entry of }\pi\text{ is greater than the first entry of }%
+\sigma,
 \]
-depend only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
-\left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
-\sigma\right\vert $.
+the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+S_{\succ}\left(  \pi,\sigma\right)  \right\}  $ depends only on
+$\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}\left(
+\sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert \sigma
+\right\vert $.
+
+\textbf{(d)} We say that $\operatorname*{st}$ is \textit{weakly
+left-shuffle-compatible} if for any two disjoint nonempty permutations $\pi$
+and $\sigma$ having the property that%
+\[
+\text{each entry of }\pi\text{ is greater than each entry of }\sigma,
+\]
+the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+S_{\succ}\left(  \pi,\sigma\right)  \right\}  $ depends only on
+$\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}\left(
+\sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert \sigma
+\right\vert $.
 \end{definition}
 
-Then, the following analogue to the first part of Proposition
+Then, the following analogues to the first part of Proposition
 \ref{prop.K.ideal} holds:
 
 \begin{theorem}
@@ -4179,13 +4196,26 @@ Then, the following analogue to the first part of Proposition
 Then, the following three statements are equivalent:
 
 \begin{itemize}
-\item \textit{Statement A:} The statistic $\operatorname*{st}$ is dendriform-shuffle-compatible.
+\item \textit{Statement A:} The statistic $\operatorname*{st}$ is left-shuffle-compatible.
 
-\item \textit{Statement B:} The statistic $\operatorname*{st}$ is weakly dendriform-shuffle-compatible.
+\item \textit{Statement B:} The statistic $\operatorname*{st}$ is weakly left-shuffle-compatible.
 
 \item \textit{Statement C:} The set $\mathcal{K}_{\operatorname*{st}}$ is an
-$\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
-$\operatorname*{QSym}$.
+$\left.  \prec\right.  $-ideal of $\operatorname*{QSym}$.
+\end{itemize}
+\end{theorem}
+
+\begin{theorem}
+\label{thm.dendri.K.ideal-R}Let $\operatorname*{st}$ be a descent statistic.
+Then, the following three statements are equivalent:
+
+\begin{itemize}
+\item \textit{Statement A:} The statistic $\operatorname*{st}$ is right-shuffle-compatible.
+
+\item \textit{Statement B:} The statistic $\operatorname*{st}$ is weakly right-shuffle-compatible.
+
+\item \textit{Statement C:} The set $\mathcal{K}_{\operatorname*{st}}$ is an
+$\left.  \succeq\right.  $-ideal of $\operatorname*{QSym}$.
 \end{itemize}
 \end{theorem}
 
@@ -4196,7 +4226,7 @@ Let us prove Theorem \ref{thm.dendri.K.ideal} directly, without using shuffle al
 A$\Longrightarrow$B is obvious.
 
 \textit{Proof of the implication B}$\Longrightarrow$\textit{C:} Assume that
-Statement B holds. Thus, the statistic $\operatorname*{st}$ is weakly dendriform-shuffle-compatible.
+Statement B holds. Thus, the statistic $\operatorname*{st}$ is weakly left-shuffle-compatible.
 
 Let us show that the set $\mathcal{K}_{\operatorname*{st}}$ is a $\left.
 \prec\right.  $-ideal of $\operatorname*{QSym}$. Indeed, it suffices to show
@@ -4206,15 +4236,30 @@ every further composition $L$ satisfy%
 \left(  F_{J}-F_{K}\right)  \left.  \prec\right.  F_{L}\in\mathcal{K}%
 _{\operatorname*{st}}\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ F_{L}%
 \left.  \prec\right.  \left(  F_{J}-F_{K}\right)  \in\mathcal{K}%
-_{\operatorname*{st}} \label{pf.thm.dendri.K.ideal.two-incs}%
+_{\operatorname*{st}}\label{pf.thm.dendri.K.ideal.two-incs}%
 \end{equation}
 (because of the definition of $\mathcal{K}_{\operatorname*{st}}$). So let $J$
 and $K$ be two $\operatorname*{st}$-equivalent compositions, and let $L$ be a
-further composition. If $L$ is empty, then
-(\ref{pf.thm.dendri.K.ideal.two-incs}) holds for easy reasons (after all,
-$F_{L}=1$); thus, we WLOG assume that $L$ is nonempty. For a similar reason,
-we WLOG assume that $J\neq K$; hence, both $J$ and $K$ are nonempty (since the
-only permutation $\operatorname*{st}$-equivalent to the empty permutation is itself).
+further composition. If $J=K$, then (\ref{pf.thm.dendri.K.ideal.two-incs})
+follows immediately from realizing that $F_{J}-F_{K}=0$; thus, we WLOG assume
+that $J\neq K$. But $\left\vert J\right\vert =\left\vert K\right\vert $ (since
+$J$ and $K$ are $\operatorname*{st}$-equivalent). Hence, $\left\vert
+J\right\vert =\left\vert K\right\vert >0$ (since otherwise, we would have
+$\left\vert J\right\vert =\left\vert K\right\vert =0$, which would imply that
+both $J$ and $K$ would be the empty composition, contradicting $J\neq K$).
+Therefore, the compositions $J$ and $K$ are nonempty. If $L$ is empty, then
+(\ref{pf.thm.dendri.K.ideal.two-incs}) holds for easy reasons (indeed, we have
+$F_{L}=1$ in this case, and therefore (\ref{eq.dendriform.a<1}) yields
+\[
+\left(  F_{J}-F_{K}\right)  \left.  \prec\right.  F_{L}=\left(  F_{J}%
+-F_{K}\right)  -\underbrace{\varepsilon\left(  F_{J}-F_{K}\right)
+}_{\substack{=0\\\text{(since }F_{J}\text{ and }F_{K}\text{ are}%
+\\\text{homogeneous of degree }\left\vert J\right\vert -\left\vert
+K\right\vert >0\text{)}}}=F_{J}-F_{K}\in\mathcal{K}_{\operatorname*{st}},
+\]
+and similarly (\ref{eq.dendriform.1<a}) leads to $F_{L}\left.  \prec\right.
+\left(  F_{J}-F_{K}\right)  \in\mathcal{K}_{\operatorname*{st}}$). Hence, we
+WLOG assume that $L$ is nonempty.
 
 Pick three disjoint permutations $\varphi$, $\psi$ and $\sigma$ having descent
 compositions $J$, $K$ and $L$, respectively, and having the property that%
@@ -4225,7 +4270,8 @@ and%
 \[
 \text{each entry of }\psi\text{ is greater than each entry of }\sigma\text{.}%
 \]
-
+(Such permutations $\varphi$, $\psi$ and $\sigma$ exist, since the set
+$\mathbb{P}$ is infinite.)
 
 The permutations $\varphi$ and $\psi$ are $\operatorname*{st}$-equivalent
 (since their descent compositions $J$ and $K$ are $\operatorname*{st}%
@@ -4233,26 +4279,28 @@ $-equivalent). In other words, $\left\vert \varphi\right\vert =\left\vert
 \psi\right\vert $ and $\operatorname*{st}\left(  \varphi\right)
 =\operatorname*{st}\left(  \psi\right)  $.
 
-The statistic $\operatorname*{st}$ is weakly dendriform-shuffle-compatible.
-Thus, the multiset $\left\{  \operatorname*{st}\left(  \tau\right)
-\ \mid\ \tau\in S_{\prec}\left(  \pi,\sigma\right)  \right\}  $ (where $\pi$
-is a nonempty permutation disjoint from $\sigma$ and having the property that
-each entry of $\pi$ is greater than each entry of $\sigma$) depends only on
+The statistic $\operatorname*{st}$ is weakly left-shuffle-compatible. Thus,
+the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+S_{\prec}\left(  \pi,\sigma\right)  \right\}  $ (where $\pi$ is a nonempty
+permutation disjoint from $\sigma$ and having the property that each entry of
+$\pi$ is greater than each entry of $\sigma$) depends only on
 $\operatorname*{st}\left(  \pi\right)  $ and $\left\vert \pi\right\vert $ (by
 the definition of \textquotedblleft weakly
-dendriform-shuffle-compatible\textquotedblright). Therefore, the multisets
-$\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
-}\left(  \varphi,\sigma\right)  \right\}  $ and $\left\{  \operatorname*{st}%
-\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(  \psi,\sigma\right)
-\right\}  $ are equal (since $\left\vert \varphi\right\vert =\left\vert
-\psi\right\vert $ and $\operatorname*{st}\left(  \varphi\right)
-=\operatorname*{st}\left(  \psi\right)  $). Hence, there exists a bijection
-$\alpha:S_{\prec}\left(  \varphi,\sigma\right)  \rightarrow S_{\prec}\left(
-\psi,\sigma\right)  $ such that each $\chi\in S_{\prec}\left(  \varphi
-,\sigma\right)  $ satisfies%
+left-shuffle-compatible\textquotedblright)\footnote{Recall that $\sigma$ is
+fixed here, which is why we don't have to say that it depends on
+$\operatorname*{st}\left(  \sigma\right)  $ and $\left\vert \sigma\right\vert
+$ as well.}. Therefore, the multisets $\left\{  \operatorname*{st}\left(
+\tau\right)  \ \mid\ \tau\in S_{\prec}\left(  \varphi,\sigma\right)  \right\}
+$ and $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+S_{\prec}\left(  \psi,\sigma\right)  \right\}  $ are equal (since $\left\vert
+\varphi\right\vert =\left\vert \psi\right\vert $ and $\operatorname*{st}%
+\left(  \varphi\right)  =\operatorname*{st}\left(  \psi\right)  $). Hence,
+there exists a bijection $\alpha:S_{\prec}\left(  \varphi,\sigma\right)
+\rightarrow S_{\prec}\left(  \psi,\sigma\right)  $ such that each $\chi\in
+S_{\prec}\left(  \varphi,\sigma\right)  $ satisfies%
 \begin{equation}
 \operatorname*{st}\left(  \alpha\left(  \chi\right)  \right)
-=\operatorname*{st}\left(  \chi\right)  . \label{pf.thm.dendri.K.ideal.alpha}%
+=\operatorname*{st}\left(  \chi\right)  .\label{pf.thm.dendri.K.ideal.alpha}%
 \end{equation}
 Consider this $\alpha$. Clearly, each $\chi\in S_{\prec}\left(  \varphi
 ,\sigma\right)  $ satisfies%
@@ -4275,23 +4323,23 @@ of $\mathcal{K}_{\operatorname*{st}}$) and therefore%
 \begin{equation}
 F_{\operatorname*{Comp}\chi}\equiv F_{\operatorname*{Comp}\left(
 \alpha\left(  \chi\right)  \right)  }\operatorname{mod}\mathcal{K}%
-_{\operatorname*{st}}. \label{pf.thm.dendri.K.ideal.alphaeq}%
+_{\operatorname*{st}}.\label{pf.thm.dendri.K.ideal.alphaeq}%
 \end{equation}
 
 
 The first claim of Corollary \ref{cor.dendri.4.1} yields%
-\[
+\begin{align*}
 F_{\operatorname*{Comp}\varphi}\left.  \prec\right.  F_{\operatorname*{Comp}%
-\sigma}=\sum_{\chi\in S_{\prec}\left(  \varphi,\sigma\right)  }%
-F_{\operatorname*{Comp}\chi}\ \ \ \ \ \ \ \ \ \ \text{and}%
-\ \ \ \ \ \ \ \ \ \ F_{\operatorname*{Comp}\psi}\left.  \prec\right.
-F_{\operatorname*{Comp}\sigma}=\sum_{\chi\in S_{\prec}\left(  \psi
-,\sigma\right)  }F_{\operatorname*{Comp}\chi}.
-\]
+\sigma} &  =\sum_{\chi\in S_{\prec}\left(  \varphi,\sigma\right)
+}F_{\operatorname*{Comp}\chi}\ \ \ \ \ \ \ \ \ \ \text{and}\\
+F_{\operatorname*{Comp}\psi}\left.  \prec\right.  F_{\operatorname*{Comp}%
+\sigma} &  =\sum_{\chi\in S_{\prec}\left(  \psi,\sigma\right)  }%
+F_{\operatorname*{Comp}\chi}.
+\end{align*}
 Hence,%
 \begin{align*}
 F_{\operatorname*{Comp}\varphi}\left.  \prec\right.  F_{\operatorname*{Comp}%
-\sigma}  &  =\sum_{\chi\in S_{\prec}\left(  \varphi,\sigma\right)
+\sigma} &  =\sum_{\chi\in S_{\prec}\left(  \varphi,\sigma\right)
 }\underbrace{F_{\operatorname*{Comp}\chi}}_{\substack{\equiv
 F_{\operatorname*{Comp}\left(  \alpha\left(  \chi\right)  \right)
 }\operatorname{mod}\mathcal{K}_{\operatorname*{st}}\\\text{(by
@@ -4308,7 +4356,7 @@ F_{\operatorname*{Comp}\chi}\\
 \text{since the map }\alpha:S_{\prec}\left(  \varphi,\sigma\right)
 \rightarrow S_{\prec}\left(  \psi,\sigma\right)  \text{ is a bijection}%
 \end{array}
-\right) \\
+\right)  \\
 &  =F_{\operatorname*{Comp}\psi}\left.  \prec\right.  F_{\operatorname*{Comp}%
 \sigma}\operatorname{mod}\mathcal{K}_{\operatorname*{st}}.
 \end{align*}
@@ -4322,15 +4370,12 @@ other words, $\left(  F_{J}-F_{K}\right)  \left.  \prec\right.  F_{L}%
 \in\mathcal{K}_{\operatorname*{st}}$. This proves the first claim of
 (\ref{pf.thm.dendri.K.ideal.two-incs}). The second is proven similarly.
 Altogether, we thus conclude that $\mathcal{K}_{\operatorname*{st}}$ is a
-$\left.  \prec\right.  $-ideal of $\operatorname*{QSym}$. Similarly,
-$\mathcal{K}_{\operatorname*{st}}$ is a $\left.  \succeq\right.  $-ideal of
-$\operatorname*{QSym}$. Combining these facts, we see that Statement C holds.
-This proves the implication B$\Longrightarrow$C.
+$\left.  \prec\right.  $-ideal of $\operatorname*{QSym}$. In other words,
+Statement C holds. This proves the implication B$\Longrightarrow$C.
 
 \textit{Proof of the implication C}$\Longrightarrow$\textit{A:} Assume that
 Statement C holds. Thus, the set $\mathcal{K}_{\operatorname*{st}}$ is an
-$\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
-$\operatorname*{QSym}$.
+$\left.  \prec\right.  $-ideal of $\operatorname*{QSym}$.
 
 Let $X$ be the codomain of the map $\operatorname*{st}$. Let $\mathbb{Q}%
 \left[  X\right]  $ be the free $\mathbb{Q}$-vector space with basis $\left(
@@ -4448,34 +4493,62 @@ $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
 $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
 }\left(  \pi,\sigma\right)  \right\}  $ depends only on $\operatorname*{st}%
 \left(  \pi\right)  $, $\operatorname*{st}\left(  \sigma\right)  $,
-$\left\vert \pi\right\vert $ and $\left\vert \sigma\right\vert $. Similarly,
-the same holds for the multiset $\left\{  \operatorname*{st}\left(
-\tau\right)  \ \mid\ \tau\in S_{\succ}\left(  \pi,\sigma\right)  \right\}  $.
-Hence, the statistic $\operatorname*{st}$ is dendriform-shuffle-compatible. In
-other words, Statement A holds. This proves the implication C$\Longrightarrow$A.
+$\left\vert \pi\right\vert $ and $\left\vert \sigma\right\vert $. Hence, the
+statistic $\operatorname*{st}$ is left-shuffle-compatible. In other words,
+Statement A holds. This proves the implication C$\Longrightarrow$A.
 
 Now that we have proven all three implications A$\Longrightarrow$B,
 B$\Longrightarrow$C and C$\Longrightarrow$A, the proof of Theorem
 \ref{thm.dendri.K.ideal} is complete.
 \end{proof}
 
-Thus, in particular, any weakly dendriform-shuffle-compatible descent
-statistic must be shuffle-compatible (because Theorem \ref{thm.dendri.K.ideal}
-shows that its kernel is an $\left.  \prec\right.  $-ideal and a $\left.
-\succeq\right.  $-ideal of $\operatorname*{QSym}$, whence this kernel must be
-an ideal of $\operatorname*{QSym}$, whence we conclude that the statistic is
-shuffle-compatible because of Proposition \ref{prop.K.ideal}). Note that this
-is only true for descent statistics! As far as arbitrary permutation
-statistics are concerned, this is false; for example, the number of inversions
-is weakly dendriform-shuffle-compatible but not shuffle-compatible.
+\begin{proof}
+[Proof of Theorem \ref{thm.dendri.K.ideal-R}.]The proof of Theorem
+\ref{thm.dendri.K.ideal-R} is analogous to the above proof of Theorem
+\ref{thm.dendri.K.ideal}.
+\end{proof}
 
-On the other hand, every dendriform-shuffle-compatible statistic is
-shuffle-compatible (whether or not it is a descent statistic). This follows
-from a careful look at the definition of \textquotedblleft
-dendriform-shuffle-compatible\textquotedblright\ and the observation that
-$S_{\prec}\left(  \pi,\sigma\right)  =S_{\succ}\left(  \sigma,\pi\right)  $
-and $S_{\succ}\left(  \pi,\sigma\right)  =S_{\prec}\left(  \sigma,\pi\right)
-$ for any two disjoint permutations $\pi$ and $\sigma$.
+As a consequence of the above two theorems, we can see that any descent
+statistic that is weakly left-shuffle-compatible and weakly
+right-shuffle-compatible must automatically be
+shuffle-compatible\footnote{\textit{Proof.} Let $\operatorname*{st}$ be a
+descent statistic that is weakly left-shuffle-compatible and weakly
+right-shuffle-compatible. We must prove that $\operatorname*{st}$ is
+shuffle-compatible.
+\par
+The implication B$\Longrightarrow$C in Theorem \ref{thm.dendri.K.ideal} shows
+that the set $\mathcal{K}_{\operatorname*{st}}$ is an $\left.  \prec\right.
+$-ideal of $\operatorname*{QSym}$. Similarly, the set $\mathcal{K}%
+_{\operatorname*{st}}$ is an $\left.  \succeq\right.  $-ideal of
+$\operatorname*{QSym}$. Hence, Proposition \ref{prop.ideal-crit3} (applied to
+$M=\mathcal{K}_{\operatorname*{st}}$) yields that $\mathcal{K}%
+_{\operatorname*{st}}$ is an ideal of $\operatorname*{QSym}$. By Proposition
+\ref{prop.K.ideal}, this shows that $\operatorname*{st}$ is
+shuffle-compatible.}. Note that this is only true for descent statistics! As
+far as arbitrary permutation statistics are concerned, this is false; for
+example, the number of inversions is weakly left-shuffle-compatible and weakly
+right-shuffle-compatible but not shuffle-compatible.
+
+On the other hand, every permutation statistic that is left-shuffle-compatible
+and right-shuffle-compatible must automatically be shuffle-compatible (whether
+or not it is a descent statistic). This follows from a careful look at the
+definitions of \textquotedblleft left-shuffle-compatible\textquotedblright%
+\ and \textquotedblleft right-shuffle-compatible\textquotedblright\ and the
+observation that $S_{\prec}\left(  \pi,\sigma\right)  =S_{\succ}\left(
+\sigma,\pi\right)  $ and $S_{\succ}\left(  \pi,\sigma\right)  =S_{\prec
+}\left(  \sigma,\pi\right)  $ for any two disjoint permutations $\pi$ and
+$\sigma$.
+
+\begin{corollary}
+\label{cor.dendri.Epk}The descent statistic $\operatorname*{Epk}$ is
+left-shuffle-compatible and right-shuffle-compatible.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.dendri.Epk}.]To prove that $\operatorname*{Epk}$
+is left-shuffle-compatible, combine Theorem \ref{thm.dendri.K.ideal} with
+Theorem \ref{thm.Epk.dend}. Similarly for right-shuffle-compatibility.
+\end{proof}
 
 Using Theorem \ref{thm.dendri.4.1}, we can try to state an analogue of Theorem
 \ref{thm.4.3} \textbf{(a)}. Let us first define the notion of dendriform algebras:
@@ -4534,8 +4607,8 @@ _{\operatorname*{st}}\cong\operatorname*{QSym}/\mathcal{K}_{\operatorname*{st}%
 
 \begin{corollary}
 \label{cor.dendri.quotient-dendri}If a descent statistic $\operatorname*{st}$
-is dendriform-shuffle-compatible, then its shuffle algebra $\mathcal{A}%
-_{\operatorname*{st}}$ canonically becomes a dendriform algebra.
+is left-shuffle-compatible and right-shuffle-compatible, then its shuffle
+algebra $\mathcal{A}_{\operatorname*{st}}$ canonically becomes a dendriform algebra.
 \end{corollary}
 
 We furthermore have the following analogue of Theorem~\ref{thm.4.3}
@@ -4545,12 +4618,12 @@ We furthermore have the following analogue of Theorem~\ref{thm.4.3}
 \label{thm.dendri.4.3}Let $\operatorname*{st}$ be a descent statistic.
 
 \textbf{(a)} The descent statistic $\operatorname*{st}$ is
-dendriform-shuffle-compatible if and only if there exists a homomorphism
-$\phi_{\operatorname*{st}}:\operatorname*{QSym}\rightarrow A$ of dendriform
-algebras, where $A$ is a dendriform algebra with basis $\left(  u_{\alpha
-}\right)  $ indexed by $\operatorname*{st}$-equivalence classes $\alpha$ of
-compositions, such that $\phi_{\operatorname*{st}}\left(  F_{L}\right)
-=u_{\alpha}$ whenever $L\in\alpha$.
+left-shuffle-compatible and right-shuffle-compatible if and only if there
+exists a homomorphism $\phi_{\operatorname*{st}}:\operatorname*{QSym}%
+\rightarrow A$ of dendriform algebras, where $A$ is a dendriform algebra with
+basis $\left(  u_{\alpha}\right)  $ indexed by $\operatorname*{st}%
+$-equivalence classes $\alpha$ of compositions, such that $\phi
+_{\operatorname*{st}}\left(  F_{L}\right)  =u_{\alpha}$ whenever $L\in\alpha$.
 
 \textbf{(b)} In this case, the $\mathbb{Q}$-linear map $\mathcal{A}%
 _{\operatorname*{st}}\rightarrow A$ given by%
@@ -4563,8 +4636,38 @@ _{\operatorname*{st}}\left(  F_{\operatorname*{Comp}\left(  \pi\right)
 is an isomorphism of dendriform algebras.
 \end{theorem}
 
-Another part of Question \ref{quest.dendri-shuf-comp} is answered by the
-following (easily verified) proposition:
+\begin{question}
+Can the $\mathbb{Q}$-algebra $\operatorname*{Pow}\mathcal{N}$ from Definition
+\ref{def.GammaZ} be endowed with two binary operations $\left.  \prec\right.
+$ and $\left.  \succeq\right.  $ that make it into a dendriform algebra? Can
+we then find an analogue of Proposition \ref{prop.prod1} along the following lines?
+
+Let $\left(  P,\gamma\right)  $, $\left(  Q,\delta\right)  $ and $\left(
+P\sqcup Q,\varepsilon\right)  $ be as in Proposition \ref{prop.prod1}. Assume
+that each of the posets $P$ and $Q$ has a minimum element; denote these
+elements by $\min P$ and $\min Q$, respectively. Define two posets $P\left.
+\prec\right.  Q$ and $P\left.  \succeq\right.  Q$ as in Proposition
+\ref{prop.dendri.4.1.lem}. Then, we hope to have%
+\begin{align*}
+\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  \left.  \prec\right.
+\Gamma_{\mathcal{Z}}\left(  Q,\delta\right)   &  =\Gamma_{\mathcal{Z}}\left(
+P\left.  \prec\right.  Q,\varepsilon\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  \left.  \succeq\right.
+\Gamma_{\mathcal{Z}}\left(  Q,\delta\right)   &  =\Gamma_{\mathcal{Z}}\left(
+P\left.  \succ\right.  Q,\varepsilon\right)  .
+\end{align*}
+
+
+Ideally, this would be a generalization of Proposition
+\ref{prop.dendri.4.1.lem}.
+\end{question}
+
+We have so far studied the combinatorial significance of when the kernel
+$\mathcal{K}_{\operatorname*{st}}$ of a statistic $\operatorname*{st}$ is a
+$\left.  \prec\right.  $-ideal or a $\left.  \succeq\right.  $-ideal of
+$\operatorname*{QSym}$. What about $\bel$-ideals and $\tvi$-ideals? It turns
+out that the answer to this question is easily given (on the level of
+compositions) by the following (easily verified) proposition:
 
 \begin{proposition}
 \label{prop.bel-tvi-comp}Let $\operatorname*{st}$ be a descent statistic.
@@ -4678,42 +4781,6 @@ We now claim the following:
 
 ...
 \end{proof}
-
-It is an interesting question which of the shuffle-compatible statistics
-discussed in \cite{part1} are dendriform-shuffle-compatible. One basic fact is
-the following analogue of Theorem~\ref{thm.4.3}:
-
-Theorem \ref{thm.dendri.4.3} is actually a particular case of the following
-simple fact, analogous to Proposition \ref{prop.prod1}:
-
-\begin{proposition}
-\label{prop.dendri.prod1}Let $\left(  P,\gamma\right)  $ and $\left(
-Q,\delta\right)  $ be two labeled posets. Assume that each of the posets $P$
-and $Q$ has a minimum element; denote these elements by $\min P$ and $\min Q$,
-respectively. Let $\left(  P\sqcup Q,\varepsilon\right)  $ be the labeled
-poset whose ground set $P\sqcup Q$ is the disjoint union of $P$ and $Q$, and
-whose labeling $\varepsilon$ is such that the restriction of $\varepsilon$ to
-$P$ is order-equivalent to $\gamma$ and such that the restriction of
-$\varepsilon$ to $Q$ is order-equivalent to $\delta$.
-
-\textbf{(a)} Let $P\left.  \prec\right.  Q$ be the poset obtained from
-$P\sqcup Q$ by adding the relation $\min P<\min Q$. Then, $\Gamma
-_{\mathcal{Z}}\left(  P,\gamma\right)  \left.  \prec\right.  \Gamma
-_{\mathcal{Z}}\left(  Q,\delta\right)  =\Gamma_{\mathcal{Z}}\left(  P\left.
-\prec\right.  Q,\varepsilon\right)  $.
-
-\textbf{(b)} Let $P\left.  \succ\right.  Q$ be the poset obtained from
-$P\sqcup Q$ by adding the relation $\min Q<\min P$. Then, $\Gamma
-_{\mathcal{Z}}\left(  P,\gamma\right)  \left.  \succeq\right.  \Gamma
-_{\mathcal{Z}}\left(  Q,\delta\right)  =\Gamma_{\mathcal{Z}}\left(  P\left.
-\succ\right.  Q,\varepsilon\right)  $.
-
-THIS IS NOT QUITE CORRECT! Not sure how to fix it. (Actually, it doesn't make
-sense, because the $\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  $ etc. don't
-live inside a dendriform algebra. But maybe we can make them...
-\end{proposition}
-
-....
 \end{noncompile}
 
 \subsection{$\left(  \operatorname*{Epk},\operatorname*{des}\right)  $ aka

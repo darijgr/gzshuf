@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, October 05, 2017 22:42:17}
+%TCIDATA{LastRevised=Saturday, October 07, 2017 01:03:01}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3428,11 +3428,11 @@ straightforward). A proof of the associativity of $\bel$ was given in
 \begin{itemize}
 \item The dendriform operations satisfy the four rules
 \begin{align}
-a\left.  \prec\right.  b+a\left.  \succeq\right.  b  &
+a\left.  \prec\right.  b+a\left.  \succeq\right.  b &
 =ab;\label{eq.dendriform.1}\\
-\left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c  &  =a\left.
+\left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c &  =a\left.
 \prec\right.  \left(  bc\right)  ;\nonumber\\
-\left(  a\left.  \succeq\right.  b\right)  \left.  \prec\right.  c  &
+\left(  a\left.  \succeq\right.  b\right)  \left.  \prec\right.  c &
 =a\left.  \succeq\right.  \left(  b\left.  \prec\right.  c\right)
 ;\nonumber\\
 a\left.  \succeq\right.  \left(  b\left.  \succeq\right.  c\right)   &
@@ -3441,6 +3441,17 @@ a\left.  \succeq\right.  \left(  b\left.  \succeq\right.  c\right)   &
 for all $a,b,c\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 \right]  $. (In other words, they turn $\mathbf{k}\left[  \left[  x_{1}%
 ,x_{2},x_{3},\ldots\right]  \right]  $ into what is called a dendriform algebra.)
+
+\item For any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
+\right]  $, we have%
+\begin{align*}
+1\left.  \prec\right.  a  & =0;\\
+a\left.  \prec\right.  1  & =a-\varepsilon\left(  a\right)  ;\\
+1\left.  \succeq\right.  a  & =a;\\
+a\left.  \succeq\right.  1  & =\varepsilon\left(  a\right)  ,
+\end{align*}
+where $\varepsilon\left(  a\right)  $ denotes the constant term of the power
+series $a$.
 
 \item The binary operation $\bel$ is associative and unital (with $1$ serving
 as the unity).
@@ -4045,8 +4056,8 @@ it requires the following fact:
 \begin{proposition}
 \label{prop.dendri.4.1.lem}We shall use the notations of \cite[Section
 5.2]{HopfComb}. Let $P$ and $Q$ be two disjoint labelled posets, each of which
-has a minimum element. Assume that each $\min P>_{\mathbb{Z}}\min Q$. Consider
-the disjoint union $P\sqcup Q$ of $P$ and $Q$.
+has a minimum element. Assume that $\min P>_{\mathbb{Z}}\min Q$. Consider the
+disjoint union $P\sqcup Q$ of $P$ and $Q$.
 
 \textbf{(a)} Add a further relation $\min P<\min Q$ to $P\sqcup Q$; denote the
 resulting labelled poset by $P\left.  \prec\right.  Q$. Then, $F_{P}\left(
@@ -4319,9 +4330,7 @@ This proves the implication B$\Longrightarrow$C.
 \textit{Proof of the implication C}$\Longrightarrow$\textit{A:} Assume that
 Statement C holds. Thus, the set $\mathcal{K}_{\operatorname*{st}}$ is an
 $\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
-$\operatorname*{QSym}$. Thus, $\mathcal{K}_{\operatorname*{st}}$ is an ideal
-of $\operatorname*{QSym}$ (by Proposition \ref{prop.ideal-crit3}, applied to
-$M=\mathcal{K}_{\operatorname*{st}}$).
+$\operatorname*{QSym}$.
 
 Let $X$ be the codomain of the map $\operatorname*{st}$. Let $\mathbb{Q}%
 \left[  X\right]  $ be the free $\mathbb{Q}$-vector space with basis $\left(
@@ -4372,8 +4381,8 @@ $F_{\operatorname*{Comp}\pi}\equiv F_{\operatorname*{Comp}\left(  \pi^{\prime
 $F_{\operatorname*{Comp}\sigma}\equiv F_{\operatorname*{Comp}\left(
 \sigma^{\prime}\right)  }\operatorname{mod}\mathcal{K}_{\operatorname*{st}}$.
 These two congruences, combined, yield $F_{\operatorname*{Comp}\pi}\left.
-\preceq\right.  F_{\operatorname*{Comp}\sigma}\equiv F_{\operatorname*{Comp}%
-\left(  \pi^{\prime}\right)  }\left.  \preceq\right.  F_{\operatorname*{Comp}%
+\prec\right.  F_{\operatorname*{Comp}\sigma}\equiv F_{\operatorname*{Comp}%
+\left(  \pi^{\prime}\right)  }\left.  \prec\right.  F_{\operatorname*{Comp}%
 \left(  \sigma^{\prime}\right)  }\operatorname{mod}\mathcal{K}%
 _{\operatorname*{st}}$. (Indeed, we can conclude $a\left.  \prec\right.
 c\equiv b\left.  \prec\right.  d\operatorname{mod}\mathcal{K}%
@@ -4383,11 +4392,10 @@ _{\operatorname*{st}}$ whenever we have $a\equiv b\operatorname{mod}%
 _{\operatorname*{st}}$ is a $\left.  \prec\right.  $-ideal of
 $\operatorname*{QSym}$.)
 
-From $F_{\operatorname*{Comp}\pi}\left.  \preceq\right.
-F_{\operatorname*{Comp}\sigma}\equiv F_{\operatorname*{Comp}\left(
-\pi^{\prime}\right)  }\left.  \preceq\right.  F_{\operatorname*{Comp}\left(
-\sigma^{\prime}\right)  }\operatorname{mod}\mathcal{K}_{\operatorname*{st}}$,
-we obtain%
+From $F_{\operatorname*{Comp}\pi}\left.  \prec\right.  F_{\operatorname*{Comp}%
+\sigma}\equiv F_{\operatorname*{Comp}\left(  \pi^{\prime}\right)  }\left.
+\prec\right.  F_{\operatorname*{Comp}\left(  \sigma^{\prime}\right)
+}\operatorname{mod}\mathcal{K}_{\operatorname*{st}}$, we obtain%
 \begin{equation}
 \mathbf{st}\left(  F_{\operatorname*{Comp}\pi}\left.  \prec\right.
 F_{\operatorname*{Comp}\sigma}\right)  =\mathbf{st}\left(
@@ -4600,7 +4608,8 @@ b\right)  }b_{\left[  1\right]  }\otimes b_{\left[  2\right]  }$ for
 $\Delta\left(  b\right)  -1\otimes b$, where $b$ is any element of
 $\operatorname*{QSym}$. Then,%
 \[
-\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)  \bel
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
+\bel
 a\right)  b_{\left[  2\right]  }=-a\mathfrak{\left.  \succeq\right.  }b
 \]
 for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
@@ -4614,7 +4623,8 @@ b\right)  }b_{\left[  1\right]  }\otimes b_{\left[  2\right]  }$ for
 $\Delta\left(  b\right)  -1\otimes b$, where $b$ is any element of
 $\operatorname*{QSym}$. Then,%
 \[
-\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)  \tvi
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
+\tvi
 a\right)  b_{\left[  2\right]  }=-b\left.  \prec\right.  a
 \]
 for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
@@ -4627,8 +4637,8 @@ From $\sum_{\left(  b\right)  }b_{\left[  1\right]  }\otimes b_{\left[
 2\right]  }=\Delta\left(  b\right)  -1\otimes b=\sum_{\left(  b\right)
 }b_{\left(  1\right)  }\otimes b_{\left(  2\right)  }-1\otimes b$, we have%
 \begin{align*}
-\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)  \bel
-a\right)  b_{\left[  2\right]  } &  =\underbrace{\sum_{\left(  b\right)
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
+\bel a\right)  b_{\left[  2\right]  }  &  =\underbrace{\sum_{\left(  b\right)
 }\left(  S\left(  b_{\left(  1\right)  }\right)  \bel a\right)  b_{\left(
 2\right)  }}_{\substack{=a\left.  \prec\right.  b\\\text{(by Theorem
 \ref{thm.beldend})}}}-\underbrace{\left(  1\bel a\right)  }_{=a}b\\

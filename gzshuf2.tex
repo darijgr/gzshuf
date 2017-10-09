@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, October 08, 2017 23:12:44}
+%TCIDATA{LastRevised=Sunday, October 08, 2017 23:19:23}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -140,7 +140,8 @@ we have tried to deviate from the notations of \cite{part1} as little as possibl
 
 \begin{definition}
 We let $\mathbb{N}=\left\{  0,1,2,3,\ldots\right\}  $ and $\mathbb{P}=\left\{
-1,2,3,\ldots\right\}  $.
+1,2,3,\ldots\right\}  $. Both of these sets are understood to be equipped with
+their standard total order.
 \end{definition}
 
 \begin{definition}
@@ -773,7 +774,7 @@ in this form.}:
 
 \begin{example}
 \label{exa.ambivPp.abc}\textbf{(a)} If $\mathcal{N}=\mathbb{P}$ (the totally
-ordered set of positive integers)  and $\mathcal{Z}=\mathcal{N}\times\left\{
+ordered set of positive integers) and $\mathcal{Z}=\mathcal{N}\times\left\{
 +\right\}  =\left\{  +n\ \mid\ n\in\mathcal{N}\right\}  $, then the
 $\mathcal{Z}$-enriched $\left(  P,\gamma\right)  $-partitions are simply the
 $\left(  P,\gamma\right)  $-partitions into $\mathcal{N}$, composed with the
@@ -1938,27 +1939,28 @@ analogue of Theorem \ref{thm.Epk.sh-co} holds for the statistic $\left(
 
 \begin{question}
 Our concept of a \textquotedblleft$\mathcal{Z}$-enriched $\left(
-P,\gamma\right)  $-partition\textquotedblright\ generalizes the concept of
-\textquotedblleft$\left(  P,\gamma\right)  $-partition\textquotedblright\ by
-restricting ourselves to a subset $\mathcal{Z}$ of $\mathcal{N}\times\left\{
-+,-\right\}  $. (This does not sound like much of a generalization when stated
-like this, but as we have seen the behavior of the power series $\Gamma
-_{\mathcal{Z}}\left(  P,\gamma\right)  $ depends strongly on what
-$\mathcal{Z}$ is, and is not all anticipated by the $\mathcal{Z}%
-=\mathcal{N}\times\left\{  +,-\right\}  $ case.) A different generalization of
-$\left(  P,\gamma\right)  $-partitions (introduced by Hsiao and Petersen in
-\cite{HsiPet10}) are the \textit{colored }$\left(  P,\gamma\right)
-$\textit{-partitions}, where the two-element set $\left\{  +,-\right\}  $ is
-replaced by the set $\left\{  1,\omega,\ldots,\omega^{m-1}\right\}  $ of all
-$m$-th roots of unity (where $m$ is a chosen positive integer, and $\omega$ is
-a fixed primitive $m$-th root of unity). We can play various games with this
-concept. The most natural thing to do seems to be to consider $m$ arbitrary
-total orders $<_{0},<_{1},\ldots,<_{m-1}$ on the set $\mathbb{Z}$ (perhaps
-with some nice properties such as all intervals being finite) and an arbitrary
-subset $\mathcal{Z}$ of $\mathcal{N}\times\left\{  1,\omega,\ldots
-,\omega^{m-1}\right\}  $, and define a $\mathcal{Z}$-enriched colored $\left(
-P,\gamma\right)  $-partition to be a map $f:P\rightarrow\mathcal{Z}$ such that
-every $x<y$ in $P$ satisfy the following conditions:
+P,\gamma\right)  $-partition\textquotedblright\ generalizes the concept of an
+\textquotedblleft enriched $\left(  P,\gamma\right)  $%
+-partition\textquotedblright\ by restricting ourselves to a subset
+$\mathcal{Z}$ of $\mathcal{N}\times\left\{  +,-\right\}  $. (This does not
+sound like much of a generalization when stated like this, but as we have seen
+the behavior of the power series $\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)
+$ depends strongly on what $\mathcal{Z}$ is, and is not all anticipated by the
+$\mathcal{Z}=\mathcal{N}\times\left\{  +,-\right\}  $ case.) A different
+generalization of enriched $\left(  P,\gamma\right)  $-partitions (introduced
+by Hsiao and Petersen in \cite{HsiPet10}) are the \textit{colored }$\left(
+P,\gamma\right)  $\textit{-partitions}, where the two-element set $\left\{
++,-\right\}  $ is replaced by the set $\left\{  1,\omega,\ldots,\omega
+^{m-1}\right\}  $ of all $m$-th roots of unity (where $m$ is a chosen positive
+integer, and $\omega$ is a fixed primitive $m$-th root of unity). We can play
+various games with this concept. The most natural thing to do seems to be to
+consider $m$ arbitrary total orders $<_{0},<_{1},\ldots,<_{m-1}$ on the
+codomain $A$ of the labeling $\gamma$ (perhaps with some nice properties such
+as all intervals being finite) and an arbitrary subset $\mathcal{Z}$ of
+$\mathcal{N}\times\left\{  1,\omega,\ldots,\omega^{m-1}\right\}  $, and define
+a $\mathcal{Z}$-enriched colored $\left(  P,\gamma\right)  $-partition to be a
+map $f:P\rightarrow\mathcal{Z}$ such that every $x<y$ in $P$ satisfy the
+following conditions:
 
 \begin{enumerate}
 \item[\textbf{(i)}] We have $f\left(  x\right)  \preccurlyeq f\left(
@@ -1985,7 +1987,7 @@ _{\operatorname*{Epk}}$}
 
 \subsection{The kernel of a descent statistic}
 
-Now, let me focus on a feature of shuffle-compatible descent statistics that
+Now, we shall focus on a feature of shuffle-compatible descent statistics that
 seems to have been overlooked so far: their kernels.
 
 \begin{definition}

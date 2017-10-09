@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, October 07, 2017 15:03:56}
+%TCIDATA{LastRevised=Sunday, October 08, 2017 22:51:17}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -697,9 +697,33 @@ $n\in\mathcal{N}$, then $\gamma\left(  x\right)  >\gamma\left(  y\right)  $.
 will always be clear from the context.)
 \end{definition}
 
+The concept of a \textquotedblleft$\mathcal{Z}$-enriched $\left(
+P,\gamma\right)  $-partition\textquotedblright\ generalizes three notions in
+existing literature: that of a \textquotedblleft$\left(  P,\gamma\right)
+$-partition\textquotedblright, that of an \textquotedblleft enriched $\left(
+P,\gamma\right)  $-partition\textquotedblright, and that of a
+\textquotedblleft left enriched $\left(  P,\gamma\right)  $%
+-partition\textquotedblright\footnote{The ideas behind these three concepts
+are due to Stanley \cite{Stanle72}, Stembridge \cite[\S 2]{Stembr97} and
+Petersen \cite{Peters05}, respectively, but the precise definitions are not
+standardized through the literature. We define a \textquotedblleft$\left(
+P,\gamma\right)  $-partition\textquotedblright\ as in \cite[\S 1.1]{Stembr97};
+this definition differs noticeably from Stanley's (in particular, Stanley
+requires $f\left(  x\right)  \succcurlyeq f\left(  y\right)  $ instead of
+$f\left(  x\right)  \preccurlyeq f\left(  y\right)  $, but the differences do
+not end here). We define an \textquotedblleft enriched $\left(  P,\gamma
+\right)  $-partition\textquotedblright\ as in \cite[\S 2]{Stembr97}. Finally,
+we define an \textquotedblleft left enriched $\left(  P,\gamma\right)
+$-partition\textquotedblright\ to be a $\mathcal{Z}$-enriched $\left(
+P,\gamma\right)  $-partition where $\mathcal{N}=\mathbb{N}$ and $\mathcal{Z}%
+=\left(  \mathcal{N}\times\left\{  +,-\right\}  \right)  \setminus\left\{
+-0\right\}  $; it does not literally appear in \cite[Definition 4.1]{Peters05}
+in this form.}:
+
 \begin{example}
-\textbf{(a)} If $\mathcal{Z}=\mathcal{N}\times\left\{  +\right\}  =\left\{
-+n\ \mid\ n\in\mathcal{N}\right\}  $, then the $\mathcal{Z}$-enriched $\left(
+\label{exa.ambivPp.abc}\textbf{(a)} If $\mathcal{N}=\mathbb{P}$ and
+$\mathcal{Z}=\mathcal{N}\times\left\{  +\right\}  =\left\{  +n\ \mid
+\ n\in\mathcal{N}\right\}  $, then the $\mathcal{Z}$-enriched $\left(
 P,\gamma\right)  $-partitions are simply the $\left(  P,\gamma\right)
 $-partitions into $\mathcal{N}$, composed with the canonical bijection
 $\mathcal{N}\rightarrow\mathcal{Z},\ n\mapsto\left(  +n\right)  $.
@@ -751,7 +775,7 @@ P\right)  }\mathcal{E}\left(  w,\gamma\right)  .
 
 \begin{proof}
 [Proof of Proposition \ref{prop.fund-lem}.]Imitate, e.g., the proof of
-\cite[Lemma 2.1]{23}.
+\cite[Lemma 2.1]{Stembr97}.
 \end{proof}
 
 \begin{definition}
@@ -1257,7 +1281,7 @@ $\operatorname*{FE}\left(  g\right)  $ as the \textit{fiber-ends} of $g$.
 \end{definition}
 
 We can rewrite Proposition \ref{prop.Epk-formula} as follows, exhibiting its
-analogy with \cite[Proposition 2.2]{23}:
+analogy with \cite[Proposition 2.2]{Stembr97}:
 
 \begin{proposition}
 \label{prop.Epk-formula2}Let $n\in\mathbb{N}$. Let $\pi$ be any $n$%
@@ -4236,7 +4260,7 @@ every further composition $L$ satisfy%
 \left(  F_{J}-F_{K}\right)  \left.  \prec\right.  F_{L}\in\mathcal{K}%
 _{\operatorname*{st}}\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ F_{L}%
 \left.  \prec\right.  \left(  F_{J}-F_{K}\right)  \in\mathcal{K}%
-_{\operatorname*{st}}\label{pf.thm.dendri.K.ideal.two-incs}%
+_{\operatorname*{st}} \label{pf.thm.dendri.K.ideal.two-incs}%
 \end{equation}
 (because of the definition of $\mathcal{K}_{\operatorname*{st}}$). So let $J$
 and $K$ be two $\operatorname*{st}$-equivalent compositions, and let $L$ be a
@@ -4300,7 +4324,7 @@ there exists a bijection $\alpha:S_{\prec}\left(  \varphi,\sigma\right)
 S_{\prec}\left(  \varphi,\sigma\right)  $ satisfies%
 \begin{equation}
 \operatorname*{st}\left(  \alpha\left(  \chi\right)  \right)
-=\operatorname*{st}\left(  \chi\right)  .\label{pf.thm.dendri.K.ideal.alpha}%
+=\operatorname*{st}\left(  \chi\right)  . \label{pf.thm.dendri.K.ideal.alpha}%
 \end{equation}
 Consider this $\alpha$. Clearly, each $\chi\in S_{\prec}\left(  \varphi
 ,\sigma\right)  $ satisfies%
@@ -4323,23 +4347,23 @@ of $\mathcal{K}_{\operatorname*{st}}$) and therefore%
 \begin{equation}
 F_{\operatorname*{Comp}\chi}\equiv F_{\operatorname*{Comp}\left(
 \alpha\left(  \chi\right)  \right)  }\operatorname{mod}\mathcal{K}%
-_{\operatorname*{st}}.\label{pf.thm.dendri.K.ideal.alphaeq}%
+_{\operatorname*{st}}. \label{pf.thm.dendri.K.ideal.alphaeq}%
 \end{equation}
 
 
 The first claim of Corollary \ref{cor.dendri.4.1} yields%
 \begin{align*}
 F_{\operatorname*{Comp}\varphi}\left.  \prec\right.  F_{\operatorname*{Comp}%
-\sigma} &  =\sum_{\chi\in S_{\prec}\left(  \varphi,\sigma\right)
+\sigma}  &  =\sum_{\chi\in S_{\prec}\left(  \varphi,\sigma\right)
 }F_{\operatorname*{Comp}\chi}\ \ \ \ \ \ \ \ \ \ \text{and}\\
 F_{\operatorname*{Comp}\psi}\left.  \prec\right.  F_{\operatorname*{Comp}%
-\sigma} &  =\sum_{\chi\in S_{\prec}\left(  \psi,\sigma\right)  }%
+\sigma}  &  =\sum_{\chi\in S_{\prec}\left(  \psi,\sigma\right)  }%
 F_{\operatorname*{Comp}\chi}.
 \end{align*}
 Hence,%
 \begin{align*}
 F_{\operatorname*{Comp}\varphi}\left.  \prec\right.  F_{\operatorname*{Comp}%
-\sigma} &  =\sum_{\chi\in S_{\prec}\left(  \varphi,\sigma\right)
+\sigma}  &  =\sum_{\chi\in S_{\prec}\left(  \varphi,\sigma\right)
 }\underbrace{F_{\operatorname*{Comp}\chi}}_{\substack{\equiv
 F_{\operatorname*{Comp}\left(  \alpha\left(  \chi\right)  \right)
 }\operatorname{mod}\mathcal{K}_{\operatorname*{st}}\\\text{(by
@@ -4356,7 +4380,7 @@ F_{\operatorname*{Comp}\chi}\\
 \text{since the map }\alpha:S_{\prec}\left(  \varphi,\sigma\right)
 \rightarrow S_{\prec}\left(  \psi,\sigma\right)  \text{ is a bijection}%
 \end{array}
-\right)  \\
+\right) \\
 &  =F_{\operatorname*{Comp}\psi}\left.  \prec\right.  F_{\operatorname*{Comp}%
 \sigma}\operatorname{mod}\mathcal{K}_{\operatorname*{st}}.
 \end{align*}
@@ -4835,11 +4859,21 @@ Posets and Colored Quasisymmetric Functions}, Ann. Comb. 14 (2010), pp.
 \href{http://www.arxiv.org/abs/math/0610984v1}{\texttt{arXiv:math/0610984v1}}
 for a preprint.
 
+\bibitem[Peters05]{Peters05}T. Kyle Petersen, \textit{Enriched }$\mathit{P}%
+$\textit{-partitions and peak algebras}, Advances in Mathematics 209 (2007),
+pp. 561--610,\newline\url{https://doi.org/10.1016/j.aim.2006.05.016} . See
+\texttt{\href{https://arxiv.org/abs/math/0508041v1}{arXiv:math/0508041v1}} for
+a preprint.
+
 \bibitem[SageMath]{SageMath}\href{http://www.sagemath.org}{The Sage
 Developers, \textit{SageMath, the Sage Mathematics Software System (Version
 8.0)}, 2017.}
 
-\bibitem[Stembr97]{23}%
+\bibitem[Stanle72]{Stanle72}Richard P. Stanley, \textit{Ordered Structures and
+Partitions}, Memoirs of the American Mathematical Society, No. 119, American
+Mathematical Society, Providence, R.I., 1972. \newline\url{http://www-math.mit.edu/~rstan/pubs/pubfiles/9.pdf}
+
+\bibitem[Stembr97]{Stembr97}%
 \href{http://www.ams.org/journals/tran/1997-349-02/S0002-9947-97-01804-7/}{John
 R. Stembridge, \textit{Enriched P-partitions}, Trans. Amer. Math. Soc.
 \textbf{349} (1997), no. 2, pp. 763--788}.

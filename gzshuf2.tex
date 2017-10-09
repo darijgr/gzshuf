@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, October 08, 2017 22:51:17}
+%TCIDATA{LastRevised=Sunday, October 08, 2017 23:12:44}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -95,6 +95,7 @@
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\tvi}{\left. \textarm{\tvimadur} \right.}
 \newcommand{\bel}{\left. \textarm{\belgthor} \right.}
+\newcommand{\are}{\ar@{-}}
 \iffalse
 \NOEXPAND{\tvi}{\left. \textarm{\tvimadur} \right.}
 \NOEXPAND{\bel}{\left. \textarm{\belgthor} \right.}
@@ -697,6 +698,56 @@ $n\in\mathcal{N}$, then $\gamma\left(  x\right)  >\gamma\left(  y\right)  $.
 will always be clear from the context.)
 \end{definition}
 
+\begin{example}
+\label{exa.ambivPp.diamond}Let $P$ be the poset with the following Hasse
+diagram:%
+\[%
+%TCIMACRO{\TeXButton{Hasse diagram}{\xymatrix{
+%& b \are[dl] \are[dr] \\
+%c \are[dr] & & d \are[dl] \\
+%& a
+%}}}%
+%BeginExpansion
+\xymatrix{
+& b \are[dl] \are[dr] \\
+c \are[dr] & & d \are[dl] \\
+& a
+}%
+%EndExpansion
+\]
+and let $\gamma:P\rightarrow\mathbb{Z}$ be a labeling that satisfies
+$\gamma\left(  a\right)  <\gamma\left(  b\right)  <\gamma\left(  c\right)
+<\gamma\left(  d\right)  $ (for example, $\gamma$ could be the map that sends
+$a,b,c,d$ to $2,3,5,7$, respectively). Then, a $\mathcal{Z}$-enriched $\left(
+P,\gamma\right)  $-partition is a map $f:P\rightarrow\mathcal{Z}$ satisfying
+the following conditions:
+
+\begin{enumerate}
+\item[\textbf{(i)}] We have $f\left(  a\right)  \preccurlyeq f\left(
+c\right)  \preccurlyeq f\left(  b\right)  $ and $f\left(  a\right)
+\preccurlyeq f\left(  d\right)  \preccurlyeq f\left(  b\right)  $.
+
+\item[\textbf{(ii)}] We cannot have $f\left(  c\right)  =f\left(  b\right)
+=+n$ with $n\in\mathcal{N}$. Also, we cannot have $f\left(  d\right)
+=f\left(  b\right)  =+n$ with $n\in\mathcal{N}$.
+
+\item[\textbf{(iii)}] We cannot have $f\left(  a\right)  =f\left(  c\right)
+=-n$ with $n\in\mathcal{N}$. Also, we cannot have $f\left(  a\right)
+=f\left(  d\right)  =-n$ with $n\in\mathcal{N}$.
+\end{enumerate}
+
+For example, if $\mathcal{N}=\mathbb{P}$ (the totally ordered set of positive
+integers, with its usual ordering) and $\mathcal{Z}=\mathcal{N}\times\left\{
++,-\right\}  $, then the map $f:P\rightarrow\mathcal{Z}$ sending $a,b,c,d$ to
+$+2,-3,+2,-3$ (respectively) is a $\mathcal{Z}$-enriched $\left(
+P,\gamma\right)  $-partition. Notice that the total ordering on $\mathcal{Z}$
+in this case is given by%
+\[
+-1\prec+1\prec-2\prec+2\prec-3\prec+3\prec\cdots,
+\]
+rather than by the familiar total order on $\mathbb{Z}$.
+\end{example}
+
 The concept of a \textquotedblleft$\mathcal{Z}$-enriched $\left(
 P,\gamma\right)  $-partition\textquotedblright\ generalizes three notions in
 existing literature: that of a \textquotedblleft$\left(  P,\gamma\right)
@@ -721,12 +772,13 @@ P,\gamma\right)  $-partition where $\mathcal{N}=\mathbb{N}$ and $\mathcal{Z}%
 in this form.}:
 
 \begin{example}
-\label{exa.ambivPp.abc}\textbf{(a)} If $\mathcal{N}=\mathbb{P}$ and
-$\mathcal{Z}=\mathcal{N}\times\left\{  +\right\}  =\left\{  +n\ \mid
-\ n\in\mathcal{N}\right\}  $, then the $\mathcal{Z}$-enriched $\left(
-P,\gamma\right)  $-partitions are simply the $\left(  P,\gamma\right)
-$-partitions into $\mathcal{N}$, composed with the canonical bijection
-$\mathcal{N}\rightarrow\mathcal{Z},\ n\mapsto\left(  +n\right)  $.
+\label{exa.ambivPp.abc}\textbf{(a)} If $\mathcal{N}=\mathbb{P}$ (the totally
+ordered set of positive integers)  and $\mathcal{Z}=\mathcal{N}\times\left\{
++\right\}  =\left\{  +n\ \mid\ n\in\mathcal{N}\right\}  $, then the
+$\mathcal{Z}$-enriched $\left(  P,\gamma\right)  $-partitions are simply the
+$\left(  P,\gamma\right)  $-partitions into $\mathcal{N}$, composed with the
+canonical bijection $\mathcal{N}\rightarrow\mathcal{Z},\ n\mapsto\left(
++n\right)  $.
 
 \textbf{(b)} If $\mathcal{N}=\mathbb{P}$ (the totally ordered set of positive
 integers) and $\mathcal{Z}=\mathcal{N}\times\left\{  +,-\right\}  $, then the

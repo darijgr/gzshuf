@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, October 09, 2017 19:30:12}
+%TCIDATA{LastRevised=Monday, October 09, 2017 21:35:18}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2388,10 +2388,19 @@ Then, $\left(  \operatorname*{Des}J\right)  _{n}^{\circ}=\rho_{n}\left(
 _{n}^{\circ}$. We shall show that $g\in\rho_{n}\left(  \operatorname*{Epk}%
 J\right)  $.
 
+We have $g\in\left(  \operatorname*{Des}J\right)  _{n}^{\circ}\subseteq
+\operatorname*{Des}J$ (since $S_{n}^{\circ}\subseteq S$ for each subset $S$ of
+$\left[  n-1\right]  $) and therefore $\operatorname*{Des}J\neq\varnothing$.
+Hence, $J$ is not the empty composition. In other words, $n>0$.
+
 From (\ref{pf.prop.K.Epk.F.1}), we obtain $\operatorname*{Epk}J=\left(
 \operatorname*{Des}J\cup\left\{  n\right\}  \right)  \setminus\left(
 \operatorname*{Des}J+1\right)  $. Thus, the set $\operatorname*{Epk}J$ is
-disjoint from $\operatorname*{Des}J+1$.
+disjoint from $\operatorname*{Des}J+1$. Furthermore, the set
+$\operatorname*{Epk}J$ is nonempty\footnote{Indeed, it contains at least the
+smallest element of the set $\operatorname*{Des}J\cup\left\{  n\right\}  $
+(since $\operatorname*{Epk}J=\left(  \operatorname*{Des}J\cup\left\{
+n\right\}  \right)  \setminus\left(  \operatorname*{Des}J+1\right)  $).}.
 
 We have $g\in\left(  \operatorname*{Des}J\right)  _{n}^{\circ}$. Thus, $g$ is
 an element of $\operatorname*{Des}J$ satisfying $g-1\notin\operatorname*{Des}%
@@ -2613,17 +2622,19 @@ $A=\operatorname*{Des}J\cup\left\{  k\right\}  $ (since $k\in A$). Hence,
 $\operatorname*{Des}K=A=\operatorname*{Des}J\cup\left\{  k\right\}  $. Also,
 $k\notin A\setminus\left\{  k\right\}  =\operatorname*{Des}J$.
 
-Furthermore, $k-1\notin\operatorname*{Des}J$\ \ \ \ \footnote{\textit{Proof.}
-Assume the contrary. Thus, $k-1\in\operatorname*{Des}J$. Hence, $k-1\in
-\operatorname*{Des}J=A\setminus\left\{  k\right\}  \subseteq A$. Therefore,
-the element $k$ of $A$ satisfies $k-1\in A$ or $\left[  k,n-1\right]
-\subseteq A$. Thus, the definition of $A_{n}^{\circ}$ yields $k\in
-A_{n}^{\circ}$. This contradicts $k\notin A_{n}^{\circ}$. This contradiction
-shows that our assumption was false; qed.} and $k+1\notin\operatorname*{Des}%
-J\cup\left\{  n\right\}  $\ \ \ \ \footnote{\textit{Proof.} Assume the
-contrary. Thus, $k+1\in\operatorname*{Des}J\cup\left\{  n\right\}  $. In other
-words, we have $k+1\in\operatorname*{Des}J$ or $k+1=n$. In other words, we are
-in one of the following two cases:
+Furthermore, $k-1\in\operatorname*{Des}J$\ \ \ \ \footnote{\textit{Proof.}
+Assume the contrary. Thus, $k-1\notin\operatorname*{Des}J$. Hence,
+$k-1\notin\operatorname*{Des}J\cup\left\{  k\right\}  $ as well (since
+$k-1\neq k$). In other words, $k-1\notin A$ (since $\operatorname*{Des}%
+J\cup\left\{  k\right\}  =A$). Therefore, the element $k$ of $A$ satisfies
+$k-1\notin A$ or $\left[  k,n-1\right]  \subseteq A$. Thus, the definition of
+$A_{n}^{\circ}$ yields $k\in A_{n}^{\circ}$. This contradicts $k\notin
+A_{n}^{\circ}$. This contradiction shows that our assumption was false; qed.}
+and $k+1\notin\operatorname*{Des}J\cup\left\{  n\right\}  $%
+\ \ \ \ \footnote{\textit{Proof.} Assume the contrary. Thus, $k+1\in
+\operatorname*{Des}J\cup\left\{  n\right\}  $. In other words, we have
+$k+1\in\operatorname*{Des}J$ or $k+1=n$. In other words, we are in one of the
+following two cases:
 \par
 \textit{Case 1:} We have $k+1\in\operatorname*{Des}J$.
 \par
@@ -2658,9 +2669,9 @@ We have therefore found a contradiction in each of the two Cases 1 and 2.
 Thus, we always get a contradiction, so our assumption must have been wrong.
 Qed.}. Hence, we have found a $k\in\left[  n-1\right]  $ satisfying%
 \begin{align*}
-\operatorname*{Des}K  &  =\operatorname*{Des}J\cup\left\{  k\right\}
+\operatorname*{Des}K &  =\operatorname*{Des}J\cup\left\{  k\right\}
 ,\ \ \ \ \ \ \ \ \ \ k\notin\operatorname*{Des}J,\\
-k-1  &  \in\operatorname*{Des}J\ \ \ \ \ \ \ \ \ \ \text{and}%
+k-1 &  \in\operatorname*{Des}J\ \ \ \ \ \ \ \ \ \ \text{and}%
 \ \ \ \ \ \ \ \ \ \ k+1\notin\operatorname*{Des}J\cup\left\{  n\right\}  .
 \end{align*}
 Therefore, Claim 1 yields $J\rightarrow K$. Thus, Claim 2 yields
@@ -2677,21 +2688,21 @@ A\setminus A_{n}^{\circ}\right)  \setminus\left\{  k\right\}  }\right\vert
 k\right\}  \right\vert \\
 &  =\left\vert A\setminus A_{n}^{\circ}\right\vert
 -1\ \ \ \ \ \ \ \ \ \ \left(  \text{since }k\in A\setminus A_{n}^{\circ
-}\right) \\
-&  =\left\vert \left(  \operatorname*{Des}K\right)  \setminus\left(
-\operatorname*{Des}K\right)  _{n}^{\circ}\right\vert
-\ \ \ \ \ \ \ \ \ \ \left(  \text{since }A=\operatorname*{Des}K\right)  .
+}\right)  \\
+&  <\left\vert A\setminus A_{n}^{\circ}\right\vert =\left\vert \left(
+\operatorname*{Des}K\right)  \setminus\left(  \operatorname*{Des}K\right)
+_{n}^{\circ}\right\vert
 \end{align*}
-Thus, the induction hypothesis shows that $\operatorname*{Comp}\left(  \left(
-\operatorname*{Des}J\right)  _{n}^{\circ}\right)  \overset{\ast}{\rightarrow
-}J$. Combining this with $J\rightarrow K$, we obtain $\operatorname*{Comp}%
-\left(  \left(  \operatorname*{Des}J\right)  _{n}^{\circ}\right)
-\overset{\ast}{\rightarrow}K$ (since $\overset{\ast}{\rightarrow}$ is the
-transitive-and-reflexive closure of the relation $\rightarrow$). In light of
-$\left(  \operatorname*{Des}J\right)  _{n}^{\circ}=\left(  \operatorname*{Des}%
-K\right)  _{n}^{\circ}$, this rewrites as $\operatorname*{Comp}\left(  \left(
-\operatorname*{Des}K\right)  _{n}^{\circ}\right)  \overset{\ast}{\rightarrow
-}K$. Thus, Claim 5 is proven by induction.]
+(since $A=\operatorname*{Des}K$). Thus, the induction hypothesis shows that
+$\operatorname*{Comp}\left(  \left(  \operatorname*{Des}J\right)  _{n}^{\circ
+}\right)  \overset{\ast}{\rightarrow}J$. Combining this with $J\rightarrow K$,
+we obtain $\operatorname*{Comp}\left(  \left(  \operatorname*{Des}J\right)
+_{n}^{\circ}\right)  \overset{\ast}{\rightarrow}K$ (since $\overset{\ast
+}{\rightarrow}$ is the transitive-and-reflexive closure of the relation
+$\rightarrow$). In light of $\left(  \operatorname*{Des}J\right)  _{n}^{\circ
+}=\left(  \operatorname*{Des}K\right)  _{n}^{\circ}$, this rewrites as
+$\operatorname*{Comp}\left(  \left(  \operatorname*{Des}K\right)  _{n}^{\circ
+}\right)  \overset{\ast}{\rightarrow}K$. Thus, Claim 5 is proven by induction.]
 
 Now, let $\mathcal{K}^{\prime}$ be the $\mathbb{Q}$-vector subspace of
 $\operatorname*{QSym}$ spanned by all differences of the form $F_{J}-F_{K}$,

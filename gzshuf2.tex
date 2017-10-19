@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, October 11, 2017 00:42:50}
+%TCIDATA{LastRevised=Thursday, October 19, 2017 03:49:26}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -4125,7 +4125,7 @@ composition $K$. Assume that the permutations $\pi$ and $\sigma$ are disjoint,
 and that%
 \begin{equation}
 \text{the first entry of }\pi\text{ is greater than the first entry of }%
-\sigma\text{.} \label{eq.thm.dendri.4.1.ass}%
+\sigma\text{.}\label{eq.thm.dendri.4.1.ass}%
 \end{equation}
 For any composition $L$, let $c_{J,K}^{L,\prec}$ be the number of permutations
 with descent composition $L$ among the left shuffles of $\pi$ and $\sigma$,
@@ -4136,7 +4136,7 @@ F_{J}\left.  \prec\right.  F_{K}=\sum_{L}c_{J,K}^{L,\prec}F_{L}%
 \]
 and%
 \[
-F_{J}\left.  \succeq\right.  F_{K}=\sum_{L}c_{J,K}^{L,\succeq}F_{L}.
+F_{J}\left.  \succeq\right.  F_{K}=\sum_{L}c_{J,K}^{L,\succ}F_{L}.
 \]
 
 \end{theorem}
@@ -4693,9 +4693,10 @@ simultaneously an $\left.  \prec\right.  $-ideal and a $\left.  \succeq
 \right.  $-ideal of $A$, then $A/I$ canonically becomes a dendriform algebra,
 and the canonical projection $A\rightarrow A/I$ becomes a dendriform algebra homomorphism.
 
-Therefore, Theorem \ref{thm.dendri.K.ideal} (and the $\mathcal{A}%
-_{\operatorname*{st}}\cong\operatorname*{QSym}/\mathcal{K}_{\operatorname*{st}%
-}$ isomorphism from Proposition \ref{prop.K.ideal}) yields the following:
+Therefore, Theorem \ref{thm.dendri.K.ideal} and Theorem
+\ref{thm.dendri.K.ideal-R} (and the $\mathcal{A}_{\operatorname*{st}}%
+\cong\operatorname*{QSym}/\mathcal{K}_{\operatorname*{st}}$ isomorphism from
+Proposition \ref{prop.K.ideal}) yield the following:
 
 \begin{corollary}
 \label{cor.dendri.quotient-dendri}If a descent statistic $\operatorname*{st}$
@@ -4703,8 +4704,9 @@ is left-shuffle-compatible and right-shuffle-compatible, then its shuffle
 algebra $\mathcal{A}_{\operatorname*{st}}$ canonically becomes a dendriform algebra.
 \end{corollary}
 
-We furthermore have the following analogue of Theorem~\ref{thm.4.3}
-\textbf{(a)}, which easily follows from Theorem \ref{thm.dendri.K.ideal}:
+We furthermore have the following analogue of Theorem~\ref{thm.4.3}, which
+easily follows from Theorem \ref{thm.dendri.K.ideal} and Theorem
+\ref{thm.dendri.K.ideal-R}:
 
 \begin{theorem}
 \label{thm.dendri.4.3}Let $\operatorname*{st}$ be a descent statistic.

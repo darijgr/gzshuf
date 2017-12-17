@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, October 19, 2017 03:49:26}
+%TCIDATA{LastRevised=Sunday, December 17, 2017 12:55:49}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -4125,7 +4125,7 @@ composition $K$. Assume that the permutations $\pi$ and $\sigma$ are disjoint,
 and that%
 \begin{equation}
 \text{the first entry of }\pi\text{ is greater than the first entry of }%
-\sigma\text{.}\label{eq.thm.dendri.4.1.ass}%
+\sigma\text{.} \label{eq.thm.dendri.4.1.ass}%
 \end{equation}
 For any composition $L$, let $c_{J,K}^{L,\prec}$ be the number of permutations
 with descent composition $L$ among the left shuffles of $\pi$ and $\sigma$,
@@ -4339,15 +4339,21 @@ $J$ and $K$ are $\operatorname*{st}$-equivalent). Hence, $\left\vert
 J\right\vert =\left\vert K\right\vert >0$ (since otherwise, we would have
 $\left\vert J\right\vert =\left\vert K\right\vert =0$, which would imply that
 both $J$ and $K$ would be the empty composition, contradicting $J\neq K$).
-Therefore, the compositions $J$ and $K$ are nonempty. If $L$ is empty, then
+Thus, the power series $F_{J}$ and $F_{K}$ are homogeneous of degree
+$\left\vert J\right\vert =\left\vert K\right\vert >0$; consequently,
+$\varepsilon\left(  F_{J}\right)  =0$ and $\varepsilon\left(  F_{K}\right)
+=0$. Hence, $\varepsilon\left(  F_{J}-F_{K}\right)  =\underbrace{\varepsilon
+\left(  F_{J}\right)  }_{=0}-\underbrace{\varepsilon\left(  F_{K}\right)
+}_{=0}=0$.
+
+The compositions $J$ and $K$ are nonempty (since $\left\vert J\right\vert
+=\left\vert K\right\vert >0$). If $L$ is empty, then
 (\ref{pf.thm.dendri.K.ideal.two-incs}) holds for easy reasons (indeed, we have
 $F_{L}=1$ in this case, and therefore (\ref{eq.dendriform.a<1}) yields
 \[
 \left(  F_{J}-F_{K}\right)  \left.  \prec\right.  F_{L}=\left(  F_{J}%
 -F_{K}\right)  -\underbrace{\varepsilon\left(  F_{J}-F_{K}\right)
-}_{\substack{=0\\\text{(since }F_{J}\text{ and }F_{K}\text{ are}%
-\\\text{homogeneous of degree }\left\vert J\right\vert -\left\vert
-K\right\vert >0\text{)}}}=F_{J}-F_{K}\in\mathcal{K}_{\operatorname*{st}},
+}_{\substack{=0}}=F_{J}-F_{K}\in\mathcal{K}_{\operatorname*{st}},
 \]
 and similarly (\ref{eq.dendriform.1<a}) leads to $F_{L}\left.  \prec\right.
 \left(  F_{J}-F_{K}\right)  \in\mathcal{K}_{\operatorname*{st}}$). Hence, we
@@ -4392,7 +4398,7 @@ there exists a bijection $\alpha:S_{\prec}\left(  \varphi,\sigma\right)
 S_{\prec}\left(  \varphi,\sigma\right)  $ satisfies%
 \begin{equation}
 \operatorname*{st}\left(  \alpha\left(  \chi\right)  \right)
-=\operatorname*{st}\left(  \chi\right)  . \label{pf.thm.dendri.K.ideal.alpha}%
+=\operatorname*{st}\left(  \chi\right)  .\label{pf.thm.dendri.K.ideal.alpha}%
 \end{equation}
 Consider this $\alpha$. Clearly, each $\chi\in S_{\prec}\left(  \varphi
 ,\sigma\right)  $ satisfies%
@@ -4401,8 +4407,10 @@ Consider this $\alpha$. Clearly, each $\chi\in S_{\prec}\left(  \varphi
 \operatorname*{st}\text{-equivalent}\right)
 \]
 (because of (\ref{pf.thm.dendri.K.ideal.alpha}) and since $\left\vert
-\chi\right\vert =\left\vert \varphi\right\vert +\left\vert \sigma\right\vert
-=\left\vert \alpha\left(  \chi\right)  \right\vert $) and therefore%
+\chi\right\vert =\underbrace{\left\vert \varphi\right\vert }_{=\left\vert
+\psi\right\vert }+\left\vert \sigma\right\vert =\left\vert \psi\right\vert
++\left\vert \sigma\right\vert =\left\vert \alpha\left(  \chi\right)
+\right\vert $) and therefore%
 \[
 \left(  \operatorname*{Comp}\chi\text{ and }\operatorname*{Comp}\left(
 \alpha\left(  \chi\right)  \right)  \text{ are }\operatorname*{st}%
@@ -4415,7 +4423,7 @@ of $\mathcal{K}_{\operatorname*{st}}$) and therefore%
 \begin{equation}
 F_{\operatorname*{Comp}\chi}\equiv F_{\operatorname*{Comp}\left(
 \alpha\left(  \chi\right)  \right)  }\operatorname{mod}\mathcal{K}%
-_{\operatorname*{st}}. \label{pf.thm.dendri.K.ideal.alphaeq}%
+_{\operatorname*{st}}.\label{pf.thm.dendri.K.ideal.alphaeq}%
 \end{equation}
 
 

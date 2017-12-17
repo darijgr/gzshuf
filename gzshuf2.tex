@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, December 17, 2017 12:55:49}
+%TCIDATA{LastRevised=Sunday, December 17, 2017 16:17:24}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2217,15 +2217,21 @@ $\ell\in\left\{  2,3,\ldots,m\right\}  $ such that $j_{\ell}>2$ and $K=\left(
 j_{1},j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
 ,j_{m}\right)  $. (In other words, we write $J\rightarrow K$ if $K$ can be
 obtained from $J$ by \textquotedblleft splitting\textquotedblright\ some entry
-$j_{\ell}>2$ into two consecutive entries $1$ and $j_{\ell}-1$, provided that
-this entry was not the first entry -- i.e., we had $\ell>1$ -- and that this
-entry was greater than $2$.)
+$j_{\ell}>2$ into two consecutive entries\footnotemark\  $1$ and $j_{\ell}-1$,
+provided that this entry was not the first entry -- i.e., we had $\ell>1$ --
+and that this entry was greater than $2$.)
 
 The ideal $\mathcal{K}_{\operatorname*{Epk}}$ of $\operatorname*{QSym}$ is
 spanned (as a $\mathbb{Q}$-vector space) by all differences of the form
 $F_{J}-F_{K}$, where $J$ and $K$ are two compositions satisfying $J\rightarrow
 K$.
 \end{proposition}
+
+\footnotetext{The word \textquotedblleft consecutive\textquotedblright\ here
+means \textquotedblleft in consecutive positions of $J$\textquotedblright, not
+\textquotedblleft consecutive integers\textquotedblright. So two consecutive
+entries of $J$ are two entries of the form $j_{p}$ and $j_{p+1}$ for some
+$p\in\left\{  1,2,\ldots,m-1\right\}  $.}
 
 \begin{example}
 We have $\left(  2,1,4,4\right)  \rightarrow\left(  2,1,1,3,4\right)  $, since
@@ -2268,9 +2274,9 @@ There are no relations $\rightarrow$ between compositions of size $\leq3$.
 size $n$. Then, $J\rightarrow K$ if and only if there exists some $k\in\left[
 n-1\right]  $ such that
 \begin{align*}
-\operatorname*{Des}K  &  =\operatorname*{Des}J\cup\left\{  k\right\}
+\operatorname*{Des}K &  =\operatorname*{Des}J\cup\left\{  k\right\}
 ,\ \ \ \ \ \ \ \ \ \ k\notin\operatorname*{Des}J,\\
-k-1  &  \in\operatorname*{Des}J\ \ \ \ \ \ \ \ \ \ \text{and}%
+k-1 &  \in\operatorname*{Des}J\ \ \ \ \ \ \ \ \ \ \text{and}%
 \ \ \ \ \ \ \ \ \ \ k+1\notin\operatorname*{Des}J\cup\left\{  n\right\}  .
 \end{align*}
 

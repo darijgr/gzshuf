@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, December 17, 2017 16:17:24}
+%TCIDATA{LastRevised=Monday, February 05, 2018 09:05:04}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2004,37 +2004,29 @@ refer to $\mathcal{K}_{\operatorname*{st}}$ as the \textit{kernel} of
 $\operatorname*{st}$.
 \end{definition}
 
-Theorem~\ref{thm.4.3} easily yields the following fact:
+The following basic linear-algebraic lemma will be useful:
 
-\begin{proposition}
-\label{prop.K.ideal}Let $\operatorname*{st}$ be a descent statistic. Then,
-$\operatorname*{st}$ is shuffle-compatible if and only if $\mathcal{K}%
-_{\operatorname*{st}}$ is an ideal of $\operatorname*{QSym}$. Furthermore, in
-this case, $\mathcal{A}_{\operatorname*{st}}\cong\operatorname*{QSym}%
-/\mathcal{K}_{\operatorname*{st}}$.
-\end{proposition}
-
-\begin{proof}
-[Proof of Proposition \ref{prop.K.ideal}.]$\Longrightarrow:$ Assume that
-$\operatorname*{st}$ is shuffle-compatible. Thus, Theorem~\ref{thm.4.3}
-\textbf{(a)} shows that there exist a $\mathbb{Q}$-algebra $A$ with basis
-$\left(  u_{\alpha}\right)  $ indexed by $\operatorname*{st}$-equivalence
-classes $\alpha$ of compositions, and a $\mathbb{Q}$-algebra homomorphism
-$\phi_{\operatorname*{st}}:\operatorname*{QSym}\rightarrow A$ with the
-property that whenever $\alpha$ is an $\operatorname*{st}$-equivalence class
-of compositions, we have%
+\begin{lemma}
+\label{lem.K.fist}Let $\operatorname*{st}$ be a descent statistic. Let $A$ be
+a $\mathbb{Q}$-vector space with basis $\left(  u_{\alpha}\right)  $ indexed
+by $\operatorname*{st}$-equivalence classes $\alpha$ of compositions. Let
+$\phi_{\operatorname*{st}}:\operatorname*{QSym}\rightarrow A$ be a
+$\mathbb{Q}$-linear map with the property that whenever $\alpha$ is an
+$\operatorname*{st}$-equivalence class of compositions, we have%
 \begin{equation}
 \phi_{\operatorname*{st}}\left(  F_{L}\right)  =u_{\alpha}%
-\ \ \ \ \ \ \ \ \ \ \text{for each }L\in\alpha. \label{pf.prop.K.ideal.dir1.1}%
+\ \ \ \ \ \ \ \ \ \ \text{for each }L\in\alpha.\label{pf.prop.K.ideal.dir1.1}%
 \end{equation}
-Consider this $A$ and this $\phi_{\operatorname*{st}}$.
+\qquad\qquad\qquad\qquad
 
-The map $\phi_{\operatorname*{st}}$ is a $\mathbb{Q}$-algebra homomorphism.
-Thus, its kernel $\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)
-$ is an ideal of $\operatorname*{QSym}$.
+Then, $\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)
+=\mathcal{K}_{\operatorname*{st}}$.
+\end{lemma}
 
-Let us first show that $\operatorname*{Ker}\left(  \phi_{\operatorname*{st}%
-}\right)  \subseteq\mathcal{K}_{\operatorname*{st}}$.
+\begin{proof}
+[Proof of Lemma \ref{lem.K.fist}.] Let us first show that $\operatorname*{Ker}%
+\left(  \phi_{\operatorname*{st}}\right)  \subseteq\mathcal{K}%
+_{\operatorname*{st}}$.
 
 Indeed, let $x\in\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)
 $ be arbitrary. Write $x\in\operatorname*{QSym}$ in the form $x=\sum_{L}%
@@ -2137,15 +2129,48 @@ _{\operatorname*{st}}\left(  F_{K}\right)  }_{=u_{\alpha}}=u_{\alpha
 this with $\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)
 \subseteq\mathcal{K}_{\operatorname*{st}}$, we obtain $\mathcal{K}%
 _{\operatorname*{st}}=\operatorname*{Ker}\left(  \phi_{\operatorname*{st}%
-}\right)  $. Hence, $\mathcal{K}_{\operatorname*{st}}$ is an ideal of
-$\operatorname*{QSym}$ (since $\operatorname*{Ker}\left(  \phi
-_{\operatorname*{st}}\right)  $ is an ideal of $\operatorname*{QSym}$).
+}\right)  $. This proves Lemma \ref{lem.K.fist}.
+\end{proof}
+
+Theorem~\ref{thm.4.3} easily yields the following fact:
+
+\begin{proposition}
+\label{prop.K.ideal}Let $\operatorname*{st}$ be a descent statistic. Then,
+$\operatorname*{st}$ is shuffle-compatible if and only if $\mathcal{K}%
+_{\operatorname*{st}}$ is an ideal of $\operatorname*{QSym}$. Furthermore, in
+this case, $\mathcal{A}_{\operatorname*{st}}\cong\operatorname*{QSym}%
+/\mathcal{K}_{\operatorname*{st}}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.K.ideal}.]$\Longrightarrow:$ Assume that
+$\operatorname*{st}$ is shuffle-compatible. Thus, Theorem~\ref{thm.4.3}
+\textbf{(a)} shows that there exist a $\mathbb{Q}$-algebra $A$ with basis
+$\left(  u_{\alpha}\right)  $ indexed by $\operatorname*{st}$-equivalence
+classes $\alpha$ of compositions, and a $\mathbb{Q}$-algebra homomorphism
+$\phi_{\operatorname*{st}}:\operatorname*{QSym}\rightarrow A$ with the
+property that whenever $\alpha$ is an $\operatorname*{st}$-equivalence class
+of compositions, we have%
+\begin{equation}
+\phi_{\operatorname*{st}}\left(  F_{L}\right)  =u_{\alpha}%
+\ \ \ \ \ \ \ \ \ \ \text{for each }L\in\alpha.\label{pf.prop.K.ideal.dir1.13}%
+\end{equation}
+Consider this $A$ and this $\phi_{\operatorname*{st}}$.
+
+Lemma \ref{lem.K.fist} yields that  $\mathcal{K}_{\operatorname*{st}%
+}=\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)  $. But the map
+$\phi_{\operatorname*{st}}$ is a $\mathbb{Q}$-algebra homomorphism. Thus, its
+kernel $\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)  $ is an
+ideal of $\operatorname*{QSym}$. In other words, $\mathcal{K}%
+_{\operatorname*{st}}$ is an ideal of $\operatorname*{QSym}$ (since
+$\mathcal{K}_{\operatorname*{st}}=\operatorname*{Ker}\left(  \phi
+_{\operatorname*{st}}\right)  $).
 
 It remains to show that $\mathcal{A}_{\operatorname*{st}}\cong%
 \operatorname*{QSym}/\mathcal{K}_{\operatorname*{st}}$. This is easy: Each
 element of the basis $\left(  u_{\alpha}\right)  $ of the $\mathbb{Q}$-vector
 space $A$ is contained in the image of $\phi_{\operatorname*{st}}$ (because of
-(\ref{pf.prop.K.ideal.dir1.1})). Therefore, the homomorphism $\phi
+(\ref{pf.prop.K.ideal.dir1.13})). Therefore, the homomorphism $\phi
 _{\operatorname*{st}}$ is surjective. Thus, $\phi_{\operatorname*{st}}\left(
 \operatorname*{QSym}\right)  =A$. Hence, $A=\phi_{\operatorname*{st}}\left(
 \operatorname*{QSym}\right)  \cong\operatorname*{QSym}/\operatorname*{Ker}%
@@ -2217,7 +2242,7 @@ $\ell\in\left\{  2,3,\ldots,m\right\}  $ such that $j_{\ell}>2$ and $K=\left(
 j_{1},j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
 ,j_{m}\right)  $. (In other words, we write $J\rightarrow K$ if $K$ can be
 obtained from $J$ by \textquotedblleft splitting\textquotedblright\ some entry
-$j_{\ell}>2$ into two consecutive entries\footnotemark\  $1$ and $j_{\ell}-1$,
+$j_{\ell}>2$ into two consecutive entries\footnotemark\ $1$ and $j_{\ell}-1$,
 provided that this entry was not the first entry -- i.e., we had $\ell>1$ --
 and that this entry was greater than $2$.)
 
@@ -2274,9 +2299,9 @@ There are no relations $\rightarrow$ between compositions of size $\leq3$.
 size $n$. Then, $J\rightarrow K$ if and only if there exists some $k\in\left[
 n-1\right]  $ such that
 \begin{align*}
-\operatorname*{Des}K &  =\operatorname*{Des}J\cup\left\{  k\right\}
+\operatorname*{Des}K  &  =\operatorname*{Des}J\cup\left\{  k\right\}
 ,\ \ \ \ \ \ \ \ \ \ k\notin\operatorname*{Des}J,\\
-k-1 &  \in\operatorname*{Des}J\ \ \ \ \ \ \ \ \ \ \text{and}%
+k-1  &  \in\operatorname*{Des}J\ \ \ \ \ \ \ \ \ \ \text{and}%
 \ \ \ \ \ \ \ \ \ \ k+1\notin\operatorname*{Des}J\cup\left\{  n\right\}  .
 \end{align*}
 

@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, February 11, 2018 09:51:32}
+%TCIDATA{LastRevised=Sunday, February 11, 2018 21:38:40}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -121,7 +121,7 @@
 This draft is a continuation of
 \href{http://lanl.arxiv.org/abs/1706.00750v1}{the preprint \textquotedblleft
 Shuffle-compatible permutation statistics\textquotedblright\ by Ira M. Gessel
-and Yan Zhuang (\cite{part1})}.
+and Yan Zhuang (\cite{part1})} (but can be read independently from the latter).
 
 All of the following is a rough draft, and proofs are merely outlined.
 
@@ -340,6 +340,128 @@ main permutation statistic that we will study in this paper is
 $\operatorname*{Epk}$, which is defined in Definition \ref{def.Des-et-al}
 \textbf{(k)}; its codomain is the set of all subsets of $\mathbb{P}$.
 
+The following simple fact expresses the set $\operatorname*{Epk}\pi$
+corresponding to an $n$-permutation $\pi$ in terms of $\operatorname*{Des}\pi$:
+
+\begin{proposition}
+\label{prop.Epk.through-Des}Let $n$ be a positive integer. Let $\pi$ be an
+$n$-permutation. Then,%
+\[
+\operatorname*{Epk}\pi=\left(  \operatorname*{Des}\pi\cup\left\{  n\right\}
+\right)  \setminus\left(  \operatorname*{Des}\pi+1\right)  ,
+\]
+where $\operatorname*{Des}\pi+1$ denotes the set $\left\{  i+1\ \mid
+\ i\in\operatorname*{Des}\pi\right\}  $.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Epk.through-Des}.]Write $\pi$ in the form
+$\pi=\left(  \pi_{1},\pi_{2},\ldots,\pi_{n}\right)  $. Set $\pi_{0}=0$ and
+$\pi_{n+1}=0$. Recall that $\operatorname*{Des}\pi$ is defined as the set of
+all descents of $\pi$. In other words,%
+\[
+\operatorname*{Des}\pi=\left(  \text{the set of all descents of }\pi\right)
+=\left\{  i\in\left[  n-1\right]  \ \mid\ \pi_{i}>\pi_{i+1}\right\}
+\]
+(because the descents of $\pi$ are defined to be the $i\in\left[  n-1\right]
+$ satisfying $\pi_{i}>\pi_{i+1}$).
+
+But $\left(  \pi_{1},\pi_{2},\ldots,\pi_{n}\right)  =\pi$ is an $n$%
+-permutation, and thus has no equal entries. Hence, for each $i\in\left[
+n-1\right]  $, we have $\pi_{i}\neq\pi_{i+1}$. Thus, for each $i\in\left[
+n-1\right]  $, we have the equivalence $\left(  \pi_{i}\geq\pi_{i+1}\right)
+\Longleftrightarrow\left(  \pi_{i}>\pi_{i+1}\right)  $. Therefore,%
+\[
+\left\{  i\in\left[  n-1\right]  \ \mid\ \pi_{i}\geq\pi_{i+1}\right\}
+=\left\{  i\in\left[  n-1\right]  \ \mid\ \pi_{i}>\pi_{i+1}\right\}
+=\operatorname*{Des}\pi.
+\]
+
+
+On the other hand, $\pi_{n}\in\left[  n\right]  $, so that $\pi_{n}%
+>0=\pi_{n+1}$. Hence, $n$ is an element of the set $\left\{  i\in\left\{
+n\right\}  \ \mid\ \pi_{i}>\pi_{i+1}\right\}  $. Clearly, this set cannot have
+any other element (since it is a subset of $\left\{  n\right\}  $); thus,
+$\left\{  i\in\left\{  n\right\}  \ \mid\ \pi_{i}>\pi_{i+1}\right\}  =\left\{
+n\right\}  $.
+
+But $\left[  n\right]  =\left[  n-1\right]  \cup\left\{  n\right\}  $, so
+that
+\begin{align}
+&  \left\{  i\in\left[  n\right]  \ \mid\ \pi_{i}>\pi_{i+1}\right\}
+\nonumber\\
+&  =\left\{  i\in\left[  n-1\right]  \cup\left\{  n\right\}  \ \mid\ \pi
+_{i}>\pi_{i+1}\right\} \nonumber\\
+&  =\underbrace{\left\{  i\in\left[  n-1\right]  \ \mid\ \pi_{i}>\pi
+_{i+1}\right\}  }_{=\operatorname*{Des}\pi}\cup\underbrace{\left\{
+i\in\left\{  n\right\}  \ \mid\ \pi_{i}>\pi_{i+1}\right\}  }_{=\left\{
+n\right\}  }=\operatorname*{Des}\pi\cup\left\{  n\right\}  .
+\label{pf.prop.Epk.through-Des.Desun}%
+\end{align}
+
+
+On the other hand, $\pi_{1}\in\left[  n\right]  $, so that $\pi_{1}>0=\pi_{0}%
+$. Hence, we do not have $\pi_{0}\geq\pi_{1}$. Thus, $0$ is not an element of
+the set $\left\{  i\in\left\{  0\right\}  \ \mid\ \pi_{i}\geq\pi
+_{i+1}\right\}  $. Clearly, this set cannot have any other element (since it a
+subset of $\left\{  0\right\}  $); thus, $\left\{  i\in\left\{  0\right\}
+\ \mid\ \pi_{i}\geq\pi_{i+1}\right\}  =\varnothing$.
+
+But $\left\{  0,1,\ldots,n-1\right\}  =\left\{  0\right\}  \cup\left[
+n-1\right]  $, so that
+\begin{align*}
+&  \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ \pi_{i}\geq\pi
+_{i+1}\right\} \\
+&  =\left\{  i\in\left\{  0\right\}  \cup\left[  n-1\right]  \ \mid\ \pi
+_{i}\geq\pi_{i+1}\right\} \\
+&  =\underbrace{\left\{  i\in\left\{  0\right\}  \ \mid\ \pi_{i}\geq\pi
+_{i+1}\right\}  }_{=\varnothing}\cup\underbrace{\left\{  i\in\left[
+n-1\right]  \ \mid\ \pi_{i}\geq\pi_{i+1}\right\}  }_{=\operatorname*{Des}\pi
+}=\varnothing\cup\operatorname*{Des}\pi=\operatorname*{Des}\pi.
+\end{align*}
+Hence,%
+\[
+\operatorname*{Des}\pi=\left\{  i\in\left\{  0,1,\ldots,n-1\right\}
+\ \mid\ \pi_{i}\geq\pi_{i+1}\right\}  ,
+\]
+so that%
+\begin{align}
+\operatorname*{Des}\pi+1  &  =\left\{  i+1\ \mid\ i\in\left\{  0,1,\ldots
+,n-1\right\}  \ \text{satisfies}\ \pi_{i}\geq\pi_{i+1}\right\} \nonumber\\
+&  =\left\{  j\in\left[  n\right]  \ \mid\ \pi_{j-1}\geq\pi_{j}\right\}
+\nonumber\\
+&  =\left\{  i\in\left[  n\right]  \ \mid\ \pi_{i-1}\geq\pi_{i}\right\}
+\label{pf.prop.Epk.through-Des.Des+1}%
+\end{align}
+(here, we have renamed the index $j$ as $i$).
+
+But $\operatorname*{Epk}\pi$ is the set of all exterior peaks of $\pi$ (by the
+definition of $\operatorname*{Epk}\pi$). Thus,%
+\begin{align*}
+\operatorname*{Epk}\pi &  =\left(  \text{the set of all exterior peaks of }%
+\pi\right) \\
+&  =\left\{  i\in\left[  n\right]  \ \mid\ \underbrace{\pi_{i-1}<\pi_{i}%
+>\pi_{i+1}}_{\Longleftrightarrow\ \left(  \pi_{i}>\pi_{i+1}\text{ and }%
+\pi_{i-1}<\pi_{i}\right)  }\right\} \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of an \textquotedblleft
+exterior peak\textquotedblright\ of }\pi\right) \\
+&  =\left\{  i\in\left[  n\right]  \ \mid\ \pi_{i}>\pi_{i+1}\text{ and
+}\underbrace{\pi_{i-1}<\pi_{i}}_{\Longleftrightarrow\ \left(  \text{not }%
+\pi_{i-1}\geq\pi_{i}\right)  }\right\} \\
+&  =\left\{  i\in\left[  n\right]  \ \mid\ \pi_{i}>\pi_{i+1}\text{ and not
+}\pi_{i-1}\geq\pi_{i}\right\} \\
+&  =\underbrace{\left\{  i\in\left[  n\right]  \ \mid\ \pi_{i}>\pi
+_{i+1}\right\}  }_{\substack{=\operatorname*{Des}\pi\cup\left\{  n\right\}
+\\\text{(by (\ref{pf.prop.Epk.through-Des.Desun}))}}}\setminus
+\underbrace{\left\{  i\in\left[  n\right]  \ \mid\ \pi_{i-1}\geq\pi
+_{i}\right\}  }_{\substack{=\operatorname*{Des}\pi+1\\\text{(by
+(\ref{pf.prop.Epk.through-Des.Des+1}))}}}\\
+&  =\left(  \operatorname*{Des}\pi\cup\left\{  n\right\}  \right)
+\setminus\left(  \operatorname*{Des}\pi+1\right)  .
+\end{align*}
+This proves Proposition \ref{prop.Epk.through-Des}.
+\end{proof}
+
 \subsection{Shuffles and shuffle-compatibility}
 
 \begin{definition}
@@ -425,7 +547,7 @@ where $\operatorname*{Des}\pi+1$ denotes the set $\left\{  i+1\ \mid
 \ i\in\operatorname*{Des}\pi\right\}  $ (and, as we have just said,
 $\operatorname*{Des}\pi$ can be recovered from $\operatorname*{Comp}\pi$).
 Furthermore, $\operatorname*{Epk}$ is a descent statistic, since each
-$n$-permutation $\pi$ (for $n\in\mathbb{N}$) satisfies%
+$n$-permutation $\pi$ (for a positive integer $n$) satisfies%
 \[
 \operatorname*{Epk}\pi=\left(  \operatorname*{Des}\pi\cup\left\{  n\right\}
 \right)  \setminus\left(  \operatorname*{Des}\pi+1\right)
@@ -1849,27 +1971,30 @@ to $\Pi_{\mathcal{Z}}$.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.Epk.sh-co}.]For each $n\in\mathbb{N}$ and each
+[Proof of Theorem \ref{thm.Epk.sh-co}.]For each positive integer $n$ and each
 $n$-permutation $\pi$, we have%
 \[
-\operatorname*{Epk}\pi=\operatorname*{Lpk}\pi\cup\operatorname*{Rpk}%
-\pi=\left(  \operatorname*{Des}\pi\cup\left\{  n\right\}  \right)
-\setminus\left(  \operatorname*{Des}\pi+1\right)  .
+\operatorname*{Epk}\pi=\left(  \operatorname*{Des}\pi\cup\left\{  n\right\}
+\right)  \setminus\left(  \operatorname*{Des}\pi+1\right)
 \]
-Thus, $\operatorname*{Epk}\pi$ is uniquely determined by $\operatorname*{Des}%
-\pi$ and $n$. Hence, $\operatorname*{Epk}$ is a descent statistic. Thus, for
-every composition $L$, a set $\operatorname*{Epk}L$ is defined (according to
-Definition \ref{def.des-stat.stI}); explicitly, $\operatorname*{Epk}%
-L=\operatorname*{Epk}\pi$ whenever $\pi$ is a permutation satisfying
-$\operatorname*{Comp}\pi=L$. Let us spell out this definition: For each
-$n\in\mathbb{N}$ and each composition $L$ of $n$, the subset
-$\operatorname*{Epk}L$ of $\left[  n\right]  $ is given by%
+(by Proposition \ref{prop.Epk.through-Des}). Thus, $\operatorname*{Epk}\pi$ is
+uniquely determined by $\operatorname*{Des}\pi$ and $n$. (Of course, this
+holds for $n=0$ as well, because in this case only one $\pi$ exists.) Hence,
+$\operatorname*{Epk}$ is a descent statistic. Thus, for every composition $L$,
+a set $\operatorname*{Epk}L$ is defined (according to Definition
+\ref{def.des-stat.stI}); explicitly, $\operatorname*{Epk}L=\operatorname*{Epk}%
+\pi$ whenever $\pi$ is a permutation satisfying $\operatorname*{Comp}\pi=L$.
+
+\begin{verlong}
+We can spell out this definition: For each positive integer $n$ and each
+composition $L$ of $n$, the subset $\operatorname*{Epk}L$ of $\left[
+n\right]  $ is given by%
 \[
-\operatorname*{Epk}L=\operatorname*{Lpk}L\cup\operatorname*{Rpk}L=\left(
-\operatorname*{Des}L\cup\left\{  n\right\}  \right)  \setminus\left(
-\operatorname*{Des}L+1\right)  .
+\operatorname*{Epk}L=\left(  \operatorname*{Des}L\cup\left\{  n\right\}
+\right)  \setminus\left(  \operatorname*{Des}L+1\right)  .
 \]
 
+\end{verlong}
 
 Recall that $\left(  F_{L}\right)  _{L\text{ is a composition}}$ is a basis of
 the $\mathbb{Q}$-vector space $\operatorname*{QSym}$. Let $\phi
@@ -2340,13 +2465,19 @@ into two consecutive entries (summing up to the original entry) is always
 tantamount to adding a new element to $\operatorname*{Des}C$. The rest is
 translating conditions.]
 
-Recall that
+If $n$ is a positive integer, and $L$ is any composition of $n$, then
 \begin{equation}
-\operatorname*{Epk}L=\operatorname*{Lpk}L\cup\operatorname*{Rpk}L=\left(
-\operatorname*{Des}L\cup\left\{  n\right\}  \right)  \setminus\left(
-\operatorname*{Des}L+1\right)  \label{pf.prop.K.Epk.F.1}%
+\operatorname*{Epk}L=\left(  \operatorname*{Des}L\cup\left\{  n\right\}
+\right)  \setminus\left(  \operatorname*{Des}L+1\right)  .
+\label{pf.prop.K.Epk.F.1}%
 \end{equation}
-for any composition $L$ of $n$.
+(This is a consequence of Proposition \ref{prop.Epk.through-Des}, applied to
+any $n$-permutation $\pi$ satisfying $L=\operatorname*{Comp}\pi$.)
+
+\begin{noncompile}
+Also, $\operatorname*{Epk}L=\operatorname*{Lpk}L\cup\operatorname*{Rpk}L$ for
+any integer $n\geq2$ and any composition $L$ of $n$.
+\end{noncompile}
 
 \begin{statement}
 \textit{Claim 2:} Let $J$ and $K$ be two compositions satisfying $J\rightarrow

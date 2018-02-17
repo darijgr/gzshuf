@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, February 11, 2018 21:38:40}
+%TCIDATA{LastRevised=Saturday, February 17, 2018 12:52:02}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -5403,12 +5403,15 @@ Ideally, this would be a generalization of Proposition
 \ref{prop.dendri.4.1.lem}.
 \end{question}
 
+\subsection{Criteria for $\mathcal{K}_{\operatorname*{st}}$ to be a stack
+ideal}
+
 We have so far studied the combinatorial significance of when the kernel
 $\mathcal{K}_{\operatorname*{st}}$ of a statistic $\operatorname*{st}$ is a
 $\left.  \prec\right.  $-ideal or a $\left.  \succeq\right.  $-ideal of
 $\operatorname*{QSym}$. What about $\bel$-ideals and $\tvi$-ideals? It turns
-out that the answer to this question is easily given (on the level of
-compositions) by the following (easily verified) proposition:
+out that the answer to this question is given (on the level of compositions)
+by the following (easily verified) proposition:
 
 \begin{proposition}
 \label{prop.bel-tvi-comp}Let $\operatorname*{st}$ be a descent statistic.
@@ -5437,6 +5440,286 @@ the following property: If $J$ and $K$ are two $\operatorname*{st}$-equivalent
 nonempty compositions, and if $G$ is any nonempty composition, then $\left[
 J,G\right]  $ and $\left[  K,G\right]  $ are $\operatorname*{st}$-equivalent.
 \end{proposition}
+
+Proposition \ref{prop.bel-tvi-comp} allows us to give a new proof of Theorem
+\ref{thm.Epk.dend}, which makes no use of Proposition \ref{prop.K.Epk.F}.
+Instead, it will rely on analyzing $\operatorname*{Epk}\left(  \left[
+A,B\right]  \right)  $ and $\operatorname*{Epk}\left(  A\odot B\right)  $ when
+$A$ and $B$ are two nonempty compositions.
+
+First, we introduce a notation: If $S$ is a set of integers, and $p$ is an
+integer, then $S+p$ shall denote the set $\left\{  s+p\ \mid\ s\in S\right\}
+$.
+
+We shall use the following simple lemma:
+
+\begin{lemma}
+\label{lem.Epk.AB}Let $A$ and $B$ be two nonempty compositions. Let
+$n=\left\vert A\right\vert $.
+
+\textbf{(a)} We have $\operatorname*{Epk}\left(  \left[  A,B\right]  \right)
+=\left(  \operatorname*{Epk}A\right)  \cup\left(  \left(  \operatorname*{Epk}%
+B+n\right)  \setminus\left\{  n+1\right\}  \right)  $.
+
+\textbf{(b)} We have $\operatorname*{Epk}\left(  A\odot B\right)  =\left(
+\left(  \operatorname*{Epk}A\right)  \setminus\left\{  n\right\}  \right)
+\cup\left(  \operatorname*{Epk}B+n\right)  $.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.Epk.AB}.]Let $m=\left\vert B\right\vert $. Consider
+any $n$-permutation $\alpha=\left(  \alpha_{1},\alpha_{2},\ldots,\alpha
+_{n}\right)  $ satisfying $\operatorname*{Comp}\alpha=A$. (Such $\alpha$
+exists, since $n=\left\vert A\right\vert $.) Consider any $m$-permutation
+$\beta=\left(  \beta_{1},\beta_{2},\ldots,\beta_{m}\right)  $ satisfying
+$\operatorname*{Comp}\beta=B$. (Such $\beta$ exists, since $m=\left\vert
+B\right\vert $.) From $\operatorname*{Comp}\alpha=A$, we obtain
+$\operatorname*{Epk}\alpha=\operatorname*{Epk}A$. Similarly,
+$\operatorname*{Epk}\beta=\operatorname*{Epk}B$.
+
+\textbf{(a)} WLOG assume that $\alpha_{i}>\beta_{j}$ for all $i\in\left[
+n\right]  $ and $j\in\left[  m\right]  $. (Indeed, we can achieve this by
+choosing a positive integer $g$ that is larger than each entry of $\beta$, and
+adding $g$ to each entry of $\alpha$.) Thus, in particular, the entries of
+$\alpha$ are distinct from the entries of $\beta$. Also, $\alpha_{n}>\beta
+_{1}$ (since $\alpha_{i}>\beta_{j}$ for all $i\in\left[  n\right]  $ and
+$j\in\left[  m\right]  $).
+
+Let $\gamma$ be the $\left(  n+m\right)  $-permutation $\left(  \alpha
+_{1},\alpha_{2},\ldots,\alpha_{n},\beta_{1},\beta_{2},\ldots,\beta_{m}\right)
+$. Then, the descents of $\gamma$ are obtained as follows:
+
+\begin{itemize}
+\item Each descent of $\alpha$ is a descent of $\gamma$.
+
+\item The number $n$ is a descent of $\gamma$ (since $\alpha_{n}>\beta_{1}$).
+
+\item Adding $n$ to each descent of $\beta$ yields a descent of $\gamma$ (that
+is, if $i$ is a descent of $\beta$, then $i+n$ is a descent of $\gamma$).
+\end{itemize}
+
+These are all the descents of $\gamma$. Thus,%
+\[
+\operatorname*{Des}\gamma=\operatorname*{Des}\alpha\cup\left\{  n\right\}
+\cup\left(  \operatorname*{Des}\beta+n\right)  .
+\]
+Hence,%
+\begin{align*}
+\operatorname*{Comp}\left(  \operatorname*{Des}\gamma\right)    &
+=\operatorname*{Comp}\left(  \operatorname*{Des}\alpha\cup\left\{  n\right\}
+\cup\left(  \operatorname*{Des}\beta+n\right)  \right)  \\
+& =\left[  \operatorname*{Comp}\left(  \operatorname*{Des}\alpha\right)
+,\operatorname*{Comp}\left(  \operatorname*{Des}\beta\right)  \right]
+\end{align*}
+(because of how $\operatorname*{Comp}S$ is defined for a set $S$). Since
+$\operatorname*{Comp}\left(  \operatorname*{Des}\pi\right)
+=\operatorname*{Comp}\pi$ for any permutation $\pi$, this rewrites as%
+\[
+\operatorname*{Comp}\gamma=\left[  \operatorname*{Comp}\alpha
+,\operatorname*{Comp}\beta\right]  .
+\]
+In view of $\operatorname*{Comp}\alpha=A$ and $\operatorname*{Comp}\beta=B$,
+this rewrites as $\operatorname*{Comp}\gamma=\left[  A,B\right]  $. Thus,
+$\operatorname*{Epk}\left(  \left[  A,B\right]  \right)  =\operatorname*{Epk}%
+\gamma$.
+
+On the other hand, recall again that $\gamma=\left(  \alpha_{1},\alpha
+_{2},\ldots,\alpha_{n},\beta_{1},\beta_{2},\ldots,\beta_{m}\right)  $ and
+$\alpha_{n}>\beta_{1}$. Thus, the exterior peaks of $\gamma$ are obtained as follows:
+
+\begin{itemize}
+\item Each exterior peak of $\alpha$ is an exterior peak of $\gamma$. (This
+includes $n$, if $n$ is an exterior peak of $\alpha$, because $\alpha
+_{n}>\beta_{1}$.)
+
+\item Adding $n$ to each exterior peak of $\beta$ yields an exterior peak of
+$\gamma$, except for the number $n+1$, which is \textbf{not} an exterior peak
+of $\gamma$ (since $\alpha_{n}>\beta_{1}$).
+\end{itemize}
+
+These are all the exterior peaks of $\gamma$. Thus,%
+\[
+\operatorname*{Epk}\gamma=\left(  \operatorname*{Epk}\alpha\right)
+\cup\left(  \left(  \operatorname*{Epk}\beta+n\right)  \setminus\left\{
+n+1\right\}  \right)  .
+\]
+In view of $\operatorname*{Epk}\alpha=\operatorname*{Epk}A$,
+$\operatorname*{Epk}\beta=\operatorname*{Epk}B$ and $\operatorname*{Epk}%
+\gamma=\operatorname*{Epk}\left(  \left[  A,B\right]  \right)  $, this
+rewrites as
+\[
+\operatorname*{Epk}\left(  \left[  A,B\right]  \right)  =\left(
+\operatorname*{Epk}A\right)  \cup\left(  \left(  \operatorname*{Epk}%
+B+n\right)  \setminus\left\{  n+1\right\}  \right)  .
+\]
+This proves Lemma \ref{lem.Epk.AB} \textbf{(a)}.
+
+\textbf{(b)} WLOG assume that $\alpha_{i}<\beta_{j}$ for all $i\in\left[
+n\right]  $ and $j\in\left[  m\right]  $. (Indeed, we can achieve this by
+choosing a positive integer $g$ that is larger than each entry of $\alpha$,
+and adding $g$ to each entry of $\beta$.) Thus, in particular, the entries of
+$\alpha$ are distinct from the entries of $\beta$. Also, $\alpha_{n}<\beta
+_{1}$ (since $\alpha_{i}<\beta_{j}$ for all $i\in\left[  n\right]  $ and
+$j\in\left[  m\right]  $).
+
+Let $\gamma$ be the $\left(  n+m\right)  $-permutation $\left(  \alpha
+_{1},\alpha_{2},\ldots,\alpha_{n},\beta_{1},\beta_{2},\ldots,\beta_{m}\right)
+$. Then, the descents of $\gamma$ are obtained as follows:
+
+\begin{itemize}
+\item Each descent of $\alpha$ is a descent of $\gamma$.
+
+\item Adding $n$ to each descent of $\beta$ yields a descent of $\gamma$ (that
+is, if $i$ is a descent of $\beta$, then $i+n$ is a descent of $\gamma$).
+\end{itemize}
+
+These are all the descents of $\gamma$ (in particular, $n$ is \textbf{not} a
+descent of $\gamma$, since $\alpha_{n}<\beta_{1}$). Thus,%
+\[
+\operatorname*{Des}\gamma=\operatorname*{Des}\alpha\cup\left(
+\operatorname*{Des}\beta+n\right)  .
+\]
+Hence,%
+\begin{align*}
+\operatorname*{Comp}\left(  \operatorname*{Des}\gamma\right)    &
+=\operatorname*{Comp}\left(  \operatorname*{Des}\alpha\cup\left(
+\operatorname*{Des}\beta+n\right)  \right)  \\
+& =\operatorname*{Comp}\left(  \operatorname*{Des}\alpha\right)
+\odot\operatorname*{Comp}\left(  \operatorname*{Des}\beta\right)
+\end{align*}
+(because of how $\operatorname*{Comp}S$ is defined for a set $S$). Since
+$\operatorname*{Comp}\left(  \operatorname*{Des}\pi\right)
+=\operatorname*{Comp}\pi$ for any permutation $\pi$, this rewrites as%
+\[
+\operatorname*{Comp}\gamma=\operatorname*{Comp}\alpha\odot\operatorname*{Comp}%
+\beta.
+\]
+In view of $\operatorname*{Comp}\alpha=A$ and $\operatorname*{Comp}\beta=B$,
+this rewrites as $\operatorname*{Comp}\gamma=A\odot B$. Thus,
+$\operatorname*{Epk}\left(  A\odot B\right)  =\operatorname*{Epk}\gamma$.
+
+On the other hand, recall again that $\gamma=\left(  \alpha_{1},\alpha
+_{2},\ldots,\alpha_{n},\beta_{1},\beta_{2},\ldots,\beta_{m}\right)  $ and
+$\alpha_{n}<\beta_{1}$. Thus, the exterior peaks of $\gamma$ are obtained as follows:
+
+\begin{itemize}
+\item Each exterior peak of $\alpha$ is an exterior peak of $\gamma$, except
+for the number $n$, which is \textbf{not} an exterior peak of $\gamma$ (since
+$\alpha_{n}<\beta_{1}$).
+
+\item Adding $n$ to each exterior peak of $\beta$ yields an exterior peak of
+$\gamma$. (This includes $n+1$, if $1$ is an exterior peak of $\beta$, because
+$\alpha_{n}<\beta_{1}$.)
+\end{itemize}
+
+These are all the exterior peaks of $\gamma$. Thus,%
+\[
+\operatorname*{Epk}\gamma=\left(  \left(  \operatorname*{Epk}\alpha\right)
+\setminus\left\{  n\right\}  \right)  \cup\left(  \operatorname*{Epk}%
+\beta+n\right)  .
+\]
+In view of $\operatorname*{Epk}\alpha=\operatorname*{Epk}A$,
+$\operatorname*{Epk}\beta=\operatorname*{Epk}B$ and $\operatorname*{Epk}%
+\gamma=\operatorname*{Epk}\left(  A\odot B\right)  $, this rewrites as
+\[
+\operatorname*{Epk}\left(  A\odot B\right)  =\left(  \left(
+\operatorname*{Epk}A\right)  \setminus\left\{  n\right\}  \right)  \cup\left(
+\operatorname*{Epk}B+n\right)  .
+\]
+This proves Lemma \ref{lem.Epk.AB} \textbf{(b)}.
+\end{proof}
+
+We can now easily prove Theorem \ref{thm.Epk.dend} again:
+
+\begin{proof}
+[Second proof of Theorem \ref{thm.Epk.dend} (sketched).]Let
+$A=\operatorname*{QSym}$. Corollary \ref{cor.Epk.ideal} shows that
+$\mathcal{K}_{\operatorname*{Epk}}$ is an ideal of $\operatorname*{QSym}$.
+
+We now argue the following claim:\footnote{These claims are numbered Claim 2,
+Claim 4, Claim 6 and Claim 8, in order to match the numbering of the
+corresponding claims in the first proof of Theorem \ref{thm.Epk.dend} above.}
+
+\begin{statement}
+\textit{Claim 2:} We have $A\tvi\mathcal{K}_{\operatorname*{Epk}}%
+\subseteq\mathcal{K}_{\operatorname*{Epk}}$.
+\end{statement}
+
+[\textit{Proof of Claim 2:} We must show that $\mathcal{K}%
+_{\operatorname*{Epk}}$ is a left $\tvi$-ideal of $\operatorname*{QSym}$.
+According to Proposition \ref{prop.bel-tvi-comp} \textbf{(c)}, this boils down
+to proving that if $J$ and $K$ are two $\operatorname*{Epk}$-equivalent
+nonempty compositions, and if $G$ is any nonempty composition, then $\left[
+G,J\right]  $ and $\left[  G,K\right]  $ are $\operatorname*{Epk}$-equivalent.
+
+So let $J$ and $K$ be two $\operatorname*{Epk}$-equivalent nonempty
+compositions. Thus, $\left\vert J\right\vert =\left\vert K\right\vert >0$ and
+$\operatorname*{Epk}J=\operatorname*{Epk}K$.
+
+Define a positive integer $n$ by $n=\left\vert G\right\vert $. Lemma
+\ref{lem.Epk.AB} \textbf{(a)} (applied to $A=G$ and $B=J$) yields
+\begin{equation}
+\operatorname*{Epk}\left(  \left[  G,J\right]  \right)  =\left(
+\operatorname*{Epk}G\right)  \cup\left(  \left(  \operatorname*{Epk}%
+J+n\right)  \setminus\left\{  n+1\right\}  \right)
+.\label{pf.thm.Epk.dend.2nd.c2.pf.4}%
+\end{equation}
+Similarly,%
+\begin{equation}
+\operatorname*{Epk}\left(  \left[  G,K\right]  \right)  =\left(
+\operatorname*{Epk}G\right)  \cup\left(  \left(  \operatorname*{Epk}%
+K+n\right)  \setminus\left\{  n+1\right\}  \right)
+.\label{pf.thm.Epk.dend.2nd.c2.pf.5}%
+\end{equation}
+The right hand sides of (\ref{pf.thm.Epk.dend.2nd.c2.pf.4}) and
+(\ref{pf.thm.Epk.dend.2nd.c2.pf.5}) are equal (since $\operatorname*{Epk}%
+J=\operatorname*{Epk}K$). Hence, the left hand sides are equal as well. In
+other words, $\operatorname*{Epk}\left(  \left[  G,J\right]  \right)
+=\operatorname*{Epk}\left(  \left[  G,K\right]  \right)  $. Combining this
+with%
+\[
+\left\vert \left[  G,J\right]  \right\vert =\left\vert G\right\vert
++\underbrace{\left\vert J\right\vert }_{=\left\vert K\right\vert }=\left\vert
+G\right\vert +\left\vert K\right\vert =\left\vert \left[  G,K\right]
+\right\vert ,
+\]
+we conclude that $\left[  G,J\right]  $ and $\left[  G,K\right]  $ are
+$\operatorname*{Epk}$-equivalent. As we have said, this concludes the proof of
+Claim 2.]
+
+Similarly to Claim 2, we can show the following three claims:
+
+\begin{statement}
+\textit{Claim 4:} We have $\mathcal{K}_{\operatorname*{Epk}}\tvi
+A\subseteq\mathcal{K}_{\operatorname*{Epk}}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 6:} We have $\mathcal{K}_{\operatorname*{Epk}}\bel
+A\subseteq\mathcal{K}_{\operatorname*{Epk}}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 8:} We have $A\bel\mathcal{K}_{\operatorname*{Epk}}%
+\subseteq\mathcal{K}_{\operatorname*{Epk}}$.
+\end{statement}
+
+(Of course, in proving Claims 4, 6 and 8, we need to use the other three parts
+of Proposition \ref{prop.bel-tvi-comp} instead of Proposition
+\ref{prop.bel-tvi-comp} \textbf{(c)}, and we occasionally need to use Lemma
+\ref{lem.Epk.AB} \textbf{(b)} instead of Lemma \ref{lem.Epk.AB} \textbf{(a)}.)
+
+Combining Claim 2 and Claim 4, we conclude that $\mathcal{K}%
+_{\operatorname*{Epk}}$ is a $\tvi$-ideal of $A=\operatorname*{QSym}$.
+
+Combining Claim 6 and Claim 8, we conclude that $\mathcal{K}%
+_{\operatorname*{Epk}}$ is a $\bel$-ideal of $A=\operatorname*{QSym}$.
+
+Thus, Theorem \ref{thm.ideal-crit2} \textbf{(c)} (applied to $M=\mathcal{K}%
+_{\operatorname*{Epk}}$) shows that $\mathcal{K}_{\operatorname*{Epk}}$ is a
+$\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
+$\operatorname*{QSym}$. This proves Theorem \ref{thm.Epk.dend} again.
+\end{proof}
 
 \begin{noncompile}
 \textbf{[From here on, everything is scratch work and speculation!]}

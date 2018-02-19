@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, February 19, 2018 09:19:42}
+%TCIDATA{LastRevised=Monday, February 19, 2018 10:17:03}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -4708,7 +4708,9 @@ $\tvi$-ideal, a $\bel$-ideal, a $\left.  \prec\right.  $-ideal and a $\left.
 \begin{question}
 What other descent statistics $\operatorname*{st}$ have the property that
 $\mathcal{K}_{\operatorname*{st}}$ is an $\tvi$-ideal, $\bel$-ideal, $\left.
-\prec\right.  $-ideal and/or $\left.  \succeq\right.  $-ideal?
+\prec\right.  $-ideal and/or $\left.  \succeq\right.  $-ideal? We will see
+some answers in Subsection \ref{subsect.dendri.other-stats}, but a more
+systematic study would be interesting.
 \end{question}
 
 \subsection{Dendriform shuffle-compatibility}
@@ -5716,6 +5718,412 @@ Thus, Theorem \ref{thm.ideal-crit2} \textbf{(c)} (applied to $M=\mathcal{K}%
 _{\operatorname*{Epk}}$) shows that $\mathcal{K}_{\operatorname*{Epk}}$ is a
 $\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
 $\operatorname*{QSym}$. This proves Theorem \ref{thm.Epk.dend} again.
+\end{proof}
+
+\subsection{\label{subsect.dendri.other-stats}Left/right-shuffle-compatibility
+of other statistics}
+
+Let us now briefly analyze the kernels $\mathcal{K}_{\operatorname*{st}}$ of
+some other descent statistics, following the same approach that we took in our
+above second proof of Theorem \ref{thm.Epk.dend} again.
+
+\subsubsection{The descent set $\operatorname*{Des}$}
+
+First of all, the following is obvious:
+
+\begin{proposition}
+\label{prop.Des-set.dend}The ideal $\mathcal{K}_{\operatorname*{Des}}$ of
+$\operatorname*{QSym}$ is the trivial ideal, and is a $\tvi$-ideal, a
+$\bel$-ideal, a $\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.
+$-ideal of $\operatorname*{QSym}$.
+\end{proposition}
+
+\begin{corollary}
+\label{cor.dendri.Des-set}The descent statistic $\operatorname*{Des}$ is
+left-shuffle-compatible and right-shuffle-compatible.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.dendri.Des-set}.]Corollary
+\ref{cor.dendri.Des-set} can be derived from Proposition
+\ref{prop.Des-set.dend} in the same way as Corollary \ref{cor.dendri.Epk} was
+derived from Theorem \ref{thm.Epk.dend}.
+\end{proof}
+
+\subsubsection{The descent number $\operatorname*{des}$}
+
+The permutation statistic $\operatorname*{des}$ (called the \textit{descent
+number}) is defined as follows: For each permutation $\pi$, we set
+$\operatorname*{des}\pi=\left\vert \operatorname*{Des}\pi\right\vert $ (that
+is, $\operatorname*{des}\pi$ is the number of all descents of $\pi$). It was
+proven in \cite[Theorem 4.5 \textbf{(a)}]{part1} that this statistic
+$\operatorname*{des}$ is shuffle-compatible. Furthermore, $\operatorname*{des}%
+$ is clearly a descent statistic. Hence, Proposition \ref{prop.K.ideal}
+(applied to $\operatorname*{st}=\operatorname*{des}$) shows that
+$\mathcal{K}_{\operatorname*{des}}$ is an ideal of $\operatorname*{QSym}$. We
+now claim the following:
+
+\begin{proposition}
+\label{prop.des.dend}The ideal $\mathcal{K}_{\operatorname*{des}}$ of
+$\operatorname*{QSym}$ is a $\tvi$-ideal, a $\bel$-ideal, a $\left.
+\prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
+$\operatorname*{QSym}$.
+\end{proposition}
+
+\begin{corollary}
+\label{cor.dendri.des}The descent statistic $\operatorname*{des}$ is
+left-shuffle-compatible and right-shuffle-compatible.
+\end{corollary}
+
+The proofs rely on the following fact (similar to Lemma \ref{lem.Epk.AB}):
+
+\begin{lemma}
+\label{lem.des.AB}Let $A$ and $B$ be two nonempty compositions. Let
+$n=\left\vert A\right\vert $.
+
+\textbf{(a)} We have $\operatorname*{des}\left(  \left[  A,B\right]  \right)
+=\operatorname*{des}A+\operatorname*{des}B+1$.
+
+\textbf{(b)} We have $\operatorname*{des}\left(  A\odot B\right)
+=\operatorname*{des}A+\operatorname*{des}B$.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.des.AB}.]If $I$ is a nonempty composition, then
+$\operatorname*{des}I$ equals the length of $I$ minus $1$. Lemma
+\ref{lem.des.AB} follows easily from this.
+\end{proof}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.des.dend}.]Analogous to the above second proof
+of Theorem \ref{thm.Epk.dend}, but using Lemma \ref{lem.des.AB} instead of
+Lemma \ref{lem.Epk.AB}.
+\end{proof}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.dendri.des}.]Corollary \ref{cor.dendri.des} can
+be derived from Proposition \ref{prop.des.dend} in the same way as Corollary
+\ref{cor.dendri.Epk} was derived from Theorem \ref{thm.Epk.dend}.
+\end{proof}
+
+\subsubsection{The major index $\operatorname*{maj}$}
+
+The permutation statistic $\operatorname*{maj}$ (called the \textit{major
+index}) is defined as follows: For each permutation $\pi$, we set
+$\operatorname*{maj}\pi=\sum_{i\in\operatorname*{Des}\pi}i$ (that is,
+$\operatorname*{maj}\pi$ is the sum of all descents of $\pi$). It was proven
+in \cite[Theorem 3.1 \textbf{(a)}]{part1} that this statistic
+$\operatorname*{maj}$ is shuffle-compatible. Furthermore, $\operatorname*{maj}%
+$ is clearly a descent statistic. Hence, Proposition \ref{prop.K.ideal}
+(applied to $\operatorname*{st}=\operatorname*{maj}$) shows that
+$\mathcal{K}_{\operatorname*{maj}}$ is an ideal of $\operatorname*{QSym}$. We
+now claim the following:
+
+\begin{proposition}
+\label{prop.maj.dend}The ideal $\mathcal{K}_{\operatorname*{maj}}$ of
+$\operatorname*{QSym}$ is a left $\tvi$-ideal and a left $\bel$-ideal, but
+neither a $\left.  \prec\right.  $-ideal nor a $\left.  \succeq\right.
+$-ideal of $\operatorname*{QSym}$.
+\end{proposition}
+
+\begin{corollary}
+\label{cor.dendri.maj}The descent statistic $\operatorname*{maj}$ is neither
+left-shuffle-compatible nor right-shuffle-compatible.
+\end{corollary}
+
+The proofs rely on the following fact (similar to Lemma \ref{lem.Epk.AB}):
+
+\begin{lemma}
+\label{lem.maj.AB}Let $A$ and $B$ be two nonempty compositions. Let
+$n=\left\vert A\right\vert $.
+
+\textbf{(a)} We have $\operatorname*{maj}\left(  \left[  A,B\right]  \right)
+=\operatorname*{maj}A+\operatorname*{maj}B+n\cdot\left(  \operatorname*{des}%
+A+1\right)  $.
+
+\textbf{(b)} We have $\operatorname*{maj}\left(  A\odot B\right)
+=\operatorname*{maj}A+\operatorname*{maj}B+n\cdot\operatorname*{des}A$.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.maj.AB}.]If $I=\left(  i_{1},i_{2},\ldots
+,i_{k}\right)  $ is a nonempty composition, then
+\begin{align*}
+\operatorname*{maj}I  &  =i_{1}+\left(  i_{1}+i_{2}\right)  +\left(
+i_{1}+i_{2}+i_{3}\right)  +\cdots+\left(  i_{1}+i_{2}+\cdots+i_{k-1}\right) \\
+&  =\left(  k-1\right)  i_{1}+\left(  k-2\right)  i_{2}+\cdots+\left(
+k-k\right)  i_{k}.
+\end{align*}
+Lemma \ref{lem.maj.AB} follows easily from this.
+\end{proof}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.maj.dend}.]To prove that $\mathcal{K}%
+_{\operatorname*{maj}}$ is a left $\tvi$-ideal of $\operatorname*{QSym}$, we
+proceed as in the proof of Claim 2 in the second proof of Theorem
+\ref{thm.Epk.dend}, but using Lemma \ref{lem.maj.AB} instead of Lemma
+\ref{lem.Epk.AB}. Similarly, we can show that $\mathcal{K}%
+_{\operatorname*{maj}}$ is a left $\bel$-ideal of $\operatorname*{QSym}$.
+
+To prove that $\mathcal{K}_{\operatorname*{maj}}$ is not a $\left.
+\prec\right.  $-ideal of $\operatorname*{QSym}$ (and not even a left $\left.
+\prec\right.  $-ideal of $\operatorname*{QSym}$), it suffices to find some
+$m\in\mathcal{K}_{\operatorname*{maj}}$ and some $a\in\operatorname*{QSym}$
+such that $a\left.  \prec\right.  m\notin\mathcal{K}_{\operatorname*{maj}}$.
+For example, we can take $m=F_{\left(  1,1,2\right)  }-F_{\left(  3,1\right)
+}$ and $a=F_{\left(  1\right)  }$; then, $a\left.  \prec\right.  m=F_{\left(
+1,1,1,2\right)  }-F_{\left(  1,3,1\right)  }\notin\mathcal{K}%
+_{\operatorname*{maj}}$. The same values of $m$ and $a$ also satisfy $a\left.
+\succeq\right.  m\notin\mathcal{K}_{\operatorname*{maj}}$, $m\left.
+\prec\right.  a\notin\mathcal{K}_{\operatorname*{maj}}$ and $m\left.
+\succeq\right.  a\notin\mathcal{K}_{\operatorname*{maj}}$; thus,
+$\mathcal{K}_{\operatorname*{maj}}$ is not a $\left.  \succeq\right.  $-ideal
+of $\operatorname*{QSym}$ either. Proposition \ref{prop.maj.dend} is now proven.
+\end{proof}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.dendri.maj}.]Again, this follows from Proposition
+\ref{prop.maj.dend}.
+\end{proof}
+
+\subsubsection{The left peak set $\operatorname*{Lpk}$}
+
+Recall the permutation statistic $\operatorname*{Lpk}$ (the left peak set)
+defined in Definition \ref{def.Des-et-al}. It was proven in \cite[Theorem 4.9
+\textbf{(a)}]{part1} that this statistic $\operatorname*{Lpk}$ is
+shuffle-compatible. Furthermore, $\operatorname*{Lpk}$ is clearly a descent
+statistic. Hence, Proposition \ref{prop.K.ideal} (applied to
+$\operatorname*{st}=\operatorname*{Lpk}$) shows that $\mathcal{K}%
+_{\operatorname*{Lpk}}$ is an ideal of $\operatorname*{QSym}$. We now claim
+the following:
+
+\begin{proposition}
+\label{prop.Lpk.dend}The ideal $\mathcal{K}_{\operatorname*{Lpk}}$ of
+$\operatorname*{QSym}$ is a left $\tvi$-ideal, a $\bel$-ideal, a $\left.
+\prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
+$\operatorname*{QSym}$.
+\end{proposition}
+
+\begin{corollary}
+\label{cor.dendri.Lpk}The descent statistic $\operatorname*{Lpk}$ is
+left-shuffle-compatible and right-shuffle-compatible.
+\end{corollary}
+
+The proofs rely on the following fact (similar to Lemma \ref{lem.Epk.AB}):
+
+\begin{lemma}
+\label{lem.Lpk.AB}Let $A$ and $B$ be two nonempty compositions. Let
+$n=\left\vert A\right\vert $.
+
+\textbf{(a)} We have $\operatorname*{Lpk}\left(  \left[  A,B\right]  \right)
+=\left(  \operatorname*{Lpk}A\right)  \cup\left(  \left(  \operatorname*{Lpk}%
+B+n\right)  \setminus\left\{  n+1\right\}  \right)  \cup\left\{
+n\ \mid\ n-1\notin\operatorname*{Des}A\right\}  $.
+
+\textbf{(b)} We have $\operatorname*{Lpk}\left(  A\odot B\right)  =\left(
+\operatorname*{Lpk}A\right)  \cup\left(  \operatorname*{Lpk}B+n\right)  $.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.Lpk.AB}.]Not unlike the proof of Lemma
+\ref{lem.Epk.AB} (but left to the reader).
+\end{proof}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Lpk.dend}.]Analogous to the above second proof
+of Theorem \ref{thm.Epk.dend}, but using Lemma \ref{lem.Lpk.AB} instead of
+Lemma \ref{lem.Epk.AB}. This time, however, the analogue of Claim 4 will be
+false (i.e., we don't have $\mathcal{K}_{\operatorname*{Lpk}}\tvi
+A\subseteq\mathcal{K}_{\operatorname*{Lpk}}$), because the formula for
+$\operatorname*{Lpk}\left(  \left[  A,B\right]  \right)  $ in Lemma
+\ref{lem.Lpk.AB} \textbf{(a)} depends on $\operatorname*{Des}A$. Thus,
+$\mathcal{K}_{\operatorname*{Lpk}}$ is merely a left $\tvi$-ideal, not a
+$\tvi$-ideal. (But this does not prevent us from applying Theorem
+\ref{thm.ideal-crit2} \textbf{(c)}, because that theorem does not require
+$M\tvi A\subseteq M$.)
+\end{proof}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.dendri.Lpk}.]Corollary \ref{cor.dendri.Lpk} can
+be derived from Proposition \ref{prop.Lpk.dend} in the same way as Corollary
+\ref{cor.dendri.Epk} was derived from Theorem \ref{thm.Epk.dend}.
+\end{proof}
+
+\subsubsection{The right peak set $\operatorname*{Rpk}$}
+
+Recall the permutation statistic $\operatorname*{Rpk}$ (the right peak set)
+defined in Definition \ref{def.Des-et-al}. It was proven in \cite[\S 4.4]%
+{part1} that this statistic $\operatorname*{Rpk}$ is shuffle-compatible.
+Furthermore, $\operatorname*{Rpk}$ is clearly a descent statistic. Hence,
+Proposition \ref{prop.K.ideal} (applied to $\operatorname*{st}%
+=\operatorname*{Rpk}$) shows that $\mathcal{K}_{\operatorname*{Rpk}}$ is an
+ideal of $\operatorname*{QSym}$. We now claim the following:
+
+\begin{proposition}
+\label{prop.Rpk.dend}The ideal $\mathcal{K}_{\operatorname*{Rpk}}$ of
+$\operatorname*{QSym}$ is a $\tvi$-ideal, a right $\bel$-ideal, a left
+$\left.  \prec\right.  $-ideal and a left $\left.  \succeq\right.  $-ideal,
+but neither a $\left.  \prec\right.  $-ideal nor a $\left.  \succeq\right.
+$-ideal of $\operatorname*{QSym}$.
+\end{proposition}
+
+\begin{corollary}
+\label{cor.dendri.Rpk}The descent statistic $\operatorname*{Rpk}$ is neither
+left-shuffle-compatible nor right-shuffle-compatible.
+\end{corollary}
+
+The proofs rely on the following fact (similar to Lemma \ref{lem.Epk.AB}):
+
+\begin{lemma}
+\label{lem.Rpk.AB}Let $A$ and $B$ be two nonempty compositions. Let
+$n=\left\vert A\right\vert $ and $m=\left\vert B\right\vert $.
+
+\textbf{(a)} We have $\operatorname*{Rpk}\left(  \left[  A,B\right]  \right)
+=\left(  \operatorname*{Rpk}A\right)  \cup\left(  \operatorname*{Rpk}%
+B+n\right)  $.
+
+\textbf{(b)} We have $\operatorname*{Rpk}\left(  A\odot B\right)  =\left(
+\left(  \operatorname*{Rpk}A\right)  \setminus\left\{  n\right\}  \right)
+\cup\left(  \operatorname*{Rpk}B+n\right)  \cup\left\{  n+1\ \mid
+\ 1\in\operatorname*{Des}B\text{ or }m=1\right\}  $.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.Rpk.AB}.]Not unlike the proof of Lemma
+\ref{lem.Epk.AB} (but left to the reader).
+\end{proof}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Rpk.dend}.]To prove that $\mathcal{K}%
+_{\operatorname*{Rpk}}$ is a $\tvi$-ideal and a right $\bel$-ideal, we proceed
+as in the above second proof of Theorem \ref{thm.Epk.dend}, but using Lemma
+\ref{lem.Rpk.AB} instead of Lemma \ref{lem.Epk.AB}. This time, however, the
+analogue of Claim 6 will be false (i.e., we don't have $A\bel\mathcal{K}%
+_{\operatorname*{Rpk}}\subseteq\mathcal{K}_{\operatorname*{Rpk}}$), because
+the formula for $\operatorname*{Rpk}\left(  A\odot B\right)  $ in Lemma
+\ref{lem.Rpk.AB} \textbf{(b)} depends on $\operatorname*{Des}B$. Thus,
+$\mathcal{K}_{\operatorname*{Rpk}}$ is merely a right $\bel$-ideal, not a
+$\bel$-ideal. This prevents us from applying Theorem \ref{thm.ideal-crit2}
+\textbf{(c)}. However, we can apply Theorem \ref{thm.ideal-crit2} \textbf{(b)}
+instead, and obtain $\operatorname*{QSym}\left.  \succeq\right.
+\mathcal{K}_{\operatorname*{Rpk}}\subseteq\mathcal{K}_{\operatorname*{Rpk}}$.
+In other words, $\mathcal{K}_{\operatorname*{Rpk}}$ is a left $\left.
+\succeq\right.  $-ideal of $\operatorname*{QSym}$. Using
+(\ref{eq.dendriform.1}), we thus easily see that $\mathcal{K}%
+_{\operatorname*{Rpk}}$ is a left $\left.  \prec\right.  $-ideal of
+$\operatorname*{QSym}$ as well.
+
+To prove that $\mathcal{K}_{\operatorname*{Rpk}}$ is not a $\left.
+\prec\right.  $-ideal of $\operatorname*{QSym}$ (and not even a right $\left.
+\prec\right.  $-ideal of $\operatorname*{QSym}$), it suffices to find some
+$m\in\mathcal{K}_{\operatorname*{Rpk}}$ and some $a\in\operatorname*{QSym}$
+such that $m\left.  \prec\right.  a\notin\mathcal{K}_{\operatorname*{Rpk}}$.
+For example, we can take $m=F_{\left(  1,2\right)  }-F_{\left(  3\right)  }$
+and $a=F_{\left(  1\right)  }$; then,
+\[
+m\left.  \prec\right.  a=F_{\left(  3,2\right)  }+F_{\left(  2,3\right)
+}+F_{\left(  2,2,1\right)  }-F_{\left(  1,2,2\right)  }-F_{\left(
+1,1,3\right)  }-F_{\left(  1,1,2,1\right)  }\notin\mathcal{K}%
+_{\operatorname*{Rpk}}.
+\]
+The same values of $m$ and $a$ also satisfy $m\left.  \succeq\right.
+a\notin\mathcal{K}_{\operatorname*{Rpk}}$; thus, $\mathcal{K}%
+_{\operatorname*{Rpk}}$ is not a $\left.  \succeq\right.  $-ideal of
+$\operatorname*{QSym}$ either. Proposition \ref{prop.Rpk.dend} is now proven.
+\end{proof}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.dendri.Rpk}.]Follows from Proposition
+\ref{prop.Rpk.dend}.
+\end{proof}
+
+\subsubsection{The peak set $\operatorname*{Pk}$}
+
+Recall the permutation statistic $\operatorname*{Pk}$ (the peak set) defined
+in Definition \ref{def.Des-et-al}. It was proven in \cite[Theorem 4.7
+\textbf{(a)}]{part1} that this statistic $\operatorname*{Pk}$ is
+shuffle-compatible. Furthermore, $\operatorname*{Pk}$ is clearly a descent
+statistic. Hence, Proposition \ref{prop.K.ideal} (applied to
+$\operatorname*{st}=\operatorname*{Pk}$) shows that $\mathcal{K}%
+_{\operatorname*{Pk}}$ is an ideal of $\operatorname*{QSym}$. We now claim the following:
+
+\begin{proposition}
+\label{prop.Pk.dend}The ideal $\mathcal{K}_{\operatorname*{Pk}}$ of
+$\operatorname*{QSym}$ is a left $\tvi$-ideal, a right $\bel$-ideal, a left
+$\left.  \prec\right.  $-ideal and a left $\left.  \succeq\right.  $-ideal,
+but neither a $\left.  \prec\right.  $-ideal nor a $\left.  \succeq\right.
+$-ideal of $\operatorname*{QSym}$.
+\end{proposition}
+
+\begin{corollary}
+\label{cor.dendri.Pk}The descent statistic $\operatorname*{Pk}$ is neither
+left-shuffle-compatible nor right-shuffle-compatible.
+\end{corollary}
+
+The proofs rely on the following fact (similar to Lemma \ref{lem.Epk.AB}):
+
+\begin{lemma}
+\label{lem.Pk.AB}Let $A$ and $B$ be two nonempty compositions. Let
+$n=\left\vert A\right\vert $ and $m=\left\vert B\right\vert $.
+
+\textbf{(a)} We have $\operatorname*{Pk}\left(  \left[  A,B\right]  \right)
+=\left(  \operatorname*{Pk}A\right)  \cup\left(  \operatorname*{Pk}B+n\right)
+\cup\left\{  n\ \mid\ n-1\notin\operatorname*{Des}A\text{ and }n>1\right\}  $.
+
+\textbf{(b)} We have $\operatorname*{Pk}\left(  A\odot B\right)  =\left(
+\operatorname*{Pk}A\right)  \cup\left(  \operatorname*{Pk}B+n\right)
+\cup\left\{  n+1\ \mid\ 1\in\operatorname*{Des}B\right\}  $.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.Pk.AB}.]Not unlike the proof of Lemma
+\ref{lem.Epk.AB} (but left to the reader).
+\end{proof}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Pk.dend}.]To prove that $\mathcal{K}%
+_{\operatorname*{Pk}}$ is a left $\tvi$-ideal and a right $\bel$-ideal, we
+proceed as in the above second proof of Theorem \ref{thm.Epk.dend}, but using
+Lemma \ref{lem.Rpk.AB} instead of Lemma \ref{lem.Epk.AB}. This time, however,
+the analogues of Claim 4 and Claim 6 will be false (i.e., neither
+$\mathcal{K}_{\operatorname*{Pk}}\tvi A\subseteq\mathcal{K}%
+_{\operatorname*{Pk}}$ nor $A\bel\mathcal{K}_{\operatorname*{Pk}}%
+\subseteq\mathcal{K}_{\operatorname*{Pk}}$ will hold), because the formula for
+$\operatorname*{Pk}\left(  \left[  A,B\right]  \right)  $ in Lemma
+\ref{lem.Pk.AB} \textbf{(a)} depends on $\operatorname*{Des}A$ whereas the
+formula for $\operatorname*{Pk}\left(  A\odot B\right)  $ in Lemma
+\ref{lem.Pk.AB} \textbf{(b)} depends on $\operatorname*{Des}B$. Again, this
+prevents us from applying Theorem \ref{thm.ideal-crit2} \textbf{(c)}. However,
+we can apply Theorem \ref{thm.ideal-crit2} \textbf{(b)} instead, and obtain
+$\operatorname*{QSym}\left.  \succeq\right.  \mathcal{K}_{\operatorname*{Pk}%
+}\subseteq\mathcal{K}_{\operatorname*{Pk}}$. In other words, $\mathcal{K}%
+_{\operatorname*{Pk}}$ is a left $\left.  \succeq\right.  $-ideal of
+$\operatorname*{QSym}$. Using (\ref{eq.dendriform.1}), we thus easily see that
+$\mathcal{K}_{\operatorname*{Pk}}$ is a left $\left.  \prec\right.  $-ideal of
+$\operatorname*{QSym}$ as well.
+
+To prove that $\mathcal{K}_{\operatorname*{Pk}}$ is not a $\left.
+\prec\right.  $-ideal of $\operatorname*{QSym}$ (and not even a right $\left.
+\prec\right.  $-ideal of $\operatorname*{QSym}$), it suffices to find some
+$m\in\mathcal{K}_{\operatorname*{Pk}}$ and some $a\in\operatorname*{QSym}$
+such that $m\left.  \prec\right.  a\notin\mathcal{K}_{\operatorname*{Pk}}$.
+For example, we can take $m=F_{\left(  1,2\right)  }-F_{\left(  3\right)  }$
+and $a=F_{\left(  1\right)  }$; then,
+\[
+m\left.  \prec\right.  a=F_{\left(  3,2\right)  }+F_{\left(  2,3\right)
+}+F_{\left(  2,2,1\right)  }-F_{\left(  1,2,2\right)  }-F_{\left(
+1,1,3\right)  }-F_{\left(  1,1,2,1\right)  }\notin\mathcal{K}%
+_{\operatorname*{Pk}}.
+\]
+The same values of $m$ and $a$ also satisfy $m\left.  \succeq\right.
+a\notin\mathcal{K}_{\operatorname*{Pk}}$; thus, $\mathcal{K}%
+_{\operatorname*{Pk}}$ is not a $\left.  \succeq\right.  $-ideal of
+$\operatorname*{QSym}$ either. Proposition \ref{prop.Pk.dend} is now proven.
+\end{proof}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.dendri.Pk}.]Follows from Proposition
+\ref{prop.Pk.dend}.
 \end{proof}
 
 \begin{noncompile}

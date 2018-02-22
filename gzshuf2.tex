@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, February 19, 2018 10:17:03}
+%TCIDATA{LastRevised=Wednesday, February 21, 2018 19:01:27}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -5733,7 +5733,7 @@ First of all, the following is obvious:
 
 \begin{proposition}
 \label{prop.Des-set.dend}The ideal $\mathcal{K}_{\operatorname*{Des}}$ of
-$\operatorname*{QSym}$ is the trivial ideal, and is a $\tvi$-ideal, a
+$\operatorname*{QSym}$ is the trivial ideal $0$, and is a $\tvi$-ideal, a
 $\bel$-ideal, a $\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.
 $-ideal of $\operatorname*{QSym}$.
 \end{proposition}
@@ -5884,6 +5884,48 @@ of $\operatorname*{QSym}$ either. Proposition \ref{prop.maj.dend} is now proven.
 \begin{proof}
 [Proof of Corollary \ref{cor.dendri.maj}.]Again, this follows from Proposition
 \ref{prop.maj.dend}.
+\end{proof}
+
+\subsubsection{The joint statistic $\left(  \operatorname*{des}%
+,\operatorname*{maj}\right)  $}
+
+The next permutation statistic we shall study is the so-called joint statistic
+$\left(  \operatorname*{des},\operatorname*{maj}\right)  $. This statistic is
+defined as the permutation statistic that sends each permutation $\pi$ to the
+ordered pair $\left(  \operatorname*{des}\pi,\operatorname*{maj}\pi\right)  $.
+(Calling it $\left(  \operatorname*{des},\operatorname*{maj}\right)  $ is thus
+a slight abuse of notation.) It was proven in \cite[Theorem 4.5 \textbf{(a)}%
+]{part1} that this statistic $\left(  \operatorname*{des},\operatorname*{maj}%
+\right)  $ is shuffle-compatible. Furthermore, $\left(  \operatorname*{des}%
+,\operatorname*{maj}\right)  $ is clearly a descent statistic. Hence,
+Proposition \ref{prop.K.ideal} (applied to $\operatorname*{st}=\left(
+\operatorname*{des},\operatorname*{maj}\right)  $) shows that $\mathcal{K}%
+_{\left(  \operatorname*{des},\operatorname*{maj}\right)  }$ is an ideal of
+$\operatorname*{QSym}$. We now claim the following:
+
+\begin{proposition}
+\label{prop.(des,maj).dend}The ideal $\mathcal{K}_{\left(  \operatorname*{des}%
+,\operatorname*{maj}\right)  }$ of $\operatorname*{QSym}$ is a $\tvi$-ideal, a
+$\bel$-ideal, a $\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.
+$-ideal of $\operatorname*{QSym}$.
+\end{proposition}
+
+\begin{corollary}
+\label{cor.dendri.(des,maj)}The descent statistic $\left(  \operatorname*{des}%
+,\operatorname*{maj}\right)  $ is left-shuffle-compatible and right-shuffle-compatible.
+\end{corollary}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.(des,maj).dend}.]Analogous to the above second
+proof of Theorem \ref{thm.Epk.dend}, but using Lemma \ref{lem.des.AB} together
+with Lemma \ref{lem.maj.AB} instead of Lemma \ref{lem.Epk.AB}.
+\end{proof}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.dendri.(des,maj)}.]Corollary
+\ref{cor.dendri.(des,maj)} can be derived from Proposition
+\ref{prop.(des,maj).dend} in the same way as Corollary \ref{cor.dendri.Epk}
+was derived from Theorem \ref{thm.Epk.dend}.
 \end{proof}
 
 \subsubsection{The left peak set $\operatorname*{Lpk}$}

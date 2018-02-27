@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, February 27, 2018 14:38:54}
+%TCIDATA{LastRevised=Tuesday, February 27, 2018 14:49:08}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1524,14 +1524,14 @@ n\right]  $, then we define a power series $K_{n,\Lambda}^{\mathcal{Z}}%
 K_{n,\Lambda}^{\mathcal{Z}}=\sum_{\substack{g:\left[  n\right]  \rightarrow
 \mathcal{N}\text{ is}\\\text{weakly increasing;}\\\Lambda\subseteq
 \operatorname*{FE}\left(  g\right)  }}2^{\left\vert g\left(  \left[  n\right]
-\right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}%
-_{g}.\label{eq.def.KnL.1}%
+\right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}.
+\label{eq.def.KnL.1}%
 \end{equation}
 Thus, if $\Lambda=\operatorname*{Epk}\pi$ for some $n$-permutation $\pi$, then
 Proposition \ref{prop.Epk-formula2} shows that%
 \begin{equation}
-\Gamma_{\mathcal{Z}}\left(  \pi\right)  =K_{n,\Lambda}^{\mathcal{Z}%
-}.\label{eq.def.KnL.2}%
+\Gamma_{\mathcal{Z}}\left(  \pi\right)  =K_{n,\Lambda}^{\mathcal{Z}}.
+\label{eq.def.KnL.2}%
 \end{equation}
 
 \end{definition}
@@ -1550,7 +1550,7 @@ K_{n+m,\operatorname*{Epk}\tau}^{\mathcal{Z}}.
 \end{corollary}
 
 \begin{proof}
-[Proof of Corollary \ref{cor.KnEpk-prodrule}.] From (\ref{eq.def.KnL.2}), we
+[Proof of Corollary \ref{cor.KnEpk-prodrule}.]From (\ref{eq.def.KnL.2}), we
 obtain $\Gamma_{\mathcal{Z}}\left(  \pi\right)  =K_{n,\Lambda}^{\mathcal{Z}}$.
 Similarly, $\Gamma_{\mathcal{Z}}\left(  \sigma\right)
 =K_{m,\operatorname*{Epk}\sigma}^{\mathcal{Z}}$. Multiplying these two
@@ -1559,13 +1559,13 @@ equalities, we obtain $\Gamma_{\mathcal{Z}}\left(  \pi\right)  \cdot
 }^{\mathcal{Z}}\cdot K_{m,\operatorname*{Epk}\sigma}^{\mathcal{Z}}$. Hence,%
 \begin{align*}
 K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}\cdot K_{m,\operatorname*{Epk}%
-\sigma}^{\mathcal{Z}}  & =\Gamma_{\mathcal{Z}}\left(  \pi\right)  \cdot
+\sigma}^{\mathcal{Z}}  &  =\Gamma_{\mathcal{Z}}\left(  \pi\right)  \cdot
 \Gamma_{\mathcal{Z}}\left(  \sigma\right)  =\sum_{\tau\in S\left(  \pi
 ,\sigma\right)  }\underbrace{\Gamma_{\mathcal{Z}}\left(  \tau\right)
 }_{\substack{=K_{n+m,\operatorname*{Epk}\tau}^{\mathcal{Z}}\\\text{(by
 (\ref{eq.def.KnL.2}))}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary
-\ref{cor.prod2}}\right)  \\
-& =\sum_{\tau\in S\left(  \pi,\sigma\right)  }K_{n+m,\operatorname*{Epk}\tau
+\ref{cor.prod2}}\right) \\
+&  =\sum_{\tau\in S\left(  \pi,\sigma\right)  }K_{n+m,\operatorname*{Epk}\tau
 }^{\mathcal{Z}}.
 \end{align*}
 This proves Corollary \ref{cor.KnEpk-prodrule}.
@@ -2005,6 +2005,11 @@ is a $\mathbb{Q}$-algebra isomorphism from $\mathcal{A}_{\operatorname*{Epk}}$
 to $\Pi_{\mathcal{Z}}$.
 \end{theorem}
 
+We shall first give a proof of Theorem \ref{thm.Epk.sh-co} using
+quasisymmetric functions, and then give an independent proof of Theorem
+\ref{thm.Epk.sh-co} \textbf{(a)} that proceeds as elementary as possible (but
+is really just the first proof, with most of the algebra stripped away).
+
 \begin{proof}
 [Proof of Theorem \ref{thm.Epk.sh-co}.]For each positive integer $n$ and each
 $n$-permutation $\pi$, we have%
@@ -2105,7 +2110,112 @@ map%
 K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}%
 \]
 is a $\mathbb{Q}$-algebra isomorphism from $\mathcal{A}_{\operatorname*{Epk}}$
-to $\Pi_{\mathcal{Z}}$. Hence, Theorem \ref{thm.Epk.sh-co} is proven.
+to $\Pi_{\mathcal{Z}}$. Hence, Theorem \ref{thm.Epk.sh-co} \textbf{(b)} is proven.
+\end{proof}
+
+
+
+\begin{proof}
+[Alternative proof of Theorem \ref{thm.Epk.sh-co} \textbf{(a)}.] We must prove
+that $\operatorname*{Epk}$ is shuffle-compatible. In other words, we must
+prove that for any two disjoint permutations $\pi$ and $\sigma$, the multiset
+$\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  $ depends only on $\operatorname*{Epk}\left(
+\pi\right)  $, $\operatorname*{Epk}\left(  \sigma\right)  $, $\left\vert
+\pi\right\vert $ and $\left\vert \sigma\right\vert $. In other words, we must
+prove that if $\pi$ and $\sigma$ are two disjoint permutations, and if
+$\pi^{\prime}$ and $\sigma^{\prime}$ are two disjoint permutations satisfying
+$\operatorname*{Epk}\left(  \pi\right)  =\operatorname*{Epk}\left(
+\pi^{\prime}\right)  $, $\operatorname*{Epk}\left(  \sigma\right)
+=\operatorname*{Epk}\left(  \sigma^{\prime}\right)  $, $\left\vert
+\pi\right\vert =\left\vert \pi^{\prime}\right\vert $ and $\left\vert
+\sigma\right\vert =\left\vert \sigma^{\prime}\right\vert $, then the multiset
+$\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  $ equals the multiset $\left\{
+\operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi^{\prime
+},\sigma^{\prime}\right)  \right\}  $.
+
+So let $\pi$ and $\sigma$ be two disjoint permutations, and let $\pi^{\prime}$
+and $\sigma^{\prime}$ be two disjoint permutations satisfying
+$\operatorname*{Epk}\left(  \pi\right)  =\operatorname*{Epk}\left(
+\pi^{\prime}\right)  $, $\operatorname*{Epk}\left(  \sigma\right)
+=\operatorname*{Epk}\left(  \sigma^{\prime}\right)  $, $\left\vert
+\pi\right\vert =\left\vert \pi^{\prime}\right\vert $ and $\left\vert
+\sigma\right\vert =\left\vert \sigma^{\prime}\right\vert $.
+
+Define $n\in\mathbb{N}$ by $n=\left\vert \pi\right\vert =\left\vert
+\pi^{\prime}\right\vert $ (this is well-defined, since $\left\vert
+\pi\right\vert =\left\vert \pi^{\prime}\right\vert $). Likewise, define
+$m\in\mathbb{N}$ by $m=\left\vert \sigma\right\vert =\left\vert \sigma
+^{\prime}\right\vert $. Thus, $\pi$ is an $n$-permutation, while $\sigma$ is
+an $m$-permutation. Hence, Corollary \ref{cor.KnEpk-prodrule} yields
+\begin{align*}
+& K_{n,\operatorname*{Epk}\left(  \pi\right)  }^{\mathcal{Z}}\cdot
+K_{m,\operatorname*{Epk}\left(  \sigma\right)  }^{\mathcal{Z}}\\
+& =\sum_{\tau\in S\left(  \pi,\sigma\right)  }K_{n+m,\operatorname*{Epk}\tau
+}^{\mathcal{Z}}=\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
+lacunar}\\\text{and nonempty}}}\underbrace{\sum_{\substack{\tau\in S\left(
+\pi,\sigma\right)  ;\\\operatorname*{Epk}\tau=\Lambda}}K_{n+m,\Lambda
+}^{\mathcal{Z}}}_{=\left\vert \left\{  \tau\in S\left(  \pi,\sigma\right)
+\ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert K_{n+m,\Lambda
+}^{\mathcal{Z}}}\\
+& \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{because if }\tau\in S\left(  \pi,\sigma\right)  \text{, then
+}\operatorname*{Epk}\tau\text{ is a}\\
+\text{lacunar and nonempty subset of }\left[  n+m\right]  \\
+\text{(by Proposition \ref{prop.when-Epk}, applied to }n+m\text{ instead of
+}n\text{)}%
+\end{array}
+\right)  \\
+& =\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
+lacunar}\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(  \pi
+,\sigma\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert
+K_{n+m,\Lambda}^{\mathcal{Z}}.
+\end{align*}
+Similarly,%
+\[
+K_{n,\operatorname*{Epk}\left(  \pi^{\prime}\right)  }^{\mathcal{Z}}\cdot
+K_{m,\operatorname*{Epk}\left(  \sigma^{\prime}\right)  }^{\mathcal{Z}}%
+=\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is lacunar}%
+\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(  \pi^{\prime
+},\sigma^{\prime}\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}
+\right\vert K_{n+m,\Lambda}^{\mathcal{Z}}.
+\]
+The left-hand sides of these two equalities are identical (since
+$\operatorname*{Epk}\left(  \pi\right)  =\operatorname*{Epk}\left(
+\pi^{\prime}\right)  $ and $\operatorname*{Epk}\left(  \sigma\right)
+=\operatorname*{Epk}\left(  \sigma^{\prime}\right)  $). Thus, their right-hand
+sides must also be identical. In other words, we have%
+\begin{align*}
+& \sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is lacunar}%
+\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(  \pi,\sigma\right)
+\ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert K_{n+m,\Lambda
+}^{\mathcal{Z}}\\
+& =\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
+lacunar}\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(
+\pi^{\prime},\sigma^{\prime}\right)  \ \mid\ \operatorname*{Epk}\tau
+=\Lambda\right\}  \right\vert K_{n+m,\Lambda}^{\mathcal{Z}}.
+\end{align*}
+Since the family $\left(  K_{n+m,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda
+\subseteq\left[  n+m\right]  \text{ is lacunar and nonempty}}$ is $\mathbb{Q}%
+$-linearly independent (by Proposition \ref{prop.KnL.lindep}), this shows that%
+\[
+\left\vert \left\{  \tau\in S\left(  \pi,\sigma\right)  \ \mid
+\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert =\left\vert \left\{
+\tau\in S\left(  \pi^{\prime},\sigma^{\prime}\right)  \ \mid
+\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert
+\]
+for each lacunar nonempty subset $\Lambda$ of $\left[  n+m\right]  $. In other
+words, the multiset $\left\{  \operatorname*{Epk}\left(  \tau\right)
+\ \mid\ \tau\in S\left(  \pi,\sigma\right)  \right\}  $ equals the multiset
+$\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  $ (because both of these
+multisets consist of lacunar nonempty subsets $\Lambda$ of $\left[
+n+m\right]  $, and the previous sentence shows that these subsets appear with
+equal multiplicities in them). This completes our proof of Theorem
+\ref{thm.Epk.sh-co} \textbf{(a)}.
 \end{proof}
 
 The permutation statistic $\left(  \operatorname*{Lpk},\operatorname*{val}%

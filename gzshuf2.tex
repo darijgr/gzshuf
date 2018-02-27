@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, February 27, 2018 14:34:13}
+%TCIDATA{LastRevised=Tuesday, February 27, 2018 14:38:54}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1524,17 +1524,52 @@ n\right]  $, then we define a power series $K_{n,\Lambda}^{\mathcal{Z}}%
 K_{n,\Lambda}^{\mathcal{Z}}=\sum_{\substack{g:\left[  n\right]  \rightarrow
 \mathcal{N}\text{ is}\\\text{weakly increasing;}\\\Lambda\subseteq
 \operatorname*{FE}\left(  g\right)  }}2^{\left\vert g\left(  \left[  n\right]
-\right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}.
-\label{eq.def.KnL.1}%
+\right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}%
+_{g}.\label{eq.def.KnL.1}%
 \end{equation}
 Thus, if $\Lambda=\operatorname*{Epk}\pi$ for some $n$-permutation $\pi$, then
 Proposition \ref{prop.Epk-formula2} shows that%
 \begin{equation}
-\Gamma_{\mathcal{Z}}\left(  \pi\right)  =K_{n,\Lambda}^{\mathcal{Z}}.
-\label{eq.def.KnL.2}%
+\Gamma_{\mathcal{Z}}\left(  \pi\right)  =K_{n,\Lambda}^{\mathcal{Z}%
+}.\label{eq.def.KnL.2}%
 \end{equation}
 
 \end{definition}
+
+Corollary \ref{cor.prod2} now leads directly to the following multiplication rule:
+
+\begin{corollary}
+\label{cor.KnEpk-prodrule}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $\pi$
+be an $n$-permutation. Let $\sigma$ be an $m$-permutation. Then,%
+\[
+K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}\cdot K_{m,\operatorname*{Epk}%
+\sigma}^{\mathcal{Z}}=\sum_{\tau\in S\left(  \pi,\sigma\right)  }%
+K_{n+m,\operatorname*{Epk}\tau}^{\mathcal{Z}}.
+\]
+
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.KnEpk-prodrule}.] From (\ref{eq.def.KnL.2}), we
+obtain $\Gamma_{\mathcal{Z}}\left(  \pi\right)  =K_{n,\Lambda}^{\mathcal{Z}}$.
+Similarly, $\Gamma_{\mathcal{Z}}\left(  \sigma\right)
+=K_{m,\operatorname*{Epk}\sigma}^{\mathcal{Z}}$. Multiplying these two
+equalities, we obtain $\Gamma_{\mathcal{Z}}\left(  \pi\right)  \cdot
+\Gamma_{\mathcal{Z}}\left(  \sigma\right)  =K_{n,\operatorname*{Epk}\pi
+}^{\mathcal{Z}}\cdot K_{m,\operatorname*{Epk}\sigma}^{\mathcal{Z}}$. Hence,%
+\begin{align*}
+K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}\cdot K_{m,\operatorname*{Epk}%
+\sigma}^{\mathcal{Z}}  & =\Gamma_{\mathcal{Z}}\left(  \pi\right)  \cdot
+\Gamma_{\mathcal{Z}}\left(  \sigma\right)  =\sum_{\tau\in S\left(  \pi
+,\sigma\right)  }\underbrace{\Gamma_{\mathcal{Z}}\left(  \tau\right)
+}_{\substack{=K_{n+m,\operatorname*{Epk}\tau}^{\mathcal{Z}}\\\text{(by
+(\ref{eq.def.KnL.2}))}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary
+\ref{cor.prod2}}\right)  \\
+& =\sum_{\tau\in S\left(  \pi,\sigma\right)  }K_{n+m,\operatorname*{Epk}\tau
+}^{\mathcal{Z}}.
+\end{align*}
+This proves Corollary \ref{cor.KnEpk-prodrule}.
+\end{proof}
 
 \begin{definition}
 A set $S$ of integers is said to be \textit{lacunar} if each $s\in S$
@@ -2015,18 +2050,10 @@ _{\substack{=K_{n,\operatorname*{Epk}J}^{\mathcal{Z}}=K_{n,\operatorname*{Epk}%
 }_{\substack{=K_{m,\operatorname*{Epk}K}^{\mathcal{Z}}%
 =K_{m,\operatorname*{Epk}\sigma}^{\mathcal{Z}}\\\text{(since }%
 \operatorname*{Epk}K=\operatorname*{Epk}\sigma\text{)}}}\\
-&  =\underbrace{K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}}_{\substack{=\Gamma
-_{\mathcal{Z}}\left(  \pi\right)  \\\text{(by (\ref{eq.def.KnL.2}))}}%
-}\cdot\underbrace{K_{m,\operatorname*{Epk}\sigma}^{\mathcal{Z}}}%
-_{\substack{=\Gamma_{\mathcal{Z}}\left(  \sigma\right)  \\\text{(by
-(\ref{eq.def.KnL.2}))}}}=\Gamma_{\mathcal{Z}}\left(  \pi\right)  \cdot
-\Gamma_{\mathcal{Z}}\left(  \sigma\right)  =\sum_{\tau\in S\left(  \pi
-,\sigma\right)  }\underbrace{\Gamma_{\mathcal{Z}}\left(  \tau\right)
-}_{\substack{=K_{n+m,\operatorname*{Epk}\tau}^{\mathcal{Z}}\\\text{(by
-(\ref{eq.def.KnL.2}))}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary
-\ref{cor.prod2}}\right) \\
-&  =\sum_{\tau\in S\left(  \pi,\sigma\right)  }K_{n+m,\operatorname*{Epk}\tau
-}^{\mathcal{Z}}.
+&  =K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}\cdot K_{m,\operatorname*{Epk}%
+\sigma}^{\mathcal{Z}}=\sum_{\tau\in S\left(  \pi,\sigma\right)  }%
+K_{n+m,\operatorname*{Epk}\tau}^{\mathcal{Z}}\ \ \ \ \ \ \ \ \ \ \left(
+\text{by Corollary \ref{cor.KnEpk-prodrule}}\right)  .
 \end{align*}
 Comparing this with%
 \begin{align*}

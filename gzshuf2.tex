@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, February 27, 2018 14:49:08}
+%TCIDATA{LastRevised=Tuesday, February 27, 2018 17:06:16}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -582,6 +582,18 @@ $\operatorname*{Comp}\pi=I$. This could clash with the old meaning of
 $\operatorname*{Des}I$ introduced in Definition \ref{def.comps-to-sets}.
 Fortunately, these two meanings of $\operatorname*{Des}I$ are exactly the
 same, so there is no conflict of notation.
+
+However, Definition \ref{def.des-stat.stI} causes an ambiguity for expressions
+like \textquotedblleft$\operatorname*{Des}\left(  i_{1},i_{2},\ldots
+,i_{n}\right)  $\textquotedblright: Here, the \textquotedblleft$\left(
+i_{1},i_{2},\ldots,i_{n}\right)  $\textquotedblright\ might be understood
+either as a permutation, or as a composition, and the resulting descent sets
+$\operatorname*{Des}\left(  i_{1},i_{2},\ldots,i_{n}\right)  $ are not the
+same. A similar ambiguity occurs for any descent statistic $\operatorname*{st}%
+$ instead of $\operatorname*{Des}$. We hope that this ambiguity will not arise
+in this paper due to our explicit typecasting of permutations and
+compositions; but the reader should be warned that it can arise if one takes
+the notation too literally.
 
 \begin{definition}
 \label{def.des-stat.eq-comp}Let $\operatorname*{st}$ be a descent statistic.
@@ -2113,10 +2125,8 @@ is a $\mathbb{Q}$-algebra isomorphism from $\mathcal{A}_{\operatorname*{Epk}}$
 to $\Pi_{\mathcal{Z}}$. Hence, Theorem \ref{thm.Epk.sh-co} \textbf{(b)} is proven.
 \end{proof}
 
-
-
 \begin{proof}
-[Alternative proof of Theorem \ref{thm.Epk.sh-co} \textbf{(a)}.] We must prove
+[Alternative proof of Theorem \ref{thm.Epk.sh-co} \textbf{(a)}.]We must prove
 that $\operatorname*{Epk}$ is shuffle-compatible. In other words, we must
 prove that for any two disjoint permutations $\pi$ and $\sigma$, the multiset
 $\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(
@@ -2150,26 +2160,26 @@ $m\in\mathbb{N}$ by $m=\left\vert \sigma\right\vert =\left\vert \sigma
 ^{\prime}\right\vert $. Thus, $\pi$ is an $n$-permutation, while $\sigma$ is
 an $m$-permutation. Hence, Corollary \ref{cor.KnEpk-prodrule} yields
 \begin{align*}
-& K_{n,\operatorname*{Epk}\left(  \pi\right)  }^{\mathcal{Z}}\cdot
+&  K_{n,\operatorname*{Epk}\left(  \pi\right)  }^{\mathcal{Z}}\cdot
 K_{m,\operatorname*{Epk}\left(  \sigma\right)  }^{\mathcal{Z}}\\
-& =\sum_{\tau\in S\left(  \pi,\sigma\right)  }K_{n+m,\operatorname*{Epk}\tau
+&  =\sum_{\tau\in S\left(  \pi,\sigma\right)  }K_{n+m,\operatorname*{Epk}\tau
 }^{\mathcal{Z}}=\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
 lacunar}\\\text{and nonempty}}}\underbrace{\sum_{\substack{\tau\in S\left(
 \pi,\sigma\right)  ;\\\operatorname*{Epk}\tau=\Lambda}}K_{n+m,\Lambda
 }^{\mathcal{Z}}}_{=\left\vert \left\{  \tau\in S\left(  \pi,\sigma\right)
 \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert K_{n+m,\Lambda
 }^{\mathcal{Z}}}\\
-& \ \ \ \ \ \ \ \ \ \ \left(
+&  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{because if }\tau\in S\left(  \pi,\sigma\right)  \text{, then
 }\operatorname*{Epk}\tau\text{ is a}\\
-\text{lacunar and nonempty subset of }\left[  n+m\right]  \\
+\text{lacunar and nonempty subset of }\left[  n+m\right] \\
 \text{(by Proposition \ref{prop.when-Epk}, applied to }n+m\text{ instead of
 }n\text{)}%
 \end{array}
-\right)  \\
-& =\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
+\right) \\
+&  =\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
 lacunar}\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(  \pi
 ,\sigma\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert
 K_{n+m,\Lambda}^{\mathcal{Z}}.
@@ -2189,11 +2199,11 @@ $\operatorname*{Epk}\left(  \pi\right)  =\operatorname*{Epk}\left(
 =\operatorname*{Epk}\left(  \sigma^{\prime}\right)  $). Thus, their right-hand
 sides must also be identical. In other words, we have%
 \begin{align*}
-& \sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is lacunar}%
-\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(  \pi,\sigma\right)
-\ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert K_{n+m,\Lambda
-}^{\mathcal{Z}}\\
-& =\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
+&  \sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
+lacunar}\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(  \pi
+,\sigma\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert
+K_{n+m,\Lambda}^{\mathcal{Z}}\\
+&  =\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
 lacunar}\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(
 \pi^{\prime},\sigma^{\prime}\right)  \ \mid\ \operatorname*{Epk}\tau
 =\Lambda\right\}  \right\vert K_{n+m,\Lambda}^{\mathcal{Z}}.

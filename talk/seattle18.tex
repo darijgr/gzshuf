@@ -466,7 +466,8 @@ Example: $\tup{3, 1, 7}$ is a $3$-permutation, but
       $m = \abs{\pi}$ and $n = \abs{\sigma}$.
       An $\tup{m+n}$-permutation $\tau$ is called a \defn{shuffle} of
       $\pi$ and $\sigma$ if both $\pi$ and $\sigma$ appear as
-      subsequences of $\tau$.
+      subsequences of $\tau$. \\
+      (And thus, no other letters can appear in $\tau$.)
 
 \item We let $S \tup{\pi, \sigma}$ be the set of all shuffles
       of $\pi$ and $\sigma$.
@@ -878,7 +879,7 @@ This is a homogeneous power series of degree \defn{$\abs{\alpha}$} (the \defn{si
 \end{itemize}
 %Note: $m_{\left(2,1\right)} = M_{\left(2,1\right)} + M_{\left(1,2\right)}$.
 }
-\only<2-3>{
+\only<2>{
 \item The family $\left(M_\alpha\right)_{\alpha \text{ is a composition}}$ is a basis of the $\QQ$-vector space $\QSym$, called the \defn{monomial basis} (or $M$-basis).
 }
 
@@ -1731,7 +1732,8 @@ K_{n,\Lambda}^{\mathcal{Z}}=\sum_{\substack{g:\left[  n\right]  \rightarrow
 x_{g\tup{1}} x_{g\tup{2}} \cdots x_{g\tup{n}} .
 \]
 
-\item \textbf{Proposition.}
+\item \textbf{Proposition.} Let $n \in \NN$. Let $\pi$ be an $n$-permutation.
+Then,
 \[
 \Gamma_{\mathcal{Z}}\left(  \pi\right)  =K_{n,\Epk \pi}^{\mathcal{Z}}.
 \]
@@ -2051,7 +2053,7 @@ $\left(x_2^2 x_4\right) \left.\prec\right. \left(x_2^2 x_5\right) = 0$.
 }
 \only<3>{
 \item We define a binary operation $\left.  \succeq\right.$ on the
-$\QQ$-module $\Powser$ as follows:
+$\QQ$-vector space $\Powser$ as follows:
 
 \begin{itemize}
 \item On monomials, it should be given by
@@ -2523,7 +2525,7 @@ $\bel$, $\tvi$, $\prec$ and $\succeq$ satisfy?
 
 
 \begin{frame}
-\fti{How to check left-/right-shuffle-compatible}
+\fti{How to check left-/right-shuffle-compatibility}
 
 \begin{itemize}
 
@@ -2557,9 +2559,10 @@ following property: If $J$ and $K$ are two $\operatorname*{st}$-equivalent
 nonempty compositions, and if $G$ is any nonempty composition, then $G\odot J$
 and $G\odot K$ are $\operatorname*{st}$-equivalent.
 }
-\only<4>{ \\
-$\st\tup{A \odot B}$ (for nonempty compositions $A$ and $B$)
-is uniquely determined by $\abs{A}$, $\abs{B}$, $\st A$ and $\st B$.
+\only<4>{for each fixed nonempty composition $A$,
+the value
+$\st\tup{A \odot B}$ (for a nonempty composition $B$)
+is uniquely determined by $\abs{B}$ and $\st B$.
 }
       \item $\calK_{\st}$ is a left $\tvi$-ideal
 of $\operatorname*{QSym}$ if and only if
@@ -2569,9 +2572,10 @@ following property: If $J$ and $K$ are two $\operatorname*{st}$-equivalent
 nonempty compositions, and if $G$ is any nonempty composition, then $\left[
 G,J\right]  $ and $\left[  G,K\right]  $ are $\operatorname*{st}$-equivalent.
 }
-\only<4>{ \\
-$\st\tup{\ive{A, B}}$ (for nonempty compositions $A$ and $B$)
-is uniquely determined by $\abs{A}$, $\abs{B}$, $\st A$ and $\st B$.
+\only<4>{for each fixed nonempty composition $A$,
+the value
+$\st\tup{\ive{A, B}}$ (for a nonempty composition $B$)
+is uniquely determined by $\abs{B}$ and $\st B$.
 }
       \end{itemize}
 
@@ -2589,7 +2593,7 @@ is uniquely determined by $\abs{A}$, $\abs{B}$, $\st A$ and $\st B$.
 \item Thus, proving that $\Epk$ is left- and right-shuffle-compatible
       requires showing that $\Epk\tup{A \odot B}$ and $\Epk\tup{\ive{A, B}}$
       (for nonempty compositions $A$ and $B$) are uniquely determined
-      by $\abs{A}$, $\abs{B}$, $\Epk A$ and $\Epk B$.
+      by $\abs{B}$ and $\Epk B$ when $A$ is fixed.
 
 \pause
 

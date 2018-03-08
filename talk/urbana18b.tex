@@ -215,6 +215,7 @@
 Reference:
 \begin{itemize}
 \item \href{https://arxiv.org/abs/1706.00750}{\red Ira M. Gessel, Yan Zhuang, \textit{Shuffle-compatible permutation statistics}, arXiv:1706.00750}.
+\item See also the {\red \href{http://www.cip.ifi.lmu.de/~grinberg/algebra/urbana18a.pdf}{previous talk}} for a combinatorial introduction.
 \end{itemize}
 \end{frame}
 
@@ -2383,7 +2384,24 @@ $\Delta\left(  b\right)  $.
 }
 \only<2->{.}
 
-\pause
+\only<2>{
+Restatement without using Hopf algebras:
+\[
+\sum_{p=0}^k
+\tup{-1}^p
+\tup{ M'_{\alpha_p, \alpha_{p-1}, \ldots, \alpha_1} \bel a }
+M_{\alpha_{p+1}, \alpha_{p+2}, \ldots, \alpha_k}
+= a \left. \prec \right. M_\alpha
+\]
+for any composition $\alpha = \tup{\alpha_1, \alpha_2, \ldots, \alpha_k}$
+and any $a \in \Powser$, where
+\[
+M'_{\alpha_p, \alpha_{p-1}, \ldots, \alpha_1}
+= \sum_{i_1 \leq i_2 \leq \cdots \leq i_p} x_{i_1}^{\alpha_1} x_{i_2}^{\alpha_2} \cdots x_{i_p}^{\alpha_p} .
+\]
+}
+
+\pause \pause
 
 \item This proposition was important in my study of ``dual
       immaculate creation operators''; it is equally helpful

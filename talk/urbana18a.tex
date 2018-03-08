@@ -1,0 +1,1018 @@
+\documentclass{beamer}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{graphicx}
+%\usepackage{tikz}
+%\usetikzlibrary{matrix,arrows,backgrounds,shapes.misc,shapes.geometric,fit}
+\usepackage{etex}
+\usepackage{amsthm}
+\usepackage{color}
+\usepackage{wasysym}
+\usepackage{allrunes}
+\usepackage[all]{xy}
+\usepackage{textpos}
+\usepackage{ytableau}
+\usepackage{stmaryrd}
+%\usetikzlibrary{calc,through,backgrounds}
+%\CompileMatrices
+
+\definecolor{grau}{rgb}{.5 , .5 , .5}
+\definecolor{dunkelgrau}{rgb}{.35 , .35 , .35}
+\definecolor{schwarz}{rgb}{0 , 0 , 0}
+\definecolor{violet}{RGB}{143,0,255}
+\definecolor{forestgreen}{RGB}{34, 100, 34}
+
+\newcommand{\red}{\color{red}}
+\newcommand{\grey}{\color{grau}}
+\newcommand{\green}{\color{forestgreen}}
+\newcommand{\violet}{\color{violet}}
+\newcommand{\blue}{\color{blue}}
+
+\newcommand{\bIf}{\textbf{If} }
+\newcommand{\bif}{\textbf{if} }
+\newcommand{\bthen}{\textbf{then} }
+
+\newcommand{\EE}{{\mathbf{E}}}
+\newcommand{\ZZ}{{\mathbb Z}}
+\newcommand{\NN}{{\mathbb N}}
+\newcommand{\QQ}{{\mathbb Q}}
+\newcommand{\kk}{{\mathbf k}}
+\newcommand{\OO}{\operatorname {O}}
+\newcommand{\Nm}{\operatorname {N}}
+\newcommand{\Par}{\operatorname{Par}}
+\newcommand{\Comp}{\operatorname{Comp}}
+\newcommand{\Stab}{\operatorname {Stab}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\ev}{\operatorname{ev}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Lpk}{\operatorname{Lpk}}
+\newcommand{\lpk}{\operatorname{lpk}}
+\newcommand{\Rpk}{\operatorname{Rpk}}
+\newcommand{\rpk}{\operatorname{rpk}}
+\newcommand{\Pk}{\operatorname{Pk}}
+\newcommand{\Epk}{\operatorname{Epk}}
+\newcommand{\epk}{\operatorname{epk}}
+\newcommand{\Des}{\operatorname{Des}}
+\newcommand{\des}{\operatorname{des}}
+\newcommand{\inv}{\operatorname{inv}}
+\newcommand{\maj}{\operatorname{maj}}
+\newcommand{\Val}{\operatorname{Val}}
+\newcommand{\pk}{\operatorname{pk}}
+\newcommand{\st}{\operatorname{st}}
+\newcommand{\QSym}{\operatorname{QSym}}
+\newcommand{\NSym}{\operatorname{NSym}}
+\newcommand{\Mat}{\operatorname{M}}
+\newcommand{\PS}{\operatorname{PS}}
+\newcommand{\bk}{\mathbf{k}}
+\newcommand{\Nplus}{\mathbb{N}_{+}}
+\newcommand\arxiv[1]{\href{http://www.arxiv.org/abs/#1}{\texttt{arXiv:#1}}}
+\newcommand{\Orb}{{\mathcal O}}
+\newcommand{\GL}{\operatorname {GL}}
+\newcommand{\SL}{\operatorname {SL}}
+\newcommand{\Or}{\operatorname {O}}
+\newcommand{\im}{\operatorname {Im}}
+\newcommand{\Iso}{\operatorname {Iso}}
+\newcommand{\Adm}{\operatorname{Adm}}
+\newcommand{\Supp}{\operatorname{Supp}}
+\newcommand{\Powser}{\QQ\left[\left[x_1,x_2,x_3,\ldots\right]\right]}
+\newcommand{\rad}{\operatorname {rad}}
+\newcommand{\zero}{\mathbf{0}}
+\newcommand{\xx}{\mathbf{x}}
+\newcommand{\ord}{\operatorname*{ord}}
+\newcommand{\bbK}{{\mathbb{K}}}
+\newcommand{\whP}{{\widehat{P}}}
+%\newcommand{\Trop}{\operatorname*{Trop}}
+%\newcommand{\TropZ}{{\operatorname*{Trop}\mathbb{Z}}}
+\newcommand{\rato}{\dashrightarrow}
+\newcommand{\lcm}{\operatorname*{lcm}}
+\newcommand{\tlab}{\operatorname*{tlab}}
+\newcommand{\tvi}{\left. \textarm{\tvimadur} \right.}
+\newcommand{\bel}{\left. \textarm{\belgthor} \right.}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calZ}{\mathcal{Z}}
+
+\newcommand{\fti}[1]{\frametitle{\ \ \ \ \ #1}}
+\newenvironment{iframe}[1][]{\begin{frame} \fti{[#1]} \begin{itemize}}{\end{frame}\end{itemize}}
+
+\newcommand{\are}{\ar@{-}}
+\newcommand{\arinj}{\ar@{_{(}->}}
+\newcommand{\arsurj}{\ar@{->>}}
+
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+% $\set{...}$ yields $\left\{ ... \right\}$.
+\newcommand{\abs}[1]{\left| #1 \right|}
+% $\abs{...}$ yields $\left| ... \right|$.
+\newcommand{\tup}[1]{\left( #1 \right)}
+% $\tup{...}$ yields $\left( ... \right)$.
+\newcommand{\ive}[1]{\left[ #1 \right]}
+% $\ive{...}$ yields $\left[ ... \right]$.
+\newcommand{\verts}[1]{\operatorname{V}\left( #1 \right)}
+% $\verts{...}$ yields $\operatorname{V}\left( ... \right)$.
+\newcommand{\edges}[1]{\operatorname{E}\left( #1 \right)}
+% $\edges{...}$ yields $\operatorname{E}\left( ... \right)$.
+\newcommand{\arcs}[1]{\operatorname{A}\left( #1 \right)}
+% $\arcs{...}$ yields $\operatorname{A}\left( ... \right)$.
+\newcommand{\underbrack}[2]{\underbrace{#1}_{\substack{#2}}}
+% $\underbrack{...1}{...2}$ yields
+% $\underbrace{...1}_{\substack{...2}}$. This is useful for doing
+% local rewriting transformations on mathematical expressions with
+% justifications.
+
+\setbeamertemplate{itemize/enumerate body begin}{\large}
+\setbeamertemplate{itemize/enumerate subbody begin}{\large}
+\setbeamertemplate{itemize/enumerate subsubbody begin}{\large}
+
+\usepackage{url}%this line and the next are related to hyperlinks
+%\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blur]{hyperref}
+
+\usepackage{color}
+
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+\usefonttheme[onlylarge]{structurebold}
+\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{itemize/enumerate body begin}{}
+\setbeamertemplate{itemize/enumerate subbody begin}{\normalsize}
+%\setbeamertemplate{section in head/foot shaded}[default][60]
+%\setbeamertemplate{subsection in head/foot shaded}[default][60]
+\beamersetuncovermixins{\opaqueness<1>{0}}{\opaqueness<2->{15}}
+
+%\usepackage{beamerthemesplit}
+\usepackage{epsfig,amsfonts,bbm,mathrsfs}
+\usepackage{verbatim} 
+
+% Dark red emphasis
+\definecolor{darkred}{rgb}{0.7,0,0} % darkred color
+\newcommand{\defn}[1]{{\color{darkred}\emph{#1}}} % emphasis of a definition
+
+
+
+\newcommand{\STRUT}{\vrule width 0pt depth 8pt height 0pt}
+\newcommand{\ASTRUT}{\vrule width 0pt depth 0pt height 11pt}
+
+
+\theoremstyle{plain}
+\newtheorem{conj}[theorem]{Conjecture}
+
+
+\setbeamertemplate{headline}{}
+%This removes a black stripe from the top of the slides.
+
+
+\author{Darij Grinberg (UMN)
+}
+\title[Shuffle-compatibility of the descent set]{Shuffle-compatibility of the descent set}
+% Pre-talk, expository.
+\date{8 March 2018 \\ University of Illinois at Urbana-Champaign}
+
+\begin{document}
+
+\frame{\titlepage
+\textbf{slides: \red \url{http://www.cip.ifi.lmu.de/~grinberg/algebra/urbana18a.pdf}} \\
+\textbf{paper: \red \url{http://www.cip.ifi.lmu.de/~grinberg/algebra/gzshuf2.pdf}} \\
+\textbf{project: \red \url{https://github.com/darijgr/gzshuf}}
+}
+
+\begin{frame}
+\fti{Introduction}
+
+\begin{itemize}
+
+\item This is an \textbf{expository} talk on a little part of the paper:
+        \begin{itemize}
+        \item \href{https://arxiv.org/abs/1706.00750}{\red Ira M. Gessel, Yan Zhuang, \textit{Shuffle-compatible permutation statistics}, arXiv:1706.00750}.
+        \end{itemize}
+      Nothing here is my invention. \pause
+      For my own work, see the {\red \href{http://www.cip.ifi.lmu.de/~grinberg/algebra/urbana18b.pdf}{next talk}}.
+
+\pause
+
+\item I will sketch the proofs of Theorem 2.8 and of
+      Theorem 6.1 from their paper.
+
+\item Unlike that paper, I will avoid any extraneous notation
+      and theory here.
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\fti{Permutations and descents}
+
+\begin{itemize}
+
+\item Let $\NN = \set{0, 1, 2, \ldots}$.
+
+\item For $n \in \NN$, an \defn{$n$-permutation} means a tuple of $n$
+distinct positive integers. \\
+Example: $\tup{3, 1, 7}$ is a $3$-permutation, but
+         $\tup{2, 1, 2}$ is not.
+      \\
+      (\textbf{Caveat lector:} Not the usual meaning of ``permutation''.) \\
+
+\pause
+
+\item If $\pi$ is an $n$-permutation and $i \in \set{1, 2, \ldots, n}$,
+      then \defn{$\pi_i$} denotes the $i$-th entry of $\pi$.
+
+\pause
+
+\item If $\pi$ is an $n$-permutation, then a \defn{descent} of $\pi$
+      means an $i \in \set{1, 2, \ldots, n-1}$ such that
+      $\pi_i > \pi_{i+1}$.
+
+\item The \defn{descent set $\Des \pi$} of an $n$-permutation $\pi$ is
+      the set of all descents of $\pi$. \\
+      \textbf{Example:} $\Des \tup{3, 1, 5, 2, 4} = \set{1, 3}$.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\fti{Shuffles of permutations}
+
+\begin{itemize}
+
+\item Let $m \in \NN$, and let $\pi$ be an $m$-permutation. \\
+      Let $n \in \NN$, and let $\sigma$ be an $n$-permutation.
+
+\item We say that $\pi$ and $\sigma$ are \defn{disjoint} if they have
+      no letter in common.
+
+\pause
+
+\item Assume that $\pi$ and $\sigma$ are disjoint.
+      An $\tup{m+n}$-permutation $\tau$ is called a \defn{shuffle} of
+      $\pi$ and $\sigma$ if both $\pi$ and $\sigma$ appear as
+      subsequences of $\tau$. \\
+      (And thus, no other letters can appear in $\tau$.)
+
+\item \textbf{Example:}
+      The shuffles of ${\red \tup{4, 1}}$ and ${\blue \tup{2, 5}}$
+      are
+      \begin{align*}
+      &     \tup{ {\red 4}, {\red 1}, {\blue 2}, {\blue 5} } ,
+            \tup{ {\red 4}, {\blue 2}, {\red 1}, {\blue 5} } ,
+            \tup{ {\red 4}, {\blue 2}, {\blue 5}, {\red 1} } , \\
+      &
+            \tup{ {\blue 2}, {\red 4}, {\red 1}, {\blue 5} } ,
+            \tup{ {\blue 2}, {\red 4}, {\blue 5}, {\red 1} } ,
+            \tup{ {\blue 2}, {\blue 5}, {\red 4}, {\red 1} } .
+      \end{align*}
+
+\pause
+
+\item Observe that $\pi$ and $\sigma$ have $\dbinom{m+n}{m}$
+      shuffles, in bijection with $m$-element subsets of
+      $\set{1, 2, \ldots, m+n}$.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\fti{Weak compositions}
+
+\begin{itemize}
+
+\item The set $\NN^k$ of $k$-tuples is an additive monoid. \\
+      (Keep in mind: $0 \in \NN$.)
+
+\item If $\tup{a_1, a_2, \ldots, a_k} \in \NN^k$, then
+      \defn{$\abs{\alpha}$} is defined to be
+      $a_1 + a_2 + \cdots + a_k$.
+
+\pause
+
+\item For any $\tup{a_1, a_2, \ldots, a_k} \in \NN^k$, we
+      define a set
+      \defn{$\PS \tup{a_1, a_2, \ldots, a_k}$} to be
+      \begin{align*}
+      & \set{a_1 + a_2 + \cdots + a_i \ \mid  1 \leq i \leq k-1 } \\
+      & = \set{a_1, a_1 + a_2, \ldots, a_1 + a_2 + \cdots + a_{k-1}} .
+      \end{align*}
+      ($\PS$ stands for ``partial sums''.)
+      \pause \\
+      (\textbf{Note:}
+      $\PS \tup{a_1, a_2, \ldots, a_k}
+      \subseteq \set{0, 1, \ldots, \abs{\alpha}}$.)
+
+\pause
+
+\item Let $n \in \NN$.
+      A \defn{weak composition of $n$} means an
+      $\alpha \in \NN^k$ satisfying $\abs{\alpha} = n$.
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\fti{Shuffle-compatibility of $\Des$: statement}
+
+\begin{itemize}
+
+\item Let $m \in \NN$, and let $\pi$ be an $m$-permutation. \\
+      Let $n \in \NN$, and let $\sigma$ be an $n$-permutation. \\
+      Assume that $\pi$ and $\sigma$ are disjoint.
+
+\pause
+
+\item Let $A$ be a subset of $\ive{m+n-1}$. \\
+      Here, \defn{$\ive{k}$} means $\set{1, 2, \ldots, k}$ for
+      each $k \in \NN$.
+
+\pause
+
+\only<3-4>{
+\item How many shuffles $\tau$ of $\pi$ and $\sigma$ satisfy
+      $\Des \tau \subseteq A$ ?
+
+\pause
+
+\item The following theorem by Gessel and Zhuang gives the
+      answer.
+}
+
+\pause
+
+\item Let $L$ be a weak composition of $m+n$ such that
+      $\PS\tup{L} = A$.
+      %\only<5>{
+      \\ (Such $L$ can easily be constructed.)
+      %}
+      \\ Let $k$ be such that $L \in \NN^k$.
+
+\pause
+
+\item \textbf{Theorem (Gessel \& Zhuang, {\red \arxiv{1706.00750}}, Theorem 2.8).} \\
+      The number of shuffles $\tau$ of $\pi$ and $\sigma$ satisfying
+      $\Des \tau \subseteq A$ \\
+      \textbf{equals} the number of pairs $\tup{J, K} \in \NN^k \times \NN^k$ such that
+      \begin{itemize}
+      \item $J$ is a weak composition of $m$ satisfying $\Des \pi \subseteq \PS \tup{J}$;
+      \item $K$ is a weak composition of $n$ satisfying $\Des \sigma \subseteq \PS \tup{K}$;
+      \item we have $J + K = L$ (in the monoid $\NN^k$).
+      \end{itemize}
+
+\end{itemize}
+
+\vspace{10cm}
+
+\end{frame}
+
+\begin{frame}
+\fti{Shuffle-compatibility of $\Des$: example 1}
+
+\begin{itemize}
+
+\item \textbf{Example:}
+      Let ${\red m = 2}$ and ${\red \pi = \tup{4, 1}}$. \\
+      Let ${\blue n = 2}$ and ${\blue \sigma = \tup{2, 5}}$. \\
+      \only<1-4>{
+      The shuffles $\tau$ of $\pi$ and $\sigma$ are
+      \begin{align*}
+      &     \tup{ {\red 4}, {\red 1}, {\blue 2}, {\blue 5} } ,
+            \tup{ {\red 4}, {\blue 2}, {\red 1}, {\blue 5} } ,
+            \tup{ {\red 4}, {\blue 2}, {\blue 5}, {\red 1} } , \\
+      &
+            \tup{ {\blue 2}, {\red 4}, {\red 1}, {\blue 5} } ,
+            \tup{ {\blue 2}, {\red 4}, {\blue 5}, {\red 1} } ,
+            \tup{ {\blue 2}, {\blue 5}, {\red 4}, {\red 1} } .
+      \end{align*}
+      \pause
+      Their descent sets $\Des \tau$ are
+      \begin{align*}
+      &     \set{1} , \qquad \set{1, 2}, \qquad \set{1, 3}, \\
+      &     \set{2}, \qquad  \set{2, 3}, \qquad \set{3} .
+      \end{align*}
+      \pause
+      Pick $A = \set{3}$.
+      Then, the number of shuffles $\tau$ of $\pi$ and $\sigma$ satisfying
+      $\Des \tau \subseteq A$ is $1$. \\
+      What about the other number?
+      \pause
+      We must pick a weak composition $L$ of $m+n = 4$ such that
+      $\PS\tup{L} = A = \set{3}$.
+      \\
+      We can take $L = \tup{3, 1}$
+      (or $L = \tup{3, 0, 0, \ldots, 0, 1}$ for any number of $0$'s).
+      Let's pick $L = \tup{3, 1}$.
+      }
+      \only<5->{
+      So we have $A = \set{3}$ and $L = \tup{3, 1}$.
+      \\
+      We want to find the number of pairs $\tup{J, K}$ such that
+      \begin{itemize}
+      \item $J$ is a weak composition of $m$ satisfying $\Des \pi \subseteq \PS \tup{J}$;
+      \item $K$ is a weak composition of $n$ satisfying $\Des \sigma \subseteq \PS \tup{K}$;
+      % \item $J$ is a weak composition of $m$ satisfying \only<5>{$\Des \pi \subseteq \PS \tup{J}$} \only<6->{$\set{1} \subseteq \PS \tup{J}$};
+      % \item $K$ is a weak composition of $n$ satisfying \only<5>{$\Des \sigma \subseteq \PS \tup{K}$} \only<6->{$\set{} \subseteq \PS \tup{K}$};
+      \item we have $J + K = L$ (in the monoid $\NN^k$).
+      \end{itemize}
+      \pause
+      Let's solve this:
+      \only<6>{
+        \[
+        \text{%
+        \begin{tabular}
+        [c]{r|ll|l}
+        &  &  & requirements\\\hline
+        $J$ & $?$ & $?$ & $\left\vert J\right\vert =m,\ \operatorname*{PS}%
+        J\supseteq\operatorname*{Des}\pi$\\
+        $+\ K$ & $?$ & $?$ & $\left\vert K\right\vert =n,\ \operatorname*{PS}%
+        K\supseteq\operatorname*{Des}\sigma$\\\hline
+        $=L$ & $3$ & $1$ &
+        \end{tabular}
+        }%
+        \]
+      }
+      \only<7>{
+        \[
+        \text{%
+        \begin{tabular}
+        [c]{r|ll|l}
+        &  &  & requirements\\\hline
+        $J$ & $?$ & $?$ & $\left\vert J\right\vert =2,\ \ \operatorname*{PS}%
+        J\supseteq\set{1}\ \ \ $\\
+        $+\ K$ & $?$ & $?$ & $\left\vert K\right\vert =2,\ \ \operatorname*{PS}%
+        K\supseteq\set{}\ \ \ $\\\hline
+        $=L$ & $3$ & $1$ &
+        \end{tabular}
+        }%
+        \]
+      }
+      \only<8>{
+        \[
+        \text{%
+        \begin{tabular}
+        [c]{r|ll|l}
+        &  &  & requirements\\\hline
+        $J$ & $1$ & $1$ & $\left\vert J\right\vert =2,\ \ \operatorname*{PS}%
+        J\supseteq\set{1}\ \ \ $\\
+        $+\ K$ & $?$ & $?$ & $\left\vert K\right\vert =2,\ \ \operatorname*{PS}%
+        K\supseteq\set{}\ \ \ $\\\hline
+        $=L$ & $3$ & $1$ &
+        \end{tabular}
+        }%
+        \]
+      }
+      \only<9->{
+        \[
+        \text{%
+        \begin{tabular}
+        [c]{r|ll|l}
+        &  &  & requirements\\\hline
+        $J$ & $1$ & $1$ & $\left\vert J\right\vert =2,\ \ \operatorname*{PS}%
+        J\supseteq\set{1}\ \ \ $\\
+        $+\ K$ & $2$ & $0$ & $\left\vert K\right\vert =2,\ \ \operatorname*{PS}%
+        K\supseteq\set{}\ \ \ $\\\hline
+        $=L$ & $3$ & $1$ &
+        \end{tabular}
+        }%
+        \]
+      }
+      \only<10>{
+      Thus, there is exactly $1$ solution, as the Theorem predicts.
+      }
+      }
+
+\end{itemize}
+\vspace{10cm}
+\end{frame}
+
+\begin{frame}
+\fti{Shuffle-compatibility of $\Des$: example 2}
+
+\begin{itemize}
+
+\item \textbf{Example:}
+      Let ${\red m = 2}$ and ${\red \pi = \tup{4, 1}}$. \\
+      Let ${\blue n = 2}$ and ${\blue \sigma = \tup{2, 5}}$. \\
+      \only<1-4>{
+      The shuffles $\tau$ of $\pi$ and $\sigma$ are
+      \begin{align*}
+      &     \tup{ {\red 4}, {\red 1}, {\blue 2}, {\blue 5} } ,
+            \tup{ {\red 4}, {\blue 2}, {\red 1}, {\blue 5} } ,
+            \tup{ {\red 4}, {\blue 2}, {\blue 5}, {\red 1} } , \\
+      &
+            \tup{ {\blue 2}, {\red 4}, {\red 1}, {\blue 5} } ,
+            \tup{ {\blue 2}, {\red 4}, {\blue 5}, {\red 1} } ,
+            \tup{ {\blue 2}, {\blue 5}, {\red 4}, {\red 1} } .
+      \end{align*}
+      \pause
+      Their descent sets $\Des \tau$ are
+      \begin{align*}
+      &     \set{1} , \qquad \set{1, 2}, \qquad \set{1, 3}, \\
+      &     \set{2}, \qquad  \set{2, 3}, \qquad \set{3} .
+      \end{align*}
+      \pause
+      Pick $A = \set{2, 3}$.
+      Then, the number of shuffles $\tau$ of $\pi$ and $\sigma$ satisfying
+      $\Des \tau \subseteq A$ is $3$. \\
+      What about the other number?
+      \pause
+      We must pick a weak composition $L$ of $m+n = 4$ such that
+      $\PS\tup{L} = A = \set{2, 3}$.
+      \\
+      We can take $L = \tup{2, 1, 1}$
+      (or $L = \tup{2, 0, 0, \ldots, 0, 1, 0, 0, \ldots, 0, 1}$ for any number of $0$'s).
+      Let's pick $L = \tup{2, 1, 1}$.
+      }
+      \only<5->{
+      So we have $A = \set{2, 3}$ and $L = \tup{2, 1, 1}$.
+      \\
+      We want to find the number of pairs $\tup{J, K}$ such that
+      \begin{itemize}
+      \item $J$ is a weak composition of $m$ satisfying $\Des \pi \subseteq \PS \tup{J}$;
+      \item $K$ is a weak composition of $n$ satisfying $\Des \sigma \subseteq \PS \tup{K}$;
+      \item we have $J + K = L$ (in the monoid $\NN^k$).
+      \end{itemize}
+      \pause
+      Let's solve this:
+      \only<6>{
+        \[
+        \text{%
+        \begin{tabular}
+        [c]{r|lll|l}
+        &  &  &  & requirements\\\hline
+        $J$ & $?$ & $?$ & $?$ & $\left\vert J\right\vert =m,\ \operatorname*{PS}%
+        J\supseteq\operatorname*{Des}\pi$\\
+        $+\ K$ & $?$ & $?$ & $?$ & $\left\vert K\right\vert =n,\ \operatorname*{PS}%
+        K\supseteq\operatorname*{Des}\sigma$\\\hline
+        $=L$ & $2$ & $1$ & $1$ &
+        \end{tabular}
+        }%
+        \]
+      }
+      \only<7>{
+        \[
+        \text{%
+        \begin{tabular}
+        [c]{r|lll|l}
+        &  &  &  & requirements\\\hline
+        $J$ & $?$ & $?$ & $?$ & $\left\vert J\right\vert =2,\ \ \operatorname*{PS}%
+        J\supseteq\set{1}\ \ \ $\\
+        $+\ K$ & $?$ & $?$ & $?$ & $\left\vert K\right\vert =2,\ \ \operatorname*{PS}%
+        K\supseteq\set{}\ \ \ $\\\hline
+        $=L$ & $2$ & $1$ & $1$ &
+        \end{tabular}
+        }%
+        \]
+      }
+      \only<8>{
+        \[
+        \text{%
+        \begin{tabular}
+        [c]{r|lll|l}
+        &  &  &  & requirements\\\hline
+        $J$ & $1$ & $1$ & $0$ & $\left\vert J\right\vert =2,\ \ \operatorname*{PS}%
+        J\supseteq\set{1}\ \ \ $\\
+        $+\ K$ & $1$ & $0$ & $1$ & $\left\vert K\right\vert =2,\ \ \operatorname*{PS}%
+        K\supseteq\set{}\ \ \ $\\\hline
+        $=L$ & $2$ & $1$ & $1$ &
+        \end{tabular}
+        }%
+        \]
+      }
+      \only<9>{
+        \[
+        \text{%
+        \begin{tabular}
+        [c]{r|lll|l}
+        &  &  &  & requirements\\\hline
+        $J$ & $1$ & $0$ & $1$ & $\left\vert J\right\vert =2,\ \ \operatorname*{PS}%
+        J\supseteq\set{1}\ \ \ $\\
+        $+\ K$ & $1$ & $1$ & $0$ & $\left\vert K\right\vert =2,\ \ \operatorname*{PS}%
+        K\supseteq\set{}\ \ \ $\\\hline
+        $=L$ & $2$ & $1$ & $1$ &
+        \end{tabular}
+        }%
+        \]
+      }
+      \only<10->{
+        \[
+        \text{%
+        \begin{tabular}
+        [c]{r|lll|l}
+        &  &  &  & requirements\\\hline
+        $J$ & $0$ & $1$ & $1$ & $\left\vert J\right\vert =2,\ \ \operatorname*{PS}%
+        J\supseteq\set{1}\ \ \ $\\
+        $+\ K$ & $2$ & $0$ & $0$ & $\left\vert K\right\vert =2,\ \ \operatorname*{PS}%
+        K\supseteq\set{}\ \ \ $\\\hline
+        $=L$ & $2$ & $1$ & $1$ &
+        \end{tabular}
+        }%
+        \]
+      }
+      \only<11>{
+      Thus, there are $3$ solutions, as the Theorem predicts.
+      }
+      }
+
+\end{itemize}
+\vspace{10cm}
+\end{frame}
+
+\begin{frame}
+\fti{Shuffle-compatibility of $\Des$: consequence}
+
+\begin{itemize}
+
+\item Let $m \in \NN$, and let $\pi$ be an $m$-permutation. \\
+      Let $n \in \NN$, and let $\sigma$ be an $n$-permutation. \\
+      Assume that $\pi$ and $\sigma$ are disjoint.
+
+\item Let $A$ be a subset of $\ive{m+n-1}$. \\
+
+\item Let $L$ be a weak composition of $m+n$ such that
+      $\PS\tup{L} = A$.
+      \\ Let $k$ be such that $L \in \NN^k$.
+
+\only<1>{
+\item \textbf{Theorem (Gessel \& Zhuang, from previous slide).} \\
+      The number of shuffles $\tau$ of $\pi$ and $\sigma$ satisfying
+      $\Des \tau \subseteq A$ \\
+      \textbf{equals} the number of pairs $\tup{J, K} \in \NN^k \times \NN^k$ such that
+      \begin{itemize}
+      \item $J$ is a weak composition of $m$ satisfying $\Des \pi \subseteq \PS \tup{J}$;
+      \item $K$ is a weak composition of $n$ satisfying $\Des \sigma \subseteq \PS \tup{K}$;
+      \item we have $J + K = L$ (in the monoid $\NN^k$).
+      \end{itemize}
+}
+\pause
+
+\item \textbf{Corollary.} \\
+      The number of shuffles $\tau$ of $\pi$ and $\sigma$ satisfying
+      $\Des \tau \subseteq A$
+      depends only on $m$, $n$, $\Des \pi$, $\Des \sigma$
+      and $A$ (but not on $\pi$ and $\sigma$ themselves).
+      \pause
+
+\item \textbf{Corollary.} \\
+      The number of shuffles $\tau$ of $\pi$ and $\sigma$ satisfying
+      $\Des \tau = A$
+      depends only on $m$, $n$, $\Des \pi$, $\Des \sigma$
+      and $A$ (but not on $\pi$ and $\sigma$ themselves).
+      \\
+      (Follows from previous corollary by induction on
+      $\abs{A}$.)
+      \pause
+      \\ Gessel and Zhuang say that
+      this makes $\Des$ \defn{shuffle-compatible}.
+      See the {\red \href{http://www.cip.ifi.lmu.de/~grinberg/algebra/urbana18b.pdf}{next talk}}
+      for more about this.
+      
+\end{itemize}
+
+\vspace{10cm}
+
+\end{frame}
+
+\begin{frame}
+\fti{Shuffle-compatibility of $\Des$: proof, 1}
+
+\begin{itemize}
+
+\item Let $m \in \NN$, and let $\pi$ be an $m$-permutation. \\
+      Let $n \in \NN$, and let $\sigma$ be an $n$-permutation. \\
+      Assume that $\pi$ and $\sigma$ are disjoint.
+
+\item Let $A$ be a subset of $\ive{m+n-1}$. \\
+
+\item Let $L$ be a weak composition of $m+n$ such that
+      $\PS\tup{L} = A$.
+      \\ Let $k$ be such that $L \in \NN^k$.
+
+\only<1>{
+\item To prove the Theorem, let us restate it using shorthands:
+}
+\pause
+
+\item A \defn{good shuffle} shall mean a
+      shuffles $\tau$ of $\pi$ and $\sigma$ satisfying
+      $\Des \tau \subseteq A$.
+
+\item A \defn{good pair} shall mean a pair
+      $\tup{J, K} \in \NN^k \times \NN^k$ such that
+      \begin{itemize}
+      \item $J$ is a weak composition of $m$ satisfying $\Des \pi \subseteq \PS \tup{J}$;
+      \item $K$ is a weak composition of $n$ satisfying $\Des \sigma \subseteq \PS \tup{K}$;
+      \item we have $J + K = L$ (in the monoid $\NN^k$).
+      \end{itemize}
+
+\item \textbf{Theorem (Gessel \& Zhuang, from previous slide).} \\
+      The number of good shuffles equals the number of good pairs.
+
+\pause
+
+\item For a proof, we need bijections
+      \begin{align*}
+               \set{\text{good shuffles}}
+               &\rightleftarrows
+               \set{\text{good pairs}} .
+      \end{align*}
+
+\end{itemize}
+
+\vspace{10cm}
+
+\end{frame}
+
+\begin{frame}
+\fti{Shuffle-compatibility of $\Des$: proof, 2: $\leftarrow$}
+
+\begin{itemize}
+
+\item We construct the map
+      $\set{\text{good pairs}} \to \set{\text{good shuffles}}$:
+
+\item Let $\tup{J, K}$ be a good pair. Thus,
+      $\tup{J, K} \in \NN^k \times \NN^k$ and
+      \begin{itemize}
+      \item $J$ is a weak composition of $m$ satisfying $\Des \pi \subseteq \PS \tup{J}$;
+      \item $K$ is a weak composition of $n$ satisfying $\Des \sigma \subseteq \PS \tup{K}$;
+      \item we have $J + K = L$ (in the monoid $\NN^k$).
+      \end{itemize}
+
+\pause
+
+\item Write $J$ as $J = \tup{j_1, j_2, \ldots, j_k}$, \\
+      and $K$ as $K = \tup{k_1, k_2, \ldots, k_k}$ (sorry).
+
+\pause
+
+\item For each $p \in \ive{k-1}$, insert a bar (``$\mid$'') between
+      the $\tup{j_1+j_2+\cdots+j_p}$-th letter of $\pi$
+      and the next one.
+        \only<3>{\\
+        \textbf{Example:}
+        If $m = 8$ and $J = \tup{3, 2, 0, 2, 1, 0}$, then we
+        get $\pi_1 \pi_2 \pi_3 \mid \pi_4 \pi_5 \mid \mid \pi_6 \pi_7 \mid \pi_8 \mid$.
+        }
+
+\pause
+
+\item These bars subdivide $\pi$ into $k$ blocks (some empty),
+      each increasing (since $\Des \pi \subseteq \PS \tup{J}$).
+
+\pause
+
+\item Similarly, subdivide $\sigma$ into $k$ increasing blocks
+      using $K$.
+
+\pause
+
+\item Now, for each $i \in \ive{k}$, let
+      \begin{itemize}
+      \item $\pi^{(i)}$ be the $i$-th block of $\pi$;
+      \item $\sigma^{(i)}$ be the $i$-th block of $\sigma$;
+      \item $\tau^{(i)}$ be the unique increasing shuffle of
+            $\pi^{(i)}$ and $\sigma^{(i)}$.
+      \end{itemize}
+      \pause
+      Then, the concatenation $\pi^{(1)} \pi^{(2)} \cdots \pi^{(k)}$
+      is a good shuffle.
+      \pause \\
+      So we have found a map
+      $\set{\text{good pairs}} \to \set{\text{good shuffles}}$.
+
+\end{itemize}
+
+\vspace{10cm}
+\end{frame}
+
+\begin{frame}
+\fti{Shuffle-compatibility of $\Des$: proof, 2: $\rightarrow$}
+
+\begin{itemize}
+
+\item We now construct the map
+      $\set{\text{good shuffles}} \to \set{\text{good pairs}}$:
+
+\item Let $\tau$ be a good shuffle. Thus,
+      $\tau$ is a shuffle of $\pi$ and $\sigma$ satisfying
+      $\Des \tau \subseteq A$.
+
+\pause
+
+\item Write $L$ as $L = \tup{l_1, l_2, \ldots, l_k}$.
+
+\pause
+
+\item For each $p \in \ive{k-1}$, insert a bar (``$\mid$'') between
+      the $\tup{l_1+l_2+\cdots+l_p}$-th letter of $\tau$
+      and the next one.
+        \only<3>{\\
+        (The positions of these bars are the elements of $A$,
+        though they might have multiplicities.)
+        }
+
+\pause
+
+\item These bars subdivide $\tau$ into $k$ blocks (some empty),
+      each increasing (since $\Des \tau \subseteq A = \PS \tup{L}$).
+
+\pause
+
+\item Let $J = \tup{j_1, j_2, \ldots, j_k}$, where $j_p$ is
+      the number of letters in the $p$-th block of $\tau$
+      that come from $\pi$.
+
+\pause
+
+\item Similarly define $K$.
+
+\pause
+
+\item Then, $\tup{J, K}$ is a good pair.
+      \pause \\
+      So we have found a map
+      $\set{\text{good shuffles}} \to \set{\text{good pairs}}$.
+
+\pause
+
+\item The two maps constructed are mutually inverse bijections
+      \begin{align*}
+               \set{\text{good shuffles}}
+               &\rightleftarrows
+               \set{\text{good pairs}} ;
+      \end{align*}
+      so the theorem is proven.
+
+\end{itemize}
+
+\vspace{10cm}
+\end{frame}
+
+\begin{frame}
+\fti{The hollowed-out descent sets $\Des_{i,j} \pi$}
+
+\begin{itemize}
+
+\item Fix $i \in \NN$ and $j \in \NN$. \\
+      For any $n$ and any $n$-permutation $\pi$, we define
+      the \defn{hollowed-out descent set $\Des_{i,j} \pi$} by
+      \[
+      \Des_{i,j} \pi
+      = \tup{\Des \pi}
+      \cap
+      \tup{ \set{1, 2, \ldots, i} \cup \set{n-1, n-2, \ldots, n-j} } .
+      \]
+      \pause
+      Thus, $\Des_{i,j} \pi$ is the set of all descents of
+      $\pi$ that are among the $i$ first or $j$ last possible
+      positions for a descent to be in.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\fti{Shuffle-compatibility of $\Des_{i,j}$: statement}
+
+\begin{itemize}
+
+\item Let $m \in \NN$, and let $\pi$ be an $m$-permutation. \\
+      Let $n \in \NN$, and let $\sigma$ be an $n$-permutation. \\
+      Assume that $\pi$ and $\sigma$ are disjoint.
+
+\item Let $B$ be a subset of $\set{1, 2, \ldots, i} \cup \set{m+n-1, m+n-2, \ldots, m+n-j}$. \\
+
+\item Let $A = B \cup \set{i+1, i+2, \ldots, m+n-j-1}$.
+
+\item Let $L$ be a weak composition of $m+n$ such that
+      $\PS\tup{L} = A$.
+      \\ Let $k$ be such that $L \in \NN^k$.
+
+\item \textbf{Theorem (Gessel \& Zhuang, {\red \arxiv{1706.00750}}, Theorem 6.1).} \\
+      The number of shuffles $\tau$ of $\pi$ and $\sigma$ satisfying
+      $\Des_{i, j} \tau \subseteq B$ \\
+      \textbf{equals} the number of pairs $\tup{J, K} \in \NN^k \times \NN^k$ such that
+      \begin{itemize}
+      \item $J$ is a weak composition of $m$ satisfying $\Des_{i, j} \pi \subseteq \PS \tup{J}$;
+      \item $K$ is a weak composition of $n$ satisfying $\Des_{i, j} \sigma \subseteq \PS \tup{K}$;
+      \item we have $J + K = L$ (in the monoid $\NN^k$).
+      \end{itemize}
+
+\end{itemize}
+
+\vspace{10cm}
+
+\end{frame}
+
+\begin{frame}
+\fti{Shuffle-compatibility of $\Des_{i,j}$: proof}
+
+\begin{itemize}
+
+\item We can derive this Theorem from the previous Theorem. \\
+      This relies on the following three observations:
+      \begin{itemize}
+      \item We have $\Des_{i, j} \tau \subseteq B$ if and only if
+            $\Des \tau \subseteq A$.
+      \item For any weak composition $J$ of $m$ satisfying
+            $J \leq L$ (that is, each entry of $J$ is $\leq$
+            to the corresponding entry of $L$),
+            we have
+            $\Des_{i, j} \pi \subseteq \PS \tup{J}$
+            if and only if
+            $\Des \pi \subseteq \PS \tup{J}$.
+      \item A similar statement about weak compositions $K$ of $n$.
+      \end{itemize}
+      
+\pause
+\only<2>{
+\item The first observation is obvious.
+}
+\pause
+\item Proof of the second observation: \\
+      Since $\PS \tup{L} = A \supseteq \set{i+1, i+2, \ldots, m+n-j-1}$,
+      the composition $L$ has the form
+      \begin{align*}
+      L &= \big( \tup{\text{some numbers with sum } \leq i+1} , \\
+                &\qquad \ \tup{\text{a sequence of }0\text{'s and }1\text{'s}}, \\
+                &\qquad \ \tup{\text{some numbers with sum }\leq j+1 } \big) .
+      \end{align*}
+      Since $J \leq L$, it follows that $J$ also has this form.
+      In other words,
+      $\PS \tup{J} \supseteq \set{i+1, i+2, \ldots, m-j-1}$.
+      Hence, the second observation follows.
+
+\end{itemize}
+
+\vspace{10cm}
+
+\end{frame}
+
+% \begin{frame}
+% \fti{}
+
+% \begin{itemize}
+
+% \item 
+      
+
+% \item 
+      
+
+% \item 
+      
+
+% \item 
+      
+
+% \item 
+      
+
+% \end{itemize}
+
+% \end{frame}
+
+
+\begin{frame}
+\fti{Thanks}
+
+\textbf{Thanks} to Ira Gessel and Yan Zhuang for initiating this direction
+(and for helpful discussions), and to
+Alex Yong for an invitation to UIUC. \\
+And thanks to you for attending!
+
+\vspace{3cm}
+
+\textbf{slides: \red \url{http://www.cip.ifi.lmu.de/~grinberg/algebra/urbana18a.pdf}} \\
+\textbf{paper: \red \url{http://www.cip.ifi.lmu.de/~grinberg/algebra/gzshuf2.pdf}} \\
+\textbf{project: \red \url{https://github.com/darijgr/gzshuf}}
+
+\end{frame}
+
+\end{document}

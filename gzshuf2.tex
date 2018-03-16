@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, February 28, 2018 11:18:29}
+%TCIDATA{LastRevised=Thursday, March 15, 2018 20:17:22}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1496,7 +1496,7 @@ and largest elements. We shall next study these elements more closely.
 \begin{align*}
 \operatorname*{FE}\left(  g\right)   &  =\left\{  \min\left(  g^{-1}\left(
 h\right)  \right)  \ \mid\ h\in\left\{  1,2,3,\ldots,\infty\right\}  \text{
-with }g^{-1}\left(  h\right)  \neq\varnothing\right\}  \\
+with }g^{-1}\left(  h\right)  \neq\varnothing\right\} \\
 &  \ \ \ \ \ \ \ \ \ \ \cup\left\{  \max\left(  g^{-1}\left(  h\right)
 \right)  \ \mid\ h\in\left\{  0,1,2,3,\ldots\right\}  \text{ with }%
 g^{-1}\left(  h\right)  \neq\varnothing\right\}  .
@@ -1603,20 +1603,43 @@ satisfies $s+1\notin S$.
 The following observation is easy:
 
 \begin{proposition}
-\label{prop.when-Epk}Let $n\in\mathbb{N}$. Let $\Lambda$ be a subset of
-$\left[  n\right]  $. Then, there exists an $n$-permutation $\pi$ satisfying
-$\Lambda=\operatorname*{Epk}\pi$ if and only if $\Lambda$ is lacunar and nonempty.
+\label{prop.Epk-lac}Let $n$ be a positive integer. Let $\pi$ be an
+$n$-permutation. Then, $\operatorname*{Epk}\pi$ is a lacunar and nonempty
+subset of $\left[  n\right]  $.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Epk-lac}.]The set $\operatorname*{Epk}\pi$ is
+lacunar (since two consecutive integers cannot both be exterior peaks of $\pi
+$), and is also nonempty (since $\pi^{-1}\left(  n\right)  $ is an exterior
+peak of $\pi$).
+
+\begin{verlong}
+[An alternative reason for the nonemptiness of $\operatorname*{Epk}\pi$ is the
+following: If $\operatorname*{Epk}\pi$ was empty, then $\pi$ would have no
+peaks, so that $\pi$ would be either strictly increasing or strictly
+decreasing; but then, either $n$ or $1$ would be an exterior peak of $\pi$,
+which would contradict the emptiness of $\operatorname*{Epk}\pi$.]
+\end{verlong}
+
+This proves Proposition \ref{prop.Epk-lac}.
+\end{proof}
+
+Proposition \ref{prop.Epk-lac} actually has a sort of converse:
+
+\begin{proposition}
+\label{prop.when-Epk}Let $n$ be a positive integer. Let $\Lambda$ be a subset
+of $\left[  n\right]  $. Then, there exists an $n$-permutation $\pi$
+satisfying $\Lambda=\operatorname*{Epk}\pi$ if and only if $\Lambda$ is
+lacunar and nonempty.
 \end{proposition}
 
 \begin{proof}
 [Proof of Proposition \ref{prop.when-Epk}.]$\Longrightarrow:$ We need to prove
 that for any $n$-permutation $\pi$, the set $\operatorname*{Epk}\pi$ is
-lacunar and nonempty. But this set $\operatorname*{Epk}\pi$ is clearly lacunar
-(since two consecutive integers cannot both be exterior peaks of $\pi$), and
-is also nonempty (because otherwise, $\pi$ would have no peaks, so that $\pi$
-would be either strictly increasing or strictly decreasing; but then, either
-$n$ or $1$ would be an exterior peak of $\pi$). This proves the
-$\Longrightarrow$ direction of Proposition \ref{prop.when-Epk}.
+lacunar and nonempty. But this follows immediately from Proposition
+\ref{prop.Epk-lac}. This proves the $\Longrightarrow$ direction of Proposition
+\ref{prop.when-Epk}.
 
 $\Longleftarrow:$ Assume that $\Lambda$ is lacunar and nonempty. We must prove
 that there exists an $n$-permutation $\pi$ satisfying $\Lambda
@@ -1974,10 +1997,12 @@ This proves Claim 3. As explained above, this yields Claim 2, hence also Claim
 \begin{corollary}
 \label{cor.KnL.lindep-all}The family%
 \[
-\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{n\in\mathbb{N};\ \Lambda
-\subseteq\left[  n\right]  \text{ is lacunar and nonempty}}%
+\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{n>0;\ \Lambda\subseteq\left[
+n\right]  \text{ is lacunar and nonempty}}\cup\left(  K_{0,\varnothing
+}^{\mathcal{Z}}\right)
 \]
-is $\mathbb{Q}$-linearly independent.
+(where $\left(  K_{0,\varnothing}^{\mathcal{Z}}\right)  $ is a $1$-element
+family) is $\mathbb{Q}$-linearly independent.
 \end{corollary}
 
 \begin{proof}
@@ -1985,33 +2010,38 @@ is $\mathbb{Q}$-linearly independent.
 family $\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda\subseteq\left[
 n\right]  \text{ is lacunar and nonempty}}$ is $\mathbb{Q}$-linearly
 independent (by Proposition \ref{prop.KnL.lindep}). Furthermore, these
-families for varying $n\in\mathbb{N}$ live in linearly disjoint subspaces of
-$\operatorname*{Pow}\mathcal{N}$ (because for each $n\in\mathbb{N}$, the power
-series $K_{n,\Lambda}^{\mathcal{Z}}$ is homogeneous of degree $n$). Thus, the
-union $\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{n\in\mathbb{N}%
-;\ \Lambda\subseteq\left[  n\right]  \text{ is lacunar and nonempty}}$ of all
-these families must also be $\mathbb{Q}$-linearly independent. This proves
-Corollary \ref{cor.KnL.lindep-all}.
+families for varying $n>0$ live in linearly disjoint subspaces of
+$\operatorname*{Pow}\mathcal{N}$ (because for each $n>0$ and $\Lambda
+\subseteq\left[  n\right]  $, the power series $K_{n,\Lambda}^{\mathcal{Z}}$
+is homogeneous of degree $n$). Thus, the union $\left(  K_{n,\Lambda
+}^{\mathcal{Z}}\right)  _{n>0;\ \Lambda\subseteq\left[  n\right]  \text{ is
+lacunar and nonempty}}$ of all these families must also be $\mathbb{Q}%
+$-linearly independent. Adding the $1$-element family $\left(
+K_{0,\varnothing}^{\mathcal{Z}}\right)  $ to this union preserves the
+$\mathbb{Q}$-linear independence, since it lives in yet another linearly
+disjoint subspace of $\operatorname*{Pow}\mathcal{N}$ (namely, in its $0$-th
+graded component). This proves Corollary \ref{cor.KnL.lindep-all}.
 \end{proof}
 
 \begin{definition}
 Let $\Pi_{\mathcal{Z}}$ be the $\mathbb{Q}$-vector subspace of
 $\operatorname*{Pow}\mathcal{N}$ spanned by the family $\left(  K_{n,\Lambda
-}^{\mathcal{Z}}\right)  _{n\in\mathbb{N};\ \Lambda\subseteq\left[  n\right]
-\text{ is lacunar and nonempty}}$. Then, $\Pi_{\mathcal{Z}}$ is also the
-$\mathbb{Q}$-vector subspace of $\operatorname*{Pow}\mathcal{N}$ spanned by
-the family $\left(  K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}\right)
-_{n\in\mathbb{N};\ \pi\text{ is an }n\text{-permutation}}$ (by Proposition
-\ref{prop.when-Epk}). In other words, $\Pi_{\mathcal{Z}}$ is also the
-$\mathbb{Q}$-vector subspace of $\operatorname*{Pow}\mathcal{N}$ spanned by
-the family $\left(  \Gamma_{\mathcal{Z}}\left(  \pi\right)  \right)
-_{n\in\mathbb{N};\ \pi\text{ is an }n\text{-permutation}}$ (because of
-(\ref{eq.def.KnL.2})). Hence, Corollary \ref{cor.prod2} shows that
-$\Pi_{\mathcal{Z}}$ is closed under multiplication. Since furthermore
-$\Gamma_{\mathcal{Z}}\left(  \operatorname*{id}\nolimits_{0}\right)  =1$ (for
-the empty $0$-permutation $\operatorname*{id}\nolimits_{0}$), we can thus
-conclude that $\Pi_{\mathcal{Z}}$ is a $\mathbb{Q}$-subalgebra of
-$\operatorname*{Pow}\mathcal{N}$.
+}^{\mathcal{Z}}\right)  _{n>0;\ \Lambda\subseteq\left[  n\right]  \text{ is
+lacunar and nonempty}}\cup\left(  K_{0,\varnothing}^{\mathcal{Z}}\right)  $.
+Then, $\Pi_{\mathcal{Z}}$ is also the $\mathbb{Q}$-vector subspace of
+$\operatorname*{Pow}\mathcal{N}$ spanned by the family $\left(
+K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}\right)  _{n\in\mathbb{N}%
+;\ \pi\text{ is an }n\text{-permutation}}$ (by Proposition \ref{prop.when-Epk}%
+). In other words, $\Pi_{\mathcal{Z}}$ is also the $\mathbb{Q}$-vector
+subspace of $\operatorname*{Pow}\mathcal{N}$ spanned by the family $\left(
+\Gamma_{\mathcal{Z}}\left(  \pi\right)  \right)  _{n\in\mathbb{N};\ \pi\text{
+is an }n\text{-permutation}}$ (because of (\ref{eq.def.KnL.2})). Hence,
+Corollary \ref{cor.prod2} shows that $\Pi_{\mathcal{Z}}$ is closed under
+multiplication. Since furthermore $\Gamma_{\mathcal{Z}}\left(
+\operatorname*{id}\nolimits_{0}\right)  =1$ (for the empty $0$-permutation
+$\operatorname*{id}\nolimits_{0}$), we can thus conclude that $\Pi
+_{\mathcal{Z}}$ is a $\mathbb{Q}$-subalgebra of $\operatorname*{Pow}%
+\mathcal{N}$.
 \end{definition}
 
 We can now finally prove what we came here for:
@@ -2109,13 +2139,14 @@ $1\in\operatorname*{QSym}$ to $1\in\Pi_{\mathcal{Z}}$\ \ \ \ \footnote{This is
 easy, since $1=F_{\left(  {}\right)  }$.}. Thus, $\phi_{\operatorname*{Epk}}$
 is a $\mathbb{Q}$-algebra homomorphism.
 
-The family $\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{n\in\mathbb{N}%
-;\ \Lambda\subseteq\left[  n\right]  \text{ is lacunar and nonempty}}$ spans
-$\Pi_{\mathcal{Z}}$ (by the definition of $\Pi_{\mathcal{Z}}$) and is
-$\mathbb{Q}$-linearly independent (by Corollary \ref{cor.KnL.lindep-all}).
-Thus, it is a basis of $\Pi_{\mathcal{Z}}$.
+The family $\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{n>0;\ \Lambda
+\subseteq\left[  n\right]  \text{ is lacunar and nonempty}}\cup\left(
+K_{0,\varnothing}^{\mathcal{Z}}\right)  $ spans $\Pi_{\mathcal{Z}}$ (by the
+definition of $\Pi_{\mathcal{Z}}$) and is $\mathbb{Q}$-linearly independent
+(by Corollary \ref{cor.KnL.lindep-all}). Thus, it is a basis of $\Pi
+_{\mathcal{Z}}$.
 
-For each $n\in\mathbb{N}$, there is a canonical bijection between the
+For each positive integer $n$, there is a canonical bijection between the
 $\operatorname*{Epk}$-equivalence classes of $n$-permutations and the nonempty
 lacunar subsets $\Lambda$ of $\left[  n\right]  $ (indeed, the bijection sends
 any equivalence class $\left[  \pi\right]  _{\operatorname*{Epk}}$ to
@@ -2124,10 +2155,10 @@ shows that this is indeed a bijection.}. Hence, Theorem~\ref{thm.4.3}
 \textbf{(a)} (applied to $A=\Pi_{\mathcal{Z}}$, $\operatorname*{st}%
 =\operatorname*{Epk}$ and $u_{\alpha}=K_{n,\Lambda}^{\mathcal{Z}}$, where
 $\alpha$ is an $\operatorname*{Epk}$-equivalence class of $n$-permutations and
-where $\Lambda$ is the corresponding nonempty lacunar subset) shows that the
-descent statistic $\operatorname*{Epk}$ is shuffle-compatible.
-Theorem~\ref{thm.4.3} \textbf{(b)} then yields that the $\mathbb{Q}$-linear
-map%
+where $\Lambda$ is the corresponding nonempty\footnote{or empty, if $n=0$}
+lacunar subset) shows that the descent statistic $\operatorname*{Epk}$ is
+shuffle-compatible. Theorem~\ref{thm.4.3} \textbf{(b)} then yields that the
+$\mathbb{Q}$-linear map%
 \[
 \mathcal{A}_{\operatorname*{Epk}}\rightarrow\Pi_{\mathcal{Z}}%
 ,\ \ \ \ \ \ \ \ \ \ \left[  \pi\right]  _{\operatorname*{Epk}}\mapsto
@@ -2170,7 +2201,12 @@ Define $n\in\mathbb{N}$ by $n=\left\vert \pi\right\vert =\left\vert
 \pi\right\vert =\left\vert \pi^{\prime}\right\vert $). Likewise, define
 $m\in\mathbb{N}$ by $m=\left\vert \sigma\right\vert =\left\vert \sigma
 ^{\prime}\right\vert $. Thus, $\pi$ is an $n$-permutation, while $\sigma$ is
-an $m$-permutation. Hence, Corollary \ref{cor.KnEpk-prodrule} yields
+an $m$-permutation.
+
+WLOG assume that $n+m>0$ (since otherwise, both $n$ and $m$ are $0$, which
+causes all four permutations $\pi$, $\pi^{\prime}$, $\sigma$ and
+$\sigma^{\prime}$ to be empty; but then our goal is obviously satisfied).
+Corollary \ref{cor.KnEpk-prodrule} yields
 \begin{align*}
 &  K_{n,\operatorname*{Epk}\left(  \pi\right)  }^{\mathcal{Z}}\cdot
 K_{m,\operatorname*{Epk}\left(  \sigma\right)  }^{\mathcal{Z}}\\
@@ -2187,8 +2223,8 @@ lacunar}\\\text{and nonempty}}}\underbrace{\sum_{\substack{\tau\in S\left(
 \text{because if }\tau\in S\left(  \pi,\sigma\right)  \text{, then
 }\operatorname*{Epk}\tau\text{ is a}\\
 \text{lacunar and nonempty subset of }\left[  n+m\right] \\
-\text{(by Proposition \ref{prop.when-Epk}, applied to }n+m\text{ instead of
-}n\text{)}%
+\text{(by Proposition \ref{prop.Epk-lac}, applied to }n+m\text{ and }\tau\\
+\text{instead of }n\text{ and }\pi\text{)}%
 \end{array}
 \right) \\
 &  =\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is

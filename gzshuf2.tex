@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, March 27, 2018 20:42:03}
+%TCIDATA{LastRevised=Thursday, March 29, 2018 00:07:46}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -510,279 +510,6 @@ depends only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
 \left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
 \sigma\right\vert $.
 \end{definition}
-
-\subsection{Descent statistics}
-
-\begin{definition}
-Let $\operatorname*{st}$ be a permutation statistic. We say that
-$\operatorname*{st}$ is a \textit{descent statistic} if and only if
-$\operatorname*{st}\pi$ (for $\pi$ a permutation) depends only on the descent
-composition $\operatorname*{Comp}\pi$ of $\pi$. In other words,
-$\operatorname*{st}$ is a descent statistic if and only if every two
-permutations $\pi$ and $\sigma$ satisfying $\operatorname*{Comp}%
-\pi=\operatorname*{Comp}\sigma$ satisfy $\operatorname*{st}\pi
-=\operatorname*{st}\sigma$.
-\end{definition}
-
-Equivalently, a permutation statistic $\operatorname*{st}$ is a descent
-statistic if and only if every two permutations $\pi$ and $\sigma$ satisfying
-$\left\vert \pi\right\vert =\left\vert \sigma\right\vert $ and
-$\operatorname*{Des}\pi=\operatorname*{Des}\sigma$ satisfy $\operatorname*{st}%
-\pi=\operatorname*{st}\sigma$. (This is indeed equivalent, because for two
-permutations $\pi$ and $\sigma$, the condition $\left(  \left\vert
-\pi\right\vert =\left\vert \sigma\right\vert \text{ and }\operatorname*{Des}%
-\pi=\operatorname*{Des}\sigma\right)  $ is equivalent to $\left(
-\operatorname*{Comp}\pi=\operatorname*{Comp}\sigma\right)  $.)
-
-For example, the permutation statistic $\operatorname*{Des}$ is a descent
-statistic, because each permutation $\pi$ satisfies $\operatorname*{Des}%
-\pi=\operatorname*{Des}\left(  \operatorname*{Comp}\pi\right)  $. Also,
-$\operatorname*{Pk}$ is a descent statistic, since each permutation $\pi$
-satisfies%
-\[
-\operatorname*{Pk}\pi=\left(  \operatorname*{Des}\pi\right)  \setminus\left(
-\left\{  1\right\}  \cup\left(  \operatorname*{Des}\pi+1\right)  \right)  ,
-\]
-where $\operatorname*{Des}\pi+1$ denotes the set $\left\{  i+1\ \mid
-\ i\in\operatorname*{Des}\pi\right\}  $ (and, as we have just said,
-$\operatorname*{Des}\pi$ can be recovered from $\operatorname*{Comp}\pi$).
-Furthermore, $\operatorname*{Epk}$ is a descent statistic, since each
-$n$-permutation $\pi$ (for a positive integer $n$) satisfies%
-\[
-\operatorname*{Epk}\pi=\left(  \operatorname*{Des}\pi\cup\left\{  n\right\}
-\right)  \setminus\left(  \operatorname*{Des}\pi+1\right)
-\]
-(and both $\operatorname*{Des}\pi$ and $n$ can be recovered from
-$\operatorname*{Comp}\pi$). The permutation statistics $\operatorname*{Lpk}$
-and $\operatorname*{Rpk}$ (and, of course, $\operatorname*{Comp}$) are descent
-statistics as well, as one can easily check.
-
-\begin{definition}
-\label{def.des-stat.stI}Let $\operatorname*{st}$ be a descent statistic. Then,
-we can regard $\operatorname*{st}$ as a map from the set of all compositions
-(rather than from the set of all permutations). Namely, for any composition
-$I$, we define $\operatorname*{st}I$ (an element of the codomain of
-$\operatorname*{st}$) by setting%
-\[
-\operatorname*{st}I=\operatorname*{st}\pi\ \ \ \ \ \ \ \ \ \ \text{for any
-permutation }\pi\text{ satisfying }\operatorname*{Comp}\pi=I.
-\]
-This is well-defined (because for every composition $I$, there exists at least
-one permutation $\pi$ satisfying $\operatorname*{Comp}\pi=I$, and all such
-permutations $\pi$ have the same value of $\operatorname*{st}\pi$). In the
-following, we shall regard every descent statistic $\operatorname*{st}$
-simultaneously as a map from the set of all permutations and as a map from the
-set of all compositions.
-\end{definition}
-
-Note that this definition leads to a new interpretation of
-$\operatorname*{Des}I$ for a composition $I$: It is now defined as
-$\operatorname*{Des}\pi$ for any permutation $\pi$ satisfying
-$\operatorname*{Comp}\pi=I$. This could clash with the old meaning of
-$\operatorname*{Des}I$ introduced in Definition \ref{def.comps-to-sets}.
-Fortunately, these two meanings of $\operatorname*{Des}I$ are exactly the
-same, so there is no conflict of notation.
-
-However, Definition \ref{def.des-stat.stI} causes an ambiguity for expressions
-like \textquotedblleft$\operatorname*{Des}\left(  i_{1},i_{2},\ldots
-,i_{n}\right)  $\textquotedblright: Here, the \textquotedblleft$\left(
-i_{1},i_{2},\ldots,i_{n}\right)  $\textquotedblright\ might be understood
-either as a permutation, or as a composition, and the resulting descent sets
-$\operatorname*{Des}\left(  i_{1},i_{2},\ldots,i_{n}\right)  $ are not the
-same. A similar ambiguity occurs for any descent statistic $\operatorname*{st}%
-$ instead of $\operatorname*{Des}$. We hope that this ambiguity will not arise
-in this paper due to our explicit typecasting of permutations and
-compositions; but the reader should be warned that it can arise if one takes
-the notation too literally.
-
-\begin{definition}
-\label{def.des-stat.eq-comp}Let $\operatorname*{st}$ be a descent statistic.
-
-\textbf{(a)} Two compositions $J$ and $K$ are said to be $\operatorname*{st}%
-$\textit{-equivalent} if and only if they have the same size and satisfy
-$\operatorname*{st}J=\operatorname*{st}K$. Equivalently, two compositions $J$
-and $K$ are $\operatorname*{st}$-equivalent if and only if there exist two
-$\operatorname*{st}$-equivalent permutations $\pi$ and $\sigma$ satisfying
-$J=\operatorname*{Comp}\pi$ and $K=\operatorname*{Comp}\sigma$.
-
-\textbf{(b)} The relation \textquotedblleft$\operatorname*{st}$%
--equivalent\textquotedblright\ is an equivalence relation on compositions; its
-equivalence classes are called $\operatorname*{st}$\textit{-equivalence
-classes of compositions}.
-\end{definition}
-
-\subsection{Quasisymmetric functions}
-
-We now recall the definition of quasisymmetric functions; see \cite[Chapter
-5]{HopfComb} (and various other modern textbooks) for more details about this:
-
-\begin{definition}
-Consider the ring of power series $\mathbb{Q}\left[  \left[  x_{1},x_{2}%
-,x_{3},\ldots\right]  \right]  $ in infinitely many commuting indeterminates
-over $\mathbb{Q}$. A power series $f\in\mathbb{Q}\left[  \left[  x_{1}%
-,x_{2},x_{3},\ldots\right]  \right]  $ is said to be \textit{quasisymmetric}
-if it has the following property: For any positive integers $a_{1}%
-,a_{2},\ldots,a_{k}$ and any two strictly increasing sequences $\left(
-i_{1}<i_{2}<\cdots<i_{k}\right)  $ and $\left(  j_{1}<j_{2}<\cdots
-<j_{k}\right)  $ of positive integers, the coefficient of $x_{i_{1}}^{a_{1}%
-}x_{i_{2}}^{a_{2}}\cdots x_{i_{k}}^{a_{k}}$ in $f$ equals the coefficient of
-$x_{j_{1}}^{a_{1}}x_{j_{2}}^{a_{2}}\cdots x_{j_{k}}^{a_{k}}$ in $f$. A
-\textit{quasisymmetric function} is a quasisymmetric power series
-$f\in\mathbb{Q}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]  \right]  $
-that has bounded degree (i.e., there exists an $N\in\mathbb{N}$ such that each
-monomial appearing in $f$ has degree $\leq N$). The quasisymmetric functions
-form a $\mathbb{Q}$-subalgebra of $\mathbb{Q}\left[  \left[  x_{1},x_{2}%
-,x_{3},\ldots\right]  \right]  $; this $\mathbb{Q}$-subalgebra is denoted by
-$\operatorname*{QSym}$ and called the \textit{ring of quasisymmetric
-functions} over $\mathbb{Q}$.
-\end{definition}
-
-The $\mathbb{Q}$-algebra $\operatorname*{QSym}$ has much interesting structure
-(e.g., it is a Hopf algebra), but we will need very little of it (and we will
-introduce it whenever it becomes important). One simple yet crucial feature of
-$\operatorname*{QSym}$ that we will immediately use is the \textit{fundamental
-basis} of $\operatorname*{QSym}$:
-
-\begin{definition}
-For any composition $\alpha$, we define the \textit{fundamental quasisymmetric
-function} $F_{\alpha}$ to be the power series%
-\[
-\sum_{\substack{i_{1}\leq i_{2}\leq\cdots\leq i_{n};\\i_{j}<i_{j+1}\text{ for
-each }j\in\operatorname*{Des}\alpha}}x_{i_{1}}x_{i_{2}}\cdots x_{i_{n}}%
-\in\operatorname*{QSym},
-\]
-where $n=\left\vert \alpha\right\vert $ is the size of $\alpha$. The family
-$\left(  F_{\alpha}\right)  _{\alpha\text{ is a composition}}$ is a basis of
-the $\mathbb{Q}$-vector space $\operatorname*{QSym}$; it is known as the
-\textit{fundamental basis} of $\operatorname*{QSym}$.
-\end{definition}
-
-We notice that the fundamental quasisymmetric function $F_{\alpha}$ is denoted
-by $L_{\alpha}$ in \cite[\S 5.2]{HopfComb}.
-
-The multiplication of fundamental quasisymmetric functions is intimately
-related to shuffles of permutations:
-
-\begin{theorem}
-\label{thm.4.1}Let $\pi$ and $\sigma$ be two disjoint permutations. Let
-$J=\operatorname*{Comp}\pi$ and $K=\operatorname*{Comp}\sigma$. For any
-composition $L$, let $c_{J,K}^{L}$ be the number of permutations with descent
-composition $L$ among the shuffles of $\pi$ and $\sigma$. Then,%
-\[
-F_{J}F_{K}=\sum_{L}c_{J,K}^{L}F_{L}%
-\]
-(where the sum is over all compositions $L$).
-\end{theorem}
-
-Theorem \ref{thm.4.1} is \cite[Theorem 4.1]{part1}; it can also be written in
-the following form:
-
-\begin{proposition}
-\label{prop.4.1.rewr}Let $\pi$ and $\sigma$ be two disjoint permutations.
-Then,%
-\[
-F_{\operatorname*{Comp}\pi}F_{\operatorname*{Comp}\sigma}=\sum_{\chi\in
-S\left(  \pi,\sigma\right)  }F_{\operatorname*{Comp}\chi}.
-\]
-
-\end{proposition}
-
-For a proof of Proposition \ref{prop.4.1.rewr} (and therefore also of the
-equivalent Theorem \ref{thm.4.1}), we refer to \cite[(5.2.6)]{HopfComb} (which
-makes the additional requirement that the letters of $\pi$ are $1,2,\ldots
-,\left\vert \pi\right\vert $ and the letters of $\sigma$ are $\left\vert
-\pi\right\vert +1,\left\vert \pi\right\vert +2,\ldots,\left\vert
-\pi\right\vert +\left\vert \sigma\right\vert $; but this requirement is not
-used in the proof and thus can be dropped).
-
-\subsection{Shuffle algebras}
-
-Any shuffle-compatible permutation statistic $\operatorname*{st}$ gives rise
-to a \textit{shuffle algebra} $\mathcal{A}_{\operatorname*{st}}$, defined as follows:
-
-\begin{definition}
-\label{def.Ast}Let $\operatorname*{st}$ be a shuffle-compatible permutation
-statistic. For each permutation $\pi$, let $\left[  \pi\right]
-_{\operatorname*{st}}$ denote the $\operatorname*{st}$-equivalence class of
-$\pi$.
-
-Let $\mathcal{A}_{\operatorname*{st}}$ be the free $\mathbb{Q}$-vector space
-whose basis is the set of all $\operatorname*{st}$-equivalence classes of
-permutations. We define a multiplication on $\mathcal{A}_{\operatorname*{st}}$
-by setting%
-\[
-\left[  \pi\right]  _{\operatorname*{st}}\left[  \sigma\right]
-_{\operatorname*{st}}=\sum_{\tau\in S\left(  \pi,\sigma\right)  }\left[
-\tau\right]  _{\operatorname*{st}}%
-\]
-for any two disjoint permutations $\pi$ and $\sigma$. It is easy to see that
-this multiplication is well-defined and associative, and turns $\mathcal{A}%
-_{\operatorname*{st}}$ into a $\mathbb{Q}$-algebra whose unity is the
-$\operatorname*{st}$-equivalence class of the empty permutation. (In the
-particular case when $\operatorname*{st}$ is a descent statistic, this shall
-be proven again in Proposition \ref{prop.Ast.alg} \textbf{(a)} below.) This
-$\mathbb{Q}$-algebra is denoted by $\mathcal{A}_{\operatorname*{st}}$, and is
-called the \textit{shuffle algebra} of $\operatorname*{st}$. It is a graded
-$\mathbb{Q}$-algebra; its $n$-th graded component (for each $n\in\mathbb{N}$)
-is spanned by the $\operatorname*{st}$-equivalence classes of all $n$-permutations.
-\end{definition}
-
-\begin{proposition}
-\label{prop.Ast.alg}Let $\operatorname*{st}$ be a shuffle-compatible descent statistic.
-
-\textbf{(a)} The multiplication on $\mathcal{A}_{\operatorname*{st}}$ defined
-in Definition \ref{def.Ast} is well-defined and associative, and turns
-$\mathcal{A}_{\operatorname*{st}}$ into a $\mathbb{Q}$-algebra whose unity is
-the $\operatorname*{st}$-equivalence class of the empty permutation.
-
-\textbf{(b)} There is a surjective $\mathbb{Q}$-algebra homomorphism
-$p_{\operatorname*{st}}:\operatorname*{QSym}\rightarrow\mathcal{A}%
-_{\operatorname*{st}}$ that satisfies
-\[
-p_{\operatorname*{st}}\left(  F_{\operatorname*{Comp}\pi}\right)  =\left[
-\pi\right]  _{\operatorname*{st}}\ \ \ \ \ \ \ \ \ \ \text{for every
-permutation }\pi.
-\]
-
-\end{proposition}
-
-A central property of the shuffle algebra $\mathcal{A}_{\operatorname*{st}}$
-of a shuffle-compatible descent statistic is its relation to
-$\operatorname*{QSym}$. This relation is given by \cite[Theorem 4.3]{part1},
-which we restate as follows:
-
-\begin{theorem}
-\label{thm.4.3}Let $\operatorname*{st}$ be a descent statistic.
-
-\textbf{(a)} The descent statistic $\operatorname*{st}$ is shuffle-compatible
-if and only if there exist a $\mathbb{Q}$-algebra $A$ with basis $\left(
-u_{\alpha}\right)  $ (indexed by $\operatorname*{st}$-equivalence classes
-$\alpha$ of compositions) and a $\mathbb{Q}$-algebra homomorphism
-$\phi_{\operatorname*{st}}:\operatorname*{QSym}\rightarrow A$ with the
-property that whenever $\alpha$ is an $\operatorname*{st}$-equivalence class
-of compositions, we have%
-\[
-\phi_{\operatorname*{st}}\left(  F_{L}\right)  =u_{\alpha}%
-\ \ \ \ \ \ \ \ \ \ \text{for each }L\in\alpha.
-\]
-
-
-\textbf{(b)} In this case, the $\mathbb{Q}$-linear map%
-\[
-\mathcal{A}_{\operatorname*{st}}\rightarrow A,\ \ \ \ \ \ \ \ \ \ \left[
-\pi\right]  _{\operatorname*{st}}\mapsto u_{\alpha},
-\]
-where $\alpha$ is the $\operatorname*{st}$-equivalence class of the
-composition $\operatorname*{Comp}\pi$, is a $\mathbb{Q}$-algebra isomorphism
-$\mathcal{A}_{\operatorname*{st}}\rightarrow A$.
-\end{theorem}
-
-For the sake of completeness, we shall give proofs of Proposition
-\ref{prop.Ast.alg} and Theorem \ref{thm.4.3} (independent of \cite{part1}) in
-Subsection \ref{subsect.K.pfAsh}.
-
-We shall perhaps also use some other notations that were introduced in
-\cite{part1}. The reader should thus consult \cite{part1} for unexplained notations.
 
 \section{Extending enriched $P$-partitions and the exterior peak set}
 
@@ -2047,10 +1774,467 @@ _{\mathcal{Z}}$ is a $\mathbb{Q}$-subalgebra of $\operatorname*{Pow}%
 We can now finally prove what we came here for:
 
 \begin{theorem}
-\label{thm.Epk.sh-co}\textbf{(a)} The permutation statistic
-$\operatorname*{Epk}$ is shuffle-compatible.
+\label{thm.Epk.sh-co-a}The permutation statistic $\operatorname*{Epk}$ is shuffle-compatible.
+\end{theorem}
 
-\textbf{(b)} The map given by%
+\begin{proof}
+[Proof of Theorem \ref{thm.Epk.sh-co-a}.]We must prove that
+$\operatorname*{Epk}$ is shuffle-compatible. In other words, we must prove
+that for any two disjoint permutations $\pi$ and $\sigma$, the multiset
+$\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  $ depends only on $\operatorname*{Epk}\left(
+\pi\right)  $, $\operatorname*{Epk}\left(  \sigma\right)  $, $\left\vert
+\pi\right\vert $ and $\left\vert \sigma\right\vert $. In other words, we must
+prove that if $\pi$ and $\sigma$ are two disjoint permutations, and if
+$\pi^{\prime}$ and $\sigma^{\prime}$ are two disjoint permutations satisfying
+$\operatorname*{Epk}\left(  \pi\right)  =\operatorname*{Epk}\left(
+\pi^{\prime}\right)  $, $\operatorname*{Epk}\left(  \sigma\right)
+=\operatorname*{Epk}\left(  \sigma^{\prime}\right)  $, $\left\vert
+\pi\right\vert =\left\vert \pi^{\prime}\right\vert $ and $\left\vert
+\sigma\right\vert =\left\vert \sigma^{\prime}\right\vert $, then the multiset
+$\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  $ equals the multiset $\left\{
+\operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi^{\prime
+},\sigma^{\prime}\right)  \right\}  $.
+
+So let $\pi$ and $\sigma$ be two disjoint permutations, and let $\pi^{\prime}$
+and $\sigma^{\prime}$ be two disjoint permutations satisfying
+$\operatorname*{Epk}\left(  \pi\right)  =\operatorname*{Epk}\left(
+\pi^{\prime}\right)  $, $\operatorname*{Epk}\left(  \sigma\right)
+=\operatorname*{Epk}\left(  \sigma^{\prime}\right)  $, $\left\vert
+\pi\right\vert =\left\vert \pi^{\prime}\right\vert $ and $\left\vert
+\sigma\right\vert =\left\vert \sigma^{\prime}\right\vert $.
+
+Define $n\in\mathbb{N}$ by $n=\left\vert \pi\right\vert =\left\vert
+\pi^{\prime}\right\vert $ (this is well-defined, since $\left\vert
+\pi\right\vert =\left\vert \pi^{\prime}\right\vert $). Likewise, define
+$m\in\mathbb{N}$ by $m=\left\vert \sigma\right\vert =\left\vert \sigma
+^{\prime}\right\vert $. Thus, $\pi$ is an $n$-permutation, while $\sigma$ is
+an $m$-permutation.
+
+WLOG assume that $n+m>0$ (since otherwise, both $n$ and $m$ are $0$, which
+causes all four permutations $\pi$, $\pi^{\prime}$, $\sigma$ and
+$\sigma^{\prime}$ to be empty; but then our goal is obviously satisfied).
+Corollary \ref{cor.KnEpk-prodrule} yields
+\begin{align*}
+&  K_{n,\operatorname*{Epk}\left(  \pi\right)  }^{\mathcal{Z}}\cdot
+K_{m,\operatorname*{Epk}\left(  \sigma\right)  }^{\mathcal{Z}}\\
+&  =\sum_{\tau\in S\left(  \pi,\sigma\right)  }K_{n+m,\operatorname*{Epk}\tau
+}^{\mathcal{Z}}=\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
+lacunar}\\\text{and nonempty}}}\underbrace{\sum_{\substack{\tau\in S\left(
+\pi,\sigma\right)  ;\\\operatorname*{Epk}\tau=\Lambda}}K_{n+m,\Lambda
+}^{\mathcal{Z}}}_{=\left\vert \left\{  \tau\in S\left(  \pi,\sigma\right)
+\ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert K_{n+m,\Lambda
+}^{\mathcal{Z}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{because if }\tau\in S\left(  \pi,\sigma\right)  \text{, then
+}\operatorname*{Epk}\tau\text{ is a}\\
+\text{lacunar and nonempty subset of }\left[  n+m\right]  \\
+\text{(by Proposition \ref{prop.Epk-lac}, applied to }n+m\text{ and }\tau\\
+\text{instead of }n\text{ and }\pi\text{)}%
+\end{array}
+\right)  \\
+&  =\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
+lacunar}\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(  \pi
+,\sigma\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert
+K_{n+m,\Lambda}^{\mathcal{Z}}.
+\end{align*}
+Similarly,%
+\[
+K_{n,\operatorname*{Epk}\left(  \pi^{\prime}\right)  }^{\mathcal{Z}}\cdot
+K_{m,\operatorname*{Epk}\left(  \sigma^{\prime}\right)  }^{\mathcal{Z}}%
+=\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is lacunar}%
+\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(  \pi^{\prime
+},\sigma^{\prime}\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}
+\right\vert K_{n+m,\Lambda}^{\mathcal{Z}}.
+\]
+The left-hand sides of these two equalities are identical (since
+$\operatorname*{Epk}\left(  \pi\right)  =\operatorname*{Epk}\left(
+\pi^{\prime}\right)  $ and $\operatorname*{Epk}\left(  \sigma\right)
+=\operatorname*{Epk}\left(  \sigma^{\prime}\right)  $). Thus, their right-hand
+sides must also be identical. In other words, we have%
+\begin{align*}
+&  \sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
+lacunar}\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(  \pi
+,\sigma\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert
+K_{n+m,\Lambda}^{\mathcal{Z}}\\
+&  =\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
+lacunar}\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(
+\pi^{\prime},\sigma^{\prime}\right)  \ \mid\ \operatorname*{Epk}\tau
+=\Lambda\right\}  \right\vert K_{n+m,\Lambda}^{\mathcal{Z}}.
+\end{align*}
+Since the family $\left(  K_{n+m,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda
+\subseteq\left[  n+m\right]  \text{ is lacunar and nonempty}}$ is $\mathbb{Q}%
+$-linearly independent (by Proposition \ref{prop.KnL.lindep}), this shows that%
+\[
+\left\vert \left\{  \tau\in S\left(  \pi,\sigma\right)  \ \mid
+\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert =\left\vert \left\{
+\tau\in S\left(  \pi^{\prime},\sigma^{\prime}\right)  \ \mid
+\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert
+\]
+for each lacunar nonempty subset $\Lambda$ of $\left[  n+m\right]  $. In other
+words, the multiset $\left\{  \operatorname*{Epk}\left(  \tau\right)
+\ \mid\ \tau\in S\left(  \pi,\sigma\right)  \right\}  $ equals the multiset
+$\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  $ (because both of these
+multisets consist of lacunar nonempty subsets $\Lambda$ of $\left[
+n+m\right]  $, and the previous sentence shows that these subsets appear with
+equal multiplicities in them). This completes our proof of Theorem
+\ref{thm.Epk.sh-co-a}.
+\end{proof}
+
+The permutation statistic $\left(  \operatorname*{Lpk},\operatorname*{val}%
+\right)  $ (see \cite{part1} for its definition) is equivalent to
+$\operatorname*{Epk}$\ \ \ \ \footnote{Indeed, $\operatorname*{val}$ is
+equivalent to $\operatorname*{epk}$ by \cite[Lemma 2.1 \textbf{(e)}]{part1};
+but knowing $\operatorname*{epk}$ allows you to compute $\operatorname*{Epk}$
+from $\operatorname*{Lpk}$ and vice versa (since $\operatorname*{Epk}$ differs
+from $\operatorname*{Lpk}$ only in the possible element $n$).}. Thus, an
+analogue of Theorem \ref{thm.Epk.sh-co-a} holds for the statistic $\left(
+\operatorname*{Lpk},\operatorname*{val}\right)  $.
+
+\begin{question}
+Our concept of a \textquotedblleft$\mathcal{Z}$-enriched $\left(
+P,\gamma\right)  $-partition\textquotedblright\ generalizes the concept of an
+\textquotedblleft enriched $\left(  P,\gamma\right)  $%
+-partition\textquotedblright\ by restricting ourselves to a subset
+$\mathcal{Z}$ of $\mathcal{N}\times\left\{  +,-\right\}  $. (This does not
+sound like much of a generalization when stated like this, but as we have seen
+the behavior of the power series $\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)
+$ depends strongly on what $\mathcal{Z}$ is, and is not all anticipated by the
+$\mathcal{Z}=\mathcal{N}\times\left\{  +,-\right\}  $ case.) A different
+generalization of enriched $\left(  P,\gamma\right)  $-partitions (introduced
+by Hsiao and Petersen in \cite{HsiPet10}) are the \textit{colored }$\left(
+P,\gamma\right)  $\textit{-partitions}, where the two-element set $\left\{
++,-\right\}  $ is replaced by the set $\left\{  1,\omega,\ldots,\omega
+^{m-1}\right\}  $ of all $m$-th roots of unity (where $m$ is a chosen positive
+integer, and $\omega$ is a fixed primitive $m$-th root of unity). We can play
+various games with this concept. The most natural thing to do seems to be to
+consider $m$ arbitrary total orders $<_{0},<_{1},\ldots,<_{m-1}$ on the
+codomain $A$ of the labeling $\gamma$ (perhaps with some nice properties such
+as all intervals being finite) and an arbitrary subset $\mathcal{Z}$ of
+$\mathcal{N}\times\left\{  1,\omega,\ldots,\omega^{m-1}\right\}  $, and define
+a $\mathcal{Z}$-enriched colored $\left(  P,\gamma\right)  $-partition to be a
+map $f:P\rightarrow\mathcal{Z}$ such that every $x<y$ in $P$ satisfy the
+following conditions:
+
+\begin{enumerate}
+\item[\textbf{(i)}] We have $f\left(  x\right)  \preccurlyeq f\left(
+y\right)  $. (Here, the total order on $\mathcal{N}\times\left\{
+1,\omega,\ldots,\omega^{m-1}\right\}  $ is defined by%
+\[
+\left(  n,\omega^{i}\right)  \prec\left(  n^{\prime},\omega^{i^{\prime}%
+}\right)  \text{ if and only if either }n\prec n^{\prime}\text{ or }\left(
+n=n^{\prime}\text{ and }i<i^{\prime}\right)
+\]
+(for $i,i^{\prime}\in\left\{  0,1,\ldots,m-1\right\}  $).)
+
+\item[\textbf{(ii)}] If $f\left(  x\right)  =f\left(  y\right)  =\left(
+n,\omega^{i}\right)  $ for some $n\in\mathcal{N}$ and $i\in\left\{
+0,1,\ldots,m-1\right\}  $, then $\gamma\left(  x\right)  <_{i}\gamma\left(
+y\right)  $.
+\end{enumerate}
+
+Is this a useful concept, and can it be used to study permutation statistics?
+\end{question}
+
+\section{Descent statistics and quasisymmetric functions}
+
+In this section, we shall recall the concepts of descent statistics and their
+shuffle algebras (introduced in \cite{part1}), and apply them to
+$\operatorname*{Epk}$.
+
+\subsection{Descent statistics}
+
+\begin{definition}
+Let $\operatorname*{st}$ be a permutation statistic. We say that
+$\operatorname*{st}$ is a \textit{descent statistic} if and only if
+$\operatorname*{st}\pi$ (for $\pi$ a permutation) depends only on the descent
+composition $\operatorname*{Comp}\pi$ of $\pi$. In other words,
+$\operatorname*{st}$ is a descent statistic if and only if every two
+permutations $\pi$ and $\sigma$ satisfying $\operatorname*{Comp}%
+\pi=\operatorname*{Comp}\sigma$ satisfy $\operatorname*{st}\pi
+=\operatorname*{st}\sigma$.
+\end{definition}
+
+Equivalently, a permutation statistic $\operatorname*{st}$ is a descent
+statistic if and only if every two permutations $\pi$ and $\sigma$ satisfying
+$\left\vert \pi\right\vert =\left\vert \sigma\right\vert $ and
+$\operatorname*{Des}\pi=\operatorname*{Des}\sigma$ satisfy $\operatorname*{st}%
+\pi=\operatorname*{st}\sigma$. (This is indeed equivalent, because for two
+permutations $\pi$ and $\sigma$, the condition $\left(  \left\vert
+\pi\right\vert =\left\vert \sigma\right\vert \text{ and }\operatorname*{Des}%
+\pi=\operatorname*{Des}\sigma\right)  $ is equivalent to $\left(
+\operatorname*{Comp}\pi=\operatorname*{Comp}\sigma\right)  $.)
+
+For example, the permutation statistic $\operatorname*{Des}$ is a descent
+statistic, because each permutation $\pi$ satisfies $\operatorname*{Des}%
+\pi=\operatorname*{Des}\left(  \operatorname*{Comp}\pi\right)  $. Also,
+$\operatorname*{Pk}$ is a descent statistic, since each permutation $\pi$
+satisfies%
+\[
+\operatorname*{Pk}\pi=\left(  \operatorname*{Des}\pi\right)  \setminus\left(
+\left\{  1\right\}  \cup\left(  \operatorname*{Des}\pi+1\right)  \right)  ,
+\]
+where $\operatorname*{Des}\pi+1$ denotes the set $\left\{  i+1\ \mid
+\ i\in\operatorname*{Des}\pi\right\}  $ (and, as we have just said,
+$\operatorname*{Des}\pi$ can be recovered from $\operatorname*{Comp}\pi$).
+Furthermore, $\operatorname*{Epk}$ is a descent statistic, since each
+$n$-permutation $\pi$ (for a positive integer $n$) satisfies%
+\[
+\operatorname*{Epk}\pi=\left(  \operatorname*{Des}\pi\cup\left\{  n\right\}
+\right)  \setminus\left(  \operatorname*{Des}\pi+1\right)
+\]
+(and both $\operatorname*{Des}\pi$ and $n$ can be recovered from
+$\operatorname*{Comp}\pi$). The permutation statistics $\operatorname*{Lpk}$
+and $\operatorname*{Rpk}$ (and, of course, $\operatorname*{Comp}$) are descent
+statistics as well, as one can easily check.
+
+\begin{definition}
+\label{def.des-stat.stI}Let $\operatorname*{st}$ be a descent statistic. Then,
+we can regard $\operatorname*{st}$ as a map from the set of all compositions
+(rather than from the set of all permutations). Namely, for any composition
+$I$, we define $\operatorname*{st}I$ (an element of the codomain of
+$\operatorname*{st}$) by setting%
+\[
+\operatorname*{st}I=\operatorname*{st}\pi\ \ \ \ \ \ \ \ \ \ \text{for any
+permutation }\pi\text{ satisfying }\operatorname*{Comp}\pi=I.
+\]
+This is well-defined (because for every composition $I$, there exists at least
+one permutation $\pi$ satisfying $\operatorname*{Comp}\pi=I$, and all such
+permutations $\pi$ have the same value of $\operatorname*{st}\pi$). In the
+following, we shall regard every descent statistic $\operatorname*{st}$
+simultaneously as a map from the set of all permutations and as a map from the
+set of all compositions.
+\end{definition}
+
+Note that this definition leads to a new interpretation of
+$\operatorname*{Des}I$ for a composition $I$: It is now defined as
+$\operatorname*{Des}\pi$ for any permutation $\pi$ satisfying
+$\operatorname*{Comp}\pi=I$. This could clash with the old meaning of
+$\operatorname*{Des}I$ introduced in Definition \ref{def.comps-to-sets}.
+Fortunately, these two meanings of $\operatorname*{Des}I$ are exactly the
+same, so there is no conflict of notation.
+
+However, Definition \ref{def.des-stat.stI} causes an ambiguity for expressions
+like \textquotedblleft$\operatorname*{Des}\left(  i_{1},i_{2},\ldots
+,i_{n}\right)  $\textquotedblright: Here, the \textquotedblleft$\left(
+i_{1},i_{2},\ldots,i_{n}\right)  $\textquotedblright\ might be understood
+either as a permutation, or as a composition, and the resulting descent sets
+$\operatorname*{Des}\left(  i_{1},i_{2},\ldots,i_{n}\right)  $ are not the
+same. A similar ambiguity occurs for any descent statistic $\operatorname*{st}%
+$ instead of $\operatorname*{Des}$. We hope that this ambiguity will not arise
+in this paper due to our explicit typecasting of permutations and
+compositions; but the reader should be warned that it can arise if one takes
+the notation too literally.
+
+\begin{definition}
+\label{def.des-stat.eq-comp}Let $\operatorname*{st}$ be a descent statistic.
+
+\textbf{(a)} Two compositions $J$ and $K$ are said to be $\operatorname*{st}%
+$\textit{-equivalent} if and only if they have the same size and satisfy
+$\operatorname*{st}J=\operatorname*{st}K$. Equivalently, two compositions $J$
+and $K$ are $\operatorname*{st}$-equivalent if and only if there exist two
+$\operatorname*{st}$-equivalent permutations $\pi$ and $\sigma$ satisfying
+$J=\operatorname*{Comp}\pi$ and $K=\operatorname*{Comp}\sigma$.
+
+\textbf{(b)} The relation \textquotedblleft$\operatorname*{st}$%
+-equivalent\textquotedblright\ is an equivalence relation on compositions; its
+equivalence classes are called $\operatorname*{st}$\textit{-equivalence
+classes of compositions}.
+\end{definition}
+
+\subsection{Quasisymmetric functions}
+
+We now recall the definition of quasisymmetric functions; see \cite[Chapter
+5]{HopfComb} (and various other modern textbooks) for more details about this:
+
+\begin{definition}
+Consider the ring of power series $\mathbb{Q}\left[  \left[  x_{1},x_{2}%
+,x_{3},\ldots\right]  \right]  $ in infinitely many commuting indeterminates
+over $\mathbb{Q}$. A power series $f\in\mathbb{Q}\left[  \left[  x_{1}%
+,x_{2},x_{3},\ldots\right]  \right]  $ is said to be \textit{quasisymmetric}
+if it has the following property: For any positive integers $a_{1}%
+,a_{2},\ldots,a_{k}$ and any two strictly increasing sequences $\left(
+i_{1}<i_{2}<\cdots<i_{k}\right)  $ and $\left(  j_{1}<j_{2}<\cdots
+<j_{k}\right)  $ of positive integers, the coefficient of $x_{i_{1}}^{a_{1}%
+}x_{i_{2}}^{a_{2}}\cdots x_{i_{k}}^{a_{k}}$ in $f$ equals the coefficient of
+$x_{j_{1}}^{a_{1}}x_{j_{2}}^{a_{2}}\cdots x_{j_{k}}^{a_{k}}$ in $f$. A
+\textit{quasisymmetric function} is a quasisymmetric power series
+$f\in\mathbb{Q}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]  \right]  $
+that has bounded degree (i.e., there exists an $N\in\mathbb{N}$ such that each
+monomial appearing in $f$ has degree $\leq N$). The quasisymmetric functions
+form a $\mathbb{Q}$-subalgebra of $\mathbb{Q}\left[  \left[  x_{1},x_{2}%
+,x_{3},\ldots\right]  \right]  $; this $\mathbb{Q}$-subalgebra is denoted by
+$\operatorname*{QSym}$ and called the \textit{ring of quasisymmetric
+functions} over $\mathbb{Q}$.
+\end{definition}
+
+The $\mathbb{Q}$-algebra $\operatorname*{QSym}$ has much interesting structure
+(e.g., it is a Hopf algebra), but we will need very little of it (and we will
+introduce it whenever it becomes important). One simple yet crucial feature of
+$\operatorname*{QSym}$ that we will immediately use is the \textit{fundamental
+basis} of $\operatorname*{QSym}$:
+
+\begin{definition}
+For any composition $\alpha$, we define the \textit{fundamental quasisymmetric
+function} $F_{\alpha}$ to be the power series%
+\[
+\sum_{\substack{i_{1}\leq i_{2}\leq\cdots\leq i_{n};\\i_{j}<i_{j+1}\text{ for
+each }j\in\operatorname*{Des}\alpha}}x_{i_{1}}x_{i_{2}}\cdots x_{i_{n}}%
+\in\operatorname*{QSym},
+\]
+where $n=\left\vert \alpha\right\vert $ is the size of $\alpha$. The family
+$\left(  F_{\alpha}\right)  _{\alpha\text{ is a composition}}$ is a basis of
+the $\mathbb{Q}$-vector space $\operatorname*{QSym}$; it is known as the
+\textit{fundamental basis} of $\operatorname*{QSym}$.
+\end{definition}
+
+We notice that the fundamental quasisymmetric function $F_{\alpha}$ is denoted
+by $L_{\alpha}$ in \cite[\S 5.2]{HopfComb}.
+
+The multiplication of fundamental quasisymmetric functions is intimately
+related to shuffles of permutations:
+
+\begin{theorem}
+\label{thm.4.1}Let $\pi$ and $\sigma$ be two disjoint permutations. Let
+$J=\operatorname*{Comp}\pi$ and $K=\operatorname*{Comp}\sigma$. For any
+composition $L$, let $c_{J,K}^{L}$ be the number of permutations with descent
+composition $L$ among the shuffles of $\pi$ and $\sigma$. Then,%
+\[
+F_{J}F_{K}=\sum_{L}c_{J,K}^{L}F_{L}%
+\]
+(where the sum is over all compositions $L$).
+\end{theorem}
+
+Theorem \ref{thm.4.1} is \cite[Theorem 4.1]{part1}; it can also be written in
+the following form:
+
+\begin{proposition}
+\label{prop.4.1.rewr}Let $\pi$ and $\sigma$ be two disjoint permutations.
+Then,%
+\[
+F_{\operatorname*{Comp}\pi}F_{\operatorname*{Comp}\sigma}=\sum_{\chi\in
+S\left(  \pi,\sigma\right)  }F_{\operatorname*{Comp}\chi}.
+\]
+
+\end{proposition}
+
+For a proof of Proposition \ref{prop.4.1.rewr} (and therefore also of the
+equivalent Theorem \ref{thm.4.1}), we refer to \cite[(5.2.6)]{HopfComb} (which
+makes the additional requirement that the letters of $\pi$ are $1,2,\ldots
+,\left\vert \pi\right\vert $ and the letters of $\sigma$ are $\left\vert
+\pi\right\vert +1,\left\vert \pi\right\vert +2,\ldots,\left\vert
+\pi\right\vert +\left\vert \sigma\right\vert $; but this requirement is not
+used in the proof and thus can be dropped).
+
+\subsection{Shuffle algebras}
+
+Any shuffle-compatible permutation statistic $\operatorname*{st}$ gives rise
+to a \textit{shuffle algebra} $\mathcal{A}_{\operatorname*{st}}$, defined as follows:
+
+\begin{definition}
+\label{def.Ast}Let $\operatorname*{st}$ be a shuffle-compatible permutation
+statistic. For each permutation $\pi$, let $\left[  \pi\right]
+_{\operatorname*{st}}$ denote the $\operatorname*{st}$-equivalence class of
+$\pi$.
+
+Let $\mathcal{A}_{\operatorname*{st}}$ be the free $\mathbb{Q}$-vector space
+whose basis is the set of all $\operatorname*{st}$-equivalence classes of
+permutations. We define a multiplication on $\mathcal{A}_{\operatorname*{st}}$
+by setting%
+\[
+\left[  \pi\right]  _{\operatorname*{st}}\left[  \sigma\right]
+_{\operatorname*{st}}=\sum_{\tau\in S\left(  \pi,\sigma\right)  }\left[
+\tau\right]  _{\operatorname*{st}}%
+\]
+for any two disjoint permutations $\pi$ and $\sigma$. It is easy to see that
+this multiplication is well-defined and associative, and turns $\mathcal{A}%
+_{\operatorname*{st}}$ into a $\mathbb{Q}$-algebra whose unity is the
+$\operatorname*{st}$-equivalence class of the empty permutation. (In the
+particular case when $\operatorname*{st}$ is a descent statistic, this shall
+be proven again in Proposition \ref{prop.Ast.alg} \textbf{(a)} below.) This
+$\mathbb{Q}$-algebra is denoted by $\mathcal{A}_{\operatorname*{st}}$, and is
+called the \textit{shuffle algebra} of $\operatorname*{st}$. It is a graded
+$\mathbb{Q}$-algebra; its $n$-th graded component (for each $n\in\mathbb{N}$)
+is spanned by the $\operatorname*{st}$-equivalence classes of all $n$-permutations.
+\end{definition}
+
+\begin{proposition}
+\label{prop.Ast.alg}Let $\operatorname*{st}$ be a shuffle-compatible descent statistic.
+
+\textbf{(a)} The multiplication on $\mathcal{A}_{\operatorname*{st}}$ defined
+in Definition \ref{def.Ast} is well-defined and associative, and turns
+$\mathcal{A}_{\operatorname*{st}}$ into a $\mathbb{Q}$-algebra whose unity is
+the $\operatorname*{st}$-equivalence class of the empty permutation.
+
+\textbf{(b)} There is a surjective $\mathbb{Q}$-algebra homomorphism
+$p_{\operatorname*{st}}:\operatorname*{QSym}\rightarrow\mathcal{A}%
+_{\operatorname*{st}}$ that satisfies
+\[
+p_{\operatorname*{st}}\left(  F_{\operatorname*{Comp}\pi}\right)  =\left[
+\pi\right]  _{\operatorname*{st}}\ \ \ \ \ \ \ \ \ \ \text{for every
+permutation }\pi.
+\]
+
+\end{proposition}
+
+A central property of the shuffle algebra $\mathcal{A}_{\operatorname*{st}}$
+of a shuffle-compatible descent statistic is its relation to
+$\operatorname*{QSym}$. This relation is given by \cite[Theorem 4.3]{part1},
+which we restate as follows:
+
+\begin{theorem}
+\label{thm.4.3}Let $\operatorname*{st}$ be a descent statistic.
+
+\textbf{(a)} The descent statistic $\operatorname*{st}$ is shuffle-compatible
+if and only if there exist a $\mathbb{Q}$-algebra $A$ with basis $\left(
+u_{\alpha}\right)  $ (indexed by $\operatorname*{st}$-equivalence classes
+$\alpha$ of compositions) and a $\mathbb{Q}$-algebra homomorphism
+$\phi_{\operatorname*{st}}:\operatorname*{QSym}\rightarrow A$ with the
+property that whenever $\alpha$ is an $\operatorname*{st}$-equivalence class
+of compositions, we have%
+\[
+\phi_{\operatorname*{st}}\left(  F_{L}\right)  =u_{\alpha}%
+\ \ \ \ \ \ \ \ \ \ \text{for each }L\in\alpha.
+\]
+
+
+\textbf{(b)} In this case, the $\mathbb{Q}$-linear map%
+\[
+\mathcal{A}_{\operatorname*{st}}\rightarrow A,\ \ \ \ \ \ \ \ \ \ \left[
+\pi\right]  _{\operatorname*{st}}\mapsto u_{\alpha},
+\]
+where $\alpha$ is the $\operatorname*{st}$-equivalence class of the
+composition $\operatorname*{Comp}\pi$, is a $\mathbb{Q}$-algebra isomorphism
+$\mathcal{A}_{\operatorname*{st}}\rightarrow A$.
+\end{theorem}
+
+For the sake of completeness, we shall give proofs of Proposition
+\ref{prop.Ast.alg} and Theorem \ref{thm.4.3} (independent of \cite{part1}) in
+Subsection \ref{subsect.K.pfAsh}.
+
+We shall perhaps also use some other notations that were introduced in
+\cite{part1}. The reader should thus consult \cite{part1} for unexplained notations.
+
+\subsection{The shuffle algebra of $\operatorname*{Epk}$}
+
+Theorem \ref{thm.Epk.sh-co-a} yields that the permutation statistic
+$\operatorname*{Epk}$ is shuffle-compatible. Hence, the shuffle algebra
+$\mathcal{A}_{\operatorname*{Epk}}$ is well-defined. We have not much to say
+about the shuffle algebra $\mathcal{A}_{\operatorname*{Epk}}$; we know that it
+is a graded quotient algebra of $\operatorname*{QSym}$ (due to the
+homomorphism $p_{\operatorname*{st}}$ from Proposition \ref{prop.Ast.alg}
+\textbf{(b)}), and that for each positive integer $n$, its $n$-th graded
+component has dimension $f_{n+2}-1$, where $\left(  f_{0},f_{1},f_{2}%
+,\ldots\right)  $ is the Fibonacci sequence (defined by $f_{0}=0$ and
+$f_{1}=1$ and the recursive relation $f_{m}=f_{m-1}+f_{m-2}$ for all $m\geq
+2$). Moreover, the following holds:
+
+\begin{theorem}
+\label{thm.Epk.sh-co}The map given by%
 \[
 \left[  \pi\right]  _{\operatorname*{Epk}}\mapsto K_{n,\operatorname*{Epk}%
 }^{\mathcal{Z}}%
@@ -2059,10 +2243,8 @@ is a $\mathbb{Q}$-algebra isomorphism from $\mathcal{A}_{\operatorname*{Epk}}$
 to $\Pi_{\mathcal{Z}}$.
 \end{theorem}
 
-We shall first give a proof of Theorem \ref{thm.Epk.sh-co} using
-quasisymmetric functions, and then give an independent proof of Theorem
-\ref{thm.Epk.sh-co} \textbf{(a)} that proceeds as elementary as possible (but
-is really just the first proof, with most of the algebra stripped away).
+In the process of proving Theorem \ref{thm.Epk.sh-co}, we will also prove
+Theorem \ref{thm.Epk.sh-co-a} again.
 
 \begin{proof}
 [Proof of Theorem \ref{thm.Epk.sh-co}.]For each positive integer $n$ and each
@@ -2157,179 +2339,17 @@ shows that this is indeed a bijection.}. Hence, Theorem~\ref{thm.4.3}
 $\alpha$ is an $\operatorname*{Epk}$-equivalence class of $n$-permutations and
 where $\Lambda$ is the corresponding nonempty\footnote{or empty, if $n=0$}
 lacunar subset) shows that the descent statistic $\operatorname*{Epk}$ is
-shuffle-compatible. Theorem~\ref{thm.4.3} \textbf{(b)} then yields that the
-$\mathbb{Q}$-linear map%
+shuffle-compatible. This proves Theorem \ref{thm.Epk.sh-co-a} again.
+Theorem~\ref{thm.4.3} \textbf{(b)} then yields that the $\mathbb{Q}$-linear
+map%
 \[
 \mathcal{A}_{\operatorname*{Epk}}\rightarrow\Pi_{\mathcal{Z}}%
 ,\ \ \ \ \ \ \ \ \ \ \left[  \pi\right]  _{\operatorname*{Epk}}\mapsto
 K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}%
 \]
 is a $\mathbb{Q}$-algebra isomorphism from $\mathcal{A}_{\operatorname*{Epk}}$
-to $\Pi_{\mathcal{Z}}$. Hence, Theorem \ref{thm.Epk.sh-co} \textbf{(b)} is proven.
+to $\Pi_{\mathcal{Z}}$. Hence, Theorem \ref{thm.Epk.sh-co} is proven.
 \end{proof}
-
-\begin{proof}
-[Alternative proof of Theorem \ref{thm.Epk.sh-co} \textbf{(a)}.]We must prove
-that $\operatorname*{Epk}$ is shuffle-compatible. In other words, we must
-prove that for any two disjoint permutations $\pi$ and $\sigma$, the multiset
-$\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(
-\pi,\sigma\right)  \right\}  $ depends only on $\operatorname*{Epk}\left(
-\pi\right)  $, $\operatorname*{Epk}\left(  \sigma\right)  $, $\left\vert
-\pi\right\vert $ and $\left\vert \sigma\right\vert $. In other words, we must
-prove that if $\pi$ and $\sigma$ are two disjoint permutations, and if
-$\pi^{\prime}$ and $\sigma^{\prime}$ are two disjoint permutations satisfying
-$\operatorname*{Epk}\left(  \pi\right)  =\operatorname*{Epk}\left(
-\pi^{\prime}\right)  $, $\operatorname*{Epk}\left(  \sigma\right)
-=\operatorname*{Epk}\left(  \sigma^{\prime}\right)  $, $\left\vert
-\pi\right\vert =\left\vert \pi^{\prime}\right\vert $ and $\left\vert
-\sigma\right\vert =\left\vert \sigma^{\prime}\right\vert $, then the multiset
-$\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(
-\pi,\sigma\right)  \right\}  $ equals the multiset $\left\{
-\operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi^{\prime
-},\sigma^{\prime}\right)  \right\}  $.
-
-So let $\pi$ and $\sigma$ be two disjoint permutations, and let $\pi^{\prime}$
-and $\sigma^{\prime}$ be two disjoint permutations satisfying
-$\operatorname*{Epk}\left(  \pi\right)  =\operatorname*{Epk}\left(
-\pi^{\prime}\right)  $, $\operatorname*{Epk}\left(  \sigma\right)
-=\operatorname*{Epk}\left(  \sigma^{\prime}\right)  $, $\left\vert
-\pi\right\vert =\left\vert \pi^{\prime}\right\vert $ and $\left\vert
-\sigma\right\vert =\left\vert \sigma^{\prime}\right\vert $.
-
-Define $n\in\mathbb{N}$ by $n=\left\vert \pi\right\vert =\left\vert
-\pi^{\prime}\right\vert $ (this is well-defined, since $\left\vert
-\pi\right\vert =\left\vert \pi^{\prime}\right\vert $). Likewise, define
-$m\in\mathbb{N}$ by $m=\left\vert \sigma\right\vert =\left\vert \sigma
-^{\prime}\right\vert $. Thus, $\pi$ is an $n$-permutation, while $\sigma$ is
-an $m$-permutation.
-
-WLOG assume that $n+m>0$ (since otherwise, both $n$ and $m$ are $0$, which
-causes all four permutations $\pi$, $\pi^{\prime}$, $\sigma$ and
-$\sigma^{\prime}$ to be empty; but then our goal is obviously satisfied).
-Corollary \ref{cor.KnEpk-prodrule} yields
-\begin{align*}
-&  K_{n,\operatorname*{Epk}\left(  \pi\right)  }^{\mathcal{Z}}\cdot
-K_{m,\operatorname*{Epk}\left(  \sigma\right)  }^{\mathcal{Z}}\\
-&  =\sum_{\tau\in S\left(  \pi,\sigma\right)  }K_{n+m,\operatorname*{Epk}\tau
-}^{\mathcal{Z}}=\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
-lacunar}\\\text{and nonempty}}}\underbrace{\sum_{\substack{\tau\in S\left(
-\pi,\sigma\right)  ;\\\operatorname*{Epk}\tau=\Lambda}}K_{n+m,\Lambda
-}^{\mathcal{Z}}}_{=\left\vert \left\{  \tau\in S\left(  \pi,\sigma\right)
-\ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert K_{n+m,\Lambda
-}^{\mathcal{Z}}}\\
-&  \ \ \ \ \ \ \ \ \ \ \left(
-\begin{array}
-[c]{c}%
-\text{because if }\tau\in S\left(  \pi,\sigma\right)  \text{, then
-}\operatorname*{Epk}\tau\text{ is a}\\
-\text{lacunar and nonempty subset of }\left[  n+m\right] \\
-\text{(by Proposition \ref{prop.Epk-lac}, applied to }n+m\text{ and }\tau\\
-\text{instead of }n\text{ and }\pi\text{)}%
-\end{array}
-\right) \\
-&  =\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
-lacunar}\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(  \pi
-,\sigma\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert
-K_{n+m,\Lambda}^{\mathcal{Z}}.
-\end{align*}
-Similarly,%
-\[
-K_{n,\operatorname*{Epk}\left(  \pi^{\prime}\right)  }^{\mathcal{Z}}\cdot
-K_{m,\operatorname*{Epk}\left(  \sigma^{\prime}\right)  }^{\mathcal{Z}}%
-=\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is lacunar}%
-\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(  \pi^{\prime
-},\sigma^{\prime}\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}
-\right\vert K_{n+m,\Lambda}^{\mathcal{Z}}.
-\]
-The left-hand sides of these two equalities are identical (since
-$\operatorname*{Epk}\left(  \pi\right)  =\operatorname*{Epk}\left(
-\pi^{\prime}\right)  $ and $\operatorname*{Epk}\left(  \sigma\right)
-=\operatorname*{Epk}\left(  \sigma^{\prime}\right)  $). Thus, their right-hand
-sides must also be identical. In other words, we have%
-\begin{align*}
-&  \sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
-lacunar}\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(  \pi
-,\sigma\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert
-K_{n+m,\Lambda}^{\mathcal{Z}}\\
-&  =\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
-lacunar}\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(
-\pi^{\prime},\sigma^{\prime}\right)  \ \mid\ \operatorname*{Epk}\tau
-=\Lambda\right\}  \right\vert K_{n+m,\Lambda}^{\mathcal{Z}}.
-\end{align*}
-Since the family $\left(  K_{n+m,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda
-\subseteq\left[  n+m\right]  \text{ is lacunar and nonempty}}$ is $\mathbb{Q}%
-$-linearly independent (by Proposition \ref{prop.KnL.lindep}), this shows that%
-\[
-\left\vert \left\{  \tau\in S\left(  \pi,\sigma\right)  \ \mid
-\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert =\left\vert \left\{
-\tau\in S\left(  \pi^{\prime},\sigma^{\prime}\right)  \ \mid
-\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert
-\]
-for each lacunar nonempty subset $\Lambda$ of $\left[  n+m\right]  $. In other
-words, the multiset $\left\{  \operatorname*{Epk}\left(  \tau\right)
-\ \mid\ \tau\in S\left(  \pi,\sigma\right)  \right\}  $ equals the multiset
-$\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(
-\pi^{\prime},\sigma^{\prime}\right)  \right\}  $ (because both of these
-multisets consist of lacunar nonempty subsets $\Lambda$ of $\left[
-n+m\right]  $, and the previous sentence shows that these subsets appear with
-equal multiplicities in them). This completes our proof of Theorem
-\ref{thm.Epk.sh-co} \textbf{(a)}.
-\end{proof}
-
-The permutation statistic $\left(  \operatorname*{Lpk},\operatorname*{val}%
-\right)  $ (see \cite{part1} for its definition) is equivalent to
-$\operatorname*{Epk}$\ \ \ \ \footnote{Indeed, $\operatorname*{val}$ is
-equivalent to $\operatorname*{epk}$ by \cite[Lemma 2.1 \textbf{(e)}]{part1};
-but knowing $\operatorname*{epk}$ allows you to compute $\operatorname*{Epk}$
-from $\operatorname*{Lpk}$ and vice versa (since $\operatorname*{Epk}$ differs
-from $\operatorname*{Lpk}$ only in the possible element $n$).}. Thus, an
-analogue of Theorem \ref{thm.Epk.sh-co} holds for the statistic $\left(
-\operatorname*{Lpk},\operatorname*{val}\right)  $.
-
-\begin{question}
-Our concept of a \textquotedblleft$\mathcal{Z}$-enriched $\left(
-P,\gamma\right)  $-partition\textquotedblright\ generalizes the concept of an
-\textquotedblleft enriched $\left(  P,\gamma\right)  $%
--partition\textquotedblright\ by restricting ourselves to a subset
-$\mathcal{Z}$ of $\mathcal{N}\times\left\{  +,-\right\}  $. (This does not
-sound like much of a generalization when stated like this, but as we have seen
-the behavior of the power series $\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)
-$ depends strongly on what $\mathcal{Z}$ is, and is not all anticipated by the
-$\mathcal{Z}=\mathcal{N}\times\left\{  +,-\right\}  $ case.) A different
-generalization of enriched $\left(  P,\gamma\right)  $-partitions (introduced
-by Hsiao and Petersen in \cite{HsiPet10}) are the \textit{colored }$\left(
-P,\gamma\right)  $\textit{-partitions}, where the two-element set $\left\{
-+,-\right\}  $ is replaced by the set $\left\{  1,\omega,\ldots,\omega
-^{m-1}\right\}  $ of all $m$-th roots of unity (where $m$ is a chosen positive
-integer, and $\omega$ is a fixed primitive $m$-th root of unity). We can play
-various games with this concept. The most natural thing to do seems to be to
-consider $m$ arbitrary total orders $<_{0},<_{1},\ldots,<_{m-1}$ on the
-codomain $A$ of the labeling $\gamma$ (perhaps with some nice properties such
-as all intervals being finite) and an arbitrary subset $\mathcal{Z}$ of
-$\mathcal{N}\times\left\{  1,\omega,\ldots,\omega^{m-1}\right\}  $, and define
-a $\mathcal{Z}$-enriched colored $\left(  P,\gamma\right)  $-partition to be a
-map $f:P\rightarrow\mathcal{Z}$ such that every $x<y$ in $P$ satisfy the
-following conditions:
-
-\begin{enumerate}
-\item[\textbf{(i)}] We have $f\left(  x\right)  \preccurlyeq f\left(
-y\right)  $. (Here, the total order on $\mathcal{N}\times\left\{
-1,\omega,\ldots,\omega^{m-1}\right\}  $ is defined by%
-\[
-\left(  n,\omega^{i}\right)  \prec\left(  n^{\prime},\omega^{i^{\prime}%
-}\right)  \text{ if and only if either }n\prec n^{\prime}\text{ or }\left(
-n=n^{\prime}\text{ and }i<i^{\prime}\right)
-\]
-(for $i,i^{\prime}\in\left\{  0,1,\ldots,m-1\right\}  $).)
-
-\item[\textbf{(ii)}] If $f\left(  x\right)  =f\left(  y\right)  =\left(
-n,\omega^{i}\right)  $ for some $n\in\mathcal{N}$ and $i\in\left\{
-0,1,\ldots,m-1\right\}  $, then $\gamma\left(  x\right)  <_{i}\gamma\left(
-y\right)  $.
-\end{enumerate}
-
-Is this a useful concept, and can it be used to study descent statistics?
-\end{question}
 
 \section{The kernel of the map $\operatorname*{QSym}\rightarrow\mathcal{A}%
 _{\operatorname*{Epk}}$}
@@ -2568,7 +2588,7 @@ descent statistic $\operatorname*{Epk}$ is an ideal of $\operatorname*{QSym}$.
 \begin{proof}
 [Proof of Corollary \ref{cor.Epk.ideal}.]This follows from Proposition
 \ref{prop.K.ideal} (applied to $\operatorname*{st}=\operatorname*{Epk}$),
-because of Theorem \ref{thm.Epk.sh-co} \textbf{(a)}.
+because of Theorem \ref{thm.Epk.sh-co-a}.
 \end{proof}
 
 We can study the kernel of any descent statistic; in particular, the case of

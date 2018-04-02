@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, March 29, 2018 00:07:46}
+%TCIDATA{LastRevised=Sunday, April 01, 2018 20:48:06}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -173,8 +173,8 @@ if its size is $>0$).
 \end{definition}
 
 Note that the meaning of \textquotedblleft permutation\textquotedblright\ we
-have just defined is slightly unusual (most authors define a permutation to be
-a bijection from a set to itself); we are following \cite{part1} in defining
+have just defined is unusual (most authors define a permutation to be a
+bijection from a set to itself); we are following \cite{part1} in defining
 permutations this way.
 
 \begin{definition}
@@ -200,6 +200,21 @@ $\textit{-equivalent} if they satisfy $\left\vert \alpha\right\vert
 $-equivalent\textquotedblright\ is an equivalence relation; its equivalence
 classes are called $\operatorname*{st}$\textit{-equivalence classes}.
 \end{definition}
+
+\begin{remark}
+Let $n\in\mathbb{N}$. Let us call an $n$-permutation $\pi$ \textit{standard}
+if its letters are $1,2,\ldots,n$ (in some order). The standard $n$%
+-permutations are in bijection with the $n!$ permutations of the set $\left\{
+1,2,\ldots,n\right\}  $ in the usual sense of this word (i.e., the bijections
+from this set to itself).
+
+It is easy to see that for each $n$-permutation $\sigma$, there exists a
+\textbf{unique} standard $n$-permutation $\pi$ order-equivalent to $\sigma$.
+Thus, a permutation statistic is uniquely determined by its values on standard
+permutations. Consequently, we can view permutation statistics as statistics
+defined on standard permutations, i.e., on permutations in the usual sense of
+the word.
+\end{remark}
 
 \subsection{Compositions}
 
@@ -465,7 +480,7 @@ This proves Proposition \ref{prop.Epk.through-Des}.
 \subsection{Shuffles and shuffle-compatibility}
 
 \begin{definition}
-Let $\pi$ and $\sigma$ be two permutations.
+\label{def.shuffles}Let $\pi$ and $\sigma$ be two permutations.
 
 \textbf{(a)} We say that $\pi$ and $\sigma$ are \textit{disjoint} if no letter
 appears in both $\pi$ and $\sigma$.
@@ -496,6 +511,31 @@ If $\pi$ and $\sigma$ are two disjoint permutations, then $S\left(  \pi
 ,\sigma\right)  =S\left(  \sigma,\pi\right)  $ is an $\dbinom{m+n}{m}$-element
 set, where $m=\left\vert \pi\right\vert $ and $n=\left\vert \sigma\right\vert
 $.
+
+Definition \ref{def.shuffles} \textbf{(b)} is not new; it is used, e.g., in
+\cite{Greene88}. From the point of view of combinatorics on words, it is
+somewhat naive, as it fails to properly generalize to the case when the words
+$\pi$ and $\sigma$ are no longer disjoint\footnote{In this general case, it is
+best to define a shuffle of $\pi$ and $\sigma$ as a word of the form $\left(
+\gamma_{\eta\left(  1\right)  },\gamma_{\eta\left(  2\right)  },\ldots
+,\gamma_{\eta\left(  m+n\right)  }\right)  $, where $\left(  \gamma_{1}%
+,\gamma_{2},\ldots,\gamma_{m+n}\right)  $ is the word $\left(  \pi_{1},\pi
+_{2},\ldots,\pi_{m},\sigma_{1},\sigma_{2},\ldots,\sigma_{n}\right)  $, and
+where $\eta$ is some permutation of the set $\left\{  1,2,\ldots,m+n\right\}
+$ (that is, a bijection from this set to itself) satisfying $\eta^{-1}\left(
+1\right)  <\eta^{-1}\left(  2\right)  <\cdots<\eta^{-1}\left(  m\right)  $
+(this causes the letters $\pi_{1},\pi_{2},\ldots,\pi_{m}$ to appear in the
+word $\left(  \gamma_{\eta\left(  1\right)  },\gamma_{\eta\left(  2\right)
+},\ldots,\gamma_{\eta\left(  m+n\right)  }\right)  $ in this order) and
+$\eta^{-1}\left(  m+1\right)  <\eta^{-1}\left(  m+2\right)  <\cdots<\eta
+^{-1}\left(  m+n\right)  $ (this causes the letters $\sigma_{1},\sigma
+_{2},\ldots,\sigma_{n}$ to appear in the word $\left(  \gamma_{\eta\left(
+1\right)  },\gamma_{\eta\left(  2\right)  },\ldots,\gamma_{\eta\left(
+m+n\right)  }\right)  $ in this order). Furthermore, the proper generalization
+of $S\left(  \pi,\sigma\right)  $ to this case would be a multiset, not a mere
+set.}. But we will not be considering this general case, since our results do
+not seem to straightforwardly extend to it (although we might have to look
+more closely); thus, Definition \ref{def.shuffles} will suffice for us.
 
 \begin{definition}
 Let $\operatorname*{st}$ be a permutation statistic. We say that
@@ -1831,11 +1871,11 @@ lacunar}\\\text{and nonempty}}}\underbrace{\sum_{\substack{\tau\in S\left(
 [c]{c}%
 \text{because if }\tau\in S\left(  \pi,\sigma\right)  \text{, then
 }\operatorname*{Epk}\tau\text{ is a}\\
-\text{lacunar and nonempty subset of }\left[  n+m\right]  \\
+\text{lacunar and nonempty subset of }\left[  n+m\right] \\
 \text{(by Proposition \ref{prop.Epk-lac}, applied to }n+m\text{ and }\tau\\
 \text{instead of }n\text{ and }\pi\text{)}%
 \end{array}
-\right)  \\
+\right) \\
 &  =\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
 lacunar}\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(  \pi
 ,\sigma\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert
@@ -6472,6 +6512,11 @@ We now claim the following:
 \bibitem[GesZhu17]{part1}\href{http://arxiv.org/abs/1706.00750v2}{Ira M.
 Gessel, Yan Zhuang, \textit{Shuffle-compatible permutation statistics},
 arXiv:1706.00750v2}.
+
+\bibitem[Greene88]{Greene88}%
+\href{https://doi.org/10.1016/0097-3165(88)90018-0}{Curtis Greene,
+\textit{Posets of shuffles}, Journal of Combinatorial Theory, Series A, Volume
+47, Issue 2, March 1988, pp. 191--206}.
 
 \bibitem[Grinbe16]{dimcr}Darij Grinberg, \textit{Dual immaculate creation
 operators and a dendriform algebra structure on the quasisymmetric functions},

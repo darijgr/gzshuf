@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, April 01, 2018 20:48:06}
+%TCIDATA{LastRevised=Tuesday, May 15, 2018 01:06:42}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -118,12 +118,28 @@
 
 \section*{***}
 
-This draft is a continuation of
+This preprint is a continuation of
 \href{http://lanl.arxiv.org/abs/1706.00750v2}{the preprint \textquotedblleft
 Shuffle-compatible permutation statistics\textquotedblright\ by Ira M. Gessel
-and Yan Zhuang (\cite{part1})} (but can be read independently from the latter).
+and Yan Zhuang (\cite{part1})} (but can be read independently from the
+latter). In Section \ref{sect.notations}, we introduce the notations that we
+will need throughout this paper, and prove a warmup proposition. In Section
+\ref{sect.Zenri}, we prove that the exterior peak set statistic
+$\operatorname*{Epk}$ is shuffle-compatible, as conjectured by Gessel and
+Zhuang in \cite{part1}. In Section \ref{sect.LR}, we introduce the concept of
+an \textquotedblleft LR-shuffle-compatible\textquotedblright\ statistic, which
+is stronger than shuffle-compatibility. We give a sufficient criterion for it
+and use it to show that $\operatorname*{Epk}$ is LR-shuffle-compatible. In
+Section \ref{sect.Descent}, we recall the concept of descent statistics
+introduced in \cite{part1} and its connection to quasisymmetric functions.
+Motivated by this connection, in Section \ref{sect.kernel}, we define the
+kernel of a descent statistic, and study this kernel for $\operatorname*{Epk}%
+$, giving two explicit generating sets for this kernel. In Section
+\ref{sect.dendri}, we extend the quasisymmetric functions connection to the
+concept of LR-shuffle-compatible statistics, and relate it to dendriform algebras.
 
-All of the following is a rough draft, and proofs are merely outlined.
+All of the following is a rough draft, and some proofs (particularly in
+Section \ref{sect.dendri}) are merely outlined.
 
 \subsection*{Acknowledgments}
 
@@ -131,7 +147,7 @@ We thank Yan Zhuang and Ira Gessel for helpful conversations and a few
 corrections. The SageMath computer algebra system \cite{SageMath} has been
 used in finding some of the results below.
 
-\section{Notations and definitions}
+\section{\label{sect.notations}Notations and definitions}
 
 Let us first introduce the definitions and notations that we will use in the
 rest of this paper. Many of these definitions appear in \cite{part1} already;
@@ -350,10 +366,15 @@ permutation statistics. For example, Definition \ref{def.Des-et-al}
 \textbf{(b)} defines the permutation statistic $\operatorname*{Des}$, whose
 codomain is the set of all subsets of $\mathbb{P}$. Also, Definition
 \ref{def.Des-et-al} \textbf{(c)} defines the permutation statistic
-$\operatorname*{Comp}$, whose codomain is the set of all compositions. The
-main permutation statistic that we will study in this paper is
-$\operatorname*{Epk}$, which is defined in Definition \ref{def.Des-et-al}
-\textbf{(k)}; its codomain is the set of all subsets of $\mathbb{P}$.
+$\operatorname*{Comp}$, whose codomain is the set of all compositions.
+Likewise, Definition \ref{def.Des-et-al} \textbf{(e)} defines the permutation
+statistic $\operatorname*{Pk}$, and Definition \ref{def.Des-et-al}
+\textbf{(g)} defines the permutation statistic $\operatorname*{Lpk}$, whereas
+Definition \ref{def.Des-et-al} \textbf{(i)} defines the permutation statistic
+$\operatorname*{Rpk}$. The main permutation statistic that we will study in
+this paper is $\operatorname*{Epk}$, which is defined in Definition
+\ref{def.Des-et-al} \textbf{(k)}; its codomain is the set of all subsets of
+$\mathbb{P}$.
 
 The following simple fact expresses the set $\operatorname*{Epk}\pi$
 corresponding to an $n$-permutation $\pi$ in terms of $\operatorname*{Des}\pi$:
@@ -538,20 +559,39 @@ not seem to straightforwardly extend to it (although we might have to look
 more closely); thus, Definition \ref{def.shuffles} will suffice for us.
 
 \begin{definition}
+\textbf{(a)} If $a_{1},a_{2},\ldots,a_{k}$ are finitely many arbitrary
+objects, then $\left\{  a_{1},a_{2},\ldots,a_{k}\right\}
+_{\operatorname*{multi}}$ denotes the \textbf{multisets} whose elements are
+$a_{1},a_{2},\ldots,a_{k}$ (each appearing with the multiplicity with which it
+appears in the list $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $).
+
+\textbf{(b)} Let $\left(  a_{i}\right)  _{i\in I}$ be a finite family of
+arbitrary objects. Then, $\left\{  a_{i}\ \mid\ i\in I\right\}
+_{\operatorname*{multi}}$ denotes the \textbf{multiset} whose elements are the
+elements of this family (each appearing with the multiplicity with which it
+appears in the family).
+\end{definition}
+
+For example, $\left\{  k^{2}\ \mid\ k\in\left\{  -2,-1,0,1,2\right\}
+\right\}  _{\operatorname*{multi}}$ is the multiset that contains the element
+$4$ twice, the element $1$ twice, and the element $0$ once (and no other elements).
+
+\begin{definition}
 Let $\operatorname*{st}$ be a permutation statistic. We say that
 $\operatorname*{st}$ is \textit{shuffle-compatible} if and only if it has the
 following property: For any two disjoint permutations $\pi$ and $\sigma$, the
 multiset%
 \[
 \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
-\pi,\sigma\right)  \right\}
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}%
 \]
 depends only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
 \left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
 \sigma\right\vert $.
 \end{definition}
 
-\section{Extending enriched $P$-partitions and the exterior peak set}
+\section{\label{sect.Zenri}Extending enriched $P$-partitions and the exterior
+peak set}
 
 We are going to define \textit{$\mathcal{Z}$-enriched }$P$\textit{-partitions}%
 , which are a straightforward generalization of the notions of
@@ -1822,20 +1862,21 @@ We can now finally prove what we came here for:
 $\operatorname*{Epk}$ is shuffle-compatible. In other words, we must prove
 that for any two disjoint permutations $\pi$ and $\sigma$, the multiset
 $\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(
-\pi,\sigma\right)  \right\}  $ depends only on $\operatorname*{Epk}\left(
-\pi\right)  $, $\operatorname*{Epk}\left(  \sigma\right)  $, $\left\vert
-\pi\right\vert $ and $\left\vert \sigma\right\vert $. In other words, we must
-prove that if $\pi$ and $\sigma$ are two disjoint permutations, and if
-$\pi^{\prime}$ and $\sigma^{\prime}$ are two disjoint permutations satisfying
-$\operatorname*{Epk}\left(  \pi\right)  =\operatorname*{Epk}\left(
-\pi^{\prime}\right)  $, $\operatorname*{Epk}\left(  \sigma\right)
-=\operatorname*{Epk}\left(  \sigma^{\prime}\right)  $, $\left\vert
-\pi\right\vert =\left\vert \pi^{\prime}\right\vert $ and $\left\vert
-\sigma\right\vert =\left\vert \sigma^{\prime}\right\vert $, then the multiset
-$\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(
-\pi,\sigma\right)  \right\}  $ equals the multiset $\left\{
-\operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi^{\prime
-},\sigma^{\prime}\right)  \right\}  $.
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$ depends only on
+$\operatorname*{Epk}\left(  \pi\right)  $, $\operatorname*{Epk}\left(
+\sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert \sigma
+\right\vert $. In other words, we must prove that if $\pi$ and $\sigma$ are
+two disjoint permutations, and if $\pi^{\prime}$ and $\sigma^{\prime}$ are two
+disjoint permutations satisfying $\operatorname*{Epk}\left(  \pi\right)
+=\operatorname*{Epk}\left(  \pi^{\prime}\right)  $, $\operatorname*{Epk}%
+\left(  \sigma\right)  =\operatorname*{Epk}\left(  \sigma^{\prime}\right)  $,
+$\left\vert \pi\right\vert =\left\vert \pi^{\prime}\right\vert $ and
+$\left\vert \sigma\right\vert =\left\vert \sigma^{\prime}\right\vert $, then
+the multiset $\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in
+S\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$ equals the
+multiset $\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in
+S\left(  \pi^{\prime},\sigma^{\prime}\right)  \right\}
+_{\operatorname*{multi}}$.
 
 So let $\pi$ and $\sigma$ be two disjoint permutations, and let $\pi^{\prime}$
 and $\sigma^{\prime}$ be two disjoint permutations satisfying
@@ -1916,13 +1957,13 @@ $-linearly independent (by Proposition \ref{prop.KnL.lindep}), this shows that%
 \]
 for each lacunar nonempty subset $\Lambda$ of $\left[  n+m\right]  $. In other
 words, the multiset $\left\{  \operatorname*{Epk}\left(  \tau\right)
-\ \mid\ \tau\in S\left(  \pi,\sigma\right)  \right\}  $ equals the multiset
-$\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(
-\pi^{\prime},\sigma^{\prime}\right)  \right\}  $ (because both of these
-multisets consist of lacunar nonempty subsets $\Lambda$ of $\left[
-n+m\right]  $, and the previous sentence shows that these subsets appear with
-equal multiplicities in them). This completes our proof of Theorem
-\ref{thm.Epk.sh-co-a}.
+\ \mid\ \tau\in S\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}
+$ equals the multiset $\left\{  \operatorname*{Epk}\left(  \tau\right)
+\ \mid\ \tau\in S\left(  \pi^{\prime},\sigma^{\prime}\right)  \right\}
+_{\operatorname*{multi}}$ (because both of these multisets consist of lacunar
+nonempty subsets $\Lambda$ of $\left[  n+m\right]  $, and the previous
+sentence shows that these subsets appear with equal multiplicities in them).
+This completes our proof of Theorem \ref{thm.Epk.sh-co-a}.
 \end{proof}
 
 The permutation statistic $\left(  \operatorname*{Lpk},\operatorname*{val}%
@@ -1980,7 +2021,2746 @@ y\right)  $.
 Is this a useful concept, and can it be used to study permutation statistics?
 \end{question}
 
-\section{Descent statistics and quasisymmetric functions}
+\section{\label{sect.LR}LR-shuffle-compatibility}
+
+In this section, we shall introduce the concept of \textquotedblleft
+LR-shuffle-compatibility\textquotedblright\ (short for \textquotedblleft
+left-and-right-shuffle-compatibility\textquotedblright), which is stronger
+than usual shuffle-compatibility. We shall prove that $\operatorname*{Epk}$
+still is LR-shuffle-compatible, and study some other statistics that are and
+some that are not.
+
+\subsection{Left and right shuffles}
+
+We begin by introducing \textquotedblleft left shuffles\textquotedblright\ and
+\textquotedblleft right shuffles\textquotedblright. There is a well-known
+notion of left and right shuffles of words (see, e.g., the operations $\prec$
+and $\succ$ in \cite[Example 1]{EbMaPa07}). Specialized to permutations, it
+can be defined in the following simple way:
+
+\begin{definition}
+\label{def.LRshuf}Let $\pi$ and $\sigma$ be two disjoint permutations. Then:
+
+\begin{itemize}
+\item A \textit{left shuffle} of $\pi$ and $\sigma$ means a shuffle $\tau$ of
+$\pi$ and $\sigma$ such that the first letter of $\tau$ is the first letter of
+$\pi$. (This makes sense only when $\pi$ is nonempty. Otherwise, there are no
+left shuffles of $\pi$ and $\sigma$.)
+
+\item A \textit{right shuffle} of $\pi$ and $\sigma$ means a shuffle $\tau$ of
+$\pi$ and $\sigma$ such that the first letter of $\tau$ is the first letter of
+$\sigma$. (This makes sense only when $\sigma$ is nonempty. Otherwise, there
+are no right shuffles of $\pi$ and $\sigma$.)
+
+\item We let $S_{\prec}\left(  \pi,\sigma\right)  $ denote the set of all left
+shuffles of $\pi$ and $\sigma$.
+
+\item We let $S_{\succ}\left(  \pi,\sigma\right)  $ denote the set of all
+right shuffles of $\pi$ and $\sigma$.
+\end{itemize}
+\end{definition}
+
+For example, the left shuffles of the two disjoint permutations $\left(
+3,1\right)  $ and $\left(  2,6\right)  $ are%
+\[
+\left(  3,1,2,6\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  3,2,1,6\right)
+,\ \ \ \ \ \ \ \ \ \ \left(  3,2,6,1\right)  ,
+\]
+whereas their right shuffles are%
+\[
+\left(  2,3,1,6\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  2,3,6,1\right)
+,\ \ \ \ \ \ \ \ \ \ \left(  2,6,3,1\right)  .
+\]
+The permutations $\left(  {}\right)  $ and $\left(  1,3\right)  $ have only
+one right shuffle, which is $\left(  1,3\right)  $, and they have no left shuffles.
+
+Clearly, if $\pi$ and $\sigma$ are two disjoint permutations such that at
+least one of $\pi$ and $\sigma$ is nonempty, then the two sets $S_{\prec
+}\left(  \pi,\sigma\right)  $ and $S_{\succ}\left(  \pi,\sigma\right)  $ are
+disjoint and their union is $S\left(  \pi,\sigma\right)  $ (because every
+shuffle of $\pi$ and $\sigma$ is either a left shuffle or a right shuffle, but
+not both).
+
+Left and right shuffles have a recursive structure that makes them amenable to
+inductive arguments. To state it, we need one more definition:
+
+\begin{definition}
+Let $n\in\mathbb{N}$. Let $\pi$ be an $n$-permutation.
+
+\textbf{(a)} For each $i\in\left\{  1,2,\ldots,n\right\}  $, we let $\pi_{i}$
+denote the $i$-th entry of $\pi$. Thus, $\pi=\left(  \pi_{1},\pi_{2}%
+,\ldots,\pi_{n}\right)  $.
+
+\textbf{(b)} If $a$ is a positive integer that does not appear in $\pi$, then
+$a:\pi$ denotes the $\left(  n+1\right)  $-permutation $\left(  a,\pi_{1}%
+,\pi_{2},\ldots,\pi_{n}\right)  $.
+
+\textbf{(c)} If $n>0$, then $\pi_{\sim1}$ denotes the $\left(  n-1\right)
+$-permutation $\left(  \pi_{2},\pi_{3},\ldots,\pi_{n}\right)  $.
+\end{definition}
+
+\begin{proposition}
+\label{prop.LR.rec}Let $\pi$ and $\sigma$ be two disjoint permutations.
+
+\textbf{(a)} We have $S_{\prec}\left(  \pi,\sigma\right)  =S_{\succ}\left(
+\sigma,\pi\right)  $.
+
+\textbf{(b)} If $\pi$ is nonempty, then the permutations $\pi_{\sim1}$ and
+$\pi_{1}:\sigma$ are well-defined and disjoint, and satisfy $S_{\prec}\left(
+\pi,\sigma\right)  =S_{\succ}\left(  \pi_{\sim1},\pi_{1}:\sigma\right)  $.
+
+\textbf{(c)} If $\sigma$ is nonempty, then the permutations $\sigma_{\sim1}$
+and $\sigma_{1}:\pi$ are well-defined and disjoint, and satisfy $S_{\succ
+}\left(  \pi,\sigma\right)  =S_{\prec}\left(  \sigma_{1}:\pi,\sigma_{\sim
+1}\right)  $.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.LR.rec}.]\textbf{(a)} The definition of left
+shuffles shows that the left shuffles of $\pi$ and $\sigma$ are the shuffles
+$\tau$ of $\pi$ and $\sigma$ such that the first letter of $\tau$ is the first
+letter of $\pi$. Meanwhile, the definition of right shuffles shows that the
+right shuffles of $\sigma$ and $\pi$ are the shuffles $\tau$ of $\sigma$ and
+$\pi$ such that the first letter of $\tau$ is the first letter of $\pi$.
+Comparing these two descriptions, we conclude that the left shuffles of $\pi$
+and $\sigma$ are the same as the right shuffles of $\sigma$ and $\pi$ (since
+the shuffles of $\pi$ and $\sigma$ are the same as the shuffles of $\sigma$
+and $\pi$). In other words, $S_{\prec}\left(  \pi,\sigma\right)  =S_{\succ
+}\left(  \sigma,\pi\right)  $. This proves Proposition \ref{prop.LR.rec}
+\textbf{(a)}.
+
+\textbf{(b)} We first make a simple observation:
+
+\begin{statement}
+\textit{Claim 1:} Let $\alpha$ and $\beta$ be two permutations such that
+$\beta$ is nonempty. Assume that $\alpha$ appears as a subsequence of $\beta$,
+but does not contain the letter $\beta_{1}$. Then, the permutation $\beta
+_{1}:\alpha$ also appears as a subsequence of $\beta$.
+\end{statement}
+
+[\textit{Proof of Claim 1:} The letter $\beta_{1}$ does not appear in $\alpha$
+(since $\alpha$ does not contain $\beta_{1}$). Thus, $\beta_{1}:\alpha$ is a
+well-defined permutation.
+
+We have assumed that $\alpha$ appears as a subsequence of $\beta$. In other
+words, $\alpha=\left(  \beta_{i_{1}},\beta_{i_{2}},\ldots,\beta_{i_{k}%
+}\right)  $ for some $k\in\mathbb{N}$ and some positive integers $i_{1}%
+,i_{2},\ldots,i_{k}$ satisfying $i_{1}<i_{2}<\cdots<i_{k}$. Consider these
+$i_{1},i_{2},\ldots,i_{k}$. From $\alpha=\left(  \beta_{i_{1}},\beta_{i_{2}%
+},\ldots,\beta_{i_{k}}\right)  $, we obtain $\beta_{1}:\alpha=\left(
+\beta_{1},\beta_{i_{1}},\beta_{i_{2}},\ldots,\beta_{i_{k}}\right)  $.
+
+Let $g\in\left\{  1,2,\ldots,k\right\}  $. Then, $\alpha=\left(  \beta_{i_{1}%
+},\beta_{i_{2}},\ldots,\beta_{i_{k}}\right)  $ clearly contains the letter
+$\beta_{i_{g}}$. If we had $i_{g}=1$, then this would yield that $\alpha$
+contains the letter $\beta_{1}$ (since $i_{g}=1$); but this would contradict
+the assumption that $\alpha$ does not contain the letter $\beta_{1}$. Hence,
+we cannot have $i_{g}=1$. Thus, $i_{g}>1$, so that $1<i_{g}$.
+
+Now, forget that we fixed $g$. We thus have shown that $1<i_{g}$ for each
+$g\in\left\{  1,2,\ldots,k\right\}  $. Combining this with $i_{1}<i_{2}%
+<\cdots<i_{k}$, we obtain $1<i_{1}<i_{2}<\cdots<i_{k}$. Hence, $\left(
+\beta_{1},\beta_{i_{1}},\beta_{i_{2}},\ldots,\beta_{i_{k}}\right)  $ is a
+subsequence of $\beta$. In view of $\beta_{1}:\alpha=\left(  \beta_{1}%
+,\beta_{i_{1}},\beta_{i_{2}},\ldots,\beta_{i_{k}}\right)  $, this rewrites as
+follows: $\beta_{1}:\alpha$ is a subsequence of $\beta$. This proves Claim 1.]
+
+Assume that $\pi$ is nonempty. The first letter of $\pi$ does not appear in
+$\sigma$ (since $\pi$ and $\sigma$ are disjoint). In other words, the letter
+$\pi_{1}$ does not appear in $\sigma$. Thus, the permutation $\pi_{1}:\sigma$
+is well-defined. The permutation $\pi_{\sim1}$ is clearly well-defined.
+Furthermore, the permutations $\pi_{\sim1}$ and $\pi_{1}:\sigma$ are
+disjoint\footnote{\textit{Proof.} Let $\ell$ be a letter that appears in both
+$\pi_{\sim1}$ and $\pi_{1}:\sigma$. We shall derive a contradiction.
+\par
+The permutations $\pi$ and $\sigma$ are disjoint; thus, no letter appears in
+both $\pi$ and $\sigma$. In other words, a letter that appears in $\pi$ cannot
+appear in $\sigma$. But the letter $\ell$ appears in $\pi_{\sim1}$, thus in
+$\pi$ (since $\pi_{\sim1}$ is a subsequence of $\pi$). Hence, $\ell$ does not
+appear in $\sigma$ (since a letter that appears in $\pi$ cannot appear in
+$\sigma$). But $\ell$ appears in $\pi_{1}:\sigma$. But the only letter that
+appears in $\pi_{1}:\sigma$ but not in $\sigma$ is the letter $\pi_{1}$ (due
+to the construction of $\pi_{1}:\sigma$). Thus, the letter $\ell$ must be
+$\pi_{1}$ (since $\ell$ is a letter that appears in $\pi_{1}:\sigma$ but not
+in $\sigma$). In other words, $\ell=\pi_{1}$. Hence, the letter $\pi_{1}$
+appears in $\pi_{\sim1}$ (since the letter $\ell$ appears in $\pi_{\sim1}$).
+\par
+But $\pi$ is a permutation, and thus the letters of $\pi$ are distinct. Hence,
+the letter $\pi_{1}$ does not appear in $\pi_{\sim1}$. This contradicts the
+fact that the letter $\pi_{1}$ appears in $\pi_{\sim1}$.
+\par
+Now, forget that we fixed $\ell$. We thus have found a contradiction for each
+letter $\ell$ that appears in both $\pi_{\sim1}$ and $\pi_{1}:\sigma$. Hence,
+no letter appears in both $\pi_{\sim1}$ and $\pi_{1}:\sigma$. In other words,
+the permutations $\pi_{\sim1}$ and $\pi_{1}:\sigma$ are disjoint.}. It thus
+remains to show that $S_{\prec}\left(  \pi,\sigma\right)  =S_{\succ}\left(
+\pi_{\sim1},\pi_{1}:\sigma\right)  $.
+
+Set $m=\left\vert \pi\right\vert $ and $n=\left\vert \sigma\right\vert $.
+Thus, $\pi_{\sim1}$ is an $\left(  m-1\right)  $-permutation, whereas $\pi
+_{1}:\sigma$ is an $\left(  n+1\right)  $-permutation.
+
+Now, we shall prove that%
+\begin{equation}
+S_{\prec}\left(  \pi,\sigma\right)  \subseteq S_{\succ}\left(  \pi_{\sim1}%
+,\pi_{1}:\sigma\right)  \label{pf.prop.LR.rec.b.1}%
+\end{equation}
+and%
+\begin{equation}
+S_{\succ}\left(  \pi_{\sim1},\pi_{1}:\sigma\right)  \subseteq S_{\prec}\left(
+\pi,\sigma\right)  . \label{pf.prop.LR.rec.b.2}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.prop.LR.rec.b.1}):} Let $\tau\in S_{\prec}\left(
+\pi,\sigma\right)  $. We shall show that $\tau\in S_{\succ}\left(  \pi_{\sim
+1},\pi_{1}:\sigma\right)  $.
+
+We have $\tau\in S_{\prec}\left(  \pi,\sigma\right)  $. In other words, $\tau$
+is a left shuffle of $\pi$ and $\sigma$ (by the definition of $S_{\prec
+}\left(  \pi,\sigma\right)  $). In other words, $\tau$ is a shuffle of $\pi$
+and $\sigma$ such that the first letter of $\tau$ is the first letter of $\pi$
+(by the definition of a left shuffle).
+
+So the first letter of $\tau$ is the first letter of $\pi$. In other words,
+$\tau_{1}=\pi_{1}$. Thus, the permutation $\tau$ is nonempty.
+
+Also, $\tau$ is a shuffle of $\pi$ and $\sigma$. In other words, $\tau$ is an
+$\left(  m+n\right)  $-permutation such that both $\pi$ and $\sigma$ appear as
+subsequences of $\tau$ (by the definition of a shuffle).
+
+So $\pi$ appears as a subsequence of $\tau$. Thus, $\pi_{\sim1}$ appears as a
+subsequence of $\tau$ as well (since $\pi_{\sim1}$ is a subsequence of $\pi$).
+
+Also, $\sigma$ appears as a subsequence of $\tau$, but does not contain the
+letter $\tau_{1}$ (because $\tau_{1}=\pi_{1}$, which does not appear in
+$\sigma$). Therefore, Claim 1 (applied to $\alpha=\sigma$ and $\beta=\tau$)
+yields that $\tau_{1}:\sigma$ also appears as a subsequence of $\tau$. In
+other words, $\pi_{1}:\sigma$ appears as a subsequence of $\tau$ (since
+$\tau_{1}=\pi_{1}$).
+
+Finally, recall that $\pi_{\sim1}$ is an $\left(  m-1\right)  $-permutation,
+whereas $\pi_{1}:\sigma$ is an $\left(  n+1\right)  $-permutation. But $\tau$
+is an $\left(  m+n\right)  $-permutation, hence an $\left(  \left(
+m-1\right)  +\left(  n+1\right)  \right)  $-permutation (since $m+n=\left(
+m-1\right)  +\left(  n+1\right)  $). So we know that $\tau$ is an
+\newline$\left(  \left(  m-1\right)  +\left(  n+1\right)  \right)
+$-permutation such that both $\pi_{\sim1}$ and $\pi_{1}:\sigma$ appear as
+subsequences of $\tau$. In other words, $\tau$ is a shuffle of $\pi_{\sim1}$
+and $\pi_{1}:\sigma$ (by the definition of a shuffle). Since the first letter
+of $\tau$ is the first letter of $\pi_{1}:\sigma$ (because the first letter of
+$\tau$ is $\tau_{1}=\pi_{1}$, whereas the first letter of $\pi_{1}:\sigma$ is
+$\pi_{1}$ as well), we thus conclude that $\tau$ is a right shuffle of
+$\pi_{\sim1}$ and $\pi_{1}:\sigma$ (by the definition of a right shuffle). In
+other words, $\tau\in S_{\succ}\left(  \pi_{\sim1},\pi_{1}:\sigma\right)  $
+(by the definition of $S_{\succ}\left(  \pi_{\sim1},\pi_{1}:\sigma\right)  $).
+
+Since we have proven this for all $\tau\in S_{\prec}\left(  \pi,\sigma\right)
+$, we thus conclude that $S_{\prec}\left(  \pi,\sigma\right)  \subseteq
+S_{\succ}\left(  \pi_{\sim1},\pi_{1}:\sigma\right)  $. This proves
+(\ref{pf.prop.LR.rec.b.1}).]
+
+[\textit{Proof of (\ref{pf.prop.LR.rec.b.2}):} Let $\tau\in S_{\succ}\left(
+\pi_{\sim1},\pi_{1}:\sigma\right)  $. We shall show that $\tau\in S_{\prec
+}\left(  \pi,\sigma\right)  $.
+
+We have $\tau\in S_{\succ}\left(  \pi_{\sim1},\pi_{1}:\sigma\right)  $. In
+other words, $\tau$ is a right shuffle of $\pi_{\sim1}$ and $\pi_{1}:\sigma$
+(by the definition of $S_{\succ}\left(  \pi_{\sim1},\pi_{1}:\sigma\right)  $).
+In other words, $\tau$ is a shuffle of $\pi_{\sim1}$ and $\pi_{1}:\sigma$ such
+that the first letter of $\tau$ is the first letter of $\pi_{1}:\sigma$ (by
+the definition of a right shuffle).
+
+So the first letter of $\tau$ is the first letter of $\pi_{1}:\sigma$. In
+other words, the first letter of $\tau$ is $\pi_{1}$ (since the first letter
+of $\pi_{1}:\sigma$ is $\pi_{1}$). In other words, $\tau_{1}=\pi_{1}$. Note
+that the entries of $\pi$ are distinct (since $\pi$ is a permutation); thus,
+the letter $\pi_{1}$ does not appear in $\pi_{\sim1}$. In other words, the
+letter $\tau_{1}$ does not appear in $\pi_{\sim1}$ (since $\tau_{1}=\pi_{1}$).
+Also, the permutation $\tau$ is nonempty (since $\tau_{1}$ exists).
+
+The definitions of $\pi_{1}$, $\pi_{\sim1}$ and $\pi_{1}:\pi_{\sim1}$ yield
+$\pi_{1}:\pi_{\sim1}=\pi$. In view of $\tau_{1}=\pi_{1}$, this rewrites as
+$\tau_{1}:\pi_{\sim1}=\pi$.
+
+Also, $\tau$ is a shuffle of $\pi_{\sim1}$ and $\pi_{1}:\sigma$. In other
+words, $\tau$ is an $\left(  \left(  m-1\right)  +\left(  n+1\right)  \right)
+$-permutation such that both $\pi_{\sim1}$ and $\pi_{1}:\sigma$ appear as
+subsequences of $\tau$ (by the definition of a shuffle).
+
+So $\pi_{1}:\sigma$ appears as a subsequence of $\tau$. Thus, $\sigma$ appears
+as a subsequence of $\tau$ as well (since $\sigma$ is a subsequence of
+$\pi_{1}:\sigma$).
+
+Also, $\pi_{\sim1}$ appears as a subsequence of $\tau$, but does not contain
+the letter $\tau_{1}$ (since the letter $\tau_{1}$ does not appear in
+$\pi_{\sim1}$). Therefore, Claim 1 (applied to $\alpha=\pi_{\sim1}$ and
+$\beta=\tau$) yields that $\tau_{1}:\pi_{\sim1}$ also appears as a subsequence
+of $\tau$. In other words, $\pi$ also appears as a subsequence of $\tau$
+(since $\tau_{1}:\pi_{\sim1}=\pi$).
+
+Finally, recall that $\tau$ is an $\left(  \left(  m-1\right)  +\left(
+n+1\right)  \right)  $-permutation, hence an $\left(  m+n\right)
+$-permutation (since $\left(  m-1\right)  +\left(  n+1\right)  =m+n$). So we
+know that $\tau$ is an $\left(  m+n\right)  $-permutation such that both $\pi$
+and $\sigma$ appear as subsequences of $\tau$. In other words, $\tau$ is a
+shuffle of $\pi$ and $\sigma$ (by the definition of a shuffle). Since the
+first letter of $\tau$ is the first letter of $\pi$ (because the first letter
+of $\tau$ is $\tau_{1}=\pi_{1}$), we thus conclude that $\tau$ is a left
+shuffle of $\pi$ and $\sigma$ (by the definition of a left shuffle). In other
+words, $\tau\in S_{\prec}\left(  \pi,\sigma\right)  $ (by the definition of
+$S_{\prec}\left(  \pi,\sigma\right)  $).
+
+Since we have proven this for all $\tau\in S_{\succ}\left(  \pi_{\sim1}%
+,\pi_{1}:\sigma\right)  $, we thus conclude that $S_{\succ}\left(  \pi_{\sim
+1},\pi_{1}:\sigma\right)  \subseteq S_{\prec}\left(  \pi,\sigma\right)  $.
+This proves (\ref{pf.prop.LR.rec.b.2}).]
+
+Combining (\ref{pf.prop.LR.rec.b.1}) with (\ref{pf.prop.LR.rec.b.2}), we
+obtain $S_{\prec}\left(  \pi,\sigma\right)  =S_{\succ}\left(  \pi_{\sim1}%
+,\pi_{1}:\sigma\right)  $. This completes the proof of Proposition
+\ref{prop.LR.rec} \textbf{(b)}.
+
+\textbf{(c)} Assume that $\sigma$ is nonempty. Proposition \ref{prop.LR.rec}
+\textbf{(a)} (applied to $\sigma$ and $\pi$ instead of $\pi$ and $\sigma$)
+yields $S_{\prec}\left(  \sigma,\pi\right)  =S_{\succ}\left(  \pi
+,\sigma\right)  $.
+
+Proposition \ref{prop.LR.rec} \textbf{(b)} (applied to $\sigma$ and $\pi$
+instead of $\pi$ and $\sigma$) yields that the permutations $\sigma_{\sim1}$
+and $\sigma_{1}:\pi$ are well-defined and disjoint, and satisfy $S_{\prec
+}\left(  \sigma,\pi\right)  =S_{\succ}\left(  \sigma_{\sim1},\sigma_{1}%
+:\pi\right)  $. Thus, Proposition \ref{prop.LR.rec} \textbf{(a)} (applied to
+$\sigma_{1}:\pi$ and $\sigma_{\sim1}$ instead of $\pi$ and $\sigma$) yields
+$S_{\prec}\left(  \sigma_{1}:\pi,\sigma_{\sim1}\right)  =S_{\succ}\left(
+\sigma_{\sim1},\sigma_{1}:\pi\right)  $. Combining all the equalities we have
+now proven, we obtain%
+\[
+S_{\succ}\left(  \pi,\sigma\right)  =S_{\prec}\left(  \sigma,\pi\right)
+=S_{\succ}\left(  \sigma_{\sim1},\sigma_{1}:\pi\right)  =S_{\prec}\left(
+\sigma_{1}:\pi,\sigma_{\sim1}\right)  .
+\]
+This completes the proof of Proposition \ref{prop.LR.rec} \textbf{(c)}.
+\end{proof}
+
+\subsection{LR-shuffle-compatibility}
+
+We shall use the so-called \textit{Iverson bracket notation} for truth values:
+
+\begin{definition}
+\label{def.iverson}If $\mathcal{A}$ is any logical statement, then we define
+an integer $\left[  \mathcal{A}\right]  \in\left\{  0,1\right\}  $ by%
+\[
+\left[  \mathcal{A}\right]  =%
+\begin{cases}
+1, & \text{if }\mathcal{A}\text{ is true};\\
+0, & \text{if }\mathcal{A}\text{ is false}%
+\end{cases}
+.
+\]
+This integer $\left[  \mathcal{A}\right]  $ is known as the \textit{truth
+value} of $\mathcal{A}$.
+\end{definition}
+
+Thus, for example, $\left[  4>2\right]  =1$ whereas $\left[  2>4\right]  =0$.
+
+Next, we can define a notion similar to shuffle-compatibility:
+
+\begin{definition}
+\label{def.LRcomp}Let $\operatorname*{st}$ be a permutation statistic. We say
+that $\operatorname*{st}$ is \textit{LR-shuffle-compatible} if and only if it
+has the following property: For any two disjoint nonempty permutations $\pi$
+and $\sigma$, the multisets%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left\{  \operatorname*{st}%
+\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(  \pi,\sigma\right)
+\right\}  _{\operatorname*{multi}}
+\]
+depend only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
+\left(  \sigma\right)  $, $\left\vert \pi\right\vert $, $\left\vert
+\sigma\right\vert $ and $\left[  \pi_{1}>\sigma_{1}\right]  $.
+\end{definition}
+
+In other words, a permutation statistic $\operatorname*{st}$ is
+LR-shuffle-compatible if and only if every two disjoint nonempty permutations
+$\pi$ and $\sigma$ and every two disjoint nonempty permutations $\pi^{\prime}$
+and $\sigma^{\prime}$ satisfying%
+\begin{align*}
+\operatorname*{st}\left(  \pi\right)   &  =\operatorname*{st}\left(
+\pi^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \operatorname*{st}\left(
+\sigma\right)  =\operatorname*{st}\left(  \sigma^{\prime}\right)  ,\\
+\left\vert \pi\right\vert  &  =\left\vert \pi^{\prime}\right\vert
+,\ \ \ \ \ \ \ \ \ \ \left\vert \sigma\right\vert =\left\vert \sigma^{\prime
+}\right\vert \ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left[  \pi
+_{1}>\sigma_{1}\right]  =\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]
+\end{align*}
+satisfy
+\begin{align*}
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}   &  =\left\{  \operatorname*{st}\left(
+\tau\right)  \ \mid\ \tau\in S_{\prec}\left(  \pi^{\prime},\sigma^{\prime
+}\right)  \right\}  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}   &  =\left\{  \operatorname*{st}\left(
+\tau\right)  \ \mid\ \tau\in S_{\succ}\left(  \pi^{\prime},\sigma^{\prime
+}\right)  \right\}  .
+\end{align*}
+
+
+For example, the permutation statistic $\operatorname*{Pk}$ is not
+LR-shuffle-compatible. Indeed, if we take $\pi=\left(  4,2,3\right)  $,
+$\sigma=\left(  1\right)  $, $\pi^{\prime}=\left(  2,3,4\right)  $ and
+$\sigma^{\prime}=\left(  1\right)  $, then the equalities%
+\begin{align*}
+\operatorname*{Pk}\left(  \pi\right)   &  =\operatorname*{Pk}\left(
+\pi^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \operatorname*{Pk}\left(
+\sigma\right)  =\operatorname*{Pk}\left(  \sigma^{\prime}\right)  ,\\
+\left\vert \pi\right\vert  &  =\left\vert \pi^{\prime}\right\vert
+,\ \ \ \ \ \ \ \ \ \ \left\vert \sigma\right\vert =\left\vert \sigma^{\prime
+}\right\vert \ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left[  \pi
+_{1}>\sigma_{1}\right]  =\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]
+\end{align*}
+are all satisfied, but%
+\[
+\left\{  \operatorname*{Pk}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\underbrace{\operatorname*{Pk}\left(  1,4,2,3\right)  }_{=\left\{  2\right\}
+}\right\}  _{\operatorname*{multi}}=\left\{  \left\{  2\right\}  \right\}
+_{\operatorname*{multi}}%
+\]
+is not the same as%
+\[
+\left\{  \operatorname*{Pk}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi^{\prime},\sigma^{\prime}\right)  \right\}
+_{\operatorname*{multi}}=\left\{  \underbrace{\operatorname*{Pk}\left(
+1,2,3,4\right)  }_{=\varnothing}\right\}  _{\operatorname*{multi}}=\left\{
+\varnothing\right\}  _{\operatorname*{multi}}.
+\]
+Similarly, the permutation statistic $\operatorname*{Rpk}$ is not
+LR-shuffle-compatible. As we will see in Theorem \ref{thm.LRcomp.Pks} further
+below, the three statistics $\operatorname*{Des}$, $\operatorname*{Lpk}$ and
+$\operatorname*{Epk}$ are LR-shuffle-compatible.
+
+\subsection{Head-graft-compatibility}
+
+We shall now define another compatibility concept for a permutation statistic,
+which will later prove a useful stepping stone for checking the
+LR-shuffle-compatibility of this statistic.
+
+\begin{definition}
+\label{def.head-comp}Let $\operatorname*{st}$ be a permutation statistic. We
+say that $\operatorname*{st}$ is \textit{head-graft-compatible} if and only if
+it has the following property: For any nonempty permutation $\pi$ and any
+letter $a$ that does not appear in $\pi$, the element $\operatorname*{st}%
+\left(  a:\pi\right)  $ depends only on $\operatorname*{st}\left(  \pi\right)
+$, $\left\vert \pi\right\vert $ and $\left[  a>\pi_{1}\right]  $.
+\end{definition}
+
+In other words, a permutation statistic $\operatorname*{st}$ is
+head-graft-compatible if and only if every nonempty permutation $\pi$, every
+letter $a$ that does not appear in $\pi$, every nonempty permutation
+$\pi^{\prime}$ and every letter $a^{\prime}$ that does not appear in
+$\pi^{\prime}$ satisfying%
+\[
+\operatorname*{st}\left(  \pi\right)  =\operatorname*{st}\left(  \pi^{\prime
+}\right)  ,\ \ \ \ \ \ \ \ \ \ \left\vert \pi\right\vert =\left\vert
+\pi^{\prime}\right\vert \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \left[  a>\pi_{1}\right]  =\left[  a^{\prime}>\pi
+_{1}^{\prime}\right]
+\]
+satisfy $\operatorname*{st}\left(  a:\pi\right)  =\operatorname*{st}\left(
+a^{\prime}:\pi^{\prime}\right)  $.
+
+For example, the permutation statistic $\operatorname*{Pk}$ is not
+head-graft-compatible, because if we take $\pi=\left(  3,1\right)  $, $a=2$,
+$\pi^{\prime}=\left(  3,1\right)  $ and $a^{\prime}=2$, then we do have%
+\[
+\operatorname*{Pk}\left(  \pi\right)  =\operatorname*{Pk}\left(  \pi^{\prime
+}\right)  ,\ \ \ \ \ \ \ \ \ \ \left\vert \pi\right\vert =\left\vert
+\pi^{\prime}\right\vert \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \left[  a>\pi_{1}\right]  =\left[  a^{\prime}>\pi
+_{1}^{\prime}\right]
+\]
+but we don't have $\operatorname*{Pk}\left(  a:\pi\right)  =\operatorname*{Pk}%
+\left(  a^{\prime}:\pi^{\prime}\right)  $ (in fact, $\operatorname*{Pk}\left(
+a:\pi\right)  =\operatorname*{Pk}\left(  2,3,1\right)  =\left\{  2\right\}  $
+whereas $\operatorname*{Pk}\left(  a^{\prime}:\pi^{\prime}\right)
+=\operatorname*{Pk}\left(  2,1,3\right)  =\varnothing$). Similarly, it can be
+shown that $\operatorname*{Rpk}$ is not head-graft-compatible. As we will see
+below (in Proposition \ref{prop.head-comp.Pks}), the permutation statistics
+$\operatorname*{Des}$, $\operatorname*{Lpk}$ and $\operatorname*{Epk}$ are
+head-graft-compatible; we will analyze a few other statistics in Subsection
+\ref{subsect.LR.others}.
+
+\begin{remark}
+Let $\operatorname*{st}$ be a head-graft-compatible permutation statistic.
+Then, it is easy to see that%
+\[
+\operatorname*{st}\left(  3,1,2\right)  =\operatorname*{st}\left(
+2,1,3\right)  \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \operatorname*{st}\left(  2,3,1\right)
+=\operatorname*{st}\left(  1,3,2\right)  .
+\]
+Moreover, these are the only restrictions that head-graft-compatibility places
+on the values of $\operatorname*{st}$ at $3$-permutations.
+\end{remark}
+
+It is usually easy to check if a given permutation statistic is
+head-graft-compatible. For example:
+
+\begin{proposition}
+\label{prop.head-comp.Pks}\textbf{(a)} The permutation statistic
+$\operatorname*{Des}$ is head-graft-compatible.
+
+\textbf{(b)} The permutation statistic $\operatorname*{Lpk}$ is head-graft-compatible.
+
+\textbf{(c)} The permutation statistic $\operatorname*{Epk}$ is head-graft-compatible.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.head-comp.Pks}.]In this proof, we shall use
+the following notation: If $S$ is a set of integers, and $p$ is an integer,
+then $S+p$ shall denote the set $\left\{  s+p\ \mid\ s\in S\right\}  $.
+
+\textbf{(a)} Let $\pi$ be a nonempty permutation. Let $a$ be a letter that
+does not appear in $\pi$. Let $n=\left\vert \pi\right\vert $. We shall express
+the element $\operatorname*{Des}\left(  a:\pi\right)  $ in terms of
+$\operatorname*{Des}\pi$, $n$ and $\left[  a>\pi_{1}\right]  $.
+
+Since $n=\left\vert \pi\right\vert $, we have $\pi=\left(  \pi_{1},\pi
+_{2},\ldots,\pi_{n}\right)  $. Thus, $a:\pi=\left(  a,\pi_{1},\pi_{2}%
+,\ldots,\pi_{n}\right)  $. Hence, the descents of $a:\pi$ are obtained as follows:
+
+\begin{itemize}
+\item The number $1$ is a descent of $a:\pi$ if and only if $a>\pi_{1}$.
+
+\item Adding $1$ to each descent of $\pi$ yields a descent of $a:\pi$. (That
+is, if $i$ is a descent of $\pi$, then $i+1$ is a descent of $a:\pi$.)
+\end{itemize}
+
+These are all the descents of $a:\pi$. Thus,%
+\begin{equation}
+\operatorname*{Des}\left(  a:\pi\right)  =\left\{  1\ \mid\ a>\pi_{1}\right\}
+\cup\left(  \operatorname*{Des}\pi+1\right)  .
+\label{pf.prop.head-comp.Pks.a.1}%
+\end{equation}
+(The strange notation \textquotedblleft$\left\{  1\ \mid\ a>\pi_{1}\right\}
+$\textquotedblright\ means exactly what it says: It is the set of all numbers
+$1$ satisfying $a>\pi_{1}$. In other words, it is $\left\{  1\right\}  $ if
+$a>\pi_{1}$, and $\varnothing$ otherwise.)
+
+The equality (\ref{pf.prop.head-comp.Pks.a.1}) shows that $\operatorname*{Des}%
+\left(  a:\pi\right)  $ depends only on $\operatorname*{Des}\pi$, $\left\vert
+\pi\right\vert $ and $\left[  a>\pi_{1}\right]  $ (indeed, the truth value
+$\left[  a>\pi_{1}\right]  $ determines whether $a>\pi_{1}$ is true). In other
+words, $\operatorname*{Des}$ is head-graft-compatible (by the definition of
+\textquotedblleft head-graft-compatible\textquotedblright). This proves
+Proposition \ref{prop.head-comp.Pks} \textbf{(a)}.
+
+\textbf{(b)} Let $\pi$ be a nonempty permutation. Let $a$ be a letter that
+does not appear in $\pi$. Let $n=\left\vert \pi\right\vert $. We shall express
+the element $\operatorname*{Lpk}\left(  a:\pi\right)  $ in terms of
+$\operatorname*{Lpk}\pi$, $n$ and $\left[  a>\pi_{1}\right]  $.
+
+Notice first that $a\neq\pi_{1}$ (since $a$ does not appear in $\pi$). Thus,
+$a<\pi_{1}$ is true if and only if $a>\pi_{1}$ is false.
+
+Since $n=\left\vert \pi\right\vert $, we have $\pi=\left(  \pi_{1},\pi
+_{2},\ldots,\pi_{n}\right)  $. Thus, $a:\pi=\left(  a,\pi_{1},\pi_{2}%
+,\ldots,\pi_{n}\right)  $. Hence, the left peaks of $a:\pi$ are obtained as follows:
+
+\begin{itemize}
+\item The number $1$ is a left peak of $a:\pi$ if and only if $a>\pi_{1}$.
+
+\item Adding $1$ to each left peak $i$ of $\pi$ yields a left peak $i+1$ of
+$a:\pi$, except for the case when $i=1$ (in which case $i+1=2$ is a left peak
+of $a:\pi$ only if $a<\pi_{1}$).
+\end{itemize}
+
+These are all the left peaks of $a:\pi$. Thus,%
+\begin{equation}
+\operatorname*{Lpk}\left(  a:\pi\right)  =\left\{  1\ \mid\ a>\pi_{1}\right\}
+\cup%
+\begin{cases}
+\operatorname*{Lpk}\pi+1, & \text{if }a<\pi_{1};\\
+\left(  \operatorname*{Lpk}\pi+1\right)  \setminus\left\{  2\right\}  , &
+\text{if not }a<\pi_{1}%
+\end{cases}
+. \label{pf.prop.head-comp.Pks.b.1}%
+\end{equation}
+
+
+This equality shows that $\operatorname*{Lpk}\left(  a:\pi\right)  $ depends
+only on $\operatorname*{Lpk}\pi$, $\left\vert \pi\right\vert $ and $\left[
+a>\pi_{1}\right]  $ (indeed, the truth value $\left[  a>\pi_{1}\right]  $
+determines whether $a>\pi_{1}$ is true and also determines whether $a<\pi_{1}$
+is true\footnote{Indeed, $a<\pi_{1}$ is true if and only if $a>\pi_{1}$ is
+false.}). In other words, $\operatorname*{Lpk}$ is head-graft-compatible (by
+the definition of \textquotedblleft head-graft-compatible\textquotedblright).
+This proves Proposition \ref{prop.head-comp.Pks} \textbf{(b)}.
+
+\textbf{(c)} To obtain a proof of Proposition \ref{prop.head-comp.Pks}
+\textbf{(c)}, it suffices to take our above proof of Proposition
+\ref{prop.head-comp.Pks} \textbf{(b)} and replace every appearance of
+\textquotedblleft left peak\textquotedblright\ and \textquotedblleft%
+$\operatorname*{Lpk}$\textquotedblright\ by \textquotedblleft exterior
+peak\textquotedblright\ and \textquotedblleft$\operatorname*{Epk}%
+$\textquotedblright.
+\end{proof}
+
+\subsection{Proving LR-shuffle-compatibility}
+
+Let us now state a sufficient criterion for the LR-shuffle-compatibility of a statistic:
+
+\begin{theorem}
+\label{thm.head-comp.LRcomp}Let $\operatorname*{st}$ be a permutation
+statistic that is both shuffle-compatible and head-graft-compatible. Then,
+$\operatorname*{st}$ is LR-shuffle-compatible.
+\end{theorem}
+
+Before we prove this theorem, let us introduce some terminology and state an
+almost-trivial fact:
+
+\begin{definition}
+\textbf{(a)} If $A$ is a finite multiset, and if $g$ is any object, then
+$\left\vert A\right\vert _{g}$ means the multiplicity of $g$ in $A$.
+
+\textbf{(b)} If $A$ and $B$ are two finite multisets, then we say that
+$B\subseteq A$ if and only if each object $g$ satisfies $\left\vert
+B\right\vert _{g}\leq\left\vert A\right\vert _{g}$.
+
+\textbf{(c)} If $A$ and $B$ are two finite multisets satisfying $B\subseteq
+A$, then $A-B$ shall denote the \textquotedblleft multiset
+difference\textquotedblright\ of $A$ and $B$; this is the multiset $C$ such
+that each object $g$ satisfies $\left\vert C\right\vert _{g}=\left\vert
+A\right\vert _{g}-\left\vert B\right\vert _{g}$.
+\end{definition}
+
+For example, $\left\{  2,3,3\right\}  _{\operatorname*{multi}}\subseteq
+\left\{  1,2,2,3,3\right\}  _{\operatorname*{multi}}$ and $\left\{
+1,2,2,3,3\right\}  _{\operatorname*{multi}}-\left\{  2,3,3\right\}
+_{\operatorname*{multi}}=\left\{  1,2\right\}  _{\operatorname*{multi}}$.
+
+\begin{lemma}
+\label{lem.LR.difference}Let $\pi$ and $\sigma$ be two disjoint permutations
+such that at least one of $\pi$ and $\sigma$ is nonempty. Let
+$\operatorname*{st}$ be any permutation statistic. Then:
+
+\textbf{(a)} We have%
+\begin{align*}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}-\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}.
+\end{align*}
+
+
+\textbf{(b)} We have%
+\begin{align*}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}-\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}.
+\end{align*}
+
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.LR.difference}.]Recall that the two sets $S_{\prec
+}\left(  \pi,\sigma\right)  $ and $S_{\succ}\left(  \pi,\sigma\right)  $ are
+disjoint and their union is $S\left(  \pi,\sigma\right)  $. Thus, $S_{\succ
+}\left(  \pi,\sigma\right)  \subseteq S\left(  \pi,\sigma\right)  $ and
+$S_{\prec}\left(  \pi,\sigma\right)  =S\left(  \pi,\sigma\right)  \setminus
+S_{\succ}\left(  \pi,\sigma\right)  $. Hence,%
+\begin{align*}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}-\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}.
+\end{align*}
+This proves Lemma \ref{lem.LR.difference} \textbf{(a)}. The proof of Lemma
+\ref{lem.LR.difference} \textbf{(b)} is analogous.
+\end{proof}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.head-comp.LRcomp}.]We shall first show the following:
+
+\begin{statement}
+\textit{Claim 1:} Let $\pi$, $\pi^{\prime}$ and $\sigma$ be three nonempty
+permutations. Assume that $\pi$ and $\sigma$ are disjoint. Assume that
+$\pi^{\prime}$ and $\sigma$ are disjoint. Assume furthermore that%
+\[
+\operatorname*{st}\left(  \pi\right)  =\operatorname*{st}\left(  \pi^{\prime
+}\right)  ,\ \ \ \ \ \ \ \ \ \ \left\vert \pi\right\vert =\left\vert
+\pi^{\prime}\right\vert \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \left[  \pi_{1}>\sigma_{1}\right]  =\left[  \pi
+_{1}^{\prime}>\sigma_{1}\right]  .
+\]
+Then,
+\begin{align}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}\nonumber\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi^{\prime},\sigma\right)  \right\}  _{\operatorname*{multi}}
+\label{pf.thm.head-comp.LRcomp.c1.eq3}%
+\end{align}
+and%
+\begin{align}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}\nonumber\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi^{\prime},\sigma\right)  \right\}  _{\operatorname*{multi}}.
+\label{pf.thm.head-comp.LRcomp.c1.eq4}%
+\end{align}
+
+\end{statement}
+
+[\textit{Proof of Claim 1:} We shall prove Claim 1 by induction on $\left\vert
+\sigma\right\vert $:
+
+\textit{Induction base:} The case $\left\vert \sigma\right\vert =0$ cannot
+happen (because $\sigma$ is assumed to be nonempty). Thus, Claim 1 is true in
+the case $\left\vert \sigma\right\vert =0$. This completes the induction base.
+
+\textit{Induction step:} Let $N$ be a positive integer. Assume (as the
+induction hypothesis) that Claim 1 holds when $\left\vert \sigma\right\vert
+=N-1$. We must now prove that Claim 1 holds when $\left\vert \sigma\right\vert
+=N$.
+
+Indeed, let $\pi$, $\sigma$ and $\pi^{\prime}$ be as in Claim 1, and assume
+that $\left\vert \sigma\right\vert =N$. We must prove
+(\ref{pf.thm.head-comp.LRcomp.c1.eq3}) and
+(\ref{pf.thm.head-comp.LRcomp.c1.eq4}).
+
+Proposition \ref{prop.LR.rec} \textbf{(c)} yields that the permutations
+$\sigma_{\sim1}$ and $\sigma_{1}:\pi$ are well-defined and disjoint, and
+satisfy%
+\begin{equation}
+S_{\succ}\left(  \pi,\sigma\right)  =S_{\prec}\left(  \sigma_{1}:\pi
+,\sigma_{\sim1}\right)  . \label{pf.thm.head-comp.LRcomp.c1.pf.1}%
+\end{equation}
+Furthermore, $\left\vert \sigma_{\sim1}\right\vert =\left\vert \sigma
+\right\vert -1=N-1$ (since $\left\vert \sigma\right\vert =N$).
+
+Proposition \ref{prop.LR.rec} \textbf{(c)} (applied to $\pi^{\prime}$ instead
+of $\pi$) yields that the permutations $\sigma_{\sim1}$ and $\sigma_{1}%
+:\pi^{\prime}$ are well-defined and disjoint, and satisfy%
+\begin{equation}
+S_{\succ}\left(  \pi^{\prime},\sigma\right)  =S_{\prec}\left(  \sigma_{1}%
+:\pi^{\prime},\sigma_{\sim1}\right)  . \label{pf.thm.head-comp.LRcomp.c1.pf.2}%
+\end{equation}
+
+
+The letter $\sigma_{1}$ does not appear in the permutation $\pi$ (since $\pi$
+and $\sigma$ are disjoint). Similarly, the letter $\sigma_{1}$ does not appear
+in the permutation $\pi^{\prime}$. Also, $\left\vert \sigma_{1}:\pi\right\vert
+=\underbrace{\left\vert \pi\right\vert }_{=\left\vert \pi^{\prime}\right\vert
+}+1=\left\vert \pi^{\prime}\right\vert +1=\left\vert \sigma_{1}:\pi^{\prime
+}\right\vert $.
+
+We have $\sigma_{1}\neq\pi_{1}$ (since $\pi$ and $\sigma$ are disjoint). Thus,
+the statement $\left(  \sigma_{1}>\pi_{1}\right)  $ is equivalent to $\left(
+\text{not }\pi_{1}>\sigma_{1}\right)  $. Hence, $\left[  \sigma_{1}>\pi
+_{1}\right]  =\left[  \text{not }\pi_{1}>\sigma_{1}\right]  =1-\left[  \pi
+_{1}>\sigma_{1}\right]  $. Similarly, $\left[  \sigma_{1}>\pi_{1}^{\prime
+}\right]  =1-\left[  \pi_{1}^{\prime}>\sigma_{1}\right]  $. Hence,%
+\[
+\left[  \sigma_{1}>\pi_{1}\right]  =1-\underbrace{\left[  \pi_{1}>\sigma
+_{1}\right]  }_{=\left[  \pi_{1}^{\prime}>\sigma_{1}\right]  }=1-\left[
+\pi_{1}^{\prime}>\sigma_{1}\right]  =\left[  \sigma_{1}>\pi_{1}^{\prime
+}\right]  .
+\]
+
+
+Both permutations $\sigma_{1}:\pi$ and $\sigma_{1}:\pi^{\prime}$ begin with
+the letter $\sigma_{1}$. Thus, both $\left(  \sigma_{1}:\pi\right)  _{1}$ and
+$\left(  \sigma_{1}:\pi^{\prime}\right)  _{1}$ equal $\sigma_{1}$. Hence,
+$\left(  \sigma_{1}:\pi\right)  _{1}=\left(  \sigma_{1}:\pi^{\prime}\right)
+_{1}$.
+
+The statistic $\operatorname*{st}$ is head-graft-compatible. In other words,
+for any nonempty permutation $\varphi$ and any letter $a$ that does not appear
+in $\varphi$, the element $\operatorname*{st}\left(  a:\varphi\right)  $
+depends only on $\operatorname*{st}\left(  \varphi\right)  $, $\left\vert
+\varphi\right\vert $ and $\left[  a>\varphi_{1}\right]  $ (by the definition
+of \textquotedblleft head-graft-compatible\textquotedblright). In other words,
+if $\varphi$ and $\varphi^{\prime}$ are two nonempty permutations, and if $a$
+is any letter that does not appear in $\varphi$ and does not appear in
+$\varphi^{\prime}$, and if we have $\operatorname*{st}\left(  \varphi\right)
+=\operatorname*{st}\left(  \varphi^{\prime}\right)  $ and $\left\vert
+\varphi\right\vert =\left\vert \varphi^{\prime}\right\vert $ and $\left[
+a>\varphi_{1}\right]  =\left[  a>\varphi_{1}^{\prime}\right]  $, then
+$\operatorname*{st}\left(  a:\varphi\right)  =\operatorname*{st}\left(
+a:\varphi^{\prime}\right)  $. Applying this to $a=\sigma_{1}$, $\varphi=\pi$
+and $\varphi^{\prime}=\pi^{\prime}$, we obtain
+\[
+\operatorname*{st}\left(  \sigma_{1}:\pi\right)  =\operatorname*{st}\left(
+\sigma_{1}:\pi^{\prime}\right)
+\]
+(since $\operatorname*{st}\left(  \pi\right)  =\operatorname*{st}\left(
+\pi^{\prime}\right)  $ and $\left\vert \pi\right\vert =\left\vert \pi^{\prime
+}\right\vert $ and $\left[  \sigma_{1}>\pi_{1}\right]  =\left[  \sigma_{1}%
+>\pi_{1}^{\prime}\right]  $).
+
+Next, we claim that%
+\begin{equation}
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \sigma_{1}:\pi,\sigma_{\sim1}\right)  \right\}  =\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\sigma_{1}:\pi^{\prime},\sigma_{\sim1}\right)  \right\}  .
+\label{pf.thm.head-comp.LRcomp.c1.pf.5}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.thm.head-comp.LRcomp.c1.pf.5}):} The permutations
+$\sigma_{1}:\pi$ and $\sigma_{1}:\pi^{\prime}$ are clearly nonempty. Hence, if
+$\sigma_{\sim1}$ is the empty permutation $\left(  {}\right)  $, then
+$S_{\prec}\left(  \sigma_{1}:\pi,\sigma_{\sim1}\right)  =\left\{  \sigma
+_{1}:\pi\right\}  $ and $S_{\prec}\left(  \sigma_{1}:\pi^{\prime},\sigma
+_{\sim1}\right)  =\left\{  \sigma_{1}:\pi^{\prime}\right\}  $. Thus, if
+$\sigma_{\sim1}$ is the empty permutation $\left(  {}\right)  $, then
+(\ref{pf.thm.head-comp.LRcomp.c1.pf.5}) follows from%
+\begin{align*}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+\underbrace{S_{\prec}\left(  \sigma_{1}:\pi,\sigma_{\sim1}\right)
+}_{=\left\{  \sigma_{1}:\pi\right\}  }\right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in\left\{
+\sigma_{1}:\pi\right\}  \right\}  _{\operatorname*{multi}}=\left\{
+\underbrace{\operatorname*{st}\left(  \sigma_{1}:\pi\right)  }%
+_{=\operatorname*{st}\left(  \sigma_{1}:\pi^{\prime}\right)  }\right\}
+_{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \sigma_{1}:\pi^{\prime}\right)
+\right\}  _{\operatorname*{multi}}=\left\{  \operatorname*{st}\left(
+\tau\right)  \ \mid\ \tau\in\underbrace{\left\{  \sigma_{1}:\pi^{\prime
+}\right\}  }_{=S_{\prec}\left(  \sigma_{1}:\pi^{\prime},\sigma_{\sim1}\right)
+}\right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \sigma_{1}:\pi^{\prime},\sigma_{\sim1}\right)  \right\}
+_{\operatorname*{multi}}.
+\end{align*}
+Thus, for the rest of our proof of (\ref{pf.thm.head-comp.LRcomp.c1.pf.5}), we
+WLOG assume that $\sigma_{\sim1}$ is not the empty permutation $\left(
+{}\right)  $. Thus, $\sigma_{\sim1}$ is nonempty.
+
+But recall that $\left\vert \sigma_{\sim1}\right\vert =N-1$. Hence, the
+induction hypothesis allows us to apply Claim 1 to $\sigma_{1}:\pi$,
+$\sigma_{1}:\pi^{\prime}$ and $\sigma_{\sim1}$ instead of $\pi$, $\pi^{\prime
+}$ and $\sigma$ (because we know that the permutations $\sigma_{\sim1}$ and
+$\sigma_{1}:\pi$ are disjoint; that the permutations $\sigma_{\sim1}$ and
+$\sigma_{1}:\pi^{\prime}$ are disjoint; that $\operatorname*{st}\left(
+\sigma_{1}:\pi\right)  =\operatorname*{st}\left(  \sigma_{1}:\pi^{\prime
+}\right)  $ and $\left\vert \sigma_{1}:\pi\right\vert =\left\vert \sigma
+_{1}:\pi^{\prime}\right\vert $; and that $\left[  \underbrace{\left(
+\sigma_{1}:\pi\right)  _{1}}_{=\left(  \sigma_{1}:\pi^{\prime}\right)  _{1}%
+}>\left(  \sigma_{\sim1}\right)  _{1}\right]  =\left[  \left(  \sigma_{1}%
+:\pi^{\prime}\right)  _{1}>\left(  \sigma_{\sim1}\right)  _{1}\right]  $). We
+therefore obtain%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \sigma_{1}:\pi,\sigma_{\sim1}\right)  \right\}
+_{\operatorname*{multi}}=\left\{  \operatorname*{st}\left(  \tau\right)
+\ \mid\ \tau\in S_{\prec}\left(  \sigma_{1}:\pi^{\prime},\sigma_{\sim
+1}\right)  \right\}  _{\operatorname*{multi}}%
+\]
+and%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \sigma_{1}:\pi,\sigma_{\sim1}\right)  \right\}
+_{\operatorname*{multi}}=\left\{  \operatorname*{st}\left(  \tau\right)
+\ \mid\ \tau\in S_{\succ}\left(  \sigma_{1}:\pi^{\prime},\sigma_{\sim
+1}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+The first of these two equalities is precisely
+(\ref{pf.thm.head-comp.LRcomp.c1.pf.5}). Thus,
+(\ref{pf.thm.head-comp.LRcomp.c1.pf.5}) is proven.]
+
+Now,
+\begin{align}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+\underbrace{S_{\succ}\left(  \pi,\sigma\right)  }_{\substack{=S_{\prec}\left(
+\sigma_{1}:\pi,\sigma_{\sim1}\right)  \\\text{(by
+(\ref{pf.thm.head-comp.LRcomp.c1.pf.1}))}}}\right\}  _{\operatorname*{multi}%
+}\nonumber\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \sigma_{1}:\pi,\sigma_{\sim1}\right)  \right\}
+_{\operatorname*{multi}}\nonumber\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau
+\in\underbrace{S_{\prec}\left(  \sigma_{1}:\pi^{\prime},\sigma_{\sim1}\right)
+}_{\substack{=S_{\succ}\left(  \pi^{\prime},\sigma\right)  \\\text{(by
+(\ref{pf.thm.head-comp.LRcomp.c1.pf.2}))}}}\right\}  _{\operatorname*{multi}%
+}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.head-comp.LRcomp.c1.pf.5}%
+)}\right) \nonumber\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi^{\prime},\sigma\right)  \right\}  _{\operatorname*{multi}}.
+\label{pf.thm.head-comp.LRcomp.c1.pf.6}%
+\end{align}
+This proves (\ref{pf.thm.head-comp.LRcomp.c1.eq4}). It remains to prove
+(\ref{pf.thm.head-comp.LRcomp.c1.eq3}).
+
+Lemma \ref{lem.LR.difference} \textbf{(a)} yields%
+\begin{align}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}\nonumber\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}-\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}.
+\label{pf.thm.head-comp.LRcomp.c1.pf.7}%
+\end{align}
+Lemma \ref{lem.LR.difference} \textbf{(a)} (applied to $\pi^{\prime}$ instead
+of $\pi$) yields%
+\begin{align}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi^{\prime},\sigma\right)  \right\}  _{\operatorname*{multi}%
+}\nonumber\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi^{\prime},\sigma\right)  \right\}  _{\operatorname*{multi}}-\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi^{\prime},\sigma\right)  \right\}  _{\operatorname*{multi}}.
+\label{pf.thm.head-comp.LRcomp.c1.pf.8}%
+\end{align}
+
+
+But recall that the statistic $\operatorname*{st}$ is shuffle-compatible. In
+other words, for any two disjoint permutations $\alpha$ and $\beta$, the
+multiset%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\alpha,\beta\right)  \right\}  _{\operatorname*{multi}}%
+\]
+depends only on $\operatorname*{st}\left(  \alpha\right)  $,
+$\operatorname*{st}\left(  \beta\right)  $, $\left\vert \alpha\right\vert $
+and $\left\vert \beta\right\vert $. (by the definition of
+shuffle-compatibility). In other words, if $\alpha$ and $\beta$ are two
+disjoint permutation, and if $\alpha^{\prime}$ and $\beta^{\prime}$ are two
+disjoint permutations, and if we have%
+\[
+\operatorname*{st}\left(  \alpha\right)  =\operatorname*{st}\left(
+\alpha^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \operatorname*{st}\left(
+\beta\right)  =\operatorname*{st}\left(  \beta^{\prime}\right)
+,\ \ \ \ \ \ \ \ \ \ \left\vert \alpha\right\vert =\left\vert \alpha^{\prime
+}\right\vert \ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left\vert
+\beta\right\vert =\left\vert \beta^{\prime}\right\vert ,
+\]
+then%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\alpha,\beta\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \alpha
+^{\prime},\beta^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+Applying this to $\alpha=\pi$, $\beta=\sigma$, $\alpha^{\prime}=\pi^{\prime}$
+and $\beta^{\prime}=\sigma$, we obtain
+\begin{equation}
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi^{\prime
+},\sigma\right)  \right\}  _{\operatorname*{multi}}
+\label{pf.thm.head-comp.LRcomp.c1.pf.9}%
+\end{equation}
+(since $\operatorname*{st}\left(  \pi\right)  =\operatorname*{st}\left(
+\pi^{\prime}\right)  $, $\operatorname*{st}\left(  \sigma\right)
+=\operatorname*{st}\left(  \sigma\right)  $, $\left\vert \pi\right\vert
+=\left\vert \pi^{\prime}\right\vert $ and $\left\vert \sigma\right\vert
+=\left\vert \sigma\right\vert $). Now, (\ref{pf.thm.head-comp.LRcomp.c1.pf.7})
+becomes%
+\begin{align*}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\underbrace{\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid
+\ \tau\in S\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}%
+}_{\substack{=\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+S\left(  \pi^{\prime},\sigma\right)  \right\}  _{\operatorname*{multi}%
+}\\\text{(by (\ref{pf.thm.head-comp.LRcomp.c1.pf.9}))}}}-\underbrace{\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}}_{\substack{=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi^{\prime},\sigma\right)  \right\}  _{\operatorname*{multi}}\\\text{(by
+(\ref{pf.thm.head-comp.LRcomp.c1.pf.6}))}}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi^{\prime},\sigma\right)  \right\}  _{\operatorname*{multi}}-\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi^{\prime},\sigma\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi^{\prime},\sigma\right)  \right\}  _{\operatorname*{multi}%
+}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.head-comp.LRcomp.c1.pf.8}%
+)}\right)  .
+\end{align*}
+Thus, (\ref{pf.thm.head-comp.LRcomp.c1.eq3}) is proven. Hence, we have proven
+both (\ref{pf.thm.head-comp.LRcomp.c1.eq3}) and
+(\ref{pf.thm.head-comp.LRcomp.c1.eq4}). This shows that Claim 1 holds for our
+$\pi$, $\pi^{\prime}$ and $\sigma$. This completes the induction step. Thus,
+Claim 1 is proven by induction.]
+
+We shall next derive a \textquotedblleft mirror version\textquotedblright\ of
+Claim 1:
+
+\begin{statement}
+\textit{Claim 2:} Let $\pi$, $\sigma$ and $\sigma^{\prime}$ be three nonempty
+permutations. Assume that $\pi$ and $\sigma$ are disjoint. Assume that $\pi$
+and $\sigma^{\prime}$ are disjoint. Assume furthermore that%
+\[
+\operatorname*{st}\left(  \sigma\right)  =\operatorname*{st}\left(
+\sigma^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \left\vert \sigma\right\vert
+=\left\vert \sigma^{\prime}\right\vert \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \left[  \pi_{1}>\sigma_{1}\right]  =\left[  \pi_{1}%
+>\sigma_{1}^{\prime}\right]  .
+\]
+Then,
+\begin{align*}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}%
+\end{align*}
+and%
+\begin{align*}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\end{align*}
+
+\end{statement}
+
+[\textit{Proof of Claim 2:} We have $\sigma_{1}\neq\pi_{1}$ (since $\pi$ and
+$\sigma$ are disjoint). Thus, the statement $\left(  \sigma_{1}>\pi
+_{1}\right)  $ is equivalent to $\left(  \text{not }\pi_{1}>\sigma_{1}\right)
+$. Hence, $\left[  \sigma_{1}>\pi_{1}\right]  =\left[  \text{not }\pi
+_{1}>\sigma_{1}\right]  =1-\left[  \pi_{1}>\sigma_{1}\right]  $. Similarly,
+$\left[  \sigma_{1}^{\prime}>\pi_{1}\right]  =1-\left[  \pi_{1}>\sigma
+_{1}^{\prime}\right]  $. Hence,%
+\[
+\left[  \sigma_{1}>\pi_{1}\right]  =1-\underbrace{\left[  \pi_{1}>\sigma
+_{1}\right]  }_{=\left[  \pi_{1}>\sigma_{1}^{\prime}\right]  }=1-\left[
+\pi_{1}>\sigma_{1}^{\prime}\right]  =\left[  \sigma_{1}^{\prime}>\pi
+_{1}\right]  .
+\]
+Hence, Claim 1 (applied to $\sigma$, $\sigma^{\prime}$ and $\pi$ instead of
+$\pi$, $\pi^{\prime}$ and $\sigma$) shows that%
+\begin{align*}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \sigma,\pi\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \sigma^{\prime},\pi\right)  \right\}  _{\operatorname*{multi}}%
+\end{align*}
+and%
+\begin{align*}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \sigma,\pi\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \sigma^{\prime},\pi\right)  \right\}  _{\operatorname*{multi}}.
+\end{align*}
+But Proposition \ref{prop.LR.rec} \textbf{(a)} yields $S_{\prec}\left(
+\pi,\sigma\right)  =S_{\succ}\left(  \sigma,\pi\right)  $. Similarly,
+$S_{\prec}\left(  \pi,\sigma^{\prime}\right)  =S_{\succ}\left(  \sigma
+^{\prime},\pi\right)  $. Also, Proposition \ref{prop.LR.rec} \textbf{(a)}
+(applied to $\sigma$ and $\pi$ instead of $\pi$ and $\sigma$) yields
+$S_{\prec}\left(  \sigma,\pi\right)  =S_{\succ}\left(  \pi,\sigma\right)  $.
+Similarly, $S_{\prec}\left(  \sigma^{\prime},\pi\right)  =S_{\succ}\left(
+\pi,\sigma^{\prime}\right)  $. Using all these equalities, we find%
+\begin{align*}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+\underbrace{S_{\prec}\left(  \pi,\sigma\right)  }_{=S_{\succ}\left(
+\sigma,\pi\right)  }\right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \sigma,\pi\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in\underbrace{S_{\succ
+}\left(  \sigma^{\prime},\pi\right)  }_{=S_{\prec}\left(  \pi,\sigma^{\prime
+}\right)  }\right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}%
+\end{align*}
+and%
+\begin{align*}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+\underbrace{S_{\succ}\left(  \pi,\sigma\right)  }_{=S_{\prec}\left(
+\sigma,\pi\right)  }\right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \sigma,\pi\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in\underbrace{S_{\prec
+}\left(  \sigma^{\prime},\pi\right)  }_{=S_{\succ}\left(  \pi,\sigma^{\prime
+}\right)  }\right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\end{align*}
+Thus, Claim 2 is proven.]
+
+Finally, we are ready to take on the LR-shuffle-compatibility of
+$\operatorname*{st}$:
+
+\begin{statement}
+\textit{Claim 3:} Let $\pi$ and $\sigma$ be two disjoint nonempty
+permutations. Let $\pi^{\prime}$ and $\sigma^{\prime}$ be two disjoint
+nonempty permutations. Assume that%
+\begin{align*}
+\operatorname*{st}\left(  \pi\right)   &  =\operatorname*{st}\left(
+\pi^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \operatorname*{st}\left(
+\sigma\right)  =\operatorname*{st}\left(  \sigma^{\prime}\right)  ,\\
+\left\vert \pi\right\vert  &  =\left\vert \pi^{\prime}\right\vert
+,\ \ \ \ \ \ \ \ \ \ \left\vert \sigma\right\vert =\left\vert \sigma^{\prime
+}\right\vert \ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left[  \pi
+_{1}>\sigma_{1}\right]  =\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]
+.
+\end{align*}
+Then,
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}%
+\]
+and%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+
+\end{statement}
+
+[\textit{Proof of Claim 3:} We have $\left[  \pi_{1}>\sigma_{1}\right]
+=\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]  $. Since $\left[
+\pi_{1}>\sigma_{1}\right]  =\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime
+}\right]  $ is either $1$ or $0$, we must therefore be in one of the following
+two cases:
+
+\textit{Case 1:} We have $\left[  \pi_{1}>\sigma_{1}\right]  =\left[  \pi
+_{1}^{\prime}>\sigma_{1}^{\prime}\right]  =1$.
+
+\textit{Case 2:} We have $\left[  \pi_{1}>\sigma_{1}\right]  =\left[  \pi
+_{1}^{\prime}>\sigma_{1}^{\prime}\right]  =0$.
+
+Let us first consider Case 1. In this case, we have $\left[  \pi_{1}%
+>\sigma_{1}\right]  =\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]  =1$.
+
+There clearly exists a positive integer $N$ that is larger than all entries of
+$\sigma$ and larger than all entries of $\sigma^{\prime}$. Consider such an
+$N$. Let $n=\left\vert \pi\right\vert $; thus, $\pi=\left(  \pi_{1},\pi
+_{2},\ldots,\pi_{n}\right)  $. Let $\gamma$ be the permutation $\left(
+\pi_{1}+N,\pi_{2}+N,\ldots,\pi_{n}+N\right)  $. This permutation $\gamma$ is
+order-equivalent to $\pi$, but is disjoint from $\sigma$ (since all its
+entries are $>N$, while all the entries of $\sigma$ are $<N$) and disjoint
+from $\sigma^{\prime}$ (for similar reasons). Also, $\gamma_{1}%
+=\underbrace{\pi_{1}}_{>0}+N>N>\sigma_{1}$, so that $\left[  \gamma_{1}%
+>\sigma_{1}\right]  =1$. Similarly, $\left[  \gamma_{1}>\sigma_{1}^{\prime
+}\right]  =1$.
+
+The permutation $\gamma$ is order-equivalent to $\pi$. Thus,
+$\operatorname*{st}\left(  \gamma\right)  =\operatorname*{st}\left(
+\pi\right)  $ (since $\operatorname*{st}$ is a permutation statistic) and
+$\left\vert \gamma\right\vert =\left\vert \pi\right\vert $. The permutation
+$\gamma$ is furthermore nonempty (since it is order-equivalent to the nonempty
+permutation $\pi$). Also, $\operatorname*{st}\left(  \gamma\right)
+=\operatorname*{st}\left(  \pi\right)  =\operatorname*{st}\left(  \pi^{\prime
+}\right)  $ and $\left\vert \gamma\right\vert =\left\vert \pi\right\vert
+=\left\vert \pi^{\prime}\right\vert $. Moreover, $\left[  \pi_{1}>\sigma
+_{1}\right]  =1=\left[  \gamma_{1}>\sigma_{1}\right]  $ and $\left[
+\gamma_{1}>\sigma_{1}\right]  =1=\left[  \gamma_{1}>\sigma_{1}^{\prime
+}\right]  $ and $\left[  \gamma_{1}>\sigma_{1}\right]  =1=\left[  \pi
+_{1}^{\prime}>\sigma_{1}^{\prime}\right]  $. Hence, Claim 1 (applied to
+$\gamma$ instead of $\pi^{\prime}$) yields%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\gamma,\sigma\right)  \right\}  _{\operatorname*{multi}}%
+\]
+and%
+\begin{equation}
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\gamma,\sigma\right)  \right\}  _{\operatorname*{multi}}.\nonumber
+\end{equation}
+Furthermore, Claim 2 (applied to $\gamma$ instead of $\pi$) yields%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \gamma,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\gamma,\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}%
+\]
+and%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \gamma,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\gamma,\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+Finally, Claim 1 (applied to $\gamma$ and $\sigma^{\prime}$ instead of $\pi$
+and $\sigma$) yields%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \gamma,\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}%
+}=\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi^{\prime},\sigma^{\prime}\right)  \right\}
+_{\operatorname*{multi}}%
+\]
+and%
+\begin{equation}
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \gamma,\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}%
+}=\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi^{\prime},\sigma^{\prime}\right)  \right\}
+_{\operatorname*{multi}}.\nonumber
+\end{equation}
+Combining the equalities we have found, we obtain%
+\begin{align*}
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}  &  =\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\gamma,\sigma\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \gamma,\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi^{\prime},\sigma^{\prime}\right)  \right\}
+_{\operatorname*{multi}}.
+\end{align*}
+The same argument (but with the symbols \textquotedblleft$S_{\prec}%
+$\textquotedblright\ and \textquotedblleft$S_{\succ}$\textquotedblright%
+\ interchanged) yields
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+Thus, Claim 3 is proven in Case 1.
+
+Let us now consider Case 2. In this case, we have $\left[  \pi_{1}>\sigma
+_{1}\right]  =\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]  =0$.
+
+There clearly exists a positive integer $N$ that is larger than all entries of
+$\pi$ and larger than all entries of $\pi^{\prime}$. Consider such an $N$. Set
+$m=\left\vert \sigma\right\vert $. Thus, $\sigma=\left(  \sigma_{1},\sigma
+_{2},\ldots,\sigma_{m}\right)  $ (since $\left\vert \sigma\right\vert =m$).
+Let $\delta$ be the permutation $\left(  \sigma_{1}+N,\sigma_{2}%
++N,\ldots,\sigma_{m}+N\right)  $. This permutation $\delta$ is
+order-equivalent to $\sigma$, but is disjoint from $\pi$ (since all its
+entries are $>N$, while all the entries of $\pi$ are $<N$) and disjoint from
+$\pi^{\prime}$ (for similar reasons). Also, $\delta_{1}=\underbrace{\sigma
+_{1}}_{>0}+N>N>\pi_{1}$, so that we don't have $\pi_{1}>\delta_{1}$. Thus,
+$\left[  \pi_{1}>\delta_{1}\right]  =0$. Similarly, $\left[  \pi_{1}^{\prime
+}>\delta_{1}\right]  =0$.
+
+The permutation $\delta$ is order-equivalent to $\sigma$. Thus,
+$\operatorname*{st}\left(  \delta\right)  =\operatorname*{st}\left(
+\sigma\right)  $ (since $\operatorname*{st}$ is a permutation statistic) and
+$\left\vert \delta\right\vert =\left\vert \sigma\right\vert $. The permutation
+$\delta$ is furthermore nonempty (since it is order-equivalent to the nonempty
+permutation $\sigma$). Also, $\operatorname*{st}\left(  \delta\right)
+=\operatorname*{st}\left(  \sigma\right)  =\operatorname*{st}\left(
+\sigma^{\prime}\right)  $ and $\left\vert \delta\right\vert =\left\vert
+\sigma\right\vert =\left\vert \sigma^{\prime}\right\vert $. Moreover, $\left[
+\pi_{1}>\sigma_{1}\right]  =0=\left[  \pi_{1}>\delta_{1}\right]  $ and
+$\left[  \pi_{1}>\delta_{1}\right]  =0=\left[  \pi_{1}^{\prime}>\delta
+_{1}\right]  $ and $\left[  \pi_{1}^{\prime}>\delta_{1}\right]  =0=\left[
+\pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]  $. Hence, Claim 2 (applied to
+$\delta$ instead of $\sigma^{\prime}$) yields%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi,\delta\right)  \right\}  _{\operatorname*{multi}}%
+\]
+and%
+\begin{equation}
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi,\delta\right)  \right\}  _{\operatorname*{multi}}.\nonumber
+\end{equation}
+Furthermore, Claim 1 (applied to $\delta$ instead of $\sigma$) yields%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\delta\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi^{\prime},\delta\right)  \right\}  _{\operatorname*{multi}}%
+\]
+and%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\delta\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi^{\prime},\delta\right)  \right\}  _{\operatorname*{multi}}.
+\]
+Finally, Claim 2 (applied to $\pi^{\prime}$ and $\delta$ instead of $\pi$ and
+$\sigma$) yields%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi^{\prime},\delta\right)  \right\}  _{\operatorname*{multi}%
+}=\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi^{\prime},\sigma^{\prime}\right)  \right\}
+_{\operatorname*{multi}}%
+\]
+and%
+\begin{equation}
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi^{\prime},\delta\right)  \right\}  _{\operatorname*{multi}%
+}=\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi^{\prime},\sigma^{\prime}\right)  \right\}
+_{\operatorname*{multi}}.\nonumber
+\end{equation}
+Combining the equalities we have found, we obtain%
+\begin{align*}
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}  &  =\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi,\delta\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi^{\prime},\delta\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi^{\prime},\sigma^{\prime}\right)  \right\}
+_{\operatorname*{multi}}.
+\end{align*}
+The same argument (but with the symbols \textquotedblleft$S_{\prec}%
+$\textquotedblright\ and \textquotedblleft$S_{\succ}$\textquotedblright%
+\ interchanged) yields
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+Thus, Claim 3 is proven in Case 2.
+
+We have now proven Claim 3 in each of the two Cases 1 and 2. Hence, Claim 3
+always holds.]
+
+Claim 3 says that for any two disjoint nonempty permutations $\pi$ and
+$\sigma$, the multisets%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}%
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left\{  \operatorname*{st}%
+\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(  \pi,\sigma\right)
+\right\}  _{\operatorname*{multi}}%
+\]
+depend only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
+\left(  \sigma\right)  $, $\left\vert \pi\right\vert $, $\left\vert
+\sigma\right\vert $ and $\left[  \pi_{1}>\sigma_{1}\right]  $. In other words,
+the statistic $\operatorname*{st}$ is LR-shuffle-compatible (by the definition
+of \textquotedblleft LR-shuffle-compatible\textquotedblright). This proves
+Theorem \ref{thm.head-comp.LRcomp}.
+\end{proof}
+
+Combining Theorem \ref{thm.head-comp.LRcomp} with Proposition
+\ref{prop.head-comp.Pks}, we obtain the following:
+
+\begin{theorem}
+\label{thm.LRcomp.Pks}\textbf{(a)} The permutation statistic
+$\operatorname*{Des}$ is LR-shuffle-compatible.
+
+\textbf{(b)} The permutation statistic $\operatorname*{Lpk}$ is LR-shuffle-compatible.
+
+\textbf{(c)} The permutation statistic $\operatorname*{Epk}$ is LR-shuffle-compatible.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.LRcomp.Pks}.]\textbf{(a)} The permutation statistic
+$\operatorname*{Des}$ is shuffle-compatible (by \cite[\S 2.4]{part1}) and
+head-graft-compatible (by Proposition \ref{prop.head-comp.Pks} \textbf{(a)}).
+Thus, Theorem \ref{thm.head-comp.LRcomp} (applied to $\operatorname*{st}%
+=\operatorname*{Des}$) shows that the permutation statistic
+$\operatorname*{Des}$ is LR-shuffle-compatible. This proves Theorem
+\ref{thm.LRcomp.Pks} \textbf{(a)}.
+
+\textbf{(b)} The permutation statistic $\operatorname*{Lpk}$ is
+shuffle-compatible (by \cite[Theorem 4.9 \textbf{(a)}]{part1}) and
+head-graft-compatible (by Proposition \ref{prop.head-comp.Pks} \textbf{(b)}).
+Thus, Theorem \ref{thm.head-comp.LRcomp} (applied to $\operatorname*{st}%
+=\operatorname*{Lpk}$) shows that the permutation statistic
+$\operatorname*{Lpk}$ is LR-shuffle-compatible. This proves Theorem
+\ref{thm.LRcomp.Pks} \textbf{(b)}.
+
+\textbf{(c)} The permutation statistic $\operatorname*{Epk}$ is
+shuffle-compatible (by Theorem \ref{thm.Epk.sh-co-a}) and
+head-graft-compatible (by Proposition \ref{prop.head-comp.Pks} \textbf{(c)}).
+Thus, Theorem \ref{thm.head-comp.LRcomp} (applied to $\operatorname*{st}%
+=\operatorname*{Epk}$) shows that the permutation statistic
+$\operatorname*{Epk}$ is LR-shuffle-compatible. This proves Theorem
+\ref{thm.LRcomp.Pks} \textbf{(c)}.
+\end{proof}
+
+\subsection{\label{subsect.LR.others}Some other statistics}
+
+The question of LR-shuffle-compatibility can be asked about any statistic. We
+have so far answered it for $\operatorname*{Des}$, $\operatorname*{Pk}$,
+$\operatorname*{Lpk}$, $\operatorname*{Rpk}$ and $\operatorname*{Epk}$. In
+this section, we shall analyze it for three further statistics.
+
+\subsubsection{The descent number $\operatorname*{des}$}
+
+The permutation statistic $\operatorname*{des}$ (called the \textit{descent
+number}) is defined as follows: For each permutation $\pi$, we set
+$\operatorname*{des}\pi=\left\vert \operatorname*{Des}\pi\right\vert $ (that
+is, $\operatorname*{des}\pi$ is the number of all descents of $\pi$). It was
+proven in \cite[Theorem 4.6 \textbf{(a)}]{part1} that this statistic
+$\operatorname*{des}$ is shuffle-compatible. We now claim the following:
+
+\begin{proposition}
+\label{prop.LRcomp.des}The permutation statistic $\operatorname*{des}$ is
+head-graft-compatible and LR-shuffle-compatible.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.LRcomp.des}.]From
+(\ref{pf.prop.head-comp.Pks.a.1}), we easily obtain the following: If $\pi$ is
+a nonempty permutation, and if $a$ is a letter that does not appear in $\pi$,
+then%
+\[
+\operatorname*{des}\left(  a:\pi\right)  =\operatorname*{des}\pi+\left[
+a>\pi_{1}\right]  .
+\]
+Thus, $\operatorname*{des}\left(  a:\pi\right)  $ depends only on
+$\operatorname*{des}\pi$, $\left\vert \pi\right\vert $ and $\left[  a>\pi
+_{1}\right]  $. In other words, $\operatorname*{des}$ is head-graft-compatible
+(by the definition of \textquotedblleft
+head-graft-compatible\textquotedblright). Hence, Theorem
+\ref{thm.head-comp.LRcomp} (applied to $\operatorname*{st}=\operatorname*{des}%
+$) shows that the permutation statistic $\operatorname*{des}$ is
+LR-shuffle-compatible. This proves Proposition \ref{prop.LRcomp.des}.
+\end{proof}
+
+\subsubsection{The major index $\operatorname*{maj}$}
+
+The permutation statistic $\operatorname*{maj}$ (called the \textit{major
+index}) is defined as follows: For each permutation $\pi$, we set
+$\operatorname*{maj}\pi=\sum_{i\in\operatorname*{Des}\pi}i$ (that is,
+$\operatorname*{maj}\pi$ is the sum of all descents of $\pi$). It was proven
+in \cite[Theorem 3.1 \textbf{(a)}]{part1} that this statistic
+$\operatorname*{maj}$ is shuffle-compatible.
+
+However, $\operatorname*{maj}$ is neither head-graft-compatible nor
+LR-shuffle-compatible. For example, if we take $\pi=\left(  5,4,2,3\right)  $,
+$a=1$, $\pi^{\prime}=\left(  3,4,5,2\right)  $ and $a^{\prime}=1$, then we do
+have%
+\[
+\operatorname*{maj}\left(  \pi\right)  =\operatorname*{maj}\left(  \pi
+^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \left\vert \pi\right\vert =\left\vert
+\pi^{\prime}\right\vert \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \left[  a>\pi_{1}\right]  =\left[  a^{\prime}>\pi
+_{1}^{\prime}\right]
+\]
+but we don't have $\operatorname*{maj}\left(  a:\pi\right)
+=\operatorname*{maj}\left(  a^{\prime}:\pi^{\prime}\right)  $. Thus,
+$\operatorname*{maj}$ is not head-graft-compatible. Using Proposition
+\ref{prop.LRcomp.head} below, this entails that $\operatorname*{maj}$ is not LR-shuffle-compatible.
+
+\subsubsection{The joint statistic $\left(  \operatorname*{des}%
+,\operatorname*{maj}\right)  $}
+
+The next permutation statistic we shall study is the so-called joint statistic
+$\left(  \operatorname*{des},\operatorname*{maj}\right)  $. This statistic is
+defined as the permutation statistic that sends each permutation $\pi$ to the
+ordered pair $\left(  \operatorname*{des}\pi,\operatorname*{maj}\pi\right)  $.
+(Calling it $\left(  \operatorname*{des},\operatorname*{maj}\right)  $ is thus
+a slight abuse of notation.) It was proven in \cite[Theorem 4.5 \textbf{(a)}%
+]{part1} that this statistic $\left(  \operatorname*{des},\operatorname*{maj}%
+\right)  $ is shuffle-compatible. We now claim the following:
+
+\begin{proposition}
+\label{prop.LRcomp.desmaj}The permutation statistic $\left(
+\operatorname*{des},\operatorname*{maj}\right)  $ is head-graft-compatible and LR-shuffle-compatible.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.LRcomp.desmaj}.]From
+(\ref{pf.prop.head-comp.Pks.a.1}), we easily obtain the following: If $\pi$ is
+a nonempty permutation, and if $a$ is a letter that does not appear in $\pi$,
+then%
+\begin{align*}
+\operatorname*{des}\left(  a:\pi\right)   &  =\operatorname*{des}\pi+\left[
+a>\pi_{1}\right]  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+\operatorname*{maj}\left(  a:\pi\right)   &  =\operatorname*{des}%
+\pi+\operatorname*{maj}\pi+\left[  a>\pi_{1}\right]  .
+\end{align*}
+Thus, $\left(  \operatorname*{des},\operatorname*{maj}\right)  \left(
+a:\pi\right)  $ depends only on $\left(  \operatorname*{des}%
+,\operatorname*{maj}\right)  \left(  \pi\right)  $, $\left\vert \pi\right\vert
+$ and $\left[  a>\pi_{1}\right]  $. In other words, $\left(
+\operatorname*{des},\operatorname*{maj}\right)  $ is head-graft-compatible (by
+the definition of \textquotedblleft head-graft-compatible\textquotedblright).
+Hence, Theorem \ref{thm.head-comp.LRcomp} (applied to $\operatorname*{st}%
+=\left(  \operatorname*{des},\operatorname*{maj}\right)  $) shows that the
+permutation statistic $\left(  \operatorname*{des},\operatorname*{maj}\right)
+$ is LR-shuffle-compatible. This proves Proposition \ref{prop.LRcomp.desmaj}.
+\end{proof}
+
+\subsubsection{The comajor index $\operatorname*{comaj}$}
+
+The permutation statistic $\operatorname*{comaj}$ (called the \textit{comajor
+index}) is defined as follows: For each permutation $\pi$, we set
+$\operatorname*{comaj}\pi=\sum_{k\in\operatorname*{Des}\pi}\left(  n-k\right)
+$, where $n=\left\vert \pi\right\vert $. It was proven in \cite[\S 3.2]{part1}
+that this statistic $\operatorname*{comaj}$ is shuffle-compatible. We now
+claim the following:
+
+\begin{proposition}
+\label{prop.LRcomp.comaj}The permutation statistic $\operatorname*{comaj}$ is
+head-graft-compatible and LR-shuffle-compatible.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.LRcomp.des}.]From
+(\ref{pf.prop.head-comp.Pks.a.1}), we easily obtain the following: If $\pi$ is
+a nonempty permutation, and if $a$ is a letter that does not appear in $\pi$,
+then%
+\[
+\operatorname*{comaj}\left(  a:\pi\right)  =\operatorname*{comaj}\pi+\left[
+a>\pi_{1}\right]  \cdot\left\vert \pi\right\vert .
+\]
+Thus, $\operatorname*{comaj}\left(  a:\pi\right)  $ depends only on
+$\operatorname*{comaj}\pi$, $\left\vert \pi\right\vert $ and $\left[
+a>\pi_{1}\right]  $. In other words, $\operatorname*{comaj}$ is
+head-graft-compatible (by the definition of \textquotedblleft
+head-graft-compatible\textquotedblright). Hence, Theorem
+\ref{thm.head-comp.LRcomp} (applied to $\operatorname*{st}%
+=\operatorname*{comaj}$) shows that the permutation statistic
+$\operatorname*{comaj}$ is LR-shuffle-compatible. This proves Proposition
+\ref{prop.LRcomp.comaj}.
+\end{proof}
+
+\subsection{Left- and right-shuffle-compatibility}
+
+In this section, we shall study two notions closely related to LR-shuffle-compatibility:
+
+\begin{definition}
+\label{def.LR.left-right}Let $\operatorname*{st}$ be a permutation statistic.
+
+\textbf{(a)} We say that $\operatorname*{st}$ is
+\textit{left-shuffle-compatible} if for any two disjoint nonempty permutations
+$\pi$ and $\sigma$ having the property that%
+\[
+\text{the first entry of }\pi\text{ is greater than the first entry of }%
+\sigma,
+\]
+the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+S_{\prec}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$
+depends only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
+\left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
+\sigma\right\vert $.
+
+\textbf{(b)} We say that $\operatorname*{st}$ is
+\textit{right-shuffle-compatible} if for any two disjoint nonempty
+permutations $\pi$ and $\sigma$ having the property that%
+\[
+\text{the first entry of }\pi\text{ is greater than the first entry of }%
+\sigma,
+\]
+the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+S_{\succ}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$
+depends only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
+\left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
+\sigma\right\vert $.
+\end{definition}
+
+For a shuffle-compatible permutation statistic, these two notions are
+equivalent to the notions of LR-shuffle-compatibility and
+head-graft-compatibility, as the following proposition reveals:
+
+\begin{proposition}
+\label{prop.LRcomp.equivs}Let $\operatorname*{st}$ be a shuffle-compatible
+permutation statistic. Then, the following assertions are equivalent:
+
+\begin{itemize}
+\item \textit{Assertion }$\mathcal{A}_{1}$\textit{:} The statistic
+$\operatorname*{st}$ is LR-shuffle-compatible.
+
+\item \textit{Assertion }$\mathcal{A}_{2}$\textit{:} The statistic
+$\operatorname*{st}$ is left-shuffle-compatible.
+
+\item \textit{Assertion }$\mathcal{A}_{3}$\textit{:} The statistic
+$\operatorname*{st}$ is right-shuffle-compatible.
+
+\item \textit{Assertion }$\mathcal{A}_{4}$\textit{:} The statistic
+$\operatorname*{st}$ is head-graft-compatible.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.LRcomp.equivs} (sketched).]We shall now prove
+the implications $\mathcal{A}_{1}\Longrightarrow\mathcal{A}_{2}$,
+$\mathcal{A}_{2}\Longrightarrow\mathcal{A}_{3}$, $\mathcal{A}_{3}%
+\Longrightarrow\mathcal{A}_{2}$, $\mathcal{A}_{3}\Longrightarrow
+\mathcal{A}_{4}$ and $\mathcal{A}_{4}\Longrightarrow\mathcal{A}_{1}$.
+
+The implication $\mathcal{A}_{4}\Longrightarrow\mathcal{A}_{1}$ follows from
+Theorem \ref{thm.head-comp.LRcomp}.
+
+\begin{noncompile}
+Let us first recall that $\operatorname*{st}$ is shuffle-compatible. In other
+words, the following holds:
+
+\begin{statement}
+\textit{Claim 1:} Let $\pi$ and $\sigma$ be two disjoint permutations. Let
+$\pi^{\prime}$ and $\sigma^{\prime}$ be two disjoint permutations. Assume that%
+\begin{align*}
+\operatorname*{st}\left(  \pi\right)   &  =\operatorname*{st}\left(
+\pi^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \operatorname*{st}\left(
+\sigma\right)  =\operatorname*{st}\left(  \sigma^{\prime}\right)  ,\\
+\left\vert \pi\right\vert  &  =\left\vert \pi^{\prime}\right\vert
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left\vert \sigma\right\vert
+=\left\vert \sigma^{\prime}\right\vert .
+\end{align*}
+Then,
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi^{\prime
+},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+
+\end{statement}
+\end{noncompile}
+
+\textit{Proof of the implication }$\mathcal{A}_{1}\Longrightarrow
+\mathcal{A}_{2}$\textit{:} Assume that Assertion $\mathcal{A}_{1}$ holds. In
+other words, the statistic $\operatorname*{st}$ is LR-shuffle-compatible. We
+shall show that Assertion $\mathcal{A}_{2}$ holds.
+
+The statistic $\operatorname*{st}$ is LR-shuffle-compatible. In other words,
+for any two disjoint nonempty permutations $\pi$ and $\sigma$, the multisets%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}%
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left\{  \operatorname*{st}%
+\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(  \pi,\sigma\right)
+\right\}  _{\operatorname*{multi}}%
+\]
+depend only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
+\left(  \sigma\right)  $, $\left\vert \pi\right\vert $, $\left\vert
+\sigma\right\vert $ and $\left[  \pi_{1}>\sigma_{1}\right]  $. Hence, for any
+two disjoint nonempty permutations $\pi$ and $\sigma$, the multiset $\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$ depends only on
+$\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}\left(
+\sigma\right)  $, $\left\vert \pi\right\vert $, $\left\vert \sigma\right\vert
+$ and $\left[  \pi_{1}>\sigma_{1}\right]  $. Hence, for any two disjoint
+nonempty permutations $\pi$ and $\sigma$ satisfying $\pi_{1}>\sigma_{1}$, the
+multiset \newline$\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid
+\ \tau\in S_{\prec}\left(  \pi,\sigma\right)  \right\}
+_{\operatorname*{multi}}$ depends only on $\operatorname*{st}\left(
+\pi\right)  $, $\operatorname*{st}\left(  \sigma\right)  $, $\left\vert
+\pi\right\vert $ and $\left\vert \sigma\right\vert $ (indeed, it no longer
+depends on $\left[  \pi_{1}>\sigma_{1}\right]  $, because our condition
+$\pi_{1}>\sigma_{1}$ ensures that $\left[  \pi_{1}>\sigma_{1}\right]  =1$). In
+other words, for any two disjoint nonempty permutations $\pi$ and $\sigma$
+having the property that%
+\[
+\text{the first entry of }\pi\text{ is greater than the first entry of }%
+\sigma,
+\]
+the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+S_{\prec}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$
+depends only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
+\left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
+\sigma\right\vert $ (because the condition \textquotedblleft$\pi_{1}%
+>\sigma_{1}$\textquotedblright\ is equivalent to the condition
+\textquotedblleft the first entry of $\pi$ is greater than the first entry of
+$\sigma$\textquotedblright). In other words, the statistic $\operatorname*{st}%
+$ is left-shuffle-compatible (by the definition of \textquotedblleft
+left-shuffle-compatible\textquotedblright). In other words, Assertion
+$\mathcal{A}_{2}$ holds. This proves the implication $\mathcal{A}%
+_{1}\Longrightarrow\mathcal{A}_{2}$.
+
+\textit{Proof of the implication }$\mathcal{A}_{2}\Longrightarrow
+\mathcal{A}_{3}$\textit{:} Assume that Assertion $\mathcal{A}_{2}$ holds. In
+other words, the statistic $\operatorname*{st}$ is left-shuffle-compatible. We
+shall show that Assertion $\mathcal{A}_{3}$ holds.
+
+If $\pi$ and $\sigma$ are two disjoint nonempty permutations, then%
+\begin{align*}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}-\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}%
+\end{align*}
+(by Lemma \ref{lem.LR.difference} \textbf{(b)}). Hence, if $\pi$ and $\sigma$
+are two disjoint nonempty permutations, then the multiset $\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$ is uniquely determined
+by $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$ and $\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$.
+
+Thus, altogether, we know that for any two disjoint nonempty permutations
+$\pi$ and $\sigma$ having the property that%
+\[
+\text{the first entry of }\pi\text{ is greater than the first entry of }%
+\sigma,
+\]
+the following holds:
+
+\begin{itemize}
+\item The multiset $\left\{  \operatorname*{st}\left(  \tau\right)
+\ \mid\ \tau\in S_{\prec}\left(  \pi,\sigma\right)  \right\}
+_{\operatorname*{multi}}$ depends only on $\operatorname*{st}\left(
+\pi\right)  $, $\operatorname*{st}\left(  \sigma\right)  $, $\left\vert
+\pi\right\vert $ and $\left\vert \sigma\right\vert $ (since the statistic
+$\operatorname*{st}$ is left-shuffle-compatible);
+
+\item The multiset $\left\{  \operatorname*{st}\left(  \tau\right)
+\ \mid\ \tau\in S\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}%
+}$ depends only on $\operatorname*{st}\left(  \pi\right)  $,
+$\operatorname*{st}\left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and
+$\left\vert \sigma\right\vert $ (since the statistic $\operatorname*{st}$ is shuffle-compatible);
+
+\item The multiset $\left\{  \operatorname*{st}\left(  \tau\right)
+\ \mid\ \tau\in S_{\succ}\left(  \pi,\sigma\right)  \right\}
+_{\operatorname*{multi}}$ is uniquely determined by \newline$\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi
+,\sigma\right)  \right\}  _{\operatorname*{multi}}$ and $\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$.
+\end{itemize}
+
+Hence, the multiset $\left\{  \operatorname*{st}\left(  \tau\right)
+\ \mid\ \tau\in S_{\succ}\left(  \pi,\sigma\right)  \right\}
+_{\operatorname*{multi}}$ also depends only on $\operatorname*{st}\left(
+\pi\right)  $, $\operatorname*{st}\left(  \sigma\right)  $, $\left\vert
+\pi\right\vert $ and $\left\vert \sigma\right\vert $. In other words, the
+statistic $\operatorname*{st}$ is right-shuffle-compatible (by the definition
+of \textquotedblleft right-shuffle-compatible\textquotedblright). In other
+words, Assertion $\mathcal{A}_{3}$ holds. This proves the implication
+$\mathcal{A}_{2}\Longrightarrow\mathcal{A}_{3}$.
+
+\textit{Proof of the implication }$\mathcal{A}_{3}\Longrightarrow
+\mathcal{A}_{2}$\textit{:} The proof of the implication $\mathcal{A}%
+_{3}\Longrightarrow\mathcal{A}_{2}$ is entirely analogous to the above proof
+of the implication $\mathcal{A}_{2}\Longrightarrow\mathcal{A}_{3}$ (except
+that we need to interchange \textquotedblleft left\textquotedblright\ and
+\textquotedblleft right\textquotedblright\ and likewise interchange
+\textquotedblleft$S_{\prec}$\textquotedblright\ and \textquotedblleft%
+$S_{\succ}$\textquotedblright).
+
+\textit{Proof of the implication }$\mathcal{A}_{3}\Longrightarrow
+\mathcal{A}_{4}$\textit{:} Assume that Assertion $\mathcal{A}_{3}$ holds. We
+shall show that Assertion $\mathcal{A}_{4}$ holds.
+
+We have already proven the implication $\mathcal{A}_{3}\Longrightarrow
+\mathcal{A}_{2}$. Thus, Assertion $\mathcal{A}_{2}$ holds (since
+$\mathcal{A}_{3}$ holds). In other words, the statistic $\operatorname*{st}$
+is left-shuffle-compatible. In other words, the following claim holds:
+
+\begin{statement}
+\textit{Claim 1:} Let $\pi$ and $\sigma$ be two disjoint nonempty permutations
+having the property that%
+\[
+\text{the first entry of }\pi\text{ is greater than the first entry of }%
+\sigma.
+\]
+Let $\pi^{\prime}$ and $\sigma^{\prime}$ be two disjoint nonempty permutations
+having the property that%
+\[
+\text{the first entry of }\pi^{\prime}\text{ is greater than the first entry
+of }\sigma^{\prime}.
+\]
+Assume that%
+\begin{align*}
+\operatorname*{st}\left(  \pi\right)   &  =\operatorname*{st}\left(
+\pi^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \operatorname*{st}\left(
+\sigma\right)  =\operatorname*{st}\left(  \sigma^{\prime}\right)  ,\\
+\left\vert \pi\right\vert  &  =\left\vert \pi^{\prime}\right\vert
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left\vert \sigma\right\vert
+=\left\vert \sigma^{\prime}\right\vert .
+\end{align*}
+Then,
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+
+\end{statement}
+
+Also, Assertion $\mathcal{A}_{3}$ holds. In other words, the statistic
+$\operatorname*{st}$ is right-shuffle-compatible. In other words, the
+following claim holds:
+
+\begin{statement}
+\textit{Claim 2:} Let $\pi$ and $\sigma$ be two disjoint nonempty permutations
+having the property that%
+\[
+\text{the first entry of }\pi\text{ is greater than the first entry of }%
+\sigma.
+\]
+Let $\pi^{\prime}$ and $\sigma^{\prime}$ be two disjoint nonempty permutations
+having the property that%
+\[
+\text{the first entry of }\pi^{\prime}\text{ is greater than the first entry
+of }\sigma^{\prime}.
+\]
+Assume that%
+\begin{align*}
+\operatorname*{st}\left(  \pi\right)   &  =\operatorname*{st}\left(
+\pi^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \operatorname*{st}\left(
+\sigma\right)  =\operatorname*{st}\left(  \sigma^{\prime}\right)  ,\\
+\left\vert \pi\right\vert  &  =\left\vert \pi^{\prime}\right\vert
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left\vert \sigma\right\vert
+=\left\vert \sigma^{\prime}\right\vert .
+\end{align*}
+Then,
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+
+\end{statement}
+
+We are now going to prove the following claim:
+
+\begin{statement}
+\textit{Claim 3:} Let $\pi$ be a nonempty permutation, and let $a$ be a letter
+that does not appear in $\pi$. Let $\pi^{\prime}$ be a nonempty permutation,
+and let $a^{\prime}$ be a letter that does not appear in $\pi^{\prime}$.
+Assume that%
+\[
+\operatorname*{st}\left(  \pi\right)  =\operatorname*{st}\left(  \pi^{\prime
+}\right)  ,\ \ \ \ \ \ \ \ \ \ \left\vert \pi\right\vert =\left\vert
+\pi^{\prime}\right\vert \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \left[  a>\pi_{1}\right]  =\left[  a^{\prime}>\pi
+_{1}^{\prime}\right]  .
+\]
+Then, $\operatorname*{st}\left(  a:\pi\right)  =\operatorname*{st}\left(
+a^{\prime}:\pi^{\prime}\right)  $.
+\end{statement}
+
+[\textit{Proof of Claim 3:} The $1$-permutations $\left(  a\right)  $ and
+$\left(  a^{\prime}\right)  $ are order-equivalent. Thus, $\operatorname*{st}%
+\left(  \left(  a\right)  \right)  =\operatorname*{st}\left(  \left(
+a^{\prime}\right)  \right)  $ (since $\operatorname*{st}$ is a permutation
+statistic). Also, $\left\vert \left(  a\right)  \right\vert =1=\left\vert
+\left(  a^{\prime}\right)  \right\vert $.
+
+We are in one of the following two cases:
+
+\textit{Case 1:} We have $a>\pi_{1}$.
+
+\textit{Case 2:} We have $a\leq\pi_{1}$.
+
+Let us first consider Case 1. In this case, we have $a>\pi_{1}$. Thus,
+$\left[  a>\pi_{1}\right]  =1$. Comparing this with $\left[  a>\pi_{1}\right]
+=\left[  a^{\prime}>\pi_{1}^{\prime}\right]  $, we obtain $\left[  a^{\prime
+}>\pi_{1}^{\prime}\right]  =1$, so that $a^{\prime}>\pi_{1}^{\prime}$.
+
+Consider the $1$-permutations $\left(  a\right)  $ and $\left(  a^{\prime
+}\right)  $. Then, the first entry of $\left(  a\right)  $ is greater than the
+first entry of $\pi$ (since $a>\pi_{1}$). Also, the first entry of $\left(
+a^{\prime}\right)  $ is greater than the first entry of $\pi^{\prime}$ (since
+$a^{\prime}>\pi_{1}^{\prime}$). Also, the permutations $\left(  a\right)  $
+and $\pi$ are disjoint (since $a$ does not appear in $\pi$). Similarly, the
+permutations $\left(  a^{\prime}\right)  $ and $\pi^{\prime}$ are disjoint.
+Furthermore, $\operatorname*{st}\left(  \left(  a\right)  \right)
+=\operatorname*{st}\left(  \left(  a^{\prime}\right)  \right)  $,
+$\operatorname*{st}\left(  \pi\right)  =\operatorname*{st}\left(  \pi^{\prime
+}\right)  $, $\left\vert \left(  a\right)  \right\vert =\left\vert \left(
+a^{\prime}\right)  \right\vert $ and $\left\vert \pi\right\vert =\left\vert
+\pi^{\prime}\right\vert $. Hence, Claim 1 (applied to $\left(  a\right)  $,
+$\pi$, $\left(  a^{\prime}\right)  $ and $\pi^{\prime}$ instead of $\pi$,
+$\sigma$, $\pi^{\prime}$ and $\sigma^{\prime}$) yields%
+\begin{equation}
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \left(  a\right)  ,\pi\right)  \right\}  _{\operatorname*{multi}%
+}=\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \left(  a^{\prime}\right)  ,\pi^{\prime}\right)  \right\}
+_{\operatorname*{multi}}. \label{pf.prop.LRcomp.equivs.3to4.4}%
+\end{equation}
+But $S_{\prec}\left(  \left(  a\right)  ,\pi\right)  =\left\{  a:\pi\right\}
+$. Hence,%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \left(  a\right)  ,\pi\right)  \right\}  _{\operatorname*{multi}%
+}=\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in\left\{
+a:\pi\right\}  \right\}  _{\operatorname*{multi}}=\left\{  \operatorname*{st}%
+\left(  a:\pi\right)  \right\}  _{\operatorname*{multi}}.
+\]
+Similarly,%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \left(  a^{\prime}\right)  ,\pi^{\prime}\right)  \right\}
+_{\operatorname*{multi}}=\left\{  \operatorname*{st}\left(  a^{\prime}%
+:\pi^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+In light of the last two equalities, the equality
+(\ref{pf.prop.LRcomp.equivs.3to4.4}) rewrites as $\left\{  \operatorname*{st}%
+\left(  a:\pi\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  a^{\prime}:\pi^{\prime}\right)  \right\}
+_{\operatorname*{multi}}$. In other words, $\operatorname*{st}\left(
+a:\pi\right)  =\operatorname*{st}\left(  a^{\prime}:\pi^{\prime}\right)  $.
+Thus, we have proven $\operatorname*{st}\left(  a:\pi\right)
+=\operatorname*{st}\left(  a^{\prime}:\pi^{\prime}\right)  $ in Case 1.
+
+Let us now consider Case 2. In this case, we have $a\leq\pi_{1}$. But $a$ does
+not appear in $\pi$; therefore, $a\neq\pi_{1}$. Combined with $a\leq\pi_{1}$,
+this yields $a<\pi_{1}$. In other words, $\pi_{1}>a$. Also, from $a\leq\pi
+_{1}$, we obtain $\left[  a>\pi_{1}\right]  =0$. Comparing this with $\left[
+a>\pi_{1}\right]  =\left[  a^{\prime}>\pi_{1}^{\prime}\right]  $, we obtain
+$\left[  a^{\prime}>\pi_{1}^{\prime}\right]  =0$, so that $a^{\prime}\leq
+\pi_{1}^{\prime}$. But $a^{\prime}$ does not appear in $\pi^{\prime}$; thus,
+$a^{\prime}\neq\pi_{1}^{\prime}$. Combined with $a^{\prime}\leq\pi_{1}%
+^{\prime}$, this yields $a^{\prime}<\pi_{1}^{\prime}$. In other words,
+$\pi_{1}^{\prime}>a^{\prime}$.
+
+Consider the $1$-permutations $\left(  a\right)  $ and $\left(  a^{\prime
+}\right)  $. Then, the first entry of $\pi$ is greater than the first entry of
+$\left(  a\right)  $ (since $\pi_{1}>a$). Also, the first entry of
+$\pi^{\prime}$ is greater than the first entry of $\left(  a^{\prime}\right)
+$ (since $\pi_{1}^{\prime}>a^{\prime}$). Also, the permutations $\pi$ and
+$\left(  a\right)  $ are disjoint (since $a$ does not appear in $\pi$).
+Similarly, the permutations $\pi^{\prime}$ and $\left(  a^{\prime}\right)  $
+are disjoint. Furthermore, $\operatorname*{st}\left(  \left(  a\right)
+\right)  =\operatorname*{st}\left(  \left(  a^{\prime}\right)  \right)  $,
+$\operatorname*{st}\left(  \pi\right)  =\operatorname*{st}\left(  \pi^{\prime
+}\right)  $, $\left\vert \left(  a\right)  \right\vert =\left\vert \left(
+a^{\prime}\right)  \right\vert $ and $\left\vert \pi\right\vert =\left\vert
+\pi^{\prime}\right\vert $. Hence, Claim 2 (applied to $\pi$, $\left(
+a\right)  $, $\pi^{\prime}$ and $\left(  a^{\prime}\right)  $ instead of $\pi
+$, $\sigma$, $\pi^{\prime}$ and $\sigma^{\prime}$) yields%
+\begin{equation}
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\left(  a\right)  \right)  \right\}  _{\operatorname*{multi}%
+}=\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi^{\prime},\left(  a^{\prime}\right)  \right)  \right\}
+_{\operatorname*{multi}}. \label{pf.prop.LRcomp.equivs.3to4.5}%
+\end{equation}
+But $S_{\succ}\left(  \pi,\left(  a\right)  \right)  =\left\{  a:\pi\right\}
+$. Hence,%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\left(  a\right)  \right)  \right\}  _{\operatorname*{multi}%
+}=\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in\left\{
+a:\pi\right\}  \right\}  _{\operatorname*{multi}}=\left\{  \operatorname*{st}%
+\left(  a:\pi\right)  \right\}  _{\operatorname*{multi}}.
+\]
+Similarly,%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi^{\prime},\left(  a^{\prime}\right)  \right)  \right\}
+_{\operatorname*{multi}}=\left\{  \operatorname*{st}\left(  a^{\prime}%
+:\pi^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+In light of the last two equalities, the equality
+(\ref{pf.prop.LRcomp.equivs.3to4.5}) rewrites as $\left\{  \operatorname*{st}%
+\left(  a:\pi\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  a^{\prime}:\pi^{\prime}\right)  \right\}
+_{\operatorname*{multi}}$. In other words, $\operatorname*{st}\left(
+a:\pi\right)  =\operatorname*{st}\left(  a^{\prime}:\pi^{\prime}\right)  $.
+Thus, we have proven $\operatorname*{st}\left(  a:\pi\right)
+=\operatorname*{st}\left(  a^{\prime}:\pi^{\prime}\right)  $ in Case 2.
+
+We have now proven $\operatorname*{st}\left(  a:\pi\right)
+=\operatorname*{st}\left(  a^{\prime}:\pi^{\prime}\right)  $ in both Cases 1
+and 2. Therefore, $\operatorname*{st}\left(  a:\pi\right)  =\operatorname*{st}%
+\left(  a^{\prime}:\pi^{\prime}\right)  $ always holds. This proves Claim 3.]
+
+Claim 3 shows that the statistic $\operatorname*{st}$ is
+head-graft-compatible. In other words, Assertion $\mathcal{A}_{4}$ holds. This
+proves the implication $\mathcal{A}_{3}\Longrightarrow\mathcal{A}_{4}$.
+
+We have now proven the implications $\mathcal{A}_{1}\Longrightarrow
+\mathcal{A}_{2}$, $\mathcal{A}_{2}\Longrightarrow\mathcal{A}_{3}$,
+$\mathcal{A}_{3}\Longrightarrow\mathcal{A}_{4}$ and $\mathcal{A}%
+_{4}\Longrightarrow\mathcal{A}_{1}$. Thus, all four statements $\mathcal{A}%
+_{1}$, $\mathcal{A}_{2}$, $\mathcal{A}_{3}$ and $\mathcal{A}_{4}$ are
+equivalent. This proves Proposition \ref{prop.LRcomp.equivs}.
+\end{proof}
+
+Note that on their own, the properties of left-shuffle-compatibility and
+right-shuffle-compatibility are not equivalent. For example, the permutation
+statistic that sends each nonempty permutation $\pi$ to the truth value
+$\left[  \pi_{1}>\pi_{i}\text{ for all }i\right]  $ (and the $0$-permutation
+$\left(  {}\right)  $ to $0$) is left-shuffle-compatible (because in the
+definition of left-shuffle-compatibility, all the $\operatorname*{st}\left(
+\tau\right)  $ will be $0$), but not right-shuffle-compatible.
+
+\subsection{Properties of compatible statistics}
+
+The goal of this section is proving the following converse to Theorem
+\ref{thm.head-comp.LRcomp}:
+
+\begin{proposition}
+\label{prop.LRcomp.head}Let $\operatorname*{st}$ be a permutation statistic
+that is LR-shuffle-compatible. Then, $\operatorname*{st}$ is
+head-graft-compatible and shuffle-compatible.
+\end{proposition}
+
+Before we can prove this, we need three lemmas:
+
+\begin{lemma}
+\label{lem.LRcomp.head-l1}Let $\operatorname*{st}$ be a head-graft-compatible
+permutation statistic. If $\alpha$ and $\beta$ are two permutations satisfying
+$\operatorname*{Des}\alpha=\operatorname*{Des}\beta$ and $\left\vert
+\alpha\right\vert =\left\vert \beta\right\vert $, then, $\operatorname*{st}%
+\left(  \alpha\right)  =\operatorname*{st}\left(  \beta\right)  $.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.LRcomp.head-l1} (sketched).]We must prove the
+following claim:
+
+\begin{statement}
+\textit{Claim 1:} Let $\alpha$ and $\beta$ be two permutations satisfying
+$\operatorname*{Des}\alpha=\operatorname*{Des}\beta$ and $\left\vert
+\alpha\right\vert =\left\vert \beta\right\vert $. Then, $\operatorname*{st}%
+\left(  \alpha\right)  =\operatorname*{st}\left(  \beta\right)  $.
+\end{statement}
+
+[\textit{Proof of Claim 1:} We shall prove Claim 1 by induction on $\left\vert
+\alpha\right\vert $:
+
+\textit{Induction base:} If $\left\vert \alpha\right\vert =0$, then Claim 1 is
+true (because if $\left\vert \alpha\right\vert =0$, then both $\alpha$ and
+$\beta$ equal the empty $0$-permutation $\left(  {}\right)  $, and therefore
+satisfy $\alpha=\beta$ and thus $\operatorname*{st}\left(  \alpha\right)
+=\operatorname*{st}\left(  \beta\right)  $). This completes the induction base.
+
+\textit{Induction step:} Let $N$ be a positive integer. Assume (as the
+induction hypothesis) that Claim 1 holds for $\left\vert \alpha\right\vert
+=N-1$. We must now prove that Claim 1 holds for $\left\vert \alpha\right\vert
+=N$.
+
+Let $\alpha$ and $\beta$ be as in Claim 1, and assume that $\left\vert
+\alpha\right\vert =N$. We must prove that $\operatorname*{st}\left(
+\alpha\right)  =\operatorname*{st}\left(  \beta\right)  $.
+
+If $N=1$, then this holds\footnote{\textit{Proof.} Assume that $N=1$. Thus,
+$\alpha$ and $\beta$ are $1$-permutations (since $\left\vert \alpha\right\vert
+=N=1$ and $\left\vert \beta\right\vert =\left\vert \alpha\right\vert =N=1$)
+and thus are order-equivalent. Hence, $\operatorname*{st}\left(
+\alpha\right)  =\operatorname*{st}\left(  \beta\right)  $ (since
+$\operatorname*{st}$ is a permutation statistic).}. Hence, for the rest of
+this proof, we WLOG assume that $N\neq1$. Hence, $N\geq2$ (since $N$ is a
+positive integer).
+
+The permutation $\alpha$ is nonempty (since $\left\vert \alpha\right\vert
+=N>0$). Thus, $\alpha_{\sim1}$ and $\alpha_{1}$ are well-defined. Similarly,
+$\beta_{\sim1}$ and $\beta_{1}$ are well-defined (since $\left\vert
+\beta\right\vert =\left\vert \alpha\right\vert =N>0$). Clearly, the letter
+$\alpha_{1}$ does not appear in $\alpha_{\sim1}$ (since the letters of the
+permutation $\alpha$ are distinct). Similarly, the letter $\beta_{1}$ does not
+appear in $\beta_{\sim1}$.
+
+We have $\left\vert \alpha_{\sim1}\right\vert =\underbrace{\left\vert
+\alpha\right\vert }_{=N}-1=N-1$ and similarly $\left\vert \beta_{\sim
+1}\right\vert =N-1$. Thus, $\left\vert \alpha_{\sim1}\right\vert
+=N-1=\left\vert \beta_{\sim1}\right\vert $. Also, $\left\vert \alpha_{\sim
+1}\right\vert =N-1\geq1$ (since $N\geq2$); thus, the permutation $\alpha
+_{\sim1}$ is nonempty. Similarly, $\beta_{\sim1}$ is nonempty.
+
+It is easy to see that
+\begin{align*}
+\operatorname*{Des}\left(  \alpha_{\sim1}\right)   &  =\left\{  i-1\ \mid
+\ i\in\left(  \operatorname*{Des}\alpha\right)  \setminus\left\{  1\right\}
+\right\}  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+\operatorname*{Des}\left(  \beta_{\sim1}\right)   &  =\left\{  i-1\ \mid
+\ i\in\left(  \operatorname*{Des}\beta\right)  \setminus\left\{  1\right\}
+\right\}  .
+\end{align*}
+The right hand sides of these two equalities are equal (since
+$\operatorname*{Des}\alpha=\operatorname*{Des}\beta$). Thus, their left hand
+sides are equal as well. In other words, $\operatorname*{Des}\left(
+\alpha_{\sim1}\right)  =\operatorname*{Des}\left(  \beta_{\sim1}\right)  $.
+
+Moreover, $\left\vert \alpha_{\sim1}\right\vert =\underbrace{\left\vert
+\alpha\right\vert }_{=N}-1=N-1$. Hence, the induction hypothesis reveals that
+we can apply Claim 1 to $\alpha_{\sim1}$ and $\beta_{\sim1}$ instead of
+$\alpha$ and $\beta$. We thus obtain $\operatorname*{st}\left(  \alpha_{\sim
+1}\right)  =\operatorname*{st}\left(  \beta_{\sim1}\right)  $.
+
+Furthermore, $\left(  \alpha_{\sim1}\right)  _{1}=\alpha_{2}$, so that
+\[
+\left[  \alpha_{1}>\left(  \alpha_{\sim1}\right)  _{1}\right]  =\left[
+\alpha_{1}>\alpha_{2}\right]  =\left[  1\in\operatorname*{Des}\alpha\right]
+.
+\]
+Similarly,%
+\[
+\left[  \beta_{1}>\left(  \beta_{\sim1}\right)  _{1}\right]  =\left[
+1\in\operatorname*{Des}\beta\right]  .
+\]
+The right hand sides of these two equalities are equal (since
+$\operatorname*{Des}\alpha=\operatorname*{Des}\beta$). Thus, their left hand
+sides are equal as well. In other words, $\left[  \alpha_{1}>\left(
+\alpha_{\sim1}\right)  _{1}\right]  =\left[  \beta_{1}>\left(  \beta_{\sim
+1}\right)  _{1}\right]  $.
+
+But recall that $\operatorname*{st}$ is head-graft-compatible. In other words,
+every nonempty permutation $\pi$, every letter $a$ that does not appear in
+$\pi$, every nonempty permutation $\pi^{\prime}$ and every letter $a^{\prime}$
+that does not appear in $\pi^{\prime}$ satisfying%
+\[
+\operatorname*{st}\left(  \pi\right)  =\operatorname*{st}\left(  \pi^{\prime
+}\right)  ,\ \ \ \ \ \ \ \ \ \ \left\vert \pi\right\vert =\left\vert
+\pi^{\prime}\right\vert \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \left[  a>\pi_{1}\right]  =\left[  a^{\prime}>\pi
+_{1}^{\prime}\right]
+\]
+satisfy $\operatorname*{st}\left(  a:\pi\right)  =\operatorname*{st}\left(
+a^{\prime}:\pi^{\prime}\right)  $. Applying this to $\pi=\alpha_{\sim1}$,
+$a=\alpha_{1}$, $\pi^{\prime}=\beta_{\sim1}$ and $a^{\prime}=\beta_{1}$, we
+obtain $\operatorname*{st}\left(  \alpha_{1}:\alpha_{\sim1}\right)
+=\operatorname*{st}\left(  \beta_{1}:\beta_{\sim1}\right)  $. In view of
+$\alpha_{1}:\alpha_{\sim1}=\alpha$ and $\beta_{1}:\beta_{\sim1}=\beta$, this
+rewrites as $\operatorname*{st}\left(  \alpha\right)  =\operatorname*{st}%
+\left(  \beta\right)  $.
+
+Thus, we have proven that $\operatorname*{st}\left(  \alpha\right)
+=\operatorname*{st}\left(  \beta\right)  $. Hence, Claim 1 holds for
+$\left\vert \alpha\right\vert =N$. This completes the induction step. Thus,
+Claim 1 is proven.]
+
+Lemma \ref{lem.LRcomp.head-l1} follows immediately from Claim 1.
+\end{proof}
+
+\begin{lemma}
+\label{lem.LRcomp.head-l2}Let $\operatorname*{st}$ be a head-graft-compatible
+permutation statistic. Let $X$ be the codomain of $\operatorname*{st}$. Let
+$n\in\mathbb{N}$. Then, there exists a map
+\[
+F_{n}:\left\{  \text{subsets of }\left[  n-1\right]  \right\}  \rightarrow X
+\]
+such that every $n$-permutation $\tau$ satisfies $\operatorname*{st}\left(
+\tau\right)  =F_{n}\left(  \operatorname*{Des}\tau\right)  $.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.LRcomp.head-l2}.]We define the map $F_{n}$ as follows:
+
+Let $Z$ be any subset of $\left[  n-1\right]  $. Then, it is well-known that
+there exists some $n$-permutation $\tau$ satisfying $Z=\operatorname*{Des}%
+\tau$. Pick any such $\tau$. Then, $\operatorname*{st}\left(  \tau\right)  $
+does not depend on the choice of $\tau$ (because if $\alpha$ and $\beta$ are
+two different $n$-permutations $\tau$ satisfying $Z=\operatorname*{Des}\tau$,
+then Lemma \ref{lem.LRcomp.head-l1} yields $\operatorname*{st}\left(
+\alpha\right)  =\operatorname*{st}\left(  \beta\right)  $). Hence, we can set
+$F_{n}\left(  Z\right)  $ to be $\operatorname*{st}\left(  \tau\right)  $.
+
+Thus, we have defined $F_{n}\left(  Z\right)  $ for each subset $Z$ of
+$\left[  n-1\right]  $. This completes the definition of $F_{n}$. This
+definition shows that every $n$-permutation $\tau$ satisfies
+$\operatorname*{st}\left(  \tau\right)  =F_{n}\left(  \operatorname*{Des}%
+\tau\right)  $. Thus, Lemma \ref{lem.LRcomp.head-l2} is proven.
+\end{proof}
+
+\begin{lemma}
+\label{lem.LRcomp.head-l3}Let $\pi$ and $\sigma$ be two disjoint permutations.
+Let $\pi^{\prime}$ and $\sigma^{\prime}$ be two disjoint permutations. Assume
+that%
+\begin{align*}
+\operatorname*{Des}\pi &  =\operatorname*{Des}\pi^{\prime}%
+,\ \ \ \ \ \ \ \ \ \ \operatorname*{Des}\sigma=\operatorname*{Des}%
+\sigma^{\prime},\\
+\left\vert \pi\right\vert  &  =\left\vert \pi^{\prime}\right\vert
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left\vert \sigma\right\vert
+=\left\vert \sigma^{\prime}\right\vert .
+\end{align*}
+Then,
+\[
+\left\{  \operatorname*{Des}\tau\ \mid\ \tau\in S\left(  \pi,\sigma\right)
+\right\}  _{\operatorname*{multi}}=\left\{  \operatorname*{Des}\tau
+\ \mid\ \tau\in S\left(  \pi^{\prime},\sigma^{\prime}\right)  \right\}
+_{\operatorname*{multi}}.
+\]
+
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.LRcomp.head-l3}.]Lemma \ref{lem.LRcomp.head-l3} is
+simply the statement that the permutation statistic $\operatorname*{Des}$ is
+shuffle-compatible. But this has been proven in \cite[\S 2.4]{part1}.
+\end{proof}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.LRcomp.head} (sketched).]We know that
+$\operatorname*{st}$ is LR-shuffle-compatible. In other words, the following holds:
+
+\begin{statement}
+\textit{Claim 1:} Let $\pi$ and $\sigma$ be two disjoint nonempty
+permutations. Let $\pi^{\prime}$ and $\sigma^{\prime}$ be two disjoint
+nonempty permutations. Assume that%
+\begin{align*}
+\operatorname*{st}\left(  \pi\right)   &  =\operatorname*{st}\left(
+\pi^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \operatorname*{st}\left(
+\sigma\right)  =\operatorname*{st}\left(  \sigma^{\prime}\right)  ,\\
+\left\vert \pi\right\vert  &  =\left\vert \pi^{\prime}\right\vert
+,\ \ \ \ \ \ \ \ \ \ \left\vert \sigma\right\vert =\left\vert \sigma^{\prime
+}\right\vert \ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left[  \pi
+_{1}>\sigma_{1}\right]  =\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]
+.
+\end{align*}
+Then,
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}%
+\]
+and%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+
+\end{statement}
+
+Next, we want to show that $\operatorname*{st}$ is head-graft-compatible. In
+other words, we want to show that the following holds:
+
+\begin{statement}
+\textit{Claim 2:} Let $\pi$ be a nonempty permutation, and let $a$ be a letter
+that does not appear in $\pi$. Let $\pi^{\prime}$ be a nonempty permutation,
+and let $a^{\prime}$ be a letter that does not appear in $\pi^{\prime}$.
+Assume that%
+\[
+\operatorname*{st}\left(  \pi\right)  =\operatorname*{st}\left(  \pi^{\prime
+}\right)  ,\ \ \ \ \ \ \ \ \ \ \left\vert \pi\right\vert =\left\vert
+\pi^{\prime}\right\vert \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \left[  a>\pi_{1}\right]  =\left[  a^{\prime}>\pi
+_{1}^{\prime}\right]  .
+\]
+Then, $\operatorname*{st}\left(  a:\pi\right)  =\operatorname*{st}\left(
+a^{\prime}:\pi^{\prime}\right)  $.
+\end{statement}
+
+[\textit{Proof of Claim 2:} The $1$-permutations $\left(  a\right)  $ and
+$\left(  a^{\prime}\right)  $ are order-equivalent. Thus, $\operatorname*{st}%
+\left(  \left(  a\right)  \right)  =\operatorname*{st}\left(  \left(
+a^{\prime}\right)  \right)  $ (since $\operatorname*{st}$ is a permutation statistic).
+
+The $1$-permutations $\left(  a\right)  $ and $\left(  a^{\prime}\right)  $
+satisfy $\left(  a\right)  _{1}=a$ and $\left(  a^{\prime}\right)
+_{1}=a^{\prime}$. Thus, the inequality $\left[  a>\pi_{1}\right]  =\left[
+a^{\prime}>\pi_{1}^{\prime}\right]  $ (which is true by assumption) rewrites
+as $\left[  \left(  a\right)  _{1}>\pi_{1}\right]  =\left[  \left(  a^{\prime
+}\right)  _{1}>\pi_{1}^{\prime}\right]  $. Also, $\operatorname*{st}\left(
+\left(  a\right)  \right)  =\operatorname*{st}\left(  \left(  a^{\prime
+}\right)  \right)  $ and $\left\vert \left(  a\right)  \right\vert
+=1=\left\vert \left(  a^{\prime}\right)  \right\vert $. Also, the
+$1$-permutation $\left(  a\right)  $ is disjoint from $\pi$ (since $a$ does
+not appear in $\pi$). Similarly, the $1$-permutation $\left(  a^{\prime
+}\right)  $ is disjoint from $\pi^{\prime}$. Thus, Claim 1 (applied to
+$\sigma=\left(  a\right)  $ and $\sigma^{\prime}=\left(  a^{\prime}\right)  $)
+yields
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\left(  a\right)  \right)  \right\}  _{\operatorname*{multi}%
+}=\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi^{\prime},\left(  a^{\prime}\right)  \right)  \right\}
+_{\operatorname*{multi}}%
+\]
+and%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\left(  a\right)  \right)  \right\}  _{\operatorname*{multi}%
+}=\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi^{\prime},\left(  a^{\prime}\right)  \right)  \right\}
+_{\operatorname*{multi}}.
+\]
+But it is easily seen that $S_{\succ}\left(  \pi,\left(  a\right)  \right)
+=\left\{  a:\pi\right\}  $. Hence,%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\left(  a\right)  \right)  \right\}  _{\operatorname*{multi}%
+}=\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in\left\{
+a:\pi\right\}  \right\}  _{\operatorname*{multi}}=\left\{  \operatorname*{st}%
+\left(  a:\pi\right)  \right\}  _{\operatorname*{multi}}.
+\]
+Similarly,%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi^{\prime},\left(  a^{\prime}\right)  \right)  \right\}
+_{\operatorname*{multi}}=\left\{  \operatorname*{st}\left(  a^{\prime}%
+:\pi^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+Thus,%
+\begin{align*}
+\left\{  \operatorname*{st}\left(  a:\pi\right)  \right\}
+_{\operatorname*{multi}} &  =\left\{  \operatorname*{st}\left(  \tau\right)
+\ \mid\ \tau\in S_{\succ}\left(  \pi,\left(  a\right)  \right)  \right\}
+_{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi^{\prime},\left(  a^{\prime}\right)  \right)  \right\}
+_{\operatorname*{multi}}=\left\{  \operatorname*{st}\left(  a^{\prime}%
+:\pi^{\prime}\right)  \right\}  _{\operatorname*{multi}},
+\end{align*}
+so that $\operatorname*{st}\left(  a:\pi\right)  =\operatorname*{st}\left(
+a^{\prime}:\pi^{\prime}\right)  $. This proves Claim 2.]
+
+Now, Claim 2 shows that $\operatorname*{st}$ is head-graft-compatible. It
+remains to show that $\operatorname*{st}$ is shuffle-compatible. First, we
+show an auxiliary statement:
+
+\begin{statement}
+\textit{Claim 3:} Let $\pi$, $\pi^{\prime}$ and $\sigma$ be three
+permutations. Assume that $\pi$ and $\pi^{\prime}$ are order-equivalent.
+Assume that $\pi$ and $\sigma$ are disjoint. Assume that $\pi^{\prime}$ and
+$\sigma$ are disjoint. Then,%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi^{\prime
+},\sigma\right)  \right\}  _{\operatorname*{multi}}.
+\]
+
+\end{statement}
+
+[\textit{Proof of Claim 3:} We have $\left\vert \pi\right\vert =\left\vert
+\pi^{\prime}\right\vert $ (since $\pi$ and $\pi^{\prime}$ are
+order-equivalent). Define $n\in\mathbb{N}$ by $n=\left\vert \pi\right\vert
+=\left\vert \pi^{\prime}\right\vert $. Let $X$ be the codomain of
+$\operatorname*{st}$. Lemma \ref{lem.LRcomp.head-l2} shows that there exists a
+map
+\[
+F_{n}:\left\{  \text{subsets of }\left[  n-1\right]  \right\}  \rightarrow X
+\]
+such that every $n$-permutation $\tau$ satisfies
+\begin{equation}
+\operatorname*{st}\left(  \tau\right)  =F_{n}\left(  \operatorname*{Des}%
+\tau\right)  . \label{pf.lem.LRcomp.head-l2.c3.pf.1}%
+\end{equation}
+Consider this map $F_{n}$.
+
+We know that $\operatorname*{Des}$ is a permutation statistic. Thus,
+$\operatorname*{Des}\pi=\operatorname*{Des}\left(  \pi^{\prime}\right)  $
+(since $\pi$ and $\pi^{\prime}$ are order-equivalent). Also, $\left\vert
+\pi\right\vert =\left\vert \pi^{\prime}\right\vert $, $\operatorname*{Des}%
+\sigma=\operatorname*{Des}\sigma$ and $\left\vert \sigma\right\vert
+=\left\vert \sigma\right\vert $. Hence, Lemma \ref{lem.LRcomp.head-l3}
+(applied to $\sigma^{\prime}=\sigma$) yields
+\begin{equation}
+\left\{  \operatorname*{Des}\tau\ \mid\ \tau\in S\left(  \pi,\sigma\right)
+\right\}  _{\operatorname*{multi}}=\left\{  \operatorname*{Des}\tau
+\ \mid\ \tau\in S\left(  \pi^{\prime},\sigma\right)  \right\}
+_{\operatorname*{multi}}.\label{pf.lem.LRcomp.head-l2.c3.pf.2}%
+\end{equation}
+Now,
+\begin{align*}
+&  \left\{  \underbrace{\operatorname*{st}\left(  \tau\right)  }%
+_{\substack{=F_{n}\left(  \operatorname*{Des}\tau\right)  \\\text{(by
+(\ref{pf.lem.LRcomp.head-l2.c3.pf.1}))}}}\ \mid\ \tau\in S\left(  \pi
+,\sigma\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\left\{  F_{n}\left(  \operatorname*{Des}\tau\right)  \ \mid\ \tau\in
+S\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=F_{n}\left(
+\left\{  \operatorname*{Des}\tau\ \mid\ \tau\in S\left(  \pi,\sigma\right)
+\right\}  _{\operatorname*{multi}}\right)  \\
+&  =F_{n}\left(  \left\{  \operatorname*{Des}\tau\ \mid\ \tau\in S\left(
+\pi^{\prime},\sigma\right)  \right\}  _{\operatorname*{multi}}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.lem.LRcomp.head-l2.c3.pf.2}%
+)}\right)  \\
+&  =\left\{  \underbrace{F_{n}\left(  \operatorname*{Des}\tau\right)
+}_{\substack{=\operatorname*{st}\left(  \tau\right)  \\\text{(by
+(\ref{pf.lem.LRcomp.head-l2.c3.pf.1}))}}}\ \mid\ \tau\in S\left(  \pi^{\prime
+},\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi^{\prime
+},\sigma\right)  \right\}  _{\operatorname*{multi}}.
+\end{align*}
+This proves Claim 3.]
+
+Let us finally prove that $\operatorname*{st}$ is shuffle-compatible. In other
+words, let us prove the following claim:
+
+\begin{statement}
+\textit{Claim 4:} Let $\pi$ and $\sigma$ be two disjoint permutations. Let
+$\pi^{\prime}$ and $\sigma^{\prime}$ be two disjoint permutations. Assume that%
+\begin{align*}
+\operatorname*{st}\left(  \pi\right)   &  =\operatorname*{st}\left(
+\pi^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \operatorname*{st}\left(
+\sigma\right)  =\operatorname*{st}\left(  \sigma^{\prime}\right)  ,\\
+\left\vert \pi\right\vert  &  =\left\vert \pi^{\prime}\right\vert
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left\vert \sigma\right\vert
+=\left\vert \sigma^{\prime}\right\vert .
+\end{align*}
+Then,
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi^{\prime
+},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+
+\end{statement}
+
+[\textit{Proof of Claim 4:} Recall that $S\left(  \pi,\sigma\right)  =S\left(
+\sigma,\pi\right)  $ and $S\left(  \pi^{\prime},\sigma^{\prime}\right)
+=S\left(  \sigma^{\prime},\pi^{\prime}\right)  $. Hence, Claim 4 does not
+change if we swap $\pi$ with $\sigma$ while simultaneously swapping
+$\pi^{\prime}$ with $\sigma^{\prime}$. Thus, we WLOG assume that $\pi_{1}%
+\geq\sigma_{1}$ (since otherwise, we can ensure this by performing these
+swaps). But $\pi_{1}\neq\sigma_{1}$ (since $\pi$ and $\sigma$ are disjoint).
+Combining this with $\pi_{1}\geq\sigma_{1}$, we obtain $\pi_{1}>\sigma_{1}$.
+
+Define $n\in\mathbb{N}$ by $n=\left\vert \pi\right\vert =\left\vert
+\pi^{\prime}\right\vert $. Define $m\in\mathbb{N}$ by $m=\left\vert
+\sigma\right\vert =\left\vert \sigma^{\prime}\right\vert $.
+
+If $n=0$, then both $\pi$ and $\pi^{\prime}$ equal the $0$-permutation
+$\left(  {}\right)  $ (since $n=\left\vert \pi\right\vert =\left\vert
+\pi^{\prime}\right\vert $). Hence, if $n=0$, then Claim 4 is true (because in
+this case, we have%
+\begin{align*}
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\underbrace{\pi}_{=\left(  {}\right)  },\sigma\right)  \right\}
+_{\operatorname*{multi}}  & =\left\{  \operatorname*{st}\left(  \tau\right)
+\ \mid\ \tau\in\underbrace{S\left(  \left(  {}\right)  ,\sigma\right)
+}_{=\left\{  \sigma\right\}  }\right\}  _{\operatorname*{multi}}\\
+& =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in\left\{
+\sigma\right\}  \right\}  _{\operatorname*{multi}}=\left\{  \operatorname*{st}%
+\left(  \sigma\right)  \right\}  _{\operatorname*{multi}}%
+\end{align*}
+and similarly $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+S\left(  \pi^{\prime},\sigma^{\prime}\right)  \right\}
+_{\operatorname*{multi}}=\left\{  \operatorname*{st}\left(  \sigma^{\prime
+}\right)  \right\}  _{\operatorname*{multi}}$, and therefore the assertion of
+Claim 4 reduces to $\left\{  \operatorname*{st}\left(  \sigma\right)
+\right\}  _{\operatorname*{multi}}=\left\{  \operatorname*{st}\left(
+\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}$, which follows
+immediately from the assumption $\operatorname*{st}\left(  \sigma\right)
+=\operatorname*{st}\left(  \sigma^{\prime}\right)  $). Thus, for the rest of
+this proof, we WLOG assume that $n\neq0$. For similar reasons, we WLOG assume
+that $m\neq0$.
+
+The permutations $\pi$ and $\pi^{\prime}$ are nonempty (since $\left\vert
+\pi\right\vert =\left\vert \pi^{\prime}\right\vert =n\neq0$). Similarly, the
+permutations $\sigma$ and $\sigma^{\prime}$ are nonempty.
+
+There clearly exists a positive integer $N$ that is larger than all entries of
+$\sigma$ and larger than all entries of $\sigma^{\prime}$. Consider such an
+$N$. From $n=\left\vert \pi^{\prime}\right\vert $, we obtain $\pi^{\prime
+}=\left(  \pi_{1}^{\prime},\pi_{2}^{\prime},\ldots,\pi_{n}^{\prime}\right)  $.
+Let $\gamma$ be the permutation $\left(  \pi_{1}^{\prime}+N,\pi_{2}^{\prime
+}+N,\ldots,\pi_{n}^{\prime}+N\right)  $. This permutation $\gamma$ is
+order-equivalent to $\pi^{\prime}$, but is disjoint from $\sigma$ (since all
+its entries are $>N$, while all the entries of $\sigma$ are $<N$) and disjoint
+from $\sigma^{\prime}$ (for similar reasons). Also, $\gamma_{1}%
+=\underbrace{\pi_{1}^{\prime}}_{>0}+N>N>\sigma_{1}$, so that $\left[
+\gamma_{1}>\sigma_{1}\right]  =1$. Similarly, $\left[  \gamma_{1}>\sigma
+_{1}^{\prime}\right]  =1$.
+
+The permutation $\gamma$ is order-equivalent to $\pi^{\prime}$. Thus,
+$\operatorname*{st}\left(  \gamma\right)  =\operatorname*{st}\left(
+\pi^{\prime}\right)  $ (since $\operatorname*{st}$ is a permutation statistic)
+and $\left\vert \gamma\right\vert =\left\vert \pi^{\prime}\right\vert $. The
+permutation $\gamma$ is furthermore nonempty (since it is order-equivalent to
+the nonempty permutation $\pi^{\prime}$). Also, $\operatorname*{st}\left(
+\gamma\right)  =\operatorname*{st}\left(  \pi^{\prime}\right)
+=\operatorname*{st}\left(  \pi\right)  $ and $\left\vert \gamma\right\vert
+=\left\vert \pi^{\prime}\right\vert =\left\vert \pi\right\vert $. Moreover,
+from $\pi_{1}>\sigma_{1}$, we obtain $\left[  \pi_{1}>\sigma_{1}\right]
+=1=\left[  \gamma_{1}>\sigma_{1}^{\prime}\right]  $. Hence, Claim 1 (applied
+to $\gamma$ instead of $\pi^{\prime}$) yields
+\begin{equation}
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\gamma,\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}
+\label{pf.lem.LRcomp.head-l2.c4.pf.5}%
+\end{equation}
+and%
+\begin{equation}
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\gamma,\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\label{pf.lem.LRcomp.head-l2.c4.pf.6}%
+\end{equation}
+
+
+Now, if $A$ and $B$ are two finite multisets, then $A+B$ shall denote the
+multiset union of $A$ and $B$; this is the multiset $C$ such that each object
+$g$ satisfies $\left\vert C\right\vert _{g}=\left\vert A\right\vert
+_{g}+\left\vert B\right\vert _{g}$. Then, it is easy to see that%
+\begin{align*}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}+\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}%
+\end{align*}
+and
+\begin{align*}
+&  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\gamma,\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \gamma,\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}%
+}+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \gamma,\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\end{align*}
+Hence, by adding together the equalities (\ref{pf.lem.LRcomp.head-l2.c4.pf.5})
+and (\ref{pf.lem.LRcomp.head-l2.c4.pf.6}) (using the operation $+$ that we
+have just defined), we obtain the equality%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \gamma
+,\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+
+
+On the other hand, Claim 3 (applied to $\gamma$ and $\sigma^{\prime}$ instead
+of $\pi$ and $\sigma$) yields%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\gamma,\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi^{\prime
+},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+Hence,%
+\begin{align*}
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}  &  =\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \gamma
+,\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}\\
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\end{align*}
+This proves Claim 4.]
+
+Claim 4 shows that $\operatorname*{st}$ is shuffle-compatible. This completes
+the proof of Proposition \ref{prop.LRcomp.head}.
+\end{proof}
+
+\begin{corollary}
+\label{cor.LRcomp.back}Let $\operatorname*{st}$ be a LR-shuffle-compatible
+permutation statistic. Then, $\operatorname*{st}$ is shuffle-compatible,
+left-shuffle-compatible, right-shuffle-compatible and head-graft-compatible.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.LRcomp.back}.]Proposition \ref{prop.LRcomp.head}
+yields that $\operatorname*{st}$ is head-graft-compatible and
+shuffle-compatible. Thus, Proposition \ref{prop.LRcomp.equivs} yields that
+$\operatorname*{st}$ is left-shuffle-compatible and right-shuffle-compatible
+as well. This proves Corollary \ref{cor.LRcomp.back}.
+\end{proof}
+
+\begin{corollary}
+\label{cor.LRcomp.two}Let $\operatorname*{st}$ be a permutation statistic that
+is left-shuffle-compatible and right-shuffle-compatible. Then,
+$\operatorname*{st}$ is LR-shuffle-compatible.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.LRcomp.two}.]We have assumed that
+$\operatorname*{st}$ is left-shuffle-compatible. In other words, the following
+claim holds:In other words, the following claim holds:
+
+\begin{statement}
+\textit{Claim 1:} Let $\pi$ and $\sigma$ be two disjoint nonempty permutations
+having the property that%
+\[
+\text{the first entry of }\pi\text{ is greater than the first entry of }%
+\sigma.
+\]
+Let $\pi^{\prime}$ and $\sigma^{\prime}$ be two disjoint nonempty permutations
+having the property that%
+\[
+\text{the first entry of }\pi^{\prime}\text{ is greater than the first entry
+of }\sigma^{\prime}.
+\]
+Assume that%
+\begin{align*}
+\operatorname*{st}\left(  \pi\right)   &  =\operatorname*{st}\left(
+\pi^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \operatorname*{st}\left(
+\sigma\right)  =\operatorname*{st}\left(  \sigma^{\prime}\right)  ,\\
+\left\vert \pi\right\vert  &  =\left\vert \pi^{\prime}\right\vert
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left\vert \sigma\right\vert
+=\left\vert \sigma^{\prime}\right\vert .
+\end{align*}
+Then,
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+
+\end{statement}
+
+Also, the statistic $\operatorname*{st}$ is right-shuffle-compatible. In other
+words, the following claim holds:
+
+\begin{statement}
+\textit{Claim 2:} Let $\pi$ and $\sigma$ be two disjoint nonempty permutations
+having the property that%
+\[
+\text{the first entry of }\pi\text{ is greater than the first entry of }%
+\sigma.
+\]
+Let $\pi^{\prime}$ and $\sigma^{\prime}$ be two disjoint nonempty permutations
+having the property that%
+\[
+\text{the first entry of }\pi^{\prime}\text{ is greater than the first entry
+of }\sigma^{\prime}.
+\]
+Assume that%
+\begin{align*}
+\operatorname*{st}\left(  \pi\right)   &  =\operatorname*{st}\left(
+\pi^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \operatorname*{st}\left(
+\sigma\right)  =\operatorname*{st}\left(  \sigma^{\prime}\right)  ,\\
+\left\vert \pi\right\vert  &  =\left\vert \pi^{\prime}\right\vert
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left\vert \sigma\right\vert
+=\left\vert \sigma^{\prime}\right\vert .
+\end{align*}
+Then,
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+
+\end{statement}
+
+On the other hand, we want to prove that $\operatorname*{st}$ is
+LR-shuffle-compatible. In other words, we want to prove the following claim:
+
+\begin{statement}
+\textit{Claim 3:} Let $\pi$ and $\sigma$ be two disjoint nonempty
+permutations. Let $\pi^{\prime}$ and $\sigma^{\prime}$ be two disjoint
+nonempty permutations. Assume that%
+\begin{align*}
+\operatorname*{st}\left(  \pi\right)   &  =\operatorname*{st}\left(
+\pi^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \operatorname*{st}\left(
+\sigma\right)  =\operatorname*{st}\left(  \sigma^{\prime}\right)  ,\\
+\left\vert \pi\right\vert  &  =\left\vert \pi^{\prime}\right\vert
+,\ \ \ \ \ \ \ \ \ \ \left\vert \sigma\right\vert =\left\vert \sigma^{\prime
+}\right\vert \ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left[  \pi
+_{1}>\sigma_{1}\right]  =\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]
+.
+\end{align*}
+Then,
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}%
+\]
+and%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+
+\end{statement}
+
+[\textit{Proof of Claim 3:} We are in one of the following two cases:
+
+\textit{Case 1:} We have $\pi_{1}>\sigma_{1}$.
+
+\textit{Case 2:} We have $\pi_{1}\leq\sigma_{1}$.
+
+Let us first consider Case 1. In this case, we have $\pi_{1}>\sigma_{1}$.
+Hence, $\left[  \pi_{1}>\sigma_{1}\right]  =1$. Comparing this with $\left[
+\pi_{1}>\sigma_{1}\right]  =\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime
+}\right]  $, we find $\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]
+=1$. Hence, $\pi_{1}^{\prime}>\sigma_{1}^{\prime}$. In other words, the first
+entry of $\pi^{\prime}$ is greater than the first entry of $\sigma^{\prime}$.
+Meanwhile, the first entry of $\pi$ is greater than the first entry of
+$\sigma$ (since $\pi_{1}>\sigma_{1}$). Hence, Claim 1 yields%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+But Claim 2 yields%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+Thus, Claim 3 is proven in Case 1.
+
+Let us next consider Case 2. In this case, we have $\pi_{1}\leq\sigma_{1}$.
+
+Applying Proposition \ref{prop.LR.rec} \textbf{(a)} to various pairs of
+disjoint permutations, we obtain $S_{\prec}\left(  \pi,\sigma\right)
+=S_{\succ}\left(  \sigma,\pi\right)  $ and $S_{\prec}\left(  \pi^{\prime
+},\sigma^{\prime}\right)  =S_{\succ}\left(  \sigma^{\prime},\pi^{\prime
+}\right)  $ and $S_{\prec}\left(  \sigma,\pi\right)  =S_{\succ}\left(
+\pi,\sigma\right)  $ and $S_{\prec}\left(  \sigma^{\prime},\pi^{\prime
+}\right)  =S_{\succ}\left(  \pi^{\prime},\sigma^{\prime}\right)  $.
+
+But $\pi_{1}\neq\sigma_{1}$ (since $\pi$ and $\sigma$ are disjoint). Combined
+with $\pi_{1}\leq\sigma_{1}$, this yields $\pi_{1}<\sigma_{1}$; thus,
+$\sigma_{1}>\pi_{1}$. In other words, the first entry of $\sigma$ is greater
+than the first entry of $\pi$. Also, $\left[  \pi_{1}>\sigma_{1}\right]  =0$
+(since $\pi_{1}\leq\sigma_{1}$). Comparing this with $\left[  \pi_{1}%
+>\sigma_{1}\right]  =\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]  $,
+we find $\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]  =0$. Hence,
+$\pi_{1}^{\prime}\leq\sigma_{1}^{\prime}$. But $\pi_{1}^{\prime}\neq\sigma
+_{1}^{\prime}$ (since $\pi^{\prime}$ and $\sigma^{\prime}$ are disjoint).
+Combined with $\pi_{1}^{\prime}\leq\sigma_{1}^{\prime}$, this yields $\pi
+_{1}^{\prime}<\sigma_{1}^{\prime}$; thus, $\sigma_{1}^{\prime}>\pi_{1}%
+^{\prime}$. In other words, the first entry of $\sigma^{\prime}$ is greater
+than the first entry of $\pi^{\prime}$. Hence, Claim 2 (applied to $\sigma$,
+$\pi$, $\sigma^{\prime}$ and $\pi^{\prime}$ instead of $\pi$, $\sigma$,
+$\pi^{\prime}$ and $\sigma^{\prime}$) yields%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \sigma,\pi\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\sigma^{\prime},\pi^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+In light of $S_{\succ}\left(  \sigma,\pi\right)  =S_{\prec}\left(  \pi
+,\sigma\right)  $ and $S_{\succ}\left(  \sigma^{\prime},\pi^{\prime}\right)
+=S_{\prec}\left(  \pi^{\prime},\sigma^{\prime}\right)  $, this rewrites as
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+
+
+Also, Claim 1 (applied to $\sigma$, $\pi$, $\sigma^{\prime}$ and $\pi^{\prime
+}$ instead of $\pi$, $\sigma$, $\pi^{\prime}$ and $\sigma^{\prime}$) yields%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \sigma,\pi\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\sigma^{\prime},\pi^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+In light of $S_{\prec}\left(  \sigma,\pi\right)  =S_{\succ}\left(  \pi
+,\sigma\right)  $ and $S_{\prec}\left(  \sigma^{\prime},\pi^{\prime}\right)
+=S_{\succ}\left(  \pi^{\prime},\sigma^{\prime}\right)  $, this rewrites as%
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+Thus, Claim 3 is proven in Case 2.
+
+We have now proven Claim 3 in both Cases 1 and 2. Thus, Claim 3 is always proven.]
+
+Claim 3 shows that $\operatorname*{st}$ is LR-shuffle-compatible. This proves
+Corollary \ref{cor.LRcomp.two}.
+\end{proof}
+
+\section{\label{sect.Descent}Descent statistics and quasisymmetric functions}
 
 In this section, we shall recall the concepts of descent statistics and their
 shuffle algebras (introduced in \cite{part1}), and apply them to
@@ -2031,6 +4811,25 @@ $n$-permutation $\pi$ (for a positive integer $n$) satisfies%
 $\operatorname*{Comp}\pi$). The permutation statistics $\operatorname*{Lpk}$
 and $\operatorname*{Rpk}$ (and, of course, $\operatorname*{Comp}$) are descent
 statistics as well, as one can easily check.
+
+Notice the following:
+
+\begin{proposition}
+\label{prop.des-stat.hgc}Every head-graft-compatible permutation statistic is
+a descent statistic.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.des-stat.hgc}.]Let $\operatorname*{st}$ be a
+head-graft-compatible permutation statistic. Then, we must show that
+$\operatorname*{st}$ is a descent statistic. But this follows directly from
+Lemma \ref{lem.LRcomp.head-l1}.
+\end{proof}
+
+Combining Proposition \ref{prop.des-stat.hgc} with Corollary
+\ref{cor.LRcomp.back}, we conclude that every LR-shuffle-compatible
+permutation statistic is a descent statistic. This should be contrasted with
+\cite[Conjecture 6.11]{part1}.
 
 \begin{definition}
 \label{def.des-stat.stI}Let $\operatorname*{st}$ be a descent statistic. Then,
@@ -2391,8 +5190,8 @@ is a $\mathbb{Q}$-algebra isomorphism from $\mathcal{A}_{\operatorname*{Epk}}$
 to $\Pi_{\mathcal{Z}}$. Hence, Theorem \ref{thm.Epk.sh-co} is proven.
 \end{proof}
 
-\section{The kernel of the map $\operatorname*{QSym}\rightarrow\mathcal{A}%
-_{\operatorname*{Epk}}$}
+\section{\label{sect.kernel}The kernel of the map $\operatorname*{QSym}%
+\rightarrow\mathcal{A}_{\operatorname*{Epk}}$}
 
 \subsection{The kernel of a descent statistic}
 
@@ -4126,11 +6925,12 @@ satisfying $\operatorname*{st}\left(  \pi\right)  =\operatorname*{st}\left(
 \pi\right\vert =\left\vert \pi^{\prime}\right\vert $ and $\left\vert
 \sigma\right\vert =\left\vert \sigma^{\prime}\right\vert $. We shall show that
 $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
-\pi,\sigma\right)  \right\}  =\left\{  \operatorname*{st}\left(  \tau\right)
-\ \mid\ \tau\in S\left(  \pi^{\prime},\sigma^{\prime}\right)  \right\}  $ as
-multisets. This will show that the multiset \newline$\left\{
-\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi
-,\sigma\right)  \right\}  $ depends only on $\operatorname*{st}\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}} =\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi^{\prime
+},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}} $ as multisets.
+This will show that the multiset \newline$\left\{  \operatorname*{st}\left(
+\tau\right)  \ \mid\ \tau\in S\left(  \pi,\sigma\right)  \right\}
+_{\operatorname*{multi}} $ depends only on $\operatorname*{st}\left(
 \pi\right)  $, $\operatorname*{st}\left(  \sigma\right)  $, $\left\vert
 \pi\right\vert $ and $\left\vert \sigma\right\vert $.
 
@@ -4205,17 +7005,18 @@ as well. In other words,
 }\left[  \operatorname*{st}\chi\right]  .
 \]
 This shows exactly that $\left\{  \operatorname*{st}\left(  \chi\right)
-\ \mid\ \chi\in S\left(  \pi,\sigma\right)  \right\}  =\left\{
-\operatorname*{st}\left(  \chi\right)  \ \mid\ \chi\in S\left(  \pi^{\prime
-},\sigma^{\prime}\right)  \right\}  $ as multisets. In other words, $\left\{
-\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi
-,\sigma\right)  \right\}  =\left\{  \operatorname*{st}\left(  \tau\right)
-\ \mid\ \tau\in S\left(  \pi^{\prime},\sigma^{\prime}\right)  \right\}  $ as
-multisets. Thus, we have proven that the multiset $\left\{  \operatorname*{st}%
-\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi,\sigma\right)  \right\}  $
-depends only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
-\left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
-\sigma\right\vert $. Hence, the statistic $\operatorname*{st}$ is
+\ \mid\ \chi\in S\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}
+=\left\{  \operatorname*{st}\left(  \chi\right)  \ \mid\ \chi\in S\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}} $. In
+other words, $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+S\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}} =\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi^{\prime
+},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}} $. Thus, we have
+proven that the multiset $\left\{  \operatorname*{st}\left(  \tau\right)
+\ \mid\ \tau\in S\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}
+$ depends only on $\operatorname*{st}\left(  \pi\right)  $,
+$\operatorname*{st}\left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and
+$\left\vert \sigma\right\vert $. Hence, the statistic $\operatorname*{st}$ is
 shuffle-compatible. This proves the $\Longleftarrow$ direction of Theorem
 \ref{thm.4.3} \textbf{(a)}.
 
@@ -4311,18 +7112,16 @@ isomorphism $\mathcal{A}_{\operatorname*{st}}\rightarrow A$. This proves
 Theorem \ref{thm.4.3} \textbf{(b)}.
 \end{proof}
 
-\section{Dendriform structures}
+\section{\label{sect.dendri}Dendriform structures}
 
 Next, we shall study how the ideal $\mathcal{K}_{\operatorname*{Epk}}$
 interacts with some additional structure on $\operatorname*{QSym}$, viz. the
 \textit{dendriform operations }$\left.  \prec\right.  $ and $\left.
 \succeq\right.  $ and the \textquotedblleft runic\textquotedblright%
 \ operations $\bel$ and $\tvi$. These operations were introduced in
-\cite{dimcr}. Our study shall lead us to the notions of \textquotedblleft
-left-shuffle-compatibility\textquotedblright\ and \textquotedblleft
-right-shuffle-compatibility\textquotedblright, which are two properties
-similar to shuffle-compatibility (which, when combined, are stronger than
-shuffle-compatibility). We shall prove that $\operatorname*{Epk}$ is
+\cite{dimcr}. Our study shall lead us back to the notions of
+left-shuffle-compatibility\ and right-shuffle-compatibility from Section
+\ref{sect.LR}. We shall reprove that $\operatorname*{Epk}$ is
 left-shuffle-compatible and right-shuffle-compatible; similar studies can
 probably be made for other descent statistics.
 
@@ -4976,36 +7775,8 @@ of a descent statistic $\operatorname*{st}$ is a $\tvi$-ideal, a $\bel$-ideal,
 a $\left.  \prec\right.  $-ideals or a $\left.  \succeq\right.  $-ideal. In
 this section, we shall prove such interpretations.
 
-We begin by introducing dendriform shuffles (i.e., left shuffles and right
-shuffles). There is a well-known notion of dendriform shuffles of words.
-Specialized to permutations, it can be defined in a simple way as follows:
-
-\begin{definition}
-If $\pi$ and $\sigma$ are two disjoint nonempty permutations, then:
-
-\begin{itemize}
-\item A \textit{left shuffle} of $\pi$ and $\sigma$ means a shuffle $\tau$ of
-$\pi$ and $\sigma$ such that the first letter of $\tau$ is the first letter of
-$\pi$.
-
-\item A \textit{right shuffle} of $\pi$ and $\sigma$ means a shuffle $\tau$ of
-$\pi$ and $\sigma$ such that the first letter of $\tau$ is the first letter of
-$\sigma$.
-
-\item We let $S_{\prec}\left(  \pi,\sigma\right)  $ denote the set of all left
-shuffles of $\pi$ and $\sigma$.
-
-\item We let $S_{\succ}\left(  \pi,\sigma\right)  $ denote the set of all
-right shuffles of $\pi$ and $\sigma$.
-\end{itemize}
-\end{definition}
-
-We have restricted ourselves to nonempty permutations in this definition
-because it is not clear what the \textquotedblleft first
-letter\textquotedblright\ of an empty permutation would be (and either way,
-allowing empty permutations do not change much in our analysis).
-
-The following theorem is analogous to Theorem~\ref{thm.4.1}:
+Recall Definition \ref{def.LRshuf}. The following theorem is analogous to
+Theorem~\ref{thm.4.1}:
 
 \begin{theorem}
 \label{thm.dendri.4.1}Let $\pi$ be a nonempty permutation with descent
@@ -5113,25 +7884,13 @@ F_{\operatorname*{Comp}\chi}.
 
 \end{corollary}
 
-Now, let us define dendriform analogues to the concept of shuffle-compatibility:
+Now, let us define two further variants of LR-shuffle-compatibility (to be
+compared with those introduced in Definition \ref{def.LR.left-right}):
 
 \begin{definition}
 Let $\operatorname*{st}$ be a permutation statistic.
 
-\textbf{(a)} We say that $\operatorname*{st}$ is
-\textit{left-shuffle-compatible} if for any two disjoint nonempty permutations
-$\pi$ and $\sigma$ having the property that%
-\begin{equation}
-\text{the first entry of }\pi\text{ is greater than the first entry of }%
-\sigma, \label{eq.def.dendri.dsc.ass}%
-\end{equation}
-the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
-S_{\prec}\left(  \pi,\sigma\right)  \right\}  $ depends only on
-$\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}\left(
-\sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert \sigma
-\right\vert $.
-
-\textbf{(b)} We say that $\operatorname*{st}$ is \textit{weakly
+\textbf{(a)} We say that $\operatorname*{st}$ is \textit{weakly
 left-shuffle-compatible} if for any two disjoint nonempty permutations $\pi$
 and $\sigma$ having the property that%
 \begin{equation}
@@ -5139,39 +7898,26 @@ and $\sigma$ having the property that%
 \label{eq.def.dendri.dsc.weak-ass}%
 \end{equation}
 the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
-S_{\prec}\left(  \pi,\sigma\right)  \right\}  $ depends only on
-$\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}\left(
-\sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert \sigma
-\right\vert $.
+S_{\prec}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$
+depends only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
+\left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
+\sigma\right\vert $.
 
-\textbf{(c)} We say that $\operatorname*{st}$ is
-\textit{right-shuffle-compatible} if for any two disjoint nonempty
-permutations $\pi$ and $\sigma$ having the property that%
-\[
-\text{the first entry of }\pi\text{ is greater than the first entry of }%
-\sigma,
-\]
-the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
-S_{\succ}\left(  \pi,\sigma\right)  \right\}  $ depends only on
-$\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}\left(
-\sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert \sigma
-\right\vert $.
-
-\textbf{(d)} We say that $\operatorname*{st}$ is \textit{weakly
+\textbf{(b)} We say that $\operatorname*{st}$ is \textit{weakly
 right-shuffle-compatible} if for any two disjoint nonempty permutations $\pi$
 and $\sigma$ having the property that%
 \[
 \text{each entry of }\pi\text{ is greater than each entry of }\sigma,
 \]
 the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
-S_{\succ}\left(  \pi,\sigma\right)  \right\}  $ depends only on
-$\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}\left(
-\sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert \sigma
-\right\vert $.
+S_{\succ}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$
+depends only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
+\left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
+\sigma\right\vert $.
 \end{definition}
 
 Then, the following analogues to the first part of Proposition
-\ref{prop.K.ideal} holds:
+\ref{prop.K.ideal} hold:
 
 \begin{theorem}
 \label{thm.dendri.K.ideal}Let $\operatorname*{st}$ be a descent statistic.
@@ -5268,24 +8014,25 @@ $-equivalent). In other words, $\left\vert \varphi\right\vert =\left\vert
 =\operatorname*{st}\left(  \psi\right)  $.
 
 The statistic $\operatorname*{st}$ is weakly left-shuffle-compatible. Thus,
-the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
-S_{\prec}\left(  \pi,\sigma\right)  \right\}  $ (where $\pi$ is a nonempty
-permutation disjoint from $\sigma$ and having the property that each entry of
-$\pi$ is greater than each entry of $\sigma$) depends only on
-$\operatorname*{st}\left(  \pi\right)  $ and $\left\vert \pi\right\vert $ (by
-the definition of \textquotedblleft weakly
-left-shuffle-compatible\textquotedblright)\footnote{Recall that $\sigma$ is
-fixed here, which is why we don't have to say that it depends on
+the multiset\newline$\left\{  \operatorname*{st}\left(  \tau\right)
+\ \mid\ \tau\in S_{\prec}\left(  \pi,\sigma\right)  \right\}
+_{\operatorname*{multi}}$ (where $\pi$ is a nonempty permutation disjoint from
+$\sigma$ and having the property that each entry of $\pi$ is greater than each
+entry of $\sigma$) depends only on $\operatorname*{st}\left(  \pi\right)  $
+and $\left\vert \pi\right\vert $ (by the definition of \textquotedblleft
+weakly left-shuffle-compatible\textquotedblright)\footnote{Recall that
+$\sigma$ is fixed here, which is why we don't have to say that it depends on
 $\operatorname*{st}\left(  \sigma\right)  $ and $\left\vert \sigma\right\vert
 $ as well.}. Therefore, the multisets $\left\{  \operatorname*{st}\left(
 \tau\right)  \ \mid\ \tau\in S_{\prec}\left(  \varphi,\sigma\right)  \right\}
-$ and $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
-S_{\prec}\left(  \psi,\sigma\right)  \right\}  $ are equal (since $\left\vert
-\varphi\right\vert =\left\vert \psi\right\vert $ and $\operatorname*{st}%
-\left(  \varphi\right)  =\operatorname*{st}\left(  \psi\right)  $). Hence,
-there exists a bijection $\alpha:S_{\prec}\left(  \varphi,\sigma\right)
-\rightarrow S_{\prec}\left(  \psi,\sigma\right)  $ such that each $\chi\in
-S_{\prec}\left(  \varphi,\sigma\right)  $ satisfies%
+_{\operatorname*{multi}}$ and \newline$\left\{  \operatorname*{st}\left(
+\tau\right)  \ \mid\ \tau\in S_{\prec}\left(  \psi,\sigma\right)  \right\}
+_{\operatorname*{multi}}$ are equal (since $\left\vert \varphi\right\vert
+=\left\vert \psi\right\vert $ and $\operatorname*{st}\left(  \varphi\right)
+=\operatorname*{st}\left(  \psi\right)  $). Hence, there exists a bijection
+$\alpha:S_{\prec}\left(  \varphi,\sigma\right)  \rightarrow S_{\prec}\left(
+\psi,\sigma\right)  $ such that each $\chi\in S_{\prec}\left(  \varphi
+,\sigma\right)  $ satisfies%
 \begin{equation}
 \operatorname*{st}\left(  \alpha\left(  \chi\right)  \right)
 =\operatorname*{st}\left(  \chi\right)  . \label{pf.thm.dendri.K.ideal.alpha}%
@@ -5395,11 +8142,12 @@ and satisfying $\operatorname*{st}\left(  \pi\right)  =\operatorname*{st}%
 \pi\right\vert =\left\vert \pi^{\prime}\right\vert $ and $\left\vert
 \sigma\right\vert =\left\vert \sigma^{\prime}\right\vert $. We shall show that
 $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
-}\left(  \pi,\sigma\right)  \right\}  =\left\{  \operatorname*{st}\left(
-\tau\right)  \ \mid\ \tau\in S_{\prec}\left(  \pi^{\prime},\sigma^{\prime
-}\right)  \right\}  $ as multisets. This will show that the multiset $\left\{
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}} =\left\{
 \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
-\pi,\sigma\right)  \right\}  $ depends only on $\operatorname*{st}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}$. This
+will show that the multiset $\left\{  \operatorname*{st}\left(  \tau\right)
+\ \mid\ \tau\in S_{\prec}\left(  \pi,\sigma\right)  \right\}
+_{\operatorname*{multi}} $ depends only on $\operatorname*{st}\left(
 \pi\right)  $, $\operatorname*{st}\left(  \sigma\right)  $, $\left\vert
 \pi\right\vert $ and $\left\vert \sigma\right\vert $.
 
@@ -5473,19 +8221,21 @@ equal as well. In other words,
 }\right)  }\left[  \operatorname*{st}\chi\right]  .
 \]
 This shows exactly that $\left\{  \operatorname*{st}\left(  \chi\right)
-\ \mid\ \chi\in S_{\prec}\left(  \pi,\sigma\right)  \right\}  =\left\{
-\operatorname*{st}\left(  \chi\right)  \ \mid\ \chi\in S_{\prec}\left(
-\pi^{\prime},\sigma^{\prime}\right)  \right\}  $ as multisets. In other words,
-$\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
-}\left(  \pi,\sigma\right)  \right\}  =\left\{  \operatorname*{st}\left(
-\tau\right)  \ \mid\ \tau\in S_{\prec}\left(  \pi^{\prime},\sigma^{\prime
-}\right)  \right\}  $ as multisets. Thus, we have proven that the multiset
-$\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
-}\left(  \pi,\sigma\right)  \right\}  $ depends only on $\operatorname*{st}%
-\left(  \pi\right)  $, $\operatorname*{st}\left(  \sigma\right)  $,
-$\left\vert \pi\right\vert $ and $\left\vert \sigma\right\vert $. Hence, the
-statistic $\operatorname*{st}$ is left-shuffle-compatible. In other words,
-Statement A holds. This proves the implication C$\Longrightarrow$A.
+\ \mid\ \chi\in S_{\prec}\left(  \pi,\sigma\right)  \right\}
+_{\operatorname*{multi}} =\left\{  \operatorname*{st}\left(  \chi\right)
+\ \mid\ \chi\in S_{\prec}\left(  \pi^{\prime},\sigma^{\prime}\right)
+\right\}  _{\operatorname*{multi}} $. In other words, $\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}} =\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}} $.
+Thus, we have proven that the multiset $\left\{  \operatorname*{st}\left(
+\tau\right)  \ \mid\ \tau\in S_{\prec}\left(  \pi,\sigma\right)  \right\}
+_{\operatorname*{multi}} $ depends only on $\operatorname*{st}\left(
+\pi\right)  $, $\operatorname*{st}\left(  \sigma\right)  $, $\left\vert
+\pi\right\vert $ and $\left\vert \sigma\right\vert $. Hence, the statistic
+$\operatorname*{st}$ is left-shuffle-compatible. In other words, Statement A
+holds. This proves the implication C$\Longrightarrow$A.
 
 Now that we have proven all three implications A$\Longrightarrow$B,
 B$\Longrightarrow$C and C$\Longrightarrow$A, the proof of Theorem
@@ -5519,20 +8269,21 @@ far as arbitrary permutation statistics are concerned, this is false; for
 example, the number of inversions is weakly left-shuffle-compatible and weakly
 right-shuffle-compatible but not shuffle-compatible.
 
-On the other hand, every permutation statistic that is left-shuffle-compatible
-and right-shuffle-compatible must automatically be shuffle-compatible (whether
-or not it is a descent statistic). This follows from a careful look at the
-definitions of \textquotedblleft left-shuffle-compatible\textquotedblright%
-\ and \textquotedblleft right-shuffle-compatible\textquotedblright\ and the
-observation that $S_{\prec}\left(  \pi,\sigma\right)  =S_{\succ}\left(
-\sigma,\pi\right)  $ and $S_{\succ}\left(  \pi,\sigma\right)  =S_{\prec
-}\left(  \sigma,\pi\right)  $ for any two disjoint permutations $\pi$ and
-$\sigma$.
+Recall that every permutation statistic that is left-shuffle-compatible and
+right-shuffle-compatible must automatically be LR-shuffle-compatible (by
+Corollary \ref{cor.LRcomp.two}) and therefore also shuffle-compatible (by
+Corollary \ref{cor.LRcomp.back}) and head-graft-compatible (again by Corollary
+\ref{cor.LRcomp.back}) and therefore a descent statistic (by Proposition
+\ref{prop.des-stat.hgc}).
 
 \begin{corollary}
 \label{cor.dendri.Epk}The descent statistic $\operatorname*{Epk}$ is
 left-shuffle-compatible and right-shuffle-compatible.
 \end{corollary}
+
+Corollary \ref{cor.dendri.Epk} follows by combining Theorem
+\ref{thm.LRcomp.Pks} \textbf{(c)} with Theorem \ref{prop.LRcomp.equivs}. But
+we can also give a proof using Theorem \ref{thm.dendri.K.ideal}:
 
 \begin{proof}
 [Proof of Corollary \ref{cor.dendri.Epk}.]To prove that $\operatorname*{Epk}$
@@ -5579,9 +8330,8 @@ $\phi\left(  1\right)  $ must be $1$ or not. This does not make a difference
 for us here.)
 \end{definition}
 
-Of course, $\operatorname*{QSym}$ (with its two operations $\left.
-\prec\right.  $ and $\left.  \succeq\right.  $) thus becomes a dendriform
-algebra over $\mathbb{Q}$.
+Thus, $\operatorname*{QSym}$ (with its two operations $\left.  \prec\right.  $
+and $\left.  \succeq\right.  $) becomes a dendriform algebra over $\mathbb{Q}$.
 
 Notice that if $A$ and $B$ are two dendriform algebras over $\mathbf{k}$, then
 the kernel of any dendriform algebra homomorphism $A\rightarrow B$ is an
@@ -5977,7 +8727,8 @@ of other statistics}
 
 Let us now briefly analyze the kernels $\mathcal{K}_{\operatorname*{st}}$ of
 some other descent statistics, following the same approach that we took in our
-above second proof of Theorem \ref{thm.Epk.dend} again.
+above second proof of Theorem \ref{thm.Epk.dend} again. Much of what follows
+will merely reproduce results from Section \ref{sect.LR}.
 
 \subsubsection{The descent set $\operatorname*{Des}$}
 
@@ -6509,6 +9260,11 @@ We now claim the following:
 \begin{thebibliography}{99999999}                                                                                         %
 
 
+\bibitem[EbMaPa07]{EbMaPa07}%
+\href{https://doi.org/10.1016/j.jalgebra.2007.12.013}{Kurusch Ebrahimi-Fard,
+Dominique Manchon, Fr\'{e}d\'{e}ric Patras, \textit{New identities in
+dendriform algebras}, Journal of Algebra 320 (2008), pp. 708--727}.
+
 \bibitem[GesZhu17]{part1}\href{http://arxiv.org/abs/1706.00750v2}{Ira M.
 Gessel, Yan Zhuang, \textit{Shuffle-compatible permutation statistics},
 arXiv:1706.00750v2}.
@@ -6525,9 +9281,12 @@ version 6, \href{https://arxiv.org/abs/1410.0079v6}{arXiv:1410.0079v6}.
 \href{https://cms.math.ca/10.4153/CJM-2016-018-8?abfmt=ltx}{Canad. J. Math.
 \textbf{69} (2017), 21--53}.)
 
-\bibitem[GriRei17]{HopfComb}Darij Grinberg, Victor Reiner, \textit{Hopf
-algebras in Combinatorics}, version of 27 July 2017. \newline%
-\url{http://www.cip.ifi.lmu.de/~grinberg/algebra/HopfComb-sols.pdf} .
+\bibitem[GriRei18]{HopfComb}Darij Grinberg, Victor Reiner, \textit{Hopf
+algebras in Combinatorics}, version of 11 May 2018,
+\href{http://www.arxiv.org/abs/1409.8356v5}{\texttt{arXiv:1409.8356v5}}.
+\newline See also
+\url{http://www.cip.ifi.lmu.de/~grinberg/algebra/HopfComb-sols.pdf} for a
+version that gets updated.
 
 \bibitem[HsiPet10]{HsiPet10}Samuel K. Hsiao, T. Kyle Petersen, \textit{Colored
 Posets and Colored Quasisymmetric Functions}, Ann. Comb. 14 (2010), pp.

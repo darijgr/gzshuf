@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, May 15, 2018 01:06:42}
+%TCIDATA{LastRevised=Tuesday, May 15, 2018 10:12:32}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -4293,7 +4293,7 @@ _{\operatorname*{multi}}=\left\{  \operatorname*{st}\left(  a^{\prime}%
 Thus,%
 \begin{align*}
 \left\{  \operatorname*{st}\left(  a:\pi\right)  \right\}
-_{\operatorname*{multi}} &  =\left\{  \operatorname*{st}\left(  \tau\right)
+_{\operatorname*{multi}}  &  =\left\{  \operatorname*{st}\left(  \tau\right)
 \ \mid\ \tau\in S_{\succ}\left(  \pi,\left(  a\right)  \right)  \right\}
 _{\operatorname*{multi}}\\
 &  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
@@ -4349,7 +4349,7 @@ $\operatorname*{Des}\pi=\operatorname*{Des}\left(  \pi^{\prime}\right)  $
 \left\{  \operatorname*{Des}\tau\ \mid\ \tau\in S\left(  \pi,\sigma\right)
 \right\}  _{\operatorname*{multi}}=\left\{  \operatorname*{Des}\tau
 \ \mid\ \tau\in S\left(  \pi^{\prime},\sigma\right)  \right\}
-_{\operatorname*{multi}}.\label{pf.lem.LRcomp.head-l2.c3.pf.2}%
+_{\operatorname*{multi}}. \label{pf.lem.LRcomp.head-l2.c3.pf.2}%
 \end{equation}
 Now,
 \begin{align*}
@@ -4360,11 +4360,11 @@ _{\substack{=F_{n}\left(  \operatorname*{Des}\tau\right)  \\\text{(by
 &  =\left\{  F_{n}\left(  \operatorname*{Des}\tau\right)  \ \mid\ \tau\in
 S\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=F_{n}\left(
 \left\{  \operatorname*{Des}\tau\ \mid\ \tau\in S\left(  \pi,\sigma\right)
-\right\}  _{\operatorname*{multi}}\right)  \\
+\right\}  _{\operatorname*{multi}}\right) \\
 &  =F_{n}\left(  \left\{  \operatorname*{Des}\tau\ \mid\ \tau\in S\left(
 \pi^{\prime},\sigma\right)  \right\}  _{\operatorname*{multi}}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.lem.LRcomp.head-l2.c3.pf.2}%
-)}\right)  \\
+)}\right) \\
 &  =\left\{  \underbrace{F_{n}\left(  \operatorname*{Des}\tau\right)
 }_{\substack{=\operatorname*{st}\left(  \tau\right)  \\\text{(by
 (\ref{pf.lem.LRcomp.head-l2.c3.pf.1}))}}}\ \mid\ \tau\in S\left(  \pi^{\prime
@@ -4418,10 +4418,10 @@ this case, we have%
 \begin{align*}
 \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
 \underbrace{\pi}_{=\left(  {}\right)  },\sigma\right)  \right\}
-_{\operatorname*{multi}}  & =\left\{  \operatorname*{st}\left(  \tau\right)
+_{\operatorname*{multi}}  &  =\left\{  \operatorname*{st}\left(  \tau\right)
 \ \mid\ \tau\in\underbrace{S\left(  \left(  {}\right)  ,\sigma\right)
 }_{=\left\{  \sigma\right\}  }\right\}  _{\operatorname*{multi}}\\
-& =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in\left\{
+&  =\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in\left\{
 \sigma\right\}  \right\}  _{\operatorname*{multi}}=\left\{  \operatorname*{st}%
 \left(  \sigma\right)  \right\}  _{\operatorname*{multi}}%
 \end{align*}
@@ -7313,6 +7313,78 @@ instead of $a\left.  \preceq\right.  b$. But this is the same thing, since
 $a\left.  \preceq\right.  b=b\left.  \succeq\right.  a$ for all $a,b\in
 \mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]  \right]  $.)
 
+\begin{noncompile}
+The following fact is neat, but has so far been useless:
+
+\begin{proposition}
+\label{prop.tvibel.antipode}Let $S$ denote the antipode of the Hopf algebra
+$\operatorname*{QSym}$. Let $a\in\operatorname*{QSym}$ and $b\in
+\operatorname*{QSym}$. Then,%
+\begin{align*}
+S\left(  a\tvi b\right)   &  =S\left(  b\right)  \bel S\left(  a\right)
+\ \ \ \ \ \ \ \ \ \ \text{and}\\
+S\left(  a\bel b\right)   &  =S\left(  b\right)  \tvi S\left(  a\right)  .
+\end{align*}
+
+\end{proposition}
+\end{noncompile}
+
+\begin{noncompile}
+Let us restate Theorem \ref{thm.beldend} and Theorem \ref{thm.tvidend'} using
+a slight variation on the comultiplication map $\Delta$:
+
+\begin{theorem}
+\label{thm.beldend.Del'}Let $S$ denote the antipode of the Hopf algebra
+$\operatorname*{QSym}$. Let us use the Sweedler-like notation $\sum_{\left(
+b\right)  }b_{\left[  1\right]  }\otimes b_{\left[  2\right]  }$ for
+$\Delta\left(  b\right)  -1\otimes b$, where $b$ is any element of
+$\operatorname*{QSym}$. Then,%
+\[
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
+\bel
+a\right)  b_{\left[  2\right]  }=-a\mathfrak{\left.  \succeq\right.  }b
+\]
+for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
+\right]  $ and $b\in\operatorname*{QSym}$.
+\end{theorem}
+
+\begin{theorem}
+\label{thm.tvidend'.Del'}Let $S$ denote the antipode of the Hopf algebra
+$\operatorname*{QSym}$. Let us use the Sweedler-like notation $\sum_{\left(
+b\right)  }b_{\left[  1\right]  }\otimes b_{\left[  2\right]  }$ for
+$\Delta\left(  b\right)  -1\otimes b$, where $b$ is any element of
+$\operatorname*{QSym}$. Then,%
+\[
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
+\tvi
+a\right)  b_{\left[  2\right]  }=-b\left.  \prec\right.  a
+\]
+for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
+\right]  $ and $b\in\operatorname*{QSym}$.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.beldend.Del'}.]Let us use Sweedler's notation, too.
+From $\sum_{\left(  b\right)  }b_{\left[  1\right]  }\otimes b_{\left[
+2\right]  }=\Delta\left(  b\right)  -1\otimes b=\sum_{\left(  b\right)
+}b_{\left(  1\right)  }\otimes b_{\left(  2\right)  }-1\otimes b$, we have%
+\begin{align*}
+\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
+\bel a\right)  b_{\left[  2\right]  }  &  =\underbrace{\sum_{\left(  b\right)
+}\left(  S\left(  b_{\left(  1\right)  }\right)  \bel a\right)  b_{\left(
+2\right)  }}_{\substack{=a\left.  \prec\right.  b\\\text{(by Theorem
+\ref{thm.beldend})}}}-\underbrace{\left(  1\bel a\right)  }_{=a}b\\
+&  =a\left.  \prec\right.  b-ab=-a\left.  \succeq\right.  b
+\end{align*}
+(since $a\left.  \prec\right.  b+a\left.  \succeq\right.  b=ab$). This proves
+Theorem \ref{thm.beldend.Del'}.
+\end{proof}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.tvidend'.Del'}.]Analogous.
+\end{proof}
+\end{noncompile}
+
 \subsection{Ideals}
 
 \begin{definition}
@@ -8997,12 +9069,14 @@ be derived from Proposition \ref{prop.Lpk.dend} in the same way as Corollary
 \subsubsection{The right peak set $\operatorname*{Rpk}$}
 
 Recall the permutation statistic $\operatorname*{Rpk}$ (the right peak set)
-defined in Definition \ref{def.Des-et-al}. It was proven in \cite[\S 4.4]%
-{part1} that this statistic $\operatorname*{Rpk}$ is shuffle-compatible.
-Furthermore, $\operatorname*{Rpk}$ is clearly a descent statistic. Hence,
-Proposition \ref{prop.K.ideal} (applied to $\operatorname*{st}%
-=\operatorname*{Rpk}$) shows that $\mathcal{K}_{\operatorname*{Rpk}}$ is an
-ideal of $\operatorname*{QSym}$. We now claim the following:
+defined in Definition \ref{def.Des-et-al}. It follows from \cite[Theorem 4.9
+\textbf{(a)} and Theorem 3.5]{part1} that this statistic $\operatorname*{Rpk}$
+is shuffle-compatible (since $\operatorname{Lpk}$ and $\operatorname{Rpk}$ are
+$r$-equivalent, using the terminology of \cite{part1}). Furthermore,
+$\operatorname*{Rpk}$ is clearly a descent statistic. Hence, Proposition
+\ref{prop.K.ideal} (applied to $\operatorname*{st}=\operatorname*{Rpk}$) shows
+that $\mathcal{K}_{\operatorname*{Rpk}}$ is an ideal of $\operatorname*{QSym}%
+$. We now claim the following:
 
 \begin{proposition}
 \label{prop.Rpk.dend}The ideal $\mathcal{K}_{\operatorname*{Rpk}}$ of
@@ -9171,92 +9245,6 @@ $\operatorname*{QSym}$ either. Proposition \ref{prop.Pk.dend} is now proven.
 \ref{prop.Pk.dend}.
 \end{proof}
 
-\begin{noncompile}
-\textbf{[From here on, everything is scratch work and speculation!]}
-
-In preparation for things to come, we shall restate Theorem \ref{thm.beldend}
-and Theorem \ref{thm.tvidend'} using a slight variation on the
-comultiplication map $\Delta$:
-
-\begin{theorem}
-\label{thm.beldend.Del'}Let $S$ denote the antipode of the Hopf algebra
-$\operatorname*{QSym}$. Let us use the Sweedler-like notation $\sum_{\left(
-b\right)  }b_{\left[  1\right]  }\otimes b_{\left[  2\right]  }$ for
-$\Delta\left(  b\right)  -1\otimes b$, where $b$ is any element of
-$\operatorname*{QSym}$. Then,%
-\[
-\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
-\bel
-a\right)  b_{\left[  2\right]  }=-a\mathfrak{\left.  \succeq\right.  }b
-\]
-for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
-\right]  $ and $b\in\operatorname*{QSym}$.
-\end{theorem}
-
-\begin{theorem}
-\label{thm.tvidend'.Del'}Let $S$ denote the antipode of the Hopf algebra
-$\operatorname*{QSym}$. Let us use the Sweedler-like notation $\sum_{\left(
-b\right)  }b_{\left[  1\right]  }\otimes b_{\left[  2\right]  }$ for
-$\Delta\left(  b\right)  -1\otimes b$, where $b$ is any element of
-$\operatorname*{QSym}$. Then,%
-\[
-\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
-\tvi
-a\right)  b_{\left[  2\right]  }=-b\left.  \prec\right.  a
-\]
-for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
-\right]  $ and $b\in\operatorname*{QSym}$.
-\end{theorem}
-
-\begin{proof}
-[Proof of Theorem \ref{thm.beldend.Del'}.]Let us use Sweedler's notation, too.
-From $\sum_{\left(  b\right)  }b_{\left[  1\right]  }\otimes b_{\left[
-2\right]  }=\Delta\left(  b\right)  -1\otimes b=\sum_{\left(  b\right)
-}b_{\left(  1\right)  }\otimes b_{\left(  2\right)  }-1\otimes b$, we have%
-\begin{align*}
-\sum_{\left(  b\right)  }\left(  S\left(  b_{\left[  1\right]  }\right)
-\bel a\right)  b_{\left[  2\right]  }  &  =\underbrace{\sum_{\left(  b\right)
-}\left(  S\left(  b_{\left(  1\right)  }\right)  \bel a\right)  b_{\left(
-2\right)  }}_{\substack{=a\left.  \prec\right.  b\\\text{(by Theorem
-\ref{thm.beldend})}}}-\underbrace{\left(  1\bel a\right)  }_{=a}b\\
-&  =a\left.  \prec\right.  b-ab=-a\left.  \succeq\right.  b
-\end{align*}
-(since $a\left.  \prec\right.  b+a\left.  \succeq\right.  b=ab$). This proves
-Theorem \ref{thm.beldend.Del'}.
-\end{proof}
-
-\begin{proof}
-[Proof of Theorem \ref{thm.tvidend'.Del'}.]Analogous.
-\end{proof}
-
-Here is an old stub of a theorem that I don't know how to correct:
-
-\begin{theorem}
-\label{thm.ideal-crit1}Let $M$ be a $\mathbf{k}$-submodule of
-$\operatorname*{QSym}$. Assume that $M$ is a left $\tvi$-ideal and a right
-$\bel$-ideal of $\operatorname*{QSym}$.
-
-I wanted to claim that $M$ is an ideal of $\operatorname*{QSym}$. But this is
-not always correct. Maybe adding the condition $S\left(  M\right)  \subseteq
-M$ would help?
-\end{theorem}
-
-\begin{proof}
-[Proof of Theorem \ref{thm.ideal-crit1}.]Set $A=\operatorname*{QSym}$. We have
-$A\tvi M\subseteq M$ (since $M$ is a left $\tvi$-ideal) and $M\bel A\subseteq
-M$ (since $M$ is a right $\bel$-ideal).
-
-Recall that $A=\operatorname*{QSym}$ is a graded $\mathbf{k}$-algebra. For
-each $n\in\mathbb{N}$, let $A_{n}$ be its $n$-th graded component.
-
-We now claim the following:
-
-\textit{Claim 1:} We have $A_{n}M\subseteq M$
-
-...
-\end{proof}
-\end{noncompile}
-
 \begin{thebibliography}{99999999}                                                                                         %
 
 
@@ -9265,9 +9253,9 @@ We now claim the following:
 Dominique Manchon, Fr\'{e}d\'{e}ric Patras, \textit{New identities in
 dendriform algebras}, Journal of Algebra 320 (2008), pp. 708--727}.
 
-\bibitem[GesZhu17]{part1}\href{http://arxiv.org/abs/1706.00750v2}{Ira M.
+\bibitem[GesZhu17]{part1}\href{http://arxiv.org/abs/1706.00750v3}{Ira M.
 Gessel, Yan Zhuang, \textit{Shuffle-compatible permutation statistics},
-arXiv:1706.00750v2}.
+arXiv:1706.00750v3}.
 
 \bibitem[Greene88]{Greene88}%
 \href{https://doi.org/10.1016/0097-3165(88)90018-0}{Curtis Greene,

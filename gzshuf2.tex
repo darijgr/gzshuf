@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, May 26, 2018 13:31:01}
+%TCIDATA{LastRevised=Saturday, May 26, 2018 19:38:13}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3563,11 +3563,11 @@ $\operatorname*{st}$ is head-graft-compatible.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.LRcomp.equivs} (sketched).]We shall now prove
-the implications $\mathcal{A}_{1}\Longrightarrow\mathcal{A}_{2}$,
-$\mathcal{A}_{2}\Longrightarrow\mathcal{A}_{3}$, $\mathcal{A}_{3}%
-\Longrightarrow\mathcal{A}_{2}$, $\mathcal{A}_{3}\Longrightarrow
-\mathcal{A}_{4}$ and $\mathcal{A}_{4}\Longrightarrow\mathcal{A}_{1}$.
+[Proof of Proposition \ref{prop.LRcomp.equivs} (sketched).]We shall prove the
+implications $\mathcal{A}_{1}\Longrightarrow\mathcal{A}_{2}$, $\mathcal{A}%
+_{2}\Longrightarrow\mathcal{A}_{3}$, $\mathcal{A}_{3}\Longrightarrow
+\mathcal{A}_{2}$, $\mathcal{A}_{3}\Longrightarrow\mathcal{A}_{4}$ and
+$\mathcal{A}_{4}\Longrightarrow\mathcal{A}_{1}$.
 
 The implication $\mathcal{A}_{4}\Longrightarrow\mathcal{A}_{1}$ follows from
 Theorem \ref{thm.head-comp.LRcomp}.
@@ -3577,7 +3577,7 @@ Let us first recall that $\operatorname*{st}$ is shuffle-compatible. In other
 words, the following holds:
 
 \begin{statement}
-\textit{Claim 1:} Let $\pi$ and $\sigma$ be two disjoint permutations. Let
+\textit{Claim 0:} Let $\pi$ and $\sigma$ be two disjoint permutations. Let
 $\pi^{\prime}$ and $\sigma^{\prime}$ be two disjoint permutations. Assume that%
 \begin{align*}
 \operatorname*{st}\left(  \pi\right)   &  =\operatorname*{st}\left(
@@ -4943,10 +4943,9 @@ functions} over $\mathbb{Q}$.
 \end{definition}
 
 The $\mathbb{Q}$-algebra $\operatorname*{QSym}$ has much interesting structure
-(e.g., it is a Hopf algebra), but we will need very little of it (and we will
-introduce it whenever it becomes important). One simple yet crucial feature of
-$\operatorname*{QSym}$ that we will immediately use is the \textit{fundamental
-basis} of $\operatorname*{QSym}$:
+(e.g., it is a Hopf algebra), some of which we will introduce later when we
+need it. One simple yet crucial feature of $\operatorname*{QSym}$ that we will
+immediately use is the \textit{fundamental basis} of $\operatorname*{QSym}$:
 
 \begin{definition}
 For any composition $\alpha$, we define the \textit{fundamental quasisymmetric
@@ -5094,14 +5093,43 @@ We shall perhaps also use some other notations that were introduced in
 Theorem \ref{thm.Epk.sh-co-a} yields that the permutation statistic
 $\operatorname*{Epk}$ is shuffle-compatible. Hence, the shuffle algebra
 $\mathcal{A}_{\operatorname*{Epk}}$ is well-defined. We have not much to say
-about the shuffle algebra $\mathcal{A}_{\operatorname*{Epk}}$; we know that it
-is a graded quotient algebra of $\operatorname*{QSym}$ (due to the
-homomorphism $p_{\operatorname*{st}}$ from Proposition \ref{prop.Ast.alg}
-\textbf{(b)}), and that for each positive integer $n$, its $n$-th graded
-component has dimension $f_{n+2}-1$, where $\left(  f_{0},f_{1},f_{2}%
-,\ldots\right)  $ is the Fibonacci sequence (defined by $f_{0}=0$ and
-$f_{1}=1$ and the recursive relation $f_{m}=f_{m-1}+f_{m-2}$ for all $m\geq
-2$). Moreover, the following holds:
+about the shuffle algebra $\mathcal{A}_{\operatorname*{Epk}}$:
+
+\begin{theo}
+\label{thm.Epk.AEpk}\textbf{(a)} The shuffle algebra $\mathcal{A}%
+_{\operatorname*{Epk}}$ is a graded quotient algebra of $\operatorname*{QSym}$.
+
+\textbf{(b)} Let $n$ be a positive integer. The $n$-th graded component of
+$\mathcal{A}_{\operatorname*{Epk}}$ has dimension $f_{n+2}-1$, where $\left(
+f_{0},f_{1},f_{2},\ldots\right)  $ is the Fibonacci sequence (defined by
+$f_{0}=0$ and $f_{1}=1$ and the recursive relation $f_{m}=f_{m-1}+f_{m-2}$ for
+all $m\geq2$).
+\end{theo}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.Epk.AEpk} (sketched).]\textbf{(a)} Proposition
+\ref{prop.Ast.alg} \textbf{(b)} (applied to $\operatorname*{st}%
+=\operatorname*{Epk}$) yields a surjective $\mathbb{Q}$-algebra homomorphism
+$p_{\operatorname*{Epk}}:\operatorname*{QSym}\rightarrow\mathcal{A}%
+_{\operatorname*{Epk}}$. It is easy to see that this $p_{\operatorname*{Epk}}$
+is furthermore graded (i.e., degree-preserving). Thus, $\mathcal{A}%
+_{\operatorname*{Epk}}$ is isomorphic to a quotient of $\operatorname*{QSym}$
+as a graded algebra. This proves Theorem \ref{thm.Epk.AEpk} \textbf{(a)}.
+
+\textbf{(b)} The $n$-th graded component of $\mathcal{A}_{\operatorname*{Epk}%
+}$ has a basis indexed by $\operatorname*{Epk}$-equivalence classes of
+compositions of $n$. These latter classes are in bijection with
+$\operatorname*{Epk}$-equivalence classes of $n$-permutations. In turn, the
+latter classes are in bijection with the images of $n$-permutations under the
+map $\operatorname*{Epk}$. Finally, the latter images are the lacunar nonempty
+subsets of $\left[  n\right]  $ (according to Proposition \ref{prop.when-Epk}%
+). The number of the latter subsets is $f_{n+2}-1$, because a known fact (see,
+e.g., \cite[Exercise 1.35 \textbf{a.}]{Stanley-EC1}) says that the number of
+lacunar subsets of $\left[  n\right]  $ is $f_{n+2}$. Combining all of the
+preceding sentences, we conclude that the dimension of the $n$-th graded
+component of $\mathcal{A}_{\operatorname*{Epk}}$ is $f_{n+2}-1$. This proves
+Theorem \ref{thm.Epk.AEpk} \textbf{(b)}.
+\end{proof}
 
 \begin{theorem}
 \label{thm.Epk.sh-co}The map given by%
@@ -5117,8 +5145,8 @@ In the process of proving Theorem \ref{thm.Epk.sh-co}, we will also prove
 Theorem \ref{thm.Epk.sh-co-a} again.
 
 \begin{proof}
-[Proof of Theorem \ref{thm.Epk.sh-co}.]For each positive integer $n$ and each
-$n$-permutation $\pi$, we have%
+[Proof of Theorem \ref{thm.Epk.sh-co} (sketched).]For each positive integer
+$n$ and each $n$-permutation $\pi$, we have%
 \[
 \operatorname*{Epk}\pi=\left(  \operatorname*{Des}\pi\cup\left\{  n\right\}
 \right)  \setminus\left(  \operatorname*{Des}\pi+1\right)
@@ -5131,7 +5159,7 @@ a set $\operatorname*{Epk}L$ is defined (according to Definition
 \ref{def.des-stat.stI}); explicitly, $\operatorname*{Epk}L=\operatorname*{Epk}%
 \pi$ whenever $\pi$ is a permutation satisfying $\operatorname*{Comp}\pi=L$.
 
-\begin{verlong}
+\begin{noncompile}
 We can spell out this definition: For each positive integer $n$ and each
 composition $L$ of $n$, the subset $\operatorname*{Epk}L$ of $\left[
 n\right]  $ is given by%
@@ -5140,7 +5168,7 @@ n\right]  $ is given by%
 \right)  \setminus\left(  \operatorname*{Des}L+1\right)  .
 \]
 
-\end{verlong}
+\end{noncompile}
 
 Recall that $\left(  F_{L}\right)  _{L\text{ is a composition}}$ is a basis of
 the $\mathbb{Q}$-vector space $\operatorname*{QSym}$. Let $\phi
@@ -5234,10 +5262,10 @@ Let $\operatorname*{st}$ be a descent statistic. Then, $\mathcal{K}%
 _{\operatorname*{st}}$ shall mean the $\mathbb{Q}$-vector subspace of
 $\operatorname*{QSym}$ spanned by all elements of the form $F_{J}-F_{K}$,
 where $J$ and $K$ are two $\operatorname*{st}$-equivalent compositions. (See
-Definition \ref{def.des-stat.eq-comp} for the definition of \textquotedblleft%
-$\operatorname*{st}$-equivalent compositions\textquotedblright.) We shall
-refer to $\mathcal{K}_{\operatorname*{st}}$ as the \textit{kernel} of
-$\operatorname*{st}$.
+Definition \ref{def.des-stat.eq-comp} \textbf{(a)} for the definition of
+\textquotedblleft$\operatorname*{st}$-equivalent
+compositions\textquotedblright.) We shall refer to $\mathcal{K}%
+_{\operatorname*{st}}$ as the \textit{kernel} of $\operatorname*{st}$.
 \end{definition}
 
 The following basic linear-algebraic lemma will be useful:
@@ -5268,8 +5296,11 @@ Indeed, let $x\in\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)
 $ be arbitrary. Write $x\in\operatorname*{QSym}$ in the form $x=\sum_{L}%
 x_{L}F_{L}$, where the sum ranges over all compositions $L$, and where the
 $x_{L}$ are elements of $\mathbb{Q}$ (all but finitely many of which are
-zero). Now, $x\in\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)
-$, so that $\phi_{\operatorname*{st}}\left(  x\right)  =0$. Thus,%
+zero). (This can be done, since $\left(  F_{L}\right)  _{L\text{ is a
+composition}}$ is a basis of the $\mathbb{Q}$-vector space
+$\operatorname*{QSym}$.) Now, $x\in\operatorname*{Ker}\left(  \phi
+_{\operatorname*{st}}\right)  $, so that $\phi_{\operatorname*{st}}\left(
+x\right)  =0$. Thus,%
 \begin{align*}
 0  &  =\phi_{\operatorname*{st}}\left(  x\right)  =\sum_{L}x_{L}%
 \phi_{\operatorname*{st}}\left(  F_{L}\right)  \ \ \ \ \ \ \ \ \ \ \left(
@@ -6897,7 +6928,7 @@ composition $\operatorname*{Comp}\pi$ belongs to $\alpha$. (This is indeed a
 well-defined $\operatorname*{st}$-equivalence class, because
 $\operatorname*{st}$ is a descent statistic.) This establishes a bijection
 between the $\operatorname*{st}$-equivalence classes of compositions and the
-$\operatorname*{st}$-equivalence classes of compositions. Thus, the family
+$\operatorname*{st}$-equivalence classes of permutations. Thus, the family
 $\left(  u_{\alpha}\right)  $ (indexed by $\operatorname*{st}$-equivalence
 classes $\alpha$ of compositions) is just a reindexing of the basis of
 $\mathcal{A}_{\operatorname*{st}}$ consisting of the $\operatorname*{st}%
@@ -9296,14 +9327,14 @@ permutation statistics}, Advances in Mathematics, Volume 332, 9 July 2018, pp.
 
 \bibitem[Grinbe16]{dimcr}Darij Grinberg, \textit{Dual immaculate creation
 operators and a dendriform algebra structure on the quasisymmetric functions},
-version 6, \href{https://arxiv.org/abs/1410.0079v6}{arXiv:1410.0079v6}.
-(Version 5 has been published in:
+version 6, \texttt{\href{https://arxiv.org/abs/1410.0079v6}{arXiv:1410.0079v6}%
+}. (Version 5 has been published in:
 \href{https://cms.math.ca/10.4153/CJM-2016-018-8?abfmt=ltx}{Canad. J. Math.
 \textbf{69} (2017), 21--53}.)
 
 \bibitem[GriRei18]{HopfComb}Darij Grinberg, Victor Reiner, \textit{Hopf
 algebras in Combinatorics}, version of 11 May 2018,
-\href{http://www.arxiv.org/abs/1409.8356v5}{\texttt{arXiv:1409.8356v5}}.
+\texttt{\href{http://www.arxiv.org/abs/1409.8356v5}{arXiv:1409.8356v5}}.
 \newline See also
 \url{http://www.cip.ifi.lmu.de/~grinberg/algebra/HopfComb-sols.pdf} for a
 version that gets updated.
@@ -9327,6 +9358,10 @@ Developers, \textit{SageMath, the Sage Mathematics Software System (Version
 \bibitem[Stanle72]{Stanle72}Richard P. Stanley, \textit{Ordered Structures and
 Partitions}, Memoirs of the American Mathematical Society, No. 119, American
 Mathematical Society, Providence, R.I., 1972. \newline\url{http://www-math.mit.edu/~rstan/pubs/pubfiles/9.pdf}
+
+\bibitem[Stanle11]{Stanley-EC1}Richard Stanley, \textit{Enumerative
+Combinatorics, volume 1}, 2nd edition, Cambridge University Press 2012. A
+preprint is available at \url{http://math.mit.edu/~rstan/ec/} .
 
 \bibitem[Stembr97]{Stembr97}%
 \href{http://www.ams.org/journals/tran/1997-349-02/S0002-9947-97-01804-7/}{John

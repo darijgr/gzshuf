@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, May 26, 2018 13:20:54}
+%TCIDATA{LastRevised=Saturday, May 26, 2018 13:26:59}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -232,45 +232,7 @@ defined on standard permutations, i.e., on permutations in the usual sense of
 the word.
 \end{remark}
 
-\subsection{Compositions}
-
-\begin{definition}
-A \textit{composition} is a finite list of positive integers. If $I=\left(
-i_{1},i_{2},\ldots,i_{n}\right)  $ is a composition, then the nonnegative
-integer $i_{1}+i_{2}+\cdots+i_{n}$ is called the \textit{size} of $I$ and is
-denoted by $\left\vert I\right\vert $; we furthermore say that $I$ is a
-\textit{composition of }$\left\vert I\right\vert $.
-\end{definition}
-
-\begin{definition}
-\label{def.comps-to-sets}Let $n\in\mathbb{N}$. For each composition $I=\left(
-i_{1},i_{2},\ldots,i_{k}\right)  $ of $n$, we define a subset
-$\operatorname*{Des}I$ of $\left[  n-1\right]  $ by%
-\begin{align*}
-\operatorname*{Des}I  &  =\left\{  i_{1},i_{1}+i_{2},i_{1}+i_{2}+i_{3}%
-,\ldots,i_{1}+i_{2}+\cdots+i_{k-1}\right\} \\
-&  =\left\{  i_{1}+i_{2}+\cdots+i_{s}\ \mid\ s\in\left[  k-1\right]  \right\}
-.
-\end{align*}
-
-
-On the other hand, for each subset $A=\left\{  a_{1}<a_{2}<\cdots
-<a_{k}\right\}  $ of $\left[  n-1\right]  $, we define a composition
-$\operatorname*{Comp}A$ of $n$ by%
-\[
-\operatorname*{Comp}A=\left(  a_{1},a_{2}-a_{1},a_{3}-a_{2},\ldots
-,a_{k}-a_{k-1},n-a_{k}\right)  .
-\]
-(The definition of $\operatorname*{Comp}A$ should be understood to give
-$\operatorname*{Comp}A=\left(  n\right)  $ if $A=\varnothing$. Note that
-$\operatorname*{Comp}A$ depends not only on the set $A$ itself, but also on
-$n$. We hope that $n$ will always be clear from the context when we use this notation.)
-
-We thus have defined a map $\operatorname*{Des}$ (from the set of all
-compositions of $n$ to the set of all subsets of $\left[  n-1\right]  $) and a
-map $\operatorname*{Comp}$ (in the opposite direction). These two maps are
-mutually inverse bijections.
-\end{definition}
+\subsection{Some examples of permutation statistics}
 
 \begin{definition}
 \label{def.Des-et-al}Let $n\in\mathbb{N}$. Let $\pi=\left(  \pi_{1},\pi
@@ -283,22 +245,18 @@ n-1\right]  $ satisfying $\pi_{i}>\pi_{i+1}$.
 descents of $\pi$. This set is denoted by $\operatorname*{Des}\pi$, and is
 always a subset of $\left[  n-1\right]  $.
 
-\textbf{(c)} The \textit{descent composition} of $\pi$ is defined to be the
-composition $\operatorname*{Comp}\left(  \operatorname*{Des}\pi\right)  $ of
-$n$. This composition is denoted by $\operatorname*{Comp}\pi$.
-
-\textbf{(d)} The \textit{peaks} of $\pi$ are the elements $i\in\left\{
+\textbf{(c)} The \textit{peaks} of $\pi$ are the elements $i\in\left\{
 2,3,\ldots,n-1\right\}  $ satisfying $\pi_{i-1}<\pi_{i}>\pi_{i+1}$.
 
-\textbf{(e)} The \textit{peak set} of $\pi$ is defined to be the set of all
+\textbf{(d)} The \textit{peak set} of $\pi$ is defined to be the set of all
 peaks of $\pi$. This set is denoted by $\operatorname*{Pk}\pi$, and is always
 a subset of $\left\{  2,3,\ldots,n-1\right\}  $.
 
-\textbf{(f)} The \textit{left peaks} of $\pi$ are the elements $i\in\left[
+\textbf{(e)} The \textit{left peaks} of $\pi$ are the elements $i\in\left[
 n-1\right]  $ satisfying $\pi_{i-1}<\pi_{i}>\pi_{i+1}$, where we set $\pi
 _{0}=0$.
 
-\textbf{(g)} The \textit{left peak set} of $\pi$ is defined to be the set of
+\textbf{(f)} The \textit{left peak set} of $\pi$ is defined to be the set of
 all left peaks of $\pi$. This set is denoted by $\operatorname*{Lpk}\pi$, and
 is always a subset of $\left[  n-1\right]  $. It is easy to see that (for
 $n\geq2$) we have%
@@ -310,11 +268,11 @@ $n\geq2$) we have%
 set $\left\{  1\right\}  $ if $\pi_{1}>\pi_{2}$, and the empty set
 $\varnothing$ otherwise.)
 
-\textbf{(h)} The \textit{right peaks} of $\pi$ are the elements $i\in\left\{
+\textbf{(g)} The \textit{right peaks} of $\pi$ are the elements $i\in\left\{
 2,3,\ldots,n\right\}  $ satisfying $\pi_{i-1}<\pi_{i}>\pi_{i+1}$, where we set
 $\pi_{n+1}=0$.
 
-\textbf{(i)} The \textit{right peak set} of $\pi$ is defined to be the set of
+\textbf{(h)} The \textit{right peak set} of $\pi$ is defined to be the set of
 all right peaks of $\pi$. This set is denoted by $\operatorname*{Rpk}\pi$, and
 is always a subset of $\left\{  2,3,\ldots,n\right\}  $. It is easy to see
 that (for $n\geq2$) we have%
@@ -324,17 +282,17 @@ _{n-1}<\pi_{n}\right\}  .
 \]
 
 
-\textbf{(j)} The \textit{exterior peaks} of $\pi$ are the elements
+\textbf{(i)} The \textit{exterior peaks} of $\pi$ are the elements
 $i\in\left[  n\right]  $ satisfying $\pi_{i-1}<\pi_{i}>\pi_{i+1}$, where we
 set $\pi_{0}=0$ and $\pi_{n+1}=0$.
 
-\textbf{(k)} The \textit{exterior peak set} of $\pi$ is defined to be the set
+\textbf{(j)} The \textit{exterior peak set} of $\pi$ is defined to be the set
 of all exterior peaks of $\pi$. This set is denoted by $\operatorname*{Epk}%
 \pi$, and is always a subset of $\left[  n\right]  $. It is easy to see that
 (for $n\geq2$) we have%
 \begin{align*}
 \operatorname*{Epk}\pi &  =\operatorname*{Pk}\pi\cup\left\{  1\ \mid\ \pi
-_{1}>\pi_{2}\right\}  \cup\left\{  n\ \mid\ \pi_{n-1}<\pi_{n}\right\} \\
+_{1}>\pi_{2}\right\}  \cup\left\{  n\ \mid\ \pi_{n-1}<\pi_{n}\right\}  \\
 &  =\operatorname*{Lpk}\pi\cup\operatorname*{Rpk}\pi.
 \end{align*}
 (For $n=1$, we have $\operatorname*{Epk}\pi=\left\{  1\right\}  $.)
@@ -343,7 +301,6 @@ _{1}>\pi_{2}\right\}  \cup\left\{  n\ \mid\ \pi_{n-1}<\pi_{n}\right\} \\
 For example, the $6$-permutation $\pi=\left(  4,1,3,9,6,8\right)  $ has%
 \begin{align*}
 \operatorname*{Des}\pi &  =\left\{  1,4\right\}
-,\ \ \ \ \ \ \ \ \ \ \operatorname*{Comp}\pi=\left(  1,3,2\right)
 ,\ \ \ \ \ \ \ \ \ \ \operatorname*{Pk}\pi=\left\{  4\right\}  ,\\
 \operatorname*{Lpk}\pi &  =\left\{  1,4\right\}
 ,\ \ \ \ \ \ \ \ \ \ \operatorname*{Rpk}\pi=\left\{  4,6\right\}
@@ -353,7 +310,6 @@ For another example, the $6$-permutation $\pi=\left(  1,4,3,2,9,8\right)  $
 has%
 \begin{align*}
 \operatorname*{Des}\pi &  =\left\{  2,3,5\right\}
-,\ \ \ \ \ \ \ \ \ \ \operatorname*{Comp}\pi=\left(  2,1,2,1\right)
 ,\ \ \ \ \ \ \ \ \ \ \operatorname*{Pk}\pi=\left\{  2,5\right\}  ,\\
 \operatorname*{Lpk}\pi &  =\left\{  2,5\right\}
 ,\ \ \ \ \ \ \ \ \ \ \operatorname*{Rpk}\pi=\left\{  2,5\right\}
@@ -364,16 +320,14 @@ has%
 Notice that Definition \ref{def.Des-et-al} actually defines several
 permutation statistics. For example, Definition \ref{def.Des-et-al}
 \textbf{(b)} defines the permutation statistic $\operatorname*{Des}$, whose
-codomain is the set of all subsets of $\mathbb{P}$. Also, Definition
-\ref{def.Des-et-al} \textbf{(c)} defines the permutation statistic
-$\operatorname*{Comp}$, whose codomain is the set of all compositions.
-Likewise, Definition \ref{def.Des-et-al} \textbf{(e)} defines the permutation
-statistic $\operatorname*{Pk}$, and Definition \ref{def.Des-et-al}
-\textbf{(g)} defines the permutation statistic $\operatorname*{Lpk}$, whereas
-Definition \ref{def.Des-et-al} \textbf{(i)} defines the permutation statistic
+codomain is the set of all subsets of $\mathbb{P}$. Likewise, Definition
+\ref{def.Des-et-al} \textbf{(d)} defines the permutation statistic
+$\operatorname*{Pk}$, and Definition \ref{def.Des-et-al} \textbf{(f)} defines
+the permutation statistic $\operatorname*{Lpk}$, whereas Definition
+\ref{def.Des-et-al} \textbf{(h)} defines the permutation statistic
 $\operatorname*{Rpk}$. The main permutation statistic that we will study in
 this paper is $\operatorname*{Epk}$, which is defined in Definition
-\ref{def.Des-et-al} \textbf{(k)}; its codomain is the set of all subsets of
+\ref{def.Des-et-al} \textbf{(j)}; its codomain is the set of all subsets of
 $\mathbb{P}$.
 
 The following simple fact expresses the set $\operatorname*{Epk}\pi$
@@ -533,17 +487,17 @@ If $\pi$ and $\sigma$ are two disjoint permutations, then $S\left(  \pi
 set, where $m=\left\vert \pi\right\vert $ and $n=\left\vert \sigma\right\vert
 $.
 
-Definition \ref{def.shuffles} \textbf{(b)} is not new; it is used, e.g., in
-\cite{Greene88}. From the point of view of combinatorics on words, it is
-somewhat naive, as it fails to properly generalize to the case when the words
-$\pi$ and $\sigma$ are no longer disjoint\footnote{In this general case, it is
-best to define a shuffle of $\pi$ and $\sigma$ as a word of the form $\left(
-\gamma_{\eta\left(  1\right)  },\gamma_{\eta\left(  2\right)  },\ldots
-,\gamma_{\eta\left(  m+n\right)  }\right)  $, where $\left(  \gamma_{1}%
-,\gamma_{2},\ldots,\gamma_{m+n}\right)  $ is the word $\left(  \pi_{1},\pi
-_{2},\ldots,\pi_{m},\sigma_{1},\sigma_{2},\ldots,\sigma_{n}\right)  $, and
-where $\eta$ is some permutation of the set $\left\{  1,2,\ldots,m+n\right\}
-$ (that is, a bijection from this set to itself) satisfying $\eta^{-1}\left(
+Definition \ref{def.shuffles} \textbf{(b)} is used, e.g., in \cite{Greene88}.
+From the point of view of combinatorics on words, it is somewhat naive, as it
+fails to properly generalize to the case when the words $\pi$ and $\sigma$ are
+no longer disjoint\footnote{In this general case, it is best to define a
+shuffle of $\pi$ and $\sigma$ as a word of the form $\left(  \gamma
+_{\eta\left(  1\right)  },\gamma_{\eta\left(  2\right)  },\ldots,\gamma
+_{\eta\left(  m+n\right)  }\right)  $, where $\left(  \gamma_{1},\gamma
+_{2},\ldots,\gamma_{m+n}\right)  $ is the word $\left(  \pi_{1},\pi_{2}%
+,\ldots,\pi_{m},\sigma_{1},\sigma_{2},\ldots,\sigma_{n}\right)  $, and where
+$\eta$ is some permutation of the set $\left\{  1,2,\ldots,m+n\right\}  $
+(that is, a bijection from this set to itself) satisfying $\eta^{-1}\left(
 1\right)  <\eta^{-1}\left(  2\right)  <\cdots<\eta^{-1}\left(  m\right)  $
 (this causes the letters $\pi_{1},\pi_{2},\ldots,\pi_{m}$ to appear in the
 word $\left(  \gamma_{\eta\left(  1\right)  },\gamma_{\eta\left(  2\right)
@@ -2419,12 +2373,12 @@ _{1}>\sigma_{1}\right]  =\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]
 satisfy
 \begin{align*}
 \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
-}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}} &  =\left\{
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}  &  =\left\{
 \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
 \pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}%
 }\ \ \ \ \ \ \ \ \ \ \text{and}\\
 \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
-}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}} &  =\left\{
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}  &  =\left\{
 \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
 \pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
 \end{align*}
@@ -4786,6 +4740,62 @@ Corollary \ref{cor.LRcomp.two}.
 In this section, we shall recall the concepts of descent statistics and their
 shuffle algebras (introduced in \cite{part1}), and apply them to
 $\operatorname*{Epk}$.
+
+\subsection{Compositions}
+
+\begin{definition}
+A \textit{composition} is a finite list of positive integers. If $I=\left(
+i_{1},i_{2},\ldots,i_{n}\right)  $ is a composition, then the nonnegative
+integer $i_{1}+i_{2}+\cdots+i_{n}$ is called the \textit{size} of $I$ and is
+denoted by $\left\vert I\right\vert $; we furthermore say that $I$ is a
+\textit{composition of }$\left\vert I\right\vert $.
+\end{definition}
+
+\begin{definition}
+\label{def.comps-to-sets}Let $n\in\mathbb{N}$. For each composition $I=\left(
+i_{1},i_{2},\ldots,i_{k}\right)  $ of $n$, we define a subset
+$\operatorname*{Des}I$ of $\left[  n-1\right]  $ by%
+\begin{align*}
+\operatorname*{Des}I  &  =\left\{  i_{1},i_{1}+i_{2},i_{1}+i_{2}+i_{3}%
+,\ldots,i_{1}+i_{2}+\cdots+i_{k-1}\right\} \\
+&  =\left\{  i_{1}+i_{2}+\cdots+i_{s}\ \mid\ s\in\left[  k-1\right]  \right\}
+.
+\end{align*}
+
+
+On the other hand, for each subset $A=\left\{  a_{1}<a_{2}<\cdots
+<a_{k}\right\}  $ of $\left[  n-1\right]  $, we define a composition
+$\operatorname*{Comp}A$ of $n$ by%
+\[
+\operatorname*{Comp}A=\left(  a_{1},a_{2}-a_{1},a_{3}-a_{2},\ldots
+,a_{k}-a_{k-1},n-a_{k}\right)  .
+\]
+(The definition of $\operatorname*{Comp}A$ should be understood to give
+$\operatorname*{Comp}A=\left(  n\right)  $ if $A=\varnothing$. Note that
+$\operatorname*{Comp}A$ depends not only on the set $A$ itself, but also on
+$n$. We hope that $n$ will always be clear from the context when we use this notation.)
+
+We thus have defined a map $\operatorname*{Des}$ (from the set of all
+compositions of $n$ to the set of all subsets of $\left[  n-1\right]  $) and a
+map $\operatorname*{Comp}$ (in the opposite direction). These two maps are
+mutually inverse bijections.
+\end{definition}
+
+\begin{definition}
+\label{def.CompDes}Let $n\in\mathbb{N}$. Let $\pi=\left(  \pi_{1},\pi
+_{2},\ldots,\pi_{n}\right)  $ be an $n$-permutation. The \textit{descent
+composition} of $\pi$ is defined to be the composition $\operatorname*{Comp}%
+\left(  \operatorname*{Des}\pi\right)  $ of $n$. This composition is denoted
+by $\operatorname*{Comp}\pi$.
+\end{definition}
+
+For example, the $6$-permutation $\pi=\left(  4,1,3,9,6,8\right)  $ has
+$\operatorname*{Comp}\pi=\left(  1,3,2\right)  $. For another example, the
+$6$-permutation $\pi=\left(  1,4,3,2,9,8\right)  $ has $\operatorname*{Comp}%
+\pi=\left(  2,1,2,1\right)  $.
+
+Definition \ref{def.CompDes} defines the permutation statistic
+$\operatorname*{Comp}$, whose codomain is the set of all compositions. 
 
 \subsection{Descent statistics}
 

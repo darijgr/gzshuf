@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, May 15, 2018 10:12:32}
+%TCIDATA{LastRevised=Saturday, May 26, 2018 13:20:54}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -871,8 +871,8 @@ is a bijection (this is easy to see). Now,%
 _{f\in\mathcal{E}\left(  P\sqcup Q,\varepsilon\right)  }\underbrace{\prod
 _{p\in P\sqcup Q}x_{\left\vert f\left(  p\right)  \right\vert }}_{=\left(
 \prod_{p\in P}x_{\left\vert f\left(  p\right)  \right\vert }\right)  \left(
-\prod_{p\in Q}x_{\left\vert f\left(  p\right)  \right\vert }\right)  }%
-=\sum_{f\in\mathcal{E}\left(  P\sqcup Q,\varepsilon\right)  }\left(
+\prod_{p\in Q}x_{\left\vert f\left(  p\right)  \right\vert }\right)  }\\
+&  =\sum_{f\in\mathcal{E}\left(  P\sqcup Q,\varepsilon\right)  }\left(
 \prod_{p\in P}x_{\left\vert f\left(  p\right)  \right\vert }\right)  \left(
 \prod_{p\in Q}x_{\left\vert f\left(  p\right)  \right\vert }\right) \\
 &  =\underbrace{\left(  \sum_{g\in\mathcal{E}\left(  P,\gamma\right)  }%
@@ -1969,11 +1969,31 @@ This completes our proof of Theorem \ref{thm.Epk.sh-co-a}.
 The permutation statistic $\left(  \operatorname*{Lpk},\operatorname*{val}%
 \right)  $ (see \cite{part1} for its definition) is equivalent to
 $\operatorname*{Epk}$\ \ \ \ \footnote{Indeed, $\operatorname*{val}$ is
-equivalent to $\operatorname*{epk}$ by \cite[Lemma 2.1 \textbf{(e)}]{part1};
-but knowing $\operatorname*{epk}$ allows you to compute $\operatorname*{Epk}$
-from $\operatorname*{Lpk}$ and vice versa (since $\operatorname*{Epk}$ differs
-from $\operatorname*{Lpk}$ only in the possible element $n$).}. Thus, an
-analogue of Theorem \ref{thm.Epk.sh-co-a} holds for the statistic $\left(
+equivalent to $\operatorname*{epk}$ by \cite[Lemma 2.1 \textbf{(e)}]{part1}.
+Hence, the permutation statistic $\left(  \operatorname*{Lpk}%
+,\operatorname*{val}\right)  $ is equivalent to $\left(  \operatorname*{Lpk}%
+,\operatorname*{epk}\right)  $. But knowing $\operatorname*{epk}$ allows you
+to compute $\operatorname*{Epk}$ from $\operatorname*{Lpk}$ (indeed, if $\pi$
+is an $n$-permutation, then $\operatorname*{Epk}\pi$ differs from
+$\operatorname*{Lpk}\pi$ only in the possible element $n$, so that
+\[
+\operatorname*{Epk}\pi=%
+\begin{cases}
+\operatorname*{Lpk}\pi, & \text{if }\operatorname*{epk}\pi=\left\vert
+\operatorname*{Lpk}\pi\right\vert ;\\
+\operatorname*{Lpk}\pi\cup\left\{  n\right\}  , & \text{if }%
+\operatorname*{epk}\pi\neq\left\vert \operatorname*{Lpk}\pi\right\vert
+\end{cases}
+\]
+) and vice versa (since $\operatorname*{Lpk}\pi=\left(  \operatorname*{Epk}%
+\pi\right)  \setminus\left\{  n\right\}  $ for each $n$-permutation $\pi$).
+Thus, $\left(  \operatorname*{Lpk},\operatorname*{epk}\right)  $ is equivalent
+to $\left(  \operatorname*{Epk},\operatorname*{epk}\right)  $, which in turn
+is equivalent to $\operatorname*{Epk}$ alone (since $\operatorname*{epk}%
+\pi=\left\vert \operatorname*{Epk}\pi\right\vert $ for each permutation $\pi
+$). Hence, altogether, we conclude that $\left(  \operatorname*{Lpk}%
+,\operatorname*{val}\right)  $ is equivalent to $\operatorname*{Epk}$.}. Thus,
+an analogue of Theorem \ref{thm.Epk.sh-co-a} holds for the statistic $\left(
 \operatorname*{Lpk},\operatorname*{val}\right)  $.
 
 \begin{question}
@@ -2364,7 +2384,7 @@ value} of $\mathcal{A}$.
 
 Thus, for example, $\left[  4>2\right]  =1$ whereas $\left[  2>4\right]  =0$.
 
-Next, we can define a notion similar to shuffle-compatibility:
+We can now define a notion similar to shuffle-compatibility:
 
 \begin{definition}
 \label{def.LRcomp}Let $\operatorname*{st}$ be a permutation statistic. We say
@@ -2399,13 +2419,14 @@ _{1}>\sigma_{1}\right]  =\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]
 satisfy
 \begin{align*}
 \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
-}\left(  \pi,\sigma\right)  \right\}   &  =\left\{  \operatorname*{st}\left(
-\tau\right)  \ \mid\ \tau\in S_{\prec}\left(  \pi^{\prime},\sigma^{\prime
-}\right)  \right\}  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}} &  =\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}%
+}\ \ \ \ \ \ \ \ \ \ \text{and}\\
 \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
-}\left(  \pi,\sigma\right)  \right\}   &  =\left\{  \operatorname*{st}\left(
-\tau\right)  \ \mid\ \tau\in S_{\succ}\left(  \pi^{\prime},\sigma^{\prime
-}\right)  \right\}  .
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}} &  =\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ}\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
 \end{align*}
 
 
@@ -2475,7 +2496,7 @@ a^{\prime}:\pi^{\prime}\right)  $.
 
 For example, the permutation statistic $\operatorname*{Pk}$ is not
 head-graft-compatible, because if we take $\pi=\left(  3,1\right)  $, $a=2$,
-$\pi^{\prime}=\left(  3,1\right)  $ and $a^{\prime}=2$, then we do have%
+$\pi^{\prime}=\left(  1,3\right)  $ and $a^{\prime}=2$, then we do have%
 \[
 \operatorname*{Pk}\left(  \pi\right)  =\operatorname*{Pk}\left(  \pi^{\prime
 }\right)  ,\ \ \ \ \ \ \ \ \ \ \left\vert \pi\right\vert =\left\vert
@@ -3396,7 +3417,7 @@ $\operatorname*{Epk}$ is LR-shuffle-compatible. This proves Theorem
 The question of LR-shuffle-compatibility can be asked about any statistic. We
 have so far answered it for $\operatorname*{Des}$, $\operatorname*{Pk}$,
 $\operatorname*{Lpk}$, $\operatorname*{Rpk}$ and $\operatorname*{Epk}$. In
-this section, we shall analyze it for three further statistics.
+this section, we shall analyze it for some further statistics.
 
 \subsubsection{The descent number $\operatorname*{des}$}
 

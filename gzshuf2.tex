@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, May 27, 2018 12:05:40}
+%TCIDATA{LastRevised=Sunday, May 27, 2018 12:23:37}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1466,6 +1466,185 @@ precisely the elements of $\Lambda$; in other words, we have $\Lambda
 Proposition \ref{prop.when-Epk}.
 \end{proof}
 
+The following lemma is a variant of the principle of inclusion and exclusion
+tailored to our setting:
+
+\begin{lemma}
+\label{lem.KnL.iex}Let $n\in\mathbb{N}$. For each subset $\Lambda$ of $\left[
+n\right]  $, define a power series $L_{n,\Lambda}^{\mathcal{Z}}\in
+\operatorname*{Pow}\mathcal{N}$ by%
+\begin{equation}
+L_{n,\Lambda}^{\mathcal{Z}}=\sum_{\substack{g:\left[  n\right]  \rightarrow
+\mathcal{N}\text{ is}\\\text{weakly increasing;}\\\Lambda\cap
+\operatorname*{FE}\left(  g\right)  =\varnothing}}2^{\left\vert g\left(
+\left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert
+}\mathbf{x}_{g}.\label{eq.lem.KnL.iex.defL}%
+\end{equation}
+Then:
+
+\textbf{(a)} For each subset $\Lambda$ of $\left[  n\right]  $, we have%
+\[
+K_{n,\Lambda}^{\mathcal{Z}}=\sum_{Q\subseteq\Lambda}\left(  -1\right)
+^{\left\vert Q\right\vert }L_{n,Q}^{\mathcal{Z}}.
+\]
+
+
+\textbf{(b)} For each subset $\Lambda$ of $\left[  n\right]  $, we have%
+\[
+L_{n,\Lambda}^{\mathcal{Z}}=\sum_{Q\subseteq\Lambda}\left(  -1\right)
+^{\left\vert Q\right\vert }K_{n,Q}^{\mathcal{Z}}.
+\]
+
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.KnL.iex}.] Recall the following known fact: If $R$ is
+a finite set, then%
+\begin{equation}
+\sum_{Q\subseteq R}\left(  -1\right)  ^{\left\vert Q\right\vert }=%
+\begin{cases}
+1, & \text{if }R=\varnothing;\\
+0, & \text{if }R\neq\varnothing
+\end{cases}
+.\label{pf.lem.KnL.iex.1}%
+\end{equation}
+
+
+Let $\Lambda$ be a subset of $\left[  n\right]  $. The subsets $Q$ of
+$\Lambda$ satisfying $Q\cap\operatorname*{FE}\left(  g\right)  =\varnothing$
+are precisely the subsets of $\Lambda\setminus\operatorname*{FE}\left(
+g\right)  $. Therefore,
+\begin{align}
+\sum_{\substack{Q\subseteq\Lambda;\\Q\cap\operatorname*{FE}\left(  g\right)
+=\varnothing}}\left(  -1\right)  ^{\left\vert Q\right\vert }  & =\sum
+_{Q\subseteq\Lambda\setminus\operatorname*{FE}\left(  G\right)  }\left(
+-1\right)  ^{\left\vert Q\right\vert }=%
+\begin{cases}
+1, & \text{if }\Lambda\setminus\operatorname*{FE}\left(  G\right)
+=\varnothing;\\
+0, & \text{if }\Lambda\setminus\operatorname*{FE}\left(  G\right)
+\neq\varnothing
+\end{cases}
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.lem.KnL.iex.1})}\right)
+\nonumber\\
+& =%
+\begin{cases}
+1, & \text{if }\Lambda\subseteq\operatorname*{FE}\left(  G\right)  ;\\
+0, & \text{if }\Lambda\not \subseteq \operatorname*{FE}\left(  G\right)
+\end{cases}
+.\label{pf.lem.KnL.iex.2}%
+\end{align}
+Also, the subsets $Q$ of $\Lambda$ satisfying $Q\subseteq\operatorname*{FE}%
+\left(  g\right)  $ are precisely the subsets of $\Lambda\cap
+\operatorname*{FE}\left(  g\right)  $. Thus,%
+\begin{equation}
+\sum_{\substack{Q\subseteq\Lambda;\\Q\subseteq\operatorname*{FE}\left(
+g\right)  }}\left(  -1\right)  ^{\left\vert Q\right\vert }=\sum_{Q\subseteq
+\Lambda\cap\operatorname*{FE}\left(  G\right)  }\left(  -1\right)
+^{\left\vert Q\right\vert }=%
+\begin{cases}
+1, & \text{if }\Lambda\cap\operatorname*{FE}\left(  G\right)  =\varnothing;\\
+0, & \text{if }\Lambda\cap\operatorname*{FE}\left(  G\right)  \neq\varnothing
+\end{cases}
+\label{pf.lem.KnL.iex.3}%
+\end{equation}
+(by (\ref{pf.lem.KnL.iex.1})).
+
+Now, forget that we fixed $\Lambda$. We thus have proven
+(\ref{pf.lem.KnL.iex.2}) and (\ref{pf.lem.KnL.iex.3}) for each subset
+$\Lambda$ of $\left[  n\right]  $.
+
+\textbf{(a)} Let $\Lambda$ be a subset of $\left[  n\right]  $. Then,%
+\begin{align*}
+& \sum_{Q\subseteq\Lambda}\left(  -1\right)  ^{\left\vert Q\right\vert
+}\underbrace{L_{n,Q}^{\mathcal{Z}}}_{\substack{=\sum_{\substack{g:\left[
+n\right]  \rightarrow\mathcal{N}\text{ is}\\\text{weakly increasing;}%
+\\Q\cap\operatorname*{FE}\left(  g\right)  =\varnothing}}2^{\left\vert
+g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}
+\right\vert }\mathbf{x}_{g}\\\text{(by the definition of }L_{n,Q}%
+^{\mathcal{Z}}\text{)}}}\\
+& =\sum_{Q\subseteq\Lambda}\left(  -1\right)  ^{\left\vert Q\right\vert }%
+\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing;}\\Q\cap\operatorname*{FE}\left(  g\right)
+=\varnothing}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}\\
+& =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing}}}\underbrace{\left(  \sum_{\substack{Q\subseteq
+\Lambda;\\Q\cap\operatorname*{FE}\left(  g\right)  =\varnothing}}\left(
+-1\right)  ^{\left\vert Q\right\vert }\right)  }_{\substack{=%
+\begin{cases}
+1, & \text{if }\Lambda\subseteq\operatorname*{FE}\left(  G\right)  ;\\
+0, & \text{if }\Lambda\not \subseteq \operatorname*{FE}\left(  G\right)
+\end{cases}
+\\\text{(by (\ref{pf.lem.KnL.iex.2}))}}}2^{\left\vert g\left(  \left[
+n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }%
+\mathbf{x}_{g}\\
+& =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing}}}%
+\begin{cases}
+1, & \text{if }\Lambda\subseteq\operatorname*{FE}\left(  G\right)  ;\\
+0, & \text{if }\Lambda\not \subseteq \operatorname*{FE}\left(  G\right)
+\end{cases}
+2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  \right\vert }\mathbf{x}_{g}\\
+& =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing;}\\\Lambda\subseteq\operatorname*{FE}\left(
+g\right)  }}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}=K_{n,\Lambda}^{\mathcal{Z}}%
+\end{align*}
+(by (\ref{eq.def.KnL.1})). This proves Lemma \ref{lem.KnL.iex} \textbf{(a)}.
+
+\begin{vershort}
+\textbf{(b)} The proof of Lemma \ref{lem.KnL.iex} \textbf{(b)} is analogous,
+except that the roles of $K_{n,Q}^{\mathcal{Z}}$ and $K_{n,Q}^{\Lambda}$ are
+interchanged and we need to use (\ref{pf.lem.KnL.iex.3}) instead of
+(\ref{pf.lem.KnL.iex.2}).
+\end{vershort}
+
+\begin{verlong}
+\textbf{(b)} Let $\Lambda$ be a subset of $\left[  n\right]  $. Then,%
+\begin{align*}
+& \sum_{Q\subseteq\Lambda}\left(  -1\right)  ^{\left\vert Q\right\vert
+}\underbrace{K_{n,Q}^{\mathcal{Z}}}_{\substack{=\sum_{\substack{g:\left[
+n\right]  \rightarrow\mathcal{N}\text{ is}\\\text{weakly increasing;}%
+\\Q\subseteq\operatorname*{FE}\left(  g\right)  }}2^{\left\vert g\left(
+\left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert
+}\mathbf{x}_{g}\\\text{(by the definition of }K_{n,Q}^{\mathcal{Z}}\text{)}%
+}}\\
+& =\sum_{Q\subseteq\Lambda}\left(  -1\right)  ^{\left\vert Q\right\vert }%
+\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing;}\\Q\subseteq\operatorname*{FE}\left(  g\right)
+}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}\\
+& =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing}}}\underbrace{\left(  \sum_{\substack{Q\subseteq
+\Lambda;\\Q\subseteq\operatorname*{FE}\left(  g\right)  }}\left(  -1\right)
+^{\left\vert Q\right\vert }\right)  }_{\substack{=%
+\begin{cases}
+1, & \text{if }\Lambda\cap\operatorname*{FE}\left(  G\right)  =\varnothing;\\
+0, & \text{if }\Lambda\cap\operatorname*{FE}\left(  G\right)  \neq\varnothing
+\end{cases}
+\\\text{(by (\ref{pf.lem.KnL.iex.3}))}}}2^{\left\vert g\left(  \left[
+n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }%
+\mathbf{x}_{g}\\
+& =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing}}}%
+\begin{cases}
+1, & \text{if }\Lambda\cap\operatorname*{FE}\left(  G\right)  =\varnothing;\\
+0, & \text{if }\Lambda\cap\operatorname*{FE}\left(  G\right)  \neq\varnothing
+\end{cases}
+2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  \right\vert }\mathbf{x}_{g}\\
+& =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing;}\\\Lambda\cap\operatorname*{FE}\left(  g\right)
+=\varnothing}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}=L_{n,\Lambda}^{\mathcal{Z}}%
+\end{align*}
+(by (\ref{eq.lem.KnL.iex.defL})). This proves Lemma \ref{lem.KnL.iex}
+\textbf{(b)}.
+\end{verlong}
+\end{proof}
+
 \begin{proposition}
 \label{prop.KnL.lindep}Let $n\in\mathbb{N}$. Then, the family%
 \[
@@ -1511,30 +1690,17 @@ lacunar}}$ is $\mathbb{Q}$-linearly independent.
 \end{statement}
 
 For each subset $\Lambda$ of $\left[  n\right]  $, define a power series
-$L_{n,\Lambda}^{\mathcal{Z}}\in\operatorname*{Pow}\mathcal{N}$ by%
-\[
-L_{n,\Lambda}^{\mathcal{Z}}=\sum_{\substack{g:\left[  n\right]  \rightarrow
-\mathcal{N}\text{ is}\\\text{weakly increasing;}\\\Lambda\cap
-\operatorname*{FE}\left(  g\right)  =\varnothing}}2^{\left\vert g\left(
-\left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert
-}\mathbf{x}_{g}.
-\]
-Then, for each lacunar subset $\Lambda$ of $\left[  n\right]  $, the equality
-(\ref{eq.def.KnL.1}) becomes%
-\[
-K_{n,\Lambda}^{\mathcal{Z}}=\sum_{\substack{g:\left[  n\right]  \rightarrow
-\mathcal{N}\text{ is}\\\text{weakly increasing;}\\\Lambda\subseteq
-\operatorname*{FE}\left(  g\right)  }}2^{\left\vert g\left(  \left[  n\right]
-\right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}%
-=\sum_{Q\subseteq\Lambda}\left(  -1\right)  ^{\left\vert Q\right\vert }%
-L_{n,Q}^{\mathcal{Z}}%
-\]
-(by the principle of inclusion and exclusion). Thus, (again by inclusion and
-exclusion) each lacunar subset $\Lambda$ of $\left[  n\right]  $ satisfies%
-\[
-L_{n,\Lambda}^{\mathcal{Z}}=\sum_{Q\subseteq\Lambda}\left(  -1\right)
-^{\left\vert Q\right\vert }K_{n,Q}^{\mathcal{Z}}.
-\]
+$L_{n,\Lambda}^{\mathcal{Z}}\in\operatorname*{Pow}\mathcal{N}$ by
+(\ref{eq.lem.KnL.iex.defL}). Then, for each lacunar subset $\Lambda$ of
+$\left[  n\right]  $, we have%
+\begin{align*}
+K_{n,\Lambda}^{\mathcal{Z}}  & =\sum_{Q\subseteq\Lambda}\left(  -1\right)
+^{\left\vert Q\right\vert }L_{n,Q}^{\mathcal{Z}}\ \ \ \ \ \ \ \ \ \ \left(
+\text{by Lemma \ref{lem.KnL.iex} \textbf{(a)}}\right)  \text{ and}\\
+L_{n,\Lambda}^{\mathcal{Z}}  & =\sum_{Q\subseteq\Lambda}\left(  -1\right)
+^{\left\vert Q\right\vert }K_{n,Q}^{\mathcal{Z}}\ \ \ \ \ \ \ \ \ \ \left(
+\text{by Lemma \ref{lem.KnL.iex} \textbf{(b)}}\right)  .
+\end{align*}
 Hence, the two families $\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)
 _{\Lambda\subseteq\left[  n\right]  \text{ is lacunar}}$ and $\left(
 L_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda\subseteq\left[  n\right]  \text{
@@ -1559,7 +1725,7 @@ Let $G$ be the set of all weakly increasing maps $g:\left[  n\right]
 basis $G$; its standard basis will be denoted by $\left(  \left[  g\right]
 \right)  _{g\in G}$. We define a $\mathbb{Q}$-linear map%
 \begin{align*}
-\Phi:R  &  \rightarrow\operatorname*{Pow}\mathcal{N},\\
+\Phi:R &  \rightarrow\operatorname*{Pow}\mathcal{N},\\
 \left[  g\right]   &  \mapsto2^{\left\vert g\left(  \left[  n\right]  \right)
 \cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}.
 \end{align*}

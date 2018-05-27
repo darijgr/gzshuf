@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, May 27, 2018 15:16:45}
+%TCIDATA{LastRevised=Sunday, May 27, 2018 16:41:25}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -119,22 +119,27 @@
 \section*{***}
 
 This paper is a continuation of the work \cite{part1} by Gessel and Zhuang
-(but can be read independently from the latter). In Section
-\ref{sect.notations}, we introduce the notations that we will need throughout
-this paper, and prove a warmup proposition. In Section \ref{sect.Zenri}, we
-prove that the exterior peak set statistic $\operatorname*{Epk}$ is
-shuffle-compatible, as conjectured by Gessel and Zhuang in \cite{part1}. In
-Section \ref{sect.LR}, we introduce the concept of an \textquotedblleft
+(but can be read independently from the latter). It is devoted to the study of
+shuffle-compatibility of permutation statistics -- a concept introduced in
+\cite{part1}, although various instances of it have appeared throughout the
+literature before.
+
+In Section \ref{sect.notations}, we introduce the notations that we will need
+throughout this paper. In Section \ref{sect.Zenri}, we prove that the exterior
+peak set statistic $\operatorname*{Epk}$ is shuffle-compatible (Theorem
+\ref{thm.Epk.sh-co-a}), as conjectured by Gessel and Zhuang in \cite{part1}.
+In Section \ref{sect.LR}, we introduce the concept of an \textquotedblleft
 LR-shuffle-compatible\textquotedblright\ statistic, which is stronger than
 shuffle-compatibility. We give a sufficient criterion for it and use it to
-show that $\operatorname*{Epk}$ is LR-shuffle-compatible. In Section
-\ref{sect.Descent}, we recall the concept of descent statistics introduced in
-\cite{part1} and its connection to quasisymmetric functions. Motivated by this
-connection, in Section \ref{sect.kernel}, we define the kernel of a descent
-statistic, and study this kernel for $\operatorname*{Epk}$, giving two
-explicit generating sets for this kernel. In Section \ref{sect.dendri}, we
-extend the quasisymmetric functions connection to the concept of
-LR-shuffle-compatible statistics, and relate it to dendriform algebras.
+show that $\operatorname*{Epk}$ is LR-shuffle-compatible.
+
+In Section \ref{sect.Descent}, we recall the concept of descent statistics
+introduced in \cite{part1} and its connection to quasisymmetric functions.
+Motivated by this connection, in Section \ref{sect.kernel}, we define the
+kernel of a descent statistic, and study this kernel for $\operatorname*{Epk}%
+$, giving two explicit generating sets for this kernel. In Section
+\ref{sect.dendri}, we extend the quasisymmetric functions connection to the
+concept of LR-shuffle-compatible statistics, and relate it to dendriform algebras.
 
 Much of the following is a rough draft, and some proofs (particularly in
 Section \ref{sect.dendri}) are merely outlined.
@@ -5704,8 +5709,7 @@ any integer $n\geq2$ and any composition $L$ of $n$.
 K$. Then, $\operatorname*{Epk}J=\operatorname*{Epk}K$.
 \end{statement}
 
-[\textit{Proof of Claim 2:} Easy consequence of Claim 1 and
-(\ref{pf.prop.K.Epk.F.1}).]
+[\textit{Proof of Claim 2:} Easy consequence of Claim 1 and (\ref{pf.prop.K.Epk.F.1}).]
 
 For any two integers $a$ and $b$, we set $\left[  a,b\right]  =\left\{
 a,a+1,\ldots,b\right\}  $. (This is an empty set if $a>b$.)

@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, May 27, 2018 15:07:45}
+%TCIDATA{LastRevised=Sunday, May 27, 2018 15:14:27}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2204,7 +2204,7 @@ Left and right shuffles have a recursive structure that makes them amenable to
 inductive arguments. To state it, we need one more definition:
 
 \begin{definition}
-Let $n\in\mathbb{N}$. Let $\pi$ be an $n$-permutation.
+\label{def.LR.pi1}Let $n\in\mathbb{N}$. Let $\pi$ be an $n$-permutation.
 
 \textbf{(a)} For each $i\in\left\{  1,2,\ldots,n\right\}  $, we let $\pi_{i}$
 denote the $i$-th entry of $\pi$. Thus, $\pi=\left(  \pi_{1},\pi_{2}%
@@ -3659,24 +3659,16 @@ In this section, we shall study two notions closely related to LR-shuffle-compat
 
 \textbf{(a)} We say that $\operatorname*{st}$ is
 \textit{left-shuffle-compatible} if for any two disjoint nonempty permutations
-$\pi$ and $\sigma$ having the property that%
-\[
-\text{the first entry of }\pi\text{ is greater than the first entry of }%
-\sigma,
-\]
-the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
-S_{\prec}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$
-depends only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
-\left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
-\sigma\right\vert $.
+$\pi$ and $\sigma$ having the property that $\pi_{1}>\sigma_{1}$, the multiset
+$\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$ depends only
+on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}\left(
+\sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert \sigma
+\right\vert $.
 
 \textbf{(b)} We say that $\operatorname*{st}$ is
 \textit{right-shuffle-compatible} if for any two disjoint nonempty
-permutations $\pi$ and $\sigma$ having the property that%
-\[
-\text{the first entry of }\pi\text{ is greater than the first entry of }%
-\sigma,
-\]
+permutations $\pi$ and $\sigma$ having the property that $\pi_{1}>\sigma_{1}$,
 the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
 S_{\succ}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$
 depends only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
@@ -3766,32 +3758,18 @@ two disjoint nonempty permutations $\pi$ and $\sigma$, the multiset $\left\{
 $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}\left(
 \sigma\right)  $, $\left\vert \pi\right\vert $, $\left\vert \sigma\right\vert
 $ and $\left[  \pi_{1}>\sigma_{1}\right]  $. Hence, for any two disjoint
-nonempty permutations $\pi$ and $\sigma$ satisfying $\pi_{1}>\sigma_{1}$, the
-multiset \newline$\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid
-\ \tau\in S_{\prec}\left(  \pi,\sigma\right)  \right\}
+nonempty permutations $\pi$ and $\sigma$ having the property that $\pi
+_{1}>\sigma_{1}$, the multiset \newline$\left\{  \operatorname*{st}\left(
+\tau\right)  \ \mid\ \tau\in S_{\prec}\left(  \pi,\sigma\right)  \right\}
 _{\operatorname*{multi}}$ depends only on $\operatorname*{st}\left(
 \pi\right)  $, $\operatorname*{st}\left(  \sigma\right)  $, $\left\vert
 \pi\right\vert $ and $\left\vert \sigma\right\vert $ (indeed, it no longer
 depends on $\left[  \pi_{1}>\sigma_{1}\right]  $, because our condition
 $\pi_{1}>\sigma_{1}$ ensures that $\left[  \pi_{1}>\sigma_{1}\right]  =1$). In
-other words, for any two disjoint nonempty permutations $\pi$ and $\sigma$
-having the property that%
-\[
-\text{the first entry of }\pi\text{ is greater than the first entry of }%
-\sigma,
-\]
-the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
-S_{\prec}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$
-depends only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
-\left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
-\sigma\right\vert $ (because the condition \textquotedblleft$\pi_{1}%
->\sigma_{1}$\textquotedblright\ is equivalent to the condition
-\textquotedblleft the first entry of $\pi$ is greater than the first entry of
-$\sigma$\textquotedblright). In other words, the statistic $\operatorname*{st}%
-$ is left-shuffle-compatible (by the definition of \textquotedblleft
-left-shuffle-compatible\textquotedblright). In other words, Assertion
-$\mathcal{A}_{2}$ holds. This proves the implication $\mathcal{A}%
-_{1}\Longrightarrow\mathcal{A}_{2}$.
+other words, the statistic $\operatorname*{st}$ is left-shuffle-compatible (by
+the definition of \textquotedblleft left-shuffle-compatible\textquotedblright%
+). In other words, Assertion $\mathcal{A}_{2}$ holds. This proves the
+implication $\mathcal{A}_{1}\Longrightarrow\mathcal{A}_{2}$.
 
 \textit{Proof of the implication }$\mathcal{A}_{2}\Longrightarrow
 \mathcal{A}_{3}$\textit{:} Assume that Assertion $\mathcal{A}_{2}$ holds. In
@@ -3817,12 +3795,8 @@ by $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
 \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$.
 
 Thus, altogether, we know that for any two disjoint nonempty permutations
-$\pi$ and $\sigma$ having the property that%
-\[
-\text{the first entry of }\pi\text{ is greater than the first entry of }%
-\sigma,
-\]
-the following holds:
+$\pi$ and $\sigma$ having the property that $\pi_{1}>\sigma_{1}$, the
+following holds:
 
 \begin{itemize}
 \item The multiset $\left\{  \operatorname*{st}\left(  \tau\right)
@@ -3877,18 +3851,9 @@ is left-shuffle-compatible. In other words, the following claim holds:
 
 \begin{statement}
 \textit{Claim 1:} Let $\pi$ and $\sigma$ be two disjoint nonempty permutations
-having the property that%
-\[
-\text{the first entry of }\pi\text{ is greater than the first entry of }%
-\sigma.
-\]
-Let $\pi^{\prime}$ and $\sigma^{\prime}$ be two disjoint nonempty permutations
-having the property that%
-\[
-\text{the first entry of }\pi^{\prime}\text{ is greater than the first entry
-of }\sigma^{\prime}.
-\]
-Assume that%
+having the property that $\pi_{1}>\sigma_{1}$. Let $\pi^{\prime}$ and
+$\sigma^{\prime}$ be two disjoint nonempty permutations having the property
+that $\pi_{1}^{\prime}>\sigma_{1}^{\prime}$. Assume that%
 \begin{align*}
 \operatorname*{st}\left(  \pi\right)   &  =\operatorname*{st}\left(
 \pi^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \operatorname*{st}\left(
@@ -3913,18 +3878,9 @@ following claim holds:
 
 \begin{statement}
 \textit{Claim 2:} Let $\pi$ and $\sigma$ be two disjoint nonempty permutations
-having the property that%
-\[
-\text{the first entry of }\pi\text{ is greater than the first entry of }%
-\sigma.
-\]
-Let $\pi^{\prime}$ and $\sigma^{\prime}$ be two disjoint nonempty permutations
-having the property that%
-\[
-\text{the first entry of }\pi^{\prime}\text{ is greater than the first entry
-of }\sigma^{\prime}.
-\]
-Assume that%
+having the property that $\pi_{1}>\sigma_{1}$. Let $\pi^{\prime}$ and
+$\sigma^{\prime}$ be two disjoint nonempty permutations having the property
+that $\pi_{1}^{\prime}>\sigma_{1}^{\prime}$. Assume that%
 \begin{align*}
 \operatorname*{st}\left(  \pi\right)   &  =\operatorname*{st}\left(
 \pi^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \operatorname*{st}\left(
@@ -3980,26 +3936,25 @@ $\left[  a>\pi_{1}\right]  =1$. Comparing this with $\left[  a>\pi_{1}\right]
 }>\pi_{1}^{\prime}\right]  =1$, so that $a^{\prime}>\pi_{1}^{\prime}$.
 
 Consider the $1$-permutations $\left(  a\right)  $ and $\left(  a^{\prime
-}\right)  $. Then, the first entry of $\left(  a\right)  $ is greater than the
-first entry of $\pi$ (since $a>\pi_{1}$). Also, the first entry of $\left(
-a^{\prime}\right)  $ is greater than the first entry of $\pi^{\prime}$ (since
-$a^{\prime}>\pi_{1}^{\prime}$). Also, the permutations $\left(  a\right)  $
-and $\pi$ are disjoint (since $a$ does not appear in $\pi$). Similarly, the
-permutations $\left(  a^{\prime}\right)  $ and $\pi^{\prime}$ are disjoint.
-Furthermore, $\operatorname*{st}\left(  \left(  a\right)  \right)
-=\operatorname*{st}\left(  \left(  a^{\prime}\right)  \right)  $,
-$\operatorname*{st}\left(  \pi\right)  =\operatorname*{st}\left(  \pi^{\prime
-}\right)  $, $\left\vert \left(  a\right)  \right\vert =\left\vert \left(
-a^{\prime}\right)  \right\vert $ and $\left\vert \pi\right\vert =\left\vert
-\pi^{\prime}\right\vert $. Hence, Claim 1 (applied to $\left(  a\right)  $,
-$\pi$, $\left(  a^{\prime}\right)  $ and $\pi^{\prime}$ instead of $\pi$,
-$\sigma$, $\pi^{\prime}$ and $\sigma^{\prime}$) yields%
+}\right)  $. Then, the first entry of $\left(  a\right)  $ is $\left(
+a\right)  _{1}=a>\pi_{1}$. Also, $\left(  a^{\prime}\right)  _{1}=a^{\prime
+}>\pi_{1}^{\prime}$. Also, the permutations $\left(  a\right)  $ and $\pi$ are
+disjoint (since $a$ does not appear in $\pi$). Similarly, the permutations
+$\left(  a^{\prime}\right)  $ and $\pi^{\prime}$ are disjoint. Furthermore,
+$\operatorname*{st}\left(  \left(  a\right)  \right)  =\operatorname*{st}%
+\left(  \left(  a^{\prime}\right)  \right)  $, $\operatorname*{st}\left(
+\pi\right)  =\operatorname*{st}\left(  \pi^{\prime}\right)  $, $\left\vert
+\left(  a\right)  \right\vert =\left\vert \left(  a^{\prime}\right)
+\right\vert $ and $\left\vert \pi\right\vert =\left\vert \pi^{\prime
+}\right\vert $. Hence, Claim 1 (applied to $\left(  a\right)  $, $\pi$,
+$\left(  a^{\prime}\right)  $ and $\pi^{\prime}$ instead of $\pi$, $\sigma$,
+$\pi^{\prime}$ and $\sigma^{\prime}$) yields%
 \begin{equation}
 \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
 }\left(  \left(  a\right)  ,\pi\right)  \right\}  _{\operatorname*{multi}%
 }=\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
 }\left(  \left(  a^{\prime}\right)  ,\pi^{\prime}\right)  \right\}
-_{\operatorname*{multi}}. \label{pf.prop.LRcomp.equivs.3to4.4}%
+_{\operatorname*{multi}}.\label{pf.prop.LRcomp.equivs.3to4.4}%
 \end{equation}
 But $S_{\prec}\left(  \left(  a\right)  ,\pi\right)  =\left\{  a:\pi\right\}
 $. Hence,%
@@ -4038,14 +3993,14 @@ $a^{\prime}\neq\pi_{1}^{\prime}$. Combined with $a^{\prime}\leq\pi_{1}%
 $\pi_{1}^{\prime}>a^{\prime}$.
 
 Consider the $1$-permutations $\left(  a\right)  $ and $\left(  a^{\prime
-}\right)  $. Then, the first entry of $\pi$ is greater than the first entry of
-$\left(  a\right)  $ (since $\pi_{1}>a$). Also, the first entry of
-$\pi^{\prime}$ is greater than the first entry of $\left(  a^{\prime}\right)
-$ (since $\pi_{1}^{\prime}>a^{\prime}$). Also, the permutations $\pi$ and
-$\left(  a\right)  $ are disjoint (since $a$ does not appear in $\pi$).
-Similarly, the permutations $\pi^{\prime}$ and $\left(  a^{\prime}\right)  $
-are disjoint. Furthermore, $\operatorname*{st}\left(  \left(  a\right)
-\right)  =\operatorname*{st}\left(  \left(  a^{\prime}\right)  \right)  $,
+}\right)  $. Then, the first entry of $\left(  a\right)  $ is $\left(
+a\right)  _{1}=a$; similarly, $\left(  a^{\prime}\right)  _{1}=a^{\prime}$.
+Now, $\pi_{1}>a=\left(  a\right)  _{1}$ and $\pi_{1}^{\prime}>a^{\prime
+}=\left(  a^{\prime}\right)  _{1}$. Also, the permutations $\pi$ and $\left(
+a\right)  $ are disjoint (since $a$ does not appear in $\pi$). Similarly, the
+permutations $\pi^{\prime}$ and $\left(  a^{\prime}\right)  $ are disjoint.
+Furthermore, $\operatorname*{st}\left(  \left(  a\right)  \right)
+=\operatorname*{st}\left(  \left(  a^{\prime}\right)  \right)  $,
 $\operatorname*{st}\left(  \pi\right)  =\operatorname*{st}\left(  \pi^{\prime
 }\right)  $, $\left\vert \left(  a\right)  \right\vert =\left\vert \left(
 a^{\prime}\right)  \right\vert $ and $\left\vert \pi\right\vert =\left\vert
@@ -4057,7 +4012,7 @@ $, $\sigma$, $\pi^{\prime}$ and $\sigma^{\prime}$) yields%
 }\left(  \pi,\left(  a\right)  \right)  \right\}  _{\operatorname*{multi}%
 }=\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
 }\left(  \pi^{\prime},\left(  a^{\prime}\right)  \right)  \right\}
-_{\operatorname*{multi}}. \label{pf.prop.LRcomp.equivs.3to4.5}%
+_{\operatorname*{multi}}.\label{pf.prop.LRcomp.equivs.3to4.5}%
 \end{equation}
 But $S_{\succ}\left(  \pi,\left(  a\right)  \right)  =\left\{  a:\pi\right\}
 $. Hence,%
@@ -4685,18 +4640,9 @@ claim holds:In other words, the following claim holds:
 
 \begin{statement}
 \textit{Claim 1:} Let $\pi$ and $\sigma$ be two disjoint nonempty permutations
-having the property that%
-\[
-\text{the first entry of }\pi\text{ is greater than the first entry of }%
-\sigma.
-\]
-Let $\pi^{\prime}$ and $\sigma^{\prime}$ be two disjoint nonempty permutations
-having the property that%
-\[
-\text{the first entry of }\pi^{\prime}\text{ is greater than the first entry
-of }\sigma^{\prime}.
-\]
-Assume that%
+having the property that $\pi_{1}>\sigma_{1}$. Let $\pi^{\prime}$ and
+$\sigma^{\prime}$ be two disjoint nonempty permutations having the property
+that $\pi_{1}^{\prime}>\sigma_{1}^{\prime}$. Assume that%
 \begin{align*}
 \operatorname*{st}\left(  \pi\right)   &  =\operatorname*{st}\left(
 \pi^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \operatorname*{st}\left(
@@ -4720,18 +4666,9 @@ words, the following claim holds:
 
 \begin{statement}
 \textit{Claim 2:} Let $\pi$ and $\sigma$ be two disjoint nonempty permutations
-having the property that%
-\[
-\text{the first entry of }\pi\text{ is greater than the first entry of }%
-\sigma.
-\]
-Let $\pi^{\prime}$ and $\sigma^{\prime}$ be two disjoint nonempty permutations
-having the property that%
-\[
-\text{the first entry of }\pi^{\prime}\text{ is greater than the first entry
-of }\sigma^{\prime}.
-\]
-Assume that%
+having the property that $\pi_{1}>\sigma_{1}$. Let $\pi^{\prime}$ and
+$\sigma^{\prime}$ be two disjoint nonempty permutations having the property
+that $\pi_{1}^{\prime}>\sigma_{1}^{\prime}$. Assume that%
 \begin{align*}
 \operatorname*{st}\left(  \pi\right)   &  =\operatorname*{st}\left(
 \pi^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \operatorname*{st}\left(
@@ -4794,10 +4731,8 @@ Let us first consider Case 1. In this case, we have $\pi_{1}>\sigma_{1}$.
 Hence, $\left[  \pi_{1}>\sigma_{1}\right]  =1$. Comparing this with $\left[
 \pi_{1}>\sigma_{1}\right]  =\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime
 }\right]  $, we find $\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]
-=1$. Hence, $\pi_{1}^{\prime}>\sigma_{1}^{\prime}$. In other words, the first
-entry of $\pi^{\prime}$ is greater than the first entry of $\sigma^{\prime}$.
-Meanwhile, the first entry of $\pi$ is greater than the first entry of
-$\sigma$ (since $\pi_{1}>\sigma_{1}$). Hence, Claim 1 yields%
+=1$. Hence, $\pi_{1}^{\prime}>\sigma_{1}^{\prime}$. Recall also that $\pi
+_{1}>\sigma_{1}$. Hence, Claim 1 yields%
 \[
 \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
 }\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
@@ -4825,19 +4760,17 @@ disjoint permutations, we obtain $S_{\prec}\left(  \pi,\sigma\right)
 
 But $\pi_{1}\neq\sigma_{1}$ (since $\pi$ and $\sigma$ are disjoint). Combined
 with $\pi_{1}\leq\sigma_{1}$, this yields $\pi_{1}<\sigma_{1}$; thus,
-$\sigma_{1}>\pi_{1}$. In other words, the first entry of $\sigma$ is greater
-than the first entry of $\pi$. Also, $\left[  \pi_{1}>\sigma_{1}\right]  =0$
-(since $\pi_{1}\leq\sigma_{1}$). Comparing this with $\left[  \pi_{1}%
->\sigma_{1}\right]  =\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]  $,
-we find $\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]  =0$. Hence,
-$\pi_{1}^{\prime}\leq\sigma_{1}^{\prime}$. But $\pi_{1}^{\prime}\neq\sigma
+$\sigma_{1}>\pi_{1}$. Also, $\left[  \pi_{1}>\sigma_{1}\right]  =0$ (since
+$\pi_{1}\leq\sigma_{1}$). Comparing this with $\left[  \pi_{1}>\sigma
+_{1}\right]  =\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]  $, we find
+$\left[  \pi_{1}^{\prime}>\sigma_{1}^{\prime}\right]  =0$. Hence, $\pi
+_{1}^{\prime}\leq\sigma_{1}^{\prime}$. But $\pi_{1}^{\prime}\neq\sigma
 _{1}^{\prime}$ (since $\pi^{\prime}$ and $\sigma^{\prime}$ are disjoint).
 Combined with $\pi_{1}^{\prime}\leq\sigma_{1}^{\prime}$, this yields $\pi
 _{1}^{\prime}<\sigma_{1}^{\prime}$; thus, $\sigma_{1}^{\prime}>\pi_{1}%
-^{\prime}$. In other words, the first entry of $\sigma^{\prime}$ is greater
-than the first entry of $\pi^{\prime}$. Hence, Claim 2 (applied to $\sigma$,
-$\pi$, $\sigma^{\prime}$ and $\pi^{\prime}$ instead of $\pi$, $\sigma$,
-$\pi^{\prime}$ and $\sigma^{\prime}$) yields%
+^{\prime}$. Hence, Claim 2 (applied to $\sigma$, $\pi$, $\sigma^{\prime}$ and
+$\pi^{\prime}$ instead of $\pi$, $\sigma$, $\pi^{\prime}$ and $\sigma^{\prime
+}$) yields%
 \[
 \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\succ
 }\left(  \sigma,\pi\right)  \right\}  _{\operatorname*{multi}}=\left\{
@@ -8078,22 +8011,18 @@ of a descent statistic $\operatorname*{st}$ is a $\tvi$-ideal, a $\bel$-ideal,
 a $\left.  \prec\right.  $-ideals or a $\left.  \succeq\right.  $-ideal. In
 this section, we shall prove such interpretations.
 
-Recall Definition \ref{def.LRshuf}. The following theorem is analogous to
-Theorem~\ref{thm.4.1}:
+Recall Definition \ref{def.LRshuf} and Definition \ref{def.LR.pi1}. The
+following theorem is analogous to Theorem~\ref{thm.4.1}:
 
 \begin{theorem}
 \label{thm.dendri.4.1}Let $\pi$ be a nonempty permutation with descent
 composition $J$. Let $\sigma$ be a nonempty permutation with descent
 composition $K$. Assume that the permutations $\pi$ and $\sigma$ are disjoint,
-and that%
-\begin{equation}
-\text{the first entry of }\pi\text{ is greater than the first entry of }%
-\sigma\text{.} \label{eq.thm.dendri.4.1.ass}%
-\end{equation}
-For any composition $L$, let $c_{J,K}^{L,\prec}$ be the number of permutations
-with descent composition $L$ among the left shuffles of $\pi$ and $\sigma$,
-and let $c_{J,K}^{L,\succ}$ be the number of permutations with descent
-composition $L$ among the right shuffles of $\pi$ and $\sigma$. Then,%
+and that $\pi_{1}>\sigma_{1}$. For any composition $L$, let $c_{J,K}^{L,\prec
+}$ be the number of permutations with descent composition $L$ among the left
+shuffles of $\pi$ and $\sigma$, and let $c_{J,K}^{L,\succ}$ be the number of
+permutations with descent composition $L$ among the right shuffles of $\pi$
+and $\sigma$. Then,%
 \[
 F_{J}\left.  \prec\right.  F_{K}=\sum_{L}c_{J,K}^{L,\prec}F_{L}%
 \]
@@ -8104,7 +8033,7 @@ F_{J}\left.  \succeq\right.  F_{K}=\sum_{L}c_{J,K}^{L,\succ}F_{L}.
 
 \end{theorem}
 
-Note the condition (\ref{eq.thm.dendri.4.1.ass}), which is not present in
+Note the condition $\pi_{1}>\sigma_{1}$, which is not present in
 Theorem~\ref{thm.4.1}, and which makes Theorem \ref{thm.dendri.4.1} somewhat
 harder to apply.
 
@@ -8167,12 +8096,7 @@ denote the descent composition of $\varphi$.}
 
 \begin{corollary}
 \label{cor.dendri.4.1}Let $\pi$ and $\sigma$ be two disjoint nonempty
-permutations. Assume that%
-\[
-\text{the first entry of }\pi\text{ is greater than the first entry of }%
-\sigma\text{.}%
-\]
-Then,%
+permutations. Assume that $\pi_{1}>\sigma_{1}$. Then,%
 \[
 F_{\operatorname*{Comp}\pi}\left.  \prec\right.  F_{\operatorname*{Comp}%
 \sigma}=\sum_{\chi\in S_{\prec}\left(  \pi,\sigma\right)  }%
@@ -8197,8 +8121,8 @@ Let $\operatorname*{st}$ be a permutation statistic.
 left-shuffle-compatible} if for any two disjoint nonempty permutations $\pi$
 and $\sigma$ having the property that%
 \begin{equation}
-\text{each entry of }\pi\text{ is greater than each entry of }\sigma,
-\label{eq.def.dendri.dsc.weak-ass}%
+\text{each entry of }\pi\text{ is greater than each entry of }\sigma
+,\label{eq.def.dendri.dsc.weak-ass}%
 \end{equation}
 the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
 S_{\prec}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$
@@ -8428,31 +8352,23 @@ therefore sends the whole $\mathcal{K}_{\operatorname*{st}}$ to $0$. In other
 words, $\mathbf{st}\left(  \mathcal{K}_{\operatorname*{st}}\right)  =0$.
 
 Now, consider any two disjoint nonempty permutations $\pi$ and $\sigma$ having
-the property that%
-\[
-\text{the first entry of }\pi\text{ is greater than the first entry of }%
-\sigma.
-\]
-Also, consider two further disjoint nonempty permutations $\pi^{\prime}$ and
-$\sigma^{\prime}$ having the property that
-\[
-\text{the first entry of }\pi^{\prime}\text{ is greater than the first entry
-of }\sigma^{\prime}%
-\]
-and satisfying $\operatorname*{st}\left(  \pi\right)  =\operatorname*{st}%
-\left(  \pi^{\prime}\right)  $, $\operatorname*{st}\left(  \sigma\right)
-=\operatorname*{st}\left(  \sigma^{\prime}\right)  $, $\left\vert
-\pi\right\vert =\left\vert \pi^{\prime}\right\vert $ and $\left\vert
-\sigma\right\vert =\left\vert \sigma^{\prime}\right\vert $. We shall show that
+the property that $\pi_{1}>\sigma_{1}$. Also, consider two further disjoint
+nonempty permutations $\pi^{\prime}$ and $\sigma^{\prime}$ having the property
+that $\pi_{1}^{\prime}>\sigma_{1}^{\prime}$ and satisfying $\operatorname*{st}%
+\left(  \pi\right)  =\operatorname*{st}\left(  \pi^{\prime}\right)  $,
+$\operatorname*{st}\left(  \sigma\right)  =\operatorname*{st}\left(
+\sigma^{\prime}\right)  $, $\left\vert \pi\right\vert =\left\vert \pi^{\prime
+}\right\vert $ and $\left\vert \sigma\right\vert =\left\vert \sigma^{\prime
+}\right\vert $. We shall show that $\left\{  \operatorname*{st}\left(
+\tau\right)  \ \mid\ \tau\in S_{\prec}\left(  \pi,\sigma\right)  \right\}
+_{\operatorname*{multi}}=\left\{  \operatorname*{st}\left(  \tau\right)
+\ \mid\ \tau\in S_{\prec}\left(  \pi^{\prime},\sigma^{\prime}\right)
+\right\}  _{\operatorname*{multi}}$. This will show that the multiset
 $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec
-}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}} =\left\{
-\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S_{\prec}\left(
-\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}$. This
-will show that the multiset $\left\{  \operatorname*{st}\left(  \tau\right)
-\ \mid\ \tau\in S_{\prec}\left(  \pi,\sigma\right)  \right\}
-_{\operatorname*{multi}} $ depends only on $\operatorname*{st}\left(
-\pi\right)  $, $\operatorname*{st}\left(  \sigma\right)  $, $\left\vert
-\pi\right\vert $ and $\left\vert \sigma\right\vert $.
+}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$ depends only
+on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}\left(
+\sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert \sigma
+\right\vert $.
 
 From $\operatorname*{st}\left(  \pi\right)  =\operatorname*{st}\left(
 \pi^{\prime}\right)  $ and $\left\vert \pi\right\vert =\left\vert \pi^{\prime

@@ -15,7 +15,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, May 27, 2018 12:23:37}
+%TCIDATA{LastRevised=Sunday, May 27, 2018 15:07:45}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -118,27 +118,25 @@
 
 \section*{***}
 
-This preprint is a continuation of
-\href{http://lanl.arxiv.org/abs/1706.00750v2}{the preprint \textquotedblleft
-Shuffle-compatible permutation statistics\textquotedblright\ by Ira M. Gessel
-and Yan Zhuang (\cite{part1})} (but can be read independently from the
-latter). In Section \ref{sect.notations}, we introduce the notations that we
-will need throughout this paper, and prove a warmup proposition. In Section
-\ref{sect.Zenri}, we prove that the exterior peak set statistic
-$\operatorname*{Epk}$ is shuffle-compatible, as conjectured by Gessel and
-Zhuang in \cite{part1}. In Section \ref{sect.LR}, we introduce the concept of
-an \textquotedblleft LR-shuffle-compatible\textquotedblright\ statistic, which
-is stronger than shuffle-compatibility. We give a sufficient criterion for it
-and use it to show that $\operatorname*{Epk}$ is LR-shuffle-compatible. In
-Section \ref{sect.Descent}, we recall the concept of descent statistics
-introduced in \cite{part1} and its connection to quasisymmetric functions.
-Motivated by this connection, in Section \ref{sect.kernel}, we define the
-kernel of a descent statistic, and study this kernel for $\operatorname*{Epk}%
-$, giving two explicit generating sets for this kernel. In Section
-\ref{sect.dendri}, we extend the quasisymmetric functions connection to the
-concept of LR-shuffle-compatible statistics, and relate it to dendriform algebras.
+This paper is a continuation of the work \cite{part1} by Gessel and Zhuang
+(but can be read independently from the latter). In Section
+\ref{sect.notations}, we introduce the notations that we will need throughout
+this paper, and prove a warmup proposition. In Section \ref{sect.Zenri}, we
+prove that the exterior peak set statistic $\operatorname*{Epk}$ is
+shuffle-compatible, as conjectured by Gessel and Zhuang in \cite{part1}. In
+Section \ref{sect.LR}, we introduce the concept of an \textquotedblleft
+LR-shuffle-compatible\textquotedblright\ statistic, which is stronger than
+shuffle-compatibility. We give a sufficient criterion for it and use it to
+show that $\operatorname*{Epk}$ is LR-shuffle-compatible. In Section
+\ref{sect.Descent}, we recall the concept of descent statistics introduced in
+\cite{part1} and its connection to quasisymmetric functions. Motivated by this
+connection, in Section \ref{sect.kernel}, we define the kernel of a descent
+statistic, and study this kernel for $\operatorname*{Epk}$, giving two
+explicit generating sets for this kernel. In Section \ref{sect.dendri}, we
+extend the quasisymmetric functions connection to the concept of
+LR-shuffle-compatible statistics, and relate it to dendriform algebras.
 
-All of the following is a rough draft, and some proofs (particularly in
+Much of the following is a rough draft, and some proofs (particularly in
 Section \ref{sect.dendri}) are merely outlined.
 
 \subsection*{Acknowledgments}
@@ -1478,7 +1476,7 @@ L_{n,\Lambda}^{\mathcal{Z}}=\sum_{\substack{g:\left[  n\right]  \rightarrow
 \mathcal{N}\text{ is}\\\text{weakly increasing;}\\\Lambda\cap
 \operatorname*{FE}\left(  g\right)  =\varnothing}}2^{\left\vert g\left(
 \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert
-}\mathbf{x}_{g}.\label{eq.lem.KnL.iex.defL}%
+}\mathbf{x}_{g}. \label{eq.lem.KnL.iex.defL}%
 \end{equation}
 Then:
 
@@ -1498,7 +1496,7 @@ L_{n,\Lambda}^{\mathcal{Z}}=\sum_{Q\subseteq\Lambda}\left(  -1\right)
 \end{lemma}
 
 \begin{proof}
-[Proof of Lemma \ref{lem.KnL.iex}.] Recall the following known fact: If $R$ is
+[Proof of Lemma \ref{lem.KnL.iex}.]Recall the following known fact: If $R$ is
 a finite set, then%
 \begin{equation}
 \sum_{Q\subseteq R}\left(  -1\right)  ^{\left\vert Q\right\vert }=%
@@ -1506,7 +1504,7 @@ a finite set, then%
 1, & \text{if }R=\varnothing;\\
 0, & \text{if }R\neq\varnothing
 \end{cases}
-.\label{pf.lem.KnL.iex.1}%
+. \label{pf.lem.KnL.iex.1}%
 \end{equation}
 
 
@@ -1516,8 +1514,8 @@ are precisely the subsets of $\Lambda\setminus\operatorname*{FE}\left(
 g\right)  $. Therefore,
 \begin{align}
 \sum_{\substack{Q\subseteq\Lambda;\\Q\cap\operatorname*{FE}\left(  g\right)
-=\varnothing}}\left(  -1\right)  ^{\left\vert Q\right\vert }  & =\sum
-_{Q\subseteq\Lambda\setminus\operatorname*{FE}\left(  G\right)  }\left(
+=\varnothing}}\left(  -1\right)  ^{\left\vert Q\right\vert }  &
+=\sum_{Q\subseteq\Lambda\setminus\operatorname*{FE}\left(  G\right)  }\left(
 -1\right)  ^{\left\vert Q\right\vert }=%
 \begin{cases}
 1, & \text{if }\Lambda\setminus\operatorname*{FE}\left(  G\right)
@@ -1527,12 +1525,12 @@ _{Q\subseteq\Lambda\setminus\operatorname*{FE}\left(  G\right)  }\left(
 \end{cases}
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.lem.KnL.iex.1})}\right)
 \nonumber\\
-& =%
+&  =%
 \begin{cases}
 1, & \text{if }\Lambda\subseteq\operatorname*{FE}\left(  G\right)  ;\\
 0, & \text{if }\Lambda\not \subseteq \operatorname*{FE}\left(  G\right)
 \end{cases}
-.\label{pf.lem.KnL.iex.2}%
+. \label{pf.lem.KnL.iex.2}%
 \end{align}
 Also, the subsets $Q$ of $\Lambda$ satisfying $Q\subseteq\operatorname*{FE}%
 \left(  g\right)  $ are precisely the subsets of $\Lambda\cap
@@ -1556,19 +1554,19 @@ $\Lambda$ of $\left[  n\right]  $.
 
 \textbf{(a)} Let $\Lambda$ be a subset of $\left[  n\right]  $. Then,%
 \begin{align*}
-& \sum_{Q\subseteq\Lambda}\left(  -1\right)  ^{\left\vert Q\right\vert
+&  \sum_{Q\subseteq\Lambda}\left(  -1\right)  ^{\left\vert Q\right\vert
 }\underbrace{L_{n,Q}^{\mathcal{Z}}}_{\substack{=\sum_{\substack{g:\left[
 n\right]  \rightarrow\mathcal{N}\text{ is}\\\text{weakly increasing;}%
 \\Q\cap\operatorname*{FE}\left(  g\right)  =\varnothing}}2^{\left\vert
 g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}
 \right\vert }\mathbf{x}_{g}\\\text{(by the definition of }L_{n,Q}%
 ^{\mathcal{Z}}\text{)}}}\\
-& =\sum_{Q\subseteq\Lambda}\left(  -1\right)  ^{\left\vert Q\right\vert }%
+&  =\sum_{Q\subseteq\Lambda}\left(  -1\right)  ^{\left\vert Q\right\vert }%
 \sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
 is}\\\text{weakly increasing;}\\Q\cap\operatorname*{FE}\left(  g\right)
 =\varnothing}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
 1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}\\
-& =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+&  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
 is}\\\text{weakly increasing}}}\underbrace{\left(  \sum_{\substack{Q\subseteq
 \Lambda;\\Q\cap\operatorname*{FE}\left(  g\right)  =\varnothing}}\left(
 -1\right)  ^{\left\vert Q\right\vert }\right)  }_{\substack{=%
@@ -1579,7 +1577,7 @@ is}\\\text{weakly increasing}}}\underbrace{\left(  \sum_{\substack{Q\subseteq
 \\\text{(by (\ref{pf.lem.KnL.iex.2}))}}}2^{\left\vert g\left(  \left[
 n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }%
 \mathbf{x}_{g}\\
-& =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+&  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
 is}\\\text{weakly increasing}}}%
 \begin{cases}
 1, & \text{if }\Lambda\subseteq\operatorname*{FE}\left(  G\right)  ;\\
@@ -1587,7 +1585,7 @@ is}\\\text{weakly increasing}}}%
 \end{cases}
 2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
 \right\}  \right\vert }\mathbf{x}_{g}\\
-& =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+&  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
 is}\\\text{weakly increasing;}\\\Lambda\subseteq\operatorname*{FE}\left(
 g\right)  }}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
 1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}=K_{n,\Lambda}^{\mathcal{Z}}%
@@ -1604,19 +1602,19 @@ interchanged and we need to use (\ref{pf.lem.KnL.iex.3}) instead of
 \begin{verlong}
 \textbf{(b)} Let $\Lambda$ be a subset of $\left[  n\right]  $. Then,%
 \begin{align*}
-& \sum_{Q\subseteq\Lambda}\left(  -1\right)  ^{\left\vert Q\right\vert
+&  \sum_{Q\subseteq\Lambda}\left(  -1\right)  ^{\left\vert Q\right\vert
 }\underbrace{K_{n,Q}^{\mathcal{Z}}}_{\substack{=\sum_{\substack{g:\left[
 n\right]  \rightarrow\mathcal{N}\text{ is}\\\text{weakly increasing;}%
 \\Q\subseteq\operatorname*{FE}\left(  g\right)  }}2^{\left\vert g\left(
 \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert
 }\mathbf{x}_{g}\\\text{(by the definition of }K_{n,Q}^{\mathcal{Z}}\text{)}%
 }}\\
-& =\sum_{Q\subseteq\Lambda}\left(  -1\right)  ^{\left\vert Q\right\vert }%
+&  =\sum_{Q\subseteq\Lambda}\left(  -1\right)  ^{\left\vert Q\right\vert }%
 \sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
 is}\\\text{weakly increasing;}\\Q\subseteq\operatorname*{FE}\left(  g\right)
 }}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
 1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}\\
-& =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+&  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
 is}\\\text{weakly increasing}}}\underbrace{\left(  \sum_{\substack{Q\subseteq
 \Lambda;\\Q\subseteq\operatorname*{FE}\left(  g\right)  }}\left(  -1\right)
 ^{\left\vert Q\right\vert }\right)  }_{\substack{=%
@@ -1627,7 +1625,7 @@ is}\\\text{weakly increasing}}}\underbrace{\left(  \sum_{\substack{Q\subseteq
 \\\text{(by (\ref{pf.lem.KnL.iex.3}))}}}2^{\left\vert g\left(  \left[
 n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }%
 \mathbf{x}_{g}\\
-& =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+&  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
 is}\\\text{weakly increasing}}}%
 \begin{cases}
 1, & \text{if }\Lambda\cap\operatorname*{FE}\left(  G\right)  =\varnothing;\\
@@ -1635,7 +1633,7 @@ is}\\\text{weakly increasing}}}%
 \end{cases}
 2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
 \right\}  \right\vert }\mathbf{x}_{g}\\
-& =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+&  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
 is}\\\text{weakly increasing;}\\\Lambda\cap\operatorname*{FE}\left(  g\right)
 =\varnothing}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
 1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}=L_{n,\Lambda}^{\mathcal{Z}}%
@@ -1694,10 +1692,10 @@ $L_{n,\Lambda}^{\mathcal{Z}}\in\operatorname*{Pow}\mathcal{N}$ by
 (\ref{eq.lem.KnL.iex.defL}). Then, for each lacunar subset $\Lambda$ of
 $\left[  n\right]  $, we have%
 \begin{align*}
-K_{n,\Lambda}^{\mathcal{Z}}  & =\sum_{Q\subseteq\Lambda}\left(  -1\right)
+K_{n,\Lambda}^{\mathcal{Z}}  &  =\sum_{Q\subseteq\Lambda}\left(  -1\right)
 ^{\left\vert Q\right\vert }L_{n,Q}^{\mathcal{Z}}\ \ \ \ \ \ \ \ \ \ \left(
 \text{by Lemma \ref{lem.KnL.iex} \textbf{(a)}}\right)  \text{ and}\\
-L_{n,\Lambda}^{\mathcal{Z}}  & =\sum_{Q\subseteq\Lambda}\left(  -1\right)
+L_{n,\Lambda}^{\mathcal{Z}}  &  =\sum_{Q\subseteq\Lambda}\left(  -1\right)
 ^{\left\vert Q\right\vert }K_{n,Q}^{\mathcal{Z}}\ \ \ \ \ \ \ \ \ \ \left(
 \text{by Lemma \ref{lem.KnL.iex} \textbf{(b)}}\right)  .
 \end{align*}
@@ -1725,7 +1723,7 @@ Let $G$ be the set of all weakly increasing maps $g:\left[  n\right]
 basis $G$; its standard basis will be denoted by $\left(  \left[  g\right]
 \right)  _{g\in G}$. We define a $\mathbb{Q}$-linear map%
 \begin{align*}
-\Phi:R &  \rightarrow\operatorname*{Pow}\mathcal{N},\\
+\Phi:R  &  \rightarrow\operatorname*{Pow}\mathcal{N},\\
 \left[  g\right]   &  \mapsto2^{\left\vert g\left(  \left[  n\right]  \right)
 \cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}.
 \end{align*}
@@ -9488,8 +9486,8 @@ dendriform algebras}, Journal of Algebra 320 (2008), pp. 708--727}.
 
 \bibitem[GesZhu17]{part1}Ira M. Gessel, Yan Zhuang, \textit{Shuffle-compatible
 permutation statistics}, Advances in Mathematics, Volume 332, 9 July 2018, pp.
-85--141.\newline See
-\texttt{\href{http://arxiv.org/abs/1706.00750v3}{arXiv:1706.00750v3}} for a preprint.
+85--141.\newline Also available at
+\texttt{\href{http://arxiv.org/abs/1706.00750v3}{arXiv:1706.00750v3}}.
 
 \bibitem[Greene88]{Greene88}%
 \href{https://doi.org/10.1016/0097-3165(88)90018-0}{Curtis Greene,

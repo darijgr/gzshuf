@@ -5168,6 +5168,8 @@ $\mathbb{Q}$-algebra; its $n$-th graded component (for each $n\in\mathbb{N}$)
 is spanned by the $\operatorname*{st}$-equivalence classes of all $n$-permutations.
 \end{definition}
 
+This definition originates in \cite[\S 3.1]{part1}.
+
 \begin{proposition}
 \label{prop.Ast.alg}Let $\operatorname*{st}$ be a shuffle-compatible descent statistic.
 
@@ -5229,10 +5231,10 @@ We shall perhaps also use some other notations that were introduced in
 
 Theorem \ref{thm.Epk.sh-co-a} yields that the permutation statistic
 $\operatorname*{Epk}$ is shuffle-compatible. Hence, the shuffle algebra
-$\mathcal{A}_{\operatorname*{Epk}}$ is well-defined. We have not much to say
-about the shuffle algebra $\mathcal{A}_{\operatorname*{Epk}}$:
+$\mathcal{A}_{\operatorname*{Epk}}$ is well-defined. We have little to say
+about it:
 
-\begin{theo}
+\begin{theorem}
 \label{thm.Epk.AEpk}\textbf{(a)} The shuffle algebra $\mathcal{A}%
 _{\operatorname*{Epk}}$ is a graded quotient algebra of $\operatorname*{QSym}$.
 
@@ -5241,7 +5243,7 @@ $\mathcal{A}_{\operatorname*{Epk}}$ has dimension $f_{n+2}-1$, where $\left(
 f_{0},f_{1},f_{2},\ldots\right)  $ is the Fibonacci sequence (defined by
 $f_{0}=0$ and $f_{1}=1$ and the recursive relation $f_{m}=f_{m-1}+f_{m-2}$ for
 all $m\geq2$).
-\end{theo}
+\end{theorem}
 
 \begin{proof}
 [Proof of Theorem \ref{thm.Epk.AEpk} (sketched).]\textbf{(a)} Proposition
@@ -5293,7 +5295,7 @@ _{\mathcal{Z}}$ is a $\mathbb{Q}$-subalgebra of $\operatorname*{Pow}%
 \end{definition}
 
 \begin{theorem}
-\label{thm.Epk.sh-co}The map given by%
+\label{thm.Epk.sh-co}The $\mathbb{Q}$-linear map given by%
 \[
 \left[  \pi\right]  _{\operatorname*{Epk}}\mapsto K_{n,\operatorname*{Epk}%
 }^{\mathcal{Z}}%
@@ -6368,12 +6370,15 @@ M_{\alpha}=\sum_{\substack{\beta\text{ is a composition}\\\text{of }n\text{
 that refines }\alpha}}\left(  -1\right)  ^{\ell\left(  \beta\right)
 -\ell\left(  \alpha\right)  }F_{\beta}.
 \]
-
+Here, if $\gamma$ is any composition, then $\ell\left(\gamma\right)$ denotes
+the \textit{length} of $\gamma$ (that is, the number of entries of $\gamma$).
 \end{proposition}
 
 \begin{proof}
 [Proof of Proposition \ref{prop.M-through-F.1}.]This precisely \cite[(5.2.2)]%
-{HopfComb}. (If the numbering shifts: This is the formula in Proposition 5.2.8.)
+{HopfComb}.
+%(If the numbering shifts: This is the formula in Proposition 5.2.8.)
+
 \end{proof}
 
 \begin{proposition}

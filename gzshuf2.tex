@@ -1,3 +1,39 @@
+% -------------------------------------------------------------
+% NOTE ON THE DETAILED AND SHORT VERSIONS:
+% -------------------------------------------------------------
+% This paper comes in two versions, a detailed and a short one.
+% The short version should be more than sufficient for any
+% reasonable use; the detailed one was written purely to
+% convince the author of its correctness.
+% To switch between the two versions, find the line containing
+% "\newenvironment{noncompile}{}{}" in this LaTeX file.
+% Look at the two lines right beneath this line.
+% To compile the detailed version, they should be as follows:
+%   \includecomment{verlong}
+%   \excludecomment{vershort}
+% To compile the short version, they should be as follows:
+%   \excludecomment{verlong}
+%   \includecomment{vershort}
+% As a rule, the line
+%   \excludecomment{noncompile}
+% should stay as it is.
+% -------------------------------------------------------------
+% NOTES ON SOME HACKS USED IN THIS FILE:
+% -------------------------------------------------------------
+% One of my pet peeves with amsthm is its use of italics in the theorem and
+% proposition environments; this makes math and text indistinguishable in said
+% enviroments. To avoid this, I redefine the enviroments to use the standard
+% font and to use a hanging indent, along with a bold vertical bar to its
+% left, to distinguish these environments from surrounding text. (Along with
+% the advantage of distinguishing math from text, this also allows nesting
+% several such environments inside each other, like a definition inside a
+% remark. I'm not sure how good of an idea this is, though. There are also
+% downsides related to the hanging indentation, such as footnotes out of it
+% being painful to do right.) This is done starting from the line
+%   \theoremstyle{definition}
+% and until the line
+%   {\end{leftbar}\end{exmp}}
+
 \documentclass[numbers=enddot,12pt,final,onecolumn,notitlepage]{scrartcl}%
 \usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
 \usepackage[all,cmtip]{xy}
@@ -15,7 +51,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, May 27, 2018 16:42:47}
+%TCIDATA{LastRevised=Monday, May 28, 2018 11:01:19}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -85,7 +121,6 @@
 \newcommand{\ev}{\operatorname{ev}}
 \newcommand{\Comp}{\operatorname{Comp}}
 \newcommand{\QSym}{\operatorname{QSym}}
-\newcommand{\Powser}{\mathbf{k}\left[\left[x_1,x_2,x_3,\ldots\right]\right]}
 \newcommand{\bdd}{\operatorname{bdd}}
 \newcommand{\Bdd}{\Powser_{\bdd}}
 \newcommand{\bD}{\mathbf{D}}
@@ -133,13 +168,29 @@ LR-shuffle-compatible\textquotedblright\ statistic, which is stronger than
 shuffle-compatibility. We give a sufficient criterion for it and use it to
 show that $\operatorname*{Epk}$ is LR-shuffle-compatible.
 
-In Section \ref{sect.Descent}, we recall the concept of descent statistics
+\begin{vershort}
+The last three sections relate all of this to quasisymmetric functions; these
+sections are only brief summaries, and we refer to \cite{verlong} for the
+details. In Section \ref{sect.Descent}, we recall the concept of descent
+statistics introduced in \cite{part1} and its connection to quasisymmetric
+functions. Motivated by this connection, in Section \ref{sect.kernel}, we
+define the kernel of a descent statistic, and study this kernel for
+$\operatorname*{Epk}$, giving two explicit generating sets for this kernel. In
+Section \ref{sect.dendri}, we extend the quasisymmetric functions connection
+to the concept of LR-shuffle-compatible statistics, and relate it to
+dendriform algebras.
+\end{vershort}
+
+\begin{verlong}
+The last three sections relate all of this to quasisymmetric functions: In
+Section \ref{sect.Descent}, we recall the concept of descent statistics
 introduced in \cite{part1} and its connection to quasisymmetric functions.
 Motivated by this connection, in Section \ref{sect.kernel}, we define the
 kernel of a descent statistic, and study this kernel for $\operatorname*{Epk}%
 $, giving two explicit generating sets for this kernel. In Section
 \ref{sect.dendri}, we extend the quasisymmetric functions connection to the
 concept of LR-shuffle-compatible statistics, and relate it to dendriform algebras.
+\end{verlong}
 
 Much of the following is a rough draft, and some proofs (particularly in
 Section \ref{sect.dendri}) are merely outlined.
@@ -149,6 +200,21 @@ Section \ref{sect.dendri}) are merely outlined.
 We thank Yan Zhuang and Ira Gessel for helpful conversations and a few
 corrections. The SageMath computer algebra system \cite{SageMath} has been
 used in finding some of the results below.
+
+\subsection{Remark on alternative versions}
+
+\begin{vershort}
+This paper also has a detailed version \cite{verlong}, which includes some
+proofs that have been omitted from the present version as well as more details
+on some other proofs and further results in Sections \ref{sect.Descent},
+\ref{sect.kernel} and \ref{sect.dendri}.
+\end{vershort}
+
+\begin{verlong}
+You are reading the detailed version of this paper. For the standard version
+(which is shorter by virtue of omitting some proofs and even some results),
+see \cite{vershort}.
+\end{verlong}
 
 \section{\label{sect.notations}Notations and definitions}
 
@@ -347,6 +413,14 @@ where $\operatorname*{Des}\pi+1$ denotes the set $\left\{  i+1\ \mid
 \ i\in\operatorname*{Des}\pi\right\}  $.
 \end{proposition}
 
+\begin{vershort}
+\begin{proof}
+[Proof of Proposition \ref{prop.Epk.through-Des}.]The rather easy proof can be
+found in the detailed version \cite{verlong} of this paper.
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
 \begin{proof}
 [Proof of Proposition \ref{prop.Epk.through-Des}.]Write $\pi$ in the form
 $\pi=\left(  \pi_{1},\pi_{2},\ldots,\pi_{n}\right)  $. Set $\pi_{0}=0$ and
@@ -454,6 +528,7 @@ _{i}\right\}  }_{\substack{=\operatorname*{Des}\pi+1\\\text{(by
 \end{align*}
 This proves Proposition \ref{prop.Epk.through-Des}.
 \end{proof}
+\end{verlong}
 
 \subsection{Shuffles and shuffle-compatibility}
 
@@ -1402,6 +1477,17 @@ satisfying $\Lambda=\operatorname*{Epk}\pi$ if and only if $\Lambda$ is
 lacunar and nonempty.
 \end{proposition}
 
+\begin{vershort}
+
+
+\begin{proof}
+[Proof of Proposition \ref{prop.when-Epk}.]Omitted; see \cite{verlong} for a proof.
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
+
+
 \begin{proof}
 [Proof of Proposition \ref{prop.when-Epk}.]$\Longrightarrow:$ We need to prove
 that for any $n$-permutation $\pi$, the set $\operatorname*{Epk}\pi$ is
@@ -1470,6 +1556,7 @@ precisely the elements of $\Lambda$; in other words, we have $\Lambda
 =\operatorname*{Epk}\pi$. This proves the $\Longleftarrow$ direction of
 Proposition \ref{prop.when-Epk}.
 \end{proof}
+\end{verlong}
 
 The following lemma is a variant of the principle of inclusion and exclusion
 tailored to our setting:
@@ -1939,6 +2026,14 @@ n\right]  \text{ is lacunar and nonempty}}\cup\left(  K_{0,\varnothing
 family) is $\mathbb{Q}$-linearly independent.
 \end{corollary}
 
+\begin{vershort}
+\begin{proof}
+[Proof of Corollary \ref{cor.KnL.lindep-all}.]Follows from Proposition
+\ref{prop.KnL.lindep} using gradedness; see \cite{verlong} for details.
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
 \begin{proof}
 [Proof of Corollary \ref{cor.KnL.lindep-all}.]For each $n\in\mathbb{N}$, the
 family $\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda\subseteq\left[
@@ -1956,6 +2051,7 @@ $\mathbb{Q}$-linear independence, since it lives in yet another linearly
 disjoint subspace of $\operatorname*{Pow}\mathcal{N}$ (namely, in its $0$-th
 graded component). This proves Corollary \ref{cor.KnL.lindep-all}.
 \end{proof}
+\end{verlong}
 
 We can now finally prove what we came here for:
 
@@ -2018,11 +2114,11 @@ lacunar}\\\text{and nonempty}}}\underbrace{\sum_{\substack{\tau\in S\left(
 [c]{c}%
 \text{because if }\tau\in S\left(  \pi,\sigma\right)  \text{, then
 }\operatorname*{Epk}\tau\text{ is a}\\
-\text{lacunar and nonempty subset of }\left[  n+m\right] \\
+\text{lacunar and nonempty subset of }\left[  n+m\right]  \\
 \text{(by Proposition \ref{prop.Epk-lac}, applied to }n+m\text{ and }\tau\\
 \text{instead of }n\text{ and }\pi\text{)}%
 \end{array}
-\right) \\
+\right)  \\
 &  =\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
 lacunar}\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(  \pi
 ,\sigma\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert
@@ -2063,8 +2159,8 @@ $-linearly independent (by Proposition \ref{prop.KnL.lindep}), this shows that%
 \]
 for each lacunar nonempty subset $\Lambda$ of $\left[  n+m\right]  $. In other
 words, the multiset $\left\{  \operatorname*{Epk}\left(  \tau\right)
-\ \mid\ \tau\in S\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}
-$ equals the multiset $\left\{  \operatorname*{Epk}\left(  \tau\right)
+\ \mid\ \tau\in S\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}%
+}$ equals the multiset $\left\{  \operatorname*{Epk}\left(  \tau\right)
 \ \mid\ \tau\in S\left(  \pi^{\prime},\sigma^{\prime}\right)  \right\}
 _{\operatorname*{multi}}$ (because both of these multisets consist of lacunar
 nonempty subsets $\Lambda$ of $\left[  n+m\right]  $, and the previous
@@ -2293,6 +2389,14 @@ and $\sigma_{1}:\pi$ are well-defined and disjoint, and satisfy $S_{\succ
 1}\right)  $.
 \end{proposition}
 
+\begin{vershort}
+\begin{proof}
+[Proof of Proposition \ref{prop.LR.rec}.]The fairly simple proof is left to
+the reader, who can also find it in \cite{verlong}.
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
 \begin{proof}
 [Proof of Proposition \ref{prop.LR.rec}.]\textbf{(a)} The definition of left
 shuffles shows that the left shuffles of $\pi$ and $\sigma$ are the shuffles
@@ -2520,6 +2624,7 @@ S_{\succ}\left(  \pi,\sigma\right)  =S_{\prec}\left(  \sigma,\pi\right)
 \]
 This completes the proof of Proposition \ref{prop.LR.rec} \textbf{(c)}.
 \end{proof}
+\end{verlong}
 
 \subsection{LR-shuffle-compatibility}
 
@@ -3081,8 +3186,7 @@ _{\operatorname*{multi}}\nonumber\\
 }\left(  \pi^{\prime},\sigma\right)  \right\}  _{\operatorname*{multi}}.
 \label{pf.thm.head-comp.LRcomp.c1.pf.6}%
 \end{align}
-This proves (\ref{pf.thm.head-comp.LRcomp.c1.eq4}). It remains to prove
-(\ref{pf.thm.head-comp.LRcomp.c1.eq3}).
+This proves (\ref{pf.thm.head-comp.LRcomp.c1.eq4}). It remains to prove (\ref{pf.thm.head-comp.LRcomp.c1.eq3}).
 
 Lemma \ref{lem.LR.difference} \textbf{(a)} yields%
 \begin{align}
@@ -3758,6 +3862,13 @@ $\operatorname*{st}$ is head-graft-compatible.
 \end{itemize}
 \end{proposition}
 
+\begin{vershort}
+\begin{proof}
+[Proof of Proposition \ref{prop.LRcomp.equivs}.]Omitted; see \cite{verlong}.
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
 \begin{proof}
 [Proof of Proposition \ref{prop.LRcomp.equivs} (sketched).]We shall prove the
 implications $\mathcal{A}_{1}\Longrightarrow\mathcal{A}_{2}$, $\mathcal{A}%
@@ -4114,6 +4225,7 @@ _{4}\Longrightarrow\mathcal{A}_{1}$. Thus, all four statements $\mathcal{A}%
 _{1}$, $\mathcal{A}_{2}$, $\mathcal{A}_{3}$ and $\mathcal{A}_{4}$ are
 equivalent. This proves Proposition \ref{prop.LRcomp.equivs}.
 \end{proof}
+\end{verlong}
 
 Note that on their own, the properties of left-shuffle-compatibility and
 right-shuffle-compatibility are not equivalent. For example, the permutation
@@ -4125,8 +4237,15 @@ definition of left-shuffle-compatibility, all the $\operatorname*{st}\left(
 
 \subsection{Properties of compatible statistics}
 
-The goal of this section is proving the following converse to Theorem
+\begin{vershort}
+Let us state some more facts on compatibility properties. We refer to
+\cite{verlong} for their proofs. We begin with a converse to Theorem
 \ref{thm.head-comp.LRcomp}:
+\end{vershort}
+
+\begin{verlong}
+The following converse to Theorem \ref{thm.head-comp.LRcomp} holds:
+\end{verlong}
 
 \begin{proposition}
 \label{prop.LRcomp.head}Let $\operatorname*{st}$ be a permutation statistic
@@ -4134,6 +4253,7 @@ that is LR-shuffle-compatible. Then, $\operatorname*{st}$ is
 head-graft-compatible and shuffle-compatible.
 \end{proposition}
 
+\begin{verlong}
 Before we can prove this, we need three lemmas:
 
 \begin{lemma}
@@ -4671,6 +4791,7 @@ This proves Claim 4.]
 Claim 4 shows that $\operatorname*{st}$ is shuffle-compatible. This completes
 the proof of Proposition \ref{prop.LRcomp.head}.
 \end{proof}
+\end{verlong}
 
 \begin{corollary}
 \label{cor.LRcomp.back}Let $\operatorname*{st}$ be a LR-shuffle-compatible
@@ -4678,6 +4799,7 @@ permutation statistic. Then, $\operatorname*{st}$ is shuffle-compatible,
 left-shuffle-compatible, right-shuffle-compatible and head-graft-compatible.
 \end{corollary}
 
+\begin{verlong}
 \begin{proof}
 [Proof of Corollary \ref{cor.LRcomp.back}.]Proposition \ref{prop.LRcomp.head}
 yields that $\operatorname*{st}$ is head-graft-compatible and
@@ -4685,6 +4807,7 @@ shuffle-compatible. Thus, Proposition \ref{prop.LRcomp.equivs} yields that
 $\operatorname*{st}$ is left-shuffle-compatible and right-shuffle-compatible
 as well. This proves Corollary \ref{cor.LRcomp.back}.
 \end{proof}
+\end{verlong}
 
 \begin{corollary}
 \label{cor.LRcomp.two}Let $\operatorname*{st}$ be a permutation statistic that
@@ -4692,6 +4815,7 @@ is left-shuffle-compatible and right-shuffle-compatible. Then,
 $\operatorname*{st}$ is LR-shuffle-compatible.
 \end{corollary}
 
+\begin{verlong}
 \begin{proof}
 [Proof of Corollary \ref{cor.LRcomp.two}.]We have assumed that
 $\operatorname*{st}$ is left-shuffle-compatible. In other words, the following
@@ -4871,6 +4995,7 @@ We have now proven Claim 3 in both Cases 1 and 2. Thus, Claim 3 is always proven
 Claim 3 shows that $\operatorname*{st}$ is LR-shuffle-compatible. This proves
 Corollary \ref{cor.LRcomp.two}.
 \end{proof}
+\end{verlong}
 
 \section{\label{sect.Descent}Descent statistics and quasisymmetric functions}
 
@@ -4980,13 +5105,21 @@ $\operatorname*{Comp}\pi$). The permutation statistics $\operatorname*{Lpk}$
 and $\operatorname*{Rpk}$ (and, of course, $\operatorname*{Comp}$) are descent
 statistics as well, as one can easily check.
 
+\begin{vershort}
+The following fact (proven in \cite{verlong}) should be contrasted with
+\cite[Conjecture 6.11]{part1}:
+\end{vershort}
+
+\begin{verlong}
 Notice the following:
+\end{verlong}
 
 \begin{proposition}
 \label{prop.des-stat.hgc}Every head-graft-compatible permutation statistic is
 a descent statistic.
 \end{proposition}
 
+\begin{verlong}
 \begin{proof}
 [Proof of Proposition \ref{prop.des-stat.hgc}.]Let $\operatorname*{st}$ be a
 head-graft-compatible permutation statistic. Then, we must show that
@@ -4998,6 +5131,7 @@ Combining Proposition \ref{prop.des-stat.hgc} with Corollary
 \ref{cor.LRcomp.back}, we conclude that every LR-shuffle-compatible
 permutation statistic is a descent statistic. This should be contrasted with
 \cite[Conjecture 6.11]{part1}.
+\end{verlong}
 
 \begin{definition}
 \label{def.des-stat.stI}Let $\operatorname*{st}$ be a descent statistic. Then,
@@ -5104,6 +5238,7 @@ by $L_{\alpha}$ in \cite[\S 5.2]{HopfComb}.
 The multiplication of fundamental quasisymmetric functions is intimately
 related to shuffles of permutations:
 
+\begin{verlong}
 \begin{theorem}
 \label{thm.4.1}Let $\pi$ and $\sigma$ be two disjoint permutations. Let
 $J=\operatorname*{Comp}\pi$ and $K=\operatorname*{Comp}\sigma$. For any
@@ -5117,6 +5252,7 @@ F_{J}F_{K}=\sum_{L}c_{J,K}^{L}F_{L}%
 
 Theorem \ref{thm.4.1} is \cite[Theorem 4.1]{part1}; it can also be written in
 the following form:
+\end{verlong}
 
 \begin{proposition}
 \label{prop.4.1.rewr}Let $\pi$ and $\sigma$ be two disjoint permutations.
@@ -5128,6 +5264,17 @@ S\left(  \pi,\sigma\right)  }F_{\operatorname*{Comp}\chi}.
 
 \end{proposition}
 
+\begin{vershort}
+Proposition \ref{prop.4.1.rewr} is a restatement of \cite[Theorem 4.1]{part1},
+and is proven in \cite[(5.2.6)]{HopfComb} (which makes the additional
+requirement that the letters of $\pi$ are $1,2,\ldots,\left\vert
+\pi\right\vert $ and the letters of $\sigma$ are $\left\vert \pi\right\vert
++1,\left\vert \pi\right\vert +2,\ldots,\left\vert \pi\right\vert +\left\vert
+\sigma\right\vert $; but this requirement is not used in the proof and thus
+can be dropped).
+\end{vershort}
+
+\begin{verlong}
 For a proof of Proposition \ref{prop.4.1.rewr} (and therefore also of the
 equivalent Theorem \ref{thm.4.1}), we refer to \cite[(5.2.6)]{HopfComb} (which
 makes the additional requirement that the letters of $\pi$ are $1,2,\ldots
@@ -5135,6 +5282,7 @@ makes the additional requirement that the letters of $\pi$ are $1,2,\ldots
 \pi\right\vert +1,\left\vert \pi\right\vert +2,\ldots,\left\vert
 \pi\right\vert +\left\vert \sigma\right\vert $; but this requirement is not
 used in the proof and thus can be dropped).
+\end{verlong}
 
 \subsection{Shuffle algebras}
 
@@ -5220,9 +5368,16 @@ composition $\operatorname*{Comp}\pi$, is a $\mathbb{Q}$-algebra isomorphism
 $\mathcal{A}_{\operatorname*{st}}\rightarrow A$.
 \end{theorem}
 
+\begin{vershort}
+Proofs of Proposition \ref{prop.Ast.alg} and Theorem \ref{thm.4.3}
+(independent of \cite{part1}) can be found in \cite{verlong}.
+\end{vershort}
+
+\begin{verlong}
 For the sake of completeness, we shall give proofs of Proposition
 \ref{prop.Ast.alg} and Theorem \ref{thm.4.3} (independent of \cite{part1}) in
 Subsection \ref{subsect.K.pfAsh}.
+\end{verlong}
 
 \begin{noncompile}
 We shall perhaps also use some other notations that were introduced in
@@ -5247,6 +5402,13 @@ $f_{0}=0$ and $f_{1}=1$ and the recursive relation $f_{m}=f_{m-1}+f_{m-2}$ for
 all $m\geq2$).
 \end{theorem}
 
+\begin{vershort}
+\begin{proof}
+[Proof of Theorem \ref{thm.Epk.AEpk}.]See \cite{verlong}.
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
 \begin{proof}
 [Proof of Theorem \ref{thm.Epk.AEpk} (sketched).]\textbf{(a)} Proposition
 \ref{prop.Ast.alg} \textbf{(b)} (applied to $\operatorname*{st}%
@@ -5271,6 +5433,7 @@ preceding sentences, we conclude that the dimension of the $n$-th graded
 component of $\mathcal{A}_{\operatorname*{Epk}}$ is $f_{n+2}-1$. This proves
 Theorem \ref{thm.Epk.AEpk} \textbf{(b)}.
 \end{proof}
+\end{verlong}
 
 We can give a somewhat tautological description of $\mathcal{A}%
 _{\operatorname*{Epk}}$ using the notations of Section \ref{sect.Zenri}:
@@ -5306,6 +5469,13 @@ is a $\mathbb{Q}$-algebra isomorphism from $\mathcal{A}_{\operatorname*{Epk}}$
 to $\Pi_{\mathcal{Z}}$.
 \end{theorem}
 
+\begin{vershort}
+\begin{proof}
+[Proof of Theorem \ref{thm.Epk.sh-co}.]See \cite{verlong}.
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
 In the process of proving Theorem \ref{thm.Epk.sh-co}, we will also prove
 Theorem \ref{thm.Epk.sh-co-a} again.
 
@@ -5413,6 +5583,7 @@ K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}%
 is a $\mathbb{Q}$-algebra isomorphism from $\mathcal{A}_{\operatorname*{Epk}}$
 to $\Pi_{\mathcal{Z}}$. Hence, Theorem \ref{thm.Epk.sh-co} is proven.
 \end{proof}
+\end{verlong}
 
 \section{\label{sect.kernel}The kernel of the map $\operatorname*{QSym}%
 \rightarrow\mathcal{A}_{\operatorname*{Epk}}$}
@@ -5421,6 +5592,10 @@ to $\Pi_{\mathcal{Z}}$. Hence, Theorem \ref{thm.Epk.sh-co} is proven.
 
 Now, we shall focus on a feature of shuffle-compatible descent statistics that
 seems to have been overlooked so far: their kernels.
+
+\begin{vershort}
+All proofs in this section are omitted; they can be found in \cite{verlong}.
+\end{vershort}
 
 \begin{definition}
 Let $\operatorname*{st}$ be a descent statistic. Then, $\mathcal{K}%
@@ -5452,6 +5627,7 @@ Then, $\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)
 =\mathcal{K}_{\operatorname*{st}}$.
 \end{lemma}
 
+\begin{verlong}
 \begin{proof}
 [Proof of Lemma \ref{lem.K.fist}.]Let us first show that $\operatorname*{Ker}%
 \left(  \phi_{\operatorname*{st}}\right)  \subseteq\mathcal{K}%
@@ -5563,6 +5739,7 @@ this with $\operatorname*{Ker}\left(  \phi_{\operatorname*{st}}\right)
 _{\operatorname*{st}}=\operatorname*{Ker}\left(  \phi_{\operatorname*{st}%
 }\right)  $. This proves Lemma \ref{lem.K.fist}.
 \end{proof}
+\end{verlong}
 
 Theorem~\ref{thm.4.3} easily yields the following fact:
 
@@ -5574,6 +5751,7 @@ this case, $\mathcal{A}_{\operatorname*{st}}\cong\operatorname*{QSym}%
 /\mathcal{K}_{\operatorname*{st}}$.
 \end{proposition}
 
+\begin{verlong}
 \begin{proof}
 [Proof of Proposition \ref{prop.K.ideal}.]$\Longrightarrow:$ Assume that
 $\operatorname*{st}$ is shuffle-compatible. Thus, Theorem~\ref{thm.4.3}
@@ -5645,17 +5823,20 @@ compositions) is a basis of the $\mathbb{Q}$-algebra $A$. Hence, Theorem
 shuffle-compatible. This proves the $\Longleftarrow$ direction of Proposition
 \ref{prop.K.ideal}.
 \end{proof}
+\end{verlong}
 
 \begin{corollary}
 \label{cor.Epk.ideal}The kernel $\mathcal{K}_{\operatorname*{Epk}}$ of the
 descent statistic $\operatorname*{Epk}$ is an ideal of $\operatorname*{QSym}$.
 \end{corollary}
 
+\begin{verlong}
 \begin{proof}
 [Proof of Corollary \ref{cor.Epk.ideal}.]This follows from Proposition
 \ref{prop.K.ideal} (applied to $\operatorname*{st}=\operatorname*{Epk}$),
 because of Theorem \ref{thm.Epk.sh-co-a}.
 \end{proof}
+\end{verlong}
 
 We can study the kernel of any descent statistic; in particular, the case of
 shuffle-compatible descent statistics appears interesting. Since
@@ -5724,6 +5905,7 @@ Here are all relations $\rightarrow$ between compositions of size $5$:%
 There are no relations $\rightarrow$ between compositions of size $\leq3$.
 \end{example}
 
+\begin{verlong}
 \begin{proof}
 [Proof of Proposition \ref{prop.K.Epk.F}.]We begin by proving some simple claims.
 
@@ -6286,6 +6468,7 @@ $\mathbb{Q}$-vector subspace of $\operatorname*{QSym}$ spanned by all
 differences of the form $F_{J}-F_{K}$, where $J$ and $K$ are two compositions
 satisfying $J\rightarrow K$. This proves Proposition \ref{prop.K.Epk.F}.
 \end{proof}
+\end{verlong}
 
 \subsection{The M-generating set of $\mathcal{K}_{\operatorname*{Epk}}$}
 
@@ -6360,9 +6543,10 @@ There are no relations $\underset{M}{\rightarrow}$ between compositions of
 size $\leq3$.
 \end{example}
 
+\begin{verlong}
 Before we start proving Proposition \ref{prop.K.Epk.M}, let us recall a basic
-formula that connects the monomial quasisymmetric functions with the
-fundamental quasisymmetric functions:
+formula (\cite[(5.2.2)]{HopfComb}) that connects the monomial quasisymmetric
+functions with the fundamental quasisymmetric functions:
 
 \begin{proposition}
 \label{prop.M-through-F.1}Let $n\in\mathbb{N}$. Let $\alpha$ be any
@@ -6522,7 +6706,9 @@ B}-F_{\operatorname*{Comp}\left(  B\cup\left\{  k-1\right\}  \right)
 \end{align*}
 This proves Proposition \ref{prop.M-through-F.2} \textbf{(c)}.
 \end{proof}
+\end{verlong}
 
+\begin{verlong}
 \begin{proof}
 [Proof of Proposition \ref{prop.K.Epk.M}.]We shall use the notation
 $\left\langle f_{i}\ \mid\ i\in I\right\rangle $ for the $\mathbb{Q}$-linear
@@ -6878,6 +7064,7 @@ this rewrites as $\mathcal{M}=\mathcal{K}_{\operatorname*{Epk}}$. In other
 words, $\mathcal{K}_{\operatorname*{Epk}}=\mathcal{M}$. This proves
 Proposition \ref{prop.K.Epk.M}.
 \end{proof}
+\end{verlong}
 
 \begin{question}
 It is worth analyzing the kernels of other known descent statistics
@@ -6894,6 +7081,7 @@ $J,K\in\operatorname*{Comp}$). What other descent statistics have this property?
 \subsection{\label{subsect.K.pfAsh}Appendix: Proof of Proposition
 \ref{prop.Ast.alg} and Theorem \ref{thm.4.3}}
 
+\begin{verlong}
 Let us now give proofs of Proposition \ref{prop.Ast.alg} and Theorem
 \ref{thm.4.3}, which we have promised above. We will mostly rely on Lemma
 \ref{lem.K.fist} and on Proposition \ref{prop.4.1.rewr}.
@@ -7341,6 +7529,7 @@ $-vector spaces, we thus conclude that $\gamma$ is a $\mathbb{Q}$-algebra
 isomorphism $\mathcal{A}_{\operatorname*{st}}\rightarrow A$. This proves
 Theorem \ref{thm.4.3} \textbf{(b)}.
 \end{proof}
+\end{verlong}
 
 \section{\label{sect.dendri}Dendriform structures}
 
@@ -9482,6 +9671,27 @@ version 6, \texttt{\href{https://arxiv.org/abs/1410.0079v6}{arXiv:1410.0079v6}%
 }. (Version 5 has been published in:
 \href{https://cms.math.ca/10.4153/CJM-2016-018-8?abfmt=ltx}{Canad. J. Math.
 \textbf{69} (2017), 21--53}.)
+
+\begin{vershort}
+
+
+\bibitem[Grinbe18]{verlong}%
+\href{http://www.cip.ifi.lmu.de/~grinberg/algebra/gzshuf2-long.pdf}{Darij
+Grinberg, \textit{Shuffle-compatible permutation statistics II: the exterior
+peak set [detailed version]}, detailed version of the present paper}. Also
+available as an ancillary file at
+\href{https://arxiv.org/abs/1806.?????v1}{arXiv:1806.?????v1}.
+\end{vershort}
+
+\begin{verlong}
+
+
+\bibitem[Grinbe18]{vershort}%
+\href{http://www.cip.ifi.lmu.de/~grinberg/algebra/gzshuf2.pdf}{Darij Grinberg,
+\textit{Shuffle-compatible permutation statistics II: the exterior peak set},
+standard version of the present paper}. Also available as
+\href{https://arxiv.org/abs/1806.?????v1}{arXiv:1806.?????v1}.
+\end{verlong}
 
 \bibitem[GriRei18]{HopfComb}Darij Grinberg, Victor Reiner, \textit{Hopf
 algebras in Combinatorics}, version of 11 May 2018,

@@ -7080,10 +7080,10 @@ subspace\textquotedblright\ of $\operatorname*{QSym}$ in the monomial basis
 $J,K\in\operatorname*{Comp}$). What other descent statistics have this property?
 \end{question}
 
+\begin{verlong}
 \subsection{\label{subsect.K.pfAsh}Appendix: Proof of Proposition
 \ref{prop.Ast.alg} and Theorem \ref{thm.4.3}}
 
-\begin{verlong}
 Let us now give proofs of Proposition \ref{prop.Ast.alg} and Theorem
 \ref{thm.4.3}, which we have promised above. We will mostly rely on Lemma
 \ref{lem.K.fist} and on Proposition \ref{prop.4.1.rewr}.
@@ -7535,6 +7535,346 @@ Theorem \ref{thm.4.3} \textbf{(b)}.
 
 \section{\label{sect.dendri}Dendriform structures}
 
+\begin{vershort}
+Next, we shall recall the \textit{dendriform operations }$\left.
+\prec\right.  $ and $\left.  \succeq\right.  $ on $\operatorname*{QSym}$
+studied in \cite{dimcr}, and we shall connect these operations back to
+LR-shuffle-compatibility. Since we consider this somewhat tangential to the
+present paper, we merely summarize the main results here; more can be found in
+\cite{verlong}.
+
+\subsection{Two operations on $\operatorname*{QSym}$}
+
+We begin with some definitions. We will use some notations from \cite{dimcr},
+but we set $\mathbf{k}=\mathbb{Q}$ because we are working over the ring
+$\mathbb{Q}$ in this paper. Monomials always mean formal expressions of the
+form $x_{1}^{a_{1}}x_{2}^{a_{2}}x_{3}^{a_{3}}\cdots$ with $a_{1}+a_{2}%
++a_{3}+\cdots<\infty$ (see \cite[Section 2]{dimcr} for details). If
+$\mathfrak{m}$ is a monomial, then $\operatorname*{Supp}\mathfrak{m}$ will
+denote the finite subset
+\[
+\left\{  i\in\left\{  1,2,3,\ldots\right\}  \ \mid\ \text{the exponent with
+which }x_{i}\text{ occurs in }\mathfrak{m}\text{ is }>0\right\}
+\]
+of $\left\{  1,2,3,\ldots\right\}  $. Next, we define two binary operations
+\begin{align*}
+&  \left.  \prec\right.  \ \left(  \text{called \textquotedblleft dendriform
+less-than\textquotedblright; but it's an operation, not a relation}\right)
+,\\
+&  \left.  \succeq\right.  \ \left(  \text{called \textquotedblleft dendriform
+greater-or-equal\textquotedblright; but it's an operation, not a
+relation}\right)  ,
+\end{align*}
+on the ring $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
+\right]  $ of power series by first defining how they act on monomials:%
+\begin{align*}
+\mathfrak{m}\left.  \prec\right.  \mathfrak{n}  &  =\left\{
+\begin{array}
+[c]{l}%
+\mathfrak{m}\cdot\mathfrak{n},\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(
+\operatorname*{Supp}\mathfrak{m}\right)  <\min\left(  \operatorname*{Supp}%
+\mathfrak{n}\right)  ;\\
+0,\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(  \operatorname*{Supp}%
+\mathfrak{m}\right)  \geq\min\left(  \operatorname*{Supp}\mathfrak{n}\right)
+\end{array}
+\right.  ;\\
+\mathfrak{m}\left.  \succeq\right.  \mathfrak{n}  &  =\left\{
+\begin{array}
+[c]{l}%
+\mathfrak{m}\cdot\mathfrak{n},\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(
+\operatorname*{Supp}\mathfrak{m}\right)  \geq\min\left(  \operatorname*{Supp}%
+\mathfrak{n}\right)  ;\\
+0,\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(  \operatorname*{Supp}%
+\mathfrak{m}\right)  <\min\left(  \operatorname*{Supp}\mathfrak{n}\right)
+\end{array}
+\right.  ;
+\end{align*}
+and then requiring that they all be $\mathbf{k}$-bilinear and continuous (so
+their action on pairs of arbitrary power series can be computed by
+\textquotedblleft opening the parentheses\textquotedblright). These operations
+$\left.  \prec\right.  $ and $\left.  \succeq\right.  $ restrict to the subset
+$\operatorname*{QSym}$ of $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3}%
+,\ldots\right]  \right]  $ (this is proven in \cite[detailed version, Section
+3]{dimcr}). They furthermore satisfy numerous relations:
+
+\begin{itemize}
+\item The dendriform operations satisfy the four rules
+\begin{align*}
+a\left.  \prec\right.  b+a\left.  \succeq\right.  b  &  =ab;\\
+\left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c  &  =a\left.
+\prec\right.  \left(  bc\right)  ;\ \ \ \ \ \ \ \ \ \ \left(  a\left.
+\succeq\right.  b\right)  \left.  \prec\right.  c=a\left.  \succeq\right.
+\left(  b\left.  \prec\right.  c\right)  ;\\
+a\left.  \succeq\right.  \left(  b\left.  \succeq\right.  c\right)   &
+=\left(  ab\right)  \left.  \succeq\right.  c
+\end{align*}
+for all $a,b,c\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
+\right]  $.
+
+\item For any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
+\right]  $, we have%
+\begin{align*}
+1\left.  \prec\right.  a  &  =0;\ \ \ \ \ \ \ \ \ \ a\left.  \prec\right.
+1=a-\varepsilon\left(  a\right)  ;\\
+1\left.  \succeq\right.  a  &  =a;\ \ \ \ \ \ \ \ \ \ a\left.  \succeq\right.
+1=\varepsilon\left(  a\right)  ,
+\end{align*}
+where $\varepsilon\left(  a\right)  $ denotes the constant term of the power
+series $a$.
+\end{itemize}
+
+The operations $\left.  \prec\right.  $ and $\left.  \succeq\right.  $ are
+sometimes called \textquotedblleft restricted products\textquotedblright\ due
+to their similarity with the (regular) multiplication of $\operatorname*{QSym}%
+$. In particular, they satisfy the following analogue of Proposition
+\ref{prop.4.1.rewr}:
+
+\begin{corollary}
+Let $\pi$ and $\sigma$ be two disjoint nonempty permutations. Assume that
+$\pi_{1}>\sigma_{1}$. Then,%
+\[
+F_{\operatorname*{Comp}\pi}\left.  \prec\right.  F_{\operatorname*{Comp}%
+\sigma}=\sum_{\chi\in S_{\prec}\left(  \pi,\sigma\right)  }%
+F_{\operatorname*{Comp}\chi}%
+\]
+and%
+\[
+F_{\operatorname*{Comp}\pi}\left.  \succeq\right.  F_{\operatorname*{Comp}%
+\sigma}=\sum_{\chi\in S_{\succ}\left(  \pi,\sigma\right)  }%
+F_{\operatorname*{Comp}\chi}.
+\]
+
+\end{corollary}
+
+\subsection{Left- and right-shuffle-compatibility and ideals}
+
+This corollary lets us relate the notions introduced in Definition
+\ref{def.LR.left-right} to the operations $\left.  \prec\right.  $ and
+$\left.  \succeq\right.  $. To state the precise connection, we need the
+following notation:
+
+\begin{definition}
+Let $A$ be a $\mathbf{k}$-module equipped with some binary operation $\ast$
+(written infix).
+
+\textbf{(a)} If $B$ and $C$ are two $\mathbf{k}$-submodules of $A$, then
+$B\ast C$ shall mean the $\mathbf{k}$-submodule of $A$ spanned by all elements
+of the form $b\ast c$ with $b\in B$ and $c\in C$.
+
+\textbf{(b)} A $\mathbf{k}$-submodule $M$ of $A$ is said to be a\textit{
+}$\ast$\textit{-ideal} if and only if it satisfies $A\ast M\subseteq M$ and
+$M\ast A\subseteq M$.
+\end{definition}
+
+Now, let us define two further variants of LR-shuffle-compatibility (to be
+compared with those introduced in Definition \ref{def.LR.left-right}):
+
+\begin{definition}
+Let $\operatorname*{st}$ be a permutation statistic.
+
+\textbf{(a)} We say that $\operatorname*{st}$ is \textit{weakly
+left-shuffle-compatible} if for any two disjoint nonempty permutations $\pi$
+and $\sigma$ having the property that%
+\[
+\text{each entry of }\pi\text{ is greater than each entry of }\sigma,
+\]
+the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+S_{\prec}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$
+depends only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
+\left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
+\sigma\right\vert $.
+
+\textbf{(b)} We say that $\operatorname*{st}$ is \textit{weakly
+right-shuffle-compatible} if for any two disjoint nonempty permutations $\pi$
+and $\sigma$ having the property that%
+\[
+\text{each entry of }\pi\text{ is greater than each entry of }\sigma,
+\]
+the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
+S_{\succ}\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}}$
+depends only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
+\left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
+\sigma\right\vert $.
+\end{definition}
+
+Then, the following analogues to the first part of Proposition
+\ref{prop.K.ideal} hold:
+
+\begin{theorem}
+\label{thm.dendri.K.ideal}Let $\operatorname*{st}$ be a descent statistic.
+Then, the following three statements are equivalent:
+
+\begin{itemize}
+\item \textit{Statement A:} The statistic $\operatorname*{st}$ is left-shuffle-compatible.
+
+\item \textit{Statement B:} The statistic $\operatorname*{st}$ is weakly left-shuffle-compatible.
+
+\item \textit{Statement C:} The set $\mathcal{K}_{\operatorname*{st}}$ is an
+$\left.  \prec\right.  $-ideal of $\operatorname*{QSym}$.
+\end{itemize}
+\end{theorem}
+
+\begin{theorem}
+\label{thm.dendri.K.ideal-R}Let $\operatorname*{st}$ be a descent statistic.
+Then, the following three statements are equivalent:
+
+\begin{itemize}
+\item \textit{Statement A:} The statistic $\operatorname*{st}$ is right-shuffle-compatible.
+
+\item \textit{Statement B:} The statistic $\operatorname*{st}$ is weakly right-shuffle-compatible.
+
+\item \textit{Statement C:} The set $\mathcal{K}_{\operatorname*{st}}$ is an
+$\left.  \succeq\right.  $-ideal of $\operatorname*{QSym}$.
+\end{itemize}
+\end{theorem}
+
+\begin{corollary}
+\label{cor.dendri.K.ideal-LR}Let $\operatorname*{st}$ be a permutation
+statistic that is LR-shuffle-compatible. Then, $\operatorname*{st}$ is a
+shuffle-compatible descent statistic, and the set $\mathcal{K}%
+_{\operatorname*{st}}$ is an ideal and a $\left.  \prec\right.  $-ideal and a
+$\left.  \succeq\right.  $-ideal of $\operatorname*{QSym}$.
+\end{corollary}
+
+\begin{corollary}
+\label{cor.dendri.K.ideal-LRi}Let $\operatorname*{st}$ be a descent statistic
+such that $\mathcal{K}_{\operatorname*{st}}$ is a $\left.  \prec\right.
+$-ideal and a $\left.  \succeq\right.  $-ideal of $\operatorname*{QSym}$.
+Then, $\operatorname*{st}$ is LR-shuffle-compatible and shuffle-compatible.
+\end{corollary}
+
+Theorem \ref{thm.dendri.K.ideal} can (for example) be applied to
+$\operatorname*{st}=\operatorname*{Epk}$, which we know to be
+LR-shuffle-compatible (from Theorem \ref{thm.LRcomp.Pks} \textbf{(c)}); the
+result is that $\mathcal{K}_{\operatorname*{Epk}}$ is an ideal and a $\left.
+\prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
+$\operatorname*{QSym}$. The same can be said about $\operatorname*{Des}$ and
+$\operatorname*{Lpk}$ and some other statistics.
+
+Combining Theorem \ref{thm.dendri.K.ideal} with Theorem
+\ref{thm.dendri.K.ideal-R}, we can also see that any descent statistic that is
+weakly left-shuffle-compatible and weakly right-shuffle-compatible must
+automatically be shuffle-compatible (because any $\left.  \prec\right.
+$-ideal of $\operatorname*{QSym}$ that is also a $\left.  \succeq\right.
+$-ideal of $\operatorname*{QSym}$ is an ideal of $\operatorname*{QSym}$ as
+well). Note that this is only true for descent statistics! As far as arbitrary
+permutation statistics are concerned, this is false; for example, the number
+of inversions is weakly left-shuffle-compatible and weakly
+right-shuffle-compatible but not shuffle-compatible.
+
+We can state an analogue of Theorem
+\ref{thm.4.3} \textbf{(a)}. Let us first define the notion of dendriform algebras:
+
+\begin{definition}
+\textbf{(a)} A \textit{dendriform algebra} over a field $\mathbf{k}$ means a
+$\mathbf{k}$-algebra $A$ equipped with two further $\mathbf{k}$-bilinear
+binary operations $\left.  \prec\right.  $ and $\left.  \succeq\right.  $
+(these are operations, not relations, despite the symbols) from $A\times A$ to
+$A$ that satisfy the four rules%
+\begin{align*}
+a\left.  \prec\right.  b+a\left.  \succeq\right.  b  &  =ab;\\
+\left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c  &  =a\left.
+\prec\right.  \left(  bc\right)  ;\\
+\left(  a\left.  \succeq\right.  b\right)  \left.  \prec\right.  c  &
+=a\left.  \succeq\right.  \left(  b\left.  \prec\right.  c\right)  ;\\
+a\left.  \succeq\right.  \left(  b\left.  \succeq\right.  c\right)   &
+=\left(  ab\right)  \left.  \succeq\right.  c
+\end{align*}
+for all $a,b,c\in A$. (Depending on the situation, it is useful to also impose
+a few axioms that relate the unity $1$ of the $\mathbf{k}$-algebra $A$ with
+the operations $\left.  \prec\right.  $ and $\left.  \succeq\right.  $. For
+example, we could require $1\left.  \prec\right.  a=a$ for each $a\in A$. For
+what we are going to do in the following, it does not matter whether we make
+this requirement.)
+
+\textbf{(b)} If $A$ and $B$ are two dendriform algebras over $\mathbf{k}$,
+then a \textit{dendriform algebra homomorphism} from $A$ to $B$ means a
+$\mathbf{k}$-algebra homomorphism $\phi:A\rightarrow B$ preserving the
+operations $\left.  \prec\right.  $ and $\left.  \succeq\right.  $ (that is,
+satisfying $\phi\left(  a\left.  \prec\right.  b\right)  =\phi\left(
+a\right)  \left.  \prec\right.  \phi\left(  b\right)  $ and $\phi\left(
+a\left.  \succeq\right.  b\right)  =\phi\left(  a\right)  \left.
+\succeq\right.  \phi\left(  b\right)  $ for all $a,b\in A$). (Some authors
+only require it to be a $\mathbf{k}$-linear map instead of being a
+$\mathbf{k}$-algebra homomorphism; this boils down to the question whether
+$\phi\left(  1\right)  $ must be $1$ or not. This does not make a difference
+for us here.)
+\end{definition}
+
+Thus, $\operatorname*{QSym}$ (with its two operations $\left.  \prec\right.  $
+and $\left.  \succeq\right.  $) becomes a dendriform algebra over $\mathbb{Q}$.
+
+Notice that if $A$ and $B$ are two dendriform algebras over $\mathbf{k}$, then
+the kernel of any dendriform algebra homomorphism $A\rightarrow B$ is an
+$\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of $A$.
+Conversely, if $A$ is a dendriform algebra over $\mathbf{k}$, and $I$ is
+simultaneously an $\left.  \prec\right.  $-ideal and a $\left.  \succeq
+\right.  $-ideal of $A$, then $A/I$ canonically becomes a dendriform algebra,
+and the canonical projection $A\rightarrow A/I$ becomes a dendriform algebra homomorphism.
+
+Therefore, Corollary \ref{cor.dendri.K.ideal-LR} (and the $\mathcal{A}%
+_{\operatorname*{st}}\cong\operatorname*{QSym}/\mathcal{K}_{\operatorname*{st}%
+}$ isomorphism from Proposition \ref{prop.K.ideal}) yields the following:
+
+\begin{corollary}
+If a descent statistic $\operatorname*{st}$ is LR-shuffle-compatible, then its
+shuffle algebra $\mathcal{A}_{\operatorname*{st}}$ canonically becomes a
+dendriform algebra.
+\end{corollary}
+
+We furthermore have the following analogue of Theorem~\ref{thm.4.3}, which
+easily follows from Theorem \ref{thm.dendri.K.ideal} and Theorem
+\ref{thm.dendri.K.ideal-R}:
+
+\begin{theorem}
+Let $\operatorname*{st}$ be a descent statistic.
+
+\textbf{(a)} The descent statistic $\operatorname*{st}$ is
+left-shuffle-compatible and right-shuffle-compatible if and only if there
+exists a homomorphism $\phi_{\operatorname*{st}}:\operatorname*{QSym}%
+\rightarrow A$ of dendriform algebras, where $A$ is a dendriform algebra with
+basis $\left(  u_{\alpha}\right)  $ indexed by $\operatorname*{st}%
+$-equivalence classes $\alpha$ of compositions, such that $\phi
+_{\operatorname*{st}}\left(  F_{L}\right)  =u_{\alpha}$ whenever $L\in\alpha$.
+
+\textbf{(b)} In this case, the $\mathbb{Q}$-linear map $\mathcal{A}%
+_{\operatorname*{st}}\rightarrow A$ given by%
+\[
+\left[  \pi\right]  _{\operatorname*{st}}\mapsto u_{\alpha}=\phi
+_{\operatorname*{st}}\left(  F_{\operatorname*{Comp}\left(  \pi\right)
+}\right)  \ \ \ \ \ \ \ \ \ \ \text{where }\operatorname*{Comp}\left(
+\pi\right)  =\alpha
+\]
+is an isomorphism of dendriform algebras.
+\end{theorem}
+
+\begin{question}
+Can the $\mathbb{Q}$-algebra $\operatorname*{Pow}\mathcal{N}$ from Definition
+\ref{def.GammaZ} be endowed with two binary operations $\left.  \prec\right.
+$ and $\left.  \succeq\right.  $ that make it into a dendriform algebra? Can
+we then find an analogue of Proposition \ref{prop.prod1} along the following lines?
+
+Let $\left(  P,\gamma\right)  $, $\left(  Q,\delta\right)  $ and $\left(
+P\sqcup Q,\varepsilon\right)  $ be as in Proposition \ref{prop.prod1}. Assume
+that each of the posets $P$ and $Q$ has a minimum element; denote these
+elements by $\min P$ and $\min Q$, respectively.
+Let $P \left. \prec \right. Q$ be the labelled poset obtained by adding
+the relation $\min P<\min Q$ to $P\sqcup Q$.
+Let $P \left. \succ \right. Q$ be the labelled poset obtained by adding
+the relation $\min P>\min Q$ to $P\sqcup Q$.
+Then, we hope to have%
+\begin{align*}
+\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  \left.  \prec\right.
+\Gamma_{\mathcal{Z}}\left(  Q,\delta\right)   &  =\Gamma_{\mathcal{Z}}\left(
+P\left.  \prec\right.  Q,\varepsilon\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  \left.  \succeq\right.
+\Gamma_{\mathcal{Z}}\left(  Q,\delta\right)   &  =\Gamma_{\mathcal{Z}}\left(
+P\left.  \succ\right.  Q,\varepsilon\right)  .
+\end{align*}
+\end{question}
+\end{vershort}
+
+\begin{verlong}
 Next, we shall study how the ideal $\mathcal{K}_{\operatorname*{Epk}}$
 interacts with some additional structure on $\operatorname*{QSym}$, viz. the
 \textit{dendriform operations }$\left.  \prec\right.  $ and $\left.
@@ -9699,6 +10039,7 @@ $\operatorname*{QSym}$ either. Proposition \ref{prop.Pk.dend} is now proven.
 [Proof of Corollary \ref{cor.dendri.Pk}.]Follows from Proposition
 \ref{prop.Pk.dend}.
 \end{proof}
+\end{verlong}
 
 \begin{thebibliography}{99999999}                                                                                         %
 

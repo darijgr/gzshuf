@@ -544,7 +544,7 @@ appears in both $\pi$ and $\sigma$.
 \textbf{(b)} Assume that $\pi$ and $\sigma$ are disjoint. Set $m=\left\vert
 \pi\right\vert $ and $n=\left\vert \sigma\right\vert $. Let $\tau$ be an
 $\left(  m+n\right)  $-permutation. Then, we say that $\tau$ is a
-\textit{shuffle} of $\pi$ and $\sigma$ if both $\pi$ and $\sigma$ appear as
+\textit{shuffle} of $\pi$ and $\sigma$ if both $\pi$ and $\sigma$ are
 subsequences of $\tau$.
 
 \textbf{(c)} We let $S\left(  \pi,\sigma\right)  $ be the set of all shuffles
@@ -2418,16 +2418,16 @@ and $\pi$). In other words, $S_{\prec}\left(  \pi,\sigma\right)  =S_{\succ
 
 \begin{statement}
 \textit{Claim 1:} Let $\alpha$ and $\beta$ be two permutations such that
-$\beta$ is nonempty. Assume that $\alpha$ appears as a subsequence of $\beta$,
+$\beta$ is nonempty. Assume that $\alpha$ is a subsequence of $\beta$,
 but does not contain the letter $\beta_{1}$. Then, the permutation $\beta
-_{1}:\alpha$ also appears as a subsequence of $\beta$.
+_{1}:\alpha$ also is a subsequence of $\beta$.
 \end{statement}
 
 [\textit{Proof of Claim 1:} The letter $\beta_{1}$ does not appear in $\alpha$
 (since $\alpha$ does not contain $\beta_{1}$). Thus, $\beta_{1}:\alpha$ is a
 well-defined permutation.
 
-We have assumed that $\alpha$ appears as a subsequence of $\beta$. In other
+We have assumed that $\alpha$ is a subsequence of $\beta$. In other
 words, $\alpha=\left(  \beta_{i_{1}},\beta_{i_{2}},\ldots,\beta_{i_{k}%
 }\right)  $ for some $k\in\mathbb{N}$ and some positive integers $i_{1}%
 ,i_{2},\ldots,i_{k}$ satisfying $i_{1}<i_{2}<\cdots<i_{k}$. Consider these
@@ -2511,17 +2511,17 @@ So the first letter of $\tau$ is the first letter of $\pi$. In other words,
 $\tau_{1}=\pi_{1}$. Thus, the permutation $\tau$ is nonempty.
 
 Also, $\tau$ is a shuffle of $\pi$ and $\sigma$. In other words, $\tau$ is an
-$\left(  m+n\right)  $-permutation such that both $\pi$ and $\sigma$ appear as
+$\left(  m+n\right)  $-permutation such that both $\pi$ and $\sigma$ are
 subsequences of $\tau$ (by the definition of a shuffle).
 
-So $\pi$ appears as a subsequence of $\tau$. Thus, $\pi_{\sim1}$ appears as a
+So $\pi$ is a subsequence of $\tau$. Thus, $\pi_{\sim1}$ is a
 subsequence of $\tau$ as well (since $\pi_{\sim1}$ is a subsequence of $\pi$).
 
-Also, $\sigma$ appears as a subsequence of $\tau$, but does not contain the
+Also, $\sigma$ is a subsequence of $\tau$, but does not contain the
 letter $\tau_{1}$ (because $\tau_{1}=\pi_{1}$, which does not appear in
 $\sigma$). Therefore, Claim 1 (applied to $\alpha=\sigma$ and $\beta=\tau$)
-yields that $\tau_{1}:\sigma$ also appears as a subsequence of $\tau$. In
-other words, $\pi_{1}:\sigma$ appears as a subsequence of $\tau$ (since
+yields that $\tau_{1}:\sigma$ also is a subsequence of $\tau$. In
+other words, $\pi_{1}:\sigma$ is a subsequence of $\tau$ (since
 $\tau_{1}=\pi_{1}$).
 
 Finally, recall that $\pi_{\sim1}$ is an $\left(  m-1\right)  $-permutation,
@@ -2530,7 +2530,7 @@ is an $\left(  m+n\right)  $-permutation, hence an $\left(  \left(
 m-1\right)  +\left(  n+1\right)  \right)  $-permutation (since $m+n=\left(
 m-1\right)  +\left(  n+1\right)  $). So we know that $\tau$ is an
 \newline$\left(  \left(  m-1\right)  +\left(  n+1\right)  \right)
-$-permutation such that both $\pi_{\sim1}$ and $\pi_{1}:\sigma$ appear as
+$-permutation such that both $\pi_{\sim1}$ and $\pi_{1}:\sigma$ are
 subsequences of $\tau$. In other words, $\tau$ is a shuffle of $\pi_{\sim1}$
 and $\pi_{1}:\sigma$ (by the definition of a shuffle). Since the first letter
 of $\tau$ is the first letter of $\pi_{1}:\sigma$ (because the first letter of
@@ -2570,25 +2570,25 @@ $\tau_{1}:\pi_{\sim1}=\pi$.
 
 Also, $\tau$ is a shuffle of $\pi_{\sim1}$ and $\pi_{1}:\sigma$. In other
 words, $\tau$ is an $\left(  \left(  m-1\right)  +\left(  n+1\right)  \right)
-$-permutation such that both $\pi_{\sim1}$ and $\pi_{1}:\sigma$ appear as
+$-permutation such that both $\pi_{\sim1}$ and $\pi_{1}:\sigma$ are
 subsequences of $\tau$ (by the definition of a shuffle).
 
-So $\pi_{1}:\sigma$ appears as a subsequence of $\tau$. Thus, $\sigma$ appears
-as a subsequence of $\tau$ as well (since $\sigma$ is a subsequence of
+So $\pi_{1}:\sigma$ is a subsequence of $\tau$. Thus, $\sigma$ is
+a subsequence of $\tau$ as well (since $\sigma$ is a subsequence of
 $\pi_{1}:\sigma$).
 
-Also, $\pi_{\sim1}$ appears as a subsequence of $\tau$, but does not contain
+Also, $\pi_{\sim1}$ is a subsequence of $\tau$, but does not contain
 the letter $\tau_{1}$ (since the letter $\tau_{1}$ does not appear in
 $\pi_{\sim1}$). Therefore, Claim 1 (applied to $\alpha=\pi_{\sim1}$ and
-$\beta=\tau$) yields that $\tau_{1}:\pi_{\sim1}$ also appears as a subsequence
-of $\tau$. In other words, $\pi$ also appears as a subsequence of $\tau$
+$\beta=\tau$) yields that $\tau_{1}:\pi_{\sim1}$ also is a subsequence
+of $\tau$. In other words, $\pi$ also is a subsequence of $\tau$
 (since $\tau_{1}:\pi_{\sim1}=\pi$).
 
 Finally, recall that $\tau$ is an $\left(  \left(  m-1\right)  +\left(
 n+1\right)  \right)  $-permutation, hence an $\left(  m+n\right)
 $-permutation (since $\left(  m-1\right)  +\left(  n+1\right)  =m+n$). So we
 know that $\tau$ is an $\left(  m+n\right)  $-permutation such that both $\pi$
-and $\sigma$ appear as subsequences of $\tau$. In other words, $\tau$ is a
+and $\sigma$ are subsequences of $\tau$. In other words, $\tau$ is a
 shuffle of $\pi$ and $\sigma$ (by the definition of a shuffle). Since the
 first letter of $\tau$ is the first letter of $\pi$ (because the first letter
 of $\tau$ is $\tau_{1}=\pi_{1}$), we thus conclude that $\tau$ is a left

@@ -2072,16 +2072,35 @@ sentence shows that these subsets appear with equal multiplicities in them).
 This completes our proof of Theorem \ref{thm.Epk.sh-co-a}.
 \end{proof}
 
-The permutation statistic $\left(  \operatorname*{Lpk},\operatorname*{val}%
-\right)  $ (see \cite{part1} for its definition) is equivalent to
-$\operatorname*{Epk}$\ \ \ \ \footnote{Indeed, $\operatorname*{val}$ is
-equivalent to $\operatorname*{epk}$ by \cite[Lemma 2.1 \textbf{(e)}]{part1}.
-Hence, the permutation statistic $\left(  \operatorname*{Lpk}%
-,\operatorname*{val}\right)  $ is equivalent to $\left(  \operatorname*{Lpk}%
-,\operatorname*{epk}\right)  $. But knowing $\operatorname*{epk}$ allows you
-to compute $\operatorname*{Epk}$ from $\operatorname*{Lpk}$ (indeed, if $\pi$
-is an $n$-permutation, then $\operatorname*{Epk}\pi$ differs from
-$\operatorname*{Lpk}\pi$ only in the possible element $n$, so that
+We end this section with a final remark that uses some notations from
+\cite{part1}:
+
+\begin{remark}
+\label{rmk.Epk.equivalents}The permutation statistics $\left(
+\operatorname*{Lpk},\operatorname*{val}\right)  $, $\left(
+\operatorname*{Lpk},\operatorname*{udr}\right)  $ and $\left(
+\operatorname*{Pk},\operatorname*{udr}\right)  $ are equivalent to
+$\operatorname*{Epk}$, and therefore are shuffle-compatible. (See \cite{part1}
+for the definitions of all language left undefined here.)
+\end{remark}
+
+\begin{proof}
+[Proof of Remark \ref{rmk.Epk.equivalents} (sketched).] If $\operatorname*{st}%
+\nolimits_{1}$ and $\operatorname*{st}\nolimits_{2}$ are two permutation
+statistics, then we shall write $\operatorname*{st}\nolimits_{1}%
+\sim\operatorname*{st}\nolimits_{2}$ to mean \textquotedblleft%
+$\operatorname*{st}\nolimits_{1}$ is equivalent to $\operatorname*{st}%
+\nolimits_{2}$\textquotedblright.
+
+The permutation statistic $\operatorname*{val}$ is equivalent to
+$\operatorname*{epk}$, because of \cite[Lemma 2.1 \textbf{(e)}]{part1}. In
+other words, $\operatorname*{val}\sim\operatorname*{epk}$. Hence, $\left(
+\operatorname*{Lpk},\operatorname*{val}\right)  \sim\left(
+\operatorname*{Lpk},\operatorname*{epk}\right)  $. But if $\pi$ is an
+$n$-permutation, then $\operatorname*{Epk}\pi$ can be computed from the
+knowledge of $\operatorname*{Lpk}\pi$ and $\operatorname*{epk}\pi$ (indeed,
+$\operatorname*{Epk}\pi$ differs from $\operatorname*{Lpk}\pi$ only in the
+possible element $n$, so that
 \[
 \operatorname*{Epk}\pi=%
 \begin{cases}
@@ -2092,15 +2111,48 @@ $\operatorname*{Lpk}\pi$ only in the possible element $n$, so that
 \end{cases}
 \]
 ) and vice versa (since $\operatorname*{Lpk}\pi=\left(  \operatorname*{Epk}%
-\pi\right)  \setminus\left\{  n\right\}  $ for each $n$-permutation $\pi$).
-Thus, $\left(  \operatorname*{Lpk},\operatorname*{epk}\right)  $ is equivalent
-to $\left(  \operatorname*{Epk},\operatorname*{epk}\right)  $, which in turn
-is equivalent to $\operatorname*{Epk}$ alone (since $\operatorname*{epk}%
-\pi=\left\vert \operatorname*{Epk}\pi\right\vert $ for each permutation $\pi
-$). Hence, altogether, we conclude that $\left(  \operatorname*{Lpk}%
-,\operatorname*{val}\right)  $ is equivalent to $\operatorname*{Epk}$.}. Thus,
-an analogue of Theorem \ref{thm.Epk.sh-co-a} holds for the statistic $\left(
-\operatorname*{Lpk},\operatorname*{val}\right)  $.
+\pi\right)  \setminus\left\{  n\right\}  $ and $\operatorname*{epk}%
+\pi=\left\vert \operatorname*{Epk}\pi\right\vert $). Thus, $\left(
+\operatorname*{Lpk},\operatorname*{epk}\right)  \sim\operatorname*{Epk}$.
+Hence, altogether, we obtain $\left(  \operatorname*{Lpk},\operatorname*{val}%
+\right)  \sim\left(  \operatorname*{Lpk},\operatorname*{epk}\right)
+\sim\operatorname*{Epk}$. In other words, $\left(  \operatorname*{Lpk}%
+,\operatorname*{val}\right)  $ is equivalent to $\operatorname*{Epk}$.
+
+Moreover, \cite[Theorem 3.2]{part1} shows that for any permutation $\pi$, the
+knowledge of $\operatorname*{Lpk}\pi$ allows us to compute
+$\operatorname*{udr}\pi$ from $\operatorname*{val}\pi$ and vice versa. Hence,
+$\left(  \operatorname*{Lpk},\operatorname*{udr}\right)  \sim\left(
+\operatorname*{Lpk},\operatorname*{val}\right)  \sim\operatorname*{Epk}$. In
+other words, $\left(  \operatorname*{Lpk},\operatorname*{udr}\right)  $ is
+equivalent to $\operatorname*{Epk}$.
+
+On the other hand, $\left(  \operatorname*{Pk},\operatorname*{lpk}\right)
+\sim\operatorname*{Lpk}$. (This is proven similarly to our proof of $\left(
+\operatorname*{Lpk},\operatorname*{epk}\right)  \sim\operatorname*{Epk}$.)
+
+Also, $\operatorname*{udr}\sim\left(  \operatorname*{lpk},\operatorname*{val}%
+\right)  $ (indeed, \cite[Lemma 2.2 \textbf{(b)} and \textbf{(c)}]{part1} show
+how the value $\left(  \operatorname*{lpk},\operatorname*{val}\right)  \left(
+\pi\right)  $ can be computed from $\operatorname*{udr}\pi$, whereas
+\cite[Lemma 2.2 \textbf{(a)}]{part1} shows the opposite direction). Hence,
+$\left(  \operatorname*{Pk},\operatorname*{udr}\right)  \sim\left(
+\operatorname*{Pk},\operatorname*{lpk},\operatorname*{val}\right)  \sim\left(
+\operatorname*{Lpk},\operatorname*{val}\right)  $ (since $\left(
+\operatorname*{Pk},\operatorname*{lpk}\right)  \sim\operatorname*{Lpk}$).
+Therefore, $\left(  \operatorname*{Pk},\operatorname*{udr}\right)  \sim\left(
+\operatorname*{Lpk},\operatorname*{val}\right)  \sim\operatorname*{Epk}$. In
+other words, $\left(  \operatorname*{Pk},\operatorname*{udr}\right)  $ is
+equivalent to $\operatorname*{Epk}$.
+
+We have now shown that the statistics $\left(  \operatorname*{Lpk}%
+,\operatorname*{val}\right)  $, $\left(  \operatorname*{Lpk}%
+,\operatorname*{udr}\right)  $ and $\left(  \operatorname*{Pk}%
+,\operatorname*{udr}\right)  $ are equivalent to $\operatorname*{Epk}$. Thus,
+\cite[Theorem 3.2]{part1} shows that they are shuffle-compatible (since
+$\operatorname*{Epk}$ is shuffle-compatible). This proves Remark
+\ref{rmk.Epk.equivalents}.
+\end{proof}
 
 \begin{question}
 Our concept of a \textquotedblleft$\mathcal{Z}$-enriched $\left(

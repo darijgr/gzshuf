@@ -51,7 +51,7 @@
 \usepackage{allrunes}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, May 28, 2018 13:05:52}
+%TCIDATA{LastRevised=Monday, May 28, 2018 17:01:02}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6557,8 +6557,9 @@ M_{\alpha}=\sum_{\substack{\beta\text{ is a composition}\\\text{of }n\text{
 that refines }\alpha}}\left(  -1\right)  ^{\ell\left(  \beta\right)
 -\ell\left(  \alpha\right)  }F_{\beta}.
 \]
-Here, if $\gamma$ is any composition, then $\ell\left( \gamma\right) $ denotes
-the \textit{length} of $\gamma$ (that is, the number of entries of $\gamma$).
+Here, if $\gamma$ is any composition, then $\ell\left(  \gamma\right)  $
+denotes the \textit{length} of $\gamma$ (that is, the number of entries of
+$\gamma$).
 \end{proposition}
 
 \begin{proof}
@@ -8723,13 +8724,64 @@ B$\Longrightarrow$C and C$\Longrightarrow$A, the proof of Theorem
 \ref{thm.dendri.K.ideal}.
 \end{proof}
 
-As a consequence of the above two theorems, we can see that any descent
-statistic that is weakly left-shuffle-compatible and weakly
-right-shuffle-compatible must automatically be
-shuffle-compatible\footnote{\textit{Proof.} Let $\operatorname*{st}$ be a
-descent statistic that is weakly left-shuffle-compatible and weakly
-right-shuffle-compatible. We must prove that $\operatorname*{st}$ is
-shuffle-compatible.
+\begin{corollary}
+\label{cor.dendri.K.ideal-LR}Let $\operatorname*{st}$ be a permutation
+statistic that is LR-shuffle-compatible. Then, $\operatorname*{st}$ is a
+shuffle-compatible descent statistic, and the set $\mathcal{K}%
+_{\operatorname*{st}}$ is an ideal and a $\left.  \prec\right.  $-ideal and a
+$\left.  \succeq\right.  $-ideal of $\operatorname*{QSym}$.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.dendri.K.ideal-LR} (sketched).] Proposition
+\ref{prop.LRcomp.head} yields that $\operatorname*{st}$ is
+head-graft-compatible and shuffle-compatible. Proposition
+\ref{prop.LRcomp.equivs} shows that $\operatorname*{st}$ is
+left-shuffle-compatible, right-shuffle-compatible and head-graft-compatible
+(since $\operatorname*{st}$ is LR-shuffle-compatible). Hence, Proposition
+\ref{prop.des-stat.hgc} shows that $\operatorname*{st}$ is a descent
+statistic. Thus, Theorem \ref{thm.dendri.K.ideal} yields that $\mathcal{K}%
+_{\operatorname*{st}}$ is an $\left.  \prec\right.  $-ideal of
+$\operatorname*{QSym}$ (since $\operatorname*{st}$ is
+left-shuffle-compatible). Likewise, Theorem \ref{thm.dendri.K.ideal-R} yields
+that $\mathcal{K}_{\operatorname*{st}}$ is an $\left.  \succeq\right.  $-ideal
+of $\operatorname*{QSym}$ (since $\operatorname*{st}$ is
+right-shuffle-compatible). Finally, Proposition \ref{prop.K.ideal} yields that
+$\mathcal{K}_{\operatorname*{st}}$ is an ideal of $\operatorname*{QSym}$
+(since $\operatorname*{st}$ is a shuffle-compatible descent statistic). This
+proves Corollary \ref{cor.dendri.K.ideal-LR}.
+\end{proof}
+
+A converse of Corollary \ref{cor.dendri.K.ideal-LR} also holds:
+
+\begin{corollary}
+\label{cor.dendri.K.ideal-LRi}Let $\operatorname*{st}$ be a descent statistic
+such that $\mathcal{K}_{\operatorname*{st}}$ is a $\left.  \prec\right.
+$-ideal and a $\left.  \succeq\right.  $-ideal of $\operatorname*{QSym}$.
+Then, $\operatorname*{st}$ is LR-shuffle-compatible and shuffle-compatible.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.dendri.K.ideal-LR} (sketched).] Theorem
+\ref{thm.dendri.K.ideal} yields that $\operatorname*{st}$ is
+left-shuffle-compatible (since $\mathcal{K}_{\operatorname*{st}}$ is an
+$\left.  \prec\right.  $-ideal of $\operatorname*{QSym}$). Likewise, Theorem
+\ref{thm.dendri.K.ideal-R} yields that $\operatorname*{st}$ is
+right-shuffle-compatible (since $\mathcal{K}_{\operatorname*{st}}$ is an
+$\left.  \succeq\right.  $-ideal of $\operatorname*{QSym}$). Hence, Corollary
+\ref{cor.LRcomp.two} shows that $\operatorname*{st}$ is LR-shuffle-compatible.
+Thus, Proposition \ref{prop.LRcomp.head} yields that $\operatorname*{st}$ is
+head-graft-compatible and shuffle-compatible. This proves Corollary
+\ref{cor.dendri.K.ideal-LR}.
+\end{proof}
+
+As a consequence of Theorem \ref{thm.dendri.K.ideal} and Theorem
+\ref{thm.dendri.K.ideal-R}, we can see that any descent statistic that is
+weakly left-shuffle-compatible and weakly right-shuffle-compatible must
+automatically be shuffle-compatible\footnote{\textit{Proof.} Let
+$\operatorname*{st}$ be a descent statistic that is weakly
+left-shuffle-compatible and weakly right-shuffle-compatible. We must prove
+that $\operatorname*{st}$ is shuffle-compatible.
 \par
 The implication B$\Longrightarrow$C in Theorem \ref{thm.dendri.K.ideal} shows
 that the set $\mathcal{K}_{\operatorname*{st}}$ is an $\left.  \prec\right.

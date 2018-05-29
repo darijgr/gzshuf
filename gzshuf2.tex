@@ -127,6 +127,7 @@
 \newcommand{\bk}{\mathbf{k}}
 \newcommand{\Nplus}{\mathbb{N}_{+}}
 \newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\tvi}{\left. \textarm{\tvimadur} \right.}
 \newcommand{\bel}{\left. \textarm{\belgthor} \right.}
 \newcommand{\are}{\ar@{-}}
@@ -7859,7 +7860,7 @@ we then find an analogue of Proposition \ref{prop.prod1} along the following lin
 
 Let $\left(  P,\gamma\right)  $, $\left(  Q,\delta\right)  $ and $\left(
 P\sqcup Q,\varepsilon\right)  $ be as in Proposition \ref{prop.prod1}. Assume
-that each of the posets $P$ and $Q$ has a minimum element; denote these
+that each of the posets $P$ and $Q$ has a (global) minimum element; denote these
 elements by $\min P$ and $\min Q$, respectively.
 Let $P \left. \prec \right. Q$ be the labelled poset obtained by adding
 the relation $\min P<\min Q$ to $P\sqcup Q$.
@@ -8657,6 +8658,154 @@ resulting labelled poset by $P\left.  \succeq\right.  Q$. Then, $F_{P}\left(
 \mathbf{x}\right)  \left.  \succeq\right.  F_{Q}\left(  \mathbf{x}\right)
 =F_{P\left.  \succeq\right.  Q}\left(  \mathbf{x}\right)  $.
 \end{proposition}
+
+Note that the notion of a ``labelled poset'' is understood in the sense
+of \cite[Definition 5.2.1]{HopfComb} here; thus, a labelled poset needs no
+labelling, but instead its underlying set must be a finite set of integers.
+
+Note also that a \textit{minimum element} of a poset $P$ means an element
+$m \in P$ such that every $p \in P$ satisfies $m \leq p$.
+This is not the same as a minimal element.
+
+\begin{proof}[Proof of Proposition~\ref{prop.dendri.4.1.lem} (sketched).]
+We imitate the proof of \cite[Lemma 5.2.17]{HopfComb}:
+
+We will need two simple auxiliary claims:
+
+\begin{statement}
+\textit{Observation 1:} Let $R$ be a labelled poset. Let $u$ and $v$ be
+two elements of $R$ such that $u >_{\ZZ} v$.
+Assume that we don't have $u > v$ in $R$.
+Let $f$ be an $R$-partition.
+Let $R^{\prime}$ be the labelled poset obtained from $R$ by adding the
+relation $u < v$ to $R$.
+Then, $f$ is an $R^{\prime}$-partition if and only if
+$f \left(u\right) < f\left(v\right)$.
+\end{statement}
+
+[\textit{Proof of Observation 1:} The ``only if'' direction is obvious.
+The ``if'' direction is easily derived from the definition of an
+$R^{\prime}$-partition, once you recall that any pair
+$\left(x, y\right)$ of elements of $R^{\prime}$ that satisfies $x < y$
+in $R^{\prime}$ must either already satisfy $x < y$ in $R$, or satisfy
+$x \leq u$ and $v \leq y$ in $R$. The details are left to the reader.]
+
+\begin{statement}
+\textit{Observation 2:} Let $R$ be a labelled poset. Let $u$ and $v$ be
+two elements of $R$ such that $u <_{\ZZ} v$.
+Assume that we don't have $u > v$ in $R$.
+Let $f$ be an $R$-partition.
+Let $R^{\prime}$ be the labelled poset obtained from $R$ by adding the
+relation $u < v$ to $R$.
+Then, $f$ is an $R^{\prime}$-partition if and only if
+$f \left(u\right) \leq f\left(v\right)$.
+\end{statement}
+
+[\textit{Proof of Observation 2:} Similar to Observation 1.]
+
+\textbf{(a)} If $f : P \sqcup Q \to \left\{1,2,3,\ldots\right\}$ is a
+$P \left. \prec \right. Q$-partition, then its restrictions $f\mid_P$
+and $f\mid_Q$ are a $P$-partition and a $Q$-partition, respectively, and
+have the property that
+$\left(f\mid_P\right) \left( \min P \right) < \left(f\mid_Q\right) \left( \min Q \right)$
+(indeed, this property must hold because $\min P < \min Q$ in
+$P \left. \prec \right. Q$ but $\min P >_{\ZZ} \min Q$).
+Conversely, any pair of a $P$-partition $g$ and a $Q$-partition $h$
+having the property that $g \left(\min P\right) < h \left(\min Q\right)$
+can be combined to form a
+$P \left. \prec \right. Q$-partition\footnote{To see this, we need to
+apply Observation 1 to $R = P \sqcup Q$, $u = \min P$, $v = \min Q$
+and $R^{\prime} = P \left. \prec \right. Q$.}.
+
+Using the notations of \cite[Definition 5.2.1]{HopfComb}, we have
+\begin{equation}
+\sum_{f\text{ is a }P\left.  \prec\right.  Q\text{-partition}}\mathbf{x}%
+_{f}=\sum_{\substack{g\text{ is a }P\text{-partition;}\\h\text{ is a
+}Q\text{-partition;}\\g\left(  \min P\right)  <h\left(  \min Q\right)
+}}\mathbf{x}_{g}\mathbf{x}_{h}\label{pf.prop.dendri.4.1.lem.a.1}%
+\end{equation}
+(since the previous two sentences establish a bijection between the addends on
+the left hand side of this equality and the addends on its right hand side).
+
+But the definitions of $F_{P}\left(  \mathbf{x}\right)  $ and $F_{Q}\left(
+\mathbf{x}\right)  $ yield
+$F_{P}\left(  \mathbf{x}\right)
+=  \sum_{\substack{g\text{ is a } P\text{-partition}}}\mathbf{x}_{g}$
+and
+$F_{Q}\left( \mathbf{x}\right)
+= \sum_{\substack{h\text{ is a }Q\text{-partition}}}\mathbf{x}_{h}$.
+Thus,
+\begin{align*}
+& F_{P}\left(  \mathbf{x}\right)  \left.  \prec\right.  F_{Q}\left(
+\mathbf{x}\right)   \\
+& =\left(  \sum_{\substack{g\text{ is a }%
+P\text{-partition}}}\mathbf{x}_{g}\right)  \left.  \prec\right.  \left(
+\sum_{\substack{h\text{ is a }Q\text{-partition}}}\mathbf{x}_{h}\right)  \\
+& =\sum_{\substack{g\text{ is a }P\text{-partition;}\\h\text{ is a
+}Q\text{-partition}}}\underbrace{\mathbf{x}_{g}\left.  \prec\right.
+\mathbf{x}_{h}}_{\substack{=\left\{
+\begin{array}
+[c]{l}%
+\mathbf{x}_{g}\mathbf{x}_{h},\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(
+\operatorname*{Supp}\left(  \mathbf{x}_{g}\right)  \right)  <\min\left(
+\operatorname*{Supp}\left(  \mathbf{x}_{h}\right)  \right)  ;\\
+0,\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(  \operatorname*{Supp}\left(
+\mathbf{x}_{g}\right)  \right)  \geq\min\left(  \operatorname*{Supp}\left(
+\mathbf{x}_{h}\right)  \right)
+\end{array}
+\right.  \\\text{(by the definition of }\mathbf{x}_{g}\left.  \prec\right.
+\mathbf{x}_{h}\text{)}}}\\
+& =\sum_{\substack{g\text{ is a }P\text{-partition;}\\h\text{ is a
+}Q\text{-partition}}}\underbrace{\left\{
+\begin{array}
+[c]{l}%
+\mathbf{x}_{g}\mathbf{x}_{h},\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(
+\operatorname*{Supp}\left(  \mathbf{x}_{g}\right)  \right)  <\min\left(
+\operatorname*{Supp}\left(  \mathbf{x}_{h}\right)  \right)  ;\\
+0,\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(  \operatorname*{Supp}\left(
+\mathbf{x}_{g}\right)  \right)  \geq\min\left(  \operatorname*{Supp}\left(
+\mathbf{x}_{h}\right)  \right)
+\end{array}
+\right.  }_{\substack{=\left\{
+\begin{array}
+[c]{l}%
+\mathbf{x}_{g}\mathbf{x}_{h},\ \ \ \ \ \ \ \ \ \ \text{if }g\left(  \min
+P\right)  <h\left(  \min Q\right)  ;\\
+0,\ \ \ \ \ \ \ \ \ \ \text{if }g\left(  \min P\right)  \geq h\left(  \min
+Q\right)
+\end{array}
+\right.  \\\text{(since }\min\left(  \operatorname*{Supp}\left(
+\mathbf{x}_{g}\right)  \right)  =g\left(  \min P\right)  \text{ (because the
+map }g\text{ is a }P\text{-partition, thus}\\\text{weakly increasing on
+}P\text{, and therefore }g\left(  \min P\right)  =\min\left(  g\left(
+P\right)  \right)  =\min\left(  \operatorname*{Supp}\left(  \mathbf{x}%
+_{g}\right)  \right)  \text{)}\\\text{and similarly }\min\left(
+\operatorname*{Supp}\left(  \mathbf{x}_{h}\right)  \right)  =h\left(  \min
+Q\right)  \text{)}}}\\
+& =\sum_{\substack{g\text{ is a }P\text{-partition;}\\h\text{ is a
+}Q\text{-partition}}}\left\{
+\begin{array}
+[c]{l}%
+\mathbf{x}_{g}\mathbf{x}_{h},\ \ \ \ \ \ \ \ \ \ \text{if }g\left(  \min
+P\right)  <h\left(  \min Q\right)  ;\\
+0,\ \ \ \ \ \ \ \ \ \ \text{if }g\left(  \min P\right)  \geq h\left(  \min
+Q\right)
+\end{array}
+\right.  \\
+& =\sum_{\substack{g\text{ is a }P\text{-partition;}\\h\text{ is a
+}Q\text{-partition;}\\g\left(  \min P\right)  <h\left(  \min Q\right)
+}}\mathbf{x}_{g}\mathbf{x}_{h}=\sum_{f\text{ is a }P\left.  \prec\right.
+Q\text{-partition}}\mathbf{x}_{f}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.prop.dendri.4.1.lem.a.1})}\right)  \\
+& =F_{P\left.  \prec\right.  Q}\left(  \mathbf{x}\right)
+\end{align*}
+(by the definition of $F_{P\left.  \prec\right.  Q}\left(  \mathbf{x}\right)
+$). This proves Proposition \ref{prop.dendri.4.1.lem} \textbf{(a)}.
+
+\textbf{(b)} Proposition \ref{prop.dendri.4.1.lem} \textbf{(b)} is proven
+similarly to Proposition \ref{prop.dendri.4.1.lem} \textbf{(a)}
+(but this time we need to use Observation 2 instead of Observation 1).
+\end{proof}
 
 Also, the following simple fact is used:
 

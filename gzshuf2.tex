@@ -7152,14 +7152,27 @@ Proposition \ref{prop.K.Epk.M}.
 
 \begin{question}
 It is worth analyzing the kernels of other known descent statistics
-(shuffle-compatible or not). We have seen above that $\mathcal{K}%
-_{\operatorname*{Epk}}$ is a \textquotedblleft binomial
-subspace\textquotedblright\ of $\operatorname*{QSym}$ in the fundamental basis
-(i.e., it can be spanned by elements of the form $\lambda F_{J}+\mu F_{K}$ for
-$J,K\in\operatorname*{Comp}$) and a \textquotedblleft binomial
-subspace\textquotedblright\ of $\operatorname*{QSym}$ in the monomial basis
-(i.e., it can be spanned by elements of the form $\lambda M_{J}+\mu M_{K}$ for
-$J,K\in\operatorname*{Comp}$). What other descent statistics have this property?
+(shuffle-compatible or not).
+Let us call a descent statistic $\operatorname{st}$ \textit{M-binomial}
+if its kernel $\mathcal{K}_{\operatorname{st}}$ can be spanned by
+elements of the form $\lambda M_{J}+\mu M_{K}$ with
+$\lambda, \mu \in \mathbb{Q}$ and $J,K\in\operatorname*{Comp}$.
+Then, Proposition \ref{prop.K.Epk.M} yields that $\operatorname{Epk}$
+is M-binomial.
+It is easy to see that the statistics $\operatorname{Des}$ and
+$\operatorname{des}$ are M-binomial as well.
+Computations using SageMath suggest that the statistics
+$\operatorname{Lpk}$, $\operatorname{Rpk}$, $\operatorname{Pk}$,
+$\operatorname{Val}$,
+$\operatorname{pk}$, $\operatorname{lpk}$, $\operatorname{rpk}$
+and $\operatorname{val}$
+(see \cite{part1} for some of their definitions) are M-binomial, too
+(at least for compositions of size $\leq 9$);
+this would be nice to prove.
+On the other hand, the statistics
+$\operatorname{maj}$, $\left(\operatorname{des},\operatorname{maj}\right)$
+and $\left(\operatorname{val},\operatorname{des}\right)$ (again, see
+\cite{part1} for definitions) are not M-binomial.
 \end{question}
 
 \begin{verlong}

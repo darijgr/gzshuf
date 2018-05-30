@@ -7677,10 +7677,12 @@ their action on pairs of arbitrary power series can be computed by
 $\left.  \prec\right.  $ and $\left.  \succeq\right.  $ restrict to the subset
 $\operatorname*{QSym}$ of $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3}%
 ,\ldots\right]  \right]  $ (this is proven in \cite[detailed version, Section
-3]{dimcr}). They furthermore satisfy numerous relations:
+3]{dimcr}). They furthermore satisfy the following relations (which are easy
+to verify):
 
 \begin{itemize}
-\item The dendriform operations satisfy the four rules
+\item For all $a,b,c\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
+\right]  $, we have
 \begin{align*}
 a\left.  \prec\right.  b+a\left.  \succeq\right.  b  &  =ab;\\
 \left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c  &  =a\left.
@@ -7688,17 +7690,15 @@ a\left.  \prec\right.  b+a\left.  \succeq\right.  b  &  =ab;\\
 \succeq\right.  b\right)  \left.  \prec\right.  c=a\left.  \succeq\right.
 \left(  b\left.  \prec\right.  c\right)  ;\\
 a\left.  \succeq\right.  \left(  b\left.  \succeq\right.  c\right)   &
-=\left(  ab\right)  \left.  \succeq\right.  c
+=\left(  ab\right)  \left.  \succeq\right.  c .
 \end{align*}
-for all $a,b,c\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
-\right]  $.
 
 \item For any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 \right]  $, we have%
 \begin{align*}
 1\left.  \prec\right.  a  &  =0;\ \ \ \ \ \ \ \ \ \ a\left.  \prec\right.
-1=a-\varepsilon\left(  a\right)  ;\\
-1\left.  \succeq\right.  a  &  =a;\ \ \ \ \ \ \ \ \ \ a\left.  \succeq\right.
+1=a-\varepsilon\left(  a\right)  ; \ \ \ \ \ \ \ \ \ \ % \\
+1\left.  \succeq\right.  a   =a;\ \ \ \ \ \ \ \ \ \ a\left.  \succeq\right.
 1=\varepsilon\left(  a\right)  ,
 \end{align*}
 where $\varepsilon\left(  a\right)  $ denotes the constant term of the power
@@ -7714,17 +7714,16 @@ $. In particular, they satisfy the following analogue of Proposition
 \begin{corollary}
 Let $\pi$ and $\sigma$ be two disjoint nonempty permutations. Assume that
 $\pi_{1}>\sigma_{1}$. Then,%
-\[
+\begin{align*}
 F_{\operatorname*{Comp}\pi}\left.  \prec\right.  F_{\operatorname*{Comp}%
-\sigma}=\sum_{\chi\in S_{\prec}\left(  \pi,\sigma\right)  }%
-F_{\operatorname*{Comp}\chi}%
-\]
-and%
-\[
+\sigma}
+&=\sum_{\chi\in S_{\prec}\left(  \pi,\sigma\right)  }%
+F_{\operatorname*{Comp}\chi}  \qquad \text{ and } \\
 F_{\operatorname*{Comp}\pi}\left.  \succeq\right.  F_{\operatorname*{Comp}%
-\sigma}=\sum_{\chi\in S_{\succ}\left(  \pi,\sigma\right)  }%
+\sigma}
+&=\sum_{\chi\in S_{\succ}\left(  \pi,\sigma\right)  }%
 F_{\operatorname*{Comp}\chi}.
-\]
+\end{align*}
 
 \end{corollary}
 

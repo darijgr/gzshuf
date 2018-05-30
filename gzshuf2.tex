@@ -3787,6 +3787,26 @@ $\operatorname*{maj}\pi$ is the sum of all descents of $\pi$). It was proven
 in \cite[Theorem 3.1 \textbf{(a)}]{part1} that this statistic
 $\operatorname*{maj}$ is shuffle-compatible.
 
+\begin{vershort}
+However, $\operatorname*{maj}$ is neither head-graft-compatible nor
+LR-shuffle-compatible. For example, if we take $\pi=\left(  5,4,2,3\right)  $,
+$a=1$, $\pi^{\prime}=\left(  3,4,5,2\right)  $ and $a^{\prime}=1$, then we do
+have%
+\[
+\operatorname*{maj}\left(  \pi\right)  =\operatorname*{maj}\left(  \pi
+^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \left\vert \pi\right\vert =\left\vert
+\pi^{\prime}\right\vert \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \left[  a>\pi_{1}\right]  =\left[  a^{\prime}>\pi
+_{1}^{\prime}\right]
+\]
+but we don't have $\operatorname*{maj}\left(  a:\pi\right)
+=\operatorname*{maj}\left(  a^{\prime}:\pi^{\prime}\right)  $. Thus,
+$\operatorname*{maj}$ is not head-graft-compatible. Using Corollary
+\ref{cor.LRcomp.back} below, this entails that
+$\operatorname*{maj}$ is not LR-shuffle-compatible.
+\end{vershort}
+
+\begin{verlong}
 However, $\operatorname*{maj}$ is neither head-graft-compatible nor
 LR-shuffle-compatible. For example, if we take $\pi=\left(  5,4,2,3\right)  $,
 $a=1$, $\pi^{\prime}=\left(  3,4,5,2\right)  $ and $a^{\prime}=1$, then we do
@@ -3802,6 +3822,7 @@ but we don't have $\operatorname*{maj}\left(  a:\pi\right)
 =\operatorname*{maj}\left(  a^{\prime}:\pi^{\prime}\right)  $. Thus,
 $\operatorname*{maj}$ is not head-graft-compatible. Using Proposition
 \ref{prop.LRcomp.head} below, this entails that $\operatorname*{maj}$ is not LR-shuffle-compatible.
+\end{verlong}
 
 \subsubsection{The joint statistic $\left(  \operatorname*{des}%
 ,\operatorname*{maj}\right)  $}

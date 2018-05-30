@@ -128,6 +128,7 @@
 \newcommand{\Nplus}{\mathbb{N}_{+}}
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\xx}{\mathbf{x}}
 \newcommand{\tvi}{\left. \textarm{\tvimadur} \right.}
 \newcommand{\bel}{\left. \textarm{\belgthor} \right.}
 \newcommand{\are}{\ar@{-}}
@@ -9087,6 +9088,23 @@ notations of \cite[Section 5.2]{HopfComb}; in particular,
 \textquotedblleft labelled poset\textquotedblright\ will be defined as in
 \cite[Definition 5.2.1]{HopfComb}.
 
+If $R$ is a labelled poset, and if $w$ is a linear extension of $R$,
+then $w$ can be regarded as a labelled poset itself, but also as a
+permutation (since $w$ is a list of distinct elements of $R$, and thus
+a word over the alphabet $\mathbb{P}$ with no two equal letters).
+The first interpretation (as a labelled poset)
+gives rise to a quasisymmetric function
+$F_w\left(\xx\right)$ (defined as in \cite[Definition 5.2.1]{HopfComb}).
+The second interpretation (as a permutation) leads to a composition
+$\operatorname{Comp} w$. These two objects are connected by the equality
+\begin{align}
+F_w \left( \xx \right) = F_{\operatorname{Comp} w} .
+\label{pf.cor.dendri.4.1.Fw}
+\end{align}
+(This follows from \cite[Proposition 5.2.10]{HopfComb}; but keep in mind that
+\cite[Proposition 5.2.10]{HopfComb} denotes $F_{\operatorname*{Comp}\pi}$
+by $L_{\alpha}$ in this context.)
+
 Let $P$ be the labelled poset whose elements are $\pi_{1},\pi_{2},\ldots
 ,\pi_{n}$ and whose order is the total order given by $\pi_{1}<\pi_{2}%
 <\cdots<\pi_{n}$. Thus, $P$ is totally ordered, and its minimum element is
@@ -9158,7 +9176,7 @@ _{=F_{Q}\left(  \mathbf{x}\right)  }\\
 (\ref{pf.cor.dendri.4.1.FR})}\right)  \\
 & =\sum_{w\in S_{\prec}\left(  \pi,\sigma\right)  }\underbrace{F_{w}\left(
 \mathbf{x}\right)  }_{\substack{=F_{\operatorname*{Comp}w}\\\text{(by
-\cite[Proposition 5.2.10]{HopfComb})}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+\eqref{pf.cor.dendri.4.1.Fw})}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
 (\ref{pf.cor.dendri.4.1.L1})}\right)  \\
 & =\sum_{w\in S_{\prec}\left(  \pi,\sigma\right)  }F_{\operatorname*{Comp}%
 w}=\sum_{\chi\in S_{\prec}\left(  \pi,\sigma\right)  }F_{\operatorname*{Comp}%

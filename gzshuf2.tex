@@ -306,6 +306,9 @@ defined on standard permutations, i.e., on permutations in the usual sense of
 the word.
 \end{remark}
 
+The word \textquotedblleft permutation statistic\textquotedblright\ is often
+abbreviated as \textquotedblleft statistic\textquotedblright.
+
 \subsection{Some examples of permutation statistics}
 
 \begin{definition}
@@ -629,6 +632,38 @@ depends only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
 \left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
 \sigma\right\vert $.
 \end{definition}
+
+In other words, a permutation statistic $\operatorname*{st}$ is
+shuffle-compatible if and only if it has the following property:
+
+\begin{itemize}
+\item If $\pi$ and $\sigma$ are two disjoint permutations, and if $\pi
+^{\prime}$ and $\sigma^{\prime}$ are two disjoint permutations, and if these
+permutations satisfy%
+\begin{align*}
+\operatorname*{st}\left(  \pi\right)   &  =\operatorname*{st}\left(
+\pi^{\prime}\right)  ,\ \ \ \ \ \ \ \ \ \ \operatorname*{st}\left(
+\sigma\right)  =\operatorname*{st}\left(  \sigma^{\prime}\right)  ,\\
+\left\vert \pi\right\vert  &  =\left\vert \pi^{\prime}\right\vert
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left\vert \sigma\right\vert
+=\left\vert \sigma^{\prime}\right\vert ,
+\end{align*}
+then
+\[
+\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi,\sigma\right)  \right\}  _{\operatorname*{multi}}=\left\{
+\operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi^{\prime
+},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}.
+\]
+
+\end{itemize}
+
+The notion of a shuffle-compatible permutation statistic was coined by Gessel
+and Zhuang in \cite{part1}, where various statistics were analyzed for their
+shuffle-compatibility. In particular, it was shown in \cite{part1} that the
+statistics $\operatorname*{Des}$, $\operatorname*{Pk}$, $\operatorname*{Lpk}$
+and $\operatorname*{Rpk}$ are shuffle-compatible. Our next goal is to prove
+the same for the statistic $\operatorname*{Epk}$.
 
 \section{\label{sect.Zenri}Extending enriched $P$-partitions and the exterior
 peak set}

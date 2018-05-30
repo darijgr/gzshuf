@@ -9058,10 +9058,9 @@ disjoint union). This proves Lemma \ref{lem.dendri.4.1.lem2} \textbf{(a)}.
 to Lemma \ref{lem.dendri.4.1.lem2} \textbf{(a)}.
 \end{proof}
 
-We leave the details to the reader.
-
-We can rewrite Theorem \ref{thm.dendri.4.1} as follows:\footnote{Recall that
-for any permutation $\varphi$, we have let $\operatorname*{Comp}\varphi$
+We can now prove Theorem \ref{thm.dendri.4.1}.
+First, let us rewrite Theorem \ref{thm.dendri.4.1} as follows:\footnote{Recall
+that for any permutation $\varphi$, we have let $\operatorname*{Comp}\varphi$
 denote the descent composition of $\varphi$.}
 
 \begin{corollary}
@@ -9080,6 +9079,105 @@ F_{\operatorname*{Comp}\chi}.
 \]
 
 \end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.dendri.4.1} (sketched).] Let $n=\left\vert
+\pi\right\vert $ and $m=\left\vert \sigma\right\vert $. We shall use the
+notations of \cite[Section 5.2]{HopfComb}; in particular,
+\textquotedblleft labelled poset\textquotedblright\ will be defined as in
+\cite[Definition 5.2.1]{HopfComb}.
+
+Let $P$ be the labelled poset whose elements are $\pi_{1},\pi_{2},\ldots
+,\pi_{n}$ and whose order is the total order given by $\pi_{1}<\pi_{2}%
+<\cdots<\pi_{n}$. Thus, $P$ is totally ordered, and its minimum element is
+$\min P=\pi_{1}$. Also, \cite[Proposition 5.2.10]{HopfComb} yields
+$F_{P}\left(  \mathbf{x}\right)  =F_{\operatorname*{Comp}\pi}$. (Keep in mind
+that \cite[Proposition 5.2.10]{HopfComb} denotes $F_{\operatorname*{Comp}\pi}$
+by $L_{\alpha}$ in this context.)
+
+Let $Q$ be the labelled poset whose elements are $\sigma_{1},\sigma_{2}%
+,\ldots,\sigma_{m}$ and whose order is the total order given by $\sigma
+_{1}<\sigma_{2}<\cdots<\sigma_{m}$. Thus, $Q$ is totally ordered, and its
+minimum element is $\min Q=\sigma_{1}$. Also, \cite[Proposition 5.2.10]%
+{HopfComb} yields $F_{Q}\left(  \mathbf{x}\right)  =F_{\operatorname*{Comp}%
+\sigma}$.
+
+The posets $P$ and $Q$ are disjoint (since the permutations $\pi$ and $\sigma$
+are disjoint). Define three labelled posets $P\sqcup Q$, $P\left.
+\prec\right.  Q$ and $P\left.  \succ\right.  Q$ as in Proposition
+\ref{prop.dendri.4.1.lem}.
+
+Lemma \ref{lem.dendri.4.1.lem2} \textbf{(a)} yields $\mathcal{L}\left(
+P\left.  \prec\right.  Q\right)  =\bigsqcup_{\pi^{\prime}\in\mathcal{L}\left(
+P\right)  ;\ \sigma^{\prime}\in\mathcal{L}\left(  Q\right)  }S_{\prec}\left(
+\pi^{\prime},\sigma^{\prime}\right)  $ (where we are using the letters
+$\pi^{\prime}$ and $\sigma^{\prime}$ for our subscripts, since the letters
+$\pi$ and $\sigma$ are already taken). But $P$ is totally ordered; thus, there
+exists only one linear extension $\pi^{\prime}\in\mathcal{L}\left(  P\right)
+$, namely, $\pi^{\prime}=\pi$. In other words, $\mathcal{L}\left(  P\right)
+=\left\{  \pi\right\}  $. Similarly, $\mathcal{L}\left(  Q\right)  =\left\{
+\sigma\right\}  $. Hence,%
+\begin{align}
+\mathcal{L}\left(  P\left.  \prec\right.  Q\right)    & =\bigsqcup
+_{\pi^{\prime}\in\mathcal{L}\left(  P\right)  ;\ \sigma^{\prime}\in
+\mathcal{L}\left(  Q\right)  }S_{\prec}\left(  \pi^{\prime},\sigma^{\prime
+}\right) \nonumber\\
+&  =\bigsqcup_{\pi^{\prime}\in\left\{  \pi\right\}  ;\ \sigma^{\prime
+}\in\left\{  \sigma\right\}  }S_{\prec}\left(  \pi^{\prime},\sigma^{\prime
+}\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since }\mathcal{L}\left(  P\right)  =\left\{  \pi\right\}  \\
+\text{and }\mathcal{L}\left(  Q\right)  =\left\{  \sigma\right\}
+\end{array}
+\right)  \nonumber\\
+& =S_{\prec}\left(  \pi,\sigma\right)  .\label{pf.cor.dendri.4.1.L1}%
+\end{align}
+
+
+Recall that every labelled poset $R$ satisfies%
+\begin{equation}
+F_{R}\left(  \mathbf{x}\right)  =\sum_{w\in\mathcal{L}\left(  R\right)  }%
+F_{w}\left(  \mathbf{x}\right)  \label{pf.cor.dendri.4.1.FR}%
+\end{equation}
+(by \cite[Theorem 5.2.11]{HopfComb}).
+
+Now, $\pi_{1}>\sigma_{1}$ in $\mathbb{Z}$. In other words, $\pi_{1}%
+>_{\mathbb{Z}}\sigma_{1}$. In other words, $\min P>_{\mathbb{Z}}\min Q$ (since
+$\min P=\pi_{1}$ and $\min Q=\sigma_{1}$). Thus,
+\begin{align*}
+& \underbrace{F_{\operatorname*{Comp}\pi}}_{=F_{P}\left(  \mathbf{x}\right)
+}\left.  \prec\right.  \underbrace{F_{\operatorname*{Comp}\sigma}}%
+_{=F_{Q}\left(  \mathbf{x}\right)  }\\
+& =F_{P}\left(  \mathbf{x}\right)  \left.  \prec\right.  F_{Q}\left(
+\mathbf{x}\right)  =F_{P\left.  \prec\right.  Q}\left(  \mathbf{x}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.dendri.4.1.lem}
+\textbf{(a)}}\right)  \\
+& =\sum_{w\in\mathcal{L}\left(  P\left.  \prec\right.  Q\right)  }F_{w}\left(
+\mathbf{x}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.cor.dendri.4.1.FR})}\right)  \\
+& =\sum_{w\in S_{\prec}\left(  \pi,\sigma\right)  }\underbrace{F_{w}\left(
+\mathbf{x}\right)  }_{\substack{=F_{\operatorname*{Comp}w}\\\text{(by
+\cite[Proposition 5.2.10]{HopfComb})}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.cor.dendri.4.1.L1})}\right)  \\
+& =\sum_{w\in S_{\prec}\left(  \pi,\sigma\right)  }F_{\operatorname*{Comp}%
+w}=\sum_{\chi\in S_{\prec}\left(  \pi,\sigma\right)  }F_{\operatorname*{Comp}%
+\chi}.
+\end{align*}
+A similar argument (using Proposition \ref{prop.dendri.4.1.lem} \textbf{(b)}
+and Lemma \ref{lem.dendri.4.1.lem2} \textbf{(b)} instead of Proposition
+\ref{prop.dendri.4.1.lem} \textbf{(a)} and Lemma \ref{lem.dendri.4.1.lem2}
+\textbf{(a)}) shows that%
+\[
+F_{\operatorname*{Comp}\pi}\left.  \succeq\right.  F_{\operatorname*{Comp}%
+\sigma}=\sum_{\chi\in S_{\succ}\left(  \pi,\sigma\right)  }%
+F_{\operatorname*{Comp}\chi}.
+\]
+Thus, Corollary \ref{cor.dendri.4.1} is proven.
+\end{proof}
+
+Hence, Theorem \ref{thm.dendri.4.1} is proven as well (since Corollary
+\ref{cor.dendri.4.1} was just a restatement of Theorem \ref{thm.dendri.4.1}).
 
 Now, let us define two further variants of LR-shuffle-compatibility (to be
 compared with those introduced in Definition \ref{def.LR.left-right}):

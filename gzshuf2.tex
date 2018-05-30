@@ -672,9 +672,10 @@ peak set}
 
 We are going to define \textit{$\mathcal{Z}$-enriched }$P$\textit{-partitions}%
 , which are a straightforward generalization of the notions of
-\textquotedblleft$P$-partitions\textquotedblright, \textquotedblleft enriched
-$P$-partitions\textquotedblright\ and \textquotedblleft left enriched
-$P$-partitions\textquotedblright. We will then consider a new particular case
+\textquotedblleft$P$-partitions\textquotedblright\ \cite{Stanle72},
+\textquotedblleft enriched $P$-partitions\textquotedblright\ \cite[\S 2]{Stembr97}
+and \textquotedblleft left enriched $P$-partitions\textquotedblright
+\ \cite{Peters05}. We will then consider a new particular case
 of this notion, which leads to a proof of the shuffle-compatibility of
 $\operatorname*{Epk}$ conjectured in \cite{part1}.
 
@@ -714,15 +715,16 @@ relation $\prec$ is defined by%
 only if either }n\prec n^{\prime}\text{ or }\left(  n=n^{\prime}\text{ and
 }s=-\text{ and }s^{\prime}=+\right)  .
 \]
-Let $\operatorname*{Pow}\mathcal{N}$ be the ring of all power series over
-$\mathbb{Q}$ in the indeterminates $x_{n}$ for $n\in\mathcal{N}$.
+Let $\operatorname*{Pow}\mathcal{N}$ be the ring of all formal power series
+over $\mathbb{Q}$ in the indeterminates $x_{n}$ for $n\in\mathcal{N}$.
 
 We fix $\mathcal{N}$ and $\mathcal{Z}$ throughout Subsection
 \ref{subsect.Zenri.gen}. That is, any result in this subsection is tacitly
 understood to begin with \textquotedblleft Let $\mathcal{N}$ be a totally
 ordered set, whose (strict) order relation will be denoted by $\prec$, and let
 $\mathcal{Z}$ be a subset of the set $\mathcal{N}\times\left\{  +,-\right\}
-$\textquotedblright.
+$\textquotedblright; and the notations of this convention shall always be
+in place throughout this Subsection.
 
 Whenever $\prec$ denotes some strict order, the corresponding weak order will
 be denoted by $\preccurlyeq$. (Thus, $a \preccurlyeq b$ means ``$a \prec b$ or
@@ -769,10 +771,14 @@ c \are[dr] & & d \are[dl] \\
 }%
 %EndExpansion
 \]
-and let $\gamma:P\rightarrow\mathbb{Z}$ be a labeling that satisfies
+(that is, the ground set of $P$ is $\left\{ a, b, c, d \right\}$, and
+its order relation is given by $a < c < b$ and $a < d < b$).
+Let $\gamma:P\rightarrow\mathbb{Z}$ be a set that satisfies
 $\gamma\left(  a\right)  <\gamma\left(  b\right)  <\gamma\left(  c\right)
 <\gamma\left(  d\right)  $ (for example, $\gamma$ could be the map that sends
-$a,b,c,d$ to $2,3,5,7$, respectively). Then, a $\mathcal{Z}$-enriched $\left(
+$a,b,c,d$ to $2,3,5,7$, respectively).
+Then, $\left(P, \gamma\right)$ is a labeled poset.
+A $\mathcal{Z}$-enriched $\left(
 P,\gamma\right)  $-partition is a map $f:P\rightarrow\mathcal{Z}$ satisfying
 the following conditions:
 
@@ -782,11 +788,13 @@ c\right)  \preccurlyeq f\left(  b\right)  $ and $f\left(  a\right)
 \preccurlyeq f\left(  d\right)  \preccurlyeq f\left(  b\right)  $.
 
 \item[\textbf{(ii)}] We cannot have $f\left(  c\right)  =f\left(  b\right)
-=+n$ with $n\in\mathcal{N}$. Also, we cannot have $f\left(  d\right)
+=+n$ with $n\in\mathcal{N}$. \newline
+We cannot have $f\left(  d\right)
 =f\left(  b\right)  =+n$ with $n\in\mathcal{N}$.
 
 \item[\textbf{(iii)}] We cannot have $f\left(  a\right)  =f\left(  c\right)
-=-n$ with $n\in\mathcal{N}$. Also, we cannot have $f\left(  a\right)
+=-n$ with $n\in\mathcal{N}$. \newline
+We cannot have $f\left(  a\right)
 =f\left(  d\right)  =-n$ with $n\in\mathcal{N}$.
 \end{enumerate}
 
@@ -811,7 +819,7 @@ P,\gamma\right)  $-partition\textquotedblright, and that of a
 -partition\textquotedblright\footnote{The ideas behind these three concepts
 are due to Stanley \cite{Stanle72}, Stembridge \cite[\S 2]{Stembr97} and
 Petersen \cite{Peters05}, respectively, but the precise definitions are not
-standardized through the literature. We define a \textquotedblleft$\left(
+standardized across the literature. We define a \textquotedblleft$\left(
 P,\gamma\right)  $-partition\textquotedblright\ as in \cite[\S 1.1]{Stembr97};
 this definition differs noticeably from Stanley's (in particular, Stanley
 requires $f\left(  x\right)  \succcurlyeq f\left(  y\right)  $ instead of
@@ -822,8 +830,11 @@ we define a \textquotedblleft left enriched $\left(  P,\gamma\right)
 $-partition\textquotedblright\ to be a $\mathcal{Z}$-enriched $\left(
 P,\gamma\right)  $-partition where $\mathcal{N}=\mathbb{N}$ and $\mathcal{Z}%
 =\left(  \mathcal{N}\times\left\{  +,-\right\}  \right)  \setminus\left\{
--0\right\}  $; it does not literally appear in \cite[Definition 4.1]{Peters05}
-in this form.}:
+-0\right\}  $; this definition is equivalent to an appropriately corrected
+version of \cite[Definition 4.1]{Peters05} (note, however, that
+\cite{Peters05} assumes that the ground set of $P$ is already a subset
+of $\mathbb{P}$, and that the labelling $\gamma$ is the
+canonical inclusion map $ P \to \mathbb{P}$).}:
 
 \begin{example}
 \label{exa.ambivPp.abc}\textbf{(a)} If $\mathcal{N}=\mathbb{P}$ (the totally
@@ -845,7 +856,7 @@ nonnegative integers) and $\mathcal{Z}=\left(  \mathcal{N}\times\left\{
 $-enriched $\left(  P,\gamma\right)  $-partitions are the left enriched
 $\left(  P,\gamma\right)  $-partitions. Note that $+0$ and $-0$ here stand for
 the pairs $\left(  0,+\right)  $ and $\left(  0,-\right)  $; thus, they are
-not the same thing.
+not equal.
 \end{example}
 
 \begin{definition}
@@ -880,7 +891,7 @@ P\right)  }\mathcal{E}\left(  w,\gamma\right)  .
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.fund-lem}.]Imitate, e.g., the proof of
+[Proof of Proposition \ref{prop.fund-lem}.]This is analogous to the proof of
 \cite[Lemma 2.1]{Stembr97}.
 \end{proof}
 
@@ -7908,9 +7919,9 @@ Let $\left(  P,\gamma\right)  $, $\left(  Q,\delta\right)  $ and $\left(
 P\sqcup Q,\varepsilon\right)  $ be as in Proposition \ref{prop.prod1}. Assume
 that each of the posets $P$ and $Q$ has a (global) minimum element; denote these
 elements by $\min P$ and $\min Q$, respectively.
-Let $P \left. \prec \right. Q$ be the labelled poset obtained by adding
+Let $P \left. \prec \right. Q$ be the poset obtained by adding
 the relation $\min P<\min Q$ to $P\sqcup Q$.
-Let $P \left. \succ \right. Q$ be the labelled poset obtained by adding
+Let $P \left. \succ \right. Q$ be the poset obtained by adding
 the relation $\min P>\min Q$ to $P\sqcup Q$.
 Then, we hope to have%
 \begin{align*}

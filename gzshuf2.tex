@@ -8233,467 +8233,7 @@ Theorem \ref{thm.beldend.Del'}.
 \end{proof}
 \end{noncompile}
 
-\subsection{Ideals}
-
-\begin{definition}
-Let $A$ be a $\mathbf{k}$-module equipped with some binary operation $\ast$
-(written infix).
-
-\textbf{(a)} If $B$ and $C$ are two $\mathbf{k}$-submodules of $A$, then
-$B\ast C$ shall mean the $\mathbf{k}$-submodule of $A$ spanned by all elements
-of the form $b\ast c$ with $b\in B$ and $c\in C$.
-
-\textbf{(b)} A $\mathbf{k}$-submodule $M$ of $A$ is said to be a \textit{left
-}$\ast$\textit{-ideal} if and only if it satisfies $A\ast M\subseteq M$.
-
-\textbf{(c)} A $\mathbf{k}$-submodule $M$ of $A$ is said to be a \textit{right
-}$\ast$\textit{-ideal} if and only if it satisfies $M\ast A\subseteq M$.
-
-\textbf{(d)} A $\mathbf{k}$-submodule $M$ of $A$ is said to be a\textit{
-}$\ast$\textit{-ideal} if and only if it is both a left $\ast$-ideal and a
-right $\ast$-ideal.
-\end{definition}
-
-\begin{theorem}
-\label{thm.ideal-crit2}Let $M$ be an ideal of $\operatorname*{QSym}$. Let
-$A=\operatorname*{QSym}$.
-
-\textbf{(a)} If $A\bel  M\subseteq M$, then $M\left.  \prec\right.  A\subseteq
-M$.
-
-\textbf{(b)} If $A\tvi  M\subseteq M$, then $A\left.  \succeq\right.
-M\subseteq M$.
-
-\textbf{(c)} If $A\tvi  M\subseteq M$ and $A\bel  M\subseteq M$, then $M$ is a
-$\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
-$\operatorname*{QSym}$.
-\end{theorem}
-
-\begin{proof}
-[Proof of Theorem \ref{thm.ideal-crit2}.]\textbf{(a)} Assume that
-$A\bel  M\subseteq M$. If $a\in M$ and $b\in A$, then%
-\begin{align*}
-a\left.  \prec\right.  b  &  =\sum_{\left(  b\right)  }\left(
-\underbrace{S\left(  b_{\left(  1\right)  }\right)  }_{\in A}%
-\bel \underbrace{a}_{\in M}\right)  \underbrace{b_{\left(  2\right)  }}_{\in
-A}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.beldend}}\right) \\
-&  \in\underbrace{\left(  A\bel M\right)  }_{\subseteq M}A\subseteq
-MA\subseteq M\ \ \ \ \ \ \ \ \ \ \left(  \text{since }M\text{ is an ideal of
-}A\right)  .
-\end{align*}
-Thus, $M\left.  \prec\right.  A\subseteq M$. This proves Theorem
-\ref{thm.ideal-crit2} \textbf{(a)}.
-
-\textbf{(b)} Assume that $A\tvi  M\subseteq M$. If $a\in M$ and $b\in A$, then%
-\begin{align*}
-b\left.  \succeq\right.  a  &  =\sum_{\left(  b\right)  }\left(
-\underbrace{S\left(  b_{\left(  1\right)  }\right)  }_{\in A}%
-\tvi \underbrace{a}_{\in M}\right)  \underbrace{b_{\left(  2\right)  }}_{\in
-A}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.tvidend'}}\right) \\
-&  \in\underbrace{\left(  A\tvi M\right)  }_{\subseteq M}A\subseteq
-MA\subseteq M\ \ \ \ \ \ \ \ \ \ \left(  \text{since }M\text{ is an ideal of
-}A\right)  .
-\end{align*}
-Thus, $A\left.  \succeq\right.  M\subseteq M$. This proves Theorem
-\ref{thm.ideal-crit2} \textbf{(b)}.
-
-\textbf{(c)} Assume that $A\tvi  M\subseteq M$ and $A\bel  M\subseteq M$.
-Then, Theorem \ref{thm.ideal-crit2} \textbf{(b)} yields $A\left.
-\succeq\right.  M\subseteq M$. Thus, $M$ is a left $\left.  \succeq\right.  $-ideal.
-
-Now, any $b\in M$ and $a\in A$ satisfy%
-\begin{align*}
-a\left.  \prec\right.  b  &  =\underbrace{a}_{\in A}\underbrace{b}_{\in
-M}-\underbrace{a}_{\in A}\left.  \succeq\right.  \underbrace{b}_{\in
-M}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.dendriform.1})}\right) \\
-&  \in\underbrace{AM}_{\substack{\subseteq M\\\text{(since }M\text{ is an
-ideal of }A\text{)}}}-\underbrace{A\left.  \succeq\right.  M}_{\subseteq
-M}\subseteq M-M\subseteq M.
-\end{align*}
-In other words, $A\left.  \prec\right.  M\subseteq M$. In other words, $M$ is
-a left $\left.  \prec\right.  $-ideal.
-
-But Theorem \ref{thm.ideal-crit2} \textbf{(a)} yields $M\left.  \prec\right.
-A\subseteq M$. In other words, $M$ is a right $\left.  \prec\right.  $-ideal.
-
-Any $a\in M$ and $b\in A$ satisfy%
-\begin{align*}
-a\left.  \succeq\right.  b  &  =\underbrace{a}_{\in M}\underbrace{b}_{\in
-A}-\underbrace{a}_{\in M}\left.  \prec\right.  \underbrace{b}_{\in
-A}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.dendriform.1})}\right) \\
-&  \in\underbrace{MA}_{\substack{\subseteq M\\\text{(since }M\text{ is an
-ideal of }A\text{)}}}-\underbrace{M\left.  \prec\right.  A}_{\subseteq
-M}\subseteq M-M\subseteq M.
-\end{align*}
-In other words, $M\left.  \succeq\right.  A\subseteq M$. In other words, $M$
-is a right $\left.  \succeq\right.  $-ideal.
-
-Hence, $M$ is a $\left.  \prec\right.  $-ideal (since $M$ is a left $\left.
-\prec\right.  $-ideal and a right $\left.  \prec\right.  $-ideal) and a
-$\left.  \succeq\right.  $-ideal (since $M$ is a left $\left.  \succeq\right.
-$-ideal and a right $\left.  \succeq\right.  $-ideal). This proves Theorem
-\ref{thm.ideal-crit2} \textbf{(c)}.
-\end{proof}
-
-Another simple fact is the following:
-
-\begin{proposition}
-\label{prop.ideal-crit3}Let $M$ be simultaneously a $\left.  \prec\right.
-$-ideal and a $\left.  \succeq\right.  $-ideal of $\operatorname*{QSym}$.
-Then, $M$ is an ideal of $\operatorname*{QSym}$.
-\end{proposition}
-
-\begin{proof}
-[Proof of Proposition \ref{prop.ideal-crit3}.]Any $a\in M$ and $b\in
-\operatorname*{QSym}$ satisfy%
-\begin{align*}
-ab  &  =\underbrace{a}_{\in M}\left.  \prec\right.  \underbrace{b}%
-_{\in\operatorname*{QSym}}+\underbrace{a}_{\in M}\left.  \succeq\right.
-\underbrace{b}_{\in\operatorname*{QSym}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
-(\ref{eq.dendriform.1})}\right) \\
-&  \in\underbrace{M\left.  \prec\right.  \operatorname*{QSym}}%
-_{\substack{\subseteq M\\\text{(since }M\text{ is a }\left.  \prec\right.
-\text{-ideal of }\operatorname*{QSym}\text{)}}}+\underbrace{M\left.
-\succeq\right.  \operatorname*{QSym}}_{\substack{\subseteq M\\\text{(since
-}M\text{ is a }\left.  \succeq\right.  \text{-ideal of }\operatorname*{QSym}%
-\text{)}}}\subseteq M+M\subseteq M.
-\end{align*}
-In other words, $M$ is an ideal of $\operatorname*{QSym}$. This proves
-Proposition \ref{prop.ideal-crit3}.
-\end{proof}
-
-\begin{question}
-Proposition \ref{prop.ideal-crit3} says that if a $\mathbb{Q}$-vector subspace
-$M$ of $\operatorname*{QSym}$ is simultaneously a $\left.  \prec\right.
-$-ideal and an $\left.  \succeq\right.  $-ideal, then it is also an ideal.
-Similarly, if $M$ is an ideal and a $\left.  \prec\right.  $-ideal, then it is
-a $\left.  \succeq\right.  $-ideal. Can we state any other such criteria?
-\end{question}
-
-\subsection{Application to $\mathcal{K}_{\operatorname*{Epk}}$}
-
-We now claim the following:
-
-\begin{theorem}
-\label{thm.Epk.dend}The ideal $\mathcal{K}_{\operatorname*{Epk}}$ of
-$\operatorname*{QSym}$ is a $\tvi  $-ideal, a $\bel  $-ideal, a $\left.
-\prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
-$\operatorname*{QSym}$.
-\end{theorem}
-
-\begin{proof}
-[Proof of Theorem \ref{thm.Epk.dend}.]Let $A=\operatorname*{QSym}$. Corollary
-\ref{cor.Epk.ideal} shows that $\mathcal{K}_{\operatorname*{Epk}}$ is an ideal
-of $\operatorname*{QSym}$.
-
-Let us recall the binary relation $\rightarrow$ on the set of compositions
-defined in Proposition \ref{prop.K.Epk.F}.
-
-\begin{statement}
-\textit{Claim 1:} Let $J$ and $K$ be two compositions satisfying $J\rightarrow
-K$. Let $G$ be a further composition. Then, $\left[  G,J\right]
-\rightarrow\left[  G,K\right]  $.
-\end{statement}
-
-[\textit{Proof of Claim 1:} Write the composition $J$ in the form $J=\left(
-j_{1},j_{2},\ldots,j_{m}\right)  $. Write the composition $G$ in the form
-$G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $.
-
-We have $J\rightarrow K$. In other words, there exists an $\ell\in\left\{
-2,3,\ldots,m\right\}  $ such that $j_{\ell}>2$ and $K=\left(  j_{1}%
-,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
-,j_{m}\right)  $ (by the definition of the relation $\rightarrow$). Consider
-this $\ell$. Clearly, $\ell>1$ (since $\ell\in\left\{  2,3,\ldots,m\right\}
-$), so that $p+\ell>\underbrace{p}_{\geq0}+1\geq1$.
-
-From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $J=\left(  j_{1}%
-,j_{2},\ldots,j_{m}\right)  $, we obtain%
-\begin{equation}
-\left[  G,J\right]  =\left(  g_{1},g_{2},\ldots,g_{p},j_{1},j_{2},\ldots
-,j_{m}\right)  . \label{pf.thm.Epk.dend.c1.pf.GJ=}%
-\end{equation}
-From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $K=\left(  j_{1}%
-,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
-,j_{m}\right)  $, we obtain%
-\begin{equation}
-\left[  G,K\right]  =\left(  g_{1},g_{2},\ldots,g_{p},j_{1},j_{2}%
-,\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots,j_{m}\right)  .
-\label{pf.thm.Epk.dend.c1.pf.GK=}%
-\end{equation}
-From looking at (\ref{pf.thm.Epk.dend.c1.pf.GJ=}) and
-(\ref{pf.thm.Epk.dend.c1.pf.GK=}), we conclude immediately that the
-composition $\left[  G,K\right]  $ is obtained from $\left[  G,J\right]  $ by
-\textquotedblleft splitting\textquotedblright\ the entry $j_{\ell}>2$ into two
-consecutive entries $1$ and $j_{\ell}-1$, and that this entry $j_{\ell}$ was
-not the first entry (indeed, this entry is the $\left(  p+\ell\right)  $-th
-entry, but $p+\ell>1$). Hence, $\left[  G,J\right]  \rightarrow\left[
-G,K\right]  $ (by the definition of the relation $\rightarrow$). This proves
-Claim 1.]
-
-\begin{statement}
-\textit{Claim 2:} We have $A\tvi  \mathcal{K}_{\operatorname*{Epk}}%
-\subseteq\mathcal{K}_{\operatorname*{Epk}}$.
-\end{statement}
-
-[\textit{Proof of Claim 2:} We must show that $a\tvi  m\in\mathcal{K}%
-_{\operatorname*{Epk}}$ for every $a\in A$ and $m\in\mathcal{K}%
-_{\operatorname*{Epk}}$. So let us fix $a\in A$ and $m\in\mathcal{K}%
-_{\operatorname*{Epk}}$.
-
-Proposition \ref{prop.K.Epk.F} shows that the $\mathbb{Q}$-vector space
-$\mathcal{K}_{\operatorname*{Epk}}$ is spanned by all differences of the form
-$F_{J}-F_{K}$, where $J$ and $K$ are two compositions satisfying $J\rightarrow
-K$. Hence, we can WLOG assume that $m$ is such a difference (because the
-relation $a\tvi  m\in\mathcal{K}_{\operatorname*{Epk}}$, which we must prove,
-is $\mathbb{Q}$-linear in $m$). Assume this. Thus, $m=F_{J}-F_{K}$ for some
-two compositions $J$ and $K$ satisfying $J\rightarrow K$. Consider these $J$
-and $K$.
-
-From $J\rightarrow K$, we easily conclude that the composition $J$ is
-nonempty. Thus, $\left\vert J\right\vert \neq0$. But from $J\rightarrow K$, we
-also obtain $\left\vert J\right\vert =\left\vert K\right\vert $. Hence,
-$\left\vert K\right\vert =\left\vert J\right\vert \neq0$. Thus, the
-composition $K$ is nonempty.
-
-Recall that the family $\left(  F_{L}\right)  _{L\text{ is a composition}}$ is
-a basis of the $\mathbb{Q}$-vector space $\operatorname*{QSym}=A$. Hence, we
-can WLOG assume that $a$ belongs to this family (since the relation
-$a\tvi  m\in\mathcal{K}_{\operatorname*{Epk}}$, which we must prove, is
-$\mathbb{Q}$-linear in $a$). Assume this. Thus, $a=F_{G}$ for some composition
-$G$. Consider this $G$.
-
-If $G$ is the empty composition, then $a=F_{G}=1$, and therefore
-$\underbrace{a}_{=1}\tvi  m=1\tvi  m=m\in\mathcal{K}_{\operatorname*{Epk}}$
-holds. Thus, for the rest of this proof, we WLOG assume that $G$ is not the
-empty composition. Thus, $G$ is nonempty.
-
-Recall that for any two compositions $\alpha$ and $\beta$, we have $F_{\alpha
-}\tvi  F_{\beta}=F_{\left[  \alpha,\beta\right]  }$. Applying this to
-$\alpha=G$ and $\beta=J$, we obtain $F_{G}\tvi  F_{J}=F_{\left[  G,J\right]
-}$. Similarly, $F_{G}\tvi  F_{K}=F_{\left[  G,K\right]  }$.
-
-But Claim 1 yields $\left[  G,J\right]  \rightarrow\left[  G,K\right]  $.
-Hence, the difference $F_{\left[  G,J\right]  }-F_{\left[  G,K\right]  }$ is
-one of the differences which span the ideal $\mathcal{K}_{\operatorname*{Epk}%
-}$ according to Proposition \ref{prop.K.Epk.F}. Thus, in particular, this
-difference lies in $\mathcal{K}_{\operatorname*{Epk}}$. In other words,
-$F_{\left[  G,J\right]  }-F_{\left[  G,K\right]  }\in\mathcal{K}%
-_{\operatorname*{Epk}}$.
-
-Now,%
-\begin{align*}
-\underbrace{a}_{=F_{G}}\tvi \underbrace{m}_{=F_{J}-F_{K}}  &  =F_{G}%
-\tvi \left(  F_{J}-F_{K}\right)  =\underbrace{F_{G}\tvi F_{J}}_{=F_{\left[
-G,J\right]  }}-\underbrace{F_{G}\tvi F_{K}}_{=F_{\left[  G,K\right]  }}\\
-&  =F_{\left[  G,J\right]  }-F_{\left[  G,K\right]  }\in\mathcal{K}%
-_{\operatorname*{Epk}}.
-\end{align*}
-This proves Claim 2.]
-
-\begin{statement}
-\textit{Claim 3:} Let $J$ and $K$ be two compositions satisfying $J\rightarrow
-K$. Let $G$ be a further composition. Then, $\left[  J,G\right]
-\rightarrow\left[  K,G\right]  $.
-\end{statement}
-
-[\textit{Proof of Claim 3:} This is proven in the same way as we proved Claim
-1, with the only difference that $j_{\ell}$ is now the $\ell$-th entry of
-$\left[  J,G\right]  $ and not the $\left(  p+\ell\right)  $-th entry (but
-this is still sufficient, since $\ell>1$).]
-
-\begin{statement}
-\textit{Claim 4:} We have $\mathcal{K}_{\operatorname*{Epk}}\tvi  A\subseteq
-\mathcal{K}_{\operatorname*{Epk}}$.
-\end{statement}
-
-[\textit{Proof of Claim 4:} This is proven in the same way as we proved Claim
-2, with the only difference that now we need to use Claim 3 instead of Claim 1.]
-
-Combining Claim 2 and Claim 4, we conclude that $\mathcal{K}%
-_{\operatorname*{Epk}}$ is a $\tvi  $-ideal of $A=\operatorname*{QSym}$.
-
-\begin{statement}
-\textit{Claim 5:} Let $J$ and $K$ be two nonempty compositions satisfying
-$J\rightarrow K$. Let $G$ be a further nonempty composition. Then, $G\odot
-J\rightarrow G\odot K$.
-\end{statement}
-
-[\textit{Proof of Claim 5:} Write the composition $J$ in the form $J=\left(
-j_{1},j_{2},\ldots,j_{m}\right)  $. Write the composition $G$ in the form
-$G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $. Thus, $p>0$ (since the
-composition $G$ is nonempty).
-
-We have $J\rightarrow K$. In other words, there exists an $\ell\in\left\{
-2,3,\ldots,m\right\}  $ such that $j_{\ell}>2$ and $K=\left(  j_{1}%
-,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
-,j_{m}\right)  $ (by the definition of the relation $\rightarrow$). Consider
-this $\ell$. Clearly, $\ell\geq2$ (since $\ell\in\left\{  2,3,\ldots
-,m\right\}  $), so that $\underbrace{p}_{>0}+\underbrace{\ell}_{\geq
-2}-1>0+2-1=1$.
-
-From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $J=\left(  j_{1}%
-,j_{2},\ldots,j_{m}\right)  $, we obtain%
-\begin{equation}
-G\odot J=\left(  g_{1},g_{2},\ldots,g_{p-1},g_{p}+j_{1},j_{2},j_{3}%
-,\ldots,j_{m}\right)  . \label{pf.thm.Epk.dend.c5.pf.GJ=}%
-\end{equation}
-From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $K=\left(  j_{1}%
-,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
-,j_{m}\right)  $, we obtain%
-\begin{equation}
-G\odot K=\left(  g_{1},g_{2},\ldots,g_{p-1},g_{p}+j_{1},j_{2},j_{3}%
-,\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots,j_{m}\right)
-\label{pf.thm.Epk.dend.c5.pf.GK=}%
-\end{equation}
-(notice that the $g_{p}+j_{1}$ term is \textbf{not} a $g_{p}+1$ term, because
-$\ell\geq2$).
-
-From looking at (\ref{pf.thm.Epk.dend.c5.pf.GJ=}) and
-(\ref{pf.thm.Epk.dend.c5.pf.GK=}), we conclude immediately that the
-composition $G\odot K$ is obtained from $G\odot J$ by \textquotedblleft
-splitting\textquotedblright\ the entry $j_{\ell}>2$ into two consecutive
-entries $1$ and $j_{\ell}-1$, and that this entry $j_{\ell}$ was not the first
-entry (indeed, this entry is the $\left(  p+\ell-1\right)  $-th entry, but
-$p+\ell-1>1$). Hence, $G\odot J\rightarrow G\odot K$ (by the definition of the
-relation $\rightarrow$). This proves Claim 5.]
-
-\begin{statement}
-\textit{Claim 6:} We have $A\bel\mathcal{K}_{\operatorname*{Epk}}%
-\subseteq\mathcal{K}_{\operatorname*{Epk}}$.
-\end{statement}
-
-[\textit{Proof of Claim 6:} This is proven in the same way as we proved Claim
-2, with the only difference that now we need to use Claim 5 instead of Claim 1
-and that we need to use the formula $F_{\alpha}\bel  F_{\beta}=F_{\alpha
-\odot\beta}$ instead of $F_{\alpha}\tvi  F_{\beta}=F_{\left[  \alpha
-,\beta\right]  }$.]
-
-\begin{statement}
-\textit{Claim 7:} Let $J$ and $K$ be two nonempty compositions satisfying
-$J\rightarrow K$. Let $G$ be a further nonempty composition. Then, $J\odot
-G\rightarrow K\odot G$.
-\end{statement}
-
-[\textit{Proof of Claim 7:} Write the composition $J$ in the form $J=\left(
-j_{1},j_{2},\ldots,j_{m}\right)  $. Write the composition $G$ in the form
-$G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $. Thus, $p>0$ (since the
-composition $G$ is nonempty).
-
-We have $J\rightarrow K$. In other words, there exists an $\ell\in\left\{
-2,3,\ldots,m\right\}  $ such that $j_{\ell}>2$ and $K=\left(  j_{1}%
-,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
-,j_{m}\right)  $ (by the definition of the relation $\rightarrow$). Consider
-this $\ell$. Clearly, $\ell\geq2$ (since $\ell\in\left\{  2,3,\ldots
-,m\right\}  $), so that $\ell>1$.
-
-From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $J=\left(  j_{1}%
-,j_{2},\ldots,j_{m}\right)  $, we obtain%
-\begin{equation}
-J\odot G=\left(  j_{1},j_{2},\ldots,j_{m-1},j_{m}+g_{1},g_{2},g_{3}%
-,\ldots,g_{p}\right)  . \label{pf.thm.Epk.dend.c7.pf.JG=}%
-\end{equation}
-Now, we distinguish between the following two cases:
-
-\textit{Case 1:} We have $\ell=m$.
-
-\textit{Case 2:} We have $\ell\neq m$.
-
-Let us first consider Case 1. In this case, we have $\ell=m$. Thus,
-$m=\ell\geq2>1$ and $j_{m}+g_{1}=\underbrace{j_{\ell}}_{>2}+\underbrace{g_{1}%
-}_{\geq0}>2$.
-
-From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and
-\begin{align*}
-K  &  =\left(  j_{1},j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1}%
-,j_{\ell+2},\ldots,j_{m}\right) \\
-&  =\left(  j_{1},j_{2},\ldots,j_{m-1},1,j_{m}-1\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\ell=m\right)  ,
-\end{align*}
-we obtain%
-\begin{align}
-K\odot G  &  =\left(  j_{1},j_{2},\ldots,j_{m-1},1,\left(  j_{m}-1\right)
-+g_{1},g_{2},g_{3},\ldots,g_{p}\right) \nonumber\\
-&  =\left(  j_{1},j_{2},\ldots,j_{m-1},1,j_{m}+g_{1}-1,g_{2},g_{3}%
-,\ldots,g_{p}\right)  . \label{pf.thm.Epk.dend.c7.pf.KG=c1}%
-\end{align}
-
-
-From looking at (\ref{pf.thm.Epk.dend.c7.pf.JG=}) and
-(\ref{pf.thm.Epk.dend.c7.pf.KG=c1}), we conclude immediately that the
-composition $K\odot G$ is obtained from $J\odot G$ by \textquotedblleft
-splitting\textquotedblright\ the entry $j_{m}+g_{1}>2$ into two consecutive
-entries $1$ and $j_{m}+g_{1}-1$, and that this entry $j_{m}+g_{1}$ was not the
-first entry (indeed, this entry is the $m$-th entry, but $m>1$). Hence,
-$J\odot G\rightarrow K\odot G$ (by the definition of the relation
-$\rightarrow$). This proves Claim 7 in Case 1.
-
-Let us next consider Case 2. In this case, we have $\ell\neq m$. Hence,
-$\ell\in\left\{  2,3,\ldots,m-1\right\}  $ (since $\ell\in\left\{
-2,3,\ldots,m\right\}  $).
-
-From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $K=\left(  j_{1}%
-,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
-,j_{m}\right)  $, we obtain%
-\begin{align}
-&  K\odot G\nonumber\\
-&  =\left(  j_{1},j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell
-+2},\ldots,j_{m-1},j_{m}+g_{1},g_{2},g_{3},\ldots,g_{p}\right)
-\label{pf.thm.Epk.dend.c7.pf.KG=c2}%
-\end{align}
-(notice that the $j_{m}+g_{1}$ term is \textbf{not} a $\left(  j_{\ell
-}-1\right)  +g_{1}$ term, because $\ell\neq m$).
-
-From looking at (\ref{pf.thm.Epk.dend.c7.pf.JG=}) and
-(\ref{pf.thm.Epk.dend.c7.pf.KG=c2}), we conclude immediately that the
-composition $K\odot G$ is obtained from $J\odot G$ by \textquotedblleft
-splitting\textquotedblright\ the entry $j_{\ell}>2$ into two consecutive
-entries $1$ and $j_{\ell}-1$, and that this entry $j_{\ell}$ was not the first
-entry (indeed, this entry is the $\ell$-th entry, but $\ell>1$). Hence,
-$J\odot G\rightarrow K\odot G$ (by the definition of the relation
-$\rightarrow$). This proves Claim 7 in Case 2.
-
-We have now proven Claim 7 in both Cases 1 and 2. Thus, Claim 7 always holds.]
-
-\begin{statement}
-\textit{Claim 8:} We have $\mathcal{K}_{\operatorname*{Epk}}\bel
-A\subseteq\mathcal{K}_{\operatorname*{Epk}}$.
-\end{statement}
-
-[\textit{Proof of Claim 8:} This is proven in the same way as we proved Claim
-6, with the only difference that now we need to use Claim 7 instead of Claim 5.]
-
-Combining Claim 6 and Claim 8, we conclude that $\mathcal{K}%
-_{\operatorname*{Epk}}$ is a $\bel  $-ideal of $A=\operatorname*{QSym}$.
-
-Finally, Theorem \ref{thm.ideal-crit2} \textbf{(c)} (applied to $M=\mathcal{K}%
-_{\operatorname*{Epk}}$) shows that $\mathcal{K}_{\operatorname*{Epk}}$ is a
-$\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
-$\operatorname*{QSym}$.
-
-Thus, altogether, we have proven that $\mathcal{K}_{\operatorname*{Epk}}$ is a
-$\tvi$-ideal, a $\bel$-ideal, a $\left.  \prec\right.  $-ideal and a $\left.
-\succeq\right.  $-ideal of $\operatorname*{QSym}$. This proves Theorem
-\ref{thm.Epk.dend}.
-\end{proof}
-
-\begin{question}
-What other descent statistics $\operatorname*{st}$ have the property that
-$\mathcal{K}_{\operatorname*{st}}$ is an $\tvi$-ideal, $\bel$-ideal, $\left.
-\prec\right.  $-ideal and/or $\left.  \succeq\right.  $-ideal? We will see
-some answers in Subsection \ref{subsect.dendri.other-stats}, but a more
-systematic study would be interesting.
-\end{question}
-
-\subsection{Dendriform shuffle-compatibility}
-
-We have seen (in Proposition \ref{prop.K.ideal}) that the kernel
-$\mathcal{K}_{\operatorname*{st}}$ of a descent statistic $\operatorname*{st}$
-is an ideal of $\operatorname*{QSym}$ if and only if $\operatorname*{st}$ is
-shuffle-compatible. It is natural to ask whether similar combinatorial
-interpretations exist for when the kernel $\mathcal{K}_{\operatorname*{st}}$
-of a descent statistic $\operatorname*{st}$ is a $\tvi$-ideal, a $\bel$-ideal,
-a $\left.  \prec\right.  $-ideals or a $\left.  \succeq\right.  $-ideal. In
-this section, we shall prove such interpretations.
+\subsection{The dendriform operations on the fundamental basis}
 
 Recall Definition \ref{def.LRshuf} and Definition \ref{def.LR.pi1}. The
 following theorem is analogous to Theorem~\ref{thm.4.1}:
@@ -9278,6 +8818,468 @@ Thus, Corollary \ref{cor.dendri.4.1} is proven.
 
 Hence, Theorem \ref{thm.dendri.4.1} is proven as well (since Corollary
 \ref{cor.dendri.4.1} was just a restatement of Theorem \ref{thm.dendri.4.1}).
+
+\subsection{Ideals}
+
+\begin{definition}
+Let $A$ be a $\mathbf{k}$-module equipped with some binary operation $\ast$
+(written infix).
+
+\textbf{(a)} If $B$ and $C$ are two $\mathbf{k}$-submodules of $A$, then
+$B\ast C$ shall mean the $\mathbf{k}$-submodule of $A$ spanned by all elements
+of the form $b\ast c$ with $b\in B$ and $c\in C$.
+
+\textbf{(b)} A $\mathbf{k}$-submodule $M$ of $A$ is said to be a \textit{left
+}$\ast$\textit{-ideal} if and only if it satisfies $A\ast M\subseteq M$.
+
+\textbf{(c)} A $\mathbf{k}$-submodule $M$ of $A$ is said to be a \textit{right
+}$\ast$\textit{-ideal} if and only if it satisfies $M\ast A\subseteq M$.
+
+\textbf{(d)} A $\mathbf{k}$-submodule $M$ of $A$ is said to be a\textit{
+}$\ast$\textit{-ideal} if and only if it is both a left $\ast$-ideal and a
+right $\ast$-ideal.
+\end{definition}
+
+\begin{theorem}
+\label{thm.ideal-crit2}Let $M$ be an ideal of $\operatorname*{QSym}$. Let
+$A=\operatorname*{QSym}$.
+
+\textbf{(a)} If $A\bel  M\subseteq M$, then $M\left.  \prec\right.  A\subseteq
+M$.
+
+\textbf{(b)} If $A\tvi  M\subseteq M$, then $A\left.  \succeq\right.
+M\subseteq M$.
+
+\textbf{(c)} If $A\tvi  M\subseteq M$ and $A\bel  M\subseteq M$, then $M$ is a
+$\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
+$\operatorname*{QSym}$.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ideal-crit2}.]\textbf{(a)} Assume that
+$A\bel  M\subseteq M$. If $a\in M$ and $b\in A$, then%
+\begin{align*}
+a\left.  \prec\right.  b  &  =\sum_{\left(  b\right)  }\left(
+\underbrace{S\left(  b_{\left(  1\right)  }\right)  }_{\in A}%
+\bel \underbrace{a}_{\in M}\right)  \underbrace{b_{\left(  2\right)  }}_{\in
+A}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.beldend}}\right) \\
+&  \in\underbrace{\left(  A\bel M\right)  }_{\subseteq M}A\subseteq
+MA\subseteq M\ \ \ \ \ \ \ \ \ \ \left(  \text{since }M\text{ is an ideal of
+}A\right)  .
+\end{align*}
+Thus, $M\left.  \prec\right.  A\subseteq M$. This proves Theorem
+\ref{thm.ideal-crit2} \textbf{(a)}.
+
+\textbf{(b)} Assume that $A\tvi  M\subseteq M$. If $a\in M$ and $b\in A$, then%
+\begin{align*}
+b\left.  \succeq\right.  a  &  =\sum_{\left(  b\right)  }\left(
+\underbrace{S\left(  b_{\left(  1\right)  }\right)  }_{\in A}%
+\tvi \underbrace{a}_{\in M}\right)  \underbrace{b_{\left(  2\right)  }}_{\in
+A}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.tvidend'}}\right) \\
+&  \in\underbrace{\left(  A\tvi M\right)  }_{\subseteq M}A\subseteq
+MA\subseteq M\ \ \ \ \ \ \ \ \ \ \left(  \text{since }M\text{ is an ideal of
+}A\right)  .
+\end{align*}
+Thus, $A\left.  \succeq\right.  M\subseteq M$. This proves Theorem
+\ref{thm.ideal-crit2} \textbf{(b)}.
+
+\textbf{(c)} Assume that $A\tvi  M\subseteq M$ and $A\bel  M\subseteq M$.
+Then, Theorem \ref{thm.ideal-crit2} \textbf{(b)} yields $A\left.
+\succeq\right.  M\subseteq M$. Thus, $M$ is a left $\left.  \succeq\right.  $-ideal.
+
+Now, any $b\in M$ and $a\in A$ satisfy%
+\begin{align*}
+a\left.  \prec\right.  b  &  =\underbrace{a}_{\in A}\underbrace{b}_{\in
+M}-\underbrace{a}_{\in A}\left.  \succeq\right.  \underbrace{b}_{\in
+M}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.dendriform.1})}\right) \\
+&  \in\underbrace{AM}_{\substack{\subseteq M\\\text{(since }M\text{ is an
+ideal of }A\text{)}}}-\underbrace{A\left.  \succeq\right.  M}_{\subseteq
+M}\subseteq M-M\subseteq M.
+\end{align*}
+In other words, $A\left.  \prec\right.  M\subseteq M$. In other words, $M$ is
+a left $\left.  \prec\right.  $-ideal.
+
+But Theorem \ref{thm.ideal-crit2} \textbf{(a)} yields $M\left.  \prec\right.
+A\subseteq M$. In other words, $M$ is a right $\left.  \prec\right.  $-ideal.
+
+Any $a\in M$ and $b\in A$ satisfy%
+\begin{align*}
+a\left.  \succeq\right.  b  &  =\underbrace{a}_{\in M}\underbrace{b}_{\in
+A}-\underbrace{a}_{\in M}\left.  \prec\right.  \underbrace{b}_{\in
+A}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.dendriform.1})}\right) \\
+&  \in\underbrace{MA}_{\substack{\subseteq M\\\text{(since }M\text{ is an
+ideal of }A\text{)}}}-\underbrace{M\left.  \prec\right.  A}_{\subseteq
+M}\subseteq M-M\subseteq M.
+\end{align*}
+In other words, $M\left.  \succeq\right.  A\subseteq M$. In other words, $M$
+is a right $\left.  \succeq\right.  $-ideal.
+
+Hence, $M$ is a $\left.  \prec\right.  $-ideal (since $M$ is a left $\left.
+\prec\right.  $-ideal and a right $\left.  \prec\right.  $-ideal) and a
+$\left.  \succeq\right.  $-ideal (since $M$ is a left $\left.  \succeq\right.
+$-ideal and a right $\left.  \succeq\right.  $-ideal). This proves Theorem
+\ref{thm.ideal-crit2} \textbf{(c)}.
+\end{proof}
+
+Another simple fact is the following:
+
+\begin{proposition}
+\label{prop.ideal-crit3}Let $M$ be simultaneously a $\left.  \prec\right.
+$-ideal and a $\left.  \succeq\right.  $-ideal of $\operatorname*{QSym}$.
+Then, $M$ is an ideal of $\operatorname*{QSym}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ideal-crit3}.]Any $a\in M$ and $b\in
+\operatorname*{QSym}$ satisfy%
+\begin{align*}
+ab  &  =\underbrace{a}_{\in M}\left.  \prec\right.  \underbrace{b}%
+_{\in\operatorname*{QSym}}+\underbrace{a}_{\in M}\left.  \succeq\right.
+\underbrace{b}_{\in\operatorname*{QSym}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{eq.dendriform.1})}\right) \\
+&  \in\underbrace{M\left.  \prec\right.  \operatorname*{QSym}}%
+_{\substack{\subseteq M\\\text{(since }M\text{ is a }\left.  \prec\right.
+\text{-ideal of }\operatorname*{QSym}\text{)}}}+\underbrace{M\left.
+\succeq\right.  \operatorname*{QSym}}_{\substack{\subseteq M\\\text{(since
+}M\text{ is a }\left.  \succeq\right.  \text{-ideal of }\operatorname*{QSym}%
+\text{)}}}\subseteq M+M\subseteq M.
+\end{align*}
+In other words, $M$ is an ideal of $\operatorname*{QSym}$. This proves
+Proposition \ref{prop.ideal-crit3}.
+\end{proof}
+
+\begin{question}
+Proposition \ref{prop.ideal-crit3} says that if a $\mathbb{Q}$-vector subspace
+$M$ of $\operatorname*{QSym}$ is simultaneously a $\left.  \prec\right.
+$-ideal and an $\left.  \succeq\right.  $-ideal, then it is also an ideal.
+Similarly, if $M$ is an ideal and a $\left.  \prec\right.  $-ideal, then it is
+a $\left.  \succeq\right.  $-ideal. Can we state any other such criteria?
+\end{question}
+
+\subsection{Application to $\mathcal{K}_{\operatorname*{Epk}}$}
+
+We now claim the following:
+
+\begin{theorem}
+\label{thm.Epk.dend}The ideal $\mathcal{K}_{\operatorname*{Epk}}$ of
+$\operatorname*{QSym}$ is a $\tvi  $-ideal, a $\bel  $-ideal, a $\left.
+\prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
+$\operatorname*{QSym}$.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.Epk.dend}.]Let $A=\operatorname*{QSym}$. Corollary
+\ref{cor.Epk.ideal} shows that $\mathcal{K}_{\operatorname*{Epk}}$ is an ideal
+of $\operatorname*{QSym}$.
+
+Let us recall the binary relation $\rightarrow$ on the set of compositions
+defined in Proposition \ref{prop.K.Epk.F}.
+
+\begin{statement}
+\textit{Claim 1:} Let $J$ and $K$ be two compositions satisfying $J\rightarrow
+K$. Let $G$ be a further composition. Then, $\left[  G,J\right]
+\rightarrow\left[  G,K\right]  $.
+\end{statement}
+
+[\textit{Proof of Claim 1:} Write the composition $J$ in the form $J=\left(
+j_{1},j_{2},\ldots,j_{m}\right)  $. Write the composition $G$ in the form
+$G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $.
+
+We have $J\rightarrow K$. In other words, there exists an $\ell\in\left\{
+2,3,\ldots,m\right\}  $ such that $j_{\ell}>2$ and $K=\left(  j_{1}%
+,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
+,j_{m}\right)  $ (by the definition of the relation $\rightarrow$). Consider
+this $\ell$. Clearly, $\ell>1$ (since $\ell\in\left\{  2,3,\ldots,m\right\}
+$), so that $p+\ell>\underbrace{p}_{\geq0}+1\geq1$.
+
+From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $J=\left(  j_{1}%
+,j_{2},\ldots,j_{m}\right)  $, we obtain%
+\begin{equation}
+\left[  G,J\right]  =\left(  g_{1},g_{2},\ldots,g_{p},j_{1},j_{2},\ldots
+,j_{m}\right)  . \label{pf.thm.Epk.dend.c1.pf.GJ=}%
+\end{equation}
+From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $K=\left(  j_{1}%
+,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
+,j_{m}\right)  $, we obtain%
+\begin{equation}
+\left[  G,K\right]  =\left(  g_{1},g_{2},\ldots,g_{p},j_{1},j_{2}%
+,\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots,j_{m}\right)  .
+\label{pf.thm.Epk.dend.c1.pf.GK=}%
+\end{equation}
+From looking at (\ref{pf.thm.Epk.dend.c1.pf.GJ=}) and
+(\ref{pf.thm.Epk.dend.c1.pf.GK=}), we conclude immediately that the
+composition $\left[  G,K\right]  $ is obtained from $\left[  G,J\right]  $ by
+\textquotedblleft splitting\textquotedblright\ the entry $j_{\ell}>2$ into two
+consecutive entries $1$ and $j_{\ell}-1$, and that this entry $j_{\ell}$ was
+not the first entry (indeed, this entry is the $\left(  p+\ell\right)  $-th
+entry, but $p+\ell>1$). Hence, $\left[  G,J\right]  \rightarrow\left[
+G,K\right]  $ (by the definition of the relation $\rightarrow$). This proves
+Claim 1.]
+
+\begin{statement}
+\textit{Claim 2:} We have $A\tvi  \mathcal{K}_{\operatorname*{Epk}}%
+\subseteq\mathcal{K}_{\operatorname*{Epk}}$.
+\end{statement}
+
+[\textit{Proof of Claim 2:} We must show that $a\tvi  m\in\mathcal{K}%
+_{\operatorname*{Epk}}$ for every $a\in A$ and $m\in\mathcal{K}%
+_{\operatorname*{Epk}}$. So let us fix $a\in A$ and $m\in\mathcal{K}%
+_{\operatorname*{Epk}}$.
+
+Proposition \ref{prop.K.Epk.F} shows that the $\mathbb{Q}$-vector space
+$\mathcal{K}_{\operatorname*{Epk}}$ is spanned by all differences of the form
+$F_{J}-F_{K}$, where $J$ and $K$ are two compositions satisfying $J\rightarrow
+K$. Hence, we can WLOG assume that $m$ is such a difference (because the
+relation $a\tvi  m\in\mathcal{K}_{\operatorname*{Epk}}$, which we must prove,
+is $\mathbb{Q}$-linear in $m$). Assume this. Thus, $m=F_{J}-F_{K}$ for some
+two compositions $J$ and $K$ satisfying $J\rightarrow K$. Consider these $J$
+and $K$.
+
+From $J\rightarrow K$, we easily conclude that the composition $J$ is
+nonempty. Thus, $\left\vert J\right\vert \neq0$. But from $J\rightarrow K$, we
+also obtain $\left\vert J\right\vert =\left\vert K\right\vert $. Hence,
+$\left\vert K\right\vert =\left\vert J\right\vert \neq0$. Thus, the
+composition $K$ is nonempty.
+
+Recall that the family $\left(  F_{L}\right)  _{L\text{ is a composition}}$ is
+a basis of the $\mathbb{Q}$-vector space $\operatorname*{QSym}=A$. Hence, we
+can WLOG assume that $a$ belongs to this family (since the relation
+$a\tvi  m\in\mathcal{K}_{\operatorname*{Epk}}$, which we must prove, is
+$\mathbb{Q}$-linear in $a$). Assume this. Thus, $a=F_{G}$ for some composition
+$G$. Consider this $G$.
+
+If $G$ is the empty composition, then $a=F_{G}=1$, and therefore
+$\underbrace{a}_{=1}\tvi  m=1\tvi  m=m\in\mathcal{K}_{\operatorname*{Epk}}$
+holds. Thus, for the rest of this proof, we WLOG assume that $G$ is not the
+empty composition. Thus, $G$ is nonempty.
+
+Recall that for any two compositions $\alpha$ and $\beta$, we have $F_{\alpha
+}\tvi  F_{\beta}=F_{\left[  \alpha,\beta\right]  }$. Applying this to
+$\alpha=G$ and $\beta=J$, we obtain $F_{G}\tvi  F_{J}=F_{\left[  G,J\right]
+}$. Similarly, $F_{G}\tvi  F_{K}=F_{\left[  G,K\right]  }$.
+
+But Claim 1 yields $\left[  G,J\right]  \rightarrow\left[  G,K\right]  $.
+Hence, the difference $F_{\left[  G,J\right]  }-F_{\left[  G,K\right]  }$ is
+one of the differences which span the ideal $\mathcal{K}_{\operatorname*{Epk}%
+}$ according to Proposition \ref{prop.K.Epk.F}. Thus, in particular, this
+difference lies in $\mathcal{K}_{\operatorname*{Epk}}$. In other words,
+$F_{\left[  G,J\right]  }-F_{\left[  G,K\right]  }\in\mathcal{K}%
+_{\operatorname*{Epk}}$.
+
+Now,%
+\begin{align*}
+\underbrace{a}_{=F_{G}}\tvi \underbrace{m}_{=F_{J}-F_{K}}  &  =F_{G}%
+\tvi \left(  F_{J}-F_{K}\right)  =\underbrace{F_{G}\tvi F_{J}}_{=F_{\left[
+G,J\right]  }}-\underbrace{F_{G}\tvi F_{K}}_{=F_{\left[  G,K\right]  }}\\
+&  =F_{\left[  G,J\right]  }-F_{\left[  G,K\right]  }\in\mathcal{K}%
+_{\operatorname*{Epk}}.
+\end{align*}
+This proves Claim 2.]
+
+\begin{statement}
+\textit{Claim 3:} Let $J$ and $K$ be two compositions satisfying $J\rightarrow
+K$. Let $G$ be a further composition. Then, $\left[  J,G\right]
+\rightarrow\left[  K,G\right]  $.
+\end{statement}
+
+[\textit{Proof of Claim 3:} This is proven in the same way as we proved Claim
+1, with the only difference that $j_{\ell}$ is now the $\ell$-th entry of
+$\left[  J,G\right]  $ and not the $\left(  p+\ell\right)  $-th entry (but
+this is still sufficient, since $\ell>1$).]
+
+\begin{statement}
+\textit{Claim 4:} We have $\mathcal{K}_{\operatorname*{Epk}}\tvi  A\subseteq
+\mathcal{K}_{\operatorname*{Epk}}$.
+\end{statement}
+
+[\textit{Proof of Claim 4:} This is proven in the same way as we proved Claim
+2, with the only difference that now we need to use Claim 3 instead of Claim 1.]
+
+Combining Claim 2 and Claim 4, we conclude that $\mathcal{K}%
+_{\operatorname*{Epk}}$ is a $\tvi  $-ideal of $A=\operatorname*{QSym}$.
+
+\begin{statement}
+\textit{Claim 5:} Let $J$ and $K$ be two nonempty compositions satisfying
+$J\rightarrow K$. Let $G$ be a further nonempty composition. Then, $G\odot
+J\rightarrow G\odot K$.
+\end{statement}
+
+[\textit{Proof of Claim 5:} Write the composition $J$ in the form $J=\left(
+j_{1},j_{2},\ldots,j_{m}\right)  $. Write the composition $G$ in the form
+$G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $. Thus, $p>0$ (since the
+composition $G$ is nonempty).
+
+We have $J\rightarrow K$. In other words, there exists an $\ell\in\left\{
+2,3,\ldots,m\right\}  $ such that $j_{\ell}>2$ and $K=\left(  j_{1}%
+,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
+,j_{m}\right)  $ (by the definition of the relation $\rightarrow$). Consider
+this $\ell$. Clearly, $\ell\geq2$ (since $\ell\in\left\{  2,3,\ldots
+,m\right\}  $), so that $\underbrace{p}_{>0}+\underbrace{\ell}_{\geq
+2}-1>0+2-1=1$.
+
+From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $J=\left(  j_{1}%
+,j_{2},\ldots,j_{m}\right)  $, we obtain%
+\begin{equation}
+G\odot J=\left(  g_{1},g_{2},\ldots,g_{p-1},g_{p}+j_{1},j_{2},j_{3}%
+,\ldots,j_{m}\right)  . \label{pf.thm.Epk.dend.c5.pf.GJ=}%
+\end{equation}
+From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $K=\left(  j_{1}%
+,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
+,j_{m}\right)  $, we obtain%
+\begin{equation}
+G\odot K=\left(  g_{1},g_{2},\ldots,g_{p-1},g_{p}+j_{1},j_{2},j_{3}%
+,\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots,j_{m}\right)
+\label{pf.thm.Epk.dend.c5.pf.GK=}%
+\end{equation}
+(notice that the $g_{p}+j_{1}$ term is \textbf{not} a $g_{p}+1$ term, because
+$\ell\geq2$).
+
+From looking at (\ref{pf.thm.Epk.dend.c5.pf.GJ=}) and
+(\ref{pf.thm.Epk.dend.c5.pf.GK=}), we conclude immediately that the
+composition $G\odot K$ is obtained from $G\odot J$ by \textquotedblleft
+splitting\textquotedblright\ the entry $j_{\ell}>2$ into two consecutive
+entries $1$ and $j_{\ell}-1$, and that this entry $j_{\ell}$ was not the first
+entry (indeed, this entry is the $\left(  p+\ell-1\right)  $-th entry, but
+$p+\ell-1>1$). Hence, $G\odot J\rightarrow G\odot K$ (by the definition of the
+relation $\rightarrow$). This proves Claim 5.]
+
+\begin{statement}
+\textit{Claim 6:} We have $A\bel\mathcal{K}_{\operatorname*{Epk}}%
+\subseteq\mathcal{K}_{\operatorname*{Epk}}$.
+\end{statement}
+
+[\textit{Proof of Claim 6:} This is proven in the same way as we proved Claim
+2, with the only difference that now we need to use Claim 5 instead of Claim 1
+and that we need to use the formula $F_{\alpha}\bel  F_{\beta}=F_{\alpha
+\odot\beta}$ instead of $F_{\alpha}\tvi  F_{\beta}=F_{\left[  \alpha
+,\beta\right]  }$.]
+
+\begin{statement}
+\textit{Claim 7:} Let $J$ and $K$ be two nonempty compositions satisfying
+$J\rightarrow K$. Let $G$ be a further nonempty composition. Then, $J\odot
+G\rightarrow K\odot G$.
+\end{statement}
+
+[\textit{Proof of Claim 7:} Write the composition $J$ in the form $J=\left(
+j_{1},j_{2},\ldots,j_{m}\right)  $. Write the composition $G$ in the form
+$G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $. Thus, $p>0$ (since the
+composition $G$ is nonempty).
+
+We have $J\rightarrow K$. In other words, there exists an $\ell\in\left\{
+2,3,\ldots,m\right\}  $ such that $j_{\ell}>2$ and $K=\left(  j_{1}%
+,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
+,j_{m}\right)  $ (by the definition of the relation $\rightarrow$). Consider
+this $\ell$. Clearly, $\ell\geq2$ (since $\ell\in\left\{  2,3,\ldots
+,m\right\}  $), so that $\ell>1$.
+
+From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $J=\left(  j_{1}%
+,j_{2},\ldots,j_{m}\right)  $, we obtain%
+\begin{equation}
+J\odot G=\left(  j_{1},j_{2},\ldots,j_{m-1},j_{m}+g_{1},g_{2},g_{3}%
+,\ldots,g_{p}\right)  . \label{pf.thm.Epk.dend.c7.pf.JG=}%
+\end{equation}
+Now, we distinguish between the following two cases:
+
+\textit{Case 1:} We have $\ell=m$.
+
+\textit{Case 2:} We have $\ell\neq m$.
+
+Let us first consider Case 1. In this case, we have $\ell=m$. Thus,
+$m=\ell\geq2>1$ and $j_{m}+g_{1}=\underbrace{j_{\ell}}_{>2}+\underbrace{g_{1}%
+}_{\geq0}>2$.
+
+From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and
+\begin{align*}
+K  &  =\left(  j_{1},j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1}%
+,j_{\ell+2},\ldots,j_{m}\right) \\
+&  =\left(  j_{1},j_{2},\ldots,j_{m-1},1,j_{m}-1\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\ell=m\right)  ,
+\end{align*}
+we obtain%
+\begin{align}
+K\odot G  &  =\left(  j_{1},j_{2},\ldots,j_{m-1},1,\left(  j_{m}-1\right)
++g_{1},g_{2},g_{3},\ldots,g_{p}\right) \nonumber\\
+&  =\left(  j_{1},j_{2},\ldots,j_{m-1},1,j_{m}+g_{1}-1,g_{2},g_{3}%
+,\ldots,g_{p}\right)  . \label{pf.thm.Epk.dend.c7.pf.KG=c1}%
+\end{align}
+
+
+From looking at (\ref{pf.thm.Epk.dend.c7.pf.JG=}) and
+(\ref{pf.thm.Epk.dend.c7.pf.KG=c1}), we conclude immediately that the
+composition $K\odot G$ is obtained from $J\odot G$ by \textquotedblleft
+splitting\textquotedblright\ the entry $j_{m}+g_{1}>2$ into two consecutive
+entries $1$ and $j_{m}+g_{1}-1$, and that this entry $j_{m}+g_{1}$ was not the
+first entry (indeed, this entry is the $m$-th entry, but $m>1$). Hence,
+$J\odot G\rightarrow K\odot G$ (by the definition of the relation
+$\rightarrow$). This proves Claim 7 in Case 1.
+
+Let us next consider Case 2. In this case, we have $\ell\neq m$. Hence,
+$\ell\in\left\{  2,3,\ldots,m-1\right\}  $ (since $\ell\in\left\{
+2,3,\ldots,m\right\}  $).
+
+From $G=\left(  g_{1},g_{2},\ldots,g_{p}\right)  $ and $K=\left(  j_{1}%
+,j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
+,j_{m}\right)  $, we obtain%
+\begin{align}
+&  K\odot G\nonumber\\
+&  =\left(  j_{1},j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell
++2},\ldots,j_{m-1},j_{m}+g_{1},g_{2},g_{3},\ldots,g_{p}\right)
+\label{pf.thm.Epk.dend.c7.pf.KG=c2}%
+\end{align}
+(notice that the $j_{m}+g_{1}$ term is \textbf{not} a $\left(  j_{\ell
+}-1\right)  +g_{1}$ term, because $\ell\neq m$).
+
+From looking at (\ref{pf.thm.Epk.dend.c7.pf.JG=}) and
+(\ref{pf.thm.Epk.dend.c7.pf.KG=c2}), we conclude immediately that the
+composition $K\odot G$ is obtained from $J\odot G$ by \textquotedblleft
+splitting\textquotedblright\ the entry $j_{\ell}>2$ into two consecutive
+entries $1$ and $j_{\ell}-1$, and that this entry $j_{\ell}$ was not the first
+entry (indeed, this entry is the $\ell$-th entry, but $\ell>1$). Hence,
+$J\odot G\rightarrow K\odot G$ (by the definition of the relation
+$\rightarrow$). This proves Claim 7 in Case 2.
+
+We have now proven Claim 7 in both Cases 1 and 2. Thus, Claim 7 always holds.]
+
+\begin{statement}
+\textit{Claim 8:} We have $\mathcal{K}_{\operatorname*{Epk}}\bel
+A\subseteq\mathcal{K}_{\operatorname*{Epk}}$.
+\end{statement}
+
+[\textit{Proof of Claim 8:} This is proven in the same way as we proved Claim
+6, with the only difference that now we need to use Claim 7 instead of Claim 5.]
+
+Combining Claim 6 and Claim 8, we conclude that $\mathcal{K}%
+_{\operatorname*{Epk}}$ is a $\bel  $-ideal of $A=\operatorname*{QSym}$.
+
+Finally, Theorem \ref{thm.ideal-crit2} \textbf{(c)} (applied to $M=\mathcal{K}%
+_{\operatorname*{Epk}}$) shows that $\mathcal{K}_{\operatorname*{Epk}}$ is a
+$\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
+$\operatorname*{QSym}$.
+
+Thus, altogether, we have proven that $\mathcal{K}_{\operatorname*{Epk}}$ is a
+$\tvi$-ideal, a $\bel$-ideal, a $\left.  \prec\right.  $-ideal and a $\left.
+\succeq\right.  $-ideal of $\operatorname*{QSym}$. This proves Theorem
+\ref{thm.Epk.dend}.
+\end{proof}
+
+\begin{question}
+What other descent statistics $\operatorname*{st}$ have the property that
+$\mathcal{K}_{\operatorname*{st}}$ is an $\tvi$-ideal, $\bel$-ideal, $\left.
+\prec\right.  $-ideal and/or $\left.  \succeq\right.  $-ideal? We will see
+some answers in Subsection \ref{subsect.dendri.other-stats}, but a more
+systematic study would be interesting.
+\end{question}
+
+\subsection{Dendriform shuffle-compatibility}
+
+We have seen (in Proposition \ref{prop.K.ideal}) that the kernel
+$\mathcal{K}_{\operatorname*{st}}$ of a descent statistic $\operatorname*{st}$
+is an ideal of $\operatorname*{QSym}$ if and only if $\operatorname*{st}$ is
+shuffle-compatible. It is natural to ask whether similar combinatorial
+interpretations exist for when the kernel $\mathcal{K}_{\operatorname*{st}}$
+of a descent statistic $\operatorname*{st}$ is a $\tvi$-ideal, a $\bel$-ideal,
+a $\left.  \prec\right.  $-ideals or a $\left.  \succeq\right.  $-ideal. In
+this section, we shall prove such interpretations.
 
 Now, let us define two further variants of LR-shuffle-compatibility (to be
 compared with those introduced in Definition \ref{def.LR.left-right}):

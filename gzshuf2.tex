@@ -8837,6 +8837,227 @@ resulting poset by $P\left.  \succeq\right.  Q$. Then,
 
 \end{lemma}
 
+\begin{proof}
+[Proof of Lemma \ref{lem.dendri.4.1.lem2} (sketched).]Recall that we regard
+linear extensions of a finite poset $R$ as lists of elements of $R$. Thus, if
+$R$ is a finite poset, if $u$ and $v$ are two elements of $R$, and if $w$ is a
+linear extension of $R$, then we have $u<v$ in $w$ if and only if $u$ appears
+before $v$ in the list $w$.
+
+We shall also use the following notation: If $w$ is a list of elements of some
+set $U$, and if $V$ is a subset of $U$, then $w\mid_{V}$ means the result of
+removing all entries from $w$ that don't belong to $V$. For example, $\left(
+2,7,1,6,3,4\right)  \mid_{\left\{  1,2,4,5,6\right\}  }=\left(
+2,1,6,4\right)  $.
+
+Now, consider our two posets $P$ and $Q$. Recall that a linear extension of
+$P\sqcup Q$ is simply a list $\left(  w_{1},w_{2},\ldots,w_{n}\right)  $ of
+all elements of $P\sqcup Q$ such that no two integers $i<j$ satisfy $w_{i}\geq
+w_{j}$ in $P\sqcup Q$. In other words, a linear extension of $P\sqcup Q$ is a
+list $w$ of all elements of $P\sqcup Q$ such that if $x$ and $y$ are two
+elements of $P\sqcup Q$ satisfying $x<y$ in $P\sqcup Q$, then $x$ appears
+before\footnote{\textquotedblleft Before\textquotedblright\ doesn't imply
+\textquotedblleft immediately before\textquotedblright. For example, $2$
+appears before $4$ in the list $\left(  1,2,3,4\right)  $.} $y$ in the list
+$w$. By the definition of $P\sqcup Q$, this rewrites as follows: A linear
+extension of $P\sqcup Q$ is a list $w$ of all elements of $P\sqcup Q$ with the
+following two properties:
+
+\begin{itemize}
+\item If $x$ and $y$ are two elements of $P$ satisfying $x<y$ in $P$, then $x$
+appears before $y$ in the list $w$.
+
+\item If $x$ and $y$ are two elements of $Q$ satisfying $x<y$ in $Q$, then $x$
+appears before $y$ in the list $w$.
+\end{itemize}
+
+In other words, a linear extension $P\sqcup Q$ is a list $w$ of all elements
+of $P\sqcup Q$ such that $w\mid_{P}$ is a linear extension of $P$ and
+$w\mid_{Q}$ is a linear extension of $Q$.
+
+This yields the following:
+
+\begin{itemize}
+\item If $w$ is a linear extension of $P\sqcup Q$, then $w\mid_{P}$ is a
+linear extension of $P$, and $w\mid_{Q}$ is a linear extension of $Q$, and we
+have $w\in S\left(  w\mid_{P},w\mid_{Q}\right)  $ (since both $w\mid_{P}$ and
+$w\mid_{Q}$ are subsequences of $w$, and their sizes add up to the size of
+$w$). Therefore, if $w$ is a linear extension of $P\sqcup Q$, then
+$w\in\bigcup_{\pi\in\mathcal{L}\left(  P\right)  ;\ \sigma\in\mathcal{L}%
+\left(  Q\right)  }S\left(  \pi,\sigma\right)  $ (because $w\in S\left(
+\pi,\sigma\right)  $ for $\pi=w\mid_{P}\in\mathcal{L}\left(  P\right)  $ and
+$\sigma=w\mid_{Q}\in\mathcal{L}\left(  Q\right)  $).
+
+\item Conversely, any $w\in\bigcup_{\pi\in\mathcal{L}\left(  P\right)
+;\ \sigma\in\mathcal{L}\left(  Q\right)  }S\left(  \pi,\sigma\right)  $ is a
+linear extension of $P\sqcup Q$.
+\end{itemize}
+
+Combining these two facts, we conclude the following:
+
+\begin{statement}
+\textit{Observation 1:} The linear extensions of $P\sqcup Q$ are precisely the
+elements of $\bigcup_{\pi\in\mathcal{L}\left(  P\right)  ;\ \sigma
+\in\mathcal{L}\left(  Q\right)  }S\left(  \pi,\sigma\right)  $.
+\end{statement}
+
+Next, we notice the following:
+
+\begin{statement}
+\textit{Observation 2:} The union $\bigcup_{\pi\in\mathcal{L}\left(  P\right)
+;\ \sigma\in\mathcal{L}\left(  Q\right)  }S\left(  \pi,\sigma\right)  $ is a
+disjoint union (i.e., the sets $S\left(  \pi,\sigma\right)  $ for distinct
+pairs $\left(  \pi,\sigma\right)  $ are disjoint).
+\end{statement}
+
+[\textit{Proof of Observation 2:} If we are given an element $w\in S\left(
+\pi,\sigma\right)  $ for some $\pi\in\mathcal{L}\left(  P\right)  $ and
+$\sigma\in\mathcal{L}\left(  Q\right)  $, then we can uniquely reconstruct
+$\left(  \pi,\sigma\right)  $ from $w$ (namely, $\left(  \pi,\sigma\right)  $
+is given by $\pi=w\mid_{P}$ and $\sigma=w\mid_{Q}$). Thus, the the sets
+$S\left(  \pi,\sigma\right)  $ for distinct pairs $\left(  \pi,\sigma\right)
+$ are disjoint. This proves Observation 2.]
+
+We will furthermore need a simple auxiliary claim:
+
+\begin{statement}
+\textit{Observation 3:} Let $R$ be a finite poset. Let $u$ and $v$ be two
+elements of $R$. Assume that we don't have $u>v$ in $R$. Let $w$ be a linear
+extension of $R$. Let $R^{\prime}$ be the poset obtained from $R$ by adding
+the relation $u<v$ to $R$. Then, $w$ is a linear extension of $R^{\prime}$ if
+and only if we have $u<v$ in $w$.
+\end{statement}
+
+[\textit{Proof of Observation 3:} The \textquotedblleft only
+if\textquotedblright\ direction is obvious. The \textquotedblleft
+if\textquotedblright\ direction is easily derived from the definition of a
+linear extension, once you recall that any pair $\left(  x,y\right)  $ of
+elements of $R^{\prime}$ that satisfies $x<y$ in $R^{\prime}$ must either
+already satisfy $x<y$ in $R$, or satisfy $x\leq u$ and $v\leq y$ in $R$. The
+details are left to the reader.]
+
+\textbf{(a)} Observation 2 shows that the union $\bigcup_{\pi\in
+\mathcal{L}\left(  P\right)  ;\ \sigma\in\mathcal{L}\left(  Q\right)
+}S\left(  \pi,\sigma\right)  $ is a disjoint union. Hence, the union
+$\bigcup_{\pi\in\mathcal{L}\left(  P\right)  ;\ \sigma\in\mathcal{L}\left(
+Q\right)  }S_{\prec}\left(  \pi,\sigma\right)  $ is a disjoint union as well
+(since $S_{\prec}\left(  \pi,\sigma\right)  $ is a subset of $S\left(
+\pi,\sigma\right)  $ for all $\pi$ and $\sigma$).
+
+We don't have $\min P>\min Q$ in $P\sqcup Q$. Thus, applying Observation 3 to
+$R=P\sqcup Q$, $u=\min P$, $v=\min Q$ and $R^{\prime}=P\left.  \prec\right.
+Q$, we obtain the following:
+
+\begin{statement}
+\textit{Observation 4:} Let $w$ be a linear extension of $P\sqcup Q$. Then,
+$w$ is a linear extension of $P\left.  \prec\right.  Q$ if and only if we have
+$\min P<\min Q$ in $w$.
+\end{statement}
+
+Next, we claim that
+\begin{equation}
+\mathcal{L}\left(  P\left.  \prec\right.  Q\right)  \subseteq\bigcup_{\pi
+\in\mathcal{L}\left(  P\right)  ;\ \sigma\in\mathcal{L}\left(  Q\right)
+}S_{\prec}\left(  \pi,\sigma\right)  .\label{pf.lem.dendri.4.1.lem2.a.5}%
+\end{equation}
+
+
+[\textit{Proof:} Let $w\in\mathcal{L}\left(  P\left.  \prec\right.  Q\right)
+$. Thus, $w$ is a linear extension of $P\left.  \prec\right.  Q$. Hence, $w$
+is a linear extension of $P\sqcup Q$, and we have $\min P<\min Q$ in $w$ (by
+Observation 4). Since $w$ is a linear extension of $P\sqcup Q$, we have
+$w\in\bigcup_{\pi\in\mathcal{L}\left(  P\right)  ;\ \sigma\in\mathcal{L}%
+\left(  Q\right)  }S\left(  \pi,\sigma\right)  $ (by Observation 1). In other
+words, $w\in S\left(  \pi,\sigma\right)  $ for some $\pi\in\mathcal{L}\left(
+P\right)  $ and $\sigma\in\mathcal{L}\left(  Q\right)  $. Consider these $\pi$
+and $\sigma$.
+
+The element $\min P$ is the minimum element of the poset $P$, and thus must be
+the first letter of $\pi$ (since $\pi$ is a linear extension of $P$).
+Similarly, $\min Q$ must be the first letter of $\sigma$. But $w\in S\left(
+\pi,\sigma\right)  $. Hence, the first letter of $w$ is either the first
+letter of $\pi$ or the first letter of $\sigma$.
+
+We have $\min P<\min Q$ in $w$. In other words, $\min P$ appears before $\min
+Q$ in the list $w$. Hence, $\min Q$ cannot be the first letter of $w$. In
+other words, the first letter of $w$ cannot be $\min Q$. In other words, the
+first letter of $w$ cannot be the first letter of $\sigma$ (since $\min Q$ is
+the first letter of $\sigma$). Thus, the first letter of $w$ is the first
+letter of $\pi$ (since the first letter of $w$ is either the first letter of
+$\pi$ or the first letter of $\sigma$). In other words, $w$ is a left shuffle
+of $\pi$ and $\sigma$ (since $w\in S\left(  \pi,\sigma\right)  $). In other
+words, $w\in S_{\prec}\left(  \pi,\sigma\right)  $ (since $S_{\prec}\left(
+\pi,\sigma\right)  $ is the set of all left shuffles of $\pi$ and $\sigma$).
+
+Now, forget that we have defined $\pi$ and $\sigma$. We thus have shown that
+$w\in S_{\prec}\left(  \pi,\sigma\right)  $ for some $\pi\in\mathcal{L}\left(
+P\right)  $ and $\sigma\in\mathcal{L}\left(  Q\right)  $. Thus, $w\in
+\bigcup_{\pi\in\mathcal{L}\left(  P\right)  ;\ \sigma\in\mathcal{L}\left(
+Q\right)  }S_{\prec}\left(  \pi,\sigma\right)  $. Since we have proven this
+for any $w\in\mathcal{L}\left(  P\left.  \prec\right.  Q\right)  $, we thus
+have proven (\ref{pf.lem.dendri.4.1.lem2.a.5}).]
+
+On the other hand, we claim that
+\begin{equation}
+\bigcup_{\pi\in\mathcal{L}\left(  P\right)  ;\ \sigma\in\mathcal{L}\left(
+Q\right)  }S_{\prec}\left(  \pi,\sigma\right)  \subseteq\mathcal{L}\left(
+P\left.  \prec\right.  Q\right)  .\label{pf.lem.dendri.4.1.lem2.a.6}%
+\end{equation}
+
+
+[\textit{Proof:} Let $w\in\bigcup_{\pi\in\mathcal{L}\left(  P\right)
+;\ \sigma\in\mathcal{L}\left(  Q\right)  }S_{\prec}\left(  \pi,\sigma\right)
+$.
+
+We have%
+\[
+w\in\bigcup_{\pi\in\mathcal{L}\left(  P\right)  ;\ \sigma\in\mathcal{L}\left(
+Q\right)  }\underbrace{S_{\prec}\left(  \pi,\sigma\right)  }_{\subseteq
+S\left(  \pi,\sigma\right)  }\subseteq\bigcup_{\pi\in\mathcal{L}\left(
+P\right)  ;\ \sigma\in\mathcal{L}\left(  Q\right)  }S\left(  \pi
+,\sigma\right)  .
+\]
+Thus, $w$ is a linear extension of $P\sqcup Q$ (by Observation 1).
+
+Also, $w\in\bigcup_{\pi\in\mathcal{L}\left(  P\right)  ;\ \sigma
+\in\mathcal{L}\left(  Q\right)  }S_{\prec}\left(  \pi,\sigma\right)  $.
+Thus, $w\in S_{\prec}\left(  \pi,\sigma\right)  $ for some $\pi\in
+\mathcal{L}\left(  P\right)  $ and $\sigma\in\mathcal{L}\left(  Q\right)  $.
+Consider these $\pi$ and $\sigma$. From $w\in S_{\prec}\left(  \pi
+,\sigma\right)  $, we conclude that $w$ is a left shuffle of $\pi$ and
+$\sigma$. In other words, $w$ is a shuffle of $\pi$ and $\sigma$ such that the
+first letter of $w$ is the first letter of $\pi$.
+
+The element $\min P$ is the minimum element of the poset $P$, and thus must be
+the first letter of $\pi$ (since $\pi$ is a linear extension of $P$). In other
+words, $\min P$ is the first letter of $w$ (since the first letter of $w$ is
+the first letter of $\pi$). Hence, $\min P$ appears before $\min Q$ in the
+list $w$ (since $\min P$ and $\min Q$ are two distinct letters of $w$). In
+other words, we have $\min P<\min Q$ in $w$. Hence, Observation 4 yields that
+$w$ is a linear extension of $P\left.  \prec\right.  Q$ (since $w$ is a linear
+extension of $P\sqcup Q$). In other words, $w\in\mathcal{L}\left(  P\left.
+\prec\right.  Q\right)  $. Since we have proven this for any $w\in\bigcup
+_{\pi\in\mathcal{L}\left(  P\right)  ;\ \sigma\in\mathcal{L}\left(  Q\right)
+}S_{\prec}\left(  \pi,\sigma\right)  $, we thus have proven
+(\ref{pf.lem.dendri.4.1.lem2.a.6}).]
+
+Combining (\ref{pf.lem.dendri.4.1.lem2.a.5}) and
+(\ref{pf.lem.dendri.4.1.lem2.a.6}), we obtain
+\[
+\mathcal{L}\left(  P\left.  \prec\right.  Q\right)  =\bigcup_{\pi
+\in\mathcal{L}\left(  P\right)  ;\ \sigma\in\mathcal{L}\left(  Q\right)
+}S_{\prec}\left(  \pi,\sigma\right)  =\bigsqcup_{\pi\in\mathcal{L}\left(
+P\right)  ;\ \sigma\in\mathcal{L}\left(  Q\right)  }S_{\prec}\left(
+\pi,\sigma\right)
+\]
+(since the union $\bigcup_{\pi\in\mathcal{L}\left(  P\right)  ;\ \sigma
+\in\mathcal{L}\left(  Q\right)  }S_{\prec}\left(  \pi,\sigma\right)  $ is a
+disjoint union). This proves Lemma \ref{lem.dendri.4.1.lem2} \textbf{(a)}.
+
+\textbf{(b)} Lemma \ref{lem.dendri.4.1.lem2} \textbf{(b)} is proven similarly
+to Lemma \ref{lem.dendri.4.1.lem2} \textbf{(a)}.
+\end{proof}
+
 We leave the details to the reader.
 
 We can rewrite Theorem \ref{thm.dendri.4.1} as follows:\footnote{Recall that

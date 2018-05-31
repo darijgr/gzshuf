@@ -1236,11 +1236,18 @@ $\left( \left\{0\right\} \times P \right)
 This set is denoted by $P \sqcup Q$,
 and comes with two canonical injections
 \begin{align*}
-\iota_P &: P \to P \sqcup Q, \qquad  p \mapsto \left(0, p\right), \qquad \text{and} \\
-\iota_Q &: Q \to P \sqcup Q, \qquad  q \mapsto \left(1, q\right).
+\iota_0 &: P \to P \sqcup Q, \qquad  p \mapsto \left(0, p\right), \qquad \text{and} \\
+\iota_1 &: Q \to P \sqcup Q, \qquad  q \mapsto \left(1, q\right).
 \end{align*}
 The images of these two injections are disjoint, and their
 union is $P \sqcup Q$.
+
+If $f : P \sqcup Q \to X$ is any map, then the
+\textit{restriction of $f$ to $P$} is understood to be the
+map $f \circ \iota_0 : P \to X$, whereas the
+\textit{restriction of $f$ to $Q$} is understood to be the
+map $f \circ \iota_1 : Q \to X$.
+(Of course, this notation is ambiguous when $P = Q$.)
 
 When the sets $P$ and $Q$ are already disjoint, it is common
 to identify their disjoint union $P \sqcup Q$ with their
@@ -1248,6 +1255,10 @@ union $P \cup Q$ via the map
 \[
 P \sqcup Q \to P \cup Q, \qquad \left(i, r\right) \mapsto r .
 \]
+Under this identification, the restriction of a map
+$f : P \sqcup Q \to X$ to $P$ becomes identical with the
+(literal) restriction $f\mid_P$ of the map $f : P \cup Q \to X$
+(and similarly for the restrictions to $Q$).
 
 \textbf{(b)} Let $P$ and $Q$ be two posets.
 The \textit{disjoint union} of the posets $P$ and $Q$ is the poset

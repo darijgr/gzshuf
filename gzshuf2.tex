@@ -1178,6 +1178,54 @@ q\right)  $ if and only if $\delta\left(  p\right)  \leq\delta\left(
 q\right)  $.
 \end{definition}
 
+\begin{lemma} \label{lem.ord-eq-Ppar}
+Let $\left(P, \alpha\right)$ and $\left(P, \beta\right)$ be two labeled posets
+with the same ground poset $P$.
+Assume that the maps $\alpha$ and $\beta$ are order-equivalent. Then:
+
+\textbf{(a)} We have
+$\mathcal{E}\left(P, \alpha\right) = \mathcal{E}\left(P, \beta\right)$.
+
+\textbf{(b)} We have
+$\Gamma_{\mathcal{Z}}\left(P, \alpha\right) = \Gamma_{\mathcal{Z}}\left(P, \beta\right)$.
+\end{lemma}
+
+\begin{proof}[Proof of Lemma~\ref{lem.ord-eq-Ppar}.]
+\textbf{(a)} If $x$ and $y$ are two elements of $P$, then we have the following
+equivalences:
+\begin{align*}
+\left( \alpha\left(x\right) \leq \alpha\left(y\right) \right)
+  \ &\Longleftrightarrow \ %
+  \left( \beta\left(x\right) \leq \beta\left(y\right) \right) ; \\
+\left( \alpha\left(x\right) > \alpha\left(y\right) \right)
+  \ &\Longleftrightarrow \ %
+  \left( \beta\left(x\right) > \beta\left(y\right) \right) ; \\
+\left( \alpha\left(x\right) < \alpha\left(y\right) \right)
+  \ &\Longleftrightarrow \ %
+  \left( \beta\left(x\right) < \beta\left(y\right) \right) .
+\end{align*}
+(Indeed, the first of these equivalences holds because $\alpha$ and $\beta$
+are order-equivalent; the second is the contrapositive of the first; the
+third is obtained from the second by swapping $x$ with $y$.)
+
+Hence, the conditions ``$\alpha\left(x\right) > \alpha\left(y\right)$''
+and ``$\alpha\left(x\right) < \alpha\left(y\right)$'' in the definition
+of a $\mathcal{Z}$-enriched $\left(P, \alpha\right)$-partition are
+equivalent to the conditions
+``$\beta\left(x\right) > \beta\left(y\right)$''
+and ``$\beta\left(x\right) < \beta\left(y\right)$'' in the definition
+of a $\mathcal{Z}$-enriched $\left(P, \beta\right)$-partition.
+Therefore, the $\mathcal{Z}$-enriched $\left(P, \alpha\right)$-partitions
+are precisely the
+$\mathcal{Z}$-enriched $\left(P, \beta\right)$-partitions.
+In other words,
+$\mathcal{E}\left(P, \alpha\right) = \mathcal{E}\left(P, \beta\right)$.
+This proves Lemma~\ref{lem.ord-eq-Ppar} \textbf{(a)}.
+
+\textbf{(b)} Lemma~\ref{lem.ord-eq-Ppar} \textbf{(b)} follows from
+Lemma~\ref{lem.ord-eq-Ppar} \textbf{(a)}.
+\end{proof}
+
 \begin{proposition}
 \label{prop.prod1}Let $\left(  P,\gamma\right)  $ and $\left(  Q,\delta
 \right)  $ be two labeled posets. Let $\left(  P\sqcup Q,\varepsilon\right)  $
@@ -1195,14 +1243,75 @@ Q,\delta\right)  =\Gamma_{\mathcal{Z}}\left(  P\sqcup Q,\varepsilon\right)  .
 \begin{proof}
 [Proof of Proposition \ref{prop.prod1}.]We WLOG assume that the ground sets
 $P$ and $Q$ are disjoint; thus, we can identify $P\sqcup Q$ with the union
-$P\cup Q$. The map%
+$P\cup Q$.
+Let us make this identification.
+
+The restriction $\varepsilon\mid_P$ of $\varepsilon$ to $P$ is order-equivalent
+to $\gamma$. Hence, Lemma \ref{lem.ord-eq-Ppar} \textbf{(a)} (applied to
+$\alpha = \varepsilon\mid_P$ and $\beta = \gamma$) yields
+$\mathcal{E}\left(P, \varepsilon\mid_P\right)
+= \mathcal{E}\left(P, \gamma\right)$.
+Similarly,
+$\mathcal{E}\left(Q, \varepsilon\mid_Q\right)
+= \mathcal{E}\left(Q, \delta\right)$.
+
+\begin{vershort}
+It is easy to see that a map $f : P \sqcup Q \to \mathcal{Z}$
+is a $\mathcal{Z}$-enriched $\left(P \sqcup Q, \varepsilon\right)$-partition
+if and only if $f \mid_P$ is a $\mathcal{Z}$-enriched
+$\left(  P,\varepsilon\mid_P\right)$-partition and
+$f \mid_Q$ is a $\mathcal{Z}$-enriched
+$\left(  Q,\varepsilon\mid_Q\right)$-partition.
+\end{vershort}
+
+\begin{verlong}
+If $x$ and $y$ are two elements of $P \sqcup Q$, then $x < y$ in $P \sqcup Q$
+holds if and only if
+\begin{itemize}
+\item \textbf{either} $x$ and $y$ both belong to $P$ and satisfy $x < y$ in $P$,
+\item \textbf{or} $x$ and $y$ both belong to $Q$ and satisfy $x < y$ in $Q$.
+\end{itemize}
+Hence:
+\begin{itemize}
+\item If $f$ is a
+$\mathcal{Z}$-enriched $\left(P \sqcup Q, \varepsilon\right)$-partition,
+then $f \mid_P$ is a $\mathcal{Z}$-enriched
+$\left(  P,\varepsilon\mid_P\right)$-partition and
+$f \mid_Q$ is a $\mathcal{Z}$-enriched
+$\left(  Q,\varepsilon\mid_Q\right)$-partition.
+\item Conversely, if $g$ is a $\mathcal{Z}$-enriched
+$\left(  P,\varepsilon\mid_P\right)$-partition, and if
+$h$ is a $\mathcal{Z}$-enriched
+$\left(  Q,\varepsilon\mid_Q\right)$-partition, then the unique map
+$f : P \sqcup Q \to \mathcal{Z}$ satisfying
+$\left(  f\mid_{P},f\mid_{Q}\right) = \left(g, h\right)$
+(that is, the map $P \sqcup Q \to \mathcal{Z}$
+that sends each $p \in P$ to $g \left( p \right)$
+and sends each $q \in Q$ to $h \left( q \right)$) is
+a $\mathcal{Z}$-enriched $\left(P \sqcup Q, \varepsilon\right)$-partition.
+\end{itemize}
+\end{verlong}
+
+Therefore, the map
+\begin{align*}
+\mathcal{E}\left(  P\sqcup Q,\varepsilon\right)   &  \rightarrow
+\mathcal{E}\left(  P,\varepsilon\mid_P\right)
+\times\mathcal{E}\left(  Q,\varepsilon\mid_Q\right)
+, \\
+f  &  \mapsto\left(  f\mid_{P},f\mid_{Q}\right)
+\end{align*}
+is a bijection (this is easy to see). In other words, the map
 \begin{align}
 \mathcal{E}\left(  P\sqcup Q,\varepsilon\right)   &  \rightarrow
 \mathcal{E}\left(  P,\gamma\right)  \times\mathcal{E}\left(  Q,\delta\right)
 ,\nonumber\\
 f  &  \mapsto\left(  f\mid_{P},f\mid_{Q}\right)  \label{pf.prop.prod1.bij}%
 \end{align}
-is a bijection (this is easy to see). Now,%
+is a bijection (since $\mathcal{E}\left(P, \varepsilon\mid_P\right)
+= \mathcal{E}\left(P, \gamma\right)$
+and
+$\mathcal{E}\left(Q, \varepsilon\mid_Q\right)
+= \mathcal{E}\left(Q, \delta\right)$). Now,
 \begin{align*}
 \Gamma_{\mathcal{Z}}\left(  P\sqcup Q,\varepsilon\right)   &  =\sum
 _{f\in\mathcal{E}\left(  P\sqcup Q,\varepsilon\right)  }\underbrace{\prod

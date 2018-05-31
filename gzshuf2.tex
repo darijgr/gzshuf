@@ -1558,7 +1558,25 @@ $n=\left\vert P\right\vert $. Then,%
 \begin{proof}
 [Proof of Corollary \ref{cor.fund-lem2}.]For each totally ordered set $w$ with
 ground set $P$, we let $\overline{w}$ be the unique poset isomorphism
-$w\rightarrow\left[  n\right]  $.
+$w\rightarrow\left[  n\right]  $. If $w$ is a linear extension of $P$, then
+this map $\overline{w}$ is also a bijective poset homomorphism $P\rightarrow
+\left[  n\right]  $ (since every poset homomorphism $w\rightarrow\left[
+n\right]  $ is also a poset homomorphism $P\rightarrow\left[  n\right]  $).
+Thus, for each $w\in\mathcal{L}\left(  P\right)  $, we have defined a
+bijective poset homomorphism $\overline{w}:P\rightarrow\left[  n\right]  $. We
+thus have defined a map%
+\begin{align}
+\mathcal{L}\left(  P\right)    & \rightarrow\left\{  \text{bijective poset
+homomorphisms }P\rightarrow\left[  n\right]  \right\}  ,\nonumber\\
+w  & \mapsto\overline{w}.\label{pf.cor.fund-lem2.bij}%
+\end{align}
+This map is injective (indeed, a linear extension $w\in\mathcal{L}\left(
+P\right)  $ can be uniquely reconstructed from $\overline{w}$) and surjective
+(because if $x$ is a bijective poset homomorphism $P\rightarrow\left[
+n\right]  $, then the linear extension $w\in\mathcal{L}\left(  P\right)  $
+defined (as a list) by $w=\left(  x^{-1}\left(  1\right)  ,x^{-1}\left(
+2\right)  ,\ldots,x^{-1}\left(  n\right)  \right)  $ satisfies $x=\overline
+{w}$). Hence, this map is a bijection. 
 
 Corollary \ref{cor.fund-lem} yields%
 \begin{equation}
@@ -1567,23 +1585,27 @@ P\right)  }\underbrace{\Gamma_{\mathcal{Z}}\left(  w,\gamma\right)
 }_{\substack{=\Gamma_{\mathcal{Z}}\left(  \gamma\circ\overline{w}^{-1}\right)
 \\\text{(by Proposition \ref{prop.Gamma=Gamma})}}}=\sum_{w\in\mathcal{L}%
 \left(  P\right)  }\Gamma_{\mathcal{Z}}\left(  \gamma\circ\overline{w}%
-^{-1}\right)  . \label{pf.cor.fund-lem2.1}%
+^{-1}\right)  .\label{pf.cor.fund-lem2.1}%
 \end{equation}
-But the linear extensions of $P$ are in bijection with the bijective poset
-homomorphisms $x:P\rightarrow\left[  n\right]  $; the bijection sends a linear
-extension $w$ of $P$ to the bijective poset homomorphism $\overline
-{w}:P\rightarrow\left[  n\right]  $. Thus, we can substitute $x$ for
-$\overline{w}$ in
-the sum $\sum_{w\in\mathcal{L}\left(  P\right)  }\Gamma_{\mathcal{Z}}\left(
-\gamma\circ\overline{w}^{-1}\right)  $, obtaining%
+But recall that the map (\ref{pf.cor.fund-lem2.bij}) is a bijection. Thus, we
+can substitute $x$ for $\overline{w}$ in the sum $\sum_{w\in\mathcal{L}\left(
+P\right)  }\Gamma_{\mathcal{Z}}\left(  \gamma\circ\overline{w}^{-1}\right)  $,
+obtaining%
 \[
 \sum_{w\in\mathcal{L}\left(  P\right)  }\Gamma_{\mathcal{Z}}\left(
 \gamma\circ\overline{w}^{-1}\right)  =\sum_{\substack{x:P\rightarrow\left[
 n\right]  \\\text{bijective poset}\\\text{homomorphism}}}\Gamma_{\mathcal{Z}%
 }\left(  \gamma\circ x^{-1}\right)  .
 \]
-Combining this with (\ref{pf.cor.fund-lem2.1}), we end up with the claim of
-Corollary \ref{cor.fund-lem2}.
+Hence, (\ref{pf.cor.fund-lem2.1}) becomes%
+\[
+\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  =\sum_{w\in\mathcal{L}\left(
+P\right)  }\Gamma_{\mathcal{Z}}\left(  \gamma\circ\overline{w}^{-1}\right)
+=\sum_{\substack{x:P\rightarrow\left[  n\right]  \\\text{bijective
+poset}\\\text{homomorphism}}}\Gamma_{\mathcal{Z}}\left(  \gamma\circ
+x^{-1}\right)  .
+\]
+This proves Corollary \ref{cor.fund-lem2}.
 \end{proof}
 
 \begin{corollary}

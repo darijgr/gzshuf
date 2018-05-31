@@ -1311,34 +1311,65 @@ is a bijection (since $\mathcal{E}\left(P, \varepsilon\mid_P\right)
 = \mathcal{E}\left(P, \gamma\right)$
 and
 $\mathcal{E}\left(Q, \varepsilon\mid_Q\right)
-= \mathcal{E}\left(Q, \delta\right)$). Now,
+= \mathcal{E}\left(Q, \delta\right)$).
+Now, the definition of
+$\Gamma_{\mathcal{Z}}\left(  P\sqcup Q,\varepsilon\right)$
+yields
 \begin{align*}
 \Gamma_{\mathcal{Z}}\left(  P\sqcup Q,\varepsilon\right)   &  =\sum
 _{f\in\mathcal{E}\left(  P\sqcup Q,\varepsilon\right)  }\underbrace{\prod
 _{p\in P\sqcup Q}x_{\left\vert f\left(  p\right)  \right\vert }}_{=\left(
 \prod_{p\in P}x_{\left\vert f\left(  p\right)  \right\vert }\right)  \left(
 \prod_{p\in Q}x_{\left\vert f\left(  p\right)  \right\vert }\right)  }\\
-&  =\sum_{f\in\mathcal{E}\left(  P\sqcup Q,\varepsilon\right)  }\left(
-\prod_{p\in P}x_{\left\vert f\left(  p\right)  \right\vert }\right)  \left(
-\prod_{p\in Q}x_{\left\vert f\left(  p\right)  \right\vert }\right) \\
-&  =\underbrace{\left(  \sum_{g\in\mathcal{E}\left(  P,\gamma\right)  }%
-\prod_{p\in P}x_{\left\vert g\left(  p\right)  \right\vert }\right)
-}_{=\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  }\underbrace{\left(
-\sum_{h\in\mathcal{E}\left(  Q,\delta\right)  }\prod_{p\in Q}x_{\left\vert
-h\left(  p\right)  \right\vert }\right)  }_{=\Gamma_{\mathcal{Z}}\left(
-Q,\delta\right)  }\\
+&  = \sum_{f\in\mathcal{E}\left(  P\sqcup Q,\varepsilon\right)  }
+\underbrace{
+ \left( \prod_{p\in P}x_{\left\vert f\left(  p\right)  \right\vert }\right)
+}_{
+ =
+ \prod_{p\in P}x_{\left\vert \left(f\mid_P\right) \left(  p\right)  \right\vert }
+}
+\underbrace{
+ \left( \prod_{p\in Q}x_{\left\vert f\left(  p\right)  \right\vert }\right)
+}_{
+ =
+ \prod_{p\in Q}x_{\left\vert \left(f\mid_Q\right) \left(  p\right)  \right\vert }
+}
+\\
+&  = \sum_{f\in\mathcal{E}\left(  P\sqcup Q,\varepsilon\right)  }
+ \left( \prod_{p\in P}x_{\left\vert \left(f\mid_P\right) \left(  p\right)  \right\vert }
+ \right)
+ \left(
+ \prod_{p\in Q}x_{\left\vert \left(f\mid_Q\right) \left(  p\right)  \right\vert }
+ \right)
+\\
+&  =
+\sum_{\left(g, h\right) \in \mathcal{E}\left(  P,\gamma\right) 
+            \times \mathcal{E}\left(  Q,\delta\right) }
+\left( \prod_{p\in P}x_{\left\vert g\left(  p\right)  \right\vert }\right)
+\left(\prod_{p\in Q}x_{\left\vert
+h\left(  p\right)  \right\vert }\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{here, we have substituted }\left(  g,h\right)  \text{ for }\left(
-f\mid_{P},f\mid_{Q}\right)  \text{, since}\\
-\text{the map (\ref{pf.prop.prod1.bij}) is a bijection}%
+f\mid_{P},f\mid_{Q}\right)  \text{,}\\
+\text{since the map (\ref{pf.prop.prod1.bij}) is a bijection}%
 \end{array}
 \right) \\
+&  =\underbrace{\left(  \sum_{g\in\mathcal{E}\left(  P,\gamma\right)  }%
+\prod_{p\in P}x_{\left\vert g\left(  p\right)  \right\vert }\right)
+}_{= \sum_{f\in\mathcal{E}\left(  P,\gamma\right)  }%
+\prod_{p\in P}x_{\left\vert f\left(  p\right)  \right\vert }
+= \Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  }\underbrace{\left(
+\sum_{h\in\mathcal{E}\left(  Q,\delta\right)  }\prod_{p\in Q}x_{\left\vert
+h\left(  p\right)  \right\vert }\right)  }_{
+= \sum_{f\in\mathcal{E}\left(  Q,\delta\right)  }\prod_{p\in Q}x_{\left\vert
+f\left(  p\right)  \right\vert }
+= \Gamma_{\mathcal{Z}}\left( Q,\delta\right)  }\\
 &  =\Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  \Gamma_{\mathcal{Z}}\left(
 Q,\delta\right)  .
 \end{align*}
-
+This proves Proposition \ref{prop.prod1}.
 \end{proof}
 
 \begin{definition}
@@ -1351,7 +1382,11 @@ labeling). We define $\Gamma_{\mathcal{Z}}\left(  \pi\right)  $ to be the
 power series $\Gamma_{\mathcal{Z}}\left(  \left[  n\right]  ,\pi\right)  $.
 \end{definition}
 
-We shall now prove two simple facts of auxiliary use:
+It is well-known that if $U$ and $V$ are any two finite totally ordered sets
+of the same size, then there is a unique poset isomorphism $U \to V$.
+Thus, if $w$ is a finite totally ordered set with $n$ elements, then there
+is a unique poset isomorphism $w \to \left[ n \right]$.
+Now, we claim the following:
 
 \begin{proposition}
 \label{prop.Gamma=Gamma}Let $w$ be a finite totally ordered set with ground
@@ -1363,19 +1398,36 @@ _{\mathcal{Z}}\left(  w,\gamma\right)  =\Gamma_{\mathcal{Z}}\left(
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.Gamma=Gamma}.]The map $\gamma\circ\overline
+[Proof of Proposition \ref{prop.Gamma=Gamma}.]Clearly,
+$\left( w , \gamma \right)$ is a labeled poset (since $\gamma$ is injective).
+The map $\gamma\circ\overline
 {w}^{-1}:\left[  n\right]  \rightarrow\left\{  1,2,3,\ldots\right\}  $ is an
 injective map, thus an $n$-permutation. Hence, $\Gamma_{\mathcal{Z}}\left(
-\gamma\circ\overline{w}^{-1}\right)  $ is well-defined, and in fact we have
+\gamma\circ\overline{w}^{-1}\right)  $ is well-defined, and its definition
+yields
 $\Gamma_{\mathcal{Z}}\left(  \gamma\circ\overline{w}^{-1}\right)
 =\Gamma_{\mathcal{Z}}\left(  \left[  n\right]  ,\gamma\circ\overline{w}%
-^{-1}\right)  $. Now, the map%
+^{-1}\right)  $.
+But $\overline{w}$ is a poset isomorphism $w \to \left[ n \right]$, and
+thus is an isomorphism of labeled posets\footnote{We define the notion of
+an ``isomorphism of labeled posets'' in the obvious way:
+If $\left(P, \alpha\right)$ and $\left(Q, \beta\right)$ are two labeled
+posets, then a \textit{homomorphism of labeled posets} from
+$\left(P, \alpha\right)$ to $\left(Q, \beta\right)$ means a poset
+homomorphism $f : P \to Q$ satisfying $\alpha = \beta \circ f$.
+A \textit{isomorphism of labeled posets} is an invertible homomorphism
+of labeled posets whose inverse also is a homomorphism of labeled posets.}
+from $\left(  w,\gamma\right)$ to $\left(  \left[
+n\right]  ,\gamma\circ\overline{w}^{-1}\right)$.
+Hence,
 \begin{align*}
 \mathcal{E}\left(  w,\gamma\right)   &  \rightarrow\mathcal{E}\left(  \left[
 n\right]  ,\gamma\circ\overline{w}^{-1}\right)  ,\\
 f  &  \mapsto f\circ\overline{w}^{-1}%
 \end{align*}
-is a bijection. Furthermore, it satisfies $\prod_{p\in w}x_{\left\vert
+is a bijection (since any isomorphism of labeled posets induces a bijection
+between their $\mathcal{Z}$-enriched $\left(P,\gamma\right)$-partitions).
+Furthermore, it satisfies $\prod_{p\in w}x_{\left\vert
 f\left(  p\right)  \right\vert }=\prod_{p\in\left[  n\right]  }x_{\left\vert
 \left(  f\circ\overline{w}^{-1}\right)  \left(  p\right)  \right\vert }$ for
 each $f\in\mathcal{E}\left(  w,\gamma\right)  $. Hence, $\Gamma_{\mathcal{Z}%

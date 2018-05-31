@@ -1226,6 +1226,46 @@ This proves Lemma~\ref{lem.ord-eq-Ppar} \textbf{(a)}.
 Lemma~\ref{lem.ord-eq-Ppar} \textbf{(a)}.
 \end{proof}
 
+Let us recall the notion of the disjoint union of two posets:
+
+\begin{definition}
+\textbf{(a)} Let $P$ and $Q$ be two sets.
+The \textit{disjoint union} of $P$ and $Q$ is the set
+$\left( \left\{0\right\} \times P \right)
+              \cup \left( \left\{1\right\} \times Q \right)$.
+This set is denoted by $P \sqcup Q$,
+and comes with two canonical injections
+\begin{align*}
+\iota_P &: P \to P \sqcup Q, \qquad  p \mapsto \left(0, p\right), \qquad \text{and} \\
+\iota_Q &: Q \to P \sqcup Q, \qquad  q \mapsto \left(1, q\right).
+\end{align*}
+The images of these two injections are disjoint, and their
+union is $P \sqcup Q$.
+
+When the sets $P$ and $Q$ are already disjoint, it is common
+to identify their disjoint union $P \sqcup Q$ with their
+union $P \cup Q$ via the map
+\[
+P \sqcup Q \to P \cup Q, \qquad \left(i, r\right) \mapsto r .
+\]
+
+\textbf{(b)} Let $P$ and $Q$ be two posets.
+The \textit{disjoint union} of the posets $P$ and $Q$ is the poset
+$P \sqcup Q$ whose ground set is the disjoint union $P \sqcup Q$,
+and whose order relation is defined by the following rules:
+\begin{itemize}
+\item If $p$ and $p^{\prime}$ are two elements of $P$, then
+      $\left(0, p\right) < \left(0, p^{\prime}\right)$ in $P \sqcup Q$
+      if and only if $p < p^{\prime}$ in $P$.
+\item If $q$ and $q^{\prime}$ are two elements of $Q$, then
+      $\left(1, q\right) < \left(1, q^{\prime}\right)$ in $P \sqcup Q$
+      if and only if $q < q^{\prime}$ in $Q$.
+\item If $p \in P$ and $q \in Q$,
+      then the elements $\left(0, p\right)$ and $\left(1, q\right)$
+      of $P \sqcup Q$ are incomparable.
+\end{itemize}
+\end{definition}
+
 \begin{proposition}
 \label{prop.prod1}Let $\left(  P,\gamma\right)  $ and $\left(  Q,\delta
 \right)  $ be two labeled posets. Let $\left(  P\sqcup Q,\varepsilon\right)  $
@@ -1426,7 +1466,9 @@ n\right]  ,\gamma\circ\overline{w}^{-1}\right)  ,\\
 f  &  \mapsto f\circ\overline{w}^{-1}%
 \end{align*}
 is a bijection (since any isomorphism of labeled posets induces a bijection
-between their $\mathcal{Z}$-enriched $\left(P,\gamma\right)$-partitions).
+between their $\mathcal{Z}$-enriched $\left(P,\gamma\right)$-partitions). %
+%
+\begin{vershort}
 Furthermore, it satisfies $\prod_{p\in w}x_{\left\vert
 f\left(  p\right)  \right\vert }=\prod_{p\in\left[  n\right]  }x_{\left\vert
 \left(  f\circ\overline{w}^{-1}\right)  \left(  p\right)  \right\vert }$ for
@@ -1434,6 +1476,59 @@ each $f\in\mathcal{E}\left(  w,\gamma\right)  $. Hence, $\Gamma_{\mathcal{Z}%
 }\left(  w,\gamma\right)  =\Gamma_{\mathcal{Z}}\left(  \left[  n\right]
 ,\gamma\circ\overline{w}^{-1}\right)  =\Gamma_{\mathcal{Z}}\left(  \gamma
 \circ\overline{w}^{-1}\right)  $.
+\end{vershort}
+%
+\begin{verlong}
+Every $f\in\mathcal{E}\left(  w,\gamma\right)  $ satisfies%
+\begin{align}
+\prod_{p\in w}x_{\left\vert f\left(  p\right)  \right\vert }  & =\prod
+_{p\in\left[  n\right]  }\underbrace{x_{\left\vert f\left(  \overline{w}%
+^{-1}\left(  p\right)  \right)  \right\vert }}_{=x_{\left\vert \left(
+f\circ\overline{w}^{-1}\right)  \left(  p\right)  \right\vert }}\nonumber\\
+& \left(
+\begin{array}
+[c]{c}%
+\text{here, we have substituted }\overline{w}^{-1}\left(  p\right)  \text{ for
+}p\text{ in the product,}\\
+\text{since }\overline{w}^{-1}:\left[  n\right]  \rightarrow w\text{ is a
+bijection}%
+\end{array}
+\right)  \nonumber\\
+& =\prod_{p\in\left[  n\right]  }x_{\left\vert \left(  f\circ\overline{w}%
+^{-1}\right)  \left(  p\right)  \right\vert }%
+.\label{pf.prop.Gamma=Gamma.prod=prod}%
+\end{align}
+But the definition of $\Gamma_{\mathcal{Z}}\left(  w,\gamma\right)  $ yields
+\begin{align*}
+\Gamma_{\mathcal{Z}}\left(  w,\gamma\right)    & =\sum_{f\in\mathcal{E}\left(
+w,\gamma\right)  }\underbrace{\prod_{p\in w}x_{\left\vert f\left(  p\right)
+\right\vert }}_{\substack{=\prod_{p\in\left[  n\right]  }x_{\left\vert \left(
+f\circ\overline{w}^{-1}\right)  \left(  p\right)  \right\vert }\\\text{(by
+(\ref{pf.prop.Gamma=Gamma.prod=prod}))}}}=\sum_{f\in\mathcal{E}\left(
+w,\gamma\right)  }\prod_{p\in\left[  n\right]  }x_{\left\vert \left(
+f\circ\overline{w}^{-1}\right)  \left(  p\right)  \right\vert }\\
+& =\sum_{f\in\mathcal{E}\left(  \left[  n\right]  ,\gamma\circ\overline
+{w}^{-1}\right)  }\prod_{p\in\left[  n\right]  }x_{\left\vert f\left(
+p\right)  \right\vert }\\
+& \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have substituted }f\text{ for }f\circ\overline{w}^{-1}\text{ in
+the sum, since}\\
+\text{the map }\mathcal{E}\left(  w,\gamma\right)  \rightarrow\mathcal{E}%
+\left(  \left[  n\right]  ,\gamma\circ\overline{w}^{-1}\right)  ,\ f\mapsto
+f\circ\overline{w}^{-1}\\
+\text{is a bijection}%
+\end{array}
+\right)  \\
+& =\Gamma_{\mathcal{Z}}\left(  \left[  n\right]  ,\gamma\circ\overline{w}%
+^{-1}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }%
+\Gamma_{\mathcal{Z}}\left(  \left[  n\right]  ,\gamma\circ\overline{w}%
+^{-1}\right)  \right)  \\
+& =\Gamma_{\mathcal{Z}}\left(  \gamma\circ\overline{w}^{-1}\right)  .
+\end{align*}
+This proves Proposition \ref{prop.Gamma=Gamma}.
+\end{verlong}
 \end{proof}
 
 \begin{corollary}

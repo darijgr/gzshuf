@@ -897,10 +897,246 @@ P\right)  }\mathcal{E}\left(  w,\gamma\right)  .
 
 \end{proposition}
 
+\begin{vershort}
 \begin{proof}
 [Proof of Proposition \ref{prop.fund-lem}.]This is analogous to the proof of
 \cite[Lemma 2.1]{Stembr97}.
+See \cite{verlong} for details.
 \end{proof}
+\end{vershort}
+
+\begin{verlong}
+\begin{proof}
+[Proof of Proposition \ref{prop.fund-lem}.] The following proof is a
+straightforward generalization of \cite[proof of Lemma 2.1]{Stembr97}
+(although we are
+rewriting it along the lines of \cite[solution to Exercise 5.2.13]{HopfComb}).
+
+If $z\in\mathcal{Z}$ is any element, then we say that $z$ is \textit{positive}
+if the sign of $z$ is $+$ (that is, if $z=\left(  n,+\right)  $ for some
+$n\in\mathcal{N}$), and we say that $z$ is \textit{negative} if the sign of
+$z$ is $-$ (that is, if $z=\left(  n,-\right)  $ for some $n\in\mathcal{N}$).
+
+Let $\left(P, \gamma\right)$ be a labeled poset.
+
+Let $f\in\mathcal{E}\left(  P,\gamma\right)  $ be arbitrary. Thus, $f$ is a
+$\mathcal{Z}$-enriched $\left(  P,\gamma\right)  $-partition (by the
+definition of $\mathcal{E}\left(  P,\gamma\right)  $). We now define a binary
+relation $<_{f}$ on the set $P$ as follows: For any two elements $x$ and $y$
+of $P$, we shall have $x<_{f}y$ if and only if we have%
+\begin{align*}
+& \text{\textbf{either} }\left(  f\left(  x\right)  \prec f\left(  y\right)
+\right)  \\
+& \text{\textbf{or} }\left(  f\left(  x\right)  =f\left(  y\right)  \text{ is
+positive, and }\gamma\left(  x\right)  <\gamma\left(  y\right)  \right)  \\
+& \text{\textbf{or} }\left(  f\left(  x\right)  =f\left(  y\right)  \text{ is
+negative, and }\gamma\left(  x\right)  >\gamma\left(  y\right)  \right)
+\text{.}%
+\end{align*}
+It is easy to see that this relation $<_{f}$ is the smaller relation of a
+total order on the set $P$
+(indeed, it is transitive, irreflexive and asymmetric, and
+every two distinct elements $x$ and $y$ satisfy either $x<_{f}y$ or $y<_{f}%
+x$). Denote this total order by $\mathbf{w}_{f}$. Thus, $\mathbf{w}_{f}$ is a
+total order on the set $P$.
+
+This total order $\mathbf{w}_{f}$ is a linear extension of $P$.
+
+[\textit{Proof:} Let $x$ and $y$ be two elements of $P$ such that $x<y$ in
+$P$. We shall show that $x<y$ in $\mathbf{w}_{f}$.
+
+Recall that $f$ is a $\mathcal{Z}$-enriched $\left(  P,\gamma\right)
+$-partition. Thus, from $x<y$ in $P$, we obtain the following three facts:
+
+\begin{enumerate}
+\item[\textbf{(i)}] We have $f\left(  x\right)  \preccurlyeq f\left(
+y\right)  $.
+
+\item[\textbf{(ii)}] If $f\left(  x\right)  =f\left(  y\right)  =+n$ for some
+$n\in\mathcal{N}$, then $\gamma\left(  x\right)  <\gamma\left(  y\right)  $.
+
+\item[\textbf{(iii)}] If $f\left(  x\right)  =f\left(  y\right)  =-n$ for some
+$n\in\mathcal{N}$, then $\gamma\left(  x\right)  >\gamma\left(  y\right)  $.
+\end{enumerate}
+
+From these three facts, we conclude that \textbf{either} $\left(  f\left(
+x\right)  \prec f\left(  y\right)  \right)  $ \newline
+\textbf{or} $\left(  f\left(
+x\right)  =f\left(  y\right)  \text{ is positive, and }\gamma\left(  x\right)
+<\gamma\left(  y\right)  \right)  $ \newline
+\textbf{or} $\left(  f\left(  x\right)
+=f\left(  y\right)  \text{ is negative, and }\gamma\left(  x\right)
+>\gamma\left(  y\right)  \right)  $. In other words, $x<_{f}y$ (by the
+definition of the relation $<_{f}$). In other words, $x<y$ in $\mathbf{w}_{f}$
+(since $<_{f}$ is the smaller relation of $\mathbf{w}_{f}$).
+
+Now, forget that we fixed $x$ and $y$. Thus, we have shown that if $x$ and $y$
+are two elements of $P$ such that $x<y$ in $P$, then $x<y$ in $\mathbf{w}_{f}%
+$. Hence, $\mathbf{w}_{f}$ is a linear extension of $P$ (since $\mathbf{w}%
+_{f}$ is a total order).]
+
+Furthermore, we have $f\in\mathcal{E}\left(  \mathbf{w}_{f},\gamma\right)  $.
+
+[\textit{Proof:} Let $x$ and $y$ be two elements of $\mathbf{w}_{f}$ such that
+$x<y$ in $\mathbf{w}_{f}$. We shall prove the following three statements:
+
+\begin{enumerate}
+\item[\textbf{(i)}] We have $f\left(  x\right)  \preccurlyeq f\left(
+y\right)  $.
+
+\item[\textbf{(ii)}] If $f\left(  x\right)  =f\left(  y\right)  =+n$ for some
+$n\in\mathcal{N}$, then $\gamma\left(  x\right)  <\gamma\left(  y\right)  $.
+
+\item[\textbf{(iii)}] If $f\left(  x\right)  =f\left(  y\right)  =-n$ for some
+$n\in\mathcal{N}$, then $\gamma\left(  x\right)  >\gamma\left(  y\right)  $.
+\end{enumerate}
+
+Indeed, $x$ and $y$ are elements of $P$ (since $\mathbf{w}_{f}=P$ as sets).
+Also, $x<y$ in $\mathbf{w}_{f}$. In other words, $x<_{f}y$ (since $<_{f}$ is
+the smaller relation of $\mathbf{w}_{f}$). In other words, we have%
+\begin{align*}
+& \text{\textbf{either} }\left(  f\left(  x\right)  \prec f\left(  y\right)
+\right)  \\
+& \text{\textbf{or} }\left(  f\left(  x\right)  =f\left(  y\right)  \text{ is
+positive, and }\gamma\left(  x\right)  <\gamma\left(  y\right)  \right)  \\
+& \text{\textbf{or} }\left(  f\left(  x\right)  =f\left(  y\right)  \text{ is
+negative, and }\gamma\left(  x\right)  >\gamma\left(  y\right)  \right)
+\end{align*}
+(by the definition of the relation $<_{f}$). In either of these three cases,
+the three statements \textbf{(i)}, \textbf{(ii)} and \textbf{(iii)} above are true.
+
+Now, forget that we fixed $x$ and $y$. We thus have shown that if $x$ and $y$
+are two elements of $\mathbf{w}_{f}$ such that $x<y$ in $\mathbf{w}_{f}$, then
+the three statements \textbf{(i)}, \textbf{(ii)} and \textbf{(iii)} above are
+true. In other words, $f$ is a $\mathcal{Z}$-enriched $\left(  \mathbf{w}%
+_{f},\gamma\right)  $-partition (by the definition of an $\mathcal{Z}%
+$-enriched $\left(  \mathbf{w}_{f},\gamma\right)  $-partition). In other
+words, $f\in\mathcal{E}\left(  \mathbf{w}_{f},\gamma\right)  $ (by the
+definition of $\mathcal{E}\left(  \mathbf{w}_{f},\gamma\right)  $).]
+
+Furthermore, the following holds:
+
+\begin{statement}
+\textit{Observation 1:} If $w\in\mathcal{L}\left(  P\right)  $ satisfies
+$f\in\mathcal{E}\left(  w,\gamma\right)  $, then $w=\mathbf{w}_{f}$.
+\end{statement}
+
+[\textit{Proof of Observation 1:} Let $w\in\mathcal{L}\left(  P\right)  $ be
+such that $f\in\mathcal{E}\left(  w,\gamma\right)  $. Thus, $f$ is a
+$\mathcal{Z}$-enriched $\left(  w,\gamma\right)  $-partition (by the
+definition of $\mathcal{E}\left(  w,\gamma\right)  $).
+
+From $w \in \mathcal{L} \left( P \right)$, we conclude that $w = P$
+as sets, and that $w$ is a total order.
+Hence, $w = P = \mathbf{w}_f$ as sets.
+
+Now, let $x$ and $y$ be two elements of $w$ such that $x<y$ in $w$. Since $f$
+is a $\mathcal{Z}$-enriched $\left(  w,\gamma\right)  $-partition, we thus
+conclude that the following three statements hold:
+
+\begin{enumerate}
+\item[\textbf{(i)}] We have $f\left(  x\right)  \preccurlyeq f\left(
+y\right)  $.
+
+\item[\textbf{(ii)}] If $f\left(  x\right)  =f\left(  y\right)  =+n$ for some
+$n\in\mathcal{N}$, then $\gamma\left(  x\right)  <\gamma\left(  y\right)  $.
+
+\item[\textbf{(iii)}] If $f\left(  x\right)  =f\left(  y\right)  =-n$ for some
+$n\in\mathcal{N}$, then $\gamma\left(  x\right)  >\gamma\left(  y\right)  $.
+\end{enumerate}
+
+From these three statements, we conclude that \textbf{either} $\left(
+f\left(  x\right)  \prec f\left(  y\right)  \right)  $ \newline
+\textbf{or} $\left(
+f\left(  x\right)  =f\left(  y\right)  \text{ is positive, and }\gamma\left(
+x\right)  <\gamma\left(  y\right)  \right)  $ \newline
+\textbf{or} $\left(  f\left(
+x\right)  =f\left(  y\right)  \text{ is negative, and }\gamma\left(  x\right)
+>\gamma\left(  y\right)  \right)  $. In other words, $x<_{f}y$ (by the
+definition of the relation $<_{f}$). In other words, $x<y$ in $\mathbf{w}_{f}$
+(since $<_{f}$ is the smaller relation of $\mathbf{w}_{f}$).
+
+Now, forget that we fixed $x$ and $y$. We thus have shown that if $x$ and $y$
+are two elements of $w$ such that $x<y$ in $w$, then $x<y$ in $\mathbf{w}_{f}%
+$. In other words, $\mathbf{w}_{f}$ is a linear extension of $w$ (since
+$\mathbf{w}_{f}$ is a total order). But the only linear extension of $w$ is
+$w$ itself (since $w$ is a total order). Thus, we conclude that $\mathbf{w}%
+_{f}=w$. This proves Observation 1.]
+
+Now, forget that we fixed $f$. Thus, for each $f\in\mathcal{E}\left(
+P,\gamma\right)  $, we have constructed a linear extension $\mathbf{w}_{f}$ of
+$P$, and we have shown that it satisfies $f\in\mathcal{E}\left(
+\mathbf{w}_{f},\gamma\right)  $ and Observation 1.
+
+Hence, for each $f\in\mathcal{E}\left(  P,\gamma\right)  $, we have%
+\[
+f\in\mathcal{E}\left(  \mathbf{w}_{f},\gamma\right)  \subseteq\bigcup
+_{w\in\mathcal{L}\left(  P\right)  }\mathcal{E}\left(  w,\gamma\right)
+\]
+(since $\mathbf{w}_{f}\in\mathcal{L}\left(  P\right)  $ (because
+$\mathbf{w}_{f}$ is a linear extension of $P$)). In other words,
+$\mathcal{E}\left(  P,\gamma\right)  \subseteq\bigcup_{w\in\mathcal{L}\left(
+P\right)  }\mathcal{E}\left(  w,\gamma\right)  $. On the other hand, every
+$w\in\mathcal{L}\left(  P\right)  $ satisfies $\mathcal{E}\left(
+w,\gamma\right)  \subseteq\mathcal{E}\left(  P,\gamma\right)  $%
+\ \ \ \ \footnote{\textit{Proof.} Let $w\in\mathcal{L}\left(  P\right)  $.
+Thus, $w$ is a linear extension of $P$. Hence, $w = P$ as sets, and every
+two elements $x$ and $y$ of $P$ satisfying $x < y$ in $P$ must also
+satisfy $x < y$ in $w$.
+Thus, every $\mathcal{Z}$-enriched
+$\left(  w,\gamma\right)  $-partition is a $\mathcal{Z}$-enriched $\left(
+P,\gamma\right)  $-partition (since the axioms for a $\left(  w,\gamma\right)
+$-partition are at least as strong as those for a $\left(  P,\gamma\right)
+$-partition). In other words, $\mathcal{E}\left(  w,\gamma\right)
+\subseteq\mathcal{E}\left(  P,\gamma\right)  $, qed.}. Hence, $\bigcup
+_{w\in\mathcal{L}\left(  P\right)  }\mathcal{E}\left(  w,\gamma\right)
+\subseteq\mathcal{E}\left(  P,\gamma\right)  $. Combining this with
+$\mathcal{E}\left(  P,\gamma\right)  \subseteq\bigcup_{w\in\mathcal{L}\left(
+P\right)  }\mathcal{E}\left(  w,\gamma\right)  $, we obtain%
+\begin{equation}
+\mathcal{E}\left(  P,\gamma\right)  =\bigcup_{w\in\mathcal{L}\left(  P\right)
+}\mathcal{E}\left(  w,\gamma\right)  .\label{pf.prop.fund-lem.union}%
+\end{equation}
+
+
+Finally, the sets $\mathcal{E}\left(  w,\gamma\right)  $ for distinct
+$w\in\mathcal{L}\left(  P\right)  $ are disjoint.
+
+[\textit{Proof:} Let $u$ and $v$ be two elements of $\mathcal{L}\left(
+P\right)  $ such that $\mathcal{E}\left(  u,\gamma\right)  \cap\mathcal{E}%
+\left(  v,\gamma\right)  \neq\varnothing$. We shall show that $u=v$.
+
+We have $\mathcal{E}\left(  u,\gamma\right)  \cap\mathcal{E}\left(
+v,\gamma\right)  \neq\varnothing$. Hence, there exists some $f\in
+\mathcal{E}\left(  u,\gamma\right)  \cap\mathcal{E}\left(  v,\gamma\right)  $.
+Consider this $f$.
+
+We have%
+\begin{align*}
+f  & \in\mathcal{E}\left(  u,\gamma\right)  \cap\mathcal{E}\left(
+v,\gamma\right)  \subseteq\mathcal{E}\left(  u,\gamma\right)  \subseteq
+\bigcup_{w\in\mathcal{L}\left(  P\right)  }\mathcal{E}\left(  w,\gamma\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }u\in\mathcal{L}\left(  P\right)
+\right)  \\
+& =\mathcal{E}\left(  P,\gamma\right)  .
+\end{align*}
+Hence, Observation 1 (applied to $w=u$) yields $u=\mathbf{w}_{f}$. The same
+argument (applied to $v$ instead of $u$) yields $v=\mathbf{w}_{f}$. Hence,
+$u=\mathbf{w}_{f}=v$.
+
+Now, forget that we fixed $u$ and $v$. We thus have shown that if $u$  and $v$
+are two elements of $\mathcal{L}\left(  P\right)  $ such that $\mathcal{E}%
+\left(  u,\gamma\right)  \cap\mathcal{E}\left(  v,\gamma\right)
+\neq\varnothing$, then $u=v$. In other words, the sets $\mathcal{E}\left(
+w,\gamma\right)  $ for distinct $w\in\mathcal{L}\left(  P\right)  $ are disjoint.]
+
+Thus, the union $\bigcup_{w\in\mathcal{L}\left(  P\right)  }\mathcal{E}\left(
+w,\gamma\right)  $ is a disjoint union. Hence, (\ref{pf.prop.fund-lem.union})
+rewrites as $\mathcal{E}\left(  P,\gamma\right)  =\bigsqcup_{w\in
+\mathcal{L}\left(  P\right)  }\mathcal{E}\left(  w,\gamma\right)  $. This
+proves Proposition \ref{prop.fund-lem}.
+\end{proof}
+\end{verlong}
 
 \begin{definition}
 \label{def.GammaZ}Let $\left(  P,\gamma\right)  $ be a labeled poset. We

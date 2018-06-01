@@ -1934,18 +1934,67 @@ map. Then, $\left\vert f\right\vert $ shall denote the map $\left[  n\right]
 
 \item[\textbf{(b)}] Let $g:\left[  n\right]  \rightarrow\mathcal{N}$ be any
 map. Then, we define a monomial $\mathbf{x}_{g}$ in $\operatorname*{Pow}%
-\mathcal{N}$ by $\mathbf{x}_{g}=\prod_{i=1}^{n}x_{g\left(  i\right)  }$. Note
-that this allows us to rewrite the definition of $\Gamma_{\mathcal{Z}}\left(
-\pi\right)  $ as follows: If $\pi$ is any $n$-permutation, then%
+\mathcal{N}$ by $\mathbf{x}_{g}=\prod_{i=1}^{n}x_{g\left(  i\right)  }$.
+\end{enumerate}
+\end{definition}
+
+Using this definition, we can rewrite the definition of $\Gamma_{\mathcal{Z}%
+}\left(  \pi\right)  $ as follows:
+
+\begin{proposition}
+\label{prop.Gamma.rewr}Let $n\in\mathbb{N}$. Let $\pi$ be any $n$-permutation.
+Then,%
 \begin{equation}
 \Gamma_{\mathcal{Z}}\left(  \pi\right)  =\sum_{f\in\mathcal{E}\left(  \left[
 n\right]  ,\pi\right)  }\prod_{p\in\left[  n\right]  }x_{\left\vert f\left(
 p\right)  \right\vert }=\sum_{f\in\mathcal{E}\left(  \left[  n\right]
-,\pi\right)  }\mathbf{x}_{\left\vert f\right\vert }. \label{eq.Gamma.rewr}%
+,\pi\right)  }\mathbf{x}_{\left\vert f\right\vert }.\label{eq.Gamma.rewr}%
 \end{equation}
 
+\end{proposition}
 
-\item[\textbf{(c)}] Let $g:\left[  n\right]  \rightarrow\mathcal{N}$ be any
+\begin{vershort}
+\begin{proof}
+[Proof of Proposition \ref{prop.Gamma.rewr}.] Easy consequence of the
+definitions (see \cite{verlong} for details).
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
+\begin{proof}
+[Proof of Proposition \ref{prop.Gamma.rewr}.] The definition of $\Gamma
+_{\mathcal{Z}}\left(  \pi\right)  $ yields%
+\[
+\Gamma_{\mathcal{Z}}\left(  \pi\right)  =\Gamma_{\mathcal{Z}}\left(  \left[
+n\right]  ,\pi\right)  =\sum_{f\in\mathcal{E}\left(  \left[  n\right]
+,\pi\right)  }\prod_{p\in\left[  n\right]  }x_{\left\vert f\left(  p\right)
+\right\vert }\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }%
+\Gamma_{\mathcal{Z}}\left(  \left[  n\right]  ,\pi\right)  \right)  .
+\]
+Also,%
+\begin{align*}
+\sum_{f\in\mathcal{E}\left(  \left[  n\right]  ,\pi\right)  }%
+\underbrace{\mathbf{x}_{\left\vert f\right\vert }}_{\substack{=\prod_{i=1}%
+^{n}x_{\left\vert f\right\vert \left(  i\right)  }\\\text{(by the definition
+of }\mathbf{x}_{\left\vert f\right\vert }\text{)}}}  & =\sum_{f\in
+\mathcal{E}\left(  \left[  n\right]  ,\pi\right)  }\underbrace{\prod_{i=1}%
+^{n}}_{=\prod_{i\in\left[  n\right]  }}\underbrace{x_{\left\vert f\right\vert
+\left(  i\right)  }}_{\substack{=x_{\left\vert f\left(  i\right)  \right\vert
+}\\\text{(since }\left\vert f\right\vert \left(  i\right)  =\left\vert
+f\left(  i\right)  \right\vert \text{)}}}=\sum_{f\in\mathcal{E}\left(  \left[
+n\right]  ,\pi\right)  }\prod_{i\in\left[  n\right]  }x_{\left\vert f\left(
+i\right)  \right\vert }\\
+& =\sum_{f\in\mathcal{E}\left(  \left[  n\right]  ,\pi\right)  }\prod
+_{p\in\left[  n\right]  }x_{\left\vert f\left(  p\right)  \right\vert }%
+\end{align*}
+(here, we have renamed the index $i$ as $p$ in the product). Combining these
+two equalities, we obtain (\ref{eq.Gamma.rewr}). Thus, Proposition
+\ref{prop.Gamma.rewr} is proven.
+\end{proof}
+\end{verlong}
+
+\begin{definition}
+Let $n\in\mathbb{N}$. Let $g:\left[  n\right]  \rightarrow\mathcal{N}$ be any
 map. Let $\pi$ be an $n$-permutation. We shall say that $g$ is $\pi
 $\textit{-amenable} if it has the following properties:
 
@@ -1962,7 +2011,6 @@ strictly decreasing. (This allows the case when $g^{-1}\left(  \infty\right)
 =\varnothing$.)
 
 \item[\textbf{(iv')}] The map $g$ is weakly increasing.
-\end{enumerate}
 \end{enumerate}
 \end{definition}
 

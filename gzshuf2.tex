@@ -1994,6 +1994,7 @@ two equalities, we obtain (\ref{eq.Gamma.rewr}). Thus, Proposition
 \end{verlong}
 
 \begin{definition}
+\label{def.amen}
 Let $n\in\mathbb{N}$. Let $g:\left[  n\right]  \rightarrow\mathcal{N}$ be any
 map. Let $\pi$ be an $n$-permutation. We shall say that $g$ is $\pi
 $\textit{-amenable} if it has the following properties:
@@ -2221,6 +2222,59 @@ except for $g^{-1}\left(  \infty\right)  $. We shall refer to the elements of
 $\operatorname*{FE}\left(  g\right)  $ as the \textit{fiber-ends} of $g$.
 \end{definition}
 
+\begin{proposition}
+\label{prop.Epk.fiberends}Let $n\in\mathbb{N}$. Let $g:\left[  n\right]
+\rightarrow\mathcal{N}$ be any weakly increasing map. Then, the map $g$ is
+$\pi$-amenable if and only if $\operatorname*{Epk}\pi\subseteq
+\operatorname*{FE}\left(  g\right)  $.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Epk.fiberends}.] The map $g$ is weakly
+increasing. Thus, all nonempty fibers $g^{-1}\left(  h\right)  $ of $g$ are
+intervals of $\left[  n\right]  $. Recall that $g$ is $\pi$-amenable if and
+only if the four Conditions \textbf{(i')}, \textbf{(ii')}, \textbf{(iii')} and
+\textbf{(iv')} in Definition \ref{def.amen} hold. Consider these four
+conditions. Since Condition \textbf{(iv')} automatically holds (since we
+assumed $g$ to be weakly increasing), we thus only need to discuss the other three:
+
+\begin{itemize}
+\item Condition \textbf{(i')} is equivalent to the statement that every
+exterior peak of $\pi$ that lies in the fiber $g^{-1}\left(  0\right)  $ must
+be the largest element of this fiber. (Indeed, a strictly increasing map is
+characterized by having no exterior peaks except for at its very end.)
+
+\item Condition \textbf{(ii')} is equivalent to the statement that every peak
+of $\pi$ that lies in a fiber $g^{-1}\left(  h\right)  $ with $h\in g\left(
+\left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  $ must be either
+the smallest or the largest element of this fiber (because the restriction
+$\pi\mid_{g^{-1}\left(  h\right)  }$ is V-shaped if and only if no peak of
+$\pi$ appears in the interior of this fiber\footnote{The \textit{interior} of
+an interval $\left\{  a,a+1,\ldots,b\right\}  $ of $\left[  n\right]  $ is
+defined to be the interval $\left\{  a+1,a+2,\ldots,b-1\right\}  $. (This is
+an empty interval if $a+1>b-1$.)}). Moreover, we can replace the word
+\textquotedblleft peak\textquotedblright\ by \textquotedblleft exterior
+peak\textquotedblright\ in this sentence (since the interior peaks $1$ and $n$
+must automatically be the smallest and the largest element of whatever fibers
+they belong to).
+
+\item Condition \textbf{(iii')} is equivalent to the statement that every
+exterior peak of $\pi$ that lies in the fiber $g^{-1}\left(  \infty\right)  $
+must be the smallest element of this fiber. (Indeed, a strictly decreasing map
+is characterized by having no exterior peaks except at its very beginning.)
+\end{itemize}
+
+Combining all of these insights, we conclude that the four Conditions
+\textbf{(i')}, \textbf{(ii')}, \textbf{(iii')} and \textbf{(iv')} hold if and
+only if every exterior peak of $\pi$ is a fiber-end of $g$. In other words,
+$g$ is $\pi$-amenable if and only if every exterior peak of $\pi$ is a
+fiber-end of $g$ (since $g$ is $\pi$-amenable if and only if the four
+Conditions \textbf{(i')}, \textbf{(ii')}, \textbf{(iii')} and \textbf{(iv')}
+hold). In other words, $g$ is $\pi$-amenable if and only if
+$\operatorname*{Epk}\pi\subseteq\operatorname*{FE}\left(  g\right)  $. This
+proves Proposition \ref{prop.Epk.fiberends}.
+\end{proof}
+
 We can rewrite Proposition \ref{prop.Epk-formula} as follows, exhibiting its
 analogy with \cite[Proposition 2.2]{Stembr97}:
 
@@ -2238,19 +2292,14 @@ analogy with \cite[Proposition 2.2]{Stembr97}:
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.Epk-formula2}.]This will follow from
-Proposition \ref{prop.Epk-formula} once we know that the $\pi$-amenable maps
-$g:\left[  n\right]  \rightarrow\mathcal{N}$ are precisely the weakly
-increasing maps $g:\left[  n\right]  \rightarrow\mathcal{N}$ satisfying
-$\operatorname*{Epk}\pi\subseteq\operatorname*{FE}\left(  g\right)  $. But
-this is easy to check. (The main idea: If $g:\left[  n\right]  \rightarrow
-\mathcal{N}$ is a weakly increasing map, then all nonempty fibers
-$g^{-1}\left(  h\right)  $ of $g$ are intervals, and Conditions \textbf{(i')},
-\textbf{(ii')} and \textbf{(iii')} in the definition of \textquotedblleft$\pi
-$-amenable\textquotedblright\ say precisely that no peak of $\pi$ can appear
-in the interior of any such fiber; i.e., all peaks must appear at fiber-ends.
-Of course, this needs some exceptions for $g^{-1}\left(  0\right)  $ and
-$g^{-1}\left(  \infty\right)  $, but this is all straightforward.)
+[Proof of Proposition \ref{prop.Epk-formula2}.]Each $\pi$-amenable map
+$g:\left[  n\right]  \rightarrow\mathcal{N}$ is weakly increasing (because of
+Condition \textbf{(iv')} in Definition \ref{def.amen}). Hence, Proposition
+\ref{prop.Epk.fiberends} yields that the $\pi$-amenable maps $g:\left[
+n\right]  \rightarrow\mathcal{N}$ are precisely the weakly increasing maps
+$g:\left[  n\right]  \rightarrow\mathcal{N}$ satisfying $\operatorname*{Epk}%
+\pi\subseteq\operatorname*{FE}\left(  g\right)  $. Thus, Proposition
+\ref{prop.Epk-formula2} follows from Proposition \ref{prop.Epk-formula}.
 \end{proof}
 
 \begin{definition}

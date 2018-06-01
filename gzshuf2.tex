@@ -1632,43 +1632,257 @@ _{\mathcal{Z}}\left(  \tau\right)  .
 \end{corollary}
 
 \begin{proof}
-[Proof of Corollary \ref{cor.prod2}.]Let $\varepsilon$ be the map $\left[
-n\right]  \sqcup\left[  m\right]  \rightarrow\left\{  1,2,3,\ldots\right\}  $
-whose restriction to $\left[  n\right]  $ is $\pi$ and whose restriction
-to $\left[ m \right]$ is $\sigma$. This map $\varepsilon$ is injective,
-since $\pi$ and $\sigma$ are disjoint permutations.
-Thus, $\left( \left[ n \right] \sqcup \left[ m \right] , \varepsilon\right)$
-is a labeled poset.
+[Proof of Corollary \ref{cor.prod2}.]
+\begin{verlong}
+We first state a general fact about sets and maps:
 
-Let $\rho:\left[  n\right]  \sqcup\left[  m\right]  \rightarrow\left[
-n+m\right]  $ be the strictly order-preserving bijection which sends the
-elements of $\left[  n\right]  $ to $1,2,\ldots,n$ and sends the elements of
-$\left[  m\right]  $ to $n+1,n+2,\ldots,n+m$.
+\begin{statement}
+\textit{Observation 0:} Let $U$, $V$ and $W$ be three sets. Let $\alpha
+:U\rightarrow W$ and $\beta:V\rightarrow W$ be two injective maps such that
+$\alpha\left(  U\right)  =\beta\left(  V\right)  $. Then, there exists a
+unique bijective map $\lambda:U\rightarrow V$ satisfying $\alpha=\beta
+\circ\lambda$.
+\end{statement}
 
-The definitions of $\Gamma_{\mathcal{Z}}\left(  \pi\right)  $ and
-$\Gamma_{\mathcal{Z}}\left(  \sigma\right)  $ yield%
+[\textit{Proof of Observation 0:} This is a simple exercise. (Roughly
+speaking: If we replace the codomains of the maps $\alpha$ and $\beta$ by
+$\alpha\left(  U\right)  =\beta\left(  V\right)  $, then the injective maps
+$\alpha$ and $\beta$ become bijections, and the required map $\lambda$ becomes
+$\beta^{-1}\circ\alpha$.)]
+\end{verlong}
+%
+Consider the disjoint union $\left[  n\right]  \sqcup\left[  m\right]  $ of
+the posets $\left[  n\right]  $ and $\left[  m\right]  $. (Note that this
+disjoint union cannot be identified with the union $\left[  n\right]
+\cup\left[  m\right]  $.) Let $\varepsilon$ be the map $\left[  n\right]
+\sqcup\left[  m\right]  \rightarrow\left\{  1,2,3,\ldots\right\}  $ whose
+restriction to $\left[  n\right]  $ is $\pi$ and whose restriction to $\left[
+m\right]  $ is $\sigma$. This map $\varepsilon$ is injective, since $\pi$ and
+$\sigma$ are disjoint permutations. Thus, $\left(  \left[  n\right]
+\sqcup\left[  m\right]  ,\varepsilon\right)  $ is a labeled poset.
+
+\begin{vershort}
+The following two observations are easy to show (see \cite{verlong}
+for detailed proofs):
+\end{vershort}
+
+\begin{verlong}
+Let us make some observations:
+\end{verlong}
+
+\begin{statement}
+\textit{Observation 1:} If $x$ is a bijective poset homomorphism $\left[
+n\right]  \sqcup\left[  m\right]  \rightarrow\left[  n+m\right]  $, then
+$\varepsilon\circ x^{-1}\in S\left(  \pi,\sigma\right)  $.
+\end{statement}
+
+\begin{verlong}
+[\textit{Proof of Observation 1:} Let $x$ be a bijective poset homomorphism
+$\left[  n\right]  \sqcup\left[  m\right]  \rightarrow\left[  n+m\right]  $.
+Then, $x^{-1}$ is a well-defined bijective map $\left[  n+m\right]
+\rightarrow\left[  n\right]  \sqcup\left[  m\right]  $ (since $x$ is
+bijective). Hence, $\varepsilon\circ x^{-1}$ is an injective map $\left[
+n+m\right]  \rightarrow\left\{  1,2,3,\ldots\right\}  $ (since $\varepsilon$
+is injective), therefore an $\left(  n+m\right)  $-permutation. Moreover,
+$\sigma$ is a subsequence of $\varepsilon\circ x^{-1}$%
+\ \ \ \ \footnote{\textit{Proof.} Let us denote the elements $x\left(  \left(
+1,1\right)  \right)  ,x\left(  \left(  1,2\right)  \right)  ,\ldots,x\left(
+\left(  1,m\right)  \right)  $ of $\left[  n+m\right]  $ by $i_{1}%
+,i_{2},\ldots,i_{m}$. Thus, $i_{q}=x\left(  \left(  1,q\right)  \right)  $ for
+each $q\in\left[  m\right]  $. Hence, the elements $i_{1},i_{2},\ldots,i_{m}$
+are the images of the distinct elements $\left(  1,1\right)  ,\left(
+1,2\right)  ,\ldots,\left(  1,m\right)  $ under the map $x$. Therefore, these
+elements $i_{1},i_{2},\ldots,i_{m}$ are distinct themselves (since $x$ is
+injective).
+\par
+But $x$ is a poset homomorphism $\left[  n\right]  \sqcup\left[  m\right]
+\rightarrow\left[  n+m\right]  $. Thus, $x\left(  \left(  1,1\right)  \right)
+\leq x\left(  \left(  1,2\right)  \right)  \leq\cdots\leq x\left(  \left(
+1,m\right)  \right)  $ (since $\left(  1,1\right)  \leq\left(  1,2\right)
+\leq\cdots\leq\left(  1,m\right)  $ in $\left[  n\right]  \sqcup\left[
+m\right]  $). In other words, $i_{1}\leq i_{2}\leq\cdots\leq i_{m}$ (since
+$i_{q}=x\left(  \left(  1,q\right)  \right)  $ for each $q\in\left[  m\right]
+$). Hence, $i_{1}<i_{2}<\cdots<i_{m}$ (since the elements $i_{1},i_{2}%
+,\ldots,i_{m}$ are distinct). Hence,%
+\[
+\left(  \left(  \varepsilon\circ x^{-1}\right)  \left(  i_{1}\right)  ,\left(
+\varepsilon\circ x^{-1}\right)  \left(  i_{2}\right)  ,\ldots,\left(
+\varepsilon\circ x^{-1}\right)  \left(  i_{m}\right)  \right)
+\]
+is a subsequence of $\varepsilon\circ x^{-1}$. Since each $q\in\left[
+m\right]  $ satisfies%
 \begin{align*}
-\Gamma_{\mathcal{Z}}\left(  \pi\right)  \Gamma_{\mathcal{Z}}\left(
-\sigma\right)   &  =\Gamma_{\mathcal{Z}}\left(  \left[  n\right]  ,\pi\right)
-\Gamma_{\mathcal{Z}}\left(  \left[  m\right]  ,\sigma\right) \\
-&  =\Gamma_{\mathcal{Z}}\left(  \left[  n\right]  \sqcup\left[  m\right]
-,\varepsilon\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.prod1}}\right) \\
-&  =\sum_{\substack{x:\left[  n\right]  \sqcup\left[  m\right]  \rightarrow
-\left[  n+m\right]  \\\text{bijective poset}\\\text{homomorphism}}%
-}\Gamma_{\mathcal{Z}}\left(  \varepsilon\circ x^{-1}\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary \ref{cor.fund-lem2}}\right) \\
-&  =\sum_{\tau\in S\left(  \sigma,\pi\right)  }\Gamma_{\mathcal{Z}}\left(
-\tau\right)  .
+\left(  \varepsilon\circ x^{-1}\right)  \left(  \underbrace{i_{q}}_{=x\left(
+\left(  1,q\right)  \right)  }\right)   &  =\left(  \varepsilon\circ
+x^{-1}\right)  \left(  x\left(  \left(  1,q\right)  \right)  \right)
+=\varepsilon\left(  \left(  1,q\right)  \right)  =\sigma\left(  q\right)  \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since the restriction of }\varepsilon
+\text{ to }\left[  m\right]  \text{ is }\sigma\right)  ,
 \end{align*}
-Here, the last equality sign makes use of the (easy) fact that the map%
+we have%
+\[
+\left(  \left(  \varepsilon\circ x^{-1}\right)  \left(  i_{1}\right)  ,\left(
+\varepsilon\circ x^{-1}\right)  \left(  i_{2}\right)  ,\ldots,\left(
+\varepsilon\circ x^{-1}\right)  \left(  i_{m}\right)  \right)  =\left(
+\sigma\left(  1\right)  ,\sigma\left(  2\right)  ,\ldots,\sigma\left(
+m\right)  \right)  =\sigma.
+\]
+Thus, $\sigma$ is a subsequence of $\varepsilon\circ x^{-1}$ (since%
+\[
+\left(  \left(  \varepsilon\circ x^{-1}\right)  \left(  i_{1}\right)  ,\left(
+\varepsilon\circ x^{-1}\right)  \left(  i_{2}\right)  ,\ldots,\left(
+\varepsilon\circ x^{-1}\right)  \left(  i_{m}\right)  \right)
+\]
+is a subsequence of $\varepsilon\circ x^{-1}$). Qed.}. Similarly, $\pi$ is a
+subsequence of $\varepsilon\circ x^{-1}$. Hence, $\varepsilon\circ x^{-1}$ is
+an $\left(  n+m\right)  $-permutation having the property that both $\pi$ and
+$\sigma$ are subsequences of $\varepsilon\circ x^{-1}$. In other words,
+$\varepsilon\circ x^{-1}$ is a shuffle of $\pi$ and $\sigma$ (by the
+definition of a shuffle). In other words, $\varepsilon\circ x^{-1}\in S\left(
+\pi,\sigma\right)  $ (by the definition of $S\left(  \pi,\sigma\right)  $).
+This proves Observation 1.]
+\end{verlong}
+
+\begin{statement}
+\textit{Observation 2:} If $\tau\in S\left(  \pi,\sigma\right)  $, then there
+exists a unique bijective poset homomorphism $x:\left[  n\right]
+\sqcup\left[  m\right]  \rightarrow\left[  n+m\right]  $ satisfying
+$\varepsilon\circ x^{-1}=\tau$.
+\end{statement}
+
+\begin{verlong}
+[\textit{Proof of Observation 2:} Let $\tau\in S\left(  \pi,\sigma\right)  $.
+Thus, $\tau$ is a shuffle of $\pi$ and $\sigma$ (by the definition of
+$S\left(  \pi,\sigma\right)  $). In other words, $\tau$ is an $\left(
+n+m\right)  $-permutation having the property that both $\pi$ and $\sigma$ are
+subsequences of $\tau$ (by the definition of a shuffle). Since $\pi$ and
+$\sigma$ are disjoint permutations, this entails that the letters of $\tau$
+are the letters of $\pi$ and the letters of $\sigma$. Hence, the image
+$\tau\left(  \left[  n+m\right]  \right)  $ of the map $\tau$ is the union
+$\pi\left(  \left[  n\right]  \right)  \cup\sigma\left(  \left[  m\right]
+\right)  $. But the image $\varepsilon\left(  \left[  n\right]  \cup\left[
+m\right]  \right)  $ is the same union $\pi\left(  \left[  n\right]  \right)
+\cup\sigma\left(  \left[  m\right]  \right)  $ (by the definition of
+$\varepsilon$). Hence, $\varepsilon\left(  \left[  n\right]  \cup\left[
+m\right]  \right)  =\tau\left(  \left[  n+m\right]  \right)  $. Also,
+$\varepsilon:\left[  n\right]  \cup\left[  m\right]  \rightarrow\left\{
+1,2,3,\ldots\right\}  $ and $\tau:\left[  n+m\right]  \rightarrow\left\{
+1,2,3,\ldots\right\}  $ are injective maps (indeed, $\tau$ is injective since
+$\tau$ is a permutation). Hence, Observation 0 (applied to $U=\left[
+n\right]  \cup\left[  m\right]  $, $V=\left[  n+m\right]  $, $W=\left\{
+1,2,3,\ldots\right\}  $, $\alpha=\varepsilon$ and $\beta=\tau$) shows that
+there exists a unique bijective map $\lambda:\left[  n\right]  \sqcup\left[
+m\right]  \rightarrow\left[  n+m\right]  $ satisfying $\varepsilon=\tau
+\circ\lambda$. In other words, there exists a unique bijective map
+$\lambda:\left[  n\right]  \sqcup\left[  m\right]  \rightarrow\left[
+n+m\right]  $ satisfying $\varepsilon\circ\lambda^{-1}=\tau$ (since the
+condition $\varepsilon=\tau\circ\lambda$ is equivalent to $\varepsilon
+\circ\lambda^{-1}=\tau$). Consider this $\lambda$.
+
+We have $\lambda\left(  \left(  0,1\right)  \right)  <\lambda\left(  \left(
+0,2\right)  \right)  <\cdots<\lambda\left(  \left(  0,n\right)  \right)
+$\ \ \ \ \footnote{\textit{Proof.} We know that $\pi$ is a subsequence of
+$\tau$. In other words, there exist $n$ elements $i_{1}<i_{2}<\cdots<i_{n}$ of
+$\left[  n+m\right]  $ satisfying $\pi=\left(  \tau\left(  i_{1}\right)
+,\tau\left(  i_{2}\right)  ,\ldots,\tau\left(  i_{n}\right)  \right)  $.
+Consider these $n$ elements.
+\par
+We have $\pi=\left(  \tau\left(  i_{1}\right)  ,\tau\left(  i_{2}\right)
+,\ldots,\tau\left(  i_{n}\right)  \right)  $. In other words, $\pi\left(
+p\right)  =\tau\left(  i_{p}\right)  $ for each $p\in\left[  n\right]  $.
+\par
+Now, let $p\in\left[  n\right]  $. Thus, $\pi\left(  p\right)  =\tau\left(
+i_{p}\right)  $ (as we have just seen). But recall that $\varepsilon
+\circ\lambda^{-1}=\tau$. In other words, $\varepsilon=\tau\circ\lambda$. On
+the other hand, the restriction of $\varepsilon$ to $\left[  n\right]  $ is
+$\pi$ (by the definition of $\varepsilon$). Hence, $\varepsilon\left(  \left(
+0,p\right)  \right)  =\pi\left(  p\right)  =\tau\left(  i_{p}\right)  $. Thus,%
+\[
+\tau\left(  i_{p}\right)  =\underbrace{\varepsilon}_{=\tau\circ\lambda}\left(
+\left(  0,p\right)  \right)  =\left(  \tau\circ\lambda\right)  \left(  \left(
+0,p\right)  \right)  =\tau\left(  \lambda\left(  \left(  0,p\right)  \right)
+\right)  .
+\]
+Since the map $\tau$ is injective (since $\tau$ is a permutation), we thus
+obtain $i_{p}=\lambda\left(  \left(  0,p\right)  \right)  $.
+\par
+Now, forget that we fixed $p$. Thus, we have shown that $i_{p}=\lambda\left(
+\left(  0,p\right)  \right)  $ for each $p\in\left[  n\right]  $. Hence, the
+chain of inequalities $i_{1}<i_{2}<\cdots<i_{n}$ rewrites as $\lambda\left(
+\left(  0,1\right)  \right)  <\lambda\left(  \left(  0,2\right)  \right)
+<\cdots<\lambda\left(  \left(  0,n\right)  \right)  $. Qed.} and
+$\lambda\left(  \left(  1,1\right)  \right)  <\lambda\left(  \left(
+1,2\right)  \right)  <\cdots<\lambda\left(  \left(  1,m\right)  \right)
+$\ \ \ \ \footnote{for similar reasons}. Thus, $\lambda$ is a poset
+homomorphism $\left[  n\right]  \sqcup\left[  m\right]  \rightarrow\left[
+n+m\right]  $. Hence, there exists at least one bijective poset homomorphism
+$x:\left[  n\right]  \sqcup\left[  m\right]  \rightarrow\left[  n+m\right]  $
+satisfying $\varepsilon\circ x^{-1}=\tau$ (namely, $x=\lambda$). Moreover,
+this $x$ is unique (since $\lambda$ is the \textbf{only} bijective map
+$\lambda:\left[  n\right]  \sqcup\left[  m\right]  \rightarrow\left[
+n+m\right]  $ satisfying $\varepsilon\circ\lambda^{-1}=\tau$). Thus, there
+exists a unique bijective poset homomorphism $x:\left[  n\right]
+\sqcup\left[  m\right]  \rightarrow\left[  n+m\right]  $ satisfying
+$\varepsilon\circ x^{-1}=\tau$. This proves Observation 2.]
+\end{verlong}
+
+Now, the map%
 \begin{align*}
 \left\{  \text{bijective poset homomorphisms }x:\left[  n\right]
 \sqcup\left[  m\right]  \rightarrow\left[  n+m\right]  \right\}   &
-\rightarrow S\left(  \sigma,\pi\right)  ,\\
+\rightarrow S\left(  \pi,\sigma\right)  ,\\
 x  &  \mapsto\varepsilon\circ x^{-1}%
 \end{align*}
-is a well-defined bijection.
+is well-defined (by Observation 1) and is a bijection (by Observation 2).
+Hence, we can substitute $\varepsilon\circ x^{-1}$ for $\tau$ in the sum
+$\sum_{\tau\in S\left(  \pi,\sigma\right)  }\Gamma_{\mathcal{Z}}\left(
+\tau\right)  $. We thus obtain%
+\begin{equation}
+\sum_{\tau\in S\left(  \pi,\sigma\right)  }\Gamma_{\mathcal{Z}}\left(
+\tau\right)  =\sum_{\substack{x:\left[  n\right]  \sqcup\left[  m\right]
+\rightarrow\left[  n+m\right]  \\\text{bijective poset}\\\text{homomorphism}%
+}}\Gamma_{\mathcal{Z}}\left(  \varepsilon\circ x^{-1}\right)  .
+\label{pf.cor.prod2.sum=sum}%
+\end{equation}
+
+
+The definition of $\Gamma_{\mathcal{Z}}\left(  \pi\right)  $ yields
+$\Gamma_{\mathcal{Z}}\left(  \pi\right)  =\Gamma_{\mathcal{Z}}\left(  \left[
+n\right]  ,\pi\right)  $. The definition of $\Gamma_{\mathcal{Z}}\left(
+\sigma\right)  $ yields $\Gamma_{\mathcal{Z}}\left(  \sigma\right)
+=\Gamma_{\mathcal{Z}}\left(  \left[  m\right]  ,\sigma\right)  $. Multiplying
+these two equalities, we obtain
+\begin{align*}
+\Gamma_{\mathcal{Z}}\left(  \pi\right)  \Gamma_{\mathcal{Z}}\left(
+\sigma\right)   &  =\Gamma_{\mathcal{Z}}\left(  \left[  n\right]  ,\pi\right)
+\Gamma_{\mathcal{Z}}\left(  \left[  m\right]  ,\sigma\right)  =\Gamma
+_{\mathcal{Z}}\left(  \left[  n\right]  \sqcup\left[  m\right]  ,\varepsilon
+\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Proposition \ref{prop.prod1}, applied to }P=\left[  n\right]  \text{,
+}\gamma=\pi\text{,}\\
+Q=\left[  m\right]  \text{ and }\delta=\sigma
+\end{array}
+\right) \\
+&  =\sum_{\substack{x:\left[  n\right]  \sqcup\left[  m\right]  \rightarrow
+\left[  n+m\right]  \\\text{bijective poset}\\\text{homomorphism}}%
+}\Gamma_{\mathcal{Z}}\left(  \varepsilon\circ x^{-1}\right) \\
+&\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Corollary \ref{cor.fund-lem2}, applied to}
+\left[  n\right]  \sqcup\left[  m\right]  \text{, }\varepsilon \\
+\text{ and
+}n+m\text{ instead of }P\text{, }\gamma\text{ and }n
+\end{array}
+\right) \\
+&  =\sum_{\tau\in S\left(  \pi,\sigma\right)  }\Gamma_{\mathcal{Z}}\left(
+\tau\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.cor.prod2.sum=sum}%
+)}\right)  .
+\end{align*}
+This proves Corollary \ref{cor.prod2}.
 \end{proof}
 
 \subsection{Exterior peaks}

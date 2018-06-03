@@ -567,6 +567,56 @@ permutations $\left(  3,1\right)  $ and $\left(  2,6\right)  $ are%
 ,\ \ \ \ \ \ \ \ \ \ \left(  2,6,3,1\right)  .
 \end{align*}
 
+If $\pi$ and $\sigma$ are two disjoint permutations, and if $\tau$ is a shuffle
+of $\pi$ and $\sigma$, then each letter of $\tau$ must be either a letter of
+$\pi$ or a letter of $\sigma$.
+\begin{vershort}
+ (This follows easily from the pigeonhole principle.)
+\end{vershort}
+\begin{verlong}
+\ \ \ \ \footnote{\textit{Proof.} Let $\pi$ and $\sigma$ be two disjoint
+permutations.
+Let $\tau$ be a shuffle of $\pi$ and $\sigma$.
+We must prove that each letter of $\tau$ must be either a letter of
+$\pi$ or a letter of $\sigma$.
+
+Let $P$ be the set of all letters of $\pi$.
+Let $S$ be the set of all letters of $\sigma$.
+Let $T$ be the set of all letters of $\tau$.
+
+Let $m = \left|\pi\right|$ and $n = \left|\sigma\right|$.
+Hence, $\tau$ is an $\left(m+n\right)$-permutation (since $\tau$
+is a shuffle of $\pi$ and $\sigma$).
+In other words, $\tau$ is a permutation with $m+n$ letters.
+
+The word $\pi$ is a permutation with $m$ letters (because
+$m = \left|\pi\right|$). Thus, this word $\pi$ has exactly $m$
+distinct letters. In other words, $\left|P\right| = m$
+(since $P$ is the set of all letters of $\pi$).
+Similarly, $\left|S\right| = n$ and $\left|T\right| = m+n$.
+The sets $P$ and $S$ are disjoint (since the permutations $\pi$
+and $\sigma$ are disjoint); thus,
+$\left|P \cup S\right| = \underbrace{\left|P\right|}_{=m}
+                       + \underbrace{\left|S\right|}_{=n}
+= m+n$.
+
+But $\pi$ is a subsequence of $\tau$ (since $\tau$
+is a shuffle of $\pi$ and $\sigma$). Thus, $P \subseteq T$.
+Similarly, $S \subseteq T$.
+Combining $P \subseteq T$ with $S \subseteq T$, we obtain
+$P \cup S \subseteq T$. Since
+$\left|P \cup S\right| = m+n = \left|T\right|$, we thus conclude
+that $P \cup S$ is a subset of $T$ but has the same size as $T$.
+By the pigeonhole principle, this entails that $P \cup S = T$.
+
+Now, each letter of $\tau$ must be an element of $T$ (by the definition
+of $T$), thus an element of $P \cup S$ (since $T = P \cup S$), and thus
+either an element of $P$ or an element of $S$. In other words, each
+letter of $\tau$ must be either a letter of $\pi$ or a letter of $\sigma$
+(by the definitions of $P$ and $S$). Qed.
+}
+\end{verlong}
+
 
 If $\pi$ and $\sigma$ are two disjoint permutations, then $S\left(  \pi
 ,\sigma\right)  =S\left(  \sigma,\pi\right)  $ is an $\dbinom{m+n}{m}$-element

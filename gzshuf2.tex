@@ -729,6 +729,521 @@ and \textquotedblleft left enriched $P$-partitions\textquotedblright
 of this notion, which leads to a proof of the shuffle-compatibility of
 $\operatorname*{Epk}$ conjectured in \cite{part1}.
 
+\subsection{Lacunar sets}
+
+First, let us briefly study \textit{lacunar sets}, a class of subsets
+of $\mathbb{Z}$ that are closely connected to exterior peaks.
+We start with the definition:
+
+\begin{definition}
+A set $S$ of integers is said to be \textit{lacunar} if each $s\in S$
+satisfies $s+1\notin S$.
+\end{definition}
+
+In other words, a set of integers is lacunar if and only if it contains no two
+consecutive integers. For example, the set $\left\{  2, 5, 7\right\}  $ is
+lacunar, while the set $\left\{  2, 5, 6\right\}  $ is not.
+
+Lacunar sets of integers are also called \textit{sparse} sets in some of the
+literature (though the latter word has several competing meanings).
+
+\begin{definition}
+\label{def.lac.Ln}
+Let $n\in\mathbb{N}$. We define a set $\mathbf{L}_{n}$ of subsets of $\left[
+n\right]  $ as follows:
+
+\begin{itemize}
+\item If $n$ is positive, then $\mathbf{L}_{n}$ shall mean the set of all
+nonempty lacunar subsets of $\left[  n\right]  $.
+
+\item If $n=0$, then $\mathbf{L}_{n}$ shall mean the set $\left\{
+\varnothing\right\}  $.
+\end{itemize}
+\end{definition}
+
+For example,%
+\begin{align*}
+\mathbf{L}_{0}  &  =\left\{  \varnothing\right\}
+;\ \ \ \ \ \ \ \ \ \ \mathbf{L}_{1}=\left\{  \left\{  1\right\}  \right\}
+;\ \ \ \ \ \ \ \ \ \ \mathbf{L}_{2}=\left\{  \left\{  2\right\}  \right\}  ;\\
+\mathbf{L}_{3}  &  =\left\{  \left\{  1\right\}  ,\left\{  2\right\}
+,\left\{  3\right\}  ,\left\{  1,3\right\}  \right\}  .
+\end{align*}
+
+
+\begin{proposition}
+\label{prop.lac.fib}Let $\left(  f_{0},f_{1},f_{2},\ldots\right)  $ be the
+Fibonacci sequence (defined by $f_{0}=0$ and $f_{1}=1$ and the recursive
+relation $f_{m}=f_{m-1}+f_{m-2}$ for all $m\geq2$). Let $n$ be a positive
+integer. Then, $\left\vert \mathbf{L}_{n}\right\vert =f_{n+2}-1$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.lac.fib}.]Recall that $\mathbf{L}_{n}$ is the
+set of all nonempty lacunar subsets of $\left[  n\right]  $ (since $n$ is
+positive). Thus, $\left\vert \mathbf{L}_{n}\right\vert $ is the number of all
+lacunar subsets of $\left[  n\right]  $ minus $1$ (since the empty set
+$\varnothing$, which is clearly a lacunar subset of $\left[  n\right]  $, is
+withheld from the count). But a known fact (see, e.g., \cite[Exercise 1.35
+\textbf{a.}]{Stanley-EC1}) says that the number of lacunar subsets of $\left[
+n\right]  $ is $f_{n+2}$. Combining the preceding two sentences, we conclude
+that $\left\vert \mathbf{L}_{n}\right\vert =f_{n+2}-1$. This proves
+Proposition \ref{prop.lac.fib}.
+\end{proof}
+
+The following observation is easy:
+
+\begin{proposition}
+\label{prop.Epk-lac}Let $n\in\mathbb{N}$. Let $\pi$ be an $n$-permutation.
+Then, $\operatorname*{Epk}\pi\in\mathbf{L}_{n}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Epk-lac}.]If $n=0$, then the statement is
+obvious (since in this case, we have $\operatorname*{Epk}\pi=\varnothing
+\in\mathbf{L}_{0}$). Thus, WLOG assume that $n\neq0$. Hence, $n$ is positive.
+Hence, $\mathbf{L}_{n}$ is the set of all nonempty lacunar subsets of $\left[
+n\right]  $ (by the definition of $\mathbf{L}_{n}$).
+
+The set $\operatorname*{Epk}\pi$ is lacunar (since two consecutive integers
+cannot both be exterior peaks of $\pi$), and is also nonempty (since $\pi
+^{-1}\left(  n\right)  $ is an exterior peak of $\pi$).
+\begin{verlong}
+
+[An alternative reason for the nonemptiness of $\operatorname*{Epk}\pi$ is the
+following: If $\operatorname*{Epk}\pi$ was empty, then $\pi$ would have no
+peaks, so that the sequence $\left(  \pi\left(  1\right)  ,\pi\left(
+2\right)  ,\ldots,\pi\left(  n\right)  \right)  $ would be strictly decreasing
+up to a certain point and then strictly increasing from there on; but then,
+either $n$ or $1$ would be an exterior peak of $\pi$, which would contradict
+the emptiness of $\operatorname*{Epk}\pi$.]
+
+\end{verlong}
+Therefore, $\operatorname*{Epk}\pi$ is a nonempty lacunar subset of
+$\left[  n\right]  $. In other words, $\operatorname*{Epk}\pi\in\mathbf{L}%
+_{n}$ (since $\mathbf{L}_{n}$ is the set of all nonempty lacunar subsets of
+$\left[  n\right]  $). This proves Proposition \ref{prop.Epk-lac}.
+\end{proof}
+
+Proposition \ref{prop.Epk-lac} actually has a sort of converse:
+
+\begin{proposition}
+\label{prop.when-Epk}Let $n\in\mathbb{N}$. Let $\Lambda$ be a subset of
+$\left[  n\right]  $. Then, there exists an $n$-permutation $\pi$ satisfying
+$\Lambda=\operatorname*{Epk}\pi$ if and only if $\Lambda\in\mathbf{L}_{n}$.
+\end{proposition}
+
+\begin{vershort}
+\begin{proof}
+[Proof of Proposition \ref{prop.when-Epk}.]Omitted; see \cite{verlong} for a proof.
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
+\begin{proof}
+[Proof of Proposition \ref{prop.when-Epk}.]$\Longrightarrow:$ We need to prove
+that for any $n$-permutation $\pi$, we have $\operatorname*{Epk}\pi
+\in\mathbf{L}_{n}$. But this follows immediately from Proposition
+\ref{prop.Epk-lac}. This proves the $\Longrightarrow$ direction of Proposition
+\ref{prop.when-Epk}.
+
+$\Longleftarrow:$ Assume that $\Lambda\in\mathbf{L}_{n}$. We must prove that
+there exists an $n$-permutation $\pi$ satisfying $\Lambda=\operatorname*{Epk}%
+\pi$. Such an $n$-permutation $\pi$ can be constructed as follows:
+
+\begin{itemize}
+\item If $n=0$, then we simply set $\pi=\left(  {}\right)  $. Thus, for the
+rest of this construction, we WLOG assume that $n\neq0$. Hence, $n$ is
+positive. Thus, from $\Lambda\in\mathbf{L}_{n}$, we conclude that $\Lambda$ is
+a nonempty lacunar subset of $\left[  n\right]  $.
+
+\item Write the set $\Lambda$ in the form $\Lambda=\left\{  u_{1}<u_{2}%
+<\cdots<u_{\ell}\right\}  $ (where $\ell=\left\vert \Lambda\right\vert $).
+Thus, $\ell\geq1$ (since $\Lambda$ is nonempty), and we can represent the set
+$\left[  n\right]  \setminus\Lambda$ as a union of disjoint intervals as
+follows:
+\begin{align*}
+&  \left[  n\right]  \setminus\Lambda\\
+&  =\left[  1,u_{1}-1\right]  \cup\left[  u_{1}+1,u_{2}-1\right]  \cup\left[
+u_{2}+1,u_{3}-1\right]  \cup\cdots\cup\left[  u_{\ell-1}+1,u_{\ell}-1\right]
+\\
+&  \ \ \ \ \ \ \ \ \ \ \cup\left[  u_{\ell}+1,n\right]  .
+\end{align*}
+
+
+\item Let $\pi$ take the values $n,n-1,\ldots,n-\ell+1$ on the elements of
+$\Lambda$. (For example, this can be achieved by setting $\pi\left(
+u_{i}\right)  =n+1-i$ for each $i\in\left[  \ell\right]  $.)
+
+\item Let $\pi$ take the values $1,2,\ldots,n-\ell$ on the elements of
+$\left[  n\right]  \setminus\Lambda$ in such a way that:
+
+\begin{itemize}
+\item[(A)] on each of the intervals $\left[  1,u_{1}-1\right]  ,\left[
+u_{1}+1,u_{2}-1\right]  ,\left[  u_{2}+1,u_{3}-1\right]  ,\ldots,$%
+\newline$\left[  u_{\ell-1}+1,u_{\ell}-1\right]  ,\left[  u_{\ell}+1,n\right]
+$, the map $\pi$ is either strictly increasing or strictly decreasing;
+
+\item[(B)] if the interval $\left[  1,u_{1}-1\right]  $ is nonempty, then the
+map $\pi$ is strictly increasing on this interval;
+
+\item[(C)] if the interval $\left[  u_{\ell}+1,n\right]  $ is nonempty, then
+the map $\pi$ is strictly decreasing on this interval.
+\end{itemize}
+
+(This is indeed possible, because if the two intervals $\left[  1,u_{1}%
+-1\right]  $ and $\left[  u_{\ell}+1,n\right]  $ are both nonempty, then they
+are distinct (since $\ell\geq1$).)
+\end{itemize}
+
+Any $n$-permutation $\pi$ constructed in this way will satisfy $\Lambda
+=\operatorname*{Epk}\pi$. Indeed, it is clear that $\pi$ satisfies%
+\[
+\pi\left(  u\right)  >\pi\left(  v\right)  \ \ \ \ \ \ \ \ \ \ \text{for all
+}u\in\Lambda\text{ and }v\in\left[  n\right]  \setminus\Lambda.
+\]
+Hence, any element of $\Lambda$ is an exterior peak of $\pi$. Conversely, an
+element of $\left[  n\right]  \setminus\Lambda$ cannot be an exterior peak of
+$\pi$ (because our construction of $\pi$ guarantees that any $s\in\left[
+n\right]  \setminus\Lambda$ satisfies either $\left(  s-1\in\left[  n\right]
+\text{ and }\pi\left(  s-1\right)  >\pi\left(  s\right)  \right)  $ or
+$\left(  s+1\in\left[  n\right]  \text{ and }\pi\left(  s+1\right)
+>\pi\left(  s\right)  \right)  $). Thus, the exterior peaks of $\pi$ are
+precisely the elements of $\Lambda$; in other words, we have $\Lambda
+=\operatorname*{Epk}\pi$. This proves the $\Longleftarrow$ direction of
+Proposition \ref{prop.when-Epk}.
+\end{proof}
+\end{verlong}
+
+Next, let us introduce a total order on the finite subsets of $\mathbb{Z}$:
+
+\begin{definition}
+\textbf{(a)} Let $\mathbf{P}$ be the set of all finite subsets of $\mathbb{Z}$.
+
+\textbf{(b)} If $A$ and $B$ are any two sets, then $A\bigtriangleup B$ shall
+denote the \textit{symmetric difference} of $A$ and $B$. This is the set
+$\left(  A\cup B\right)  \setminus\left(  A\cap B\right)  =\left(  A\setminus
+B\right)  \cup\left(  B\setminus A\right)  $. It is well-known that the binary
+operation $\bigtriangleup$ on sets is associative. If $A$ and $B$ are two
+distinct sets, then the set $A\bigtriangleup B$ is nonempty. Also, if
+$A\in\mathbf{P}$ and $B\in\mathbf{P}$, then $A\bigtriangleup B\in\mathbf{P}$.
+Thus, if $A$ and $B$ are two distinct sets in $\mathbf{P}$, then $\min\left(
+A\bigtriangleup B\right)  \in\mathbb{Z}$ is well-defined.
+
+\textbf{(c)} We define a binary relation $<$ on $\mathbf{P}$ as follows: For
+any $A\in\mathbf{P}$ and $B\in\mathbf{P}$, we let $A<B$ if and only if $A\neq
+B$ and $\min\left(  A\bigtriangleup B\right)  \in A$. (This definition makes
+sense, because the condition $A\neq B$ ensures that $\min\left(
+A\bigtriangleup B\right)  $ is well-defined.)
+\end{definition}
+
+Note that this relation $<$ is similar to the relation $<$ in \cite[Lemma
+4.3]{ABN-peaks}.
+
+\begin{proposition}
+\label{prop.lac.order}The relation $<$ on $\mathbf{P}$ is the smaller relation
+of a total order on $\mathbf{P}$.
+\end{proposition}
+
+\begin{vershort}
+
+
+\begin{proof}
+[Proof of Proposition \ref{prop.lac.order}.]See \cite{verlong} for this
+straightforward argument (or imitate \cite[proof of Lemma 4.3]{ABN-peaks}).
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
+
+
+\begin{proof}
+[Proof of Proposition \ref{prop.lac.order}.]A quick proof of Proposition
+\ref{prop.lac.order} can be obtained by imitating \cite[proof of Lemma
+4.3]{ABN-peaks} (with the obvious changes made, such as replacing $\max$ by
+$\min$, and reversing the relation).
+But let us instead give a completely pedestrian proof:
+
+First, we claim the following fact: If $X$ and $Y$ are two finite nonempty
+subsets of $\mathbb{Z}$ satisfying $\min X\neq\min Y$, then%
+\begin{equation}
+X\neq Y\text{ and }\min\left(  X\bigtriangleup Y\right)  \in\left\{  \min
+X,\min Y\right\}  . \label{pf.prop.lac.order.XY}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.prop.lac.order.XY}):} Let $X$ and $Y$ be two finite
+nonempty subsets of $\mathbb{Z}$ satisfying $\min X\neq\min Y$. From $\min
+X\neq\min Y$, we obtain $X\neq Y$. Hence, $\min\left(  X\bigtriangleup
+Y\right)  \in\mathbb{Z}$ is well-defined.
+
+The definition of $X\bigtriangleup Y$ yields $X\bigtriangleup Y=\left(
+X\setminus Y\right)  \cup\left(  Y\setminus X\right)  \supseteq X\setminus Y$,
+so that $X\setminus Y\subseteq X\bigtriangleup Y$.
+
+But our claim is symmetric with respect to $X$ and $Y$ (since $Y\bigtriangleup
+X=X\bigtriangleup Y$ and $\left\{  \min Y,\min X\right\}  =\left\{  \min
+X,\min Y\right\}  $). Hence, we can WLOG assume that $\min X\leq\min Y$ (since
+otherwise, we can just swap $X$ with $Y$ to ensure this). Assume this.
+Combining $\min X\leq\min Y$ with $\min X\neq\min Y$, we obtain $\min X<\min
+Y$. If we had $\min X\in Y$, then we would have $\min X\geq\min Y$ (since
+every $y\in Y$ satisfies $y\geq\min Y$), which would contradict $\min X<\min
+Y$. Hence, we cannot have $\min X\in Y$. Thus, $\min X\notin Y$. Combining
+this with $\min X\in X$, we obtain $\min X\in X\setminus Y\subseteq
+X\bigtriangleup Y$. Hence, $\min X\geq\min\left(  X\bigtriangleup Y\right)  $
+(since every $z\in X\bigtriangleup Y$ satisfies $z\geq\min\left(
+X\bigtriangleup Y\right)  $).
+
+On the other hand, the definition of $X\bigtriangleup Y$ yields
+$X\bigtriangleup Y=\left(  X\cup Y\right)  \setminus\left(  X\cap Y\right)
+\subseteq X\cup Y$ and thus%
+\[
+\min\left(  X\bigtriangleup Y\right)  \geq\min\left(  X\cup Y\right)
+=\min\left\{  \min X,\min Y\right\}  =\min X
+\]
+(since $\min X<\min Y$).
+Combining this inequality with $\min X\geq\min\left(  X\bigtriangleup
+Y\right)  $, we obtain $\min\left(  X\bigtriangleup Y\right)  =\min
+X\in\left\{  \min X,\min Y\right\}  $. Thus, we have shown that $X\neq Y$ and
+$\min\left(  X\bigtriangleup Y\right)  \in\left\{  \min X,\min Y\right\}  $.
+This proves (\ref{pf.prop.lac.order.XY}).]
+
+The binary relation $<$ is transitive\footnote{\textit{Proof.} Let
+$A\in\mathbf{P}$, $B\in\mathbf{P}$ and $C\in\mathbf{P}$ be such that $A<B$ and
+$B<C$. We shall prove that $A<C$.
+\par
+The sets $A$, $B$ and $C$ are elements of $\mathbf{P}$, and thus are finite
+subsets of $\mathbb{Z}$ (by the definition of $\mathbf{P}$).
+\par
+We have $A<B$. In other words, $A\neq B$ and $\min\left(  A\bigtriangleup
+B\right)  \in A$ (by the definition of the relation $<$).
+\par
+We have $B<C$. In other words, $B\neq C$ and $\min\left(  B\bigtriangleup
+C\right)  \in B$ (by the definition of the relation $<$).
+\par
+Let $X=A\bigtriangleup B$. Then, the set $X$ is nonempty (since $A\neq B$) and
+is a finite subset of $\mathbb{Z}$ (since $A$ and $B$ are finite subsets of
+$\mathbb{Z}$). Thus, $\min X\in\mathbb{Z}$ is well-defined. From
+$X=A\bigtriangleup B$, we obtain $\min X=\min\left(  A\bigtriangleup B\right)
+\in A$.
+\par
+Let $Y=B\bigtriangleup C$. Then, the set $Y$ is nonempty (since $B\neq C$) and
+is a finite subset of $\mathbb{Z}$ (since $B$ and $C$ are finite subsets of
+$\mathbb{Z}$). Thus, $\min Y\in\mathbb{Z}$ is well-defined. From
+$Y=B\bigtriangleup C$, we obtain $\min Y=\min\left(  B\bigtriangleup C\right)
+\in B$.
+\par
+From $X=A\bigtriangleup B$ and $Y=B\bigtriangleup C$, we obtain%
+\begin{align*}
+X\bigtriangleup Y  &  =\left(  A\bigtriangleup B\right)  \bigtriangleup\left(
+B\bigtriangleup C\right)  =A\bigtriangleup\underbrace{B\bigtriangleup
+B}_{=\varnothing}\bigtriangleup C\ \ \ \ \ \ \ \ \ \ \left(  \text{since the
+operation }\bigtriangleup\text{ is associative}\right) \\
+&  =\underbrace{A\bigtriangleup\varnothing}_{=A}\bigtriangleup
+C=A\bigtriangleup C.
+\end{align*}
+\par
+We have $\min X\in X=A\bigtriangleup B=\left(  A\cup B\right)  \setminus
+\left(  A\cap B\right)  $, so that $\min X\notin A\cap B$. If we had $\min
+X=\min Y$, then we would have $\min X\in A\cap B$ (since $\min X\in A$ and
+$\min X=\min Y\in B$), which would contradict $\min X\notin A\cap B$. Thus, we
+cannot have $\min X=\min Y$. Hence, $\min X\neq\min Y$. Thus,
+(\ref{pf.prop.lac.order.XY}) yields $X\neq Y$ and $\min\left(  X\bigtriangleup
+Y\right)  \in\left\{  \min X,\min Y\right\}  $.
+\par
+If we had $A=C$, then we would have $X=\underbrace{A}_{=C}\bigtriangleup
+B=C\bigtriangleup B=B\bigtriangleup C=Y$, which would contradict $X\neq Y$.
+Thus, we cannot have $A=C$. Hence, $A\neq C$. Hence, $\min\left(
+A\bigtriangleup C\right)  $ is well-defined. Let $\mu=\min\left(
+A\bigtriangleup C\right)  $. Thus, $\mu=\min\left(
+\underbrace{A\bigtriangleup C}_{=X\bigtriangleup Y}\right)  =\min\left(
+X\bigtriangleup Y\right)  \in\left\{  \min X,\min Y\right\}  $.
+\par
+Assume (for the sake of contradiction) that $\mu\in C\setminus A$. Thus,
+$\mu\notin A$. Hence, $\mu\neq\min X$ (since $\min X\in A$ but $\mu\notin A$).
+Combining this with $\mu\in\left\{  \min X,\min Y\right\}  $, we obtain
+$\mu\in\left\{  \min X,\min Y\right\}  \setminus\left\{  \min X\right\}
+\subseteq\left\{  \min Y\right\}  $. Hence, $\mu=\min Y\in B$. But also
+$\mu\in C\setminus A\subseteq C$. Combining $\mu\in B$ with $\mu\in C$, we
+obtain $\mu\in B\cap C$. But $\mu=\min Y\in Y=B\bigtriangleup C=\left(  B\cup
+C\right)  \setminus\left(  B\cap C\right)  $ (by the definition of
+$B\bigtriangleup C$). Thus, $\mu\notin B\cap C$. This contradicts $\mu\in
+B\cap C$. This contradiction shows that our assumption (that $\mu\in
+C\setminus A$) was wrong. Hence, we don't have $\mu\in C\setminus A$.
+\par
+We have $\mu=\min\left(  A\bigtriangleup C\right)  \in A\bigtriangleup
+C=\left(  A\setminus C\right)  \cup\left(  C\setminus A\right)  $. Hence,
+either $\mu\in A\setminus C$ or $\mu\in C\setminus A$. Thus, $\mu\in
+A\setminus C$ (since we don't have $\mu\in C\setminus A$). Therefore,
+$\min\left(  A\bigtriangleup C\right)  =\mu\in A\setminus C\subseteq A$. So we
+have shown that $A\neq C$ and $\min\left(  A\bigtriangleup C\right)  \in A$.
+In other words, $A<C$ (by the definition of the relation $<$).
+\par
+Now, forget that we fixed $A$, $B$ and $C$. We thus have shown that if
+$A\in\mathbf{P}$, $B\in\mathbf{P}$ and $C\in\mathbf{P}$ are such that $A<B$
+and $B<C$, then $A<C$. In other words, the relation $<$ is transitive.},
+irreflexive\footnote{\textit{Proof.} Let $A\in\mathbf{P}$ be such that $A<A$.
+We shall derive a contradiction.
+\par
+We have $A<A$. In other words, $A\neq A$ and $\min\left(  A\bigtriangleup
+A\right)  \in A$ (by the definition of the relation $<$). But $A\neq A$ is
+absurd. Hence, we have found a contradiction.
+\par
+Now, forget that we fixed $A$. We thus have found a contradiction for each
+$A\in\mathbf{P}$ satisfying $A<A$. Thus, no $A\in\mathbf{P}$ satisfies $A<A$.
+In other words, the relation $<$ is irreflexive.} and
+asymmetric\footnote{\textit{Proof.} We know that the binary relation $<$ is
+transitive and irreflexive. Hence, this relation $<$ is asymmetric (since
+every transitive irreflexive relation is asymmetric).}. Hence, $<$ is the
+smaller relation of a partial order on $\mathbf{P}$. It remains to prove that
+this partial order is a total order. In other words, we need to show that if
+$A\in\mathbf{P}$ and $B\in\mathbf{P}$ are distinct, then either $A<B$ or
+$B<A$. But this is easy\footnote{\textit{Proof.} Let $A\in\mathbf{P}$ and
+$B\in\mathbf{P}$ be distinct. We must show that either $A<B$ or $B<A$.
+\par
+The sets $A$ and $B$ are elements of $\mathbf{P}$, and thus are finite subsets
+of $\mathbb{Z}$ (by the definition of $\mathbf{P}$).
+\par
+The set $A\bigtriangleup B$ is nonempty (since $A$ and $B$ are distinct) and
+is a finite subset of $\mathbb{Z}$ (since $A$ and $B$ are finite subsets of
+$\mathbb{Z}$). Hence, $\min\left(  A\bigtriangleup B\right)  $ is
+well-defined. Clearly,%
+\[
+\min\left(  A\bigtriangleup B\right)  \in A\bigtriangleup B=\left(  A\cup
+B\right)  \setminus\left(  A\cap B\right)  \subseteq A\cup B.
+\]
+In other words, either $\min\left(  A\bigtriangleup B\right)  \in A$ or
+$\min\left(  A\bigtriangleup B\right)  \in B$. In other words, we are in one
+of the following two cases:
+\par
+\textit{Case 1:} We have $\min\left(  A\bigtriangleup B\right)  \in A$.
+\par
+\textit{Case 2:} We have $\min\left(  A\bigtriangleup B\right)  \in B$.
+\par
+Let us first consider Case 1. In this case, we have $\min\left(
+A\bigtriangleup B\right)  \in A$. Thus, $A\neq B$ (since $A$ and $B$ are
+distinct) and $\min\left(  A\bigtriangleup B\right)  \in A$. In other words,
+$A<B$ (by the definition of the relation $<$). Hence, either $A<B$ or $B<A$.
+Thus, our claim (that either $A<B$ or $B<A$) is proven in Case 1.
+\par
+Let us first consider Case 2. In this case, we have $\min\left(
+A\bigtriangleup B\right)  \in B$. Hence, $\min\left(
+\underbrace{B\bigtriangleup A}_{=A\bigtriangleup B}\right)  =\min\left(
+A\bigtriangleup B\right)  \in B$. Thus, $B\neq A$ (since $A$ and $B$ are
+distinct) and $\min\left(  B\bigtriangleup A\right)  \in B$. In other words,
+$B<A$ (by the definition of the relation $<$). Hence, either $A<B$ or $B<A$.
+Thus, our claim (that either $A<B$ or $B<A$) is proven in Case 2.
+\par
+Now, our claim (that either $A<B$ or $B<A$) has been proven in both Cases 1
+and 2. Hence, this claim always holds. In other words, we always have either
+$A<B$ or $B<A$. Qed.}. Thus, the proof of Proposition \ref{prop.lac.order} is complete.
+\end{proof}
+\end{verlong}
+
+In the following, we shall regard the set $\mathbf{P}$ as a totally ordered
+set, equipped with the order from Proposition \ref{prop.lac.order}. Thus, for
+example, two sets $A$ and $B$ in $\mathbf{P}$ satisfy $A\geq B$ if and only if
+either $A=B$ or $B<A$.
+
+\begin{definition}
+\label{def.S+1}Let $S$ be a subset of $\mathbb{Z}$. Then, we define a new
+subset $S+1$ of $\mathbb{Z}$ by setting
+\[
+S+1=\left\{  i+1\ \mid\ i\in S\right\}  =\left\{  j\in\mathbb{Z}\ \mid\ j-1\in
+S\right\}  .
+\]
+Note that $S+1\in\mathbf{P}$ if $S\in\mathbf{P}$.
+\end{definition}
+
+For example, $\left\{  2,5\right\}  +1=\left\{  3,6\right\}  $. Note that a
+subset $S$ of $\mathbb{Z}$ is lacunar if and only if $S\cap\left(  S+1\right)
+=\varnothing$.
+
+\begin{proposition}
+\label{prop.lac.RL}Let $\Lambda\in\mathbf{P}$ and $R\in\mathbf{P}$ be such
+that the set $R$ is lacunar and $R\subseteq\Lambda\cup\left(  \Lambda
++1\right)  $. Then, $R\geq\Lambda$ (with respect to the total order on
+$\mathbf{P}$).
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.lac.RL}.]Assume the contrary. Thus,
+$R<\Lambda$ (since $\mathbf{P}$ is totally ordered). In other words,
+$R\neq\Lambda$ and $\min\left(  R\bigtriangleup\Lambda\right)  \in R$ (by the
+definition of the relation $<$). Let $\mu=\min\left(  R\bigtriangleup
+\Lambda\right)  $. Thus, $\mu=\min\left(  R\bigtriangleup\Lambda\right)  \in
+R\subseteq\Lambda\cup\left(  \Lambda+1\right)  $.
+
+We have $\mu=\min\left(  R\bigtriangleup\Lambda\right)  \in R\bigtriangleup
+\Lambda=\left(  R\cup\Lambda\right)  \setminus\left(  R\cap\Lambda\right)  $.
+Hence, $\mu\notin R\cap\Lambda$. If we had $\mu\in\Lambda$, then we would have
+$\mu\in R\cap\Lambda$ (since $\mu\in R$ and $\mu\in\Lambda$), which would
+contradict $\mu\notin R\cap\Lambda$. Thus, we cannot have $\mu\in\Lambda$.
+Hence, $\mu\notin\Lambda$. Combining $\mu\in\Lambda\cup\left(  \Lambda
++1\right)  $ with $\mu\notin\Lambda$, we obtain $\mu\in\left(  \Lambda
+\cup\left(  \Lambda+1\right)  \right)  \setminus\Lambda\subseteq\Lambda+1$. In
+other words, $\mu-1\in\Lambda$.
+
+Every $x\in R\bigtriangleup\Lambda$ satisfies $x\geq\min\left(
+R\bigtriangleup\Lambda\right)  $. Hence, if we had $\mu-1\in R\bigtriangleup
+\Lambda$, then we would have $\mu-1\geq\min\left(  R\bigtriangleup
+\Lambda\right)  =\mu$, which would contradict $\mu-1<\mu$. Thus, we cannot
+have $\mu-1\in R\bigtriangleup\Lambda$. Thus, $\mu-1\notin R\bigtriangleup
+\Lambda$. Combining this with $\mu-1\in\Lambda$, we obtain $\mu-1\in
+\Lambda\setminus\left(  R\bigtriangleup\Lambda\right)  =R\cap\Lambda$ (since
+every two sets $X$ and $Y$ satisfy $Y\setminus\left(  X\bigtriangleup
+Y\right)  =X\cap Y$). Thus, $\mu-1\in R\cap\Lambda\subseteq R$.
+
+But the set $R$ is lacunar. In other words, each $s\in R$ satisfies $s+1\notin
+R$ (by the definition of \textquotedblleft lacunar\textquotedblright).
+Applying this to $s=\mu-1$, we obtain $\left(  \mu-1\right)  +1\notin R$
+(since $\mu-1\in R$). This contradicts $\left(  \mu-1\right)  +1=\mu\in R$.
+This contradiction shows that our assumption was wrong; hence, Proposition
+\ref{prop.lac.RL} is proven.
+\end{proof}
+
+\begin{corollary}
+\label{cor.lac.L=L}Let $\Lambda_{1}$ and $\Lambda_{2}$ be two finite lacunar
+subsets of $\mathbb{Z}$ such that $\Lambda_{1}\cup\left(  \Lambda
+_{1}+1\right)  =\Lambda_{2}\cup\left(  \Lambda_{2}+1\right)  $. Then,
+$\Lambda_{1}=\Lambda_{2}$.
+\end{corollary}
+
+\begin{vershort}
+\begin{proof}
+[Proof of Corollary \ref{cor.lac.L=L}.] Both $\Lambda_{1}$ and $\Lambda_{2}$
+belong to $\mathbf{P}$. Also, $\Lambda_{1}\subseteq\Lambda_{1}\cup\left(
+\Lambda_{1}+1\right)  =\Lambda_{2}\cup\left(  \Lambda_{2}+1\right)  $. Thus,
+Proposition \ref{prop.lac.RL} (applied to $R=\Lambda_{1}$ and $\Lambda
+=\Lambda_{2}$) yields $\Lambda_{1}\geq\Lambda_{2}$. The same argument (with
+the roles of $\Lambda_{1}$ and $\Lambda_{2}$ interchanged) yields $\Lambda
+_{2}\geq\Lambda_{1}$. Combining $\Lambda_{1}\geq\Lambda_{2}$ with $\Lambda
+_{2}\geq\Lambda_{1}$, we obtain $\Lambda_{1}=\Lambda_{2}$. This proves
+Corollary \ref{cor.lac.L=L}.
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
+
+
+\begin{proof}
+[Proof of Corollary \ref{cor.lac.L=L}.]Both $\Lambda_{1}$ and $\Lambda_{2}$
+are finite subsets of $\mathbb{Z}$, and thus belong to $\mathbf{P}$ (by the
+definition of $\mathbf{P}$). Also,
+\[
+\Lambda_{1}\subseteq\Lambda_{1}\cup\left(  \Lambda_{1}+1\right)  =\Lambda
+_{2}\cup\left(  \Lambda_{2}+1\right)  .
+\]
+Hence, Proposition \ref{prop.lac.RL} (applied to $R=\Lambda_{1}$ and
+$\Lambda=\Lambda_{2}$) yields $\Lambda_{1}\geq\Lambda_{2}$ (with respect to
+the total order on $\mathbf{P}$). The same argument (with the roles of
+$\Lambda_{1}$ and $\Lambda_{2}$ interchanged) yields $\Lambda_{2}\geq
+\Lambda_{1}$. Combining $\Lambda_{1}\geq\Lambda_{2}$ with $\Lambda_{2}%
+\geq\Lambda_{1}$, we obtain $\Lambda_{1}=\Lambda_{2}$. This proves Corollary
+\ref{cor.lac.L=L}.
+\end{proof}
+\end{verlong}
+
 \subsection{\label{subsect.Zenri.gen}$\mathcal{Z}$-enriched $\left(
 P,\gamma\right)  $-partitions}
 
@@ -2412,136 +2927,6 @@ K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}\cdot K_{m,\operatorname*{Epk}%
 This proves Corollary \ref{cor.KnEpk-prodrule}.
 \end{proof}
 
-\begin{definition}
-A set $S$ of integers is said to be \textit{lacunar} if each $s\in S$
-satisfies $s+1\notin S$.
-\end{definition}
-
-In other words, a set of integers is lacunar if and only if it contains
-no two consecutive integers.
-For example, the set $\left\{2, 5, 7\right\}$ is lacunar, while the
-set $\left\{2, 5, 6\right\}$ is not.
-
-Lacunar sets of integers are also called \textit{sparse} sets in some
-of the literature (though the latter word has several competing meanings).
-
-The following observation is easy:
-
-\begin{proposition}
-\label{prop.Epk-lac}Let $n$ be a positive integer. Let $\pi$ be an
-$n$-permutation. Then, $\operatorname*{Epk}\pi$ is a lacunar and nonempty
-subset of $\left[  n\right]  $.
-\end{proposition}
-
-\begin{proof}
-[Proof of Proposition \ref{prop.Epk-lac}.]The set $\operatorname*{Epk}\pi$ is
-lacunar (since two consecutive integers cannot both be exterior peaks of $\pi
-$), and is also nonempty (since $\pi^{-1}\left(  n\right)  $ is an exterior
-peak of $\pi$).
-
-\begin{verlong}
-[An alternative reason for the nonemptiness of $\operatorname*{Epk}\pi$ is the
-following: If $\operatorname*{Epk}\pi$ was empty, then $\pi$ would have no
-peaks, so that the sequence $\left(  \pi\left(  1\right)  ,\pi\left(
-2\right)  ,\ldots,\pi\left(  n\right)  \right)  $ would be strictly decreasing
-up to a certain point and then strictly increasing from there on; but then,
-either $n$ or $1$ would be an exterior peak of $\pi$, which would contradict
-the emptiness of $\operatorname*{Epk}\pi$.]
-\end{verlong}
-
-This proves Proposition \ref{prop.Epk-lac}.
-\end{proof}
-
-Proposition \ref{prop.Epk-lac} actually has a sort of converse:
-
-\begin{proposition}
-\label{prop.when-Epk}Let $n$ be a positive integer. Let $\Lambda$ be a subset
-of $\left[  n\right]  $. Then, there exists an $n$-permutation $\pi$
-satisfying $\Lambda=\operatorname*{Epk}\pi$ if and only if $\Lambda$ is
-lacunar and nonempty.
-\end{proposition}
-
-\begin{vershort}
-
-
-\begin{proof}
-[Proof of Proposition \ref{prop.when-Epk}.]Omitted; see \cite{verlong} for a proof.
-\end{proof}
-\end{vershort}
-
-\begin{verlong}
-
-
-\begin{proof}
-[Proof of Proposition \ref{prop.when-Epk}.]$\Longrightarrow:$ We need to prove
-that for any $n$-permutation $\pi$, the set $\operatorname*{Epk}\pi$ is
-lacunar and nonempty. But this follows immediately from Proposition
-\ref{prop.Epk-lac}. This proves the $\Longrightarrow$ direction of Proposition
-\ref{prop.when-Epk}.
-
-$\Longleftarrow:$ Assume that $\Lambda$ is lacunar and nonempty. We must prove
-that there exists an $n$-permutation $\pi$ satisfying $\Lambda
-=\operatorname*{Epk}\pi$. Such an $n$-permutation $\pi$ can be constructed as follows:
-
-\begin{itemize}
-\item Write the set $\Lambda$ in the form $\Lambda=\left\{  u_{1}<u_{2}%
-<\cdots<u_{\ell}\right\}  $ (where $\ell=\left\vert \Lambda\right\vert $).
-Thus, $\ell\geq1$ (since $\Lambda$ is nonempty), and we can represent the set
-$\left[  n\right]  \setminus\Lambda$ as a union of disjoint intervals as
-follows:
-\begin{align*}
-&  \left[  n\right]  \setminus\Lambda\\
-&  =\left[  1,u_{1}-1\right]  \cup\left[  u_{1}+1,u_{2}-1\right]  \cup\left[
-u_{2}+1,u_{3}-1\right]  \cup\cdots\cup\left[  u_{\ell-1}+1,u_{\ell}-1\right]
-\\
-&  \ \ \ \ \ \ \ \ \ \ \cup\left[  u_{\ell}+1,n\right]  .
-\end{align*}
-
-
-\item Let $\pi$ take the values $n,n-1,\ldots,n-\ell+1$ on the elements of
-$\Lambda$. (For example, this can be achieved by setting $\pi\left(
-u_{i}\right)  =n+1-i$ for each $i\in\left[  \ell\right]  $.)
-
-\item Let $\pi$ take the values $1,2,\ldots,n-\ell$ on the elements of
-$\left[  n\right]  \setminus\Lambda$ in such a way that:
-
-\begin{itemize}
-\item[(A)] on each of the intervals $\left[  1,u_{1}-1\right]  ,\left[
-u_{1}+1,u_{2}-1\right]  ,\left[  u_{2}+1,u_{3}-1\right]  ,\ldots,$%
-\newline$\left[  u_{\ell-1}+1,u_{\ell}-1\right]  ,\left[  u_{\ell}+1,n\right]
-$, the map $\pi$ is either strictly increasing or strictly decreasing;
-
-\item[(B)] if the interval $\left[  1,u_{1}-1\right]  $ is nonempty, then the
-map $\pi$ is strictly increasing on this interval;
-
-\item[(C)] if the interval $\left[  u_{\ell}+1,n\right]  $ is nonempty, then
-the map $\pi$ is strictly decreasing on this interval.
-\end{itemize}
-
-(This is indeed possible, because if the two intervals $\left[  1,u_{1}%
--1\right]  $ and $\left[  u_{\ell}+1,n\right]  $ are both nonempty, then they
-are distinct (since $\ell\geq1$).)
-\end{itemize}
-
-Any $n$-permutation $\pi$ constructed in this way will satisfy $\Lambda
-=\operatorname*{Epk}\pi$. Indeed, it is clear that $\pi$ satisfies%
-\[
-\pi\left(  u\right)  >\pi\left(  v\right)  \ \ \ \ \ \ \ \ \ \ \text{for all
-}u\in\Lambda\text{ and }v\in\left[  n\right]  \setminus\Lambda.
-\]
-Hence, any element of $\Lambda$ is an exterior peak of $\pi$. Conversely, an
-element of $\left[  n\right]  \setminus\Lambda$ cannot be an exterior peak of
-$\pi$ (because our construction of $\pi$ guarantees that any $s\in\left[
-n\right]  \setminus\Lambda$ satisfies either $\left(  s-1\in\left[  n\right]
-\text{ and }\pi\left(  s-1\right)  >\pi\left(  s\right)  \right)  $ or
-$\left(  s+1\in\left[  n\right]  \text{ and }\pi\left(  s+1\right)
->\pi\left(  s\right)  \right)  $). Thus, the exterior peaks of $\pi$ are
-precisely the elements of $\Lambda$; in other words, we have $\Lambda
-=\operatorname*{Epk}\pi$. This proves the $\Longleftarrow$ direction of
-Proposition \ref{prop.when-Epk}.
-\end{proof}
-\end{verlong}
-
 The following lemma is a variant of the principle of inclusion and exclusion
 tailored to our setting:
 
@@ -2721,11 +3106,12 @@ is}\\\text{weakly increasing;}\\\Lambda\cap\operatorname*{FE}\left(  g\right)
 \end{verlong}
 \end{proof}
 
+Recall Definition~\ref{def.lac.Ln}.
+
 \begin{proposition}
 \label{prop.KnL.lindep}Let $n\in\mathbb{N}$. Then, the family%
 \[
-\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda\subseteq\left[
-n\right]  \text{ is lacunar and nonempty}}%
+\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda\in \mathbf{L}_n}%
 \]
 is $\mathbb{Q}$-linearly independent.
 \end{proposition}
@@ -2755,15 +3141,33 @@ coefficients $\left(  \lambda_{h}\right)  _{h\in H}$.
 \par
 When we say \textquotedblleft the only syzygy\textquotedblright, we mean
 \textquotedblleft the only nonzero syzygy up to scalar
-multiples\textquotedblright.} of the family $\left(  K_{n,\Lambda
-}^{\mathcal{Z}}\right)  _{\Lambda\subseteq\left[  n\right]  \text{ is
-lacunar}}$ is $\sum_{\Lambda\subseteq\Omega}\left(  -1\right)  ^{\left\vert
+multiples\textquotedblright.} of the family
+$\left(  K_{n,\Lambda }^{\mathcal{Z}}\right) %
+_{\Lambda\subseteq\left[  n\right]  \text{ is lacunar}}$
+is $\sum_{\Lambda\subseteq\Omega}\left(  -1\right)  ^{\left\vert
 \Lambda\right\vert }K_{n,\Lambda}^{\mathcal{Z}}=0$.
 
 \textbf{(b)} If $n$ is even, then the family $\left(  K_{n,\Lambda
 }^{\mathcal{Z}}\right)  _{\Lambda\subseteq\left[  n\right]  \text{ is
 lacunar}}$ is $\mathbb{Q}$-linearly independent.
 \end{statement}
+
+Claim 1 (once proven) will clearly yield
+Proposition \ref{prop.KnL.lindep}. Indeed, the family
+$\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda\in \mathbf{L}_n}$
+is a subfamily of the family
+$\left(  K_{n,\Lambda }^{\mathcal{Z}}\right) %
+_{\Lambda\subseteq\left[  n\right]  \text{ is lacunar}}$,
+which is obtained from the latter family by removing the element
+$K_{n,\varnothing}^{\mathcal{Z}}$ when $n > 0$ (by the definition
+of $\mathbf{L}_n$).
+But Claim 1 shows that all nontrivial syzygies of the latter family
+(if there are any to begin with) involve the element
+$K_{n,\varnothing}^{\mathcal{Z}}$, and thus disappear when this
+element is removed.
+Hence, it lets us conclude that the former family is
+$\mathbb{Q}$-linearly independent.
+Thus, it remains to prove Claim 1.
 
 For each subset $\Lambda$ of $\left[  n\right]  $, define a power series
 $L_{n,\Lambda}^{\mathcal{Z}}\in\operatorname*{Pow}\mathcal{N}$ by
@@ -2955,13 +3359,8 @@ $\Lambda\cup\left(  \Lambda+1\right)  $\ \ \ \ \footnote{This takes a bit of
 thought to check. You need to show that if $\Lambda_{1}$ and $\Lambda_{2}$ are
 two lacunar subsets of $\left[  n\right]  $ satisfying $\Lambda_{1}\cup\left(
 \Lambda_{1}+1\right)  =\Lambda_{2}\cup\left(  \Lambda_{2}+1\right)  $, then
-$\Lambda_{1}=\Lambda_{2}$. In order to prove this, assume the contrary, and
-conclude that there is a smallest element $h$ of the symmetric difference
-$\Lambda_{1}\bigtriangleup\Lambda_{2}$. WLOG assume that $h\in\Lambda
-_{1}\setminus\Lambda_{2}$, and argue that $h$ belongs to $\Lambda_{1}%
-\cup\left(  \Lambda_{1}+1\right)  $ but not to $\Lambda_{2}\cup\left(
-\Lambda_{2}+1\right)  $, which contradicts $\Lambda_{1}\cup\left(  \Lambda
-_{1}+1\right)  =\Lambda_{2}\cup\left(  \Lambda_{2}+1\right)  $.}). The further
+$\Lambda_{1}=\Lambda_{2}$. This follows from
+Corollary~\ref{cor.lac.L=L}.}). The further
 argument depends on the parity of $n$:
 
 \begin{itemize}
@@ -3002,12 +3401,10 @@ This proves Claim 3. As explained above, this yields Claim 2, hence also Claim
 \begin{corollary}
 \label{cor.KnL.lindep-all}The family%
 \[
-\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{n>0;\ \Lambda\subseteq\left[
-n\right]  \text{ is lacunar and nonempty}}\cup\left(  K_{0,\varnothing
-}^{\mathcal{Z}}\right)
+\left(  K_{n,\Lambda}^{\mathcal{Z}}\right) %
+_{n \in \NN; \ \Lambda \in \mathbf{L}_n}
 \]
-(where $\left(  K_{0,\varnothing}^{\mathcal{Z}}\right)  $ is a $1$-element
-family) is $\mathbb{Q}$-linearly independent.
+is $\mathbb{Q}$-linearly independent.
 \end{corollary}
 
 \begin{vershort}
@@ -3020,20 +3417,17 @@ family) is $\mathbb{Q}$-linearly independent.
 \begin{verlong}
 \begin{proof}
 [Proof of Corollary \ref{cor.KnL.lindep-all}.]For each $n\in\mathbb{N}$, the
-family $\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda\subseteq\left[
-n\right]  \text{ is lacunar and nonempty}}$ is $\mathbb{Q}$-linearly
+family $\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda\in \Lambda_n}$
+is $\mathbb{Q}$-linearly
 independent (by Proposition \ref{prop.KnL.lindep}). Furthermore, these
-families for varying $n>0$ live in linearly disjoint subspaces of
-$\operatorname*{Pow}\mathcal{N}$ (because for each $n>0$ and $\Lambda
+families for varying $n$ live in linearly disjoint subspaces of
+$\operatorname*{Pow}\mathcal{N}$ (because for each $n \in \NN$ and $\Lambda
 \subseteq\left[  n\right]  $, the power series $K_{n,\Lambda}^{\mathcal{Z}}$
 is homogeneous of degree $n$). Thus, the union $\left(  K_{n,\Lambda
-}^{\mathcal{Z}}\right)  _{n>0;\ \Lambda\subseteq\left[  n\right]  \text{ is
-lacunar and nonempty}}$ of all these families must also be $\mathbb{Q}%
-$-linearly independent. Adding the $1$-element family $\left(
-K_{0,\varnothing}^{\mathcal{Z}}\right)  $ to this union preserves the
-$\mathbb{Q}$-linear independence, since it lives in yet another linearly
-disjoint subspace of $\operatorname*{Pow}\mathcal{N}$ (namely, in its $0$-th
-graded component). This proves Corollary \ref{cor.KnL.lindep-all}.
+}^{\mathcal{Z}}\right)  _{n \in \NN;\ \Lambda \in \mathbf{L}_n}$ of all
+these families must also be $\mathbb{Q}%
+$-linearly independent.
+This proves Corollary \ref{cor.KnL.lindep-all}.
 \end{proof}
 \end{verlong}
 
@@ -3077,45 +3471,41 @@ Define $n\in\mathbb{N}$ by $n=\left\vert \pi\right\vert =\left\vert
 \pi\right\vert =\left\vert \pi^{\prime}\right\vert $). Likewise, define
 $m\in\mathbb{N}$ by $m=\left\vert \sigma\right\vert =\left\vert \sigma
 ^{\prime}\right\vert $. Thus, $\pi$ is an $n$-permutation, while $\sigma$ is
-an $m$-permutation.
+an $m$-permutation. Hence, each $\tau\in S\left(  \pi,\sigma\right)  $ is an
+$\left(  n+m\right)  $-permutation, and therefore satisfies
+$\operatorname*{Epk}\tau\in\mathbf{L}_{n+m}$ (by Proposition
+\ref{prop.Epk-lac}, applied to $n+m$ and $\tau$ instead of $n$ and $\pi$).
+Thus, the multiset $\left\{  \operatorname*{Epk}\left(  \tau\right)
+\ \mid\ \tau\in S\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}%
+}$ consists of elements of $\mathbf{L}_{n+m}$. The same holds for the multiset
+$\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}$ (for
+similar reasons).
 
-WLOG assume that $n+m>0$ (since otherwise, both $n$ and $m$ are $0$, which
-causes all four permutations $\pi$, $\pi^{\prime}$, $\sigma$ and
-$\sigma^{\prime}$ to be empty; but then our goal is obviously satisfied).
 Corollary \ref{cor.KnEpk-prodrule} yields
 \begin{align*}
 &  K_{n,\operatorname*{Epk}\left(  \pi\right)  }^{\mathcal{Z}}\cdot
 K_{m,\operatorname*{Epk}\left(  \sigma\right)  }^{\mathcal{Z}}\\
 &  =\sum_{\tau\in S\left(  \pi,\sigma\right)  }K_{n+m,\operatorname*{Epk}\tau
-}^{\mathcal{Z}}=\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
-lacunar}\\\text{and nonempty}}}\underbrace{\sum_{\substack{\tau\in S\left(
-\pi,\sigma\right)  ;\\\operatorname*{Epk}\tau=\Lambda}}K_{n+m,\Lambda
-}^{\mathcal{Z}}}_{=\left\vert \left\{  \tau\in S\left(  \pi,\sigma\right)
-\ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert K_{n+m,\Lambda
-}^{\mathcal{Z}}}\\
-&  \ \ \ \ \ \ \ \ \ \ \left(
-\begin{array}
-[c]{c}%
-\text{because if }\tau\in S\left(  \pi,\sigma\right)  \text{, then
-}\operatorname*{Epk}\tau\text{ is a}\\
-\text{lacunar and nonempty subset of }\left[  n+m\right] \\
-\text{(by Proposition \ref{prop.Epk-lac}, applied to }n+m\text{ and }\tau\\
-\text{instead of }n\text{ and }\pi\text{)}%
-\end{array}
-\right) \\
-&  =\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
-lacunar}\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(  \pi
-,\sigma\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert
-K_{n+m,\Lambda}^{\mathcal{Z}}.
+}^{\mathcal{Z}}=\sum_{\substack{\Lambda\in\mathbf{L}_{n+m}}}\underbrace{\sum
+_{\substack{\tau\in S\left(  \pi,\sigma\right)  ;\\\operatorname*{Epk}%
+\tau=\Lambda}}K_{n+m,\Lambda}^{\mathcal{Z}}}_{=\left\vert \left\{  \tau\in
+S\left(  \pi,\sigma\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}
+\right\vert K_{n+m,\Lambda}^{\mathcal{Z}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{because each }\tau\in S\left(  \pi
+,\sigma\right)  \text{ satisfies }\operatorname*{Epk}\tau\in\mathbf{L}%
+_{n+m}\right)  \\
+&  =\sum_{\substack{\Lambda\in\mathbf{L}_{n+m}}}\left\vert \left\{  \tau\in
+S\left(  \pi,\sigma\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}
+\right\vert K_{n+m,\Lambda}^{\mathcal{Z}}.
 \end{align*}
 Similarly,%
 \[
 K_{n,\operatorname*{Epk}\left(  \pi^{\prime}\right)  }^{\mathcal{Z}}\cdot
 K_{m,\operatorname*{Epk}\left(  \sigma^{\prime}\right)  }^{\mathcal{Z}}%
-=\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is lacunar}%
-\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(  \pi^{\prime
-},\sigma^{\prime}\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}
-\right\vert K_{n+m,\Lambda}^{\mathcal{Z}}.
+=\sum_{\substack{\Lambda\in\mathbf{L}_{n+m}}}\left\vert \left\{  \tau\in
+S\left(  \pi^{\prime},\sigma^{\prime}\right)  \ \mid\ \operatorname*{Epk}%
+\tau=\Lambda\right\}  \right\vert K_{n+m,\Lambda}^{\mathcal{Z}}.
 \]
 The left-hand sides of these two equalities are identical (since
 $\operatorname*{Epk}\left(  \pi\right)  =\operatorname*{Epk}\left(
@@ -3123,33 +3513,31 @@ $\operatorname*{Epk}\left(  \pi\right)  =\operatorname*{Epk}\left(
 =\operatorname*{Epk}\left(  \sigma^{\prime}\right)  $). Thus, their right-hand
 sides must also be identical. In other words, we have%
 \begin{align*}
-&  \sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
-lacunar}\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(  \pi
-,\sigma\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert
-K_{n+m,\Lambda}^{\mathcal{Z}}\\
-&  =\sum_{\substack{\Lambda\subseteq\left[  n+m\right]  \text{ is
-lacunar}\\\text{and nonempty}}}\left\vert \left\{  \tau\in S\left(
-\pi^{\prime},\sigma^{\prime}\right)  \ \mid\ \operatorname*{Epk}\tau
-=\Lambda\right\}  \right\vert K_{n+m,\Lambda}^{\mathcal{Z}}.
+&  \sum_{\substack{\Lambda\in\mathbf{L}_{n+m}}}\left\vert \left\{  \tau\in
+S\left(  \pi,\sigma\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}
+\right\vert K_{n+m,\Lambda}^{\mathcal{Z}}\\
+&  =\sum_{\substack{\Lambda\in\mathbf{L}_{n+m}}}\left\vert \left\{  \tau\in
+S\left(  \pi^{\prime},\sigma^{\prime}\right)  \ \mid\ \operatorname*{Epk}%
+\tau=\Lambda\right\}  \right\vert K_{n+m,\Lambda}^{\mathcal{Z}}.
 \end{align*}
 Since the family $\left(  K_{n+m,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda
-\subseteq\left[  n+m\right]  \text{ is lacunar and nonempty}}$ is $\mathbb{Q}%
-$-linearly independent (by Proposition \ref{prop.KnL.lindep}), this shows that%
+\in\mathbf{L}_{n+m}}$ is $\mathbb{Q}$-linearly independent (by Proposition
+\ref{prop.KnL.lindep}), this shows that%
 \[
 \left\vert \left\{  \tau\in S\left(  \pi,\sigma\right)  \ \mid
 \ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert =\left\vert \left\{
 \tau\in S\left(  \pi^{\prime},\sigma^{\prime}\right)  \ \mid
 \ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert
 \]
-for each lacunar nonempty subset $\Lambda$ of $\left[  n+m\right]  $. In other
-words, the multiset $\left\{  \operatorname*{Epk}\left(  \tau\right)
-\ \mid\ \tau\in S\left(  \pi,\sigma\right)  \right\}  _{\operatorname*{multi}%
-}$ equals the multiset $\left\{  \operatorname*{Epk}\left(  \tau\right)
-\ \mid\ \tau\in S\left(  \pi^{\prime},\sigma^{\prime}\right)  \right\}
-_{\operatorname*{multi}}$ (because both of these multisets consist of lacunar
-nonempty subsets $\Lambda$ of $\left[  n+m\right]  $, and the previous
-sentence shows that these subsets appear with equal multiplicities in them).
-This completes our proof of Theorem \ref{thm.Epk.sh-co-a}.
+for each $\Lambda\in\mathbf{L}_{n+m}$. In other words, the multiset $\left\{
+\operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi
+,\sigma\right)  \right\}  _{\operatorname*{multi}}$ equals the multiset
+$\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}$
+(because both of these multisets consist of elements of $\mathbf{L}_{n+m}$,
+and the previous sentence shows that these elements appear with equal
+multiplicities in them). This completes our proof of Theorem
+\ref{thm.Epk.sh-co-a}.
 \end{proof}
 
 We end this section with a final remark that uses some notations from
@@ -6433,11 +6821,10 @@ as a graded algebra. This proves Theorem \ref{thm.Epk.AEpk} \textbf{(a)}.
 compositions of $n$. These latter classes are in bijection with
 $\operatorname*{Epk}$-equivalence classes of $n$-permutations. In turn, the
 latter classes are in bijection with the images of $n$-permutations under the
-map $\operatorname*{Epk}$. Finally, the latter images are the lacunar nonempty
-subsets of $\left[  n\right]  $ (according to Proposition \ref{prop.when-Epk}%
-). The number of the latter subsets is $f_{n+2}-1$, because a known fact (see,
-e.g., \cite[Exercise 1.35 \textbf{a.}]{Stanley-EC1}) says that the number of
-lacunar subsets of $\left[  n\right]  $ is $f_{n+2}$. Combining all of the
+map $\operatorname*{Epk}$. Finally, the latter images are the elements of
+$\mathbf{L}_n$ (according to Proposition \ref{prop.when-Epk}).
+Hence, the number of these images is $\left|\mathbf{L}_n\right|
+= f_{n+2} - 1$ (by Proposition \ref{prop.lac.fib}). Combining all of the
 preceding sentences, we conclude that the dimension of the $n$-th graded
 component of $\mathcal{A}_{\operatorname*{Epk}}$ is $f_{n+2}-1$. This proves
 Theorem \ref{thm.Epk.AEpk} \textbf{(b)}.
@@ -6450,8 +6837,7 @@ _{\operatorname*{Epk}}$ using the notations of Section \ref{sect.Zenri}:
 \begin{definition}
 Let $\Pi_{\mathcal{Z}}$ be the $\mathbb{Q}$-vector subspace of
 $\operatorname*{Pow}\mathcal{N}$ spanned by the family $\left(  K_{n,\Lambda
-}^{\mathcal{Z}}\right)  _{n>0;\ \Lambda\subseteq\left[  n\right]  \text{ is
-lacunar and nonempty}}\cup\left(  K_{0,\varnothing}^{\mathcal{Z}}\right)  $.
+}^{\mathcal{Z}}\right)  _{n \in \NN;\  \Lambda \in \mathbf{L}_n}  $.
 Then, $\Pi_{\mathcal{Z}}$ is also the $\mathbb{Q}$-vector subspace of
 $\operatorname*{Pow}\mathcal{N}$ spanned by the family $\left(
 K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}\right)  _{n\in\mathbb{N}%
@@ -6563,24 +6949,23 @@ $1\in\operatorname*{QSym}$ to $1\in\Pi_{\mathcal{Z}}$\ \ \ \ \footnote{This is
 easy, since $1=F_{\left(  {}\right)  }$.}. Thus, $\phi_{\operatorname*{Epk}}$
 is a $\mathbb{Q}$-algebra homomorphism.
 
-The family $\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{n>0;\ \Lambda
-\subseteq\left[  n\right]  \text{ is lacunar and nonempty}}\cup\left(
-K_{0,\varnothing}^{\mathcal{Z}}\right)  $ spans $\Pi_{\mathcal{Z}}$ (by the
+The family $\left(  K_{n,\Lambda}^{\mathcal{Z}}\right) %
+_{n \in \NN;\  \Lambda \in \mathbf{L}_n}$ spans $\Pi_{\mathcal{Z}}$ (by the
 definition of $\Pi_{\mathcal{Z}}$) and is $\mathbb{Q}$-linearly independent
 (by Corollary \ref{cor.KnL.lindep-all}). Thus, it is a basis of $\Pi
 _{\mathcal{Z}}$.
 
 For each positive integer $n$, there is a canonical bijection between the
-$\operatorname*{Epk}$-equivalence classes of $n$-permutations and the nonempty
-lacunar subsets $\Lambda$ of $\left[  n\right]  $ (indeed, the bijection sends
+$\operatorname*{Epk}$-equivalence classes of $n$-permutations and the
+$\Lambda \in \mathbf{L}_n$ (indeed, the bijection sends
 any equivalence class $\left[  \pi\right]  _{\operatorname*{Epk}}$ to
 $\operatorname*{Epk}\pi$)\ \ \ \ \footnote{Proposition \ref{prop.when-Epk}
 shows that this is indeed a bijection.}. Hence, Theorem~\ref{thm.4.3}
 \textbf{(a)} (applied to $A=\Pi_{\mathcal{Z}}$, $\operatorname*{st}%
 =\operatorname*{Epk}$ and $u_{\alpha}=K_{n,\Lambda}^{\mathcal{Z}}$, where
 $\alpha$ is an $\operatorname*{Epk}$-equivalence class of $n$-permutations and
-where $\Lambda$ is the corresponding nonempty\footnote{or empty, if $n=0$}
-lacunar subset) shows that the descent statistic $\operatorname*{Epk}$ is
+where $\Lambda$ is the corresponding element of $\mathbf{L}_n$)
+shows that the descent statistic $\operatorname*{Epk}$ is
 shuffle-compatible. This proves Theorem \ref{thm.Epk.sh-co-a} again.
 Theorem~\ref{thm.4.3} \textbf{(b)} then yields that the $\mathbb{Q}$-linear
 map%
@@ -11562,6 +11947,11 @@ $\operatorname*{QSym}$ either. Proposition \ref{prop.Pk.dend} is now proven.
 
 \begin{thebibliography}{99999999}                                                                                         %
 
+
+\bibitem[AgBeNy03]{ABN-peaks}Marcelo Aguiar, Nantel Bergeron and Kathryn Nyman,
+\textit{The peak algebra and the descent algebras of types B and D},
+Trans. Amer. Math. Soc. \textbf{356} (2004), pp. 2781--2824,
+\url{https://doi.org/10.1090/S0002-9947-04-03541-X} .
 
 \bibitem[EbMaPa07]{EbMaPa07}%
 \href{https://doi.org/10.1016/j.jalgebra.2007.12.013}{Kurusch Ebrahimi-Fard,

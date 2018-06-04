@@ -934,7 +934,9 @@ Let us prove some basic facts about $\mathcal{Z}$-enriched $\left(
 P,\gamma\right)  $-partitions, straightforwardly generalizing classical
 results proven by Stanley and Gessel (for the case of \textquotedblleft
 plain\textquotedblright\ $\left(  P,\gamma\right)  $-partitions), Stembridge
-(for enriched $\left(  P,\gamma\right)  $-partitions) and Petersen (for left
+\cite[Lemma 2.1]{Stembr97}
+(for enriched $\left(  P,\gamma\right)  $-partitions) and
+Petersen \cite[Lemma 3.4.1]{Peters06} (for left
 enriched $\left(  P,\gamma\right)  $-partitions):
 
 \begin{proposition}
@@ -1526,7 +1528,9 @@ posets, then a \textit{homomorphism of labeled posets} from
 $\left(P, \alpha\right)$ to $\left(Q, \beta\right)$ means a poset
 homomorphism $f : P \to Q$ satisfying $\alpha = \beta \circ f$.
 A \textit{isomorphism of labeled posets} is an invertible homomorphism
-of labeled posets whose inverse also is a homomorphism of labeled posets.}
+of labeled posets whose inverse also is a homomorphism of labeled posets.
+Note that this definition of an isomorphism is not equivalent to the
+definition given in \cite[Section 1.1]{Stembr97}.}
 from $\left(  w,\gamma\right)$ to $\left(  \left[
 n\right]  ,\gamma\circ\overline{w}^{-1}\right)$.
 Hence,
@@ -2372,7 +2376,8 @@ Proposition \ref{prop.Epk-formula2} shows that%
 
 \end{definition}
 
-Corollary \ref{cor.prod2} now leads directly to the following multiplication rule:
+Corollary \ref{cor.prod2} now leads directly to the following multiplication rule
+(an analogue of \cite[(3.1)]{Stembr97}):
 
 \begin{corollary}
 \label{cor.KnEpk-prodrule}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $\pi$
@@ -2411,6 +2416,14 @@ This proves Corollary \ref{cor.KnEpk-prodrule}.
 A set $S$ of integers is said to be \textit{lacunar} if each $s\in S$
 satisfies $s+1\notin S$.
 \end{definition}
+
+In other words, a set of integers is lacunar if and only if it contains
+no two consecutive integers.
+For example, the set $\left\{2, 5, 7\right\}$ is lacunar, while the
+set $\left\{2, 5, 6\right\}$ is not.
+
+Lacunar sets of integers are also called \textit{sparse} sets in some
+of the literature (though the latter word has several competing meanings).
 
 The following observation is easy:
 
@@ -6298,9 +6311,13 @@ _{\operatorname*{st}}=\sum_{\tau\in S\left(  \pi,\sigma\right)  }\left[
 for any two disjoint permutations $\pi$ and $\sigma$. It is easy to see that
 this multiplication is well-defined and associative, and turns $\mathcal{A}%
 _{\operatorname*{st}}$ into a $\mathbb{Q}$-algebra whose unity is the
-$\operatorname*{st}$-equivalence class of the empty permutation. (In the
+$\operatorname*{st}$-equivalence class of the empty permutation.
+\begin{verlong}
+(In the
 particular case when $\operatorname*{st}$ is a descent statistic, this shall
-be proven again in Proposition \ref{prop.Ast.alg} \textbf{(a)} below.) This
+be proven again in Proposition \ref{prop.Ast.alg} \textbf{(a)} below.)
+\end{verlong}
+This
 $\mathbb{Q}$-algebra is denoted by $\mathcal{A}_{\operatorname*{st}}$, and is
 called the \textit{shuffle algebra} of $\operatorname*{st}$. It is a graded
 $\mathbb{Q}$-algebra; its $n$-th graded component (for each $n\in\mathbb{N}$)
@@ -6308,6 +6325,7 @@ is spanned by the $\operatorname*{st}$-equivalence classes of all $n$-permutatio
 \end{definition}
 
 This definition originates in \cite[\S 3.1]{part1}.
+The following fact is implicit in \cite{part1}:
 
 \begin{proposition}
 \label{prop.Ast.alg}Let $\operatorname*{st}$ be a shuffle-compatible descent statistic.

@@ -9663,7 +9663,38 @@ Then, $f$ is an $R^{\prime}$-partition if and only if
 $f \left(u\right) \leq f\left(v\right)$.
 \end{statement}
 
-[\textit{Proof of Observation 2:} Similar to Observation 1.]
+[\textit{Proof of Observation 2:} Similar to Observation 1, but this
+time an additional step is needed: We need to verify that if
+$f \left(u\right) \leq f\left(v\right)$, then each pair
+$\left(x, y\right)$ of elements of $R^{\prime}$ satisfying $x < y$ in
+$R^{\prime}$ and $x >_{\ZZ} y$ must satisfy
+$f\left(x\right) < f\left(y\right)$.
+Indeed, assume that $f \left(u\right) \leq f\left(v\right)$, and fix
+such a pair $\left(x, y\right)$.
+Then, either we already have $x < y$ in $R$,
+%(in which case $f\left(x\right) < f\left(y\right)$ follows from
+%the requirement that $f$ be an $R$-partition),
+or we have $x \leq u$ and $v \leq y$ in $R$.
+In the first of these two cases, the claim
+$f\left(x\right) < f\left(y\right)$ follows from
+the assumption that $f$ be an $R$-partition.
+In the second case, the fact that $f$ is an $R$-partition entails
+$f\left(x\right) \leq f\left(u\right)$ and
+$f\left(v\right) \leq f\left(y\right)$, whence
+$f\left(x\right) \leq f\left(u\right) \leq f\left(v\right) \leq f\left(y\right)$;
+moreover, at least one of the inequality signs in this chain must
+be strict\footnote{\textit{Proof.} Assume the contrary. Thus,
+$f\left(x\right) = f\left(u\right) = f\left(v\right) = f\left(y\right)$.
+If we had $x >_{\ZZ} u$, then we would have
+$f\left(x\right) < f\left(u\right)$ (since $x < u$ in $R$, but
+$f$ is an $R$-partition), which would contradict
+$f\left(x\right) = f\left(u\right)$.
+Hence, we cannot have $x >_{\ZZ} u$. Thus, $x \leq_{\ZZ} u$.
+Similarly, $v \leq_{\ZZ} y$.
+Hence, $x \leq_{\ZZ} u <_{\ZZ} v \leq_{\ZZ} y$.
+This contradicts $x >_{\ZZ} y$.
+This contradiction shows that our assumption was wrong, qed.},
+and therefore we obtain $f\left(x\right) < f\left(y\right)$ as well.]
 
 \textbf{(a)} If $f : P \sqcup Q \to \left\{1,2,3,\ldots\right\}$ is a
 $P \left. \prec \right. Q$-partition, then its restrictions $f\mid_P$

@@ -4291,7 +4291,8 @@ B\right\vert _{g}\leq\left\vert A\right\vert _{g}$.
 
 \textbf{(c)} If $A$ and $B$ are two finite multisets satisfying $B\subseteq
 A$, then $A-B$ shall denote the \textquotedblleft multiset
-difference\textquotedblright\ of $A$ and $B$; this is the multiset $C$ such
+difference\textquotedblright\ of $A$ and $B$; this is the finite
+multiset $C$ such
 that each object $g$ satisfies $\left\vert C\right\vert _{g}=\left\vert
 A\right\vert _{g}-\left\vert B\right\vert _{g}$.
 \end{definition}
@@ -4393,7 +4394,7 @@ induction hypothesis) that Claim 1 holds when $\left\vert \sigma\right\vert
 =N-1$. We must now prove that Claim 1 holds when $\left\vert \sigma\right\vert
 =N$.
 
-Indeed, let $\pi$, $\sigma$ and $\pi^{\prime}$ be as in Claim 1, and assume
+Indeed, let $\pi$, $\pi^{\prime}$ and $\sigma$ be as in Claim 1, and assume
 that $\left\vert \sigma\right\vert =N$. We must prove
 (\ref{pf.thm.head-comp.LRcomp.c1.eq3}) and
 (\ref{pf.thm.head-comp.LRcomp.c1.eq4}).
@@ -4484,11 +4485,11 @@ _{\operatorname*{multi}}.
 
 [\textit{Proof of (\ref{pf.thm.head-comp.LRcomp.c1.pf.5}):} The permutations
 $\sigma_{1}:\pi$ and $\sigma_{1}:\pi^{\prime}$ are clearly nonempty. Hence, if
-$\sigma_{\sim1}$ is the empty permutation $\left(  {}\right)  $, then
+$\sigma_{\sim1}$ is the $0$-permutation $\left(  {}\right)  $, then
 $S_{\prec}\left(  \sigma_{1}:\pi,\sigma_{\sim1}\right)  =\left\{  \sigma
 _{1}:\pi\right\}  $ and $S_{\prec}\left(  \sigma_{1}:\pi^{\prime},\sigma
 _{\sim1}\right)  =\left\{  \sigma_{1}:\pi^{\prime}\right\}  $. Thus, if
-$\sigma_{\sim1}$ is the empty permutation $\left(  {}\right)  $, then
+$\sigma_{\sim1}$ is the $0$-permutation $\left(  {}\right)  $, then
 (\ref{pf.thm.head-comp.LRcomp.c1.pf.5}) follows from%
 \begin{align*}
 &  \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\in
@@ -4509,7 +4510,7 @@ _{\operatorname*{multi}}\\
 _{\operatorname*{multi}}.
 \end{align*}
 Thus, for the rest of our proof of (\ref{pf.thm.head-comp.LRcomp.c1.pf.5}), we
-WLOG assume that $\sigma_{\sim1}$ is not the empty permutation $\left(
+WLOG assume that $\sigma_{\sim1}$ is not the $0$-permutation $\left(
 {}\right)  $. Thus, $\sigma_{\sim1}$ is nonempty.
 
 But recall that $\left\vert \sigma_{\sim1}\right\vert =N-1$. Hence, the
@@ -5678,7 +5679,7 @@ $\operatorname*{Des}\alpha=\operatorname*{Des}\beta$ and $\left\vert
 
 \textit{Induction base:} If $\left\vert \alpha\right\vert =0$, then Claim 1 is
 true (because if $\left\vert \alpha\right\vert =0$, then both $\alpha$ and
-$\beta$ equal the empty $0$-permutation $\left(  {}\right)  $, and therefore
+$\beta$ equal the $0$-permutation $\left(  {}\right)  $, and therefore
 satisfy $\alpha=\beta$ and thus $\operatorname*{st}\left(  \alpha\right)
 =\operatorname*{st}\left(  \beta\right)  $). This completes the induction base.
 
@@ -6708,7 +6709,8 @@ _{\operatorname*{st}}=\sum_{\tau\in S\left(  \pi,\sigma\right)  }\left[
 for any two disjoint permutations $\pi$ and $\sigma$. It is easy to see that
 this multiplication is well-defined and associative, and turns $\mathcal{A}%
 _{\operatorname*{st}}$ into a $\mathbb{Q}$-algebra whose unity is the
-$\operatorname*{st}$-equivalence class of the empty permutation.
+$\operatorname*{st}$-equivalence class of the $0$-permutation
+$\left( \right)$.
 \begin{verlong}
 (In the
 particular case when $\operatorname*{st}$ is a descent statistic, this shall
@@ -6730,7 +6732,8 @@ The following fact is implicit in \cite{part1}:
 \textbf{(a)} The multiplication on $\mathcal{A}_{\operatorname*{st}}$ defined
 in Definition \ref{def.Ast} is well-defined and associative, and turns
 $\mathcal{A}_{\operatorname*{st}}$ into a $\mathbb{Q}$-algebra whose unity is
-the $\operatorname*{st}$-equivalence class of the empty permutation.
+the $\operatorname*{st}$-equivalence class of the $0$-permutation
+$\left( \right)$.
 
 \textbf{(b)} There is a surjective $\mathbb{Q}$-algebra homomorphism
 $p_{\operatorname*{st}}:\operatorname*{QSym}\rightarrow\mathcal{A}%
@@ -6857,7 +6860,7 @@ subspace of $\operatorname*{Pow}\mathcal{N}$ spanned by the family $\left(
 is an }n\text{-permutation}}$ (because of (\ref{eq.def.KnL.2})). Hence,
 Corollary \ref{cor.prod2} shows that $\Pi_{\mathcal{Z}}$ is closed under
 multiplication. Since furthermore $\Gamma_{\mathcal{Z}}\left(
-\left( \right) \right)  =1$ (for the empty $0$-permutation
+\left( \right) \right)  =1$ (for the $0$-permutation
 $\left( \right)$), we can thus conclude that $\Pi
 _{\mathcal{Z}}$ is a $\mathbb{Q}$-subalgebra of $\operatorname*{Pow}%
 \mathcal{N}$.
@@ -8641,15 +8644,18 @@ A similar argument shows that $p\left(  abc\right)  =u\left(  vw\right)  $.
 Thus, $\left(  uv\right)  w=p\left(  abc\right)  =u\left(  vw\right)  $,
 qed.}. In other words, the multiplication on $\mathcal{A}_{\operatorname*{st}%
 }$ defined in Definition \ref{def.Ast} is associative. Moreover, it is clear
-that the $\operatorname*{st}$-equivalence class of the empty permutation
+that the $\operatorname*{st}$-equivalence class of the $0$-permutation
+$\left( \right)$
 serves as a neutral element for this multiplication (because if $\varnothing$
-denotes the empty permutation, then $S\left(  \varnothing,\sigma\right)
+denotes the $0$-permutation $\left( \right)$,
+then $S\left(  \varnothing,\sigma\right)
 =S\left(  \sigma,\varnothing\right)  =\left\{  \sigma\right\}  $ for every
 permutation $\sigma$). Thus, the multiplication on $\mathcal{A}%
 _{\operatorname*{st}}$ defined in Definition \ref{def.Ast} is well-defined and
 associative, and turns $\mathcal{A}_{\operatorname*{st}}$ into a $\mathbb{Q}%
 $-algebra whose unity is the $\operatorname*{st}$-equivalence class of the
-empty permutation. This proves Proposition \ref{prop.Ast.alg} \textbf{(a)}.
+$0$-permutation $\left( \right)$.
+This proves Proposition \ref{prop.Ast.alg} \textbf{(a)}.
 
 \textbf{(b)} The map $p:\operatorname*{QSym}\rightarrow\mathcal{A}%
 _{\operatorname*{st}}$ is $\mathbb{Q}$-linear and respects multiplication (by
@@ -8658,9 +8664,11 @@ $\operatorname*{QSym}$ to the unity of the algebra $\mathcal{A}%
 _{\operatorname*{st}}$\ \ \ \ \footnote{\textit{Proof.} The unity of
 $\operatorname*{QSym}$ is $1=F_{\left(  {}\right)  }$, where $\left(
 {}\right)  $ denotes the empty composition. Now, let $\varnothing$ denote the
-empty permutation. Then, the $\operatorname*{st}$-equivalence class $\left[
+$0$-permutation $\left( \right)$.
+Then, the $\operatorname*{st}$-equivalence class $\left[
 \varnothing\right]  _{\operatorname*{st}}$ is the unity of the algebra
-$\mathcal{A}_{\operatorname*{st}}$. But the empty permutation $\varnothing$
+$\mathcal{A}_{\operatorname*{st}}$. But the $0$-permutation $\varnothing
+= \left( \right)$
 has descent composition $\operatorname*{Comp}\varnothing=\left(  {}\right)  $.
 Hence, the definition of $p$ yields $p\left(  F_{\left(  {}\right)  }\right)
 =\left[  \varnothing\right]  _{\operatorname*{st}}$. In view of what we just

@@ -6656,7 +6656,7 @@ the $\mathbb{Q}$-vector space $\operatorname*{QSym}$; it is known as the
 \textit{fundamental basis} of $\operatorname*{QSym}$.
 \end{definition}
 
-We notice that the fundamental quasisymmetric function $F_{\alpha}$ is denoted
+The fundamental quasisymmetric function $F_{\alpha}$ is denoted
 by $L_{\alpha}$ in \cite[\S 5.2]{HopfComb}.
 
 The multiplication of fundamental quasisymmetric functions is intimately
@@ -6751,13 +6751,16 @@ The following fact is implicit in \cite{part1}:
 \begin{proposition}
 \label{prop.Ast.alg}Let $\operatorname*{st}$ be a shuffle-compatible descent statistic.
 
+\begin{verlong}
 \textbf{(a)} The multiplication on $\mathcal{A}_{\operatorname*{st}}$ defined
 in Definition \ref{def.Ast} is well-defined and associative, and turns
 $\mathcal{A}_{\operatorname*{st}}$ into a $\mathbb{Q}$-algebra whose unity is
 the $\operatorname*{st}$-equivalence class of the $0$-permutation
 $\left( \right)$.
 
-\textbf{(b)} There is a surjective $\mathbb{Q}$-algebra homomorphism
+\textbf{(b)}
+\end{verlong}
+There is a surjective $\mathbb{Q}$-algebra homomorphism
 $p_{\operatorname*{st}}:\operatorname*{QSym}\rightarrow\mathcal{A}%
 _{\operatorname*{st}}$ that satisfies
 \[
@@ -6768,9 +6771,8 @@ permutation }\pi.
 
 \end{proposition}
 
-A central property of the shuffle algebra $\mathcal{A}_{\operatorname*{st}}$
-of a shuffle-compatible descent statistic is its relation to
-$\operatorname*{QSym}$. This relation is given by \cite[Theorem 4.3]{part1},
+A central result, connecting shuffle-compatibility of a descent
+statistic with $\operatorname*{QSym}$, is \cite[Theorem 4.3]{part1},
 which we restate as follows:
 
 \begin{theorem}
@@ -6805,6 +6807,7 @@ Proofs of Proposition \ref{prop.Ast.alg} and Theorem \ref{thm.4.3}
 \end{vershort}
 
 \begin{verlong}
+As we said, Theorem \ref{thm.4.3} is precisely \cite[Theorem 4.3]{part1}.
 For the sake of completeness, we shall give proofs of Proposition
 \ref{prop.Ast.alg} and Theorem \ref{thm.4.3} (independent of \cite{part1}) in
 Subsection \ref{subsect.K.pfAsh}.
@@ -6826,11 +6829,11 @@ about it:
 \label{thm.Epk.AEpk}\textbf{(a)} The shuffle algebra $\mathcal{A}%
 _{\operatorname*{Epk}}$ is a graded quotient algebra of $\operatorname*{QSym}$.
 
-\textbf{(b)} Let $n$ be a positive integer. The $n$-th graded component of
-$\mathcal{A}_{\operatorname*{Epk}}$ has dimension $f_{n+2}-1$, where $\left(
-f_{0},f_{1},f_{2},\ldots\right)  $ is the Fibonacci sequence (defined by
-$f_{0}=0$ and $f_{1}=1$ and the recursive relation $f_{m}=f_{m-1}+f_{m-2}$ for
-all $m\geq2$).
+\textbf{(b)} Define the Fibonacci sequence
+$\left(  f_{0},f_{1},f_{2},\ldots\right)  $ as in
+Proposition~\ref{prop.lac.fib}.
+Let $n$ be a positive integer. The $n$-th graded component of
+$\mathcal{A}_{\operatorname*{Epk}}$ has dimension $f_{n+2}-1$.
 \end{theorem}
 
 \begin{vershort}
@@ -6865,8 +6868,8 @@ Theorem \ref{thm.Epk.AEpk} \textbf{(b)}.
 \end{proof}
 \end{verlong}
 
-We can give a somewhat tautological description of $\mathcal{A}%
-_{\operatorname*{Epk}}$ using the notations of Section \ref{sect.Zenri}:
+We can describe $\mathcal{A}_{\operatorname*{Epk}}$ using the notations
+of Section \ref{sect.Zenri}:
 
 \begin{definition}
 Let $\Pi_{\mathcal{Z}}$ be the $\mathbb{Q}$-vector subspace of
@@ -6889,13 +6892,13 @@ _{\mathcal{Z}}$ is a $\mathbb{Q}$-subalgebra of $\operatorname*{Pow}%
 \end{definition}
 
 \begin{theorem}
-\label{thm.Epk.sh-co}The $\mathbb{Q}$-linear map given by%
+\label{thm.Epk.sh-co}The $\mathbb{Q}$-linear map
 \[
-\left[  \pi\right]  _{\operatorname*{Epk}}\mapsto K_{n,\operatorname*{Epk}%
-}^{\mathcal{Z}}%
+\mathcal{A}_{\operatorname*{Epk}} \to \Pi_{\mathcal{Z}}, \qquad
+\left[  \pi\right]  _{\operatorname*{Epk}}\mapsto
+K_{n,\operatorname*{Epk} \pi}^{\mathcal{Z}}
 \]
-is a $\mathbb{Q}$-algebra isomorphism from $\mathcal{A}_{\operatorname*{Epk}}$
-to $\Pi_{\mathcal{Z}}$.
+is a $\mathbb{Q}$-algebra isomorphism.
 \end{theorem}
 
 \begin{vershort}

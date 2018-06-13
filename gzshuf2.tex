@@ -8033,11 +8033,74 @@ k-1\right\}  \right)  }\right)  .
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.M-through-F.2}.]\textbf{(a)} Proposition
-\ref{prop.M-through-F.2} \textbf{(a)} is the result of applying Proposition
-\ref{prop.M-through-F.1} to $\alpha=\operatorname*{Comp}C$ and using the
-standard dictionary between compositions of $n$ and subsets of $\left[
-n-1\right]  $.
+[Proof of Proposition \ref{prop.M-through-F.2}.]
+\textbf{(a)} If $U$ is any subset of $\left[  n-1\right]  $, then $\ell\left(
+\operatorname*{Comp}U\right)  =%
+\begin{cases}
+\left\vert U\right\vert +1, & \text{if }n>0;\\
+0, & \text{if }n=0
+\end{cases}
+$. This easy fact yields that every subset $B$ of $\left[  n-1\right]  $
+satisfies%
+\begin{align}
+\ell\left(  \operatorname*{Comp}B\right)  -\ell\left(  \operatorname*{Comp}%
+C\right)    & =%
+\begin{cases}
+\left\vert B\right\vert +1, & \text{if }n>0;\\
+0, & \text{if }n=0
+\end{cases}
+-%
+\begin{cases}
+\left\vert C\right\vert +1, & \text{if }n>0;\\
+0, & \text{if }n=0
+\end{cases}
+\nonumber\\
+& =%
+\begin{cases}
+\left\vert B\right\vert -\left\vert C\right\vert , & \text{if }n>0;\\
+0, & \text{if }n=0
+\end{cases}
+=\left\vert B\right\vert -\left\vert C\right\vert
+\label{pf.prop.M-through-F.2.a.l-l}%
+\end{align}
+(indeed, if $n=0$, then both $B$ and $C$ must be the empty set, and thus
+$0=\left\vert B\right\vert -\left\vert C\right\vert $ holds in this case).
+
+Proposition \ref{prop.M-through-F.1} (applied to $\alpha=\operatorname*{Comp}%
+C$) yields%
+\begin{align*}
+& M_{\operatorname*{Comp}C}\\
+& =\sum_{\substack{\beta\text{ is a composition}\\\text{of }n\text{ that
+refines }\operatorname*{Comp}C}}\left(  -1\right)  ^{\ell\left(  \beta\right)
+-\ell\left(  \operatorname*{Comp}C\right)  }F_{\beta}\\
+& =\underbrace{\sum_{\substack{B\subseteq\left[  n-1\right]
+;\\\operatorname*{Comp}B\text{ refines }\operatorname*{Comp}C}}}%
+_{\substack{=\sum_{\substack{B\subseteq\left[  n-1\right]  ;\\B\supseteq
+C}}\\\text{(because for a subset }B\text{ of }\left[  n-1\right]
+\text{,}\\\text{we have }\left(  \operatorname*{Comp}B\text{ refines
+}\operatorname*{Comp}C\right)  \\\text{if and only if }B\supseteq C\text{)}%
+}}\underbrace{\left(  -1\right)  ^{\ell\left(  \operatorname*{Comp}B\right)
+-\ell\left(  \operatorname*{Comp}C\right)  }}_{\substack{=\left(  -1\right)
+^{\left\vert B\right\vert -\left\vert C\right\vert }\\\text{(by
+(\ref{pf.prop.M-through-F.2.a.l-l}))}}}F_{\operatorname*{Comp}B}\\
+& \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have substituted }\operatorname*{Comp}B\text{ for }\beta\text{,
+since}\\
+\text{the map }\operatorname*{Comp}:\left\{  \text{subsets of }\left[
+n-1\right]  \right\}  \rightarrow\left\{  \text{compositions of }n\right\}  \\
+\text{is a bijection}%
+\end{array}
+\right)  \\
+& =\underbrace{\sum_{\substack{B\subseteq\left[  n-1\right]  ;\\B\supseteq
+C}}}_{=\sum_{B\supseteq C}}\underbrace{\left(  -1\right)  ^{\left\vert
+B\right\vert -\left\vert C\right\vert }}_{\substack{=\left(  -1\right)
+^{\left\vert B\setminus C\right\vert }\\\text{(since }B\supseteq C\text{)}%
+}}F_{\operatorname*{Comp}B}=\sum_{B\supseteq C}\left(  -1\right)  ^{\left\vert
+B\setminus C\right\vert }F_{\operatorname*{Comp}B}.
+\end{align*}
+This proves Proposition \ref{prop.M-through-F.2} \textbf{(a)}.
 
 \textbf{(b)} Proposition \ref{prop.M-through-F.2} \textbf{(a)} (applied to
 $C\cup\left\{  k\right\}  $ instead of $C$) yields%

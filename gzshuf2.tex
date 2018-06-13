@@ -9671,12 +9671,81 @@ Then, $f$ is an $R^{\prime}$-partition if and only if
 $f \left(u\right) < f\left(v\right)$.
 \end{statement}
 
-[\textit{Proof of Observation 1:} The ``only if'' direction is obvious.
-The ``if'' direction is easily derived from the definition of an
-$R^{\prime}$-partition, once you recall that any pair
-$\left(x, y\right)$ of elements of $R^{\prime}$ that satisfies $x < y$
-in $R^{\prime}$ must either already satisfy $x < y$ in $R$, or satisfy
-$x \leq u$ and $v \leq y$ in $R$. The details are left to the reader.]
+[\textit{Proof of Observation 1:} The \textquotedblleft only
+if\textquotedblright\ direction is obvious (since $u<v$ in $R^{\prime}$ and
+$u>_{\mathbb{Z}}v$). It thus remains to prove the \textquotedblleft
+if\textquotedblright\ direction. So let us assume that $f\left(  u\right)
+<f\left(  v\right)  $. We must then show that $f$ is an $R^{\prime}$-partition.
+
+The poset $R^{\prime}$ is obtained from $R$ by adding the relation $u<v$ to
+$R$. Thus, $R^{\prime}=R$ as sets, and we have the logical equivalence%
+\[
+\left(  x<y\text{ in }R^{\prime}\right)  \ \Longleftrightarrow\ \left(
+\left(  x<y\text{ in }R\right)  \text{ or }\left(  x\leq u\text{ and }v\leq
+y\text{ in }R\right)  \right)
+\]
+for every two elements $x$ and $y$ of $R^{\prime}$. Thus, any pair $\left(
+x,y\right)  $ of elements of $R^{\prime}$ that satisfies $x<y$ in $R^{\prime}$
+must either already satisfy $x<y$ in $R$, or satisfy $x\leq u$ and $v\leq y$
+in $R$.
+
+The map $f$ is an $R$-partition, and thus is weakly increasing as a map from
+$R$ to $\mathbb{Z}$.
+
+Now, we have%
+\[
+\left(  \text{if }i\in R^{\prime}\text{ and }j\in R^{\prime}\text{ satisfy
+}i<j\text{ in }R^{\prime}\text{ and }i<_{\mathbb{Z}}j\text{, then }f\left(
+i\right)  \leq f\left(  j\right)  \right)
+\]
+\footnote{\textit{Proof.} Let $i\in R^{\prime}$ and $j\in R^{\prime}$ be such
+that $i<j$ in $R$ and $i<_{\mathbb{Z}}j$. We must prove that $f\left(
+i\right)  \leq f\left(  j\right)  $.
+\par
+We have $i\in R^{\prime}=R$ and $j\in R^{\prime}=R$.
+\par
+Recall that any pair $\left(  x,y\right)  $ of elements of $R^{\prime}$ that
+satisfies $x<y$ in $R^{\prime}$ must either already satisfy $x<y$ in $R$, or
+satisfy $x\leq u$ and $v\leq y$ in $R$. Applying this to $\left(  x,y\right)
+=\left(  i,j\right)  $, we conclude that the pair $\left(  i,j\right)  $ must
+either already satisfy $i<j$ in $R$, or satisfy $i\leq u$ and $v\leq j$ in
+$R$. In the first of these two cases, we immediately obtain $f\left(
+i\right)  \leq f\left(  j\right)  $, because $f$ is an $R$-partition (and
+because $i<j$ in $R$ and $i<_{\mathbb{Z}}j$). Hence, we can WLOG assume that
+we are in the second case. In other words, we have $i\leq u$ and $v\leq j$ in
+$R$. In particular, $i\leq u$ in $R$ and therefore $f\left(  i\right)  \leq
+f\left(  u\right)  $ (since the map $f$ is weakly increasing). Similarly,
+$f\left(  v\right)  \leq f\left(  j\right)  $. Thus, $f\left(  i\right)  \leq
+f\left(  u\right)  <f\left(  v\right)  \leq f\left(  j\right)  $, so that
+$f\left(  i\right)  \leq f\left(  j\right)  $, qed.} and%
+\[
+\left(  \text{if }i\in R^{\prime}\text{ and }j\in R^{\prime}\text{ satisfy
+}i<j\text{ in }R^{\prime}\text{ and }i>_{\mathbb{Z}}j\text{, then }f\left(
+i\right)  <f\left(  j\right)  \right)
+\]
+\footnote{\textit{Proof.} Let $i\in R^{\prime}$ and $j\in R^{\prime}$ be such
+that $i<j$ in $R$ and $i>_{\mathbb{Z}}j$. We must prove that $f\left(
+i\right)  <f\left(  j\right)  $.
+\par
+We have $i\in R^{\prime}=R$ and $j\in R^{\prime}=R$.
+\par
+Recall that any pair $\left(  x,y\right)  $ of elements of $R^{\prime}$ that
+satisfies $x<y$ in $R^{\prime}$ must either already satisfy $x<y$ in $R$, or
+satisfy $x\leq u$ and $v\leq y$ in $R$. Applying this to $\left(  x,y\right)
+=\left(  i,j\right)  $, we conclude that the pair $\left(  i,j\right)  $ must
+either already satisfy $i<j$ in $R$, or satisfy $i\leq u$ and $v\leq j$ in
+$R$. In the first of these two cases, we immediately obtain $f\left(
+i\right)  <f\left(  j\right)  $, because $f$ is an $R$-partition (and because
+$i<j$ in $R$ and $i>_{\mathbb{Z}}j$). Hence, we can WLOG assume that we are in
+the second case. In other words, we have $i\leq u$ and $v\leq j$ in $R$. In
+particular, $i\leq u$ in $R$ and therefore $f\left(  i\right)  \leq f\left(
+u\right)  $ (since the map $f$ is weakly increasing). Similarly, $f\left(
+v\right)  \leq f\left(  j\right)  $. Thus, $f\left(  i\right)  \leq f\left(
+u\right)  <f\left(  v\right)  \leq f\left(  j\right)  $, so that $f\left(
+i\right)  <f\left(  j\right)  $, qed.}. These two statements entail that $f$
+is an $R^{\prime}$-partition (by the definition of an $R^{\prime}$-partition).
+This concludes the proof of the \textquotedblleft if\textquotedblright%
+\ direction of Observation 1. Thus, Observation 1 is proven.]
 
 \begin{statement}
 \textit{Observation 2:} Let $R$ be a labelled poset. Let $u$ and $v$ be
@@ -9689,38 +9758,105 @@ Then, $f$ is an $R^{\prime}$-partition if and only if
 $f \left(u\right) \leq f\left(v\right)$.
 \end{statement}
 
-[\textit{Proof of Observation 2:} Similar to Observation 1, but this
-time an additional step is needed: We need to verify that if
-$f \left(u\right) \leq f\left(v\right)$, then each pair
-$\left(x, y\right)$ of elements of $R^{\prime}$ satisfying $x < y$ in
-$R^{\prime}$ and $x >_{\ZZ} y$ must satisfy
-$f\left(x\right) < f\left(y\right)$.
-Indeed, assume that $f \left(u\right) \leq f\left(v\right)$, and fix
-such a pair $\left(x, y\right)$.
-Then, either we already have $x < y$ in $R$,
-%(in which case $f\left(x\right) < f\left(y\right)$ follows from
-%the requirement that $f$ be an $R$-partition),
-or we have $x \leq u$ and $v \leq y$ in $R$.
-In the first of these two cases, the claim
-$f\left(x\right) < f\left(y\right)$ follows from
-the assumption that $f$ be an $R$-partition.
-In the second case, the fact that $f$ is an $R$-partition entails
-$f\left(x\right) \leq f\left(u\right)$ and
-$f\left(v\right) \leq f\left(y\right)$, whence
-$f\left(x\right) \leq f\left(u\right) \leq f\left(v\right) \leq f\left(y\right)$;
-moreover, at least one of the inequality signs in this chain must
-be strict\footnote{\textit{Proof.} Assume the contrary. Thus,
-$f\left(x\right) = f\left(u\right) = f\left(v\right) = f\left(y\right)$.
-If we had $x >_{\ZZ} u$, then we would have
-$f\left(x\right) < f\left(u\right)$ (since $x < u$ in $R$, but
-$f$ is an $R$-partition), which would contradict
-$f\left(x\right) = f\left(u\right)$.
-Hence, we cannot have $x >_{\ZZ} u$. Thus, $x \leq_{\ZZ} u$.
-Similarly, $v \leq_{\ZZ} y$.
-Hence, $x \leq_{\ZZ} u <_{\ZZ} v \leq_{\ZZ} y$.
-This contradicts $x >_{\ZZ} y$.
-This contradiction shows that our assumption was wrong, qed.},
-and therefore we obtain $f\left(x\right) < f\left(y\right)$ as well.]
+[\textit{Proof of Observation 2:} The \textquotedblleft only
+if\textquotedblright\ direction is obvious (since $u<v$ in $R^{\prime}$ and
+$u<_{\mathbb{Z}}v$). It thus remains to prove the \textquotedblleft
+if\textquotedblright\ direction. So let us assume that $f\left(  u\right)
+\leq f\left(  v\right)  $. We must then show that $f$ is an $R^{\prime}$-partition.
+
+The poset $R^{\prime}$ is obtained from $R$ by adding the relation $u<v$ to
+$R$. Thus, $R^{\prime}=R$ as sets, and we have the logical equivalence%
+\[
+\left(  x<y\text{ in }R^{\prime}\right)  \ \Longleftrightarrow\ \left(
+\left(  x<y\text{ in }R\right)  \text{ or }\left(  x\leq u\text{ and }v\leq
+y\text{ in }R\right)  \right)
+\]
+for every two elements $x$ and $y$ of $R^{\prime}$. Thus, any pair $\left(
+x,y\right)  $ of elements of $R^{\prime}$ that satisfies $x<y$ in $R^{\prime}$
+must either already satisfy $x<y$ in $R$, or satisfy $x\leq u$ and $v\leq y$
+in $R$.
+
+The map $f$ is an $R$-partition, and thus is weakly increasing as a map from
+$R$ to $\mathbb{Z}$.
+
+Now, we have%
+\[
+\left(  \text{if }i\in R^{\prime}\text{ and }j\in R^{\prime}\text{ satisfy
+}i<j\text{ in }R^{\prime}\text{ and }i<_{\mathbb{Z}}j\text{, then }f\left(
+i\right)  \leq f\left(  j\right)  \right)
+\]
+\footnote{\textit{Proof.} Let $i\in R^{\prime}$ and $j\in R^{\prime}$ be such
+that $i<j$ in $R$ and $i<_{\mathbb{Z}}j$. We must prove that $f\left(
+i\right)  \leq f\left(  j\right)  $.
+\par
+We have $i\in R^{\prime}=R$ and $j\in R^{\prime}=R$.
+\par
+Recall that any pair $\left(  x,y\right)  $ of elements of $R^{\prime}$ that
+satisfies $x<y$ in $R^{\prime}$ must either already satisfy $x<y$ in $R$, or
+satisfy $x\leq u$ and $v\leq y$ in $R$. Applying this to $\left(  x,y\right)
+=\left(  i,j\right)  $, we conclude that the pair $\left(  i,j\right)  $ must
+either already satisfy $i<j$ in $R$, or satisfy $i\leq u$ and $v\leq j$ in
+$R$. In the first of these two cases, we immediately obtain $f\left(
+i\right)  \leq f\left(  j\right)  $, because $f$ is an $R$-partition (and
+because $i<j$ in $R$ and $i<_{\mathbb{Z}}j$). Hence, we can WLOG assume that
+we are in the second case. In other words, we have $i\leq u$ and $v\leq j$ in
+$R$. In particular, $i\leq u$ in $R$ and therefore $f\left(  i\right)  \leq
+f\left(  u\right)  $ (since the map $f$ is weakly increasing). Similarly,
+$f\left(  v\right)  \leq f\left(  j\right)  $. Thus, $f\left(  i\right)  \leq
+f\left(  u\right)  \leq f\left(  v\right)  \leq f\left(  j\right)  $, so that
+$f\left(  i\right)  \leq f\left(  j\right)  $, qed.} and%
+\[
+\left(  \text{if }i\in R^{\prime}\text{ and }j\in R^{\prime}\text{ satisfy
+}i<j\text{ in }R^{\prime}\text{ and }i>_{\mathbb{Z}}j\text{, then }f\left(
+i\right)  <f\left(  j\right)  \right)
+\]
+\footnote{\textit{Proof.} Let $i\in R^{\prime}$ and $j\in R^{\prime}$ be such
+that $i<j$ in $R$ and $i>_{\mathbb{Z}}j$. We must prove that $f\left(
+i\right)  <f\left(  j\right)  $.
+\par
+Assume the contrary. Thus, $f\left(  i\right)  \geq f\left(  j\right)  $, so
+that $f\left(  j\right)  \leq f\left(  i\right)  $.
+\par
+We have $i\in R^{\prime}=R$ and $j\in R^{\prime}=R$.
+\par
+Recall that any pair $\left(  x,y\right)  $ of elements of $R^{\prime}$ that
+satisfies $x<y$ in $R^{\prime}$ must either already satisfy $x<y$ in $R$, or
+satisfy $x\leq u$ and $v\leq y$ in $R$. Applying this to $\left(  x,y\right)
+=\left(  i,j\right)  $, we conclude that the pair $\left(  i,j\right)  $ must
+either already satisfy $i<j$ in $R$, or satisfy $i\leq u$ and $v\leq j$ in
+$R$. In the first of these two cases, we immediately obtain $f\left(
+i\right)  <f\left(  j\right)  $, because $f$ is an $R$-partition (and because
+$i<j$ in $R$ and $i>_{\mathbb{Z}}j$). Hence, we can WLOG assume that we are in
+the second case. In other words, we have $i\leq u$ and $v\leq j$ in $R$. In
+particular, $i\leq u$ in $R$ and therefore $f\left(  i\right)  \leq f\left(
+u\right)  $ (since the map $f$ is weakly increasing). Similarly, $f\left(
+v\right)  \leq f\left(  j\right)  $. Thus, $f\left(  i\right)  \leq f\left(
+u\right)  \leq f\left(  v\right)  \leq f\left(  j\right)  \leq f\left(
+i\right)  $. All inequality signs in this chain of inequalities must be
+equalities (since its left and right hand sides are equal). In other words, we
+have $f\left(  i\right)  =f\left(  u\right)  =f\left(  v\right)  =f\left(
+j\right)  =f\left(  i\right)  $.
+\par
+If we had $i>_{\mathbb{Z}}u$, then we would have $i\neq u$ and therefore $i<u$
+in $R$ (since $i\leq u$ in $R$). Therefore, if we had $i>_{\mathbb{Z}}u$, then
+we would have $f\left(  i\right)  <f\left(  u\right)  $ (since $i<u$ in $R$,
+but $f$ is an $R$-partition), which would contradict $f\left(  i\right)
+=f\left(  u\right)  $. Hence, we cannot have $i>_{\mathbb{Z}}u$. Thus,
+$i\leq_{\mathbb{Z}}u$.
+\par
+If we had $v>_{\mathbb{Z}}j$, then we would have $v\neq j$ and therefore $v<j$
+in $R$ (since $v\leq j$ in $R$). Therefore, if we had $v>_{\mathbb{Z}}j$, then
+we would have $f\left(  v\right)  <f\left(  j\right)  $ (since $v<j$ in $R$,
+but $f$ is an $R$-partition), which would contradict $f\left(  v\right)
+=f\left(  j\right)  $. Hence, we cannot have $v>_{\mathbb{Z}}j$. Thus,
+$v\leq_{\mathbb{Z}}j$.
+\par
+Now, $i\leq_{\mathbb{Z}}u<_{\mathbb{Z}}v\leq_{\mathbb{Z}}j$. This contradicts
+$i>_{\mathbb{Z}}j$. This contradiction shows that our assumption was wrong,
+qed.}. These two statements entail that $f$ is an $R^{\prime}$-partition (by
+the definition of an $R^{\prime}$-partition). This concludes the proof of the
+\textquotedblleft if\textquotedblright\ direction of Observation 2. Thus,
+Observation 2 is proven.]
 
 \textbf{(a)} If $f : P \sqcup Q \to \left\{1,2,3,\ldots\right\}$ is a
 $P \left. \prec \right. Q$-partition, then its restrictions $f\mid_P$

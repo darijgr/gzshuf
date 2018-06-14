@@ -10,5 +10,3 @@ TODO:
 
 * Polish/detail Section 2.3.
 
-* Proofread from Section 6.1 onwards.
-

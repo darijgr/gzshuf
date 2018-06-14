@@ -2500,6 +2500,181 @@ Thus, roughly speaking, a map from a subset of $\ZZ$ to a totally
 ordered set is \textit{V-shaped}
 if and only if it is strictly decreasing up until a certain value of its
 argument, and then strictly increasing afterwards.
+For example, the $6$-permutation $\left(5, 1, 2, 3, 4\right)$ is V-shaped
+(keep in mind that we regard $n$-permutations as injective maps
+$\left[n\right] \to \mathbb{P}$), whereas the $4$-permutation
+$\left(3, 1, 4, 2\right)$ is not.
+
+\begin{verlong}
+For later use, let us crystallize a simple criterion for V-shapedness:
+
+\begin{lemma}
+\label{lem.Vshaped.crit}Let $S$ be a finite nonempty subset of $\mathbb{Z}$.
+Let $K$ be a totally ordered set. Let $\chi:S\rightarrow K$ be an injective
+map. Let $I$ and $J$ be two subsets of $S$ such that $I\cup J=S$. Assume that
+the map $\chi\mid_{I}$ is strictly decreasing, whereas the map $\chi\mid_{J}$
+is strictly increasing. Assume further that each element of $I$ is smaller
+than each element of $J$. Then, the map $\chi$ is V-shaped.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.Vshaped.crit}.]The set $S$ is nonempty. Hence, there
+exists some $k\in S$ that minimizes $\chi\left(  k\right)  $. Consider this
+$k$. Thus,%
+\begin{equation}
+\chi\left(  k\right)  \leq\chi\left(  s\right)  \ \ \ \ \ \ \ \ \ \ \text{for
+each }s\in S. \label{pf.lem.Vshaped.crit.min}%
+\end{equation}
+
+
+Now, we claim that if $a\in S$ and $b\in S$ satisfy $a<b$ and $\chi\left(
+a\right)  <\chi\left(  b\right)  $, then%
+\begin{equation}
+b>k. \label{pf.lem.Vshaped.crit.bk}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.lem.Vshaped.crit.bk}):} Let $a\in S$ and $b\in S$
+be such that $a<b$ and $\chi\left(  a\right)  <\chi\left(  b\right)  $. We
+must prove that $b>k$.
+
+Assume the contrary. Thus, $b\leq k$. But (\ref{pf.lem.Vshaped.crit.min})
+(applied to $s=a$) yields $\chi\left(  k\right)  \leq\chi\left(  a\right)  $.
+Hence, $\chi\left(  k\right)  \leq\chi\left(  a\right)  <\chi\left(  b\right)
+$, so that $\chi\left(  k\right)  \neq\chi\left(  b\right)  $. Thus, $k\neq
+b$. Combining this with $b\leq k$, we obtain $b<k$. Hence, $a<b<k$.
+
+Assume (for the sake of contradiction) that $b\notin I$. Combining $b\in S$
+with $b\notin I$, we obtain $b\in S\setminus I\subseteq J$ (since $I\cup
+J=S$). Hence, $k\in J$\ \ \ \ \footnote{\textit{Proof.} Assume the contrary.
+Thus, $k\notin J$. Combining $k\in S$ with $k\notin J$, we find $k\in
+S\setminus J\subseteq I$ (since $I\cup J=S$). But recall that each element of
+$I$ is smaller than each element of $J$. In other words, $i<j$ for each $i\in
+I$ and each $j\in J$. Applying this to $i=k$ and $j=b$, we find $k<b$. This
+contradicts $b<k$. This contradiction shows that our assumption was false,
+qed.}. Now, the map $\chi\mid_{J}$ is strictly increasing. Thus, from $b<k$,
+we obtain $\left(  \chi\mid_{J}\right)  \left(  b\right)  <\left(  \chi
+\mid_{J}\right)  \left(  k\right)  $ (since $b\in J$ and $k\in J$). Thus,
+$\chi\left(  b\right)  =\left(  \chi\mid_{J}\right)  \left(  b\right)
+<\left(  \chi\mid_{J}\right)  \left(  k\right)  =\chi\left(  k\right)
+\leq\chi\left(  b\right)  $ (by (\ref{pf.lem.Vshaped.crit.min}), applied to
+$s=b$). This is absurd. This contradiction shows that our assumption (that
+$b\notin I$) was false. Hence, we have $b\in I$.
+
+The same argument (but using $a$ instead of $b$) shows that $a\in I$. Now,
+recall that the map $\chi\mid_{I}$ is strictly decreasing. Hence, from $a<b$,
+we obtain $\left(  \chi\mid_{I}\right)  \left(  a\right)  >\left(  \chi
+\mid_{I}\right)  \left(  b\right)  $ (since $a\in I$ and $b\in I$). Thus,
+$\chi\left(  a\right)  =\left(  \chi\mid_{I}\right)  \left(  a\right)
+>\left(  \chi\mid_{I}\right)  \left(  b\right)  =\chi\left(  b\right)  $. This
+contradicts $\chi\left(  a\right)  <\chi\left(  b\right)  $. This
+contradiction shows that our assumption was wrong. Hence, $b>k$ is proven.
+Thus, (\ref{pf.lem.Vshaped.crit.bk}) is proven.]
+
+Next, we claim that if $a\in S$ and $b\in S$ satisfy $a<b$ and $\chi\left(
+a\right)  >\chi\left(  b\right)  $, then%
+\begin{equation}
+a<k. \label{pf.lem.Vshaped.crit.ak}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.lem.Vshaped.crit.ak}):} Let $a\in S$ and $b\in S$
+be such that $a<b$ and $\chi\left(  a\right)  >\chi\left(  b\right)  $. We
+must prove that $a<k$.
+
+Assume the contrary. Thus, $a\geq k$. But (\ref{pf.lem.Vshaped.crit.min})
+(applied to $s=b$) yields $\chi\left(  k\right)  \leq\chi\left(  b\right)  $.
+Hence, $\chi\left(  k\right)  \leq\chi\left(  b\right)  <\chi\left(  a\right)
+$ (since $\chi\left(  a\right)  >\chi\left(  b\right)  $), so that
+$\chi\left(  k\right)  \neq\chi\left(  a\right)  $. Thus, $k\neq a$. Combining
+this with $a\geq k$, we obtain $a>k$. Thus, $k<a<b$.
+
+Assume (for the sake of contradiction) that $a\notin J$. Combining $a\in S$
+with $a\notin J$, we obtain $a\in S\setminus J\subseteq I$ (since $I\cup
+J=S$). Hence, $k\in I$\ \ \ \ \footnote{\textit{Proof.} Assume the contrary.
+Thus, $k\notin I$. Combining $k\in S$ with $k\notin I$, we find $k\in
+S\setminus I\subseteq J$ (since $I\cup J=S$). But recall that each element of
+$I$ is smaller than each element of $J$. In other words, $i<j$ for each $i\in
+I$ and each $j\in J$. Applying this to $i=a$ and $j=k$, we find $a<k$. This
+contradicts $k<a$. This contradiction shows that our assumption was false,
+qed.}. Now, the map $\chi\mid_{I}$ is strictly decreasing. Thus, from $k<a$,
+we obtain $\left(  \chi\mid_{I}\right)  \left(  k\right)  >\left(  \chi
+\mid_{I}\right)  \left(  a\right)  $ (since $k\in I$ and $a\in I$). Thus,
+$\chi\left(  k\right)  =\left(  \chi\mid_{I}\right)  \left(  k\right)
+>\left(  \chi\mid_{I}\right)  \left(  a\right)  =\chi\left(  a\right)
+\geq\chi\left(  k\right)  $ (since (\ref{pf.lem.Vshaped.crit.min}) (applied to
+$s=a$) yields $\chi\left(  k\right)  \leq\chi\left(  a\right)  $). This is
+absurd. This contradiction shows that our assumption (that $a\notin J$) was
+false. Hence, we have $a\in J$.
+
+The same argument (but using $b$ instead of $a$) shows that $b\in J$. Now,
+recall that the map $\chi\mid_{J}$ is strictly increasing. Hence, from $a<b$,
+we obtain $\left(  \chi\mid_{J}\right)  \left(  a\right)  <\left(  \chi
+\mid_{J}\right)  \left(  b\right)  $ (since $a\in J$ and $b\in J$). Thus,
+$\chi\left(  a\right)  =\left(  \chi\mid_{J}\right)  \left(  a\right)
+<\left(  \chi\mid_{J}\right)  \left(  b\right)  =\chi\left(  b\right)  $. This
+contradicts $\chi\left(  a\right)  >\chi\left(  b\right)  $. This
+contradiction shows that our assumption was wrong. Hence, $a<k$ is proven.
+Thus, (\ref{pf.lem.Vshaped.crit.ak}) is proven.]
+
+Now, we claim that the map $\chi\mid_{\left\{  s\in S\ \mid\ s\leq k\right\}
+}$ is strictly decreasing.
+
+[\textit{Proof:} Let $a$ and $b$ be two elements of $\left\{  s\in
+S\ \mid\ s\leq k\right\}  $ satisfying $a<b$. From $a\in\left\{  s\in
+S\ \mid\ s\leq k\right\}  $, it follows that $a\in S$ and $a\leq k$.
+Similarly, $b\in S$ and $b\leq k$.
+
+We shall prove that $\chi\left(  a\right)  >\chi\left(  b\right)  $.
+
+Indeed, assume the contrary. Thus, $\chi\left(  a\right)  \leq\chi\left(
+b\right)  $. But $a<b$, so that $a\neq b$ and thus $\chi\left(  a\right)
+\neq\chi\left(  b\right)  $ (since the map $\chi$ is injective). Combining
+this with $\chi\left(  a\right)  \leq\chi\left(  b\right)  $, we obtain
+$\chi\left(  a\right)  <\chi\left(  b\right)  $. Hence,
+(\ref{pf.lem.Vshaped.crit.bk}) yields $b>k$. This contradicts $b\leq k$. This
+contradiction shows that our assumption was false. Hence, $\chi\left(
+a\right)  >\chi\left(  b\right)  $ is proven.
+
+Now, forget that we fixed $a$ and $b$. We thus have shown that if $a$ and $b$
+are two elements of $\left\{  s\in S\ \mid\ s\leq k\right\}  $ satisfying
+$a<b$, then $\chi\left(  a\right)  >\chi\left(  b\right)  $. In other words,
+the map $\chi\mid_{\left\{  s\in S\ \mid\ s\leq k\right\}  }$ is strictly decreasing.]
+
+Next, we claim that the map $\chi\mid_{\left\{  s\in S\ \mid\ s\geq k\right\}
+}$ is strictly increasing.
+
+[\textit{Proof:} Let $a$ and $b$ be two elements of $\left\{  s\in
+S\ \mid\ s\geq k\right\}  $ satisfying $a<b$. From $a\in\left\{  s\in
+S\ \mid\ s\geq k\right\}  $, it follows that $a\in S$ and $a\geq k$.
+Similarly, $b\in S$ and $b\geq k$.
+
+We shall prove that $\chi\left(  a\right)  <\chi\left(  b\right)  $.
+
+Indeed, assume the contrary. Thus, $\chi\left(  a\right)  \geq\chi\left(
+b\right)  $. But $a<b$, so that $a\neq b$ and thus $\chi\left(  a\right)
+\neq\chi\left(  b\right)  $ (since the map $\chi$ is injective). Combining
+this with $\chi\left(  a\right)  \geq\chi\left(  b\right)  $, we obtain
+$\chi\left(  a\right)  >\chi\left(  b\right)  $. Hence,
+(\ref{pf.lem.Vshaped.crit.ak}) yields $a<k$. This contradicts $a\geq k$. This
+contradiction shows that our assumption was false. Hence, $\chi\left(
+a\right)  <\chi\left(  b\right)  $ is proven.
+
+Now, forget that we fixed $a$ and $b$. We thus have shown that if $a$ and $b$
+are two elements of $\left\{  s\in S\ \mid\ s\geq k\right\}  $ satisfying
+$a<b$, then $\chi\left(  a\right)  <\chi\left(  b\right)  $. In other words,
+the map $\chi\mid_{\left\{  s\in S\ \mid\ s\geq k\right\}  }$ is strictly increasing.]
+
+Thus, we now know that the map $\chi\mid_{\left\{  s\in S\ \mid\ s\leq
+k\right\}  }$ is strictly decreasing while the map $\chi\mid_{\left\{  s\in
+S\ \mid\ s\geq k\right\}  }$ is strictly increasing. Hence, there exists some
+$t\in S$ such that the map $\chi\mid_{\left\{  s\in S\ \mid\ s\leq t\right\}
+}$ is strictly decreasing while the map $\chi\mid_{\left\{  s\in
+S\ \mid\ s\geq t\right\}  }$ is strictly increasing (namely, $t=k$). In other
+words, the map $\chi$ is V-shaped (by the definition of \textquotedblleft
+V-shaped\textquotedblright). This proves Lemma \ref{lem.Vshaped.crit}.
+\end{proof}
+\end{verlong}
 
 \begin{definition}
 Let $n\in\mathbb{N}$.
@@ -2592,6 +2767,736 @@ strictly decreasing. (This allows the case when $g^{-1}\left(  \infty\right)
 \end{enumerate}
 \end{definition}
 
+\begin{verlong}
+\begin{proposition}
+\label{prop.amen.equiv2}Let $n\in\mathbb{N}$. Let $\pi$ be any $n$%
+-permutation. Let $f\in\mathcal{E}\left(  \left[  n\right]  ,\pi\right)  $.
+Then, the map $\left\vert f\right\vert :\left[  n\right]  \rightarrow
+\mathcal{N}$ is $\pi$-amenable.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.amen.equiv2}.]We have $f\in\mathcal{E}\left(
+\left[  n\right]  ,\pi\right)  $. Thus, $f$ is a $\mathcal{Z}$-enriched
+$\left(  \left[  n\right]  ,\pi\right)  $-partition. In other words, $f$ is a
+map $\left[  n\right]  \rightarrow\mathcal{Z}$ such that for all $x<y$ in
+$\left[  n\right]  $, the following conditions hold:
+
+\begin{enumerate}
+\item[\textbf{(i)}] We have $f\left(  x\right)  \preccurlyeq f\left(
+y\right)  $.
+
+\item[\textbf{(ii)}] If $f\left(  x\right)  =f\left(  y\right)  =+h$ for some
+$h\in\mathcal{N}$, then $\pi\left(  x\right)  <\pi\left(  y\right)  $.
+
+\item[\textbf{(iii)}] If $f\left(  x\right)  =f\left(  y\right)  =-h$ for some
+$h\in\mathcal{N}$, then $\pi\left(  x\right)  >\pi\left(  y\right)  $.
+\end{enumerate}
+
+(This follows from the definition of a $\mathcal{Z}$-enriched $\left(  \left[
+n\right]  ,\pi\right)  $-partition.)
+
+Condition \textbf{(i)} shows that the map $f$ is weakly increasing. Condition
+\textbf{(ii)} shows that for each $h\in\mathcal{N}$, the map $\pi\mid
+_{f^{-1}\left(  +h\right)  }$ is strictly increasing. Condition \textbf{(iii)}
+shows that for each $h\in\mathcal{N}$, the map $\pi\mid_{f^{-1}\left(
+-h\right)  }$ is strictly decreasing.
+
+Now, set $g=\left\vert f\right\vert $. Thus, $g$ is a map $\left[  n\right]
+\rightarrow\mathcal{N}$. We shall show that the map $g$ is $\pi$-amenable. In
+order to prove this, we must show that the Properties \textbf{(i')},
+\textbf{(ii')}, \textbf{(iii')} and \textbf{(iv')} in Definition
+\ref{def.amen} hold. We shall now do exactly this.
+
+If $x$ and $y$ are two elements of $\left[  n\right]  $ satisfying $x<y$, then
+$g\left(  x\right)  \preccurlyeq g\left(  y\right)  $%
+\ \ \ \ \footnote{\textit{Proof.} Let $x$ and $y$ be two elements of $\left[
+n\right]  $ satisfying $x<y$. We must prove that $g\left(  x\right)
+\preccurlyeq g\left(  y\right)  $.
+\par
+We have $f\left(  x\right)  \preccurlyeq f\left(  y\right)  $ (by Condition
+\textbf{(i)}). Thus, $\left\vert f\left(  x\right)  \right\vert \preccurlyeq
+\left\vert f\left(  y\right)  \right\vert $ (by the definition of the order on
+$\mathcal{Z}$). But $g=\left\vert f\right\vert $. Hence, $g\left(  x\right)
+=\left\vert f\right\vert \left(  x\right)  =\left\vert f\left(  x\right)
+\right\vert $ (by the definition of $\left\vert f\right\vert $) and similarly
+$g\left(  y\right)  =\left\vert f\left(  y\right)  \right\vert $. Thus,
+$g\left(  x\right)  =\left\vert f\left(  x\right)  \right\vert \preccurlyeq
+\left\vert f\left(  y\right)  \right\vert =g\left(  y\right)  $, qed.}. Thus,
+the map $g$ is weakly increasing. In other words, Property \textbf{(iv')} holds.
+
+Recall that $-0\notin\mathcal{Z}$. Thus, $g^{-1}\left(  0\right)
+=f^{-1}\left(  +0\right)  $\ \ \ \ \footnote{\textit{Proof.} For each
+$x\in\left[  n\right]  $, we have the following chain of logical equivalences:%
+\begin{align*}
+\left(  x\in g^{-1}\left(  0\right)  \right)  \  &  \Longleftrightarrow
+\ \left(  g\left(  x\right)  =0\right)  \ \Longleftrightarrow\ \left(
+\left\vert f\left(  x\right)  \right\vert =0\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\underbrace{g}_{=\left\vert
+f\right\vert }\left(  x\right)  =\left\vert f\right\vert \left(  x\right)
+=\left\vert f\left(  x\right)  \right\vert \right) \\
+&  \Longleftrightarrow\ \left(  f\left(  x\right)  =+0\text{ or }f\left(
+x\right)  =-0\right) \\
+&  \Longleftrightarrow\ \left(  f\left(  x\right)  =+0\right)
+\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since }f\left(  x\right)  =-0\text{ cannot hold}\\
+\text{(because }f\left(  x\right)  \in\mathcal{Z}\text{ but }-0\notin%
+\mathcal{Z}\text{)}%
+\end{array}
+\right) \\
+&  \Longleftrightarrow\ \left(  x\in f^{-1}\left(  +0\right)  \right)  .
+\end{align*}
+Thus, $g^{-1}\left(  0\right)  =f^{-1}\left(  +0\right)  $.}. But the map
+$\pi\mid_{f^{-1}\left(  +0\right)  }$ is strictly increasing\footnote{because
+for each $h\in\mathcal{N}$, the map $\pi\mid_{f^{-1}\left(  +h\right)  }$ is
+strictly increasing}. In other words, the map $\pi\mid_{g^{-1}\left(
+0\right)  }$ is strictly increasing (since $g^{-1}\left(  0\right)
+=f^{-1}\left(  +0\right)  $). Hence, Property \textbf{(i')}\ holds. Similarly,
+Property \textbf{(iii')} also holds\footnote{To prove this, we first need to
+show that $g^{-1}\left(  \infty\right)  =f^{-1}\left(  -\infty\right)  $ (this
+is similar to the proof of $g^{-1}\left(  0\right)  =f^{-1}\left(  +0\right)
+$), and that the map $\pi\mid_{f^{-1}\left(  -\infty\right)  }$ is strictly
+decreasing (because for each $h\in\mathcal{N}$, the map $\pi\mid
+_{f^{-1}\left(  -h\right)  }$ is strictly decreasing).}.
+
+Next, we shall show that Property \textbf{(ii')} holds. Indeed, fix $h\in
+g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  $.
+Thus, $h\in g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  \subseteq g\left(  \left[  n\right]  \right)  $. Hence, there exists
+some $y\in\left[  n\right]  $ such that $h=g\left(  y\right)  $. In other
+words, the set $g^{-1}\left(  h\right)  $ is nonempty.
+
+This set $g^{-1}\left(  h\right)  $ is an interval of $\left[  n\right]  $
+(since the map $g$ is weakly increasing). The sets $f^{-1}\left(  -h\right)  $
+and $f^{-1}\left(  +h\right)  $ are intervals of $\left[  n\right]  $ (since
+the map $f$ is weakly increasing), and their union is
+\[
+f^{-1}\left(  -h\right)  \cup f^{-1}\left(  +h\right)  =g^{-1}\left(
+h\right)
+\]
+\ \footnote{\textit{Proof.} For each $x\in\left[  n\right]  $, we have the
+following chain of logical equivalences:%
+\begin{align*}
+\left(  x\in g^{-1}\left(  h\right)  \right)  \  &  \Longleftrightarrow
+\ \left(  g\left(  x\right)  =h\right)  \ \Longleftrightarrow\ \left(
+\left\vert f\left(  x\right)  \right\vert =h\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\underbrace{g}_{=\left\vert
+f\right\vert }\left(  x\right)  =\left\vert f\right\vert \left(  x\right)
+=\left\vert f\left(  x\right)  \right\vert \right) \\
+&  \Longleftrightarrow\ \left(  \underbrace{f\left(  x\right)  =+h}%
+_{\Longleftrightarrow\ \left(  x\in f^{-1}\left(  +h\right)  \right)  }\text{
+or }\underbrace{f\left(  x\right)  =-h}_{\Longleftrightarrow\ \left(  x\in
+f^{-1}\left(  -h\right)  \right)  }\right) \\
+&  \Longleftrightarrow\ \left(  x\in f^{-1}\left(  +h\right)  \text{ or }x\in
+f^{-1}\left(  -h\right)  \right) \\
+&  \Longleftrightarrow\ \left(  x\in f^{-1}\left(  +h\right)  \cup
+f^{-1}\left(  -h\right)  \right)  .
+\end{align*}
+Thus, $g^{-1}\left(  h\right)  =f^{-1}\left(  +h\right)  \cup f^{-1}\left(
+-h\right)  =f^{-1}\left(  -h\right)  \cup f^{-1}\left(  +h\right)  $, qed.}.
+Moreover, each element of $f^{-1}\left(  -h\right)  $ is smaller than each
+element of $f^{-1}\left(  +h\right)  $ (since $f$ is weakly increasing, and
+$-h\prec+h$). Furthermore, recall that the map $\pi\mid_{f^{-1}\left(
+-h\right)  }$ is strictly decreasing while the map $\pi\mid_{f^{-1}\left(
++h\right)  }$ is strictly increasing. In other words, the map $\left(  \pi
+\mid_{g^{-1}\left(  h\right)  }\right)  \mid_{f^{-1}\left(  -h\right)  }$ is
+strictly decreasing while the map $\left(  \pi\mid_{g^{-1}\left(  h\right)
+}\right)  \mid_{f^{-1}\left(  +h\right)  }$ is strictly increasing (since
+$\pi\mid_{f^{-1}\left(  -h\right)  }=\left(  \pi\mid_{g^{-1}\left(  h\right)
+}\right)  \mid_{f^{-1}\left(  -h\right)  }$ and $\pi\mid_{f^{-1}\left(
++h\right)  }=\left(  \pi\mid_{g^{-1}\left(  h\right)  }\right)  \mid
+_{f^{-1}\left(  +h\right)  }$). Hence, Lemma \ref{lem.Vshaped.crit} (applied
+to $S=g^{-1}\left(  h\right)  $, $K=\mathbb{P}$, $\chi=\pi\mid_{g^{-1}\left(
+h\right)  }$, $I=f^{-1}\left(  -h\right)  $ and $J=f^{-1}\left(  +h\right)  $)
+shows that the map $\pi\mid_{g^{-1}\left(  h\right)  }$ is V-shaped. Thus,
+Property \textbf{(ii')} holds. We have thus verified all four Properties
+\textbf{(i')}, \textbf{(ii')}, \textbf{(iii')} and \textbf{(iv')}; thus, $g$
+is $\pi$-amenable. In other words, $\left\vert f\right\vert $ is $\pi
+$-amenable (since $g=\left\vert f\right\vert $). This proves Proposition
+\ref{prop.amen.equiv2}.
+\end{proof}
+
+\begin{proposition}
+\label{prop.amen.equiv3}Let $n\in\mathbb{N}$. Let $\pi$ be any $n$%
+-permutation. Let $g:\left[  n\right]  \rightarrow\mathcal{N}$ be a $\pi
+$-amenable map. Let $H$ be the set $g\left(  \left[  n\right]  \right)
+\cap\left\{  1,2,3,\ldots\right\}  $. For each $h\in H$, we let $m_{h}$ be the
+unique element $\mu$ of $g^{-1}\left(  h\right)  $ for which $\pi\left(
+\mu\right)  $ is minimum.
+
+\textbf{(a)} The elements $m_{h}$ for all $h\in H$ are well-defined and distinct.
+
+\textbf{(b)} Let $f:\left[  n\right]  \rightarrow\mathcal{Z}$ be any map.
+Then, $\left(  f\in\mathcal{E}\left(  \left[  n\right]  ,\pi\right)  \text{
+and }\left\vert f\right\vert =g\right)  $ if and only if the following five
+statements hold:
+
+\begin{enumerate}
+\item[\textbf{(x}$_{1}$\textbf{)}] For each $x\in g^{-1}\left(  0\right)  $,
+we have $f\left(  x\right)  =+0$.
+
+\item[\textbf{(x}$_{2}$\textbf{)}] For each $h\in H$ and each $x\in
+g^{-1}\left(  h\right)  $ satisfying $x<m_{h}$, we have $f\left(  x\right)
+=-h$.
+
+\item[\textbf{(x}$_{3}$\textbf{)}] For each $h\in H$, we have $f\left(
+m_{h}\right)  \in\left\{  -h,+h\right\}  $.
+
+\item[\textbf{(x}$_{4}$\textbf{)}] For each $h\in H$ and each $x\in
+g^{-1}\left(  h\right)  $ satisfying $x>m_{h}$, we have $f\left(  x\right)
+=+h$.
+
+\item[\textbf{(x}$_{5}$\textbf{)}] For each $x\in g^{-1}\left(  \infty\right)
+$, we have $f\left(  x\right)  =-\infty$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.amen.equiv3}.]The map $\pi:\left[  n\right]
+\rightarrow\mathbb{P}$ is injective (since $\pi$ is an $n$-permutation). The
+map $g$ is $\pi$-amenable, and thus satisfies the four Properties
+\textbf{(i')}, \textbf{(ii')}, \textbf{(iii')} and \textbf{(iv')} from
+Definition \ref{def.amen}. In particular, this map $g$ is weakly increasing
+(because of Property \textbf{(iv')}).
+
+\textbf{(a)} The elements $m_{h}$ for all $h\in H$ are
+well-defined\footnote{\textit{Proof.} Let $h\in H$. We must prove that the
+element $m_{h}$ is well-defined.
+\par
+We have $h\in H=g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \subseteq g\left(  \left[  n\right]  \right)  $. Hence,
+there exists some $y\in\left[  n\right]  $ such that $h=g\left(  y\right)  $.
+Therefore, the preimage $g^{-1}\left(  h\right)  $ is nonempty. Therefore,
+there exists an element $\mu$ of $g^{-1}\left(  h\right)  $ for which
+$\pi\left(  \mu\right)  $ is minimum. Moreover, this element is unique (since
+$\pi$ is injective). Thus, the unique element $\mu$ of $g^{-1}\left(
+h\right)  $ for which $\pi\left(  \mu\right)  $ is minimum is well-defined. In
+other words, $m_{h}$ is well-defined. Qed.} and
+distinct\footnote{\textit{Proof.} Let $h_{1}\in H$ and $h_{2}\in H$ be such
+that $m_{h_{1}}=m_{h_{2}}$. We must prove that $h_{1}=h_{2}$.
+\par
+We have $m_{h}\in g^{-1}\left(  h\right)  $ for each $h\in H$ (by the
+definition of $m_{h}$). Hence, $m_{h_{1}}\in g^{-1}\left(  h_{1}\right)  $. In
+other words, $g\left(  m_{h_{1}}\right)  =h_{1}$. Similarly, $g\left(
+m_{h_{2}}\right)  =h_{2}$. Hence, $h_{1}=g\left(  \underbrace{m_{h_{1}}%
+}_{=m_{h_{2}}}\right)  =g\left(  m_{h_{2}}\right)  =h_{2}$. Qed.}. This proves
+Proposition \ref{prop.amen.equiv3} \textbf{(a)}.
+
+\textbf{(b)} We must prove the following two claims:
+
+\begin{statement}
+\textit{Claim 1:} If $\left(  f\in\mathcal{E}\left(  \left[  n\right]
+,\pi\right)  \text{ and }\left\vert f\right\vert =g\right)  $, then the five
+statements \textbf{(x}$_{1}$\textbf{)}, \textbf{(x}$_{2}$\textbf{)},
+\textbf{(x}$_{3}$\textbf{)}, \textbf{(x}$_{4}$\textbf{)} and \textbf{(x}$_{5}%
+$\textbf{)} hold.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 2:} If the five statements \textbf{(x}$_{1}$\textbf{)},
+\textbf{(x}$_{2}$\textbf{)}, \textbf{(x}$_{3}$\textbf{)}, \textbf{(x}$_{4}%
+$\textbf{)} and \textbf{(x}$_{5}$\textbf{)} hold, then $\left(  f\in
+\mathcal{E}\left(  \left[  n\right]  ,\pi\right)  \text{ and }\left\vert
+f\right\vert =g\right)  $.
+\end{statement}
+
+[\textit{Proof of Claim 1:} Assume that $\left(  f\in\mathcal{E}\left(
+\left[  n\right]  ,\pi\right)  \text{ and }\left\vert f\right\vert =g\right)
+$. We must prove that the five statements \textbf{(x}$_{1}$\textbf{)},
+\textbf{(x}$_{2}$\textbf{)}, \textbf{(x}$_{3}$\textbf{)}, \textbf{(x}$_{4}%
+$\textbf{)} and \textbf{(x}$_{5}$\textbf{)} hold.
+
+We have $f\in\mathcal{E}\left(  \left[  n\right]  ,\pi\right)  $. We have
+$g=\left\vert f\right\vert $. Hence, everything that we said in the proof of
+Proposition \ref{prop.amen.equiv2} is true in our current situation as well.
+In particular, the Properties \textbf{(i')}, \textbf{(ii')}, \textbf{(iii')}
+and \textbf{(iv')} in Definition \ref{def.amen} hold.
+
+Now, statement \textbf{(x}$_{1}$\textbf{)} holds\footnote{\textit{Proof.} Let
+$x\in g^{-1}\left(  0\right)  $. But $g^{-1}\left(  0\right)  =f^{-1}\left(
++0\right)  $ (as we have shown in the proof of Proposition
+\ref{prop.amen.equiv2}). Hence, $x\in g^{-1}\left(  0\right)  =f^{-1}\left(
++0\right)  $, so that $f\left(  x\right)  =+0$.
+\par
+Now, forget that we fixed $x$. Thus, we have shown that for each $x\in
+g^{-1}\left(  0\right)  $, we have $f\left(  x\right)  =+0$. In other words,
+statement \textbf{(x}$_{1}$\textbf{)} holds.}, and statement \textbf{(x}$_{5}%
+$\textbf{)} holds\footnote{\textit{Proof.} Let $x\in g^{-1}\left(
+\infty\right)  $. But $g^{-1}\left(  \infty\right)  =f^{-1}\left(
+-\infty\right)  $ (as we have shown in the proof of Proposition
+\ref{prop.amen.equiv2}). Hence, $x\in g^{-1}\left(  \infty\right)
+=f^{-1}\left(  -\infty\right)  $, so that $f\left(  x\right)  =-\infty$.
+\par
+Now, forget that we fixed $x$. Thus, we have shown that for each $x\in
+g^{-1}\left(  \infty\right)  $, we have $f\left(  x\right)  =-\infty$. In
+other words, statement \textbf{(x}$_{5}$\textbf{)} holds.}. Furthermore,
+statement \textbf{(x}$_{3}$\textbf{)} holds\footnote{\textit{Proof.} Let $h\in
+H$. Then, $m_{h}\in g^{-1}\left(  h\right)  $ (by the definition of $m_{h}$),
+so that $g\left(  m_{h}\right)  =h$. Comparing this with $\underbrace{g}%
+_{=\left\vert f\right\vert }\left(  m_{h}\right)  =\left\vert f\right\vert
+\left(  m_{h}\right)  =\left\vert f\left(  m_{h}\right)  \right\vert $ (by the
+definition of $\left\vert f\right\vert $), we obtain $\left\vert f\left(
+m_{h}\right)  \right\vert =h$. In other words, either $f\left(  m_{h}\right)
+=-h$ or $f\left(  m_{h}\right)  =+h$. In other words, $f\left(  m_{h}\right)
+\in\left\{  -h,+h\right\}  $.
+\par
+Now, forget that we fixed $h$. Thus, we have shown that for each $h\in H$, we
+have $f\left(  m_{h}\right)  \in\left\{  -h,+h\right\}  $. In other words,
+statement \textbf{(x}$_{3}$\textbf{)} holds.}. Also, statement \textbf{(x}%
+$_{2}$\textbf{)} holds\footnote{\textit{Proof.} Let $h\in H$ and $x\in
+g^{-1}\left(  h\right)  $ be such that $x<m_{h}$. We shall show that $f\left(
+x\right)  =-h$.
+\par
+Indeed, assume the contrary. Thus, $f\left(  x\right)  \neq-h$.
+\par
+We have $x\in g^{-1}\left(  h\right)  $, so that $g\left(  x\right)  =h$.
+Comparing this with $\underbrace{g}_{=\left\vert f\right\vert }\left(
+x\right)  =\left\vert f\right\vert \left(  x\right)  =\left\vert f\left(
+x\right)  \right\vert $ (by the definition of $\left\vert f\right\vert $), we
+obtain $\left\vert f\left(  x\right)  \right\vert =h$. In other words, either
+$f\left(  x\right)  =-h$ or $f\left(  x\right)  =+h$. Since $f\left(
+x\right)  \neq-h$, we thus must have $f\left(  x\right)  =+h$. But the map
+$f:\left[  n\right]  \rightarrow\mathcal{Z}$ is weakly increasing (as we have
+seen in the proof of Proposition \ref{prop.amen.equiv2}). Hence, from
+$x<m_{h}$, we obtain $f\left(  x\right)  \preccurlyeq f\left(  m_{h}\right)
+$. Hence, we cannot have $f\left(  m_{h}\right)  =-h$ (because if we had
+$f\left(  m_{h}\right)  =-h$, then we would have $+h=f\left(  x\right)
+\preccurlyeq f\left(  m_{h}\right)  =-h$, which would contradict the
+definition of the order on $\mathcal{Z}$).
+\par
+But statement \textbf{(x}$_{2}$\textbf{)} yields $f\left(  m_{h}\right)
+\in\left\{  -h,+h\right\}  $. In other words, either $f\left(  m_{h}\right)
+=-h$ or $f\left(  m_{h}\right)  =+h$. Hence, $f\left(  m_{h}\right)  =+h$
+(since we cannot have $f\left(  m_{h}\right)  =-h$). Combining $f\left(
+x\right)  =+h$ and $f\left(  m_{h}\right)  =+h$, we obtain $f\left(  x\right)
+=f\left(  m_{h}\right)  =+h$.
+\par
+But Condition \textbf{(ii)} from the proof of Proposition
+\ref{prop.amen.equiv2} holds. Applying this condition to $y=m_{h}$, we obtain
+$\pi\left(  x\right)  <\pi\left(  m_{h}\right)  $.
+\par
+But $m_{h}$ is the unique element $\mu$ of $g^{-1}\left(  h\right)  $ for
+which $\pi\left(  \mu\right)  $ is minimum (by the definition of $m_{h}$).
+Hence, $\pi\left(  m_{h}\right)  \leq\pi\left(  z\right)  $ for each $z\in
+g^{-1}\left(  h\right)  $. Applying this to $z=x$, we obtain $\pi\left(
+m_{h}\right)  \leq\pi\left(  x\right)  $. This contradicts $\pi\left(
+x\right)  <\pi\left(  m_{h}\right)  $. This contradiction shows that our
+assumption was false. Hence, $f\left(  x\right)  =-h$ is proven.
+\par
+Now, forget that we fixed $h$ and $x$. Thus, we have shown that for each $h\in
+H$ and each $x\in g^{-1}\left(  h\right)  $ satisfying $x<m_{h}$, we have
+$f\left(  x\right)  =-h$. In other words, statement \textbf{(x}$_{2}%
+$\textbf{)} holds.}, and statement \textbf{(x}$_{4}$\textbf{)}
+holds\footnote{\textit{Proof.} Let $h\in H$ and $x\in g^{-1}\left(  h\right)
+$ be such that $x>m_{h}$. Thus, $m_{h}<x$. We shall show that $f\left(
+x\right)  =+h$.
+\par
+Indeed, assume the contrary. Thus, $f\left(  x\right)  \neq+h$.
+\par
+We have $x\in g^{-1}\left(  h\right)  $, so that $g\left(  x\right)  =h$.
+Comparing this with $\underbrace{g}_{=\left\vert f\right\vert }\left(
+x\right)  =\left\vert f\right\vert \left(  x\right)  =\left\vert f\left(
+x\right)  \right\vert $ (by the definition of $\left\vert f\right\vert $), we
+obtain $\left\vert f\left(  x\right)  \right\vert =h$. In other words, either
+$f\left(  x\right)  =-h$ or $f\left(  x\right)  =+h$. Since $f\left(
+x\right)  \neq+h$, we thus must have $f\left(  x\right)  =-h$. But the map
+$f:\left[  n\right]  \rightarrow\mathcal{Z}$ is weakly increasing (as we have
+seen in the proof of Proposition \ref{prop.amen.equiv2}). Hence, from
+$m_{h}<x$, we obtain $f\left(  m_{h}\right)  \preccurlyeq f\left(  x\right)
+$. Hence, we cannot have $f\left(  m_{h}\right)  =+h$ (because if we had
+$f\left(  m_{h}\right)  =+h$, then we would have $+h=f\left(  m_{h}\right)
+\preccurlyeq f\left(  x\right)  =-h$, which would contradict the definition of
+the order on $\mathcal{Z}$).
+\par
+But statement \textbf{(x}$_{2}$\textbf{)} yields $f\left(  m_{h}\right)
+\in\left\{  -h,+h\right\}  $. In other words, either $f\left(  m_{h}\right)
+=-h$ or $f\left(  m_{h}\right)  =+h$. Hence, $f\left(  m_{h}\right)  =-h$
+(since we cannot have $f\left(  m_{h}\right)  =+h$). Combining $f\left(
+x\right)  =-h$ and $f\left(  m_{h}\right)  =-h$, we obtain $f\left(
+m_{h}\right)  =f\left(  x\right)  =-h$.
+\par
+But Condition \textbf{(iii)} from the proof of Proposition
+\ref{prop.amen.equiv2} holds. Applying this condition to $m_{h}$ and $x$
+instead of $x$ and $y$, we obtain $\pi\left(  m_{h}\right)  >\pi\left(
+x\right)  $.
+\par
+But $m_{h}$ is the unique element $\mu$ of $g^{-1}\left(  h\right)  $ for
+which $\pi\left(  \mu\right)  $ is minimum (by the definition of $m_{h}$).
+Hence, $\pi\left(  m_{h}\right)  \leq\pi\left(  z\right)  $ for each $z\in
+g^{-1}\left(  h\right)  $. Applying this to $z=x$, we obtain $\pi\left(
+m_{h}\right)  \leq\pi\left(  x\right)  $. This contradicts $\pi\left(
+m_{h}\right)  >\pi\left(  x\right)  $. This contradiction shows that our
+assumption was false. Hence, $f\left(  x\right)  =+h$ is proven.
+\par
+Now, forget that we fixed $h$ and $x$. Thus, we have shown that for each $h\in
+H$ and each $x\in g^{-1}\left(  h\right)  $ satisfying $x>m_{h}$, we have
+$f\left(  x\right)  =+h$. In other words, statement \textbf{(x}$_{4}%
+$\textbf{)} holds.}. Thus, the five statements \textbf{(x}$_{1}$\textbf{)},
+\textbf{(x}$_{2}$\textbf{)}, \textbf{(x}$_{3}$\textbf{)}, \textbf{(x}$_{4}%
+$\textbf{)} and \textbf{(x}$_{5}$\textbf{)} hold. This proves Claim 1.]
+
+[\textit{Proof of Claim 2:} Assume that five statements \textbf{(x}$_{1}%
+$\textbf{)}, \textbf{(x}$_{2}$\textbf{)}, \textbf{(x}$_{3}$\textbf{)},
+\textbf{(x}$_{4}$\textbf{)} and \textbf{(x}$_{5}$\textbf{)} hold. We must
+prove that $\left(  f\in\mathcal{E}\left(  \left[  n\right]  ,\pi\right)
+\text{ and }\left\vert f\right\vert =g\right)  $.
+
+For each $x\in\left[  n\right]  $, we have
+\begin{equation}
+\left\vert f\right\vert \left(  x\right)  =g\left(  x\right)  .
+\label{pf.prop.amen.equiv3.c2.pf.1}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.prop.amen.equiv3.c2.pf.1}):} Let $x\in\left[
+n\right]  $. We must prove (\ref{pf.prop.amen.equiv3.c2.pf.1}). The definition
+of $\left\vert f\right\vert $ yields $\left\vert f\right\vert \left(
+x\right)  =\left\vert f\left(  x\right)  \right\vert $.
+
+The equality (\ref{pf.prop.amen.equiv3.c2.pf.1}) holds when $g\left(
+x\right)  =0$\ \ \ \ \footnote{\textit{Proof.} Assume that $g\left(  x\right)
+=0$. Thus, $x\in g^{-1}\left(  0\right)  $. Hence, statement \textbf{(x}$_{1}%
+$\textbf{)} yields $f\left(  x\right)  =+0$ (since we know that statement
+\textbf{(x}$_{1}$\textbf{)} holds). Thus, $\left\vert f\left(  x\right)
+\right\vert =\left\vert +0\right\vert =0$. Hence, $\left\vert f\right\vert
+\left(  x\right)  =\left\vert f\left(  x\right)  \right\vert =0=g\left(
+x\right)  $. Thus, the equality (\ref{pf.prop.amen.equiv3.c2.pf.1}) holds,
+qed.}. Hence, for the rest of this proof, we WLOG assume that $g\left(
+x\right)  \neq0$.
+
+The equality (\ref{pf.prop.amen.equiv3.c2.pf.1}) holds when $g\left(
+x\right)  =\infty$\ \ \ \ \footnote{\textit{Proof.} Assume that $g\left(
+x\right)  =\infty$. Thus, $x\in g^{-1}\left(  \infty\right)  $. Hence,
+statement \textbf{(x}$_{5}$\textbf{)} yields $f\left(  x\right)  =-\infty$
+(since we know that statement \textbf{(x}$_{5}$\textbf{)} holds). Thus,
+$\left\vert f\left(  x\right)  \right\vert =\left\vert -\infty\right\vert
+=\infty$. Hence, $\left\vert f\right\vert \left(  x\right)  =\left\vert
+f\left(  x\right)  \right\vert =\infty=g\left(  x\right)  $. Thus, the
+equality (\ref{pf.prop.amen.equiv3.c2.pf.1}) holds, qed.}. Hence, for the rest
+of this proof, we WLOG assume that $g\left(  x\right)  \neq\infty$. Combining
+this with $g\left(  x\right)  \neq0$, we obtain $g\left(  x\right)
+\notin\left\{  0,\infty\right\}  $.
+
+Set $h=g\left(  x\right)  $. We have
+\begin{align*}
+h  &  =g\left(  x\right)  \in\mathcal{N}\setminus\left\{  0,\infty\right\}
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }g\left(  x\right)  \in\mathcal{N}%
+\text{ and }g\left(  x\right)  \notin\left\{  0,\infty\right\}  \right) \\
+&  =\left\{  1,2,3,\ldots\right\}  .
+\end{align*}
+Combining this with $h=g\left(  \underbrace{x}_{\in\left[  n\right]  }\right)
+\in g\left(  \left[  n\right]  \right)  $, we obtain $h\in g\left(  \left[
+n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  =H$. Also, $x\in
+g^{-1}\left(  h\right)  $ (since $g\left(  x\right)  =h$). Now, we are in one
+of the following three cases:
+
+\textit{Case 1:} We have $x<m_{h}$.
+
+\textit{Case 2:} We have $x=m_{h}$.
+
+\textit{Case 3:} We have $x>m_{h}$.
+
+Let us first consider Case 1. In this case, we have $x<m_{h}$. Hence,
+statement \textbf{(x}$_{2}$\textbf{)} yields $f\left(  x\right)  =-h$ (since
+we know that statement \textbf{(x}$_{2}$\textbf{)} holds). Hence, $\left\vert
+f\left(  x\right)  \right\vert =\left\vert -h\right\vert =h$. Hence,
+$\left\vert f\right\vert \left(  x\right)  =\left\vert f\left(  x\right)
+\right\vert =h=g\left(  x\right)  $. Thus, the equality
+(\ref{pf.prop.amen.equiv3.c2.pf.1}) holds in Case 1.
+
+Let us next consider Case 2. In this case, we have $x=m_{h}$. But statement
+\textbf{(x}$_{3}$\textbf{)} yields $f\left(  m_{h}\right)  \in\left\{
+-h,+h\right\}  $ (since we know that statement \textbf{(x}$_{3}$\textbf{)}
+holds). Hence, $\left\vert f\left(  m_{h}\right)  \right\vert =h$. Hence,
+$\left\vert f\right\vert \left(  x\right)  =\left\vert f\left(  \underbrace{x}%
+_{=m_{h}}\right)  \right\vert =\left\vert f\left(  m_{h}\right)  \right\vert
+=h=g\left(  x\right)  $. Thus, the equality (\ref{pf.prop.amen.equiv3.c2.pf.1}%
+) holds in Case 2.
+
+Let us finally consider Case 3. In this case, we have $x>m_{h}$. Hence,
+statement \textbf{(x}$_{4}$\textbf{)} yields $f\left(  x\right)  =+h$ (since
+we know that statement \textbf{(x}$_{4}$\textbf{)} holds). Hence, $\left\vert
+f\left(  x\right)  \right\vert =\left\vert +h\right\vert =h$. Hence,
+$\left\vert f\right\vert \left(  x\right)  =\left\vert f\left(  x\right)
+\right\vert =h=g\left(  x\right)  $. Thus, the equality
+(\ref{pf.prop.amen.equiv3.c2.pf.1}) holds in Case 3.
+
+We have now shown that the equality (\ref{pf.prop.amen.equiv3.c2.pf.1}) holds
+in each of the three Cases 1, 2 and 3. Thus,
+(\ref{pf.prop.amen.equiv3.c2.pf.1}) always holds. This completes the proof of
+(\ref{pf.prop.amen.equiv3.c2.pf.1}).]
+
+The equality (\ref{pf.prop.amen.equiv3.c2.pf.1}) shows that $\left\vert
+f\right\vert =g$. It remains to prove that $f\in\mathcal{E}\left(  \left[
+n\right]  ,\pi\right)  $.
+
+Consider the three Conditions \textbf{(i)}, \textbf{(ii)} and \textbf{(iii)}
+from the proof of Proposition \ref{prop.amen.equiv2}. Now, let $x$ and $y$ be
+two elements of $\left[  n\right]  $ satisfying $x<y$. We claim that the
+following three conditions hold:
+
+\begin{enumerate}
+\item[\textbf{(i)}] We have $f\left(  x\right)  \preccurlyeq f\left(
+y\right)  $.
+
+\item[\textbf{(ii)}] If $f\left(  x\right)  =f\left(  y\right)  =+h$ for some
+$h\in\mathcal{N}$, then $\pi\left(  x\right)  <\pi\left(  y\right)  $.
+
+\item[\textbf{(iii)}] If $f\left(  x\right)  =f\left(  y\right)  =-h$ for some
+$h\in\mathcal{N}$, then $\pi\left(  x\right)  >\pi\left(  y\right)  $.
+\end{enumerate}
+
+[\textit{Proof of Condition \textbf{(i)}:} Assume the contrary. Thus, we don't
+have $f\left(  x\right)  \preccurlyeq f\left(  y\right)  $.
+
+But $\left\vert f\right\vert =g$, so that $\left\vert f\right\vert \left(
+x\right)  =g\left(  x\right)  $. But the definition of $\left\vert
+f\right\vert $ yields $\left\vert f\right\vert \left(  x\right)  =\left\vert
+f\left(  x\right)  \right\vert $. Hence, $\left\vert f\left(  x\right)
+\right\vert =\left\vert f\right\vert \left(  x\right)  =g\left(  x\right)  $.
+Similarly, $\left\vert f\left(  y\right)  \right\vert =g\left(  y\right)  $.
+But the map $g$ is weakly increasing; thus, $g\left(  x\right)  \preccurlyeq
+g\left(  y\right)  $ (since $x<y$). Hence, $\left\vert f\left(  x\right)
+\right\vert =g\left(  x\right)  \preccurlyeq g\left(  y\right)  =\left\vert
+f\left(  y\right)  \right\vert $.
+
+A look back at the definition of the total order on $\mathcal{Z}$ reveals the
+following: If two elements $\alpha$ and $\beta$ of $\mathcal{Z}$ satisfy
+$\left\vert \alpha\right\vert \preccurlyeq\left\vert \beta\right\vert $ but
+not $\alpha\preccurlyeq\beta$, then there must exist some $h\in\left\{
+1,2,3,\ldots\right\}  $ such that $\alpha=+h$ and $\beta=-h$. Applying this to
+$\alpha=f\left(  x\right)  $ and $\beta=f\left(  y\right)  $, we conclude that
+there must exist some $h\in\left\{  1,2,3,\ldots\right\}  $ such that
+$f\left(  x\right)  =+h$ and $f\left(  y\right)  =-h$ (because the elements
+$f\left(  x\right)  $ and $f\left(  y\right)  $ of $\mathcal{Z}$ satisfy
+$\left\vert f\left(  x\right)  \right\vert \preccurlyeq\left\vert f\left(
+y\right)  \right\vert $ but not $f\left(  x\right)  \preccurlyeq f\left(
+y\right)  $). Consider this $h$. We have $g\left(  x\right)  =\left\vert
+\underbrace{f\left(  x\right)  }_{+h}\right\vert =\left\vert +h\right\vert
+=h$, so that $h=g\left(  \underbrace{x}_{\in\left[  n\right]  }\right)  \in
+g\left(  \left[  n\right]  \right)  $. Combining this with $h\in\left\{
+1,2,3,\ldots\right\}  $, we obtain $h\in g\left(  \left[  n\right]  \right)
+\cap\left\{  1,2,3,\ldots\right\}  =H$. Also, $x\in g^{-1}\left(  h\right)  $
+(since $g\left(  x\right)  =h$). If we had $x<m_{h}$, then statement
+\textbf{(x}$_{2}$\textbf{)} would yield $f\left(  x\right)  =-h$, which would
+contradict $f\left(  x\right)  =+h\neq-h$. Hence, we cannot have $x<m_{h}$.
+Thus, we have $x\geq m_{h}$. But $x<y$, so that $y>x\geq m_{h}$. Also,
+$g\left(  y\right)  =\left\vert \underbrace{f\left(  y\right)  }%
+_{=-h}\right\vert =\left\vert -h\right\vert =h$, so that $y\in g^{-1}\left(
+h\right)  $. Hence, statement \textbf{(x}$_{4}$\textbf{)} (applied to $y$
+instead of $x$) yields $f\left(  y\right)  =+h$. This contradicts $f\left(
+y\right)  =-h\neq+h$. This contradiction shows that our assumption was false.
+Hence, Condition \textbf{(i)} is proven.]
+
+[\textit{Proof of Condition \textbf{(ii)}:} Let $f\left(  x\right)  =f\left(
+y\right)  =+h$ for some $h\in\mathcal{N}$. We must show that $\pi\left(
+x\right)  <\pi\left(  y\right)  $.
+
+We have $+h=f\left(  x\right)  \in\mathcal{Z}$. Thus, we cannot have
+$h=\infty$ (since $h=\infty$ would lead to $+h=+\infty\notin\mathcal{Z}$,
+which would contradict $+h\in\mathcal{Z}$). In other words, $h\neq\infty$.
+Combined with $h\in\mathcal{N}$, we obtain $h\in\mathcal{N}\setminus\left\{
+\infty\right\}  $.
+
+The definition of $\left\vert f\right\vert $ yields $\left\vert f\right\vert
+\left(  x\right)  =\left\vert f\left(  x\right)  \right\vert $. But
+$g=\left\vert f\right\vert $. Hence, $g\left(  x\right)  =\left\vert
+f\right\vert \left(  x\right)  =\left\vert \underbrace{f\left(  x\right)
+}_{=+h}\right\vert =\left\vert +h\right\vert =h$, so that $x\in g^{-1}\left(
+h\right)  $. Similarly, $y\in g^{-1}\left(  h\right)  $.
+
+If $h=0$, then it is easy to see that $\pi\left(  x\right)  <\pi\left(
+y\right)  $\ \ \ \ \footnote{\textit{Proof.} Assume that $h=0$. Now, recall
+that $x\in g^{-1}\left(  h\right)  $. In other words, $x\in g^{-1}\left(
+0\right)  $ (since $h=0$). Similarly, $y\in g^{-1}\left(  0\right)  $. But the
+map $\pi\mid_{g^{-1}\left(  0\right)  }$ is strictly increasing (since
+Condition \textbf{(i')} from Definition \ref{def.amen} holds). Hence, $\left(
+\pi\mid_{g^{-1}\left(  0\right)  }\right)  \left(  x\right)  <\left(  \pi
+\mid_{g^{-1}\left(  0\right)  }\right)  \left(  y\right)  $ (because $x<y$ and
+because both $x$ and $y$ belong to $g^{-1}\left(  0\right)  $). Thus,
+$\pi\left(  x\right)  =\left(  \pi\mid_{g^{-1}\left(  0\right)  }\right)
+\left(  x\right)  <\left(  \pi\mid_{g^{-1}\left(  0\right)  }\right)  \left(
+y\right)  =\pi\left(  y\right)  $, qed.}. Hence, for the rest of this proof of
+$\pi\left(  x\right)  <\pi\left(  y\right)  $, we WLOG assume that we don't
+have $h=0$. Thus, $h\neq0$. Combining this with $h\in\mathcal{N}%
+\setminus\left\{  \infty\right\}  $, we obtain $h\in\left(  \mathcal{N}%
+\setminus\left\{  \infty\right\}  \right)  \setminus\left\{  0\right\}
+=\mathcal{N}\setminus\left\{  0,\infty\right\}  =\left\{  1,2,3,\ldots
+\right\}  $.
+
+Combining this with $h=g\left(  \underbrace{x}_{\in\left[  n\right]  }\right)
+\in g\left(  \left[  n\right]  \right)  $, we obtain $h\in g\left(  \left[
+n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  =H$. Also, $x\in
+g^{-1}\left(  h\right)  $. Hence, if we had $x<m_{h}$, then statement
+\textbf{(x}$_{2}$\textbf{)} would yield $f\left(  x\right)  =-h$, which would
+contradict $f\left(  x\right)  =+h\neq-h$. Therefore, we cannot have $x<m_{h}%
+$. Hence, we have $x\geq m_{h}$. In other words, $x\in\left\{  s\in
+g^{-1}\left(  h\right)  \ \mid\ s\geq m_{h}\right\}  $ (since $x\in
+g^{-1}\left(  h\right)  $). Similarly, $y\in\left\{  s\in g^{-1}\left(
+h\right)  \ \mid\ s\geq m_{h}\right\}  $.
+
+But $h\in g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  $. Thus, the map $\pi\mid_{g^{-1}\left(  h\right)  }$ is V-shaped
+(since Condition \textbf{(ii')} from Definition \ref{def.amen} holds). In
+other words, there exists some $t\in g^{-1}\left(  h\right)  $ such that the
+map $\left(  \pi\mid_{g^{-1}\left(  h\right)  }\right)  \mid_{\left\{  s\in
+g^{-1}\left(  h\right)  \ \mid\ s\leq t\right\}  }$ is strictly decreasing
+while the map $\left(  \pi\mid_{g^{-1}\left(  h\right)  }\right)
+\mid_{\left\{  s\in g^{-1}\left(  h\right)  \ \mid\ s\geq t\right\}  }$ is
+strictly increasing. Clearly, this $t$ must be the unique element $\mu$ of
+$g^{-1}\left(  h\right)  $ for which $\left(  \pi\mid_{g^{-1}\left(  h\right)
+}\right)  \left(  \mu\right)  $ is minimum. In other words, this $t$ must be
+the unique element $\mu$ of $g^{-1}\left(  h\right)  $ for which $\pi\left(
+\mu\right)  $ is minimum (since $\left(  \pi\mid_{g^{-1}\left(  h\right)
+}\right)  \left(  \mu\right)  =\pi\left(  \mu\right)  $ for each $\mu\in
+g^{-1}\left(  h\right)  $). In other words, this $t$ must be $m_{h}$ (because
+$m_{h}$ was defined to be the unique element $\mu$ of $g^{-1}\left(  h\right)
+$ for which $\pi\left(  \mu\right)  $ is minimum). Thus, we conclude that the
+map $\left(  \pi\mid_{g^{-1}\left(  h\right)  }\right)  \mid_{\left\{  s\in
+g^{-1}\left(  h\right)  \ \mid\ s\leq m_{h}\right\}  }$ is strictly decreasing
+while the map \newline$\left(  \pi\mid_{g^{-1}\left(  h\right)  }\right)
+\mid_{\left\{  s\in g^{-1}\left(  h\right)  \ \mid\ s\geq m_{h}\right\}  }$ is
+strictly increasing.
+
+In particular, the map $\left(  \pi\mid_{g^{-1}\left(  h\right)  }\right)
+\mid_{\left\{  s\in g^{-1}\left(  h\right)  \ \mid\ s\geq m_{h}\right\}  }$ is
+strictly increasing. In other words, the map $\pi\mid_{\left\{  s\in
+g^{-1}\left(  h\right)  \ \mid\ s\geq m_{h}\right\}  }$ is strictly increasing
+(since \newline$\left(  \pi\mid_{g^{-1}\left(  h\right)  }\right)
+\mid_{\left\{  s\in g^{-1}\left(  h\right)  \ \mid\ s\geq m_{h}\right\}  }%
+=\pi\mid_{\left\{  s\in g^{-1}\left(  h\right)  \ \mid\ s\geq m_{h}\right\}
+}$). Since both $x$ and $y$ belong to the set $\left\{  s\in g^{-1}\left(
+h\right)  \ \mid\ s\geq m_{h}\right\}  $, we thus conclude that%
+\[
+\left(  \pi\mid_{\left\{  s\in g^{-1}\left(  h\right)  \ \mid\ s\geq
+m_{h}\right\}  }\right)  \left(  x\right)  <\left(  \pi\mid_{\left\{  s\in
+g^{-1}\left(  h\right)  \ \mid\ s\geq m_{h}\right\}  }\right)  \left(
+y\right)
+\]
+(since $x<y$). Thus,%
+\[
+\pi\left(  x\right)  =\left(  \pi\mid_{\left\{  s\in g^{-1}\left(  h\right)
+\ \mid\ s\geq m_{h}\right\}  }\right)  \left(  x\right)  <\left(  \pi
+\mid_{\left\{  s\in g^{-1}\left(  h\right)  \ \mid\ s\geq m_{h}\right\}
+}\right)  \left(  y\right)  =\pi\left(  y\right)  .
+\]
+This proves Condition \textbf{(ii)}.]
+
+[\textit{Proof of Condition \textbf{(iii)}:} Let $f\left(  x\right)  =f\left(
+y\right)  =-h$ for some $h\in\mathcal{N}$. We must show that $\pi\left(
+x\right)  >\pi\left(  y\right)  $.
+
+We have $-h=f\left(  x\right)  \in\mathcal{Z}$. Thus, we cannot have $h=0$
+(since $h=0$ would lead to $-h=-0\notin\mathcal{Z}$, which would contradict
+$-h\in\mathcal{Z}$). In other words, $h\neq0$. Combined with $h\in\mathcal{N}%
+$, we obtain $h\in\mathcal{N}\setminus\left\{  0\right\}  $.
+
+The definition of $\left\vert f\right\vert $ yields $\left\vert f\right\vert
+\left(  x\right)  =\left\vert f\left(  x\right)  \right\vert $. But
+$g=\left\vert f\right\vert $. Hence, $g\left(  x\right)  =\left\vert
+f\right\vert \left(  x\right)  =\left\vert \underbrace{f\left(  x\right)
+}_{=-h}\right\vert =\left\vert -h\right\vert =h$, so that $x\in g^{-1}\left(
+h\right)  $. Similarly, $y\in g^{-1}\left(  h\right)  $.
+
+If $h=\infty$, then it is easy to see that $\pi\left(  x\right)  >\pi\left(
+y\right)  $\ \ \ \ \footnote{\textit{Proof.} Assume that $h=\infty$. Now,
+recall that $x\in g^{-1}\left(  h\right)  $. In other words, $x\in
+g^{-1}\left(  \infty\right)  $ (since $h=\infty$). Similarly, $y\in
+g^{-1}\left(  \infty\right)  $. But the map $\pi\mid_{g^{-1}\left(
+\infty\right)  }$ is strictly decreasing (since Condition \textbf{(iii')} from
+Definition \ref{def.amen} holds). Hence, $\left(  \pi\mid_{g^{-1}\left(
+\infty\right)  }\right)  \left(  x\right)  >\left(  \pi\mid_{g^{-1}\left(
+\infty\right)  }\right)  \left(  y\right)  $ (because $x<y$ and because both
+$x$ and $y$ belong to $g^{-1}\left(  \infty\right)  $). Thus, $\pi\left(
+x\right)  =\left(  \pi\mid_{g^{-1}\left(  \infty\right)  }\right)  \left(
+x\right)  >\left(  \pi\mid_{g^{-1}\left(  \infty\right)  }\right)  \left(
+y\right)  =\pi\left(  y\right)  $, qed.}. Hence, for the rest of this proof of
+$\pi\left(  x\right)  >\pi\left(  y\right)  $, we WLOG assume that we don't
+have $h=\infty$. Thus, $h\neq\infty$. Combining this with $h\in\mathcal{N}%
+\setminus\left\{  0\right\}  $, we obtain $h\in\left(  \mathcal{N}%
+\setminus\left\{  0\right\}  \right)  \setminus\left\{  \infty\right\}
+=\mathcal{N}\setminus\left\{  0,\infty\right\}  =\left\{  1,2,3,\ldots
+\right\}  $.
+
+Combining this with $h=g\left(  \underbrace{x}_{\in\left[  n\right]  }\right)
+\in g\left(  \left[  n\right]  \right)  $, we obtain $h\in g\left(  \left[
+n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  =H$. Also, $x\in
+g^{-1}\left(  h\right)  $. Hence, if we had $x>m_{h}$, then statement
+\textbf{(x}$_{4}$\textbf{)} would yield $f\left(  x\right)  =+h$, which would
+contradict $f\left(  x\right)  =-h\neq+h$. Therefore, we cannot have $x>m_{h}%
+$. Hence, we have $x\leq m_{h}$. In other words, $x\in\left\{  s\in
+g^{-1}\left(  h\right)  \ \mid\ s\leq m_{h}\right\}  $ (since $x\in
+g^{-1}\left(  h\right)  $). Similarly, $y\in\left\{  s\in g^{-1}\left(
+h\right)  \ \mid\ s\leq m_{h}\right\}  $.
+
+But $h\in g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  $. Thus, the map $\pi\mid_{g^{-1}\left(  h\right)  }$ is V-shaped
+(since Condition \textbf{(ii')} from Definition \ref{def.amen} holds). In
+other words, there exists some $t\in g^{-1}\left(  h\right)  $ such that the
+map $\left(  \pi\mid_{g^{-1}\left(  h\right)  }\right)  \mid_{\left\{  s\in
+g^{-1}\left(  h\right)  \ \mid\ s\leq t\right\}  }$ is strictly decreasing
+while the map $\left(  \pi\mid_{g^{-1}\left(  h\right)  }\right)
+\mid_{\left\{  s\in g^{-1}\left(  h\right)  \ \mid\ s\geq t\right\}  }$ is
+strictly increasing. Clearly, this $t$ must be the unique element $\mu$ of
+$g^{-1}\left(  h\right)  $ for which $\left(  \pi\mid_{g^{-1}\left(  h\right)
+}\right)  \left(  \mu\right)  $ is minimum. In other words, this $t$ must be
+the unique element $\mu$ of $g^{-1}\left(  h\right)  $ for which $\pi\left(
+\mu\right)  $ is minimum (since $\left(  \pi\mid_{g^{-1}\left(  h\right)
+}\right)  \left(  \mu\right)  =\pi\left(  \mu\right)  $ for each $\mu\in
+g^{-1}\left(  h\right)  $). In other words, this $t$ must be $m_{h}$ (because
+$m_{h}$ was defined to be the unique element $\mu$ of $g^{-1}\left(  h\right)
+$ for which $\pi\left(  \mu\right)  $ is minimum). Thus, we conclude that the
+map $\left(  \pi\mid_{g^{-1}\left(  h\right)  }\right)  \mid_{\left\{  s\in
+g^{-1}\left(  h\right)  \ \mid\ s\leq m_{h}\right\}  }$ is strictly decreasing
+while the map \newline$\left(  \pi\mid_{g^{-1}\left(  h\right)  }\right)
+\mid_{\left\{  s\in g^{-1}\left(  h\right)  \ \mid\ s\geq m_{h}\right\}  }$ is
+strictly increasing.
+
+In particular, the map $\left(  \pi\mid_{g^{-1}\left(  h\right)  }\right)
+\mid_{\left\{  s\in g^{-1}\left(  h\right)  \ \mid\ s\leq m_{h}\right\}  }$ is
+strictly decreasing. In other words, the map $\pi\mid_{\left\{  s\in
+g^{-1}\left(  h\right)  \ \mid\ s\leq m_{h}\right\}  }$ is strictly decreasing
+(since \newline$\left(  \pi\mid_{g^{-1}\left(  h\right)  }\right)
+\mid_{\left\{  s\in g^{-1}\left(  h\right)  \ \mid\ s\leq m_{h}\right\}  }%
+=\pi\mid_{\left\{  s\in g^{-1}\left(  h\right)  \ \mid\ s\leq m_{h}\right\}
+}$). Since both $x$ and $y$ belong to the set $\left\{  s\in g^{-1}\left(
+h\right)  \ \mid\ s\leq m_{h}\right\}  $, we thus conclude that%
+\[
+\left(  \pi\mid_{\left\{  s\in g^{-1}\left(  h\right)  \ \mid\ s\leq
+m_{h}\right\}  }\right)  \left(  x\right)  >\left(  \pi\mid_{\left\{  s\in
+g^{-1}\left(  h\right)  \ \mid\ s\leq m_{h}\right\}  }\right)  \left(
+y\right)
+\]
+(since $x<y$). Thus,%
+\[
+\pi\left(  x\right)  =\left(  \pi\mid_{\left\{  s\in g^{-1}\left(  h\right)
+\ \mid\ s\leq m_{h}\right\}  }\right)  \left(  x\right)  >\left(  \pi
+\mid_{\left\{  s\in g^{-1}\left(  h\right)  \ \mid\ s\leq m_{h}\right\}
+}\right)  \left(  y\right)  =\pi\left(  y\right)  .
+\]
+This proves Condition \textbf{(iii)}.]
+
+Now, forget that we fixed $x$ and $y$. We thus have shown that for all $x<y$
+in $\left[  n\right]  $, the conditions \textbf{(i)}, \textbf{(ii)} and
+\textbf{(iii)} stated above hold. Thus, $f$ is a $\mathcal{Z}$-enriched
+$\left(  \left[  n\right]  ,\pi\right)  $-partition (by the definition of a
+$\mathcal{Z}$-enriched $\left(  \left[  n\right]  ,\pi\right)  $-partition).
+In other words, $f\in\mathcal{E}\left(  \left[  n\right]  ,\pi\right)  $.
+Hence, we have shown that $\left(  f\in\mathcal{E}\left(  \left[  n\right]
+,\pi\right)  \text{ and }\left\vert f\right\vert =g\right)  $. This proves
+Claim 2.]
+
+Combining Claim 1 with Claim 2, we conclude that $\left(  f\in\mathcal{E}%
+\left(  \left[  n\right]  ,\pi\right)  \text{ and }\left\vert f\right\vert
+=g\right)  $ if and only if the five statements \textbf{(x}$_{1}$\textbf{)},
+\textbf{(x}$_{2}$\textbf{)}, \textbf{(x}$_{3}$\textbf{)}, \textbf{(x}$_{4}%
+$\textbf{)} and \textbf{(x}$_{5}$\textbf{)} hold. This proves Proposition
+\ref{prop.amen.equiv3} \textbf{(b)}.
+\end{proof}
+\end{verlong}
+
 \begin{proposition}
 \label{prop.Epk-formula}Let $n\in\mathbb{N}$. Let $\pi$ be any $n$%
 -permutation. Then,%
@@ -2604,6 +3509,7 @@ strictly decreasing. (This allows the case when $g^{-1}\left(  \infty\right)
 
 \end{proposition}
 
+\begin{vershort}
 \begin{proof}
 [Proof of Proposition \ref{prop.Epk-formula}.]The claim will immediately
 follow from (\ref{eq.Gamma.rewr}) once we have shown the following two observations:
@@ -2772,6 +3678,219 @@ $2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
 ,\pi\right)  $ satisfying $\left\vert f\right\vert =g$. This proves
 Observation 2.]
 \end{proof}
+\end{vershort}
+
+\begin{verlong}
+\begin{proof}
+[Proof of Proposition \ref{prop.Epk-formula}.]We shall show the following observation:
+
+\begin{statement}
+\textit{Observation 1:} If $g:\left[  n\right]  \rightarrow\mathcal{N}$ is a
+$\pi$-amenable map, then there exist precisely $2^{\left\vert g\left(  \left[
+n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }$ maps
+$f\in\mathcal{E}\left(  \left[  n\right]  ,\pi\right)  $ satisfying
+$\left\vert f\right\vert =g$.
+\end{statement}
+
+[\textit{Proof of Observation 1:} Let $g:\left[  n\right]  \rightarrow
+\mathcal{N}$ be a $\pi$-amenable map. Let $H$ be the set $g\left(  \left[
+n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  $. For each $h\in H$, we
+let $m_{h}$ be the unique element $\mu$ of $g^{-1}\left(  h\right)  $ for
+which $\pi\left(  \mu\right)  $ is minimum. Proposition \ref{prop.amen.equiv3}
+\textbf{(a)} shows that the elements $m_{h}$ for all $h\in H$ are well-defined
+and distinct.
+
+Proposition \ref{prop.amen.equiv3} \textbf{(b)} shows that a map $f:\left[
+n\right]  \rightarrow\mathcal{Z}$ satisfies $\left(  f\in\mathcal{E}\left(
+\left[  n\right]  ,\pi\right)  \text{ and }\left\vert f\right\vert =g\right)
+$ if and only if the five statements \textbf{(x}$_{1}$\textbf{)},
+\textbf{(x}$_{2}$\textbf{)}, \textbf{(x}$_{3}$\textbf{)}, \textbf{(x}$_{4}%
+$\textbf{)} and \textbf{(x}$_{5}$\textbf{)} from Proposition
+\ref{prop.amen.equiv3} \textbf{(b)} hold. Thus, we can construct every map
+$f:\left[  n\right]  \rightarrow\mathcal{Z}$ that satisfies $\left(
+f\in\mathcal{E}\left(  \left[  n\right]  ,\pi\right)  \text{ and }\left\vert
+f\right\vert =g\right)  $ by the following algorithm:
+
+\begin{itemize}
+\item[\textbf{Step 1:}] For each $x\in g^{-1}\left(  0\right)  $, set
+$f\left(  x\right)  =+0$. (This is the only option, because we want statement
+\textbf{(x}$_{1}$\textbf{)} to hold.)
+
+\item[\textbf{Step 2:}] For each $h\in H$ and each $x\in g^{-1}\left(
+h\right)  $, set the value $f\left(  x\right)  $ as follows:
+
+\begin{itemize}
+\item If $x<m_{h}$, then set $f\left(  x\right)  =-h$. (This is the only
+option, because we want statement \textbf{(x}$_{2}$\textbf{)} to hold.)
+
+\item If $x=m_{h}$, then set $f\left(  x\right)  $ to be either $-h$ or $+h$.
+(These two options are the only options, because we want statement
+\textbf{(x}$_{3}$\textbf{)} to hold. Notice that $m_{h}\in g^{-1}\left(
+h\right)  $ (by the definition of $m_{h}$); therefore, this step ensures that
+$f\left(  m_{h}\right)  \in\left\{  -h,+h\right\}  $ for each $h\in H$, and
+therefore statement \textbf{(x}$_{3}$\textbf{)} holds indeed.)
+
+\item If $x>m_{h}$, then set $f\left(  x\right)  =+h$. (This is the only
+option, because we want statement \textbf{(x}$_{4}$\textbf{)} to hold.)
+\end{itemize}
+
+\item[\textbf{Step 3:}] For each $x\in g^{-1}\left(  \infty\right)  $, set
+$f\left(  x\right)  =-\infty$. (This is the only option, because we want
+statement \textbf{(x}$_{5}$\textbf{)} to hold.)
+\end{itemize}
+
+This algorithm indeed constructs a well-defined map $f:\left[  n\right]
+\rightarrow\mathcal{Z}$ (because for each $x\in\left[  n\right]  $, the value
+$f\left(  x\right)  $ is set exactly once during the above
+algorithm\footnote{\textit{Proof.} Let $x\in\left[  n\right]  $ be arbitrary.
+Note that $H=g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  \subseteq\left\{  1,2,3,\ldots\right\}  $.
+\par
+We have $g\left(  x\right)  \in\mathcal{N}=\left\{  0\right\}  \cup\left\{
+\infty\right\}  \cup\left\{  1,2,3,\ldots\right\}  $. Hence, we have either
+$g\left(  x\right)  =0$ or $g\left(  x\right)  =\infty$ or $g\left(  x\right)
+\in\left\{  1,2,3,\ldots\right\}  $. In other words, we are in one of the
+following cases:
+\par
+\textit{Case 1:} We have $g\left(  x\right)  =0$.
+\par
+\textit{Case 2:} We have $g\left(  x\right)  =\infty$.
+\par
+\textit{Case 3:} We have $g\left(  x\right)  \in\left\{  1,2,3,\ldots\right\}
+$.
+\par
+Let us first consider Case 1. In this case, we have $g\left(  x\right)  =0$.
+Thus, $x\in g^{-1}\left(  0\right)  $. Hence, $f\left(  x\right)  $ is set
+during Step 1 of the above algorithm. If we had $0\in H$, then we would have
+$0\in H\subseteq\left\{  1,2,3,\ldots\right\}  $, which would contradict
+$0\notin\left\{  1,2,3,\ldots\right\}  $. Thus, we cannot have $0\in H$.
+Hence, $0\notin H$. Hence, $x\notin g^{-1}\left(  h\right)  $ for all $h\in H$
+(because if we had $x\in g^{-1}\left(  h\right)  $ for some $h\in H$, then
+this $h$ would satisfy $g\left(  x\right)  =h\in H$, which would contradict
+$g\left(  x\right)  =0\notin H$). Therefore, Step 2 of the above algorithm
+does not set $f\left(  x\right)  $. Finally, $x\notin g^{-1}\left(
+\infty\right)  $ (since $g\left(  x\right)  =0\neq\infty$). Hence, Step 3 of
+the above algorithm does not set $f\left(  x\right)  $. Altogether, we have
+now shown that $f\left(  x\right)  $ is set during Step 1 of the algorithm,
+but neither Step 2 nor Step 3 sets $f\left(  x\right)  $. Thus, the value
+$f\left(  x\right)  $ is set exactly once during the above algorithm. So we
+have proven our claim (that the value $f\left(  x\right)  $ is set exactly
+once during the above algorithm) in Case 1.
+\par
+Let us next consider Case 2. In this case, we have $g\left(  x\right)
+=\infty$. Thus, $x\in g^{-1}\left(  \infty\right)  $. Hence, $f\left(
+x\right)  $ is set during Step 3 of the above algorithm. If we had $\infty\in
+H$, then we would have $\infty\in H\subseteq\left\{  1,2,3,\ldots\right\}  $,
+which would contradict $\infty\notin\left\{  1,2,3,\ldots\right\}  $. Thus, we
+cannot have $\infty\in H$. Hence, $\infty\notin H$. Hence, $x\notin
+g^{-1}\left(  h\right)  $ for all $h\in H$ (because if we had $x\in
+g^{-1}\left(  h\right)  $ for some $h\in H$, then this $h$ would satisfy
+$g\left(  x\right)  =h\in H$, which would contradict $g\left(  x\right)
+=\infty\notin H$). Therefore, Step 2 of the above algorithm does not set
+$f\left(  x\right)  $. Finally, $x\notin g^{-1}\left(  0\right)  $ (since
+$g\left(  x\right)  =\infty\neq0$). Hence, Step 1 of the above algorithm does
+not set $f\left(  x\right)  $. Altogether, we have now shown that $f\left(
+x\right)  $ is set during Step 5 of the algorithm, but neither Step 2 nor Step
+3 sets $f\left(  x\right)  $. Thus, the value $f\left(  x\right)  $ is set
+exactly once during the above algorithm. So we have proven our claim (that the
+value $f\left(  x\right)  $ is set exactly once during the above algorithm) in
+Case 2.
+\par
+Let us next consider Case 3. In this case, we have $g\left(  x\right)
+\in\left\{  1,2,3,\ldots\right\}  $. Combining this with $g\left(
+\underbrace{x}_{\in\left[  n\right]  }\right)  \in g\left(  \left[  n\right]
+\right)  $, we obtain $g\left(  x\right)  \in g\left(  \left[  n\right]
+\right)  \cap\left\{  1,2,3,\ldots\right\}  =H$. Hence, there exists an $h\in
+H$ such that $x\in g^{-1}\left(  h\right)  $ (namely, $h=g\left(  x\right)
+$). Of course, this $h$ is unique (because the requirement $x\in g^{-1}\left(
+h\right)  $ entails $g\left(  x\right)  =h$, which uniquely determines $h$).
+Therefore, the value $f\left(  x\right)  $ is set exactly once during Step 2
+of the algorithm. Moreover, from $g\left(  x\right)  \in\left\{
+1,2,3,\ldots\right\}  $, we obtain $g\left(  x\right)  \neq0$, so that
+$x\notin g^{-1}\left(  0\right)  $. Hence, Step 1 of the above algorithm does
+not set $f\left(  x\right)  $. Similarly, Step 3 of the above algorithm does
+not set $f\left(  x\right)  $. Altogether, we have now shown that $f\left(
+x\right)  $ is set exactly once during Step 2 of the algorithm, but neither
+Step 1 nor Step 3 sets $f\left(  x\right)  $. Thus, the value $f\left(
+x\right)  $ is set exactly once during the above algorithm. So we have proven
+our claim (that the value $f\left(  x\right)  $ is set exactly once during the
+above algorithm) in Case 3.
+\par
+We have now proven our claim (that the value $f\left(  x\right)  $ is set
+exactly once during the above algorithm) in each of the three Cases 1, 2 and
+3. Hence, this claim always holds. Qed.}). Moreover, this map $f$ that it
+constructs satisfies $\left(  f\in\mathcal{E}\left(  \left[  n\right]
+,\pi\right)  \text{ and }\left\vert f\right\vert =g\right)  $ (since the five
+statements \textbf{(x}$_{1}$\textbf{)}, \textbf{(x}$_{2}$\textbf{)},
+\textbf{(x}$_{3}$\textbf{)}, \textbf{(x}$_{4}$\textbf{)} and \textbf{(x}$_{5}%
+$\textbf{)} from Proposition \ref{prop.amen.equiv3} \textbf{(b)} hold for this
+map $f$). Therefore, the number of all maps $f:\left[  n\right]
+\rightarrow\mathcal{Z}$ satisfying $\left(  f\in\mathcal{E}\left(  \left[
+n\right]  ,\pi\right)  \text{ and }\left\vert f\right\vert =g\right)  $ equals
+the number of ways we can perform the above algorithm. But the latter number
+is easy to compute: The only choices we have in the algorithm are the choices
+we make during Step 2 when $x=m_{h}$ (since in all the other decisions, we
+have only one option); there are altogether $\left\vert H\right\vert $ many of
+these choices (one for each $h\in H$), and each choice involves exactly $2$
+options. Hence, the number of ways we can perform the above algorithm is
+$2^{\left\vert H\right\vert }$. Thus, the number of all maps $f:\left[
+n\right]  \rightarrow\mathcal{Z}$ satisfying $\left(  f\in\mathcal{E}\left(
+\left[  n\right]  ,\pi\right)  \text{ and }\left\vert f\right\vert =g\right)
+$ is $2^{\left\vert H\right\vert }$. In other words,%
+\begin{align*}
+&  \left(  \text{the number of all maps }f:\left[  n\right]  \rightarrow
+\mathcal{Z}\text{ satisfying }\left(  f\in\mathcal{E}\left(  \left[  n\right]
+,\pi\right)  \text{ and }\left\vert f\right\vert =g\right)  \right)  \\
+&  =2^{\left\vert H\right\vert }.
+\end{align*}
+
+
+Now,%
+\begin{align*}
+&  \left(  \text{the number of all maps }f\in\mathcal{E}\left(  \left[
+n\right]  ,\pi\right)  \text{ satisfying }\left\vert f\right\vert =g\right)
+\\
+&  =\left(  \text{the number of all maps }f:\left[  n\right]  \rightarrow
+\mathcal{Z}\text{ satisfying }\left(  f\in\mathcal{E}\left(  \left[  n\right]
+,\pi\right)  \text{ and }\left\vert f\right\vert =g\right)  \right)  \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since each }f\in\mathcal{E}\left(
+\left[  n\right]  ,\pi\right)  \text{ is automatically a map }\left[
+n\right]  \rightarrow\mathcal{Z}\right)  \\
+&  =2^{\left\vert H\right\vert }=2^{\left\vert g\left(  \left[  n\right]
+\right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }H=g\left(  \left[  n\right]  \right)
+\cap\left\{  1,2,3,\ldots\right\}  \right)  .
+\end{align*}
+In other words, there exist precisely $2^{\left\vert g\left(  \left[
+n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }$ maps
+$f\in\mathcal{E}\left(  \left[  n\right]  ,\pi\right)  $ satisfying
+$\left\vert f\right\vert =g$. This proves Observation 1.]
+
+Now, (\ref{eq.Gamma.rewr}) yields%
+\begin{align*}
+\Gamma_{\mathcal{Z}}\left(  \pi\right)   &  =\underbrace{\sum_{f\in
+\mathcal{E}\left(  \left[  n\right]  ,\pi\right)  }}_{\substack{=\sum
+_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\\\text{is }%
+\pi\text{-amenable}}}\sum_{\substack{f\in\mathcal{E}\left(  \left[  n\right]
+,\pi\right)  ;\\\left\vert f\right\vert =g}}\\\text{(by Proposition
+\ref{prop.amen.equiv2})}}}\mathbf{x}_{\left\vert f\right\vert }=\sum
+_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\\\text{is }%
+\pi\text{-amenable}}}\sum_{\substack{f\in\mathcal{E}\left(  \left[  n\right]
+,\pi\right)  ;\\\left\vert f\right\vert =g}}\underbrace{\mathbf{x}_{\left\vert
+f\right\vert }}_{\substack{=\mathbf{x}_{g}\\\text{(since }\left\vert
+f\right\vert =g\text{)}}}\\
+&  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\\\text{is }%
+\pi\text{-amenable}}}\underbrace{\sum_{\substack{f\in\mathcal{E}\left(
+\left[  n\right]  ,\pi\right)  ;\\\left\vert f\right\vert =g}}\mathbf{x}_{g}%
+}_{\substack{=2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}\\\text{(by Observation 1)}%
+}}=\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\\\text{is }%
+\pi\text{-amenable}}}2^{\left\vert g\left(  \left[  n\right]  \right)
+\cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}.
+\end{align*}
+This proves Proposition \ref{prop.Epk-formula}.
+\end{proof}
+\end{verlong}
 
 Now, let us observe that if $g:\left[  n\right]  \rightarrow\mathcal{N}$ is a
 weakly increasing map (for some $n\in\mathbb{N}$), then the fibers of $g$

@@ -2853,7 +2853,7 @@ $\pi\mid_{f^{-1}\left(  +0\right)  }$ is strictly increasing\footnote{because
 for each $h\in\mathcal{N}$, the map $\pi\mid_{f^{-1}\left(  +h\right)  }$ is
 strictly increasing}. In other words, the map $\pi\mid_{g^{-1}\left(
 0\right)  }$ is strictly increasing (since $g^{-1}\left(  0\right)
-=f^{-1}\left(  +0\right)  $). Hence, Property \textbf{(i')}\ holds. Similarly,
+=f^{-1}\left(  +0\right)  $). Hence, Property \textbf{(i')} holds. Similarly,
 Property \textbf{(iii')} also holds\footnote{To prove this, we first need to
 show that $g^{-1}\left(  \infty\right)  =f^{-1}\left(  -\infty\right)  $ (this
 is similar to the proof of $g^{-1}\left(  0\right)  =f^{-1}\left(  +0\right)
@@ -3565,9 +3565,8 @@ $\pi\mid_{f^{-1}\left(  +0\right)  }$ is strictly increasing\footnote{because
 for each $h\in\mathcal{N}$, the map $\pi\mid_{f^{-1}\left(  +h\right)  }$ is
 strictly increasing}. Thus, the map $\pi\mid_{g^{-1}\left(  0\right)  }$ is
 strictly increasing (since $g^{-1}\left(  0\right)  =f^{-1}\left(  +0\right)
-$). Hence, Property \textbf{(i')} in the definition of \textquotedblleft$\pi
-$-amenable\textquotedblright\ holds. Similarly, Property \textbf{(iii')} in
-that definition also holds.
+$). Hence, Property \textbf{(i')} in Definition~\ref{def.amen} holds.
+Similarly, Property \textbf{(iii')} in that definition also holds.
 
 Now, fix $h\in g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
 \right\}  $. Then, the set $g^{-1}\left(  h\right)  $ is nonempty (since $h\in
@@ -3583,11 +3582,11 @@ element of $f^{-1}\left(  -h\right)  $, or the smallest
 element of $f^{-1}\left(  +h\right)  $, depending on which of these two
 elements has the smaller image under $\pi$), and then strictly increasing
 from there on. In other words, the map $\pi\mid_{g^{-1}\left(  h\right)  }$ is
-V-shaped. Thus, Property \textbf{(ii')} in the definition of
-\textquotedblleft$\pi$-amenable\textquotedblright\ holds. Finally, Property
-\textbf{(iv')} in the definition of \textquotedblleft$\pi$%
--amenable\textquotedblright\ holds because $f$ is weakly increasing. We have
-thus checked all four properties; thus, $g$ is $\pi$-amenable.
+V-shaped. Thus, Property \textbf{(ii')} in Definition~\ref{def.amen} holds.
+Finally, Property \textbf{(iv')} in Definition~\ref{def.amen} holds because
+$f$ is weakly increasing. We have
+thus checked all four properties in Definition~\ref{def.amen};
+thus, $g$ is $\pi$-amenable.
 In other words, $\left| f \right|$ is $\pi$-amenable
 (since $g = \left| f \right|$).
 This proves Observation 1.]
@@ -3625,11 +3624,11 @@ So assume that $g^{-1}\left(  h\right)  \neq\varnothing$. Hence, $h\in
 g\left(  \left[  n\right]  \right)  $, so that $h\in g\left(  \left[
 n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  $. Since the map $g$ is
 $\pi$-amenable, we thus conclude that the map $\pi\mid_{g^{-1}\left(
-h\right)  }$ is V-shaped (by Property \textbf{(ii')} in the definition of
-\textquotedblleft$\pi$-amenable\textquotedblright).
+h\right)  }$ is V-shaped (by Property \textbf{(ii')} in
+Definition~\ref{def.amen}).
 
-The map $g$ is weakly increasing (by Property \textbf{(iv')} in the
-definition of \textquotedblleft$\pi$-amenable\textquotedblright). Hence,
+The map $g$ is weakly increasing (by Property \textbf{(iv')} in
+Definition~\ref{def.amen}). Hence,
 $g^{-1}\left(  h\right)  $ is an interval of $\left[  n\right]  $. Let
 $\alpha\in\mathbb{Z}$ and $\gamma\in\mathbb{Z}$ be such that $g^{-1}\left(
 h\right)  =\left[  \alpha,\gamma\right]  $ (where $\left[  \alpha
@@ -3640,7 +3639,12 @@ As in the proof of Observation 1, we can see that each element of
 $f^{-1}\left(  -h\right)  $ is smaller than each element of $f^{-1}\left(
 +h\right)  $. Since the union of $f^{-1}\left(  -h\right)  $ and
 $f^{-1}\left(  +h\right)  $ is $g^{-1}\left(  h\right)  =\left[  \alpha
-,\gamma\right]  $, we thus conclude that there exists some $\beta\in\left[
+,\gamma\right]  $, we thus conclude that (roughly speaking) the
+sets $f^{-1}\left(  -h\right)  $ and $f^{-1}\left(  +h\right)  $
+partition the interval $g^{-1}\left(h\right)$ in two (possibly empty)
+sub-intervals such that the interval $f^{-1}\left(  -h\right)  $ lies
+completely to the left of $f^{-1}\left(  +h\right)  $.
+Hence, there exists some $\beta\in\left[
 \alpha-1,\gamma\right]  $ such that $f^{-1}\left(  -h\right)  =\left[
 \alpha,\beta\right]  $ and $f^{-1}\left(  +h\right)  =\left[  \beta
 +1,\gamma\right]  $. Consider this $\beta$. Clearly, $f^{-1}\left(  -h\right)
@@ -3662,14 +3666,16 @@ words, the map $\pi$ is strictly decreasing on the set $f^{-1}\left(
 is strictly increasing on the set $\left\{  u\in g^{-1}\left(  h\right)
 \ \mid\ u\geq k\right\}  $. Hence, the two sets $\left[  \alpha,\beta\right]
 $ and $\left\{  u\in g^{-1}\left(  h\right)  \ \mid\ u\geq k\right\}  $ cannot
-have more than one point in common (since $\pi$ is strictly decreasing on one
+have more than one element in common
+(since $\pi$ is strictly decreasing on one
 and strictly increasing on the other). Thus, $k\geq\beta$. A similar argument
 shows that $k\leq\beta+1$. Combining these inequalities, we obtain
 $k\in\left\{  \beta,\beta+1\right\}  $, so that $\beta\in\left\{
 k,k-1\right\}  $. This shows that $\beta$ can take only two values: $k$ and
 $k-1$.
 
-Now, let us take a bird's eye view. We have shown that for each $h\in g\left(
+Now, let us forget that we fixed $h$.
+We have shown that for each $h\in g\left(
 \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  $, the sets
 $f^{-1}\left(  +h\right)  $ and $f^{-1}\left(  -h\right)  $ are uniquely
 determined once the integer $\beta$ is chosen, and that this integer $\beta$
@@ -3680,7 +3686,8 @@ g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}
 Thus, there are at most $2^{\left\vert g\left(  \left[  n\right]  \right)
 \cap\left\{  1,2,3,\ldots\right\}  \right\vert }$ maps $f\in\mathcal{E}\left(
 \left[  n\right]  ,\pi\right)  $ satisfying $\left\vert f\right\vert =g$.
-Working the above argument backwards, we see that each possible decision
+Working the above argument backwards, we see that each way of making these
+decisions
 actually leads to a map $f\in\mathcal{E}\left(  \left[  n\right]  ,\pi\right)
 $ satisfying $\left\vert f\right\vert =g$; thus, there are \textbf{exactly}
 $2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots

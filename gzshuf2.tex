@@ -3274,7 +3274,7 @@ $f\left(  x\right)  $ and $f\left(  y\right)  $ of $\mathcal{Z}$ satisfy
 $\left\vert f\left(  x\right)  \right\vert \preccurlyeq\left\vert f\left(
 y\right)  \right\vert $ but not $f\left(  x\right)  \preccurlyeq f\left(
 y\right)  $). Consider this $h$. We have $g\left(  x\right)  =\left\vert
-\underbrace{f\left(  x\right)  }_{+h}\right\vert =\left\vert +h\right\vert
+\underbrace{f\left(  x\right)  }_{=+h}\right\vert =\left\vert +h\right\vert
 =h$, so that $h=g\left(  \underbrace{x}_{\in\left[  n\right]  }\right)  \in
 g\left(  \left[  n\right]  \right)  $. Combining this with $h\in\left\{
 1,2,3,\ldots\right\}  $, we obtain $h\in g\left(  \left[  n\right]  \right)
@@ -3297,8 +3297,8 @@ x\right)  <\pi\left(  y\right)  $.
 We have $+h=f\left(  x\right)  \in\mathcal{Z}$. Thus, we cannot have
 $h=\infty$ (since $h=\infty$ would lead to $+h=+\infty\notin\mathcal{Z}$,
 which would contradict $+h\in\mathcal{Z}$). In other words, $h\neq\infty$.
-Combined with $h\in\mathcal{N}$, we obtain $h\in\mathcal{N}\setminus\left\{
-\infty\right\}  $.
+Combining this with $h\in\mathcal{N}$, we obtain
+$h\in\mathcal{N}\setminus\left\{ \infty\right\}  $.
 
 The definition of $\left\vert f\right\vert $ yields $\left\vert f\right\vert
 \left(  x\right)  =\left\vert f\left(  x\right)  \right\vert $. But
@@ -3390,8 +3390,9 @@ x\right)  >\pi\left(  y\right)  $.
 
 We have $-h=f\left(  x\right)  \in\mathcal{Z}$. Thus, we cannot have $h=0$
 (since $h=0$ would lead to $-h=-0\notin\mathcal{Z}$, which would contradict
-$-h\in\mathcal{Z}$). In other words, $h\neq0$. Combined with $h\in\mathcal{N}%
-$, we obtain $h\in\mathcal{N}\setminus\left\{  0\right\}  $.
+$-h\in\mathcal{Z}$). In other words, $h\neq0$.
+Combining this with $h\in\mathcal{N}$, we obtain
+$h\in\mathcal{N}\setminus\left\{  0\right\}  $.
 
 The definition of $\left\vert f\right\vert $ yields $\left\vert f\right\vert
 \left(  x\right)  =\left\vert f\left(  x\right)  \right\vert $. But
@@ -3511,8 +3512,9 @@ $\textbf{)} and \textbf{(x}$_{5}$\textbf{)} hold. This proves Proposition
 
 \begin{vershort}
 \begin{proof}
-[Proof of Proposition \ref{prop.Epk-formula}.]The claim will immediately
-follow from (\ref{eq.Gamma.rewr}) once we have shown the following two observations:
+[Proof of Proposition \ref{prop.Epk-formula} (sketched).]
+The claim will immediately follow from (\ref{eq.Gamma.rewr})
+once we have shown the following two observations:
 
 \begin{statement}
 \textit{Observation 1:} If $f\in\mathcal{E}\left(  \left[  n\right]
@@ -3576,21 +3578,27 @@ each element of $f^{-1}\left(  +h\right)  $ (since $f$ is weakly increasing),
 and we know that the map $\pi\mid_{f^{-1}\left(  -h\right)  }$ is strictly
 decreasing while the map $\pi\mid_{f^{-1}\left(  +h\right)  }$ is strictly
 increasing. Hence, the map $\pi\mid_{g^{-1}\left(  h\right)  }$ is strictly
-decreasing up until some value of its argument, and then strictly increasing
-afterwards. In other words, the map $\pi\mid_{g^{-1}\left(  h\right)  }$ is
+decreasing up until some value of its argument (namely, either the largest
+element of $f^{-1}\left(  -h\right)  $, or the smallest
+element of $f^{-1}\left(  +h\right)  $, depending on which of these two
+elements has the smaller image under $\pi$), and then strictly increasing
+from there on. In other words, the map $\pi\mid_{g^{-1}\left(  h\right)  }$ is
 V-shaped. Thus, Property \textbf{(ii')} in the definition of
 \textquotedblleft$\pi$-amenable\textquotedblright\ holds. Finally, Property
 \textbf{(iv')} in the definition of \textquotedblleft$\pi$%
 -amenable\textquotedblright\ holds because $f$ is weakly increasing. We have
-hence checked all four properties; thus, $g$ is $\pi$-amenable. This proves
-Observation 1.]
+thus checked all four properties; thus, $g$ is $\pi$-amenable.
+In other words, $\left| f \right|$ is $\pi$-amenable
+(since $g = \left| f \right|$).
+This proves Observation 1.]
 
 [\textit{Proof of Observation 2:} Let $g:\left[  n\right]  \rightarrow
 \mathcal{N}$ be a $\pi$-amenable map. Consider a map $f\in\mathcal{E}\left(
 \left[  n\right]  ,\pi\right)  $ satisfying $\left\vert f\right\vert =g$. We
 are wondering to what extent the map $f$ is determined by $g$ and $\pi$.
 
-Everything that we said in the proof of Observation 1 is true.
+Everything that we said in the proof of Observation 1 still holds in
+our situation (since $g = \left| f \right|$).
 
 In order to determine the map $f$, it clearly suffices to determine the sets
 $f^{-1}\left(  q\right)  $ for all $q\in\mathcal{Z}$. In other words, it

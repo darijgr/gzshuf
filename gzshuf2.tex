@@ -925,6 +925,7 @@ Proposition \ref{prop.when-Epk}.
 Next, let us introduce a total order on the finite subsets of $\mathbb{Z}$:
 
 \begin{definition}
+\label{def.order-on-P}
 \textbf{(a)} Let $\mathbf{P}$ be the set of all finite subsets of $\mathbb{Z}$.
 
 \textbf{(b)} If $A$ and $B$ are any two sets, then $A\bigtriangleup B$ shall
@@ -3935,6 +3936,432 @@ except for $g^{-1}\left(  \infty\right)  $. We shall refer to the elements of
 $\operatorname*{FE}\left(  g\right)  $ as the \textit{fiber-ends} of $g$.
 \end{definition}
 
+\begin{lemma}
+\label{lem.FE.exist}Let $n\in\mathbb{N}$. Let $\Lambda\in\mathbf{L}_{n}$.
+Then, there exists a weakly increasing map $g:\left[  n\right]  \rightarrow
+\mathcal{N}$ such that $\operatorname*{FE}\left(  g\right)  =\left(
+\Lambda\cup\left(  \Lambda+1\right)  \right)  \cap\left[  n\right]  $.
+\end{lemma}
+
+\begin{vershort}
+\begin{proof}
+[Proof of Lemma \ref{lem.FE.exist} (sketched).]If $n=0$, then Lemma
+\ref{lem.FE.exist} holds for obvious reasons. Thus, WLOG assume that $n\neq0$.
+Hence, $n$ is a positive integer. Thus, $\mathbf{L}_{n}$ is the set of all
+nonempty lacunar subsets of $\left[  n\right]  $ (by the definition of
+$\mathbf{L}_{n}$). Therefore, from $\Lambda\in\mathbf{L}_{n}$, we conclude
+that $\Lambda$ is a nonempty lacunar subset of $\left[  n\right]  $. Write
+this subset $\Lambda$ in the form $\Lambda=\left\{  j_{1}<j_{2}<\cdots
+<j_{k}\right\}  $. Thus, $k\geq1$ (since $\Lambda$ is nonempty).
+
+From $\left\{  j_{1}<j_{2}<\cdots<j_{k}\right\}  =\Lambda\subseteq\left[
+n\right]  $, we obtain $0<j_{1}<j_{2}<\cdots<j_{k}\leq n$. Thus,
+$1<j_{1}+1<j_{2}+1<\cdots<j_{k}+1\leq n+1$. Hence, the $k-1$ numbers
+$j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1$ all belong to the set $\left[  n\right]  $,
+whereas the number $j_{k}+1$ only belongs to this set if $j_{k}<n$. Hence,%
+\begin{align*}
+& \left\{  j_{1}+1,j_{2}+1,\ldots,j_{k}+1\right\}  \cap\left[  n\right]  \\
+& =%
+\begin{cases}
+\left\{  j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1,j_{k}+1\right\}  , & \text{if }%
+j_{k}<n;\\
+\left\{  j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1\right\}  , & \text{if }j_{k}=n
+\end{cases}
+.
+\end{align*}
+But $\Lambda=\left\{  j_{1}<j_{2}<\cdots<j_{k}\right\}  =\left\{  j_{1}%
+,j_{2},\ldots,j_{k}\right\}  $ and thus \newline$\Lambda+1=\left\{
+j_{1}+1,j_{2}+1,\ldots,j_{k}+1\right\}  $. Hence,%
+\begin{align}
+\left(  \Lambda+1\right)  \cap\left[  n\right]    & =\left\{  j_{1}%
++1,j_{2}+1,\ldots,j_{k}+1\right\}  \cap\left[  n\right]  \nonumber\\
+& =%
+\begin{cases}
+\left\{  j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1,j_{k}+1\right\}  , & \text{if }%
+j_{k}<n;\\
+\left\{  j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1\right\}  , & \text{if }j_{k}=n
+\end{cases}
+.\label{pf.lem.FE.exist.short.2}%
+\end{align}
+
+
+Now, consider the map $g:\left[  n\right]  \rightarrow\mathcal{N}$ defined by%
+\begin{align*}
+g\left(  x\right)   &  =%
+\begin{cases}
+\left(  \text{the number of all }\lambda\in\Lambda\text{ such that }%
+\lambda<x\right)  , & \text{if }x\leq j_{k};\\
+\infty, & \text{if }x>j_{k}%
+\end{cases}
+\\
+&  \ \ \ \ \ \ \ \ \ \ \text{for each }x\in\left[  n\right]  .
+\end{align*}
+Thus,%
+\begin{align*}
+&  \left(  g\left(  1\right)  ,g\left(  2\right)  ,\ldots,g\left(  n\right)
+\right)  \\
+&  =\left(  \underbrace{0,0,\ldots,0}_{j_{1}\text{ entries}}%
+,\underbrace{1,1,\ldots,1}_{j_{2}-j_{1}\text{ entries}},\underbrace{2,2,\ldots
+,2}_{j_{3}-j_{2}\text{ entries}},\ldots,\underbrace{k-1,k-1,\ldots,k-1}%
+_{j_{k}-j_{k-1}\text{ entries}},\underbrace{\infty,\infty,\ldots,\infty
+}_{n-j_{k}\text{ entries}}\right)  .
+\end{align*}
+The $n$-tuple on the right hand side of this equality consists of a block of
+$0$'s, followed by a block of $1$'s, followed by a block of $2$'s, and so on,
+all the way up to a block of $\left(  k-1\right)  $'s, which is then followed
+by a block of $\infty$'s. The first $k$ of these blocks are nonempty (since
+$0<j_{1}<j_{2}<\cdots<j_{k}$). The last block is nonempty if $j_{k}<n$, and
+empty if $j_{k}=n$. Thus, the map $g$ is weakly increasing, and its nonempty
+fibers are
+\begin{align*}
+g^{-1}\left(  0\right)   &  =\left\{  1,2,\ldots,j_{1}\right\}  ,\\
+g^{-1}\left(  1\right)   &  =\left\{  j_{1}+1,j_{1}+2,\ldots,j_{2}\right\}
+,\\
+g^{-1}\left(  2\right)   &  =\left\{  j_{2}+1,j_{2}+2,\ldots,j_{3}\right\}
+,\\
+&  \vdots,\\
+g^{-1}\left(  k-1\right)   &  =\left\{  j_{k-1}+1,j_{k-1}+2,\ldots
+,j_{k}\right\}  ,\\
+g^{-1}\left(  \infty\right)   &  =\left\{  j_{k}+1,j_{k}+2,\ldots,n\right\}  ,
+\end{align*}
+except that $g^{-1}\left(  \infty\right)  $ is empty when $j_{k}=n$. Hence,
+the definition of $\operatorname*{FE}\left(  g\right)  $ yields%
+\begin{align*}
+&  \operatorname*{FE}\left(  g\right)  \\
+&  =\underbrace{\left\{  \min\left(  g^{-1}\left(  h\right)  \right)
+\ \mid\ h\in\left\{  1,2,3,\ldots,\infty\right\}  \text{ with }g^{-1}\left(
+h\right)  \neq\varnothing\right\}  }_{=%
+\begin{cases}
+\left\{  \min\left(  g^{-1}\left(  1\right)  \right)  ,\min\left(
+g^{-1}\left(  2\right)  \right)  ,\ldots,\min\left(  g^{-1}\left(  k-1\right)
+\right)  ,\min\left(  g^{-1}\left(  \infty\right)  \right)  \right\}  , &
+\text{if }j_{k}<n;\\
+\left\{  \min\left(  g^{-1}\left(  1\right)  \right)  ,\min\left(
+g^{-1}\left(  2\right)  \right)  ,\ldots,\min\left(  g^{-1}\left(  k-1\right)
+\right)  \right\}  , & \text{if }j_{k}=n
+\end{cases}
+}\\
+&  \ \ \ \ \ \ \ \ \ \ \cup\underbrace{\left\{  \max\left(  g^{-1}\left(
+h\right)  \right)  \ \mid\ h\in\left\{  0,1,2,3,\ldots\right\}  \text{ with
+}g^{-1}\left(  h\right)  \neq\varnothing\right\}  }_{=\left\{  \max\left(
+g^{-1}\left(  0\right)  \right)  ,\max\left(  g^{-1}\left(  1\right)  \right)
+,\max\left(  g^{-1}\left(  2\right)  \right)  ,\ldots,\max\left(
+g^{-1}\left(  k-1\right)  \right)  \right\}  }\\
+&  =\underbrace{%
+\begin{cases}
+\left\{  \min\left(  g^{-1}\left(  1\right)  \right)  ,\min\left(
+g^{-1}\left(  2\right)  \right)  ,\ldots,\min\left(  g^{-1}\left(  k-1\right)
+\right)  ,\min\left(  g^{-1}\left(  \infty\right)  \right)  \right\}  , &
+\text{if }j_{k}<n;\\
+\left\{  \min\left(  g^{-1}\left(  1\right)  \right)  ,\min\left(
+g^{-1}\left(  2\right)  \right)  ,\ldots,\min\left(  g^{-1}\left(  k-1\right)
+\right)  \right\}  , & \text{if }j_{k}=n
+\end{cases}
+}_{\substack{=%
+\begin{cases}
+\left\{  j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1,j_{k}+1\right\}  , & \text{if }%
+j_{k}<n;\\
+\left\{  j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1\right\}  , & \text{if }j_{k}=n
+\end{cases}
+\\\text{(since }\min\left(  g^{-1}\left(  h\right)  \right)  =j_{h}+1\text{
+for each }h\in\left\{  1,2,\ldots,k-1\right\}  \text{,}\\\text{and since }%
+\min\left(  g^{-1}\left(  \infty\right)  \right)  =j_{k}+1\text{ if }%
+j_{k}<n\text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \cup\underbrace{\left\{  \max\left(  g^{-1}\left(
+0\right)  \right)  ,\max\left(  g^{-1}\left(  1\right)  \right)  ,\max\left(
+g^{-1}\left(  2\right)  \right)  ,\ldots,\max\left(  g^{-1}\left(  k-1\right)
+\right)  \right\}  }_{\substack{=\left\{  j_{1},j_{2},\ldots,j_{k}\right\}
+\\\text{(since }\max\left(  g^{-1}\left(  h-1\right)  \right)  =j_{h}\text{
+for each }h\in\left\{  1,2,\ldots,k\right\}  \text{)}}}\\
+&  =\underbrace{%
+\begin{cases}
+\left\{  j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1,j_{k}+1\right\}  , & \text{if }%
+j_{k}<n;\\
+\left\{  j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1\right\}  , & \text{if }j_{k}=n
+\end{cases}
+}_{\substack{=\left(  \Lambda+1\right)  \cap\left[  n\right]  \\\text{(by
+(\ref{pf.lem.FE.exist.short.2}))}}}\cup\underbrace{\left\{  j_{1},j_{2}%
+,\ldots,j_{k}\right\}  }_{\substack{=\Lambda=\Lambda\cap\left[  n\right]
+\\\text{(since }\Lambda\subseteq\left[  n\right]  \text{)}}}\\
+&  =\left(  \left(  \Lambda+1\right)  \cap\left[  n\right]  \right)
+\cup\left(  \Lambda\cap\left[  n\right]  \right)  =\left(  \Lambda\cap\left[
+n\right]  \right)  \cup\left(  \left(  \Lambda+1\right)  \cap\left[  n\right]
+\right)  =\left(  \Lambda\cup\left(  \Lambda+1\right)  \right)  \cap\left[
+n\right]  .
+\end{align*}
+Altogether, we have now shown that our map $g:\left[  n\right]  \rightarrow
+\mathcal{N}$ is weakly increasing and satisfies $\operatorname*{FE}\left(
+g\right)  =\left(  \Lambda\cup\left(  \Lambda+1\right)  \right)  \cap\left[
+n\right]  $. Hence, such a map $g$ exists. Thus, Lemma \ref{lem.FE.exist} is proven.
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
+\begin{proof}
+[Proof of Lemma \ref{lem.FE.exist}.]If $n=0$, then Lemma \ref{lem.FE.exist}
+holds\footnote{\textit{Proof.} Assume that $n=0$. Thus, $\Lambda\in
+\mathbf{L}_{n}=\mathbf{L}_{0}$ (since $n=0$), so that $\Lambda\in
+\mathbf{L}_{0}=\left\{  \varnothing\right\}  $, so that $\Lambda=\varnothing$.
+Now, there is only one map $g:\left[  n\right]  \rightarrow\mathcal{N}$ (since
+$\left[  n\right]  =\left[  0\right]  =\varnothing$), and this map $g$ is
+weakly increasing and satisfies $\operatorname*{FE}\left(  g\right)  =\left(
+\Lambda\cup\left(  \Lambda+1\right)  \right)  \cap\left[  n\right]  $ (since
+both $\operatorname*{FE}\left(  g\right)  $ and $\left(  \Lambda\cup\left(
+\Lambda+1\right)  \right)  \cap\left[  n\right]  $ are the empty set). Hence,
+there exists a weakly increasing map $g:\left[  n\right]  \rightarrow
+\mathcal{N}$ such that $\operatorname*{FE}\left(  g\right)  =\left(
+\Lambda\cup\left(  \Lambda+1\right)  \right)  \cap\left[  n\right]  $. In
+other words, Lemma \ref{lem.FE.exist} holds, qed.}. Hence, for the rest of
+this proof, we WLOG assume that we don't have $n=0$. Hence, $n$ is a positive
+integer. Thus, $\mathbf{L}_{n}$ is the set of all nonempty lacunar subsets of
+$\left[  n\right]  $ (by the definition of $\mathbf{L}_{n}$). Therefore, from
+$\Lambda\in\mathbf{L}_{n}$, we conclude that $\Lambda$ is a nonempty lacunar
+subset of $\left[  n\right]  $. Write this subset $\Lambda$ in the form
+$\Lambda=\left\{  j_{1}<j_{2}<\cdots<j_{k}\right\}  $. Thus, $k\geq1$ (since
+$\Lambda$ is nonempty).
+
+Hence, $j_{1}\in\left\{  j_{1}<j_{2}<\cdots<j_{k}\right\}  =\Lambda
+\subseteq\left[  n\right]  $, so that $j_{1}>0$. In other words, $0<j_{1}$.
+Combining this with $j_{1}<j_{2}<\cdots<j_{k}$, we obtain $0<j_{1}%
+<j_{2}<\cdots<j_{k}$.
+
+From $\Lambda=\left\{  j_{1}<j_{2}<\cdots<j_{k}\right\}  $, we obtain
+$\max\Lambda=j_{k}$. Thus, $j_{k}=\max\Lambda\leq n$ (since $\Lambda
+\subseteq\left[  n\right]  $).
+
+We have $\Lambda=\left\{  j_{1}<j_{2}<\cdots<j_{k}\right\}  =\left\{
+j_{1},j_{2},\ldots,j_{k}\right\}  $ and thus%
+\[
+\Lambda+1=\left\{  j_{1}+1,j_{2}+1,\ldots,j_{k}+1\right\}
+\]
+(by the definition of $\Lambda+1$).
+
+We are now in one of the following two cases:
+
+\textit{Case 1:} We have $n\notin\Lambda$.
+
+\textit{Case 2:} We have $n\in\Lambda$.
+
+Let us consider Case 1. In this case, we have $n\notin\Lambda$. Hence,
+$\Lambda\subseteq\left[  n-1\right]  $ (since $\Lambda\subseteq\left[
+n\right]  $). Therefore, $\Lambda+1\subseteq\left\{  2,3,\ldots,n\right\}
+\subseteq\left[  n\right]  $. Now,%
+\[
+\underbrace{\Lambda}_{\subseteq\left[  n\right]  }\cup\underbrace{\left(
+\Lambda+1\right)  }_{\subseteq\left[  n\right]  }\subseteq\left[  n\right]
+\cup\left[  n\right]  =\left[  n\right]  ,
+\]
+so that $\Lambda\cup\left(  \Lambda+1\right)  =\left(  \Lambda\cup\left(
+\Lambda+1\right)  \right)  \cap\left[  n\right]  $.
+
+But $j_{k}=\max\Lambda\leq n-1$ (since $\Lambda\subseteq\left[  n-1\right]
+$). Thus, $j_{k}\leq n-1<n$. Combining this with $0<j_{1}<j_{2}<\cdots<j_{k}$,
+we obtain $0<j_{1}<j_{2}<\cdots<j_{k}<n$.
+
+Now, consider the map $g:\left[  n\right]  \rightarrow\mathcal{N}$ defined by%
+\begin{align*}
+g\left(  x\right)   &  =%
+\begin{cases}
+\left(  \text{the number of all }\lambda\in\Lambda\text{ such that }%
+\lambda<x\right)  , & \text{if }x\leq j_{k};\\
+\infty, & \text{if }x>j_{k}%
+\end{cases}
+\\
+&  \ \ \ \ \ \ \ \ \ \ \text{for each }x\in\left[  n\right]  .
+\end{align*}
+Thus,%
+\begin{align*}
+&  \left(  g\left(  1\right)  ,g\left(  2\right)  ,\ldots,g\left(  n\right)
+\right) \\
+&  =\left(  \underbrace{0,0,\ldots,0}_{j_{1}\text{ entries}}%
+,\underbrace{1,1,\ldots,1}_{j_{2}-j_{1}\text{ entries}},\underbrace{2,2,\ldots
+,2}_{j_{3}-j_{2}\text{ entries}},\ldots,\underbrace{k-1,k-1,\ldots,k-1}%
+_{j_{k}-j_{k-1}\text{ entries}},\underbrace{\infty,\infty,\ldots,\infty
+}_{n-j_{k}\text{ entries}}\right)  .
+\end{align*}
+The $n$-tuple on the right hand side of this equality consists of a block of
+$0$'s, followed by a block of $1$'s, followed by a block of $2$'s, and so on,
+all the way up to a block of $\left(  k-1\right)  $'s, which is then followed
+by a block of $\infty$'s. Each of these blocks is nonempty (since
+$0<j_{1}<j_{2}<\cdots<j_{k}<n$).
+
+Hence, the map $g$ is weakly increasing, and its nonempty fibers are
+\begin{align*}
+g^{-1}\left(  0\right)   &  =\left\{  1,2,\ldots,j_{1}\right\}  ,\\
+g^{-1}\left(  1\right)   &  =\left\{  j_{1}+1,j_{1}+2,\ldots,j_{2}\right\}
+,\\
+g^{-1}\left(  2\right)   &  =\left\{  j_{2}+1,j_{2}+2,\ldots,j_{3}\right\}
+,\\
+&  \vdots,\\
+g^{-1}\left(  k-1\right)   &  =\left\{  j_{k-1}+1,j_{k-1}+2,\ldots
+,j_{k}\right\}  ,\\
+g^{-1}\left(  \infty\right)   &  =\left\{  j_{k}+1,j_{k}+2,\ldots,n\right\}  .
+\end{align*}
+Thus, the definition of $\operatorname*{FE}\left(  g\right)  $ yields%
+\begin{align*}
+&  \operatorname*{FE}\left(  g\right) \\
+&  =\underbrace{\left\{  \min\left(  g^{-1}\left(  h\right)  \right)
+\ \mid\ h\in\left\{  1,2,3,\ldots,\infty\right\}  \text{ with }g^{-1}\left(
+h\right)  \neq\varnothing\right\}  }_{=\left\{  \min\left(  g^{-1}\left(
+1\right)  \right)  ,\min\left(  g^{-1}\left(  2\right)  \right)  ,\ldots
+,\min\left(  g^{-1}\left(  k-1\right)  \right)  ,\min\left(  g^{-1}\left(
+\infty\right)  \right)  \right\}  }\\
+&  \ \ \ \ \ \ \ \ \ \ \cup\underbrace{\left\{  \max\left(  g^{-1}\left(
+h\right)  \right)  \ \mid\ h\in\left\{  0,1,2,3,\ldots\right\}  \text{ with
+}g^{-1}\left(  h\right)  \neq\varnothing\right\}  }_{=\left\{  \max\left(
+g^{-1}\left(  0\right)  \right)  ,\max\left(  g^{-1}\left(  1\right)  \right)
+,\max\left(  g^{-1}\left(  2\right)  \right)  ,\ldots,\max\left(
+g^{-1}\left(  k-1\right)  \right)  \right\}  }\\
+&  =\underbrace{\left\{  \min\left(  g^{-1}\left(  1\right)  \right)
+,\min\left(  g^{-1}\left(  2\right)  \right)  ,\ldots,\min\left(
+g^{-1}\left(  k-1\right)  \right)  ,\min\left(  g^{-1}\left(  \infty\right)
+\right)  \right\}  }_{\substack{=\left\{  j_{1}+1,j_{2}+1,\ldots
+,j_{k-1}+1,j_{k}+1\right\}  \\\text{(since }\min\left(  g^{-1}\left(
+h\right)  \right)  =j_{h}+1\text{ for each }h\in\left\{  1,2,\ldots
+,k-1\right\}  \text{,}\\\text{and since }\min\left(  g^{-1}\left(
+\infty\right)  \right)  =j_{k}+1\text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \cup\underbrace{\left\{  \max\left(  g^{-1}\left(
+0\right)  \right)  ,\max\left(  g^{-1}\left(  1\right)  \right)  ,\max\left(
+g^{-1}\left(  2\right)  \right)  ,\ldots,\max\left(  g^{-1}\left(  k-1\right)
+\right)  \right\}  }_{\substack{=\left\{  j_{1},j_{2},\ldots,j_{k}\right\}
+\\\text{(since }\max\left(  g^{-1}\left(  h-1\right)  \right)  =j_{h}\text{
+for each }h\in\left\{  1,2,\ldots,k\right\}  \text{)}}}\\
+&  =\underbrace{\left\{  j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1,j_{k}+1\right\}
+}_{\substack{=\left\{  j_{1}+1,j_{2}+1,\ldots,j_{k}+1\right\}  \\=\Lambda
++1}}\cup\underbrace{\left\{  j_{1},j_{2},\ldots,j_{k}\right\}  }_{=\Lambda
+}=\left(  \Lambda+1\right)  \cup\Lambda\\
+&  =\Lambda\cup\left(  \Lambda+1\right)  =\left(  \Lambda\cup\left(
+\Lambda+1\right)  \right)  \cap\left[  n\right]  .
+\end{align*}
+
+
+Altogether, we have now shown that our map $g:\left[  n\right]  \rightarrow
+\mathcal{N}$ is weakly increasing and satisfies $\operatorname*{FE}\left(
+g\right)  =\left(  \Lambda\cup\left(  \Lambda+1\right)  \right)  \cap\left[
+n\right]  $. Hence, such a map $g$ exists. Thus, Lemma \ref{lem.FE.exist} is
+proven in Case 1.
+
+Let us consider Case 2. In this case, we have $n\in\Lambda$. Hence, $n\leq
+\max\Lambda=j_{k}$. Combined with $j_{k}\leq n$, this yields $n=j_{k}$.
+
+We have $\Lambda\subseteq\left[  n\right]  $ and thus $\Lambda\cap\left[
+n\right]  =\Lambda$. Also,
+\begin{equation}
+\left(  \Lambda+1\right)  \cap\left[  n\right]  =\left\{  j_{1}+1,j_{2}%
++1,\ldots,j_{k-1}+1\right\}  \label{pf.lem.FE.exist.c2.1}%
+\end{equation}
+\footnote{\textit{Proof.} We have $j_{1}<j_{2}<\cdots<j_{k}$ and thus
+$j_{1}+1<j_{2}+1<\cdots<j_{k}+1$. In other words, $j_{1}+1<j_{2}%
++1<\cdots<j_{k-1}+1<j_{k}+1$. In view of $j_{k}=n$, this rewrites as
+$j_{1}+1<j_{2}+1<\cdots<j_{k-1}+1<n+1$. In other words, $j_{1}+1<j_{2}%
++1<\cdots<j_{k-1}+1\leq n$ (since an integer is $<n+1$ if and only if it is
+$\leq n$). Therefore, the $k-1$ numbers $j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1$ all
+belong to the set $\left[  n\right]  $. In other words, $\left\{
+j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1\right\}  \subseteq\left[  n\right]  $.
+\par
+On the other hand, $\underbrace{j_{k}}_{=n}+1=n+1\notin\left[  n\right]  $ and
+thus $\left\{  j_{k}+1\right\}  \cap\left[  n\right]  =\varnothing$. Now,%
+\begin{align*}
+\underbrace{\left(  \Lambda+1\right)  }_{\substack{=\left\{  j_{1}%
++1,j_{2}+1,\ldots,j_{k}+1\right\}  \\=\left\{  j_{1}+1,j_{2}+1,\ldots
+,j_{k-1}+1\right\}  \cup\left\{  j_{k}+1\right\}  }}\cap\left[  n\right]   &
+=\left(  \left\{  j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1\right\}  \cup\left\{
+j_{k}+1\right\}  \right)  \cap\left[  n\right] \\
+&  =\underbrace{\left(  \left\{  j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1\right\}
+\cap\left[  n\right]  \right)  }_{\substack{=\left\{  j_{1}+1,j_{2}%
++1,\ldots,j_{k-1}+1\right\}  \\\text{(since }\left\{  j_{1}+1,j_{2}%
++1,\ldots,j_{k-1}+1\right\}  \subseteq\left[  n\right]  \text{)}}%
+}\cup\underbrace{\left(  \left\{  j_{k}+1\right\}  \cap\left[  n\right]
+\right)  }_{=\varnothing}\\
+&  =\left\{  j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1\right\}  \cup\varnothing\\
+&  =\left\{  j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1\right\}  .
+\end{align*}
+}.
+
+Now, consider the map $g:\left[  n\right]  \rightarrow\mathcal{N}$ defined by%
+\begin{align*}
+g\left(  x\right)   &  =\left(  \text{the number of all }\lambda\in
+\Lambda\text{ such that }\lambda<x\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \text{for each }x\in\left[  n\right]  .
+\end{align*}
+Thus,%
+\begin{align*}
+&  \left(  g\left(  1\right)  ,g\left(  2\right)  ,\ldots,g\left(  n\right)
+\right) \\
+&  =\left(  \underbrace{0,0,\ldots,0}_{j_{1}\text{ entries}}%
+,\underbrace{1,1,\ldots,1}_{j_{2}-j_{1}\text{ entries}},\underbrace{2,2,\ldots
+,2}_{j_{3}-j_{2}\text{ entries}},\ldots,\underbrace{k-1,k-1,\ldots,k-1}%
+_{j_{k}-j_{k-1}\text{ entries}}\right)  .
+\end{align*}
+\footnote{There are no entries beyond the $\underbrace{k-1,k-1,\ldots
+,k-1}_{j_{k}-j_{k-1}\text{ entries}}$ block in this tuple, because $j_{k}=n$.}
+The $n$-tuple on the right hand side of this equality consists of a block of
+$0$'s, followed by a block of $1$'s, followed by a block of $2$'s, and so on,
+all the way up to a block of $\left(  k-1\right)  $'s. Each of these blocks is
+nonempty (since $0<j_{1}<j_{2}<\cdots<j_{k}$).
+
+Hence, the map $g$ is weakly increasing, and its nonempty fibers are
+\begin{align*}
+g^{-1}\left(  0\right)   &  =\left\{  1,2,\ldots,j_{1}\right\}  ,\\
+g^{-1}\left(  1\right)   &  =\left\{  j_{1}+1,j_{1}+2,\ldots,j_{2}\right\}
+,\\
+g^{-1}\left(  2\right)   &  =\left\{  j_{2}+1,j_{2}+2,\ldots,j_{3}\right\}
+,\\
+&  \vdots,\\
+g^{-1}\left(  k-1\right)   &  =\left\{  j_{k-1}+1,j_{k-1}+2,\ldots
+,j_{k}\right\}  .
+\end{align*}
+Thus, the definition of $\operatorname*{FE}\left(  g\right)  $ yields%
+\begin{align*}
+&  \operatorname*{FE}\left(  g\right) \\
+&  =\underbrace{\left\{  \min\left(  g^{-1}\left(  h\right)  \right)
+\ \mid\ h\in\left\{  1,2,3,\ldots,\infty\right\}  \text{ with }g^{-1}\left(
+h\right)  \neq\varnothing\right\}  }_{=\left\{  \min\left(  g^{-1}\left(
+1\right)  \right)  ,\min\left(  g^{-1}\left(  2\right)  \right)  ,\ldots
+,\min\left(  g^{-1}\left(  k-1\right)  \right)  \right\}  }\\
+&  \ \ \ \ \ \ \ \ \ \ \cup\underbrace{\left\{  \max\left(  g^{-1}\left(
+h\right)  \right)  \ \mid\ h\in\left\{  0,1,2,3,\ldots\right\}  \text{ with
+}g^{-1}\left(  h\right)  \neq\varnothing\right\}  }_{=\left\{  \max\left(
+g^{-1}\left(  0\right)  \right)  ,\max\left(  g^{-1}\left(  1\right)  \right)
+,\max\left(  g^{-1}\left(  2\right)  \right)  ,\ldots,\max\left(
+g^{-1}\left(  k-1\right)  \right)  \right\}  }\\
+&  =\underbrace{\left\{  \min\left(  g^{-1}\left(  1\right)  \right)
+,\min\left(  g^{-1}\left(  2\right)  \right)  ,\ldots,\min\left(
+g^{-1}\left(  k-1\right)  \right)  \right\}  }_{\substack{=\left\{
+j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1\right\}  \\\text{(since }\min\left(
+g^{-1}\left(  h\right)  \right)  =j_{h}+1\text{ for each }h\in\left\{
+1,2,\ldots,k-1\right\}  \text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \cup\underbrace{\left\{  \max\left(  g^{-1}\left(
+0\right)  \right)  ,\max\left(  g^{-1}\left(  1\right)  \right)  ,\max\left(
+g^{-1}\left(  2\right)  \right)  ,\ldots,\max\left(  g^{-1}\left(  k-1\right)
+\right)  \right\}  }_{\substack{=\left\{  j_{1},j_{2},\ldots,j_{k}\right\}
+\\\text{(since }\max\left(  g^{-1}\left(  h-1\right)  \right)  =j_{h}\text{
+for each }h\in\left\{  1,2,\ldots,k\right\}  \text{)}}}\\
+&  =\underbrace{\left\{  j_{1}+1,j_{2}+1,\ldots,j_{k-1}+1\right\}
+}_{\substack{=\left(  \Lambda+1\right)  \cap\left[  n\right]  \\\text{(by
+(\ref{pf.lem.FE.exist.c2.1}))}}}\cup\underbrace{\left\{  j_{1},j_{2}%
+,\ldots,j_{k}\right\}  }_{\substack{=\Lambda=\Lambda\cap\left[  n\right]
+\\\text{(since }\Lambda\subseteq\left[  n\right]  \text{)}}}=\left(  \left(
+\Lambda+1\right)  \cap\left[  n\right]  \right)  \cup\left(  \Lambda
+\cap\left[  n\right]  \right) \\
+&  =\left(  \Lambda\cap\left[  n\right]  \right)  \cup\left(  \left(
+\Lambda+1\right)  \cap\left[  n\right]  \right)  =\left(  \Lambda\cup\left(
+\Lambda+1\right)  \right)  \cap\left[  n\right]  .
+\end{align*}
+
+
+Altogether, we have now shown that our map $g:\left[  n\right]  \rightarrow
+\mathcal{N}$ is weakly increasing and satisfies $\operatorname*{FE}\left(
+g\right)  =\left(  \Lambda\cup\left(  \Lambda+1\right)  \right)  \cap\left[
+n\right]  $. Hence, such a map $g$ exists. Thus, Lemma \ref{lem.FE.exist} is
+proven in Case 2.
+
+We have now proven Lemma \ref{lem.FE.exist} in each of the two Cases 1 and 2.
+Since these two Cases cover all possibilities, we thus conclude that Lemma
+\ref{lem.FE.exist} always holds.
+\end{proof}
+\end{verlong}
+
 \begin{proposition}
 \label{prop.Epk.fiberends}Let $n\in\mathbb{N}$.
 Let $\pi$ be an $n$-permutation.
@@ -4264,10 +4691,424 @@ Recall Definition~\ref{def.lac.Ln}.
 is $\mathbb{Q}$-linearly independent.
 \end{proposition}
 
+We shall give two proofs of Proposition \ref{prop.KnL.lindep}. The first one
+relies on studying the coefficients of $K_{n,\Lambda}^{\mathcal{Z}}$; it needs
+the following definition:
+
+\begin{definition}
+Let $\mathfrak{m}$ be any monomial in $\operatorname*{Pow}\mathcal{N}$ (that
+is, a formal commutative product of indeterminates $x_{h}$ with $h\in
+\mathcal{N}$). Let $f\in\operatorname*{Pow}\mathcal{N}$. Then, $\left[
+\mathfrak{m}\right]  \left(  f\right)  $ shall mean the coefficient of
+$\mathfrak{m}$ in the power series $f$. (For example, $\left[  x_{0}^{2}%
+x_{3}\right]  \left(  3+5x_{0}^{2}x_{3}+6x_{0}+9x_{\infty}\right)  =5$ and
+$\left[  x_{0}^{2}x_{3}\right]  \left(  x_{1}-x_{\infty}\right)  =0$.)
+\end{definition}
+
+\begin{lemma}
+\label{lem.KnL.coeff}Let $n\in\mathbb{N}$.
+
+\textbf{(a)} If $g$ and $h$ are two weakly increasing maps $\left[  n\right]
+\rightarrow\mathcal{N}$, then
+\[%
+\begin{cases}
+1, & \text{if }\mathbf{x}_{g}=\mathbf{x}_{h};\\
+0, & \text{if }\mathbf{x}_{g}\neq\mathbf{x}_{h}%
+\end{cases}
+=%
+\begin{cases}
+1, & \text{if }g=h;\\
+0, & \text{if }g\neq h
+\end{cases}
+.
+\]
+
+
+\textbf{(b)} Let $R\in\mathbf{L}_{n}$. Let $h:\left[  n\right]  \rightarrow
+\mathcal{N}$ be a weakly increasing map. Then,%
+\[
+\left[  \mathbf{x}_{h}\right]  \left(  K_{n,R}^{\mathcal{Z}}\right)  =%
+\begin{cases}
+2^{\left\vert h\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  \right\vert }, & \text{if }R\subseteq\operatorname*{FE}\left(
+h\right)  ;\\
+0, & \text{otherwise}%
+\end{cases}
+.
+\]
+
+\end{lemma}
+
 \begin{proof}
-[Proof of Proposition \ref{prop.KnL.lindep}.]Let $\Omega$ be the subset
-$\left\{  1,3,5,\ldots\right\}  \cap\left[  n\right]  =\left\{  i\in\left[
-n\right]  \ \mid\ i\text{ is odd}\right\}  $ of $\left[  n\right]  $. This is
+[Proof of Lemma \ref{lem.KnL.coeff}.]\textbf{(a)} A weakly increasing map
+$g:\left[  n\right]  \rightarrow\mathcal{N}$ can be uniquely reconstructed
+from the \textbf{multiset} $\left\{  g\left(  1\right)  ,g\left(  2\right)
+,\ldots,g\left(  n\right)  \right\}  _{\operatorname*{multi}}$ of its values
+(because it is weakly increasing, so there is only one way in which these
+values can be ordered). Hence, a weakly increasing map $g:\left[  n\right]
+\rightarrow\mathcal{N}$ can be uniquely reconstructed from the monomial
+$\mathbf{x}_{g}$ (since this monomial $\mathbf{x}_{g}=x_{g_{1}}x_{g_{2}}\cdots
+x_{g_{n}}$ encodes the multiset $\left\{  g\left(  1\right)  ,g\left(
+2\right)  ,\ldots,g\left(  n\right)  \right\}  _{\operatorname*{multi}}$). In
+other words, if $g$ and $h$ are two weakly increasing maps $\left[  n\right]
+\rightarrow\mathcal{N}$, then $\mathbf{x}_{g}=\mathbf{x}_{h}$ holds if and
+only if $g=h$. Hence, if $g$ and $h$ are two weakly increasing maps $\left[
+n\right]  \rightarrow\mathcal{N}$, then
+\[%
+\begin{cases}
+1, & \text{if }\mathbf{x}_{g}=\mathbf{x}_{h};\\
+0, & \text{if }\mathbf{x}_{g}\neq\mathbf{x}_{h}%
+\end{cases}
+=%
+\begin{cases}
+1, & \text{if }g=h;\\
+0, & \text{if }g\neq h
+\end{cases}
+.
+\]
+This proves Lemma \ref{lem.KnL.coeff} \textbf{(a)}.
+
+\textbf{(b)} The definition of $K_{n,R}^{\mathcal{Z}}$ yields%
+\[
+K_{n,R}^{\mathcal{Z}}=\sum_{\substack{g:\left[  n\right]  \rightarrow
+\mathcal{N}\text{ is}\\\text{weakly increasing;}\\R\subseteq\operatorname*{FE}%
+\left(  g\right)  }}2^{\left\vert g\left(  \left[  n\right]  \right)
+\cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}.
+\]
+Thus,%
+\begin{align*}
+\left[  \mathbf{x}_{h}\right]  \left(  K_{n,R}^{\mathcal{Z}}\right)   &
+=\left[  \mathbf{x}_{h}\right]  \left(  \sum_{\substack{g:\left[  n\right]
+\rightarrow\mathcal{N}\text{ is}\\\text{weakly increasing;}\\R\subseteq
+\operatorname*{FE}\left(  g\right)  }}2^{\left\vert g\left(  \left[  n\right]
+\right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}\right)
+\\
+&  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing;}\\R\subseteq\operatorname*{FE}\left(  g\right)
+}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }\underbrace{\left[  \mathbf{x}_{h}\right]
+\left(  \mathbf{x}_{g}\right)  }_{\substack{=%
+\begin{cases}
+1, & \text{if }\mathbf{x}_{g}=\mathbf{x}_{h};\\
+0, & \text{if }\mathbf{x}_{g}\neq\mathbf{x}_{h}%
+\end{cases}
+\\\text{(since }\mathbf{x}_{h}\text{ and }\mathbf{x}_{g}\text{ are two
+monomials)}}}\\
+&  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing;}\\R\subseteq\operatorname*{FE}\left(  g\right)
+}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }\underbrace{%
+\begin{cases}
+1, & \text{if }\mathbf{x}_{g}=\mathbf{x}_{h};\\
+0, & \text{if }\mathbf{x}_{g}\neq\mathbf{x}_{h}%
+\end{cases}
+}_{\substack{=%
+\begin{cases}
+1, & \text{if }g=h;\\
+0, & \text{if }g\neq h
+\end{cases}
+\\\text{(by Lemma \ref{lem.KnL.coeff} \textbf{(a)})}}}\\
+&  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing;}\\R\subseteq\operatorname*{FE}\left(  g\right)
+}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }%
+\begin{cases}
+1, & \text{if }g=h;\\
+0, & \text{if }g\neq h
+\end{cases}
+\\
+&  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing;}\\R\subseteq\operatorname*{FE}\left(  g\right)
+;\\g=h}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }.
+\end{align*}
+The sum on the right hand side of this equality has a unique addend (namely,
+its addend for $g=h$, which is $2^{\left\vert h\left(  \left[  n\right]
+\right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }$) when
+$R\subseteq\operatorname*{FE}\left(  h\right)  $; otherwise it is an empty
+sum. Hence, this sum simplifies as follows:%
+\[
+\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing;}\\R\subseteq\operatorname*{FE}\left(  g\right)
+;\\g=h}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }=%
+\begin{cases}
+2^{\left\vert h\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  \right\vert }, & \text{if }R\subseteq\operatorname*{FE}\left(
+h\right)  ;\\
+0, & \text{otherwise}%
+\end{cases}
+.
+\]
+Hence,%
+\[
+\left[  \mathbf{x}_{h}\right]  \left(  K_{n,R}^{\mathcal{Z}}\right)
+=\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing;}\\R\subseteq\operatorname*{FE}\left(  g\right)
+;\\g=h}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }=%
+\begin{cases}
+2^{\left\vert h\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  \right\vert }, & \text{if }R\subseteq\operatorname*{FE}\left(
+h\right)  ;\\
+0, & \text{otherwise}%
+\end{cases}
+.
+\]
+This proves Lemma \ref{lem.KnL.coeff} \textbf{(b)}.
+\end{proof}
+
+\begin{proof}
+[First proof of Proposition \ref{prop.KnL.lindep}.]Recall Definition
+\ref{def.order-on-P}. In the following, we shall regard the set $\mathbf{P}$
+as a totally ordered set, equipped with the order from Proposition
+\ref{prop.lac.order}.
+
+\begin{vershort}
+Clearly, $\mathbf{L}_{n}\subseteq\mathbf{P}$. Hence, we consider
+$\mathbf{L}_{n}$ as a totally ordered set, whose total order is inherited from
+$\mathbf{P}$.
+\end{vershort}
+
+\begin{verlong}
+Clearly, $\mathbf{L}_{n}$ is a set of subsets of $\left[  n\right]  $, and
+thus a set of finite subsets of $\mathbb{Z}$. In other words, $\mathbf{L}_{n}$
+is a subset of $\mathbf{P}$. Hence, we consider $\mathbf{L}_{n}$ as a totally
+ordered set, whose total order is inherited from $\mathbf{P}$.
+\end{verlong}
+
+Let $\left(  a_{R}\right)  _{R\in\mathbf{L}_{n}}\in\mathbb{Q}^{\mathbf{L}_{n}%
+}$ be a family of scalars (in $\mathbb{Q}$) such that $\sum_{R\in
+\mathbf{L}_{n}}a_{R}K_{n,R}^{\mathcal{Z}}=0$. We are going to show that
+$\left(  a_{R}\right)  _{R\in\mathbf{L}_{n}}=\left(  0\right)  _{R\in
+\mathbf{L}_{n}}$.
+
+Indeed, assume the contrary. Thus, $\left(  a_{R}\right)  _{R\in\mathbf{L}%
+_{n}}\neq\left(  0\right)  _{R\in\mathbf{L}_{n}}$. Hence, there exists some
+$R\in\mathbf{L}_{n}$ such that $a_{R}\neq0$. Let $\Lambda$ be the
+\textbf{largest} such $R$ (with respect to the total order on $\mathbf{L}_{n}$
+we have introduced above). Hence, $\Lambda$ is an element of $\mathbf{L}_{n}$
+and satisfies $a_{\Lambda}\neq0$; but every element $R\in\mathbf{L}_{n}$
+satisfying $R>\Lambda$ must satisfy%
+\begin{equation}
+a_{R}=0. \label{pf.prop.KnL.lindep.larger=0}%
+\end{equation}
+
+
+Lemma \ref{lem.FE.exist} shows that there exists a weakly increasing map
+$g:\left[  n\right]  \rightarrow\mathcal{N}$ such that $\operatorname*{FE}%
+\left(  g\right)  =\left(  \Lambda\cup\left(  \Lambda+1\right)  \right)
+\cap\left[  n\right]  $. Consider this $g$. Combining $\Lambda\subseteq
+\Lambda\cup\left(  \Lambda+1\right)  $ with $\Lambda\subseteq\left[  n\right]
+$, we obtain
+\[
+\Lambda\subseteq\left(  \Lambda\cup\left(  \Lambda+1\right)  \right)
+\cap\left[  n\right]  =\operatorname*{FE}\left(  g\right)  .
+\]
+
+
+For every $R\in\mathbf{L}_{n}$ satisfying $R\neq\Lambda$, we have%
+\begin{equation}
+\left[  \mathbf{x}_{g}\right]  \left(  a_{R}K_{n,R}^{\mathcal{Z}}\right)  =0.
+\label{pf.prop.KnL.lindep.coeff=0}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.prop.KnL.lindep.coeff=0}):} Let $R\in\mathbf{L}%
+_{n}$ be such that $R\neq\Lambda$. We must prove
+(\ref{pf.prop.KnL.lindep.coeff=0}).
+
+\begin{vershort}
+Assume the contrary. Thus, $\left[  \mathbf{x}_{g}\right]  \left(
+a_{R}K_{n,R}^{\mathcal{Z}}\right)  \neq0$. In other words, $a_{R}\left[
+\mathbf{x}_{g}\right]  \left(  K_{n,R}^{\mathcal{Z}}\right)  \neq0$. Hence,
+$a_{R}\neq0$ and $\left[  \mathbf{x}_{g}\right]  \left(  K_{n,R}^{\mathcal{Z}%
+}\right)  \neq0$.
+
+From the definition of $\mathbf{L}_{n}$, it follows easily that every element
+of $\mathbf{L}_{n}$ is a lacunar subset of $\left[  n\right]  $. Hence, $R$ is
+a lacunar subset of $\left[  n\right]  $ (since $R\in\mathbf{L}_{n}$).
+
+But Lemma \ref{lem.KnL.coeff} \textbf{(b)} (applied to $h=g$) yields%
+\[
+\left[  \mathbf{x}_{g}\right]  \left(  K_{n,R}^{\mathcal{Z}}\right)  =%
+\begin{cases}
+2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  \right\vert }, & \text{if }R\subseteq\operatorname*{FE}\left(
+g\right)  ;\\
+0, & \text{otherwise}%
+\end{cases}
+.
+\]
+Hence, $\left[  \mathbf{x}_{g}\right]  \left(  K_{n,R}^{\mathcal{Z}}\right)
+=0$ if $R\not \subseteq \operatorname*{FE}\left(  g\right)  $. Thus, we cannot
+have $R\not \subseteq \operatorname*{FE}\left(  g\right)  $ (since $\left[
+\mathbf{x}_{g}\right]  \left(  K_{n,R}^{\mathcal{Z}}\right)  \neq0$).
+Therefore, we have
+\[
+R\subseteq\operatorname*{FE}\left(  g\right)  =\left(  \Lambda\cup\left(
+\Lambda+1\right)  \right)  \cap\left[  n\right]  \subseteq\Lambda\cup\left(
+\Lambda+1\right)  .
+\]
+Thus, Proposition \ref{prop.lac.RL} yields that $R\geq\Lambda$. Combining this
+with $R\neq\Lambda$, we obtain $R>\Lambda$. Hence,
+(\ref{pf.prop.KnL.lindep.larger=0}) yields $a_{R}=0$. This contradicts
+$a_{R}\neq0$. This contradiction shows that our assumption was wrong. Hence,
+(\ref{pf.prop.KnL.lindep.coeff=0}) is proven.]
+\end{vershort}
+
+\begin{verlong}
+Assume the contrary. Thus, $\left[  \mathbf{x}_{g}\right]  \left(
+a_{R}K_{n,R}^{\mathcal{Z}}\right)  \neq0$. Therefore, $a_{R}\left[
+\mathbf{x}_{g}\right]  \left(  K_{n,R}^{\mathcal{Z}}\right)  =\left[
+\mathbf{x}_{g}\right]  \left(  a_{R}K_{n,R}^{\mathcal{Z}}\right)  \neq0$.
+Hence, $a_{R}\neq0$ and $\left[  \mathbf{x}_{g}\right]  \left(  K_{n,R}%
+^{\mathcal{Z}}\right)  \neq0$. Thus, we don't have $\left[  \mathbf{x}%
+_{g}\right]  \left(  K_{n,R}^{\mathcal{Z}}\right)  =0$ (since $\left[
+\mathbf{x}_{g}\right]  \left(  K_{n,R}^{\mathcal{Z}}\right)  \neq0$).
+
+Every element of $\mathbf{L}_{n}$ is a lacunar subset of $\left[  n\right]
+$\ \ \ \ \footnote{Indeed, this is obvious when $n$ is positive (since
+$\mathbf{L}_{n}$ is defined to be the set of all nonempty lacunar subsets of
+$\left[  n\right]  $ in this case), but also obvious when $n=0$ (since
+$\mathbf{L}_{n}=\left\{  \varnothing\right\}  $ in this case, but the set
+$\varnothing$ is a lacunar subset of $\left[  n\right]  $).}. Hence, $R$ is a
+lacunar subset of $\left[  n\right]  $ (since $R\in\mathbf{L}_{n}$).
+
+But Lemma \ref{lem.KnL.coeff} \textbf{(b)} (applied to $h=g$) yields%
+\[
+\left[  \mathbf{x}_{g}\right]  \left(  K_{n,R}^{\mathcal{Z}}\right)  =%
+\begin{cases}
+2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  \right\vert }, & \text{if }R\subseteq\operatorname*{FE}\left(
+g\right)  ;\\
+0, & \text{otherwise}%
+\end{cases}
+.
+\]
+Hence, $\left[  \mathbf{x}_{g}\right]  \left(  K_{n,R}^{\mathcal{Z}}\right)
+=0$ if $R\not \subseteq \operatorname*{FE}\left(  g\right)  $. Thus, we cannot
+have $R\not \subseteq \operatorname*{FE}\left(  g\right)  $ (since we don't
+have $\left[  \mathbf{x}_{g}\right]  \left(  K_{n,R}^{\mathcal{Z}}\right)
+=0$). Therefore, we have
+\[
+R\subseteq\operatorname*{FE}\left(  g\right)  =\left(  \Lambda\cup\left(
+\Lambda+1\right)  \right)  \cap\left[  n\right]  \subseteq\Lambda\cup\left(
+\Lambda+1\right)  .
+\]
+Thus, Proposition \ref{prop.lac.RL} yields that $R\geq\Lambda$ (with respect
+to the total order on $\mathbf{P}$). Combining this with $R\neq\Lambda$, we
+obtain $R>\Lambda$. Hence, (\ref{pf.prop.KnL.lindep.larger=0}) yields
+$a_{R}=0$. This contradicts $a_{R}\neq0$. This contradiction shows that our
+assumption was wrong. Hence, (\ref{pf.prop.KnL.lindep.coeff=0}) is proven.]
+\end{verlong}
+
+On the other hand, Lemma \ref{lem.KnL.coeff} \textbf{(b)} (applied to $h=g$
+and $R=\Lambda$) yields%
+\[
+\left[  \mathbf{x}_{g}\right]  \left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  =%
+\begin{cases}
+2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  \right\vert }, & \text{if }\Lambda\subseteq\operatorname*{FE}\left(
+g\right)  ;\\
+0, & \text{otherwise}%
+\end{cases}
+=2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  \right\vert }%
+\]
+(since $\Lambda\subseteq\operatorname*{FE}\left(  g\right)  $).
+
+\begin{vershort}
+Now, recall that $\sum_{R\in\mathbf{L}_{n}}a_{R}K_{n,R}^{\mathcal{Z}}=0$.
+Hence, $\left[  \mathbf{x}_{g}\right]  \left(  \sum_{R\in\mathbf{L}_{n}}%
+a_{R}K_{n,R}^{\mathcal{Z}}\right)  =\left[  \mathbf{x}_{g}\right]  \left(
+0\right)  =0$. Therefore,%
+\begin{align*}
+0 &  =\left[  \mathbf{x}_{g}\right]  \left(  \sum_{R\in\mathbf{L}_{n}}%
+a_{R}K_{n,R}^{\mathcal{Z}}\right)  =\sum_{R\in\mathbf{L}_{n}}\left[
+\mathbf{x}_{g}\right]  \left(  a_{R}K_{n,R}^{\mathcal{Z}}\right)  \\
+&  =\left[  \mathbf{x}_{g}\right]  \left(  a_{\Lambda}K_{n,\Lambda
+}^{\mathcal{Z}}\right)  +\sum_{\substack{R\in\mathbf{L}_{n};\\R\neq\Lambda
+}}\underbrace{\left[  \mathbf{x}_{g}\right]  \left(  a_{R}K_{n,R}%
+^{\mathcal{Z}}\right)  }_{\substack{=0\\\text{(by
+(\ref{pf.prop.KnL.lindep.coeff=0}))}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
+}\Lambda\in\mathbf{L}_{n}\right)  \\
+&  =\left[  \mathbf{x}_{g}\right]  \left(  a_{\Lambda}K_{n,\Lambda
+}^{\mathcal{Z}}\right)  =a_{\Lambda}\underbrace{\left[  \mathbf{x}_{g}\right]
+\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  }_{=2^{\left\vert g\left(  \left[
+n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }%
+}=\underbrace{a_{\Lambda}}_{\neq0}\underbrace{2^{\left\vert g\left(  \left[
+n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }}_{\neq
+0}\neq0.
+\end{align*}
+This contradiction shows that our assumption was false. Hence, $\left(
+a_{R}\right)  _{R\in\mathbf{L}_{n}}=\left(  0\right)  _{R\in\mathbf{L}_{n}}$
+is proven.
+\end{vershort}
+
+\begin{verlong}
+Hence,%
+\[
+\left[  \mathbf{x}_{g}\right]  \left(  a_{\Lambda}K_{n,\Lambda}^{\mathcal{Z}%
+}\right)  =a_{\Lambda}\underbrace{\left[  \mathbf{x}_{g}\right]  \left(
+K_{n,\Lambda}^{\mathcal{Z}}\right)  }_{=2^{\left\vert g\left(  \left[
+n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }%
+}=\underbrace{a_{\Lambda}}_{\neq0}\underbrace{2^{\left\vert g\left(  \left[
+n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }}_{\neq
+0}\neq0.
+\]
+
+
+Now, recall that $\sum_{R\in\mathbf{L}_{n}}a_{R}K_{n,R}^{\mathcal{Z}}=0$.
+Hence, $\left[  \mathbf{x}_{g}\right]  \left(  \sum_{R\in\mathbf{L}_{n}}%
+a_{R}K_{n,R}^{\mathcal{Z}}\right)  =\left[  \mathbf{x}_{g}\right]  \left(
+0\right)  =0$. Therefore,%
+\begin{align*}
+0 &  =\left[  \mathbf{x}_{g}\right]  \left(  \sum_{R\in\mathbf{L}_{n}}%
+a_{R}K_{n,R}^{\mathcal{Z}}\right)  =\sum_{R\in\mathbf{L}_{n}}\left[
+\mathbf{x}_{g}\right]  \left(  a_{R}K_{n,R}^{\mathcal{Z}}\right)  \\
+&  =\left[  \mathbf{x}_{g}\right]  \left(  a_{\Lambda}K_{n,\Lambda
+}^{\mathcal{Z}}\right)  +\sum_{\substack{R\in\mathbf{L}_{n};\\R\neq\Lambda
+}}\underbrace{\left[  \mathbf{x}_{g}\right]  \left(  a_{R}K_{n,R}%
+^{\mathcal{Z}}\right)  }_{\substack{=0\\\text{(by
+(\ref{pf.prop.KnL.lindep.coeff=0}))}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have split off the addend}\\
+\text{for }R=\Lambda\text{ from the sum (since }\Lambda\in\mathbf{L}%
+_{n}\text{)}%
+\end{array}
+\right)  \\
+&  =\left[  \mathbf{x}_{g}\right]  \left(  a_{\Lambda}K_{n,\Lambda
+}^{\mathcal{Z}}\right)  +\underbrace{\sum_{\substack{R\in\mathbf{L}%
+_{n};\\R\neq\Lambda}}0}_{=0}=\left[  \mathbf{x}_{g}\right]  \left(
+a_{\Lambda}K_{n,\Lambda}^{\mathcal{Z}}\right)  \neq0.
+\end{align*}
+This is absurd. This contradiction shows that our assumption was false. Hence,
+$\left(  a_{R}\right)  _{R\in\mathbf{L}_{n}}=\left(  0\right)  _{R\in
+\mathbf{L}_{n}}$ is proven.
+\end{verlong}
+
+Now, forget that we fixed $\left(  a_{R}\right)  _{R\in\mathbf{L}_{n}}$. We
+thus have shown that if $\left(  a_{R}\right)  _{R\in\mathbf{L}_{n}}%
+\in\mathbb{Q}^{\mathbf{L}_{n}}$ is a family of scalars (in $\mathbb{Q}$) such
+that $\sum_{R\in\mathbf{L}_{n}}a_{R}K_{n,R}^{\mathcal{Z}}=0$, then $\left(
+a_{R}\right)  _{R\in\mathbf{L}_{n}}=\left(  0\right)  _{R\in\mathbf{L}_{n}}$.
+In other words, the family $\left(  K_{n,R}^{\mathcal{Z}}\right)
+_{R\in\mathbf{L}_{n}}$ is $\mathbb{Q}$-linearly independent. In other words,
+the family $\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda\in
+\mathbf{L}_{n}}$ is $\mathbb{Q}$-linearly independent. This proves Proposition
+\ref{prop.KnL.lindep}.
+\end{proof}
+
+\begin{proof}
+[Second proof of Proposition \ref{prop.KnL.lindep}.]Let $\Omega$ be the subset
+\[
+\left\{  1,3,5,\ldots\right\}  \cap\left[  n\right]  =\left\{  i\in\left[
+n\right]  \ \mid\ i\text{ is odd}\right\}
+\]
+of $\left[  n\right]  $. This is
 clearly a lacunar subset of $\left[  n\right]  $.
 
 We are going to prove the following claim:

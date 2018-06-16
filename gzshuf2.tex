@@ -1210,6 +1210,7 @@ This contradiction shows that our assumption was wrong; hence, Proposition
 \ref{prop.lac.RL} is proven.
 \end{proof}
 
+\begin{verlong}
 \begin{corollary}
 \label{cor.lac.L=L}Let $\Lambda_{1}$ and $\Lambda_{2}$ be two finite lacunar
 subsets of $\mathbb{Z}$ such that $\Lambda_{1}\cup\left(  \Lambda
@@ -1217,23 +1218,21 @@ _{1}+1\right)  =\Lambda_{2}\cup\left(  \Lambda_{2}+1\right)  $. Then,
 $\Lambda_{1}=\Lambda_{2}$.
 \end{corollary}
 
-\begin{vershort}
-\begin{proof}
-[Proof of Corollary \ref{cor.lac.L=L}.] Both $\Lambda_{1}$ and $\Lambda_{2}$
-belong to $\mathbf{P}$. Also, $\Lambda_{1}\subseteq\Lambda_{1}\cup\left(
-\Lambda_{1}+1\right)  =\Lambda_{2}\cup\left(  \Lambda_{2}+1\right)  $. Thus,
-Proposition \ref{prop.lac.RL} (applied to $R=\Lambda_{1}$ and $\Lambda
-=\Lambda_{2}$) yields $\Lambda_{1}\geq\Lambda_{2}$. The same argument (with
-the roles of $\Lambda_{1}$ and $\Lambda_{2}$ interchanged) yields $\Lambda
-_{2}\geq\Lambda_{1}$. Combining $\Lambda_{1}\geq\Lambda_{2}$ with $\Lambda
-_{2}\geq\Lambda_{1}$, we obtain $\Lambda_{1}=\Lambda_{2}$. This proves
-Corollary \ref{cor.lac.L=L}.
-\end{proof}
-\end{vershort}
+% \begin{vershort}
+% \begin{proof}
+% [Proof of Corollary \ref{cor.lac.L=L}.] Both $\Lambda_{1}$ and $\Lambda_{2}$
+% belong to $\mathbf{P}$. Also, $\Lambda_{1}\subseteq\Lambda_{1}\cup\left(
+% \Lambda_{1}+1\right)  =\Lambda_{2}\cup\left(  \Lambda_{2}+1\right)  $. Thus,
+% Proposition \ref{prop.lac.RL} (applied to $R=\Lambda_{1}$ and $\Lambda
+% =\Lambda_{2}$) yields $\Lambda_{1}\geq\Lambda_{2}$. The same argument (with
+% the roles of $\Lambda_{1}$ and $\Lambda_{2}$ interchanged) yields $\Lambda
+% _{2}\geq\Lambda_{1}$. Combining $\Lambda_{1}\geq\Lambda_{2}$ with $\Lambda
+% _{2}\geq\Lambda_{1}$, we obtain $\Lambda_{1}=\Lambda_{2}$. This proves
+% Corollary \ref{cor.lac.L=L}.
+% \end{proof}
+% \end{vershort}
 
-\begin{verlong}
-
-
+% \begin{verlong}
 \begin{proof}
 [Proof of Corollary \ref{cor.lac.L=L}.]Both $\Lambda_{1}$ and $\Lambda_{2}$
 are finite subsets of $\mathbb{Z}$, and thus belong to $\mathbf{P}$ (by the
@@ -4502,6 +4501,7 @@ K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}\cdot K_{m,\operatorname*{Epk}%
 This proves Corollary \ref{cor.KnEpk-prodrule}.
 \end{proof}
 
+\begin{verlong}
 The following lemma is a variant of the principle of inclusion and exclusion
 tailored to our setting:
 
@@ -4630,14 +4630,14 @@ g\right)  }}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
 \end{align*}
 (by (\ref{eq.def.KnL.1})). This proves Lemma \ref{lem.KnL.iex} \textbf{(a)}.
 
-\begin{vershort}
-\textbf{(b)} The proof of Lemma \ref{lem.KnL.iex} \textbf{(b)} is analogous,
-except that the roles of $K_{n,Q}^{\mathcal{Z}}$ and $L_{n,Q}^{\mathcal{Z}}$
-are interchanged and we need to use (\ref{pf.lem.KnL.iex.3}) instead of
-(\ref{pf.lem.KnL.iex.2}).
-\end{vershort}
-
-\begin{verlong}
+% \begin{vershort}
+% \textbf{(b)} The proof of Lemma \ref{lem.KnL.iex} \textbf{(b)} is analogous,
+% except that the roles of $K_{n,Q}^{\mathcal{Z}}$ and $L_{n,Q}^{\mathcal{Z}}$
+% are interchanged and we need to use (\ref{pf.lem.KnL.iex.3}) instead of
+% (\ref{pf.lem.KnL.iex.2}).
+% \end{vershort}
+% 
+% \begin{verlong}
 \textbf{(b)} Let $\Lambda$ be a subset of $\left[  n\right]  $. Then,%
 \begin{align*}
 &  \sum_{Q\subseteq\Lambda}\left(  -1\right)  ^{\left\vert Q\right\vert
@@ -4678,8 +4678,9 @@ is}\\\text{weakly increasing;}\\\Lambda\cap\operatorname*{FE}\left(  g\right)
 \end{align*}
 (by (\ref{eq.lem.KnL.iex.defL})). This proves Lemma \ref{lem.KnL.iex}
 \textbf{(b)}.
-\end{verlong}
+% \end{verlong}
 \end{proof}
+\end{verlong}
 
 Recall Definition~\ref{def.lac.Ln}.
 
@@ -4691,9 +4692,16 @@ Recall Definition~\ref{def.lac.Ln}.
 is $\mathbb{Q}$-linearly independent.
 \end{proposition}
 
+\begin{vershort}
+Our proof of Proposition \ref{prop.KnL.lindep} requires
+the following definition:
+\end{vershort}
+
+\begin{verlong}
 We shall give two proofs of Proposition \ref{prop.KnL.lindep}. The first one
 relies on studying the coefficients of $K_{n,\Lambda}^{\mathcal{Z}}$; it needs
 the following definition:
+\end{verlong}
 
 \begin{definition}
 Let $\mathfrak{m}$ be any monomial in $\operatorname*{Pow}\mathcal{N}$ (that
@@ -5102,6 +5110,12 @@ the family $\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda\in
 \ref{prop.KnL.lindep}.
 \end{proof}
 
+\begin{vershort}
+A second proof of Proposition \ref{prop.KnL.lindep} can be found in
+\cite{verlong}.
+\end{vershort}
+
+\begin{verlong}
 \begin{proof}
 [Second proof of Proposition \ref{prop.KnL.lindep}.]Let $\Omega$ be the subset
 \[
@@ -5386,6 +5400,7 @@ n\right]  \text{ is lacunar}}$ is $\mathbb{Q}$-linearly independent.
 This proves Claim 3. As explained above, this yields Claim 2, hence also Claim
 1, and thus completes the proof of Proposition \ref{prop.KnL.lindep}.
 \end{proof}
+\end{verlong}
 
 \begin{corollary}
 \label{cor.KnL.lindep-all}The family%

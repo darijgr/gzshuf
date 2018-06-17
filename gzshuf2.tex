@@ -4484,8 +4484,6 @@ n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }%
 \operatorname*{FE}\left(  g\right)  }}2^{\left\vert g\left(  \left[  n\right]
 \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}.
 \]
-
-
 This proves Proposition \ref{prop.Epk-formula2}.
 \end{proof}
 \end{verlong}
@@ -4508,7 +4506,27 @@ Proposition \ref{prop.Epk-formula2} shows that
 =K_{n, \operatorname{Epk} \pi}^{\mathcal{Z}}.
 \label{eq.def.KnL.2}%
 \end{equation}
-
+\begin{verlong}
+(Indeed, \eqref{eq.def.KnL.2} follows by comparing
+\[
+\Gamma_{\mathcal{Z}}\left(  \pi\right)  =\sum_{\substack{g:\left[  n\right]
+\rightarrow\mathcal{N}\text{ is}\\\text{weakly increasing;}%
+\\\operatorname*{Epk}\pi\subseteq\operatorname*{FE}\left(  g\right)
+}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}
+\ \ \ \ \ \ \ \ \ \ \left(\text{by Proposition \ref{prop.Epk-formula2}}\right)
+\]
+with
+\[
+K_{n,\operatorname{Epk}\pi}^{\mathcal{Z}}=\sum_{\substack{g:\left[  n\right]  \rightarrow
+\mathcal{N}\text{ is}\\\text{weakly increasing;}\\\operatorname{Epk}\pi\subseteq
+\operatorname*{FE}\left(  g\right)  }}2^{\left\vert g\left(  \left[  n\right]
+\right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}.
+\ \ \ \ \ \ \ \ \ \ \left(\text{by the definition of } K_{n,\operatorname{Epk}\pi}^{\mathcal{Z}}\right)
+.
+\]
+)
+\end{verlong}
 \end{definition}
 
 Corollary \ref{cor.prod2} now leads directly to the following multiplication rule
@@ -4539,7 +4557,8 @@ equalities, we obtain $\Gamma_{\mathcal{Z}}\left(  \pi\right)  \cdot
 \begin{align*}
 K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}\cdot K_{m,\operatorname*{Epk}%
 \sigma}^{\mathcal{Z}}  &  =\Gamma_{\mathcal{Z}}\left(  \pi\right)  \cdot
-\Gamma_{\mathcal{Z}}\left(  \sigma\right)  =\sum_{\tau\in S\left(  \pi
+\Gamma_{\mathcal{Z}}\left(  \sigma\right)
+=\sum_{\tau\in S\left(  \pi
 ,\sigma\right)  }\underbrace{\Gamma_{\mathcal{Z}}\left(  \tau\right)
 }_{\substack{=K_{n+m,\operatorname*{Epk}\tau}^{\mathcal{Z}}\\\text{(by
 (\ref{eq.def.KnL.2}))}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary
@@ -5166,7 +5185,8 @@ A second proof of Proposition \ref{prop.KnL.lindep} can be found in
 
 \begin{verlong}
 \begin{proof}
-[Second proof of Proposition \ref{prop.KnL.lindep}.]Let $\Omega$ be the subset
+[Second proof of Proposition \ref{prop.KnL.lindep} (sketched).]
+Let $\Omega$ be the subset
 \[
 \left\{  1,3,5,\ldots\right\}  \cap\left[  n\right]  =\left\{  i\in\left[
 n\right]  \ \mid\ i\text{ is odd}\right\}
@@ -5552,7 +5572,8 @@ _{n+m}\right)  \\
 S\left(  \pi,\sigma\right)  \ \mid\ \operatorname*{Epk}\tau=\Lambda\right\}
 \right\vert K_{n+m,\Lambda}^{\mathcal{Z}}.
 \end{align*}
-Similarly,%
+The same argument (but using $\pi^{\prime}$ and $\sigma^{\prime}$ instead
+of $\pi$ and $\sigma$) yields
 \[
 K_{n,\operatorname*{Epk}\left(  \pi^{\prime}\right)  }^{\mathcal{Z}}\cdot
 K_{m,\operatorname*{Epk}\left(  \sigma^{\prime}\right)  }^{\mathcal{Z}}%
@@ -5588,8 +5609,8 @@ for each $\Lambda\in\mathbf{L}_{n+m}$. In other words, the multiset $\left\{
 $\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(
 \pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}$
 (because both of these multisets consist of elements of $\mathbf{L}_{n+m}$,
-and the previous sentence shows that these elements appear with equal
-multiplicities in them). This completes our proof of Theorem
+and the previous sentence shows that each of these elements appears with
+equal multiplicities in them). This completes our proof of Theorem
 \ref{thm.Epk.sh-co-a}.
 \end{proof}
 

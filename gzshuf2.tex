@@ -4434,6 +4434,7 @@ analogy with \cite[Proposition 2.2]{Stembr97}:
 
 \end{proposition}
 
+\begin{vershort}
 \begin{proof}
 [Proof of Proposition \ref{prop.Epk-formula2}.]Each $\pi$-amenable map
 $g:\left[  n\right]  \rightarrow\mathcal{N}$ is weakly increasing (because of
@@ -4444,6 +4445,50 @@ $g:\left[  n\right]  \rightarrow\mathcal{N}$ satisfying $\operatorname*{Epk}%
 \pi\subseteq\operatorname*{FE}\left(  g\right)  $. Thus, Proposition
 \ref{prop.Epk-formula2} follows from Proposition \ref{prop.Epk-formula}.
 \end{proof}
+\end{vershort}
+
+\begin{verlong}
+\begin{proof}
+[Proof of Proposition \ref{prop.Epk-formula2}.]Each $\pi$-amenable map
+$g:\left[  n\right]  \rightarrow\mathcal{N}$ is weakly increasing (because of
+Property \textbf{(iv')} in Definition \ref{def.amen}). Thus, the $\pi
+$-amenable maps $g:\left[  n\right]  \rightarrow\mathcal{N}$ are precisely the
+weakly increasing maps $g:\left[  n\right]  \rightarrow\mathcal{N}$ that are
+$\pi$-amenable. Hence, we have the following equality of summation signs:%
+\[
+\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\\\text{is }%
+\pi\text{-amenable}}}=\sum_{\substack{g:\left[  n\right]  \rightarrow
+\mathcal{N}\text{ is}\\\text{weakly increasing;}\\g\text{ is }\pi
+\text{-amenable}}}=\sum_{\substack{g:\left[  n\right]  \rightarrow
+\mathcal{N}\text{ is}\\\text{weakly increasing;}\\\operatorname*{Epk}%
+\pi\subseteq\operatorname*{FE}\left(  g\right)  }}
+\]
+(because for every weakly increasing map $g:\left[  n\right]  \rightarrow
+\mathcal{N}$, we have the logical equivalence%
+\[
+\left(  g\text{ is }\pi\text{-amenable}\right)  \ \Longleftrightarrow\ \left(
+\operatorname*{Epk}\pi\subseteq\operatorname*{FE}\left(  g\right)  \right)
+\]
+(by Proposition \ref{prop.Epk.fiberends})).
+
+Now, Proposition \ref{prop.Epk-formula} yields%
+\[
+\Gamma_{\mathcal{Z}}\left(  \pi\right)  =\underbrace{\sum_{\substack{g:\left[
+n\right]  \rightarrow\mathcal{N}\\\text{is }\pi\text{-amenable}}}}%
+_{=\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing;}\\\operatorname*{Epk}\pi\subseteq
+\operatorname*{FE}\left(  g\right)  }}}2^{\left\vert g\left(  \left[
+n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }%
+\mathbf{x}_{g}=\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}%
+\text{ is}\\\text{weakly increasing;}\\\operatorname*{Epk}\pi\subseteq
+\operatorname*{FE}\left(  g\right)  }}2^{\left\vert g\left(  \left[  n\right]
+\right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}.
+\]
+
+
+This proves Proposition \ref{prop.Epk-formula2}.
+\end{proof}
+\end{verlong}
 
 \begin{definition}
 \label{def.KnL}Let $n\in\mathbb{N}$. If $\Lambda$ is any subset of $\left[

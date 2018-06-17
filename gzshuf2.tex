@@ -4361,6 +4361,946 @@ Since these two Cases cover all possibilities, we thus conclude that Lemma
 \end{proof}
 \end{verlong}
 
+\begin{verlong}
+\begin{lemma}
+\label{lem.V-shaped.no-peaks}Let $n\in\mathbb{N}$. Let $\pi$ be an
+$n$-permutation. Let $S$ be a nonempty interval of the totally ordered set
+$\left[  n\right]  $ such that the map $\pi\mid_{S}$ is V-shaped. Then,
+$S\cap\operatorname*{Epk}\pi\subseteq\left\{  \min S,\max S\right\}  $.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.V-shaped.no-peaks}.]Let $j\in S\cap
+\operatorname*{Epk}\pi$. We are going to show that $j\in\left\{  \min S,\max
+S\right\}  $.
+
+Indeed, assume the contrary. Thus, $j\notin\left\{  \min S,\max S\right\}  $.
+Hence, $j\neq\min S$ and $j\neq\max S$.
+
+But $j\in S\cap\operatorname*{Epk}\pi\subseteq S$. Thus, $j\geq\min S$ and
+$j\leq\max S$. Combining $j\geq\min S$ with $j\neq\min S$, we obtain $j>\min
+S$. Combining $j\leq\max S$ with $j\neq\max S$, we obtain $j<\max S$.
+
+Recall the following basic fact: If $T$ is a nonempty interval of $\left[
+n\right]  $, and if $t\in T$ satisfies $t>\min T$, then $t-1\in T$. Applying
+this to $T=S$ and $t=j$, we conclude that $j-1\in S$ (since $j>\min S$).
+
+Recall the following basic fact: If $T$ is a nonempty interval of $\left[
+n\right]  $, and if $t\in T$ satisfies $t<\max T$, then $t+1\in T$. Applying
+this to $T=S$ and $t=j$, we conclude that $j+1\in S$ (since $j<\max S$).
+
+Recall that the map $\pi\mid_{S}$ is V-shaped. According to the definition of
+\textquotedblleft V-shaped\textquotedblright, this means the following: There
+exists some $t\in S$ such that the map $\left(  \pi\mid_{S}\right)
+\mid_{\left\{  s\in S\ \mid\ s\leq t\right\}  }$ is strictly decreasing while
+the map $\left(  \pi\mid_{S}\right)  \mid_{\left\{  s\in S\ \mid\ s\geq
+t\right\}  }$ is strictly increasing. Consider this $t$.
+
+The map $\left(  \pi\mid_{S}\right)  \mid_{\left\{  s\in S\ \mid\ s\leq
+t\right\}  }$ is strictly decreasing. In other words, the map $\pi
+\mid_{\left\{  s\in S\ \mid\ s\leq t\right\}  }$ is strictly decreasing (since
+$\left(  \pi\mid_{S}\right)  \mid_{\left\{  s\in S\ \mid\ s\leq t\right\}
+}=\pi\mid_{\left\{  s\in S\ \mid\ s\leq t\right\}  }$).
+
+The map $\left(  \pi\mid_{S}\right)  \mid_{\left\{  s\in S\ \mid\ s\geq
+t\right\}  }$ is strictly increasing. In other words, the map $\pi
+\mid_{\left\{  s\in S\ \mid\ s\geq t\right\}  }$ is strictly increasing (since
+$\left(  \pi\mid_{S}\right)  \mid_{\left\{  s\in S\ \mid\ s\geq t\right\}
+}=\pi\mid_{\left\{  s\in S\ \mid\ s\geq t\right\}  }$).
+
+We have $j\in S\cap\operatorname*{Epk}\pi\subseteq\operatorname*{Epk}\pi$; in
+other words, $j$ is an exterior peak of $\pi$ (by the definition of
+$\operatorname*{Epk}\pi$). In other words, $j$ is an element of $\left[
+n\right]  $ and satisfies $\pi_{j-1}<\pi_{j}>\pi_{j+1}$ (by the definition of
+an exterior peak).
+
+We are in one of the following two cases:
+
+\textit{Case 1:} We have $j<t$.
+
+\textit{Case 2:} We have $j\geq t$.
+
+Let us first consider Case 1. In this case, we have $j<t$. Hence, $j\leq t$
+and $j-1\leq j\leq t$. Thus, $j-1\in\left\{  s\in S\ \mid\ s\leq t\right\}  $
+(since $j-1\in S$). Also, $j\leq t$. Hence, $j\in\left\{  s\in S\ \mid\ s\leq
+t\right\}  $ (since $j\in S$).
+
+Now, we know that $j-1$ and $j$ are two elements of the set $\left\{  s\in
+S\ \mid\ s\leq t\right\}  $, and satisfy $j-1<j$. Hence,
+\[
+\left(  \pi\mid_{\left\{  s\in S\ \mid\ s\leq t\right\}  }\right)  \left(
+j-1\right)  >\left(  \pi\mid_{\left\{  s\in S\ \mid\ s\leq t\right\}
+}\right)  \left(  j\right)
+\]
+(since the map $\pi\mid_{\left\{  s\in S\ \mid\ s\leq t\right\}  }$ is
+strictly decreasing). Thus,%
+\[
+\pi_{j-1}=\pi\left(  j-1\right)  =\left(  \pi\mid_{\left\{  s\in
+S\ \mid\ s\leq t\right\}  }\right)  \left(  j-1\right)  >\left(  \pi
+\mid_{\left\{  s\in S\ \mid\ s\leq t\right\}  }\right)  \left(  j\right)
+=\pi\left(  j\right)  =\pi_{j}.
+\]
+This contradicts $\pi_{j-1}<\pi_{j}$. Thus, we have obtained a contradiction
+in Case 1.
+
+Let us now consider Case 2. In this case, we have $j\geq t$. Hence, $j+1\geq
+j\geq t$. Thus, $j+1\in\left\{  s\in S\ \mid\ s\geq t\right\}  $ (since
+$j+1\in S$). Also, $j\geq t$. Hence, $j\in\left\{  s\in S\ \mid\ s\geq
+t\right\}  $ (since $j\in S$).
+
+Now, we know that $j$ and $j+1$ are two elements of the set $\left\{  s\in
+S\ \mid\ s\geq t\right\}  $, and satisfy $j<j+1$. Hence,
+\[
+\left(  \pi\mid_{\left\{  s\in S\ \mid\ s\geq t\right\}  }\right)  \left(
+j\right)  <\left(  \pi\mid_{\left\{  s\in S\ \mid\ s\geq t\right\}  }\right)
+\left(  j+1\right)
+\]
+(since the map $\pi\mid_{\left\{  s\in S\ \mid\ s\geq t\right\}  }$ is
+strictly increasing). Thus,%
+\[
+\pi_{j}=\pi\left(  j\right)  =\left(  \pi\mid_{\left\{  s\in S\ \mid\ s\geq
+t\right\}  }\right)  \left(  j\right)  <\left(  \pi\mid_{\left\{  s\in
+S\ \mid\ s\geq t\right\}  }\right)  \left(  j+1\right)  =\pi\left(
+j+1\right)  =\pi_{j+1}.
+\]
+This contradicts $\pi_{j}>\pi_{j+1}$. Thus, we have obtained a contradiction
+in Case 2.
+
+We have now obtained a contradiction in each of the two Cases 1 and 2. Since
+these two Cases cover all possibilities, we thus conclude that we always have
+a contradiction. This contradiction shows that our assumption was wrong. Thus,
+$j\in\left\{  \min S,\max S\right\}  $ is proven.
+
+Now, forget that we fixed $j$. We thus have shown that $j\in\left\{  \min
+S,\max S\right\}  $ for each $j\in S\cap\operatorname*{Epk}\pi$. In other
+words, $S\cap\operatorname*{Epk}\pi\subseteq\left\{  \min S,\max S\right\}  $.
+This proves Lemma \ref{lem.V-shaped.no-peaks}.
+\end{proof}
+
+\begin{lemma}
+\label{lem.Epk.V-sh}Let $n\in\mathbb{N}$. Let $\pi$ be an $n$-permutation. Let
+$S$ be a nonempty interval of the totally ordered set $\left[  n\right]  $.
+
+\textbf{(a)} If $1\in S$ and $S\cap\operatorname*{Epk}\pi\subseteq\left\{
+\max S\right\}  $, then the map $\pi\mid_{S}$ is strictly increasing.
+
+\textbf{(b)} If $n\in S$ and $S\cap\operatorname*{Epk}\pi\subseteq\left\{
+\min S\right\}  $, then the map $\pi\mid_{S}$ is strictly decreasing.
+
+\textbf{(c)} If $S\cap\operatorname*{Epk}\pi\subseteq\left\{  \min S,\max
+S\right\}  $, then the map $\pi\mid_{S}$ is V-shaped.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.Epk.V-sh}.]Set $\pi_{0}=0$ and $\pi_{n+1}=0$. Thus,
+$\pi_{i}\in\mathbb{N}$ is well-defined for each $i\in\left\{  0,1,\ldots
+,n+1\right\}  $. The exterior peaks of $\pi$ are the elements $i\in\left[
+n\right]  $ satisfying $\pi_{i-1}<\pi_{i}>\pi_{i+1}$ (by the definition of an
+\textquotedblleft exterior peak\textquotedblright).
+
+Note that $\pi$ is an $n$-permutation; thus, the entries of the word $\pi$ are
+distinct. (But of course, $\pi_{0}$ and $\pi_{n+1}$ don't count as entries of
+$\pi$.)
+
+We now claim the following:
+
+\begin{statement}
+\textit{Observation 1:} Let $i$ and $j$ be two elements of $\left[  n\right]
+$ satisfying $i\leq j+1$ and $\pi_{i-1}\leq\pi_{i}$ and $\pi_{j}\geq\pi_{j+1}%
+$. Then,%
+\[
+\left\{  i,i+1,\ldots,j\right\}  \cap\operatorname*{Epk}\pi\neq\varnothing.
+\]
+
+\end{statement}
+
+[\textit{Proof of Observation 1:} We have $\pi_{i-1}\neq\pi_{i}$%
+\ \ \ \ \footnote{\textit{Proof.} Assume the contrary. Thus, $\pi_{i-1}%
+=\pi_{i}$. If we have $i=1$, then $\pi_{i-1}=\pi_{1-1}=\pi_{0}=0\notin%
+\mathbb{P}$, which contradicts $\pi_{i-1}=\pi_{i}\in\mathbb{P}$ (since
+$i\in\left[  n\right]  $). Thus, we cannot have $i=1$. Hence, we have $i\neq1$
+and therefore $i>1$ (since $i\in\left[  n\right]  $). Thus, $i-1\in\left[
+n\right]  $. Hence, both $i-1$ and $i$ are elements of $\left[  n\right]  $.
+\par
+Now, $\pi_{i-1}$ and $\pi_{i}$ are two distinct entries of the word $\pi$
+(since $i-1$ and $i$ are two distinct elements of $\left[  n\right]  $). Thus,
+$\pi_{i-1}\neq\pi_{i}$ (since the entries of $\pi$ are distinct). This
+contradicts $\pi_{i-1}=\pi_{i}$. This contradiction shows that our assumption
+was false. Qed.}.
+
+Combining $\pi_{i-1}\leq\pi_{i}$ with $\pi_{i-1}\neq\pi_{i}$, we obtain
+$\pi_{i-1}<\pi_{i}$. If we had $i=j+1$, then we would have $j=i-1$ and thus
+$\pi_{j}=\pi_{i-1}<\pi_{i}=\pi_{j+1}$ (since $i=j+1$); but this would
+contradict $\pi_{j}\geq\pi_{j+1}$. Hence, we cannot have $i=j+1$. Thus, $i\neq
+j+1$. Combining this with $i\leq j+1$, we obtain $i<j+1$. Thus, $i\leq j$
+(since $i$ and $j$ are integers).
+
+Now, $i\in\left\{  i,i+1,\ldots,j\right\}  $ (since $i\leq j$) and $\pi
+_{i-1}<\pi_{i}$. Hence, $i$ is an element $k\in\left\{  i,i+1,\ldots
+,j\right\}  $ satisfying $\pi_{k-1}<\pi_{k}$. Hence, there exists at least one
+element $k\in\left\{  i,i+1,\ldots,j\right\}  $ satisfying $\pi_{k-1}<\pi_{k}$
+(namely, $i$). Let $p$ be the \textbf{largest} such element. Thus, $p$ itself
+is an element of $\left\{  i,i+1,\ldots,j\right\}  $ and satisfies $\pi
+_{p-1}<\pi_{p}$, and furthermore, every element $k\in\left\{  i,i+1,\ldots
+,j\right\}  $ satisfying $\pi_{k-1}<\pi_{k}$ must satisfy%
+\begin{equation}
+k\leq p. \label{pf.lem.Epk.V-sh.o1.pf.max}%
+\end{equation}
+
+
+We have $p\in\left\{  i,i+1,\ldots,j\right\}  \subseteq\left[  n\right]  $
+(since $i$ and $j$ are elements of $\left[  n\right]  $), so that $\pi_{p}%
+\in\mathbb{P}$. Thus, $\pi_{p}>0$.
+
+Next, we claim that $\pi_{p}>\pi_{p+1}$. Indeed, assume the contrary. Hence,
+$\pi_{p}\leq\pi_{p+1}$. But recall that $\pi_{p}>0$. Hence, $p\neq
+n$\ \ \ \ \footnote{\textit{Proof.} Assume the contrary. Thus, $p=n$, so that
+$\pi_{p+1}=\pi_{n+1}=0$. Hence, $\pi_{p}\leq\pi_{p+1}=0$. But this contradicts
+$\pi_{p}>0$. This contradiction shows that our assumption was false. Qed.}.
+Combining $p\in\left[  n\right]  $ with $p\neq n$, we obtain $p\in\left[
+n\right]  \setminus\left\{  n\right\}  \subseteq\left[  n-1\right]  $;
+therefore, $p+1\in\left[  n\right]  $. Now we know that $p$ and $p+1$ both are
+elements of $\left[  n\right]  $. Hence, $\pi_{p}$ and $\pi_{p+1}$ are two
+distinct entries of the word $\pi$ (since $p\neq p+1$). Hence, $\pi_{p}\neq
+\pi_{p+1}$ (since the entries of the word $\pi$ are distinct). Combining this
+with $\pi_{p}\leq\pi_{p+1}$, we obtain $\pi_{p}<\pi_{p+1}$. If we had $p=j$,
+then we would have $\pi_{p}=\pi_{j}\geq\pi_{j+1}=\pi_{p+1}$ (since $j=p$),
+which would contradict $\pi_{p}<\pi_{p+1}$. Thus, we cannot have $p=j$. In
+other words, we have $p\neq j$. Combining $p\in\left\{  i,i+1,\ldots
+,j\right\}  $ with $p\neq j$, we obtain $p\in\left\{  i,i+1,\ldots,j\right\}
+\setminus\left\{  j\right\}  =\left\{  i,i+1,\ldots,j-1\right\}  $, so that
+\[
+p+1\in\left\{  i+1,i+2,\ldots,j\right\}  \subseteq\left\{  i,i+1,\ldots
+,j\right\}  .
+\]
+Hence, $p+1$ is an element $k\in\left\{  i,i+1,\ldots,j\right\}  $ satisfying
+$\pi_{k-1}<\pi_{k}$ (since $\pi_{\left(  p+1\right)  -1}=\pi_{p}<\pi_{p+1}$).
+Therefore, (\ref{pf.lem.Epk.V-sh.o1.pf.max}) (applied to $k=p+1$) yields
+$p+1\leq p$. But this contradicts $p<p+1$. This contradiction shows that our
+assumption was false. Hence, $\pi_{p}>\pi_{p+1}$ is proven.
+
+Now, we know that $p\in\left[  n\right]  $ and $\pi_{p-1}<\pi_{p}>\pi_{p+1}$.
+In other words, $p$ is an exterior peak of $\pi$ (by the definition of an
+exterior peak). In other words, $p\in\operatorname*{Epk}\pi$. Combining this
+with $p\in\left\{  i,i+1,\ldots,j\right\}  $, we obtain $p\in\left\{
+i,i+1,\ldots,j\right\}  \cap\operatorname*{Epk}\pi$. Hence, the set $\left\{
+i,i+1,\ldots,j\right\}  \cap\operatorname*{Epk}\pi$ has at least one element
+(namely, $p$). Therefore, this set is nonempty. In other words, $\left\{
+i,i+1,\ldots,j\right\}  \cap\operatorname*{Epk}\pi\neq\varnothing$. This
+proves Observation 1.]
+
+\textbf{(c)} Assume that $S\cap\operatorname*{Epk}\pi\subseteq\left\{  \min
+S,\max S\right\}  $. We must prove that the map $\pi\mid_{S}$ is V-shaped.
+
+Write the interval $S$ in the form $S=\left\{  a,a+1,\ldots,b\right\}  $ for
+some elements $a$ and $b$ of $\left[  n\right]  $. Thus, $a\leq b$ (since the
+interval $S$ is nonempty) and $\min S=a$ and $\max S=b$. Thus, $S\cap
+\operatorname*{Epk}\pi\subseteq\left\{  \underbrace{\min S}_{=a}%
+,\underbrace{\max S}_{=b}\right\}  =\left\{  a,b\right\}  $.
+
+The set $S$ is nonempty. Hence, there exists some $p\in S$ that minimizes
+$\pi_{p}$. Consider this $p$. Thus,%
+\begin{equation}
+\pi_{p}\leq\pi_{s}\ \ \ \ \ \ \ \ \ \ \text{for each }s\in S.
+\label{pf.lem.Epk.V-sh.c.min}%
+\end{equation}
+Note that $p\in S=\left\{  a,a+1,\ldots,b\right\}  $, so that $a\leq p\leq b$.
+Also, $p\in S\subseteq\left[  n\right]  $.
+
+From $S=\left\{  a,a+1,\ldots,b\right\}  $, we obtain%
+\[
+\left\{  s\in S\ \mid\ s\leq p\right\}  =\left\{  s\in\left\{  a,a+1,\ldots
+,b\right\}  \ \mid\ s\leq p\right\}  =\left\{  a,a+1,\ldots,p\right\}
+\]
+(since $p\leq b$). Also, from $S=\left\{  a,a+1,\ldots,b\right\}  $, we obtain%
+\[
+\left\{  s\in S\ \mid\ s\geq p\right\}  =\left\{  s\in\left\{  a,a+1,\ldots
+,b\right\}  \ \mid\ s\geq p\right\}  =\left\{  p,p+1,\ldots,b\right\}  .
+\]
+
+
+Now, we claim that the map $\pi\mid_{\left\{  s\in S\ \mid\ s\leq p\right\}
+}$ is strictly decreasing.
+
+[\textit{Proof:} Let $i\in\left\{  a+1,a+2,\ldots,p\right\}  $. Thus,
+\begin{align*}
+i-1  &  \in\left\{  a,a+1,\ldots,p-1\right\}  \subseteq\left\{  a,a+1,\ldots
+,b\right\}  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }p-1<p\leq b\right) \\
+&  =S\subseteq\left[  n\right]  .
+\end{align*}
+Hence, $\pi_{i-1}$ is well-defined. Also, $i\in\left\{  a+1,a+2,\ldots
+,p\right\}  \subseteq\left\{  a,a+1,\ldots,b\right\}  $ (since $a+1>a\geq a$
+and $p\leq b$), so that $i\in\left\{  a,a+1,\ldots,b\right\}  =S\subseteq
+\left[  n\right]  $. Thus, $\pi_{i}$ is well-defined. Also, from $i\in\left\{
+a,a+1,\ldots,b\right\}  $, we obtain $i\geq a$.
+
+Now, assume (for the sake of contradiction) that $\pi_{i-1}\leq\pi_{i}$. But
+$i\in\left\{  a+1,a+2,\ldots,p\right\}  $ yields $a+1\leq i\leq p$; hence,
+$a\leq p-1\leq b$ (since $p-1<p\leq b$). Thus, $p-1\in\left\{  a,a+1,\ldots
+,b\right\}  =S$. Hence, (\ref{pf.lem.Epk.V-sh.c.min}) (applied to $s=p-1$)
+yields $\pi_{p}\leq\pi_{p-1}$. Thus, $\pi_{p-1}\geq\pi_{p}=\pi_{\left(
+p-1\right)  +1}$.
+
+Also, $i\in\left[  n\right]  $ and $p-1\in S\subseteq\left[  n\right]  $ and
+$i\leq p=\left(  p-1\right)  +1$. Hence, Observation 1 (applied to $j=p-1$)
+yields $\left\{  i,i+1,\ldots,p-1\right\}  \cap\operatorname*{Epk}\pi
+\neq\varnothing$. In other words, the set $\left\{  i,i+1,\ldots,p-1\right\}
+\cap\operatorname*{Epk}\pi$ has at least one element. Consider such an
+element, and denote it by $z$. Thus,%
+\[
+z\in\left\{  i,i+1,\ldots,p-1\right\}  \cap\operatorname*{Epk}\pi.
+\]
+
+
+Now,%
+\begin{align*}
+z  &  \in\underbrace{\left\{  i,i+1,\ldots,p-1\right\}  }_{\substack{\subseteq
+\left\{  a,a+1,\ldots,b\right\}  \\\text{(since }i\geq a\text{ and }p-1\leq
+b\text{)}}}\cap\operatorname*{Epk}\pi=\underbrace{\left\{  a,a+1,\ldots
+,b\right\}  }_{=S}\cap\operatorname*{Epk}\pi\\
+&  =S\cap\operatorname*{Epk}\pi=\left\{  a,b\right\}  .
+\end{align*}
+But $z\in\left\{  i,i+1,\ldots,p-1\right\}  \cap\operatorname*{Epk}%
+\pi\subseteq\left\{  i,i+1,\ldots,p-1\right\}  $, so that $z\leq p-1<p\leq b$.
+Hence, $z\neq b$. Combining $z\in\left\{  a,b\right\}  $ with $z\neq b$, we
+obtain $z\in\left\{  a,b\right\}  \setminus\left\{  b\right\}  \subseteq
+\left\{  a\right\}  $. In other words, $z=a$. But from $z\in\left\{
+i,i+1,\ldots,p-1\right\}  $, we also obtain $z\geq i\geq a+1$ (since
+$i\in\left\{  a+1,a+2,\ldots,p\right\}  $). Hence, $z\geq a+1>a$; this
+contradicts $z=a$.
+
+This contradiction shows that our assumption (that $\pi_{i-1}\leq\pi_{i}$) was
+wrong. Hence, we don't have $\pi_{i-1}\leq\pi_{i}$. In other words, we have
+$\pi_{i-1}>\pi_{i}$.
+
+Now, forget that we fixed $i$. We thus have shown that $\pi_{i-1}>\pi_{i}$ for
+each $i\in\left\{  a+1,a+2,\ldots,p\right\}  $. In other words, $\pi_{a}%
+>\pi_{a+1}>\pi_{a+2}>\cdots>\pi_{p}$. In other words, the map $\pi
+\mid_{\left\{  a,a+1,\ldots,p\right\}  }$ is strictly decreasing. In other
+words, the map $\pi\mid_{\left\{  s\in S\ \mid\ s\leq p\right\}  }$ is
+strictly decreasing (since $\left\{  s\in S\ \mid\ s\leq p\right\}  =\left\{
+a,a+1,\ldots,p\right\}  $).]
+
+Next, we claim that the map $\pi\mid_{\left\{  s\in S\ \mid\ s\geq p\right\}
+}$ is strictly increasing.
+
+[\textit{Proof:} Let $j\in\left\{  p,p+1,\ldots,b-1\right\}  $. Thus,%
+\begin{align*}
+j+1  &  \in\left\{  p+1,p+2,\ldots,b\right\}  \subseteq\left\{  a,a+1,\ldots
+,b\right\}  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }p+1>p\geq a\right) \\
+&  =S\subseteq\left[  n\right]  .
+\end{align*}
+Hence, $\pi_{j+1}$ is well-defined. Also, $j\in\left\{  p,p+1,\ldots
+,b-1\right\}  \subseteq\left\{  a,a+1,\ldots,b\right\}  $ (since $p\geq a$ and
+$b-1<b$), so that $j\in\left\{  a,a+1,\ldots,b\right\}  =S\subseteq\left[
+n\right]  $. Thus, $\pi_{j}$ is well-defined. Also, from $j\in\left\{
+a,a+1,\ldots,b\right\}  $, we obtain $j\geq a$ and $j\leq b$.
+
+Now, assume (for the sake of contradiction) that $\pi_{j}\geq\pi_{j+1}$. But
+$j\in\left\{  p,p+1,\ldots,b-1\right\}  $ yields $p\leq j\leq b-1$; hence,
+$p+1\leq b$. Combined with $a\leq p<p+1$, this yields $a\leq p+1\leq b$. Thus,
+$p+1\in\left\{  a,a+1,\ldots,b\right\}  =S$. Hence,
+(\ref{pf.lem.Epk.V-sh.c.min}) (applied to $s=p+1$) yields $\pi_{p}\leq
+\pi_{p+1}$. In other words, $\pi_{\left(  p+1\right)  -1}\leq\pi_{p+1}$ (since
+$p=\left(  p+1\right)  -1$).
+
+Also, $p+1\in S\subseteq\left[  n\right]  $ and $j\in\left[  n\right]  $ and
+$p+1\leq j+1$ (since $p\leq j$). Hence, Observation 1 (applied to $i=p+1$)
+yields $\left\{  p+1,p+2,\ldots,j\right\}  \cap\operatorname*{Epk}\pi
+\neq\varnothing$. In other words, the set $\left\{  p+1,p+2,\ldots,j\right\}
+\cap\operatorname*{Epk}\pi$ has at least one element. Consider such an
+element, and denote it by $z$. Thus,%
+\[
+z\in\left\{  p+1,p+2,\ldots,j\right\}  \cap\operatorname*{Epk}\pi.
+\]
+
+
+Now,%
+\begin{align*}
+z  &  \in\underbrace{\left\{  p+1,p+2,\ldots,j\right\}  }_{\substack{\subseteq
+\left\{  a,a+1,\ldots,b\right\}  \\\text{(since }p+1\geq a\text{ and }j\leq
+b\text{)}}}\cap\operatorname*{Epk}\pi=\underbrace{\left\{  a,a+1,\ldots
+,b\right\}  }_{=S}\cap\operatorname*{Epk}\pi\\
+&  =S\cap\operatorname*{Epk}\pi=\left\{  a,b\right\}  .
+\end{align*}
+But $z\in\left\{  p+1,p+2,\ldots,j\right\}  \cap\operatorname*{Epk}%
+\pi\subseteq\left\{  p+1,p+2,\ldots,j\right\}  $, so that $z\geq p+1>p\geq a$.
+Hence, $z\neq a$. Combining $z\in\left\{  a,b\right\}  $ with $z\neq a$, we
+obtain $z\in\left\{  a,b\right\}  \setminus\left\{  a\right\}  \subseteq
+\left\{  b\right\}  $. In other words, $z=b$. But from $z\in\left\{
+p+1,p+2,\ldots,j\right\}  $, we also obtain $z\leq j\leq b-1$ (since
+$j\in\left\{  p,p+1,\ldots,b-1\right\}  $). Hence, $z\leq b-1<b$; this
+contradicts $z=b$.
+
+This contradiction shows that our assumption (that $\pi_{j}\geq\pi_{j+1}$) was
+wrong. Hence, we don't have $\pi_{j}\geq\pi_{j+1}$. In other words, we have
+$\pi_{j}<\pi_{j+1}$.
+
+Now, forget that we fixed $j$. We thus have shown that $\pi_{j}<\pi_{j+1}$ for
+each $j\in\left\{  p,p+1,\ldots,b-1\right\}  $. In other words, $\pi_{p}%
+<\pi_{p+1}<\pi_{p+2}<\cdots<\pi_{b}$. In other words, the map $\pi
+\mid_{\left\{  p,p+1,\ldots,b\right\}  }$ is strictly increasing. In other
+words, the map $\pi\mid_{\left\{  s\in S\ \mid\ s\geq p\right\}  }$ is
+strictly increasing (since $\left\{  s\in S\ \mid\ s\geq p\right\}  =\left\{
+p,p+1,\ldots,b\right\}  $).]
+
+Thus, we now know that the map $\pi\mid_{\left\{  s\in S\ \mid\ s\leq
+p\right\}  }$ is strictly decreasing while the map $\pi\mid_{\left\{  s\in
+S\ \mid\ s\geq p\right\}  }$ is strictly increasing. In view of $\pi
+\mid_{\left\{  s\in S\ \mid\ s\leq p\right\}  }=\left(  \pi\mid_{S}\right)
+\mid_{\left\{  s\in S\ \mid\ s\leq p\right\}  }$ and $\pi\mid_{\left\{  s\in
+S\ \mid\ s\geq p\right\}  }=\left(  \pi\mid_{S}\right)  \mid_{\left\{  s\in
+S\ \mid\ s\geq p\right\}  }$, this rewrites as follows: The map $\left(
+\pi\mid_{S}\right)  \mid_{\left\{  s\in S\ \mid\ s\leq p\right\}  }$ is
+strictly decreasing while the map $\left(  \pi\mid_{S}\right)  \mid_{\left\{
+s\in S\ \mid\ s\geq p\right\}  }$ is strictly increasing. Hence, there exists
+some $t\in S$ such that the map $\left(  \pi\mid_{S}\right)  \mid_{\left\{
+s\in S\ \mid\ s\leq t\right\}  }$ is strictly decreasing while the map
+$\left(  \pi\mid_{S}\right)  \mid_{\left\{  s\in S\ \mid\ s\geq t\right\}  }$
+is strictly increasing (namely, $t=p$). In other words, the map $\pi\mid_{S}$
+is V-shaped (by the definition of \textquotedblleft V-shaped\textquotedblright%
+). This proves Lemma \ref{lem.Epk.V-sh} \textbf{(c)}.
+
+\textbf{(a)} Assume that $1\in S$ and $S\cap\operatorname*{Epk}\pi
+\subseteq\left\{  \max S\right\}  $. We must prove that the map $\pi\mid_{S}$
+is strictly increasing.
+
+Write the interval $S$ in the form $S=\left\{  a,a+1,\ldots,b\right\}  $ for
+some elements $a$ and $b$ of $\left[  n\right]  $. Thus, $a\leq b$ (since the
+interval $S$ is nonempty) and $\min S=a$ and $\max S=b$. But $1\in S$ and thus
+$\min S\leq1$. Hence, $a=\min S\leq1$. Combined with $a\geq1$ (since
+$a\in\left[  n\right]  $), this yields $a=1$. Now,%
+\[
+S=\left\{  a,a+1,\ldots,b\right\}  =\left\{  1,2,\ldots,b\right\}
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }a=1\right)  .
+\]
+
+
+But $S\cap\operatorname*{Epk}\pi\subseteq\left\{  \max S\right\}  =\left\{
+b\right\}  $ (since $\max S=b$).
+
+Let $j\in\left\{  1,2,\ldots,b-1\right\}  $. Thus, $1\leq j\leq b-1$. Hence,
+$j\leq b-1<b\leq n$ (since $b\in\left[  n\right]  $), so that $j\in\left[
+n\right]  $ (since $1\leq j\leq n$).
+
+Assume (for the sake of contradiction) that $\pi_{j}\geq\pi_{j+1}$.
+
+We have $\pi_{1-1}=\pi_{0}=0\leq\pi_{1}$ (since $\pi_{1}\in\mathbb{N}$) and
+$1\in S\subseteq\left[  n\right]  $ and $j\in\left[  n\right]  $ and $1\leq
+j+1$ (since $j+1>j\geq1$) and $\pi_{j}\geq\pi_{j+1}$. Thus, Observation 1
+(applied to $i=1$) yields
+\[
+\left\{  1,2,\ldots,j\right\}  \cap\operatorname*{Epk}\pi\neq\varnothing.
+\]
+In other words, the set $\left\{  1,2,\ldots,j\right\}  \cap
+\operatorname*{Epk}\pi$ has at least one element. Consider such an element,
+and denote it by $z$. Thus,%
+\[
+z\in\left\{  1,2,\ldots,j\right\}  \cap\operatorname*{Epk}\pi.
+\]
+
+
+Now,%
+\begin{align*}
+z  &  \in\underbrace{\left\{  1,2,\ldots,j\right\}  }_{\substack{\subseteq
+\left\{  a,a+1,\ldots,b\right\}  \\\text{(since }1=a\text{ and }j\leq b-1\leq
+b\text{)}}}\cap\operatorname*{Epk}\pi=\underbrace{\left\{  a,a+1,\ldots
+,b\right\}  }_{=S}\cap\operatorname*{Epk}\pi\\
+&  =S\cap\operatorname*{Epk}\pi=\left\{  b\right\}  .
+\end{align*}
+In other words, $z=b$.
+
+But $z\in\left\{  1,2,\ldots,j\right\}  \cap\operatorname*{Epk}\pi
+\subseteq\left\{  1,2,\ldots,j\right\}  $, so that $z\leq j\leq b-1<b$. Hence,
+$z\neq b$. This contradicts $z=b$.
+
+This contradiction shows that our assumption (that $\pi_{j}\geq\pi_{j+1}$) was
+wrong. Hence, we don't have $\pi_{j}\geq\pi_{j+1}$. In other words, we have
+$\pi_{j}<\pi_{j+1}$.
+
+Now, forget that we fixed $j$. We thus have shown that $\pi_{j}<\pi_{j+1}$ for
+each $j\in\left\{  1,2,\ldots,b-1\right\}  $. In other words, $\pi_{1}<\pi
+_{2}<\cdots<\pi_{b}$. In other words, the map $\pi\mid_{\left\{
+1,2,\ldots,b\right\}  }$ is strictly increasing. In other words, the map
+$\pi\mid_{S}$ is strictly increasing (since $S=\left\{  1,2,\ldots,b\right\}
+$). This proves Lemma \ref{lem.Epk.V-sh} \textbf{(a)}.
+
+\textbf{(b)} Assume that $n\in S$ and $S\cap\operatorname*{Epk}\pi
+\subseteq\left\{  \min S\right\}  $. We must prove that the map $\pi\mid_{S}$
+is strictly decreasing.
+
+Write the interval $S$ in the form $S=\left\{  a,a+1,\ldots,b\right\}  $ for
+some elements $a$ and $b$ of $\left[  n\right]  $. Thus, $a\leq b$ (since the
+interval $S$ is nonempty) and $\min S=a$ and $\max S=b$. But $n\in S$ and thus
+$\max S\geq n$. Hence, $b=\max S\geq n$. Combined with $b\leq n$ (since
+$b\in\left[  n\right]  $), this yields $b=n$. Now,%
+\[
+S=\left\{  a,a+1,\ldots,b\right\}  =\left\{  a,a+1,\ldots,n\right\}
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }b=n\right)  .
+\]
+
+
+But $S\cap\operatorname*{Epk}\pi\subseteq\left\{  \min S\right\}  =\left\{
+a\right\}  $ (since $\min S=a$).
+
+Let $i\in\left\{  a+1,a+2,\ldots,n\right\}  $. Thus, $a+1\leq i\leq n$. Hence,
+$i\geq a+1>a\geq1$ (since $a\in\left[  n\right]  $), so that $i\in\left[
+n\right]  $ (since $1\leq i\leq n$).
+
+Assume (for the sake of contradiction) that $\pi_{i-1}\leq\pi_{i}$.
+
+We have $\pi_{n+1}=0\leq\pi_{n}$ (since $\pi_{n}\in\mathbb{N}$) and thus
+$\pi_{n}\geq\pi_{n+1}$. Also, $n\in S\subseteq\left[  n\right]  $ and
+$i\in\left[  n\right]  $ and $i\leq n+1$ (since $i\in\left[  n\right]
+\subseteq\left[  n+1\right]  $) and $\pi_{i-1}\leq\pi_{i}$. Thus, Observation
+1 (applied to $j=n$) yields
+\[
+\left\{  i,i+1,\ldots,n\right\}  \cap\operatorname*{Epk}\pi\neq\varnothing.
+\]
+In other words, the set $\left\{  i,i+1,\ldots,n\right\}  \cap
+\operatorname*{Epk}\pi$ has at least one element. Consider such an element,
+and denote it by $z$. Thus,%
+\[
+z\in\left\{  i,i+1,\ldots,n\right\}  \cap\operatorname*{Epk}\pi.
+\]
+
+
+Now,%
+\begin{align*}
+z  &  \in\underbrace{\left\{  i,i+1,\ldots,n\right\}  }_{\substack{\subseteq
+\left\{  a,a+1,\ldots,b\right\}  \\\text{(since }i\geq a\text{ and
+}n=b\text{)}}}\cap\operatorname*{Epk}\pi=\underbrace{\left\{  a,a+1,\ldots
+,b\right\}  }_{=S}\cap\operatorname*{Epk}\pi\\
+&  =S\cap\operatorname*{Epk}\pi=\left\{  a\right\}  .
+\end{align*}
+In other words, $z=a$.
+
+But $z\in\left\{  i,i+1,\ldots,n\right\}  \cap\operatorname*{Epk}\pi
+\subseteq\left\{  i,i+1,\ldots,n\right\}  $, so that $z\geq i\geq a+1>a$.
+Hence, $z\neq a$. This contradicts $z=a$.
+
+This contradiction shows that our assumption (that $\pi_{i-1}\leq\pi_{i}$) was
+wrong. Hence, we don't have $\pi_{i-1}\leq\pi_{i}$. In other words, we have
+$\pi_{i-1}>\pi_{i}$.
+
+Now, forget that we fixed $i$. We thus have shown that $\pi_{i-1}>\pi_{i}$ for
+each $i\in\left\{  a+1,a+2,\ldots,n\right\}  $. In other words, $\pi_{a}%
+>\pi_{a+1}>\pi_{a+2}>\cdots>\pi_{n}$. In other words, the map $\pi
+\mid_{\left\{  a,a+1,\ldots,n\right\}  }$ is strictly decreasing. In other
+words, the map $\pi\mid_{S}$ is strictly decreasing (since $S=\left\{
+a,a+1,\ldots,n\right\}  $). This proves Lemma \ref{lem.Epk.V-sh} \textbf{(b)}.
+\end{proof}
+
+\begin{lemma}
+\label{lem.fiberends.cut}Let $n\in\mathbb{N}$. Let $g:\left[  n\right]
+\rightarrow\mathcal{N}$ be any weakly increasing map. Let $u\in g\left(
+\left[  n\right]  \right)  $.
+
+\textbf{(a)} If $u=0$, then
+\[
+\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)  =\left\{
+\max\left(  g^{-1}\left(  u\right)  \right)  \right\}  .
+\]
+
+
+\textbf{(b)} If $u\in\left\{  1,2,3,\ldots\right\}  $, then%
+\[
+\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)  =\left\{
+\min\left(  g^{-1}\left(  u\right)  \right)  ,\max\left(  g^{-1}\left(
+u\right)  \right)  \right\}  .
+\]
+
+
+\textbf{(c)} If $u=\infty$, then
+\[
+\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)  =\left\{
+\min\left(  g^{-1}\left(  u\right)  \right)  \right\}  .
+\]
+
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.fiberends.cut}.]From $u\in g\left(  \left[  n\right]
+\right)  $, we conclude that there exists some $j\in\left[  n\right]  $ such
+that $u=g\left(  j\right)  $. In other words, the fiber $g^{-1}\left(
+u\right)  $ is nonempty. In other words, $g^{-1}\left(  u\right)
+\neq\varnothing$.
+
+Recall that%
+\begin{align}
+\operatorname*{FE}\left(  g\right)   &  =\left\{  \min\left(  g^{-1}\left(
+h\right)  \right)  \ \mid\ h\in\left\{  1,2,3,\ldots,\infty\right\}  \text{
+with }g^{-1}\left(  h\right)  \neq\varnothing\right\} \nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \cup\left\{  \max\left(  g^{-1}\left(  h\right)
+\right)  \ \mid\ h\in\left\{  0,1,2,3,\ldots\right\}  \text{ with }%
+g^{-1}\left(  h\right)  \neq\varnothing\right\}
+\label{pf.lem.fiberends.cut.FEg=}%
+\end{align}
+(by the definition of $\operatorname*{FE}\left(  g\right)  $).
+
+If $u\in\left\{  0,1,2,3,\ldots\right\}  $, then%
+\begin{align}
+\max\left(  g^{-1}\left(  u\right)  \right)   &  \in\left\{  \max\left(
+g^{-1}\left(  h\right)  \right)  \ \mid\ h\in\left\{  0,1,2,3,\ldots\right\}
+\text{ with }g^{-1}\left(  h\right)  \neq\varnothing\right\} \nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since }u\text{ is an }h\in\left\{  0,1,2,3,\ldots\right\}  \text{
+satisfying }g^{-1}\left(  h\right)  \neq\varnothing\\
+\text{(since }u\in\left\{  0,1,2,3,\ldots\right\}  \text{ and }g^{-1}\left(
+u\right)  \neq\varnothing\text{)}%
+\end{array}
+\right) \nonumber\\
+&  \subseteq\left\{  \min\left(  g^{-1}\left(  h\right)  \right)  \ \mid
+\ h\in\left\{  1,2,3,\ldots,\infty\right\}  \text{ with }g^{-1}\left(
+h\right)  \neq\varnothing\right\} \nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \cup\left\{  \max\left(  g^{-1}\left(  h\right)
+\right)  \ \mid\ h\in\left\{  0,1,2,3,\ldots\right\}  \text{ with }%
+g^{-1}\left(  h\right)  \neq\varnothing\right\} \nonumber\\
+&  =\operatorname*{FE}\left(  g\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.lem.fiberends.cut.FEg=})}\right)  .
+\label{pf.lem.fiberends.cut.maxin}%
+\end{align}
+
+
+If $u\in\left\{  1,2,3,\ldots,\infty\right\}  $, then%
+\begin{align}
+\min\left(  g^{-1}\left(  u\right)  \right)   &  \in\left\{  \min\left(
+g^{-1}\left(  h\right)  \right)  \ \mid\ h\in\left\{  1,2,3,\ldots
+,\infty\right\}  \text{ with }g^{-1}\left(  h\right)  \neq\varnothing\right\}
+\nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since }u\text{ is an }h\in\left\{  1,2,3,\ldots,\infty\right\}  \text{
+satisfying }g^{-1}\left(  h\right)  \neq\varnothing\\
+\text{(since }u\in\left\{  1,2,3,\ldots,\infty\right\}  \text{ and }%
+g^{-1}\left(  u\right)  \neq\varnothing\text{)}%
+\end{array}
+\right) \nonumber\\
+&  \subseteq\left\{  \min\left(  g^{-1}\left(  h\right)  \right)  \ \mid
+\ h\in\left\{  1,2,3,\ldots,\infty\right\}  \text{ with }g^{-1}\left(
+h\right)  \neq\varnothing\right\} \nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \cup\left\{  \max\left(  g^{-1}\left(  h\right)
+\right)  \ \mid\ h\in\left\{  0,1,2,3,\ldots\right\}  \text{ with }%
+g^{-1}\left(  h\right)  \neq\varnothing\right\} \nonumber\\
+&  =\operatorname*{FE}\left(  g\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.lem.fiberends.cut.FEg=})}\right)  .
+\label{pf.lem.fiberends.cut.minin}%
+\end{align}
+
+
+\textbf{(a)} Assume that $u=0$. We must prove that $\operatorname*{FE}\left(
+g\right)  \cap g^{-1}\left(  u\right)  =\left\{  \max\left(  g^{-1}\left(
+u\right)  \right)  \right\}  $.
+
+We have $u=0\in\left\{  0,1,2,3,\ldots\right\}  $. Thus,
+(\ref{pf.lem.fiberends.cut.maxin}) shows that $\max\left(  g^{-1}\left(
+u\right)  \right)  \in\operatorname*{FE}\left(  g\right)  $. Combining this
+with $\max\left(  g^{-1}\left(  u\right)  \right)  \in g^{-1}\left(  u\right)
+$ (which is obvious), we obtain $\max\left(  g^{-1}\left(  u\right)  \right)
+\in\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)  $. In
+other words,%
+\begin{equation}
+\left\{  \max\left(  g^{-1}\left(  u\right)  \right)  \right\}  \subseteq
+\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)  .
+\label{pf.lem.fiberends.cut.a.1}%
+\end{equation}
+
+
+On the other hand, let $j\in\operatorname*{FE}\left(  g\right)  \cap
+g^{-1}\left(  u\right)  $ be arbitrary. We shall show that $j\in\left\{
+\max\left(  g^{-1}\left(  u\right)  \right)  \right\}  $.
+
+Indeed, we have $j\in\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(
+u\right)  \subseteq g^{-1}\left(  u\right)  $, so that $g\left(  j\right)
+=u$. On the other hand,%
+\begin{align*}
+j  &  \in\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)
+\subseteq\operatorname*{FE}\left(  g\right) \\
+&  =\left\{  \min\left(  g^{-1}\left(  h\right)  \right)  \ \mid\ h\in\left\{
+1,2,3,\ldots,\infty\right\}  \text{ with }g^{-1}\left(  h\right)
+\neq\varnothing\right\} \\
+&  \ \ \ \ \ \ \ \ \ \ \cup\left\{  \max\left(  g^{-1}\left(  h\right)
+\right)  \ \mid\ h\in\left\{  0,1,2,3,\ldots\right\}  \text{ with }%
+g^{-1}\left(  h\right)  \neq\varnothing\right\} \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.lem.fiberends.cut.FEg=}%
+)}\right)  .
+\end{align*}
+In other words, either $j\in\left\{  \min\left(  g^{-1}\left(  h\right)
+\right)  \ \mid\ h\in\left\{  1,2,3,\ldots,\infty\right\}  \text{ with }%
+g^{-1}\left(  h\right)  \neq\varnothing\right\}  $ or $j\in\left\{
+\max\left(  g^{-1}\left(  h\right)  \right)  \ \mid\ h\in\left\{
+0,1,2,3,\ldots\right\}  \text{ with }g^{-1}\left(  h\right)  \neq
+\varnothing\right\}  $. Hence, we are in one of the following two cases:
+
+\textit{Case 1:} We have $j\in\left\{  \min\left(  g^{-1}\left(  h\right)
+\right)  \ \mid\ h\in\left\{  1,2,3,\ldots,\infty\right\}  \text{ with }%
+g^{-1}\left(  h\right)  \neq\varnothing\right\}  $.
+
+\textit{Case 2:} We have $j\in\left\{  \max\left(  g^{-1}\left(  h\right)
+\right)  \ \mid\ h\in\left\{  0,1,2,3,\ldots\right\}  \text{ with }%
+g^{-1}\left(  h\right)  \neq\varnothing\right\}  $.
+
+Let us first consider Case 1. In this case, we have \newline$j\in\left\{
+\min\left(  g^{-1}\left(  h\right)  \right)  \ \mid\ h\in\left\{
+1,2,3,\ldots,\infty\right\}  \text{ with }g^{-1}\left(  h\right)
+\neq\varnothing\right\}  $. In other words, $j=\min\left(  g^{-1}\left(
+h\right)  \right)  $ for some $h\in\left\{  1,2,3,\ldots,\infty\right\}  $
+satisfying $g^{-1}\left(  h\right)  \neq\varnothing$. Consider this $h$. We
+have $j=\min\left(  g^{-1}\left(  h\right)  \right)  \in g^{-1}\left(
+h\right)  $, so that $g\left(  j\right)  =h$. Hence, $h=g\left(  j\right)
+=u$. Hence, $u=h\in\left\{  1,2,3,\ldots,\infty\right\}  $. This contradicts
+$u=0\notin\left\{  1,2,3,\ldots,\infty\right\}  $. Thus, $j\in\left\{
+\max\left(  g^{-1}\left(  u\right)  \right)  \right\}  $ (because anything
+follows from a contradiction). Hence, we have proven $j\in\left\{  \max\left(
+g^{-1}\left(  u\right)  \right)  \right\}  $ in Case 1.
+
+Let us now consider Case 2. In this case, we have \newline$j\in\left\{
+\max\left(  g^{-1}\left(  h\right)  \right)  \ \mid\ h\in\left\{
+0,1,2,3,\ldots\right\}  \text{ with }g^{-1}\left(  h\right)  \neq
+\varnothing\right\}  $. In other words, $j=\max\left(  g^{-1}\left(  h\right)
+\right)  $ for some $h\in\left\{  0,1,2,3,\ldots\right\}  $ satisfying
+$g^{-1}\left(  h\right)  \neq\varnothing$. Consider this $h$. We have
+$j=\max\left(  g^{-1}\left(  h\right)  \right)  \in g^{-1}\left(  h\right)  $,
+so that $g\left(  j\right)  =h$. Hence, $h=g\left(  j\right)  =u$. Hence,
+$j=\max\left(  g^{-1}\left(  \underbrace{h}_{=u}\right)  \right)  =\max\left(
+g^{-1}\left(  u\right)  \right)  \in\left\{  \max\left(  g^{-1}\left(
+u\right)  \right)  \right\}  $. Hence, we have proven $j\in\left\{
+\max\left(  g^{-1}\left(  u\right)  \right)  \right\}  $ in Case 2.
+
+We have now proven $j\in\left\{  \max\left(  g^{-1}\left(  u\right)  \right)
+\right\}  $ in each of the two Cases 1 and 2. Thus, $j\in\left\{  \max\left(
+g^{-1}\left(  u\right)  \right)  \right\}  $ always holds.
+
+Now, forget that we fixed $j$. We thus have proven that $j\in\left\{
+\max\left(  g^{-1}\left(  u\right)  \right)  \right\}  $ for each
+$j\in\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)  $. In
+other words,%
+\[
+\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)
+\subseteq\left\{  \max\left(  g^{-1}\left(  u\right)  \right)  \right\}  .
+\]
+Combining this with (\ref{pf.lem.fiberends.cut.a.1}), we obtain
+$\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)  =\left\{
+\max\left(  g^{-1}\left(  u\right)  \right)  \right\}  $. This proves Lemma
+\ref{lem.fiberends.cut} \textbf{(a)}.
+
+\textbf{(b)} Assume that $u\in\left\{  1,2,3,\ldots\right\}  $. We must prove
+that $\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)
+=\left\{  \min\left(  g^{-1}\left(  u\right)  \right)  ,\max\left(
+g^{-1}\left(  u\right)  \right)  \right\}  $.
+
+We have $u\in\left\{  1,2,3,\ldots\right\}  \subseteq\left\{  0,1,2,3,\ldots
+\right\}  $. Thus, (\ref{pf.lem.fiberends.cut.maxin}) shows that $\max\left(
+g^{-1}\left(  u\right)  \right)  \in\operatorname*{FE}\left(  g\right)  $.
+Combining this with $\max\left(  g^{-1}\left(  u\right)  \right)  \in
+g^{-1}\left(  u\right)  $ (which is obvious), we obtain $\max\left(
+g^{-1}\left(  u\right)  \right)  \in\operatorname*{FE}\left(  g\right)  \cap
+g^{-1}\left(  u\right)  $.
+
+We have $u\in\left\{  1,2,3,\ldots\right\}  \subseteq\left\{  1,2,3,\ldots
+,\infty\right\}  $. Thus, (\ref{pf.lem.fiberends.cut.minin}) shows that
+$\min\left(  g^{-1}\left(  u\right)  \right)  \in\operatorname*{FE}\left(
+g\right)  $. Combining this with $\min\left(  g^{-1}\left(  u\right)  \right)
+\in g^{-1}\left(  u\right)  $ (which is obvious), we obtain $\min\left(
+g^{-1}\left(  u\right)  \right)  \in\operatorname*{FE}\left(  g\right)  \cap
+g^{-1}\left(  u\right)  $.
+
+Now, we have shown that both numbers $\min\left(  g^{-1}\left(  u\right)
+\right)  $ and $\max\left(  g^{-1}\left(  u\right)  \right)  $ belong to
+$\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)  $. In other
+words,%
+\begin{equation}
+\left\{  \min\left(  g^{-1}\left(  u\right)  \right)  ,\max\left(
+g^{-1}\left(  u\right)  \right)  \right\}  \subseteq\operatorname*{FE}\left(
+g\right)  \cap g^{-1}\left(  u\right)  . \label{pf.lem.fiberends.cut.b.1}%
+\end{equation}
+
+
+On the other hand, let $j\in\operatorname*{FE}\left(  g\right)  \cap
+g^{-1}\left(  u\right)  $ be arbitrary. We shall show that $j\in\left\{
+\min\left(  g^{-1}\left(  u\right)  \right)  ,\max\left(  g^{-1}\left(
+u\right)  \right)  \right\}  $.
+
+Indeed, we have $j\in\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(
+u\right)  \subseteq g^{-1}\left(  u\right)  $, so that $g\left(  j\right)
+=u$. On the other hand,%
+\begin{align*}
+j  &  \in\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)
+\subseteq\operatorname*{FE}\left(  g\right) \\
+&  =\left\{  \min\left(  g^{-1}\left(  h\right)  \right)  \ \mid\ h\in\left\{
+1,2,3,\ldots,\infty\right\}  \text{ with }g^{-1}\left(  h\right)
+\neq\varnothing\right\} \\
+&  \ \ \ \ \ \ \ \ \ \ \cup\left\{  \max\left(  g^{-1}\left(  h\right)
+\right)  \ \mid\ h\in\left\{  0,1,2,3,\ldots\right\}  \text{ with }%
+g^{-1}\left(  h\right)  \neq\varnothing\right\} \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.lem.fiberends.cut.FEg=}%
+)}\right)  .
+\end{align*}
+In other words, either $j\in\left\{  \min\left(  g^{-1}\left(  h\right)
+\right)  \ \mid\ h\in\left\{  1,2,3,\ldots,\infty\right\}  \text{ with }%
+g^{-1}\left(  h\right)  \neq\varnothing\right\}  $ or $j\in\left\{
+\max\left(  g^{-1}\left(  h\right)  \right)  \ \mid\ h\in\left\{
+0,1,2,3,\ldots\right\}  \text{ with }g^{-1}\left(  h\right)  \neq
+\varnothing\right\}  $. Hence, we are in one of the following two cases:
+
+\textit{Case 1:} We have $j\in\left\{  \min\left(  g^{-1}\left(  h\right)
+\right)  \ \mid\ h\in\left\{  1,2,3,\ldots,\infty\right\}  \text{ with }%
+g^{-1}\left(  h\right)  \neq\varnothing\right\}  $.
+
+\textit{Case 2:} We have $j\in\left\{  \max\left(  g^{-1}\left(  h\right)
+\right)  \ \mid\ h\in\left\{  0,1,2,3,\ldots\right\}  \text{ with }%
+g^{-1}\left(  h\right)  \neq\varnothing\right\}  $.
+
+Let us first consider Case 1. In this case, we have \newline$j\in\left\{
+\min\left(  g^{-1}\left(  h\right)  \right)  \ \mid\ h\in\left\{
+1,2,3,\ldots,\infty\right\}  \text{ with }g^{-1}\left(  h\right)
+\neq\varnothing\right\}  $. In other words, $j=\min\left(  g^{-1}\left(
+h\right)  \right)  $ for some $h\in\left\{  1,2,3,\ldots,\infty\right\}  $
+satisfying $g^{-1}\left(  h\right)  \neq\varnothing$. Consider this $h$. We
+have $j=\min\left(  g^{-1}\left(  h\right)  \right)  \in g^{-1}\left(
+h\right)  $, so that $g\left(  j\right)  =h$. Hence, $h=g\left(  j\right)
+=u$. Hence, $j=\min\left(  g^{-1}\left(  \underbrace{h}_{=u}\right)  \right)
+=\min\left(  g^{-1}\left(  u\right)  \right)  \in\left\{  \min\left(
+g^{-1}\left(  u\right)  \right)  ,\max\left(  g^{-1}\left(  u\right)  \right)
+\right\}  $. Hence, we have proven $j\in\left\{  \min\left(  g^{-1}\left(
+u\right)  \right)  ,\max\left(  g^{-1}\left(  u\right)  \right)  \right\}  $
+in Case 1.
+
+Let us now consider Case 2. In this case, we have \newline$j\in\left\{
+\max\left(  g^{-1}\left(  h\right)  \right)  \ \mid\ h\in\left\{
+0,1,2,3,\ldots\right\}  \text{ with }g^{-1}\left(  h\right)  \neq
+\varnothing\right\}  $. In other words, $j=\max\left(  g^{-1}\left(  h\right)
+\right)  $ for some $h\in\left\{  0,1,2,3,\ldots\right\}  $ satisfying
+$g^{-1}\left(  h\right)  \neq\varnothing$. Consider this $h$. We have
+$j=\max\left(  g^{-1}\left(  h\right)  \right)  \in g^{-1}\left(  h\right)  $,
+so that $g\left(  j\right)  =h$. Hence, $h=g\left(  j\right)  =u$. Hence,
+$j=\max\left(  g^{-1}\left(  \underbrace{h}_{=u}\right)  \right)  =\max\left(
+g^{-1}\left(  u\right)  \right)  \in\left\{  \min\left(  g^{-1}\left(
+u\right)  \right)  ,\max\left(  g^{-1}\left(  u\right)  \right)  \right\}  $.
+Hence, we have proven $j\in\left\{  \min\left(  g^{-1}\left(  u\right)
+\right)  ,\max\left(  g^{-1}\left(  u\right)  \right)  \right\}  $ in Case 2.
+
+We have now proven $j\in\left\{  \min\left(  g^{-1}\left(  u\right)  \right)
+,\max\left(  g^{-1}\left(  u\right)  \right)  \right\}  $ in each of the two
+Cases 1 and 2. Thus, $j\in\left\{  \min\left(  g^{-1}\left(  u\right)
+\right)  ,\max\left(  g^{-1}\left(  u\right)  \right)  \right\}  $ always holds.
+
+Now, forget that we fixed $j$. We thus have proven that \newline$j\in\left\{
+\min\left(  g^{-1}\left(  u\right)  \right)  ,\max\left(  g^{-1}\left(
+u\right)  \right)  \right\}  $ for each $j\in\operatorname*{FE}\left(
+g\right)  \cap g^{-1}\left(  u\right)  $. In other words,%
+\[
+\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)
+\subseteq\left\{  \min\left(  g^{-1}\left(  u\right)  \right)  ,\max\left(
+g^{-1}\left(  u\right)  \right)  \right\}  .
+\]
+Combining this with (\ref{pf.lem.fiberends.cut.b.1}), we obtain
+$\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)  =\left\{
+\min\left(  g^{-1}\left(  u\right)  \right)  ,\max\left(  g^{-1}\left(
+u\right)  \right)  \right\}  $. This proves Lemma \ref{lem.fiberends.cut}
+\textbf{(b)}.
+
+\textbf{(c)} Assume that $u=\infty$. We must prove that $\operatorname*{FE}%
+\left(  g\right)  \cap g^{-1}\left(  u\right)  =\left\{  \min\left(
+g^{-1}\left(  u\right)  \right)  \right\}  $.
+
+We have $u=\infty\in\left\{  1,2,3,\ldots,\infty\right\}  $. Thus,
+(\ref{pf.lem.fiberends.cut.minin}) shows that $\min\left(  g^{-1}\left(
+u\right)  \right)  \in\operatorname*{FE}\left(  g\right)  $. Combining this
+with $\min\left(  g^{-1}\left(  u\right)  \right)  \in g^{-1}\left(  u\right)
+$ (which is obvious), we obtain $\min\left(  g^{-1}\left(  u\right)  \right)
+\in\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)  $. In
+other words,%
+\begin{equation}
+\left\{  \min\left(  g^{-1}\left(  u\right)  \right)  \right\}  \subseteq
+\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)  .
+\label{pf.lem.fiberends.cut.c.1}%
+\end{equation}
+
+
+On the other hand, let $j\in\operatorname*{FE}\left(  g\right)  \cap
+g^{-1}\left(  u\right)  $ be arbitrary. We shall show that $j\in\left\{
+\min\left(  g^{-1}\left(  u\right)  \right)  \right\}  $.
+
+Indeed, we have $j\in\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(
+u\right)  \subseteq g^{-1}\left(  u\right)  $, so that $g\left(  j\right)
+=u$. On the other hand,%
+\begin{align*}
+j  &  \in\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)
+\subseteq\operatorname*{FE}\left(  g\right) \\
+&  =\left\{  \min\left(  g^{-1}\left(  h\right)  \right)  \ \mid\ h\in\left\{
+1,2,3,\ldots,\infty\right\}  \text{ with }g^{-1}\left(  h\right)
+\neq\varnothing\right\} \\
+&  \ \ \ \ \ \ \ \ \ \ \cup\left\{  \max\left(  g^{-1}\left(  h\right)
+\right)  \ \mid\ h\in\left\{  0,1,2,3,\ldots\right\}  \text{ with }%
+g^{-1}\left(  h\right)  \neq\varnothing\right\} \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.lem.fiberends.cut.FEg=}%
+)}\right)  .
+\end{align*}
+In other words, either $j\in\left\{  \min\left(  g^{-1}\left(  h\right)
+\right)  \ \mid\ h\in\left\{  1,2,3,\ldots,\infty\right\}  \text{ with }%
+g^{-1}\left(  h\right)  \neq\varnothing\right\}  $ or $j\in\left\{
+\max\left(  g^{-1}\left(  h\right)  \right)  \ \mid\ h\in\left\{
+0,1,2,3,\ldots\right\}  \text{ with }g^{-1}\left(  h\right)  \neq
+\varnothing\right\}  $. Hence, we are in one of the following two cases:
+
+\textit{Case 1:} We have $j\in\left\{  \min\left(  g^{-1}\left(  h\right)
+\right)  \ \mid\ h\in\left\{  1,2,3,\ldots,\infty\right\}  \text{ with }%
+g^{-1}\left(  h\right)  \neq\varnothing\right\}  $.
+
+\textit{Case 2:} We have $j\in\left\{  \max\left(  g^{-1}\left(  h\right)
+\right)  \ \mid\ h\in\left\{  0,1,2,3,\ldots\right\}  \text{ with }%
+g^{-1}\left(  h\right)  \neq\varnothing\right\}  $.
+
+Let us first consider Case 1. In this case, we have \newline$j\in\left\{
+\min\left(  g^{-1}\left(  h\right)  \right)  \ \mid\ h\in\left\{
+1,2,3,\ldots,\infty\right\}  \text{ with }g^{-1}\left(  h\right)
+\neq\varnothing\right\}  $. In other words, $j=\min\left(  g^{-1}\left(
+h\right)  \right)  $ for some $h\in\left\{  1,2,3,\ldots,\infty\right\}  $
+satisfying $g^{-1}\left(  h\right)  \neq\varnothing$. Consider this $h$. We
+have $j=\min\left(  g^{-1}\left(  h\right)  \right)  \in g^{-1}\left(
+h\right)  $, so that $g\left(  j\right)  =h$. Hence, $h=g\left(  j\right)
+=u$. Hence, $j=\min\left(  g^{-1}\left(  \underbrace{h}_{=u}\right)  \right)
+=\min\left(  g^{-1}\left(  u\right)  \right)  \in\left\{  \min\left(
+g^{-1}\left(  u\right)  \right)  \right\}  $. Hence, we have proven
+$j\in\left\{  \min\left(  g^{-1}\left(  u\right)  \right)  \right\}  $ in Case 1.
+
+Let us now consider Case 2. In this case, we have \newline$j\in\left\{
+\max\left(  g^{-1}\left(  h\right)  \right)  \ \mid\ h\in\left\{
+0,1,2,3,\ldots\right\}  \text{ with }g^{-1}\left(  h\right)  \neq
+\varnothing\right\}  $. In other words, $j=\max\left(  g^{-1}\left(  h\right)
+\right)  $ for some $h\in\left\{  0,1,2,3,\ldots\right\}  $ satisfying
+$g^{-1}\left(  h\right)  \neq\varnothing$. Consider this $h$. We have
+$j=\max\left(  g^{-1}\left(  h\right)  \right)  \in g^{-1}\left(  h\right)  $,
+so that $g\left(  j\right)  =h$. Hence, $h=g\left(  j\right)  =u$. Hence,
+$u=h\in\left\{  0,1,2,3,\ldots\right\}  $. This contradicts $u=\infty
+\notin\left\{  0,1,2,3,\ldots\right\}  $. Thus, $j\in\left\{  \min\left(
+g^{-1}\left(  u\right)  \right)  \right\}  $ (because anything follows from a
+contradiction). Hence, we have proven $j\in\left\{  \min\left(  g^{-1}\left(
+u\right)  \right)  \right\}  $ in Case 2.
+
+We have now proven $j\in\left\{  \min\left(  g^{-1}\left(  u\right)  \right)
+\right\}  $ in each of the two Cases 1 and 2. Thus, $j\in\left\{  \min\left(
+g^{-1}\left(  u\right)  \right)  \right\}  $ always holds.
+
+Now, forget that we fixed $j$. We thus have proven that $j\in\left\{
+\min\left(  g^{-1}\left(  u\right)  \right)  \right\}  $ for each
+$j\in\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)  $. In
+other words,%
+\[
+\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)
+\subseteq\left\{  \min\left(  g^{-1}\left(  u\right)  \right)  \right\}  .
+\]
+Combining this with (\ref{pf.lem.fiberends.cut.c.1}), we obtain
+$\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)  =\left\{
+\min\left(  g^{-1}\left(  u\right)  \right)  \right\}  $. This proves Lemma
+\ref{lem.fiberends.cut} \textbf{(c)}.
+\end{proof}
+\end{verlong}
+
 \begin{proposition}
 \label{prop.Epk.fiberends}Let $n\in\mathbb{N}$.
 Let $\pi$ be an $n$-permutation.
@@ -4370,6 +5310,7 @@ $\pi$-amenable if and only if $\operatorname*{Epk}\pi\subseteq
 \operatorname*{FE}\left(  g\right)  $.
 \end{proposition}
 
+\begin{vershort}
 \begin{proof}
 [Proof of Proposition \ref{prop.Epk.fiberends}.] The map $g$ is weakly
 increasing. Thus, all nonempty fibers $g^{-1}\left(  h\right)  $ of $g$ are
@@ -4417,6 +5358,334 @@ hold). In other words, $g$ is $\pi$-amenable if and only if
 $\operatorname*{Epk}\pi\subseteq\operatorname*{FE}\left(  g\right)  $. This
 proves Proposition \ref{prop.Epk.fiberends}.
 \end{proof}
+\end{vershort}
+
+\begin{verlong}
+\begin{proof}
+[Proof of Proposition \ref{prop.Epk.fiberends}.]The map $g$ is weakly
+increasing. Hence, each fiber $g^{-1}\left(  h\right)  $ of $g$ (with
+$h\in\mathcal{N}$) is an interval of the totally ordered set $\left[
+n\right]  $.
+
+We shall prove the following two statements:
+
+\begin{statement}
+\textit{Observation 1:} If the map $g$ is $\pi$-amenable, then
+$\operatorname*{Epk}\pi\subseteq\operatorname*{FE}\left(  g\right)  $.
+\end{statement}
+
+\begin{statement}
+\textit{Observation 2:} If $\operatorname*{Epk}\pi\subseteq\operatorname*{FE}%
+\left(  g\right)  $, then the map $g$ is $\pi$-amenable.
+\end{statement}
+
+[\textit{Proof of Observation 1:} Assume that the map $g$ is $\pi$-amenable.
+We must show that $\operatorname*{Epk}\pi\subseteq\operatorname*{FE}\left(
+g\right)  $.
+
+We know that the map $g$ is $\pi$-amenable. In other words, the four
+properties \textbf{(i')}, \textbf{(ii')}, \textbf{(iii')} and \textbf{(iv')}
+of Definition \ref{def.amen} hold (by the definition of \textquotedblleft$\pi
+$-amenable\textquotedblright). We shall use these four properties in the following.
+
+Let $j\in\operatorname*{Epk}\pi$. We intend to show that $j\in
+\operatorname*{FE}\left(  g\right)  $.
+
+We have $j\in\operatorname*{Epk}\pi$; in other words, $j$ is an exterior peak
+of $\pi$ (by the definition of $\operatorname*{Epk}\pi$). In other words, $j$
+is an element of $\left[  n\right]  $ and satisfies $\pi_{j-1}<\pi_{j}%
+>\pi_{j+1}$ (by the definition of an exterior peak). Define $u\in\mathcal{N}$
+by $u=g\left(  j\right)  $. Thus, $j\in g^{-1}\left(  u\right)  $ and
+$u=g\left(  \underbrace{j}_{\in\left[  n\right]  }\right)  \in g\left(
+\left[  n\right]  \right)  $.
+
+Recall that each fiber $g^{-1}\left(  h\right)  $ of $g$ (with $h\in
+\mathcal{N}$) is an interval of the totally ordered set $\left[  n\right]  $.
+Applying this to $h=u$, we conclude that $g^{-1}\left(  u\right)  $ is an
+interval of the totally ordered set $\left[  n\right]  $. This interval is
+furthermore nonempty (since $j\in g^{-1}\left(  u\right)  $).
+
+We have $u\in\mathcal{N}=\left\{  0\right\}  \cup\left\{  \infty\right\}
+\cup\left\{  1,2,3,\ldots\right\}  $. In other words, either $u=0$ or
+$u=\infty$ or $u\in\left\{  1,2,3,\ldots\right\}  $. Hence, we are in one of
+the following three cases:
+
+\textit{Case 1:} We have $u=0$.
+
+\textit{Case 2:} We have $u=\infty$.
+
+\textit{Case 3:} We have $u\in\left\{  1,2,3,\ldots\right\}  $.
+
+Let us first consider Case 1. In this case, we have $u=0$. Thus, Lemma
+\ref{lem.fiberends.cut} \textbf{(a)} yields
+\begin{equation}
+\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)  =\left\{
+\max\left(  g^{-1}\left(  u\right)  \right)  \right\}  .
+\label{pf.prop.Epk.fiberends.o1.pf.c1.1}%
+\end{equation}
+
+
+Recall that property \textbf{(i')} holds. In other words, the map $\pi
+\mid_{g^{-1}\left(  0\right)  }$ is strictly increasing. Since $0=u$, this
+rewrites as follows: The map $\pi\mid_{g^{-1}\left(  u\right)  }$ is strictly increasing.
+
+But $j=\max\left(  g^{-1}\left(  u\right)  \right)  $%
+\ \ \ \ \footnote{\textit{Proof.} Assume the contrary. Thus, $j\neq\max\left(
+g^{-1}\left(  u\right)  \right)  $. Combining this with $j\leq\max\left(
+g^{-1}\left(  u\right)  \right)  $ (which follows from $j\in g^{-1}\left(
+u\right)  $), we obtain $j<\max\left(  g^{-1}\left(  u\right)  \right)  $.
+\par
+But recall the following basic fact: If $S$ is a nonempty interval of $\left[
+n\right]  $, and if $s\in S$ satisfies $s<\max S$, then $s+1\in S$. Applying
+this to $S=g^{-1}\left(  u\right)  $ and $s=j$, we conclude that $j+1\in
+g^{-1}\left(  u\right)  $ (because $g^{-1}\left(  u\right)  $ is a nonempty
+interval of $\left[  n\right]  $, and because $j\in g^{-1}\left(  u\right)  $
+satisfies $j<\max\left(  g^{-1}\left(  u\right)  \right)  $). Hence, both $j$
+and $j+1$ are elements of $g^{-1}\left(  u\right)  $, and satisfy $j<j+1$.
+Hence, $\left(  \pi\mid_{g^{-1}\left(  u\right)  }\right)  \left(  j\right)
+<\left(  \pi\mid_{g^{-1}\left(  u\right)  }\right)  \left(  j+1\right)  $
+(since the map $\pi\mid_{g^{-1}\left(  u\right)  }$ is strictly increasing).
+Thus,%
+\[
+\pi_{j}=\pi\left(  j\right)  =\left(  \pi\mid_{g^{-1}\left(  u\right)
+}\right)  \left(  j\right)  <\left(  \pi\mid_{g^{-1}\left(  u\right)
+}\right)  \left(  j+1\right)  =\pi\left(  j+1\right)  =\pi_{j+1}.
+\]
+This contradicts $\pi_{j}>\pi_{j+1}$. This contradiction shows that our
+assumption was false; qed.}. Hence,%
+\begin{align*}
+j  &  =\max\left(  g^{-1}\left(  u\right)  \right)  \in\left\{  \max\left(
+g^{-1}\left(  u\right)  \right)  \right\}  =\operatorname*{FE}\left(
+g\right)  \cap g^{-1}\left(  u\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.prop.Epk.fiberends.o1.pf.c1.1})}\right) \\
+&  \subseteq\operatorname*{FE}\left(  g\right)  .
+\end{align*}
+Thus, we have shown that $j\in\operatorname*{FE}\left(  g\right)  $ in Case 1.
+
+Let us next consider Case 2. In this case, we have $u=\infty$. Thus, Lemma
+\ref{lem.fiberends.cut} \textbf{(c)} yields
+\begin{equation}
+\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)  =\left\{
+\min\left(  g^{-1}\left(  u\right)  \right)  \right\}  .
+\label{pf.prop.Epk.fiberends.o1.pf.c2.1}%
+\end{equation}
+
+
+Recall that property \textbf{(iii')} holds. In other words, the map $\pi
+\mid_{g^{-1}\left(  \infty\right)  }$ is strictly decreasing. Since $\infty
+=u$, this rewrites as follows: The map $\pi\mid_{g^{-1}\left(  u\right)  }$ is
+strictly decreasing.
+
+But $j=\min\left(  g^{-1}\left(  u\right)  \right)  $%
+\ \ \ \ \footnote{\textit{Proof.} Assume the contrary. Thus, $j\neq\min\left(
+g^{-1}\left(  u\right)  \right)  $. Combining this with $j\geq\min\left(
+g^{-1}\left(  u\right)  \right)  $ (which follows from $j\in g^{-1}\left(
+u\right)  $), we obtain $j>\min\left(  g^{-1}\left(  u\right)  \right)  $.
+\par
+But recall the following basic fact: If $S$ is a nonempty interval of $\left[
+n\right]  $, and if $s\in S$ satisfies $s>\min S$, then $s-1\in S$. Applying
+this to $S=g^{-1}\left(  u\right)  $ and $s=j$, we conclude that $j-1\in
+g^{-1}\left(  u\right)  $ (because $g^{-1}\left(  u\right)  $ is a nonempty
+interval of $\left[  n\right]  $, and because $j\in g^{-1}\left(  u\right)  $
+satisfies $j>\min\left(  g^{-1}\left(  u\right)  \right)  $). Hence, both
+$j-1$ and $j$ are elements of $g^{-1}\left(  u\right)  $, and satisfy $j-1<j$.
+Hence, $\left(  \pi\mid_{g^{-1}\left(  u\right)  }\right)  \left(  j-1\right)
+>\left(  \pi\mid_{g^{-1}\left(  u\right)  }\right)  \left(  j\right)  $ (since
+the map $\pi\mid_{g^{-1}\left(  u\right)  }$ is strictly decreasing). Thus,%
+\[
+\pi_{j-1}=\pi\left(  j-1\right)  =\left(  \pi\mid_{g^{-1}\left(  u\right)
+}\right)  \left(  j-1\right)  >\left(  \pi\mid_{g^{-1}\left(  u\right)
+}\right)  \left(  j\right)  =\pi\left(  j\right)  =\pi_{j}.
+\]
+This contradicts $\pi_{j-1}<\pi_{j}$. This contradiction shows that our
+assumption was false; qed.}. Hence,%
+\begin{align*}
+j  &  =\min\left(  g^{-1}\left(  u\right)  \right)  \in\left\{  \min\left(
+g^{-1}\left(  u\right)  \right)  \right\}  =\operatorname*{FE}\left(
+g\right)  \cap g^{-1}\left(  u\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.prop.Epk.fiberends.o1.pf.c2.1})}\right) \\
+&  \subseteq\operatorname*{FE}\left(  g\right)  .
+\end{align*}
+Thus, we have shown that $j\in\operatorname*{FE}\left(  g\right)  $ in Case 2.
+
+Let us next consider Case 3. In this case, we have $u\in\left\{
+1,2,3,\ldots\right\}  $. Hence, Lemma \ref{lem.fiberends.cut} \textbf{(b)}
+yields
+\begin{equation}
+\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)  =\left\{
+\min\left(  g^{-1}\left(  u\right)  \right)  ,\max\left(  g^{-1}\left(
+u\right)  \right)  \right\}  . \label{pf.prop.Epk.fiberends.o1.pf.c3.1}%
+\end{equation}
+
+
+Combining $u\in g\left(  \left[  n\right]  \right)  $ with $u\in\left\{
+1,2,3,\ldots\right\}  $, we obtain $u\in g\left(  \left[  n\right]  \right)
+\cap\left\{  1,2,3,\ldots\right\}  $.
+
+Recall that property \textbf{(ii')} holds. In other words, for each $h\in
+g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  $, the
+map $\pi\mid_{g^{-1}\left(  h\right)  }$ is V-shaped. Applying this to $h=u$,
+we conclude that the map $\pi\mid_{g^{-1}\left(  u\right)  }$ is V-shaped.
+Hence, Lemma \ref{lem.V-shaped.no-peaks} (applied to $S=g^{-1}\left(
+u\right)  $) yields%
+\[
+g^{-1}\left(  u\right)  \cap\operatorname*{Epk}\pi\subseteq\left\{
+\min\left(  g^{-1}\left(  u\right)  \right)  ,\max\left(  g^{-1}\left(
+u\right)  \right)  \right\}  .
+\]
+Combining $j\in g^{-1}\left(  u\right)  $ with $j\in\operatorname*{Epk}\pi$,
+we obtain%
+\begin{align*}
+j  &  \in g^{-1}\left(  u\right)  \cap\operatorname*{Epk}\pi\subseteq\left\{
+\min\left(  g^{-1}\left(  u\right)  \right)  ,\max\left(  g^{-1}\left(
+u\right)  \right)  \right\} \\
+&  =\operatorname*{FE}\left(  g\right)  \cap g^{-1}\left(  u\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Epk.fiberends.o1.pf.c3.1}%
+)}\right) \\
+&  \subseteq\operatorname*{FE}\left(  g\right)  .
+\end{align*}
+Thus, we have shown that $j\in\operatorname*{FE}\left(  g\right)  $ in Case 3.
+
+We have now proven that $j\in\operatorname*{FE}\left(  g\right)  $ in each of
+the three Cases 1, 2 and 3. Hence, $j\in\operatorname*{FE}\left(  g\right)  $
+always holds.
+
+Now, forget that we fixed $j$. We thus have proven that $j\in
+\operatorname*{FE}\left(  g\right)  $ for each $j\in\operatorname*{Epk}\pi$.
+In other words, $\operatorname*{Epk}\pi\subseteq\operatorname*{FE}\left(
+g\right)  $. This proves Observation 1.]
+
+[\textit{Proof of Observation 2:} Assume that $\operatorname*{Epk}\pi
+\subseteq\operatorname*{FE}\left(  g\right)  $. We must prove that the map $g$
+is $\pi$-amenable.
+
+We are going to show that the four properties \textbf{(i')}, \textbf{(ii')},
+\textbf{(iii')} and \textbf{(iv')} of Definition \ref{def.amen} hold. Clearly,
+property \textbf{(iv')} holds (since the map $g$ is weakly increasing). Let us
+now prove the remaining three properties:
+
+[\textit{Proof of property \textbf{(i')}:} We must show that the map $\pi
+\mid_{g^{-1}\left(  0\right)  }$ is strictly increasing. If $g^{-1}\left(
+0\right)  =\varnothing$, then this is obvious. Thus, for the rest of this
+proof, we WLOG assume that we don't have $g^{-1}\left(  0\right)
+=\varnothing$. Hence, $g^{-1}\left(  0\right)  \neq\varnothing$. In other
+words, there exists some $j\in\left[  n\right]  $ such that $g\left(
+j\right)  =0$. Consider this $j$. Clearly, $j\geq1$ (since $j\in\left[
+n\right]  $), so that $1\leq j$.
+
+The map $g$ is weakly increasing. Hence, from $1\leq j$, we obtain $g\left(
+1\right)  \preccurlyeq g\left(  j\right)  =0$. Thus, $g\left(  1\right)  =0$
+(since $0$ is the smallest element of $\mathcal{N}$). Thus, $1\in
+g^{-1}\left(  0\right)  $.
+
+Recall that each fiber $g^{-1}\left(  h\right)  $ of $g$ (with $h\in
+\mathcal{N}$) is an interval of the totally ordered set $\left[  n\right]  $.
+Applying this to $h=0$, we conclude that $g^{-1}\left(  0\right)  $ is an
+interval of the totally ordered set $\left[  n\right]  $. This interval
+$g^{-1}\left(  0\right)  $ is nonempty (since $1\in g^{-1}\left(  0\right)  $).
+
+We have $0=g\left(  \underbrace{j}_{\in\left[  n\right]  }\right)  \in
+g\left(  \left[  n\right]  \right)  $. Hence, Lemma \ref{lem.fiberends.cut}
+\textbf{(a)} (applied to $u=0$) yields $\operatorname*{FE}\left(  g\right)
+\cap g^{-1}\left(  0\right)  =\left\{  \max\left(  g^{-1}\left(  0\right)
+\right)  \right\}  $. Now,%
+\[
+g^{-1}\left(  0\right)  \cap\underbrace{\operatorname*{Epk}\pi}_{\subseteq
+\operatorname*{FE}\left(  g\right)  }\subseteq g^{-1}\left(  0\right)
+\cap\operatorname*{FE}\left(  g\right)  =\operatorname*{FE}\left(  g\right)
+\cap g^{-1}\left(  0\right)  =\left\{  \max\left(  g^{-1}\left(  0\right)
+\right)  \right\}  .
+\]
+Hence, Lemma \ref{lem.Epk.V-sh} \textbf{(a)} (applied to $S=g^{-1}\left(
+0\right)  $) shows that the map $\pi\mid_{g^{-1}\left(  0\right)  }$ is
+strictly increasing (since $g^{-1}\left(  0\right)  $ is a nonempty interval
+of the totally ordered set $\left[  n\right]  $ satisfying $1\in g^{-1}\left(
+0\right)  $). This proves property \textbf{(i')}.]
+
+[\textit{Proof of property \textbf{(ii')}:} We must show that for each $h\in
+g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  $, the
+map $\pi\mid_{g^{-1}\left(  h\right)  }$ is V-shaped. So let us fix $h\in
+g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  $.
+
+Then, $h\in g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  \subseteq g\left(  \left[  n\right]  \right)  $. Thus, there exists
+some $j\in\left[  n\right]  $ such that $h=g\left(  j\right)  $. In other
+words, the fiber $g^{-1}\left(  h\right)  $ is nonempty. In other words,
+$g^{-1}\left(  h\right)  \neq\varnothing$. Also, $g^{-1}\left(  h\right)  $ is
+an interval of the totally ordered set $\left[  n\right]  $%
+\ \ \ \ \footnote{Indeed, we have previously shown that each fiber
+$g^{-1}\left(  h\right)  $ of $g$ (with $h\in\mathcal{N}$) is an interval of
+the totally ordered set $\left[  n\right]  $.}.
+
+We have $h\in g\left(  \left[  n\right]  \right)  $ and $h\in g\left(  \left[
+n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \subseteq\left\{
+1,2,3,\ldots\right\}  $. Hence, Lemma \ref{lem.fiberends.cut} \textbf{(b)}
+(applied to $u=h$) yields $\operatorname*{FE}\left(  g\right)  \cap
+g^{-1}\left(  h\right)  =\left\{  \min\left(  g^{-1}\left(  h\right)  \right)
+,\max\left(  g^{-1}\left(  h\right)  \right)  \right\}  $. Now,%
+\[
+g^{-1}\left(  h\right)  \cap\underbrace{\operatorname*{Epk}\pi}_{\subseteq
+\operatorname*{FE}\left(  g\right)  }\subseteq g^{-1}\left(  h\right)
+\cap\operatorname*{FE}\left(  g\right)  =\operatorname*{FE}\left(  g\right)
+\cap g^{-1}\left(  h\right)  =\left\{  \min\left(  g^{-1}\left(  h\right)
+\right)  ,\max\left(  g^{-1}\left(  h\right)  \right)  \right\}  .
+\]
+Hence, Lemma \ref{lem.Epk.V-sh} \textbf{(c)} (applied to $S=g^{-1}\left(
+h\right)  $) shows that the map $\pi\mid_{g^{-1}\left(  h\right)  }$ is
+V-shaped (since $g^{-1}\left(  h\right)  $ is a nonempty interval of the
+totally ordered set $\left[  n\right]  $). This proves property \textbf{(ii')}.]
+
+[\textit{Proof of property \textbf{(iii')}:} We must show that the map
+$\pi\mid_{g^{-1}\left(  \infty\right)  }$ is strictly decreasing. If
+$g^{-1}\left(  \infty\right)  =\varnothing$, then this is obvious. Thus, for
+the rest of this proof, we WLOG assume that we don't have $g^{-1}\left(
+\infty\right)  =\varnothing$. Hence, $g^{-1}\left(  \infty\right)
+\neq\varnothing$. In other words, there exists some $j\in\left[  n\right]  $
+such that $g\left(  j\right)  =\infty$. Consider this $j$. Clearly, $j\leq n$
+(since $j\in\left[  n\right]  $).
+
+The map $g$ is weakly increasing. Hence, from $j\leq n$, we obtain $g\left(
+j\right)  \preccurlyeq g\left(  n\right)  $. In view of $g\left(  j\right)
+=\infty$, this rewrites as $\infty\preccurlyeq g\left(  n\right)  $. Thus,
+$g\left(  n\right)  =\infty$ (since $\infty$ is the largest element of
+$\mathcal{N}$). Thus, $n\in g^{-1}\left(  \infty\right)  $.
+
+Recall that each fiber $g^{-1}\left(  h\right)  $ of $g$ (with $h\in
+\mathcal{N}$) is an interval of the totally ordered set $\left[  n\right]  $.
+Applying this to $h=\infty$, we conclude that $g^{-1}\left(  \infty\right)  $
+is an interval of the totally ordered set $\left[  n\right]  $. This interval
+$g^{-1}\left(  \infty\right)  $ is nonempty (since $n\in g^{-1}\left(
+\infty\right)  $).
+
+We have $\infty=g\left(  \underbrace{j}_{\in\left[  n\right]  }\right)  \in
+g\left(  \left[  n\right]  \right)  $. Hence, Lemma \ref{lem.fiberends.cut}
+\textbf{(c)} (applied to $u=\infty$) yields $\operatorname*{FE}\left(
+g\right)  \cap g^{-1}\left(  \infty\right)  =\left\{  \min\left(
+g^{-1}\left(  \infty\right)  \right)  \right\}  $. Now,%
+\[
+g^{-1}\left(  \infty\right)  \cap\underbrace{\operatorname*{Epk}\pi
+}_{\subseteq\operatorname*{FE}\left(  g\right)  }\subseteq g^{-1}\left(
+\infty\right)  \cap\operatorname*{FE}\left(  g\right)  =\operatorname*{FE}%
+\left(  g\right)  \cap g^{-1}\left(  \infty\right)  =\left\{  \min\left(
+g^{-1}\left(  \infty\right)  \right)  \right\}  .
+\]
+Hence, Lemma \ref{lem.Epk.V-sh} \textbf{(b)} (applied to $S=g^{-1}\left(
+\infty\right)  $) shows that the map $\pi\mid_{g^{-1}\left(  \infty\right)  }$
+is strictly decreasing (since $g^{-1}\left(  \infty\right)  $ is a nonempty
+interval of the totally ordered set $\left[  n\right]  $ satisfying $n\in
+g^{-1}\left(  \infty\right)  $). This proves property \textbf{(iii')}.]
+
+We have now shown that the four properties \textbf{(i')}, \textbf{(ii')},
+\textbf{(iii')} and \textbf{(iv')} of Definition \ref{def.amen} hold. In other
+words, the map $g$ is $\pi$-amenable (by Definition \ref{def.amen}). This
+proves Observation 2.]
+
+Combining Observation 1 with Observation 2, we conclude that the map $g$ is
+$\pi$-amenable if and only if $\operatorname*{Epk}\pi\subseteq
+\operatorname*{FE}\left(  g\right)  $. This proves Proposition
+\ref{prop.Epk.fiberends}.
+\end{proof}
+\end{verlong}
 
 We can rewrite Proposition \ref{prop.Epk-formula} as follows, exhibiting its
 analogy with \cite[Proposition 2.2]{Stembr97}:

@@ -6,7 +6,3 @@ This is a preprint
 
 which is also available as [arXiv:1806.04114](https://arxiv.org/abs/1806.04114). It is still being edited.
 
-TODO:
-
-* Polish/detail Section 2.3.
-

@@ -3066,7 +3066,7 @@ $f\left(  m_{h}\right)  =-h$, then we would have $+h=f\left(  x\right)
 \preccurlyeq f\left(  m_{h}\right)  =-h$, which would contradict the
 definition of the order on $\mathcal{Z}$).
 \par
-But statement \textbf{(x}$_{2}$\textbf{)} yields $f\left(  m_{h}\right)
+But statement \textbf{(x}$_{3}$\textbf{)} yields $f\left(  m_{h}\right)
 \in\left\{  -h,+h\right\}  $. In other words, either $f\left(  m_{h}\right)
 =-h$ or $f\left(  m_{h}\right)  =+h$. Hence, $f\left(  m_{h}\right)  =+h$
 (since we cannot have $f\left(  m_{h}\right)  =-h$). Combining $f\left(
@@ -3110,7 +3110,7 @@ $f\left(  m_{h}\right)  =+h$, then we would have $+h=f\left(  m_{h}\right)
 \preccurlyeq f\left(  x\right)  =-h$, which would contradict the definition of
 the order on $\mathcal{Z}$).
 \par
-But statement \textbf{(x}$_{2}$\textbf{)} yields $f\left(  m_{h}\right)
+But statement \textbf{(x}$_{3}$\textbf{)} yields $f\left(  m_{h}\right)
 \in\left\{  -h,+h\right\}  $. In other words, either $f\left(  m_{h}\right)
 =-h$ or $f\left(  m_{h}\right)  =+h$. Hence, $f\left(  m_{h}\right)  =-h$
 (since we cannot have $f\left(  m_{h}\right)  =+h$). Combining $f\left(
@@ -3718,7 +3718,8 @@ which $\pi\left(  \mu\right)  $ is minimum. Proposition \ref{prop.amen.equiv3}
 and distinct.
 
 Proposition \ref{prop.amen.equiv3} \textbf{(b)} shows that a map $f:\left[
-n\right]  \rightarrow\mathcal{Z}$ satisfies $\left(  f\in\mathcal{E}\left(
+n\right]  \rightarrow\mathcal{Z}$ satisfies \newline
+$\left(  f\in\mathcal{E}\left(
 \left[  n\right]  ,\pi\right)  \text{ and }\left\vert f\right\vert =g\right)
 $ if and only if the five statements \textbf{(x}$_{1}$\textbf{)},
 \textbf{(x}$_{2}$\textbf{)}, \textbf{(x}$_{3}$\textbf{)}, \textbf{(x}$_{4}%
@@ -3807,8 +3808,8 @@ $g\left(  x\right)  =h\in H$, which would contradict $g\left(  x\right)
 $f\left(  x\right)  $. Finally, $x\notin g^{-1}\left(  0\right)  $ (since
 $g\left(  x\right)  =\infty\neq0$). Hence, Step 1 of the above algorithm does
 not set $f\left(  x\right)  $. Altogether, we have now shown that $f\left(
-x\right)  $ is set during Step 5 of the algorithm, but neither Step 2 nor Step
-3 sets $f\left(  x\right)  $. Thus, the value $f\left(  x\right)  $ is set
+x\right)  $ is set during Step 3 of the algorithm, but neither Step 2 nor Step
+1 sets $f\left(  x\right)  $. Thus, the value $f\left(  x\right)  $ is set
 exactly once during the above algorithm. So we have proven our claim (that the
 value $f\left(  x\right)  $ is set exactly once during the above algorithm) in
 Case 2.
@@ -4615,8 +4616,9 @@ From $S=\left\{  a,a+1,\ldots,b\right\}  $, we obtain%
 (since $p\leq b$). Also, from $S=\left\{  a,a+1,\ldots,b\right\}  $, we obtain%
 \[
 \left\{  s\in S\ \mid\ s\geq p\right\}  =\left\{  s\in\left\{  a,a+1,\ldots
-,b\right\}  \ \mid\ s\geq p\right\}  =\left\{  p,p+1,\ldots,b\right\}  .
+,b\right\}  \ \mid\ s\geq p\right\}  =\left\{  p,p+1,\ldots,b\right\}
 \]
+(since $p \geq a$).
 
 
 Now, we claim that the map $\pi\mid_{\left\{  s\in S\ \mid\ s\leq p\right\}
@@ -4634,7 +4636,9 @@ and $p\leq b$), so that $i\in\left\{  a,a+1,\ldots,b\right\}  =S\subseteq
 \left[  n\right]  $. Thus, $\pi_{i}$ is well-defined. Also, from $i\in\left\{
 a,a+1,\ldots,b\right\}  $, we obtain $i\geq a$.
 
-Now, assume (for the sake of contradiction) that $\pi_{i-1}\leq\pi_{i}$. But
+Now, assume (for the sake of contradiction) that $\pi_{i-1}\leq\pi_{i}$.
+
+But
 $i\in\left\{  a+1,a+2,\ldots,p\right\}  $ yields $a+1\leq i\leq p$; hence,
 $a\leq p-1\leq b$ (since $p-1<p\leq b$). Thus, $p-1\in\left\{  a,a+1,\ldots
 ,b\right\}  =S$. Hence, (\ref{pf.lem.Epk.V-sh.c.min}) (applied to $s=p-1$)
@@ -4656,9 +4660,12 @@ Now,%
 \begin{align*}
 z  &  \in\underbrace{\left\{  i,i+1,\ldots,p-1\right\}  }_{\substack{\subseteq
 \left\{  a,a+1,\ldots,b\right\}  \\\text{(since }i\geq a\text{ and }p-1\leq
-b\text{)}}}\cap\operatorname*{Epk}\pi=\underbrace{\left\{  a,a+1,\ldots
+b\text{)}}}\cap\operatorname*{Epk}\pi
+\subseteq
+\underbrace{\left\{  a,a+1,\ldots
 ,b\right\}  }_{=S}\cap\operatorname*{Epk}\pi\\
-&  =S\cap\operatorname*{Epk}\pi=\left\{  a,b\right\}  .
+&  =S\cap\operatorname*{Epk}\pi
+\subseteq \left\{  a,b\right\}  .
 \end{align*}
 But $z\in\left\{  i,i+1,\ldots,p-1\right\}  \cap\operatorname*{Epk}%
 \pi\subseteq\left\{  i,i+1,\ldots,p-1\right\}  $, so that $z\leq p-1<p\leq b$.
@@ -4696,7 +4703,9 @@ $b-1<b$), so that $j\in\left\{  a,a+1,\ldots,b\right\}  =S\subseteq\left[
 n\right]  $. Thus, $\pi_{j}$ is well-defined. Also, from $j\in\left\{
 a,a+1,\ldots,b\right\}  $, we obtain $j\geq a$ and $j\leq b$.
 
-Now, assume (for the sake of contradiction) that $\pi_{j}\geq\pi_{j+1}$. But
+Now, assume (for the sake of contradiction) that $\pi_{j}\geq\pi_{j+1}$.
+
+But
 $j\in\left\{  p,p+1,\ldots,b-1\right\}  $ yields $p\leq j\leq b-1$; hence,
 $p+1\leq b$. Combined with $a\leq p<p+1$, this yields $a\leq p+1\leq b$. Thus,
 $p+1\in\left\{  a,a+1,\ldots,b\right\}  =S$. Hence,
@@ -4719,9 +4728,12 @@ Now,%
 \begin{align*}
 z  &  \in\underbrace{\left\{  p+1,p+2,\ldots,j\right\}  }_{\substack{\subseteq
 \left\{  a,a+1,\ldots,b\right\}  \\\text{(since }p+1\geq a\text{ and }j\leq
-b\text{)}}}\cap\operatorname*{Epk}\pi=\underbrace{\left\{  a,a+1,\ldots
+b\text{)}}}\cap\operatorname*{Epk}\pi
+\subseteq
+\underbrace{\left\{  a,a+1,\ldots
 ,b\right\}  }_{=S}\cap\operatorname*{Epk}\pi\\
-&  =S\cap\operatorname*{Epk}\pi=\left\{  a,b\right\}  .
+&  =S\cap\operatorname*{Epk}\pi
+\subseteq \left\{  a,b\right\}  .
 \end{align*}
 But $z\in\left\{  p+1,p+2,\ldots,j\right\}  \cap\operatorname*{Epk}%
 \pi\subseteq\left\{  p+1,p+2,\ldots,j\right\}  $, so that $z\geq p+1>p\geq a$.
@@ -4804,9 +4816,12 @@ Now,%
 \begin{align*}
 z  &  \in\underbrace{\left\{  1,2,\ldots,j\right\}  }_{\substack{\subseteq
 \left\{  a,a+1,\ldots,b\right\}  \\\text{(since }1=a\text{ and }j\leq b-1\leq
-b\text{)}}}\cap\operatorname*{Epk}\pi=\underbrace{\left\{  a,a+1,\ldots
+b\text{)}}}\cap\operatorname*{Epk}\pi
+\subseteq
+\underbrace{\left\{  a,a+1,\ldots
 ,b\right\}  }_{=S}\cap\operatorname*{Epk}\pi\\
-&  =S\cap\operatorname*{Epk}\pi=\left\{  b\right\}  .
+&  =S\cap\operatorname*{Epk}\pi
+\subseteq \left\{  b\right\}  .
 \end{align*}
 In other words, $z=b$.
 
@@ -4869,9 +4884,12 @@ Now,%
 \begin{align*}
 z  &  \in\underbrace{\left\{  i,i+1,\ldots,n\right\}  }_{\substack{\subseteq
 \left\{  a,a+1,\ldots,b\right\}  \\\text{(since }i\geq a\text{ and
-}n=b\text{)}}}\cap\operatorname*{Epk}\pi=\underbrace{\left\{  a,a+1,\ldots
+}n=b\text{)}}}\cap\operatorname*{Epk}\pi
+\subseteq
+\underbrace{\left\{  a,a+1,\ldots
 ,b\right\}  }_{=S}\cap\operatorname*{Epk}\pi\\
-&  =S\cap\operatorname*{Epk}\pi=\left\{  a\right\}  .
+&  =S\cap\operatorname*{Epk}\pi
+\subseteq \left\{  a\right\}  .
 \end{align*}
 In other words, $z=a$.
 
@@ -5620,16 +5638,19 @@ the totally ordered set $\left[  n\right]  $.}.
 We have $h\in g\left(  \left[  n\right]  \right)  $ and $h\in g\left(  \left[
 n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \subseteq\left\{
 1,2,3,\ldots\right\}  $. Hence, Lemma \ref{lem.fiberends.cut} \textbf{(b)}
-(applied to $u=h$) yields $\operatorname*{FE}\left(  g\right)  \cap
+(applied to $u=h$) yields \newline
+$\operatorname*{FE}\left(  g\right)  \cap
 g^{-1}\left(  h\right)  =\left\{  \min\left(  g^{-1}\left(  h\right)  \right)
 ,\max\left(  g^{-1}\left(  h\right)  \right)  \right\}  $. Now,%
-\[
+\begin{align*}
 g^{-1}\left(  h\right)  \cap\underbrace{\operatorname*{Epk}\pi}_{\subseteq
-\operatorname*{FE}\left(  g\right)  }\subseteq g^{-1}\left(  h\right)
+\operatorname*{FE}\left(  g\right)  }
+&\subseteq g^{-1}\left(  h\right)
 \cap\operatorname*{FE}\left(  g\right)  =\operatorname*{FE}\left(  g\right)
-\cap g^{-1}\left(  h\right)  =\left\{  \min\left(  g^{-1}\left(  h\right)
+\cap g^{-1}\left(  h\right) \\
+& =\left\{  \min\left(  g^{-1}\left(  h\right)
 \right)  ,\max\left(  g^{-1}\left(  h\right)  \right)  \right\}  .
-\]
+\end{align*}
 Hence, Lemma \ref{lem.Epk.V-sh} \textbf{(c)} (applied to $S=g^{-1}\left(
 h\right)  $) shows that the map $\pi\mid_{g^{-1}\left(  h\right)  }$ is
 V-shaped (since $g^{-1}\left(  h\right)  $ is a nonempty interval of the
@@ -6092,8 +6113,10 @@ from the \textbf{multiset} $\left\{  g\left(  1\right)  ,g\left(  2\right)
 (because it is weakly increasing, so there is only one way in which these
 values can be ordered). Hence, a weakly increasing map $g:\left[  n\right]
 \rightarrow\mathcal{N}$ can be uniquely reconstructed from the monomial
-$\mathbf{x}_{g}$ (since this monomial $\mathbf{x}_{g}=x_{g_{1}}x_{g_{2}}\cdots
-x_{g_{n}}$ encodes the multiset $\left\{  g\left(  1\right)  ,g\left(
+$\mathbf{x}_{g}$ (since this monomial
+$\mathbf{x}_{g}=x_{g\left(1\right)}x_{g\left(2\right)}\cdots
+x_{g\left(n\right)}$
+encodes the multiset $\left\{  g\left(  1\right)  ,g\left(
 2\right)  ,\ldots,g\left(  n\right)  \right\}  _{\operatorname*{multi}}$). In
 other words, if $g$ and $h$ are two weakly increasing maps $\left[  n\right]
 \rightarrow\mathcal{N}$, then $\mathbf{x}_{g}=\mathbf{x}_{h}$ holds if and
@@ -6239,6 +6262,11 @@ satisfying $R>\Lambda$ must satisfy%
 a_{R}=0. \label{pf.prop.KnL.lindep.larger=0}%
 \end{equation}
 
+\begin{verlong}
+We have $\Lambda \in \mathbf{L}_n$. Thus, $\Lambda$ is a subset of
+$\left[ n\right]$ (since $\mathbf{L}_n$ is a set of subsets of
+$\left[ n\right]$). In other words, $\Lambda \subseteq \left[n\right]$.
+\end{verlong}
 
 Lemma \ref{lem.FE.exist} shows that there exists a weakly increasing map
 $g:\left[  n\right]  \rightarrow\mathcal{N}$ such that $\operatorname*{FE}%
@@ -6759,7 +6787,8 @@ is $\mathbb{Q}$-linearly independent.
 \begin{verlong}
 \begin{proof}
 [Proof of Corollary \ref{cor.KnL.lindep-all}.]For each $n\in\mathbb{N}$, the
-family $\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda\in \Lambda_n}$
+family
+$\left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda\in \mathbf{L}_n}$
 is $\mathbb{Q}$-linearly
 independent (by Proposition \ref{prop.KnL.lindep}). Furthermore, these
 families for varying $n$ live in linearly disjoint subspaces of
@@ -6872,7 +6901,18 @@ Since the family $\left(  K_{n+m,\Lambda}^{\mathcal{Z}}\right)  _{\Lambda
 \tau\in S\left(  \pi^{\prime},\sigma^{\prime}\right)  \ \mid
 \ \operatorname*{Epk}\tau=\Lambda\right\}  \right\vert
 \]
-for each $\Lambda\in\mathbf{L}_{n+m}$. In other words, the multiset $\left\{
+for each $\Lambda\in\mathbf{L}_{n+m}$.
+\begin{verlong}
+In other words, for each $\Lambda\in\mathbf{L}_{n+m}$,
+the multiplicity with which $\Lambda$ appears in the multiset
+$\left\{
+\operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi
+,\sigma\right)  \right\}  _{\operatorname*{multi}}$ equals the
+multiplicity with which $\Lambda$ appears in the multiset
+$\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(
+\pi^{\prime},\sigma^{\prime}\right)  \right\}  _{\operatorname*{multi}}$.
+\end{verlong}
+In other words, the multiset $\left\{
 \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(  \pi
 ,\sigma\right)  \right\}  _{\operatorname*{multi}}$ equals the multiset
 $\left\{  \operatorname*{Epk}\left(  \tau\right)  \ \mid\ \tau\in S\left(

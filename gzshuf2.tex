@@ -13041,42 +13041,53 @@ Note the condition $\pi_{1}>\sigma_{1}$, which is not present in
 Theorem~\ref{thm.4.1}, and which makes Theorem \ref{thm.dendri.4.1} somewhat
 harder to apply.
 
-Theorem \ref{thm.dendri.4.1} can be proven similarly to \cite[(5.2.6)]%
-{HopfComb}, but in lieu of the application of \cite[Lemma 5.2.17]{HopfComb},
-it requires the following fact:
+Theorem \ref{thm.dendri.4.1} can be proven similarly to
+\cite[(5.2.6)]{HopfComb}, but it relies on some variants of the disjoint
+union of two posets.
+Let us first recall a well-known fact about posets:
 
-\begin{proposition}
-\label{prop.dendri.4.1.lem}We shall use the notations of \cite[Section
-5.2]{HopfComb}. Let $P$ and $Q$ be two disjoint labelled posets, each of which
-has a minimum element. Assume that $\min P>_{\mathbb{Z}}\min Q$. Consider the
-disjoint union $P\sqcup Q$ of $P$ and $Q$.
+\begin{lemma}
+\label{lem.poset.add-rel}
+Let $R$ be a poset. Let $u$ and $v$ be two distinct elements of $R$
+such that we don't have $u > v$ in $R$.
+Then, there exists a unique poset $R^{\prime}$ such that
+\begin{itemize}
+\item we have $R^{\prime} = R$ as sets, and
+\item
+we have the logical equivalence
+\[
+\left(  x<y\text{ in }R^{\prime}\right)  \ \Longleftrightarrow\ \left(
+\left(  x<y\text{ in }R\right)  \text{ or }\left(  x\leq u\text{ and }v\leq
+y\text{ in }R\right)  \right)
+\]
+for every two elements $x$ and $y$ of $R^{\prime}$.
+\end{itemize}
+% Furthermore, this poset $R^{\prime}$ is the ``smallest'' extension
+% of $R$ in which the inequality $u < v$ holds (i.e., it is an
+% extension of $R$ in which $u < v$ holds, and every extension of
+% $R$ in which $u < v$ holds must be an extension of $R^{\prime}$).
+We say that this poset $R^{\prime}$ is obtained by
+\textit{adding the relation $u < v$ to $R$}.
+Clearly, $u < v$ holds in $R^{\prime}$.
 
-\textbf{(a)} Add a further relation $\min P<\min Q$ to $P\sqcup Q$; denote the
-resulting labelled poset by $P\left.  \prec\right.  Q$. Then, $F_{P}\left(
-\mathbf{x}\right)  \left.  \prec\right.  F_{Q}\left(  \mathbf{x}\right)
-=F_{P\left.  \prec\right.  Q}\left(  \mathbf{x}\right)  $.
-
-\textbf{(b)} Add a further relation $\min P>\min Q$ to $P\sqcup Q$; denote the
-resulting labelled poset by $P\left.  \succeq\right.  Q$. Then, $F_{P}\left(
-\mathbf{x}\right)  \left.  \succeq\right.  F_{Q}\left(  \mathbf{x}\right)
-=F_{P\left.  \succeq\right.  Q}\left(  \mathbf{x}\right)  $.
-\end{proposition}
+If $R$ is a labelled poset in the sense of \cite[Section
+5.2]{HopfComb}, then $R^{\prime}$ is a labelled poset in the
+sense of \cite[Section 5.2]{HopfComb} as well (since $R^{\prime} = R$
+as sets).
+\end{lemma}
 
 Note that the notion of a ``labelled poset'' is understood in the sense
-of \cite[Definition 5.2.1]{HopfComb} here; thus, a labelled poset needs no
+of \cite[Definition 5.2.1]{HopfComb} (here and in the following);
+thus, a labelled poset needs no
 labelling, but instead its underlying set must be a finite set of integers.
 
-Note also that a \textit{minimum element} of a poset $P$ means an element
-$m \in P$ such that every $p \in P$ satisfies $m \leq p$.
-This is not the same as a minimal element.
+If we add a relation to a labelled poset $R$, obtaining a new labelled
+poset $R^{\prime}$, then how do the $R^{\prime}$-partitions differ from
+the $R$-partitions? The following two lemmas answer this question:
 
-\begin{proof}[Proof of Proposition~\ref{prop.dendri.4.1.lem} (sketched).]
-We imitate the proof of \cite[Lemma 5.2.17]{HopfComb}:
-
-We will need two simple auxiliary claims:
-
-\begin{statement}
-\textit{Observation 1:} Let $R$ be a labelled poset. Let $u$ and $v$ be
+\begin{lemma}
+\label{lem.poset.add-rel.part1}
+Let $R$ be a labelled poset. Let $u$ and $v$ be
 two elements of $R$ such that $u >_{\ZZ} v$.
 Assume that we don't have $u > v$ in $R$.
 Let $f$ be an $R$-partition.
@@ -13084,9 +13095,10 @@ Let $R^{\prime}$ be the labelled poset obtained from $R$ by adding the
 relation $u < v$ to $R$.
 Then, $f$ is an $R^{\prime}$-partition if and only if
 $f \left(u\right) < f\left(v\right)$.
-\end{statement}
+\end{lemma}
 
-[\textit{Proof of Observation 1:} The \textquotedblleft only
+\begin{proof}[Proof of Lemma~\ref{lem.poset.add-rel.part1}.]
+The \textquotedblleft only
 if\textquotedblright\ direction is obvious (since $u<v$ in $R^{\prime}$ and
 $u>_{\mathbb{Z}}v$). It thus remains to prove the \textquotedblleft
 if\textquotedblright\ direction. So let us assume that $f\left(  u\right)
@@ -13160,10 +13172,13 @@ u\right)  <f\left(  v\right)  \leq f\left(  j\right)  $, so that $f\left(
 i\right)  <f\left(  j\right)  $, qed.}. These two statements entail that $f$
 is an $R^{\prime}$-partition (by the definition of an $R^{\prime}$-partition).
 This concludes the proof of the \textquotedblleft if\textquotedblright%
-\ direction of Observation 1. Thus, Observation 1 is proven.]
+\ direction of Lemma~\ref{lem.poset.add-rel.part1}.
+Thus, Lemma~\ref{lem.poset.add-rel.part1} is proven.
+\end{proof}
 
-\begin{statement}
-\textit{Observation 2:} Let $R$ be a labelled poset. Let $u$ and $v$ be
+\begin{lemma}
+\label{lem.poset.add-rel.part2}
+Let $R$ be a labelled poset. Let $u$ and $v$ be
 two elements of $R$ such that $u <_{\ZZ} v$.
 Assume that we don't have $u > v$ in $R$.
 Let $f$ be an $R$-partition.
@@ -13171,9 +13186,10 @@ Let $R^{\prime}$ be the labelled poset obtained from $R$ by adding the
 relation $u < v$ to $R$.
 Then, $f$ is an $R^{\prime}$-partition if and only if
 $f \left(u\right) \leq f\left(v\right)$.
-\end{statement}
+\end{lemma}
 
-[\textit{Proof of Observation 2:} The \textquotedblleft only
+\begin{proof}[Proof of Lemma~\ref{lem.poset.add-rel.part2}.]
+The \textquotedblleft only
 if\textquotedblright\ direction is obvious (since $u<v$ in $R^{\prime}$ and
 $u<_{\mathbb{Z}}v$). It thus remains to prove the \textquotedblleft
 if\textquotedblright\ direction. So let us assume that $f\left(  u\right)
@@ -13270,8 +13286,36 @@ Now, $i\leq_{\mathbb{Z}}u<_{\mathbb{Z}}v\leq_{\mathbb{Z}}j$. This contradicts
 $i>_{\mathbb{Z}}j$. This contradiction shows that our assumption was wrong,
 qed.}. These two statements entail that $f$ is an $R^{\prime}$-partition (by
 the definition of an $R^{\prime}$-partition). This concludes the proof of the
-\textquotedblleft if\textquotedblright\ direction of Observation 2. Thus,
-Observation 2 is proven.]
+\textquotedblleft if\textquotedblright\ direction of
+Lemma~\ref{lem.poset.add-rel.part2}. Thus,
+Lemma~\ref{lem.poset.add-rel.part2} is proven.
+\end{proof}
+
+The following fact is an analogue of \cite[Lemma 5.2.17]{HopfComb}:
+
+\begin{proposition}
+\label{prop.dendri.4.1.lem}We shall use the notations of \cite[Section
+5.2]{HopfComb}. Let $P$ and $Q$ be two disjoint labelled posets, each of which
+has a minimum element. Assume that $\min P>_{\mathbb{Z}}\min Q$. Consider the
+disjoint union $P\sqcup Q$ of $P$ and $Q$.
+
+\textbf{(a)} Add a further relation $\min P<\min Q$ to $P\sqcup Q$; denote the
+resulting labelled poset by $P\left.  \prec\right.  Q$. Then, $F_{P}\left(
+\mathbf{x}\right)  \left.  \prec\right.  F_{Q}\left(  \mathbf{x}\right)
+=F_{P\left.  \prec\right.  Q}\left(  \mathbf{x}\right)  $.
+
+\textbf{(b)} Add a further relation $\min P>\min Q$ to $P\sqcup Q$; denote the
+resulting labelled poset by $P\left.  \succeq\right.  Q$. Then, $F_{P}\left(
+\mathbf{x}\right)  \left.  \succeq\right.  F_{Q}\left(  \mathbf{x}\right)
+=F_{P\left.  \succeq\right.  Q}\left(  \mathbf{x}\right)  $.
+\end{proposition}
+
+Note that a \textit{minimum element} of a poset $P$ means an element
+$m \in P$ such that every $p \in P$ satisfies $m \leq p$.
+This is not the same as a minimal element.
+
+\begin{proof}[Proof of Proposition~\ref{prop.dendri.4.1.lem} (sketched).]
+We imitate the proof of \cite[Lemma 5.2.17]{HopfComb}:
 
 \textbf{(a)} If $f : P \sqcup Q \to \left\{1,2,3,\ldots\right\}$ is a
 $P \left. \prec \right. Q$-partition, then its restrictions $f\mid_P$
@@ -13284,7 +13328,8 @@ Conversely, any pair of a $P$-partition $g$ and a $Q$-partition $h$
 having the property that $g \left(\min P\right) < h \left(\min Q\right)$
 can be combined to form a
 $P \left. \prec \right. Q$-partition\footnote{To see this, we need to
-apply Observation 1 to $R = P \sqcup Q$, $u = \min P$, $v = \min Q$
+apply Lemma~\ref{lem.poset.add-rel.part1} to
+$R = P \sqcup Q$, $u = \min P$, $v = \min Q$
 and $R^{\prime} = P \left. \prec \right. Q$.}.
 
 Using the notations of \cite[Definition 5.2.1]{HopfComb}, we have
@@ -13374,7 +13419,8 @@ $). This proves Proposition \ref{prop.dendri.4.1.lem} \textbf{(a)}.
 
 \textbf{(b)} Proposition \ref{prop.dendri.4.1.lem} \textbf{(b)} is proven
 similarly to Proposition \ref{prop.dendri.4.1.lem} \textbf{(a)}
-(but this time we need to use Observation 2 instead of Observation 1).
+(but this time we need to use Lemma~\ref{lem.poset.add-rel.part2}
+instead of Lemma~\ref{lem.poset.add-rel.part1}).
 \end{proof}
 
 Also, the following simple fact is used:

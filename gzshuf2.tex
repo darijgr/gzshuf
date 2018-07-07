@@ -343,7 +343,9 @@ $n\geq2$) we have%
 \operatorname*{Lpk}\pi=\operatorname*{Pk}\pi\cup\left\{  1\ \mid\ \pi_{1}%
 >\pi_{2}\right\}  .
 \]
-(Of course, $\left\{  1\ \mid\ \pi_{1}>\pi_{2}\right\}  $ is the $1$-element
+(The strange notation ``$\left\{  1\ \mid\ \pi_{1}>\pi_{2}\right\}  $''
+means the set of all numbers $1$ satisfying $\pi_1 > \pi_2$.
+In other words, it is the $1$-element
 set $\left\{  1\right\}  $ if $\pi_{1}>\pi_{2}$, and the empty set
 $\varnothing$ otherwise.)
 
@@ -372,8 +374,12 @@ of all exterior peaks of $\pi$. This set is denoted by $\operatorname*{Epk}%
 \begin{align*}
 \operatorname*{Epk}\pi &  =\operatorname*{Pk}\pi\cup\left\{  1\ \mid\ \pi
 _{1}>\pi_{2}\right\}  \cup\left\{  n\ \mid\ \pi_{n-1}<\pi_{n}\right\} \\
-&  =\operatorname*{Lpk}\pi\cup\operatorname*{Rpk}\pi.
+&  =\operatorname*{Lpk}\pi\cup\operatorname*{Rpk}\pi
 \end{align*}
+(where, again, $\left\{  n\ \mid\ \pi_{n-1}<\pi_{n}\right\}$ is the
+$1$-element set $\left\{n\right\}$ if $\pi_{n-1}<\pi_{n}$,
+and otherwise is the empty set).
+
 (For $n=1$, we have $\operatorname*{Epk}\pi=\left\{  1\right\}  $.)
 \end{definition}
 
@@ -7528,7 +7534,7 @@ a^{\prime}:\pi^{\prime}\right)  $.
 
 For example, the permutation statistic $\operatorname*{Pk}$ is not
 head-graft-compatible, because if we take $\pi=\left(  3,1\right)  $, $a=2$,
-$\pi^{\prime}=\left(  1,3\right)  $ and $a^{\prime}=2$, then we do have%
+$\pi^{\prime}=\left(  3,4\right)  $ and $a^{\prime}=2$, then we do have%
 \[
 \operatorname*{Pk}\left(  \pi\right)  =\operatorname*{Pk}\left(  \pi^{\prime
 }\right)  ,\ \ \ \ \ \ \ \ \ \ \left\vert \pi\right\vert =\left\vert
@@ -7540,7 +7546,7 @@ but we don't have $\operatorname*{Pk}\left(  a:\pi\right)  =\operatorname*{Pk}%
 \left(  a^{\prime}:\pi^{\prime}\right)  $ (in fact, $\operatorname*{Pk}\left(
 a:\pi\right)  =\operatorname*{Pk}\left(  2,3,1\right)  =\left\{  2\right\}  $
 whereas $\operatorname*{Pk}\left(  a^{\prime}:\pi^{\prime}\right)
-=\operatorname*{Pk}\left(  2,1,3\right)  =\varnothing$). Similarly, it can be
+=\operatorname*{Pk}\left(  2,3,4\right)  =\varnothing$). Similarly, it can be
 shown that $\operatorname*{Rpk}$ is not head-graft-compatible. As we will see
 below (in Proposition \ref{prop.head-comp.Pks}), the permutation statistics
 $\operatorname*{Des}$, $\operatorname*{Lpk}$ and $\operatorname*{Epk}$ are
@@ -7558,6 +7564,9 @@ Then, it is easy to see that%
 \]
 Moreover, these are the only restrictions that head-graft-compatibility places
 on the values of $\operatorname*{st}$ at $3$-permutations.
+The restrictions placed on the values of $\operatorname{st}$ at
+permutations of length $n > 3$ are more complicated, and depend
+on its values on shorter permutations.
 \end{remark}
 
 It is usually easy to check if a given permutation statistic is
@@ -9908,19 +9917,21 @@ $\operatorname*{Comp}\pi$). The permutation statistics $\operatorname*{Lpk}$
 and $\operatorname*{Rpk}$ (and, of course, $\operatorname*{Comp}$) are descent
 statistics as well, as one can easily check.
 
-\begin{vershort}
-The following fact (proven in \cite{verlong}) should be contrasted with
-\cite[Conjecture 6.11]{part1}:
-\end{vershort}
-
-\begin{verlong}
-Notice the following:
-\end{verlong}
+In \cite[Corollary 1.6]{Oguz18}, Ezgi Kantarc{\i} O\u{g}uz has demonstrated that
+not every shuffle-compatible permutation statistic is a descent statistic.
+However, this changes if we require LR-shuffle-compatibility, because of
+Corollary \ref{cor.LRcomp.back} and of the following fact:
 
 \begin{proposition}
 \label{prop.des-stat.hgc}Every head-graft-compatible permutation statistic is
 a descent statistic.
 \end{proposition}
+
+\begin{vershort}
+\begin{proof}
+[Proof of Proposition \ref{prop.des-stat.hgc}.]See \cite{verlong}.
+\end{proof}
+\end{vershort}
 
 \begin{verlong}
 \begin{proof}
@@ -9932,8 +9943,7 @@ Lemma \ref{lem.LRcomp.head-l1}.
 
 Combining Proposition \ref{prop.des-stat.hgc} with Corollary
 \ref{cor.LRcomp.back}, we conclude that every LR-shuffle-compatible
-permutation statistic is a descent statistic. This should be contrasted with
-\cite[Conjecture 6.11]{part1}.
+permutation statistic is a descent statistic.
 \end{verlong}
 
 \begin{definition}
@@ -12534,7 +12544,7 @@ to their similarity with the (regular) multiplication of $\operatorname*{QSym}%
 $. In particular, they satisfy the following analogue of Proposition
 \ref{prop.4.1.rewr}:
 
-\begin{corollary}
+\begin{proposition}
 Let $\pi$ and $\sigma$ be two disjoint nonempty permutations. Assume that
 $\pi_{1}>\sigma_{1}$. Then,%
 \begin{align*}
@@ -12548,11 +12558,11 @@ F_{\operatorname*{Comp}\pi}\left.  \succeq\right.  F_{\operatorname*{Comp}%
 F_{\operatorname*{Comp}\chi}.
 \end{align*}
 
-\end{corollary}
+\end{proposition}
 
 \subsection{Left- and right-shuffle-compatibility and ideals}
 
-This corollary lets us relate the notions introduced in Definition
+This proposition lets us relate the notions introduced in Definition
 \ref{def.LR.left-right} to the operations $\left.  \prec\right.  $ and
 $\left.  \succeq\right.  $. To state the precise connection, we need the
 following notation:
@@ -13987,7 +13997,7 @@ Proposition \ref{prop.ideal-crit3}.
 \begin{question}
 Proposition \ref{prop.ideal-crit3} says that if a $\mathbb{Q}$-vector subspace
 $M$ of $\operatorname*{QSym}$ is simultaneously a $\left.  \prec\right.
-$-ideal and an $\left.  \succeq\right.  $-ideal, then it is also an ideal.
+$-ideal and a $\left.  \succeq\right.  $-ideal, then it is also an ideal.
 Similarly, if $M$ is an ideal and a $\left.  \prec\right.  $-ideal, then it is
 a $\left.  \succeq\right.  $-ideal. Can we state any other such criteria?
 \end{question}
@@ -14694,10 +14704,10 @@ left-shuffle-compatible, right-shuffle-compatible and head-graft-compatible
 (since $\operatorname*{st}$ is LR-shuffle-compatible). Hence, Proposition
 \ref{prop.des-stat.hgc} shows that $\operatorname*{st}$ is a descent
 statistic. Thus, Theorem \ref{thm.dendri.K.ideal} yields that $\mathcal{K}%
-_{\operatorname*{st}}$ is an $\left.  \prec\right.  $-ideal of
+_{\operatorname*{st}}$ is a $\left.  \prec\right.  $-ideal of
 $\operatorname*{QSym}$ (since $\operatorname*{st}$ is
 left-shuffle-compatible). Likewise, Theorem \ref{thm.dendri.K.ideal-R} yields
-that $\mathcal{K}_{\operatorname*{st}}$ is an $\left.  \succeq\right.  $-ideal
+that $\mathcal{K}_{\operatorname*{st}}$ is a $\left.  \succeq\right.  $-ideal
 of $\operatorname*{QSym}$ (since $\operatorname*{st}$ is
 right-shuffle-compatible). Finally, Proposition \ref{prop.K.ideal} yields that
 $\mathcal{K}_{\operatorname*{st}}$ is an ideal of $\operatorname*{QSym}$
@@ -14737,9 +14747,9 @@ left-shuffle-compatible and weakly right-shuffle-compatible. We must prove
 that $\operatorname*{st}$ is shuffle-compatible.
 \par
 The implication B$\Longrightarrow$C in Theorem \ref{thm.dendri.K.ideal} shows
-that the set $\mathcal{K}_{\operatorname*{st}}$ is an $\left.  \prec\right.
+that the set $\mathcal{K}_{\operatorname*{st}}$ is a $\left.  \prec\right.
 $-ideal of $\operatorname*{QSym}$. Similarly, the set $\mathcal{K}%
-_{\operatorname*{st}}$ is an $\left.  \succeq\right.  $-ideal of
+_{\operatorname*{st}}$ is a $\left.  \succeq\right.  $-ideal of
 $\operatorname*{QSym}$. Hence, Proposition \ref{prop.ideal-crit3} (applied to
 $M=\mathcal{K}_{\operatorname*{st}}$) yields that $\mathcal{K}%
 _{\operatorname*{st}}$ is an ideal of $\operatorname*{QSym}$. By Proposition
@@ -14817,7 +14827,7 @@ Notice that if $A$ and $B$ are two dendriform algebras over $\mathbf{k}$, then
 the kernel of any dendriform algebra homomorphism $A\rightarrow B$ is an
 $\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of $A$.
 Conversely, if $A$ is a dendriform algebra over $\mathbf{k}$, and $I$ is
-simultaneously an $\left.  \prec\right.  $-ideal and a $\left.  \succeq
+simultaneously a $\left.  \prec\right.  $-ideal and a $\left.  \succeq
 \right.  $-ideal of $A$, then $A/I$ canonically becomes a dendriform algebra,
 and the canonical projection $A\rightarrow A/I$ becomes a dendriform algebra homomorphism.
 
@@ -15723,6 +15733,10 @@ Posets and Colored Quasisymmetric Functions}, Ann. Comb. 14 (2010), pp.
 251--289,\newline\url{https://doi.org/10.1007/s00026-010-0059-0} . See
 \href{http://www.arxiv.org/abs/math/0610984v1}{\texttt{arXiv:math/0610984v1}}
 for a preprint.
+
+\bibitem[Oguz18]{Oguz18}Ezgi Kantarc{\i} O\u{g}uz,
+\textit{A Counter Example to the Shuffle Compatiblity Conjecture},
+\arxiv{1807.01398v1}.
 
 \bibitem[Peters05]{Peters05}T. Kyle Petersen, \textit{Enriched }$\mathit{P}%
 $\textit{-partitions and peak algebras}, Advances in Mathematics 209 (2007),

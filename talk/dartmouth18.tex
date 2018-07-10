@@ -1,0 +1,1989 @@
+\documentclass{beamer}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{graphicx}
+%\usepackage{tikz}
+%\usetikzlibrary{matrix,arrows,backgrounds,shapes.misc,shapes.geometric,fit}
+\usepackage{etex}
+\usepackage{amsthm}
+\usepackage{color}
+\usepackage{wasysym}
+%\usepackage{allrunes}
+\usepackage[all]{xy}
+\usepackage{textpos}
+%\usepackage{ytableau}
+%\usetikzlibrary{calc,through,backgrounds}
+%\CompileMatrices
+
+\definecolor{grau}{rgb}{.5 , .5 , .5}
+\definecolor{dunkelgrau}{rgb}{.35 , .35 , .35}
+\definecolor{schwarz}{rgb}{0 , 0 , 0}
+\definecolor{violet}{RGB}{143,0,255}
+\definecolor{forestgreen}{RGB}{34, 100, 34}
+
+\newcommand{\red}{\color{red}}
+\newcommand{\grey}{\color{grau}}
+\newcommand{\green}{\color{forestgreen}}
+\newcommand{\violet}{\color{violet}}
+\newcommand{\blue}{\color{blue}}
+
+\newcommand{\bIf}{\textbf{If} }
+\newcommand{\bif}{\textbf{if} }
+\newcommand{\bthen}{\textbf{then} }
+
+\newcommand{\EE}{{\mathbf{E}}}
+\newcommand{\ZZ}{{\mathbb Z}}
+\newcommand{\NN}{{\mathbb N}}
+\newcommand{\QQ}{{\mathbb Q}}
+\newcommand{\kk}{{\mathbf k}}
+\newcommand{\OO}{\operatorname {O}}
+\newcommand{\Nm}{\operatorname {N}}
+\newcommand{\Par}{\operatorname{Par}}
+\newcommand{\Comp}{\operatorname{Comp}}
+\newcommand{\Stab}{\operatorname {Stab}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\ev}{\operatorname{ev}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Lpk}{\operatorname{Lpk}}
+\newcommand{\lpk}{\operatorname{lpk}}
+\newcommand{\Rpk}{\operatorname{Rpk}}
+\newcommand{\rpk}{\operatorname{rpk}}
+\newcommand{\Pk}{\operatorname{Pk}}
+\newcommand{\Epk}{\operatorname{Epk}}
+\newcommand{\epk}{\operatorname{epk}}
+\newcommand{\Des}{\operatorname{Des}}
+\newcommand{\des}{\operatorname{des}}
+\newcommand{\inv}{\operatorname{inv}}
+\newcommand{\maj}{\operatorname{maj}}
+\newcommand{\Val}{\operatorname{Val}}
+\newcommand{\pk}{\operatorname{pk}}
+\newcommand{\st}{\operatorname{st}}
+\newcommand{\QSym}{\operatorname{QSym}}
+\newcommand{\NSym}{\operatorname{NSym}}
+\newcommand{\Mat}{\operatorname{M}}
+\newcommand{\bk}{\mathbf{k}}
+\newcommand{\Nplus}{\mathbb{N}_{+}}
+\newcommand\arxiv[1]{\href{http://www.arxiv.org/abs/#1}{\texttt{arXiv:#1}}}
+\newcommand{\Orb}{{\mathcal O}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\Or}{\operatorname{O}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\Iso}{\operatorname{Iso}}
+\newcommand{\Adm}{\operatorname{Adm}}
+\newcommand{\Supp}{\operatorname{Supp}}
+\newcommand{\rev}{\operatorname{rev}}
+\newcommand{\Powser}{\QQ\left[\left[x_1,x_2,x_3,\ldots\right]\right]}
+\newcommand{\rad}{\operatorname {rad}}
+\newcommand{\zero}{\mathbf{0}}
+\newcommand{\xx}{\mathbf{x}}
+\newcommand{\ord}{\operatorname*{ord}}
+\newcommand{\bbK}{{\mathbb{K}}}
+\newcommand{\whP}{{\widehat{P}}}
+%\newcommand{\Trop}{\operatorname*{Trop}}
+%\newcommand{\TropZ}{{\operatorname*{Trop}\mathbb{Z}}}
+\newcommand{\rato}{\dashrightarrow}
+\newcommand{\lcm}{\operatorname*{lcm}}
+\newcommand{\tlab}{\operatorname*{tlab}}
+\newcommand{\tvi}{\left. \textarm{\tvimadur} \right.}
+\newcommand{\bel}{\left. \textarm{\belgthor} \right.}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calZ}{\mathcal{Z}}
+
+\newcommand{\fti}[1]{\frametitle{\ \ \ \ \ #1}}
+\newenvironment{iframe}[1][]{\begin{frame} \fti{[#1]} \begin{itemize}}{\end{frame}\end{itemize}}
+
+\newcommand{\are}{\ar@{-}}
+\newcommand{\arinj}{\ar@{_{(}->}}
+\newcommand{\arsurj}{\ar@{->>}}
+
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+% $\set{...}$ yields $\left\{ ... \right\}$.
+\newcommand{\abs}[1]{\left| #1 \right|}
+% $\abs{...}$ yields $\left| ... \right|$.
+\newcommand{\tup}[1]{\left( #1 \right)}
+% $\tup{...}$ yields $\left( ... \right)$.
+\newcommand{\ive}[1]{\left[ #1 \right]}
+% $\ive{...}$ yields $\left[ ... \right]$.
+\newcommand{\verts}[1]{\operatorname{V}\left( #1 \right)}
+% $\verts{...}$ yields $\operatorname{V}\left( ... \right)$.
+\newcommand{\edges}[1]{\operatorname{E}\left( #1 \right)}
+% $\edges{...}$ yields $\operatorname{E}\left( ... \right)$.
+\newcommand{\arcs}[1]{\operatorname{A}\left( #1 \right)}
+% $\arcs{...}$ yields $\operatorname{A}\left( ... \right)$.
+\newcommand{\underbrack}[2]{\underbrace{#1}_{\substack{#2}}}
+% $\underbrack{...1}{...2}$ yields
+% $\underbrace{...1}_{\substack{...2}}$. This is useful for doing
+% local rewriting transformations on mathematical expressions with
+% justifications.
+
+\setbeamertemplate{itemize/enumerate body begin}{\large}
+\setbeamertemplate{itemize/enumerate subbody begin}{\large}
+\setbeamertemplate{itemize/enumerate subsubbody begin}{\large}
+
+\usepackage{url}%this line and the next are related to hyperlinks
+%\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blur]{hyperref}
+
+\usepackage{color}
+
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+\usefonttheme[onlylarge]{structurebold}
+\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{itemize/enumerate body begin}{}
+\setbeamertemplate{itemize/enumerate subbody begin}{\normalsize}
+%\setbeamertemplate{section in head/foot shaded}[default][60]
+%\setbeamertemplate{subsection in head/foot shaded}[default][60]
+\beamersetuncovermixins{\opaqueness<1>{0}}{\opaqueness<2->{15}}
+
+%\usepackage{beamerthemesplit}
+\usepackage{epsfig,amsfonts,bbm,mathrsfs}
+\usepackage{verbatim} 
+
+% Dark red emphasis
+\definecolor{darkred}{rgb}{0.7,0,0} % darkred color
+\newcommand{\defn}[1]{{\color{darkred}\emph{#1}}} % emphasis of a definition
+
+
+
+\newcommand{\STRUT}{\vrule width 0pt depth 8pt height 0pt}
+\newcommand{\ASTRUT}{\vrule width 0pt depth 0pt height 11pt}
+
+
+\theoremstyle{plain}
+\newtheorem{conj}[theorem]{Conjecture}
+
+
+\setbeamertemplate{headline}{}
+%This removes a black stripe from the top of the slides.
+
+
+\author{Darij Grinberg (UMN)
+}
+\title[Shuffle-compatibility for the exterior peak set]{Shuffle-compatibility for the exterior peak set}
+% http://permutationpatterns.com/docs/pp2018-program.pdf
+% 
+% In \cite{part1}, Ira Gessel and Yan Zhuang have coined the concept of
+% \textit{shuffle-compatibility}: a property shared by many (but not all) known
+% and less-known permutation statistics. In this abstract, which is an outline
+% of the paper-in-progress \cite{paper}, we shall apply this concept to the
+% \textit{exterior peak set} statistic, proving a conjecture of Gessel and
+% Zhuang, and furthermore study variants of this concept.
+
+% \section{Definitions and the main theorem}
+
+% We let $\mathbb{N}=\left\{  0,1,2,3,\ldots\right\}  $. For each $n\in
+% \mathbb{Z}$, we set $\left[  n\right]  =\left\{  1,2,\ldots,n\right\}  $.
+
+% If $n\in\mathbb{N}$, then an $n$\textit{-permutation} shall mean an $n$-tuple
+% of distinct positive integers. For example, $\left(  3,6,4\right)  $ and
+% $\left(  9,1,2\right)  $ are $3$-permutations, but $\left(  2,1,2\right)  $ is not.
+
+% A \textit{permutation} means an $n$-permutation for some $n\in\mathbb{N}$.
+% This concept of permutation (inherited from \cite{part1}) is nonstandard;
+% however, our later definition of permutation statistics will ensure that the
+% extra liberty to use arbitrary positive integers as entries does not
+% significantly impact the results.
+
+% If $\pi$ is an $n$-permutation for some $n\in\mathbb{N}$, then we refer to $n$
+% as the \textit{size} of $\pi$ and denote it by $\left\vert \pi\right\vert $.
+% Furthermore, we say that $\pi$ is \textit{nonempty} if $n>0$, and we use the
+% notation $\pi_{i}$ for the $i$-th entry of $\pi$.
+
+% If $n\in\mathbb{N}$, then two $n$-permutations $\alpha$ and $\beta$ are said
+% to be \textit{order-equivalent} if every $i,j\in\left[  n\right]  $ satisfy
+% the logical equivalence $\left(  \alpha\left(  i\right)  <\alpha\left(
+% j\right)  \right)  \Longleftrightarrow\left(  \beta\left(  i\right)
+% <\beta\left(  j\right)  \right)  $.
+
+% A \textit{permutation statistic} is a map $\operatorname*{st}$ from the set of
+% all permutations to an arbitrary set that has the following property: Whenever
+% $\alpha$ and $\beta$ are two order-equivalent permutations, we have
+% $\operatorname*{st}\left(  \alpha\right)  =\operatorname*{st}\left(
+% \beta\right)  $. Thus, a permutation statistic can alternatively be viewed as
+% a statistic defined on the set of all permutations in the usual sense (i.e.,
+% all permutations of the sets $\left[  n\right]  $ for $n\in\mathbb{N}$),
+% because each permutation (in the sense above) is order-equivalent to a unique
+% permutation of its size (in the usual sense).
+
+% Examples of permutation statistics are $\operatorname*{Des}$ (sending each
+% permutation $\pi$ to its set $\operatorname*{Des}\pi$ of descents),
+% $\operatorname*{maj}$ (sending each permutation to its major index) and
+% $\operatorname*{inv}$ (sending each permutation to its number of inversions).
+% A more elaborate example is the \textit{peak set} statistic
+% $\operatorname*{Pk}$; it sends each $n$-permutation $\pi$ to the set
+% $\operatorname*{Pk}\pi$ of all \textit{peaks} of $\pi$, which are the elements
+% $i\in\left\{  2,3,\ldots,n-1\right\}  $ satisfying $\pi_{i-1}<\pi_{i}%
+% >\pi_{i+1}$. This statistic has been studied by Aguiar, Nyman, Petersen and
+% others. Two variants are the \textit{left peak statistic} $\operatorname*{Lpk}%
+% $ (which is defined just as $\operatorname*{Pk}$, but $i$ now ranges over
+% $\left\{  1,2,\ldots,n-1\right\}  $ instead of $\left\{  2,3,\ldots
+% ,n-1\right\}  $, and $\pi_{0}$ is understood to be $0$) and the \textit{right
+% peak statistic} $\operatorname*{Rpk}$ (defined similarly). We refer to
+% \cite{part1} or \cite{paper} for precise definitions.
+
+% The permutation statistic that we shall mainly focus on is the
+% \textit{exterior peak set} $\operatorname*{Epk}$. It sends each $n$%
+% -permutation $\pi$ to the set $\operatorname*{Epk}\pi$ of all \textit{exterior
+% peaks} of $\pi$, which are the elements $i\in\left[  n\right]  $ satisfying
+% $\pi_{i-1}<\pi_{i}>\pi_{i+1}$, where both $\pi_{0}$ and $\pi_{n+1}$ are
+% understood to be $0$. Equivalently, $\operatorname*{Epk}\pi$ is the number of
+% appearances of the consecutive patterns $132$ and $231$ in the word $0\pi0$
+% (that is, $\pi$ flanked by zeroes on both sides). For example,%
+% \begin{align*}
+% \operatorname*{Epk}\left(  1,4,3,2,9,8\right)   &  =\left\{  2,5\right\}
+% ;\ \ \ \ \ \ \ \ \ \ \operatorname*{Epk}\left(  3,1,4,2\right)  =\left\{
+% 1,3\right\}  ;\\
+% \operatorname*{Epk}\left(  1,2,3,4\right)   &  =\left\{  4\right\}  .
+% \end{align*}
+
+
+% Two permutations $\pi$ and $\sigma$ are said to be \textit{disjoint} if no
+% number appears in both $\pi$ and $\sigma$.
+
+% If $\pi$ and $\sigma$ are disjoint permutations with sizes $m=\left\vert
+% \pi\right\vert $ and $n=\left\vert \sigma\right\vert $, then a
+% \textit{shuffle} of $\pi$ and $\sigma$ means an $\left(  m+n\right)
+% $-permutation in which both $\pi$ and $\sigma$ appear as subsequences. For
+% instance, the shuffles of the two disjoint permutations $\left(  3,1\right)  $
+% and $\left(  2,6\right)  $ are%
+% \begin{align*}
+% &  \left(  3,1,2,6\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  3,2,1,6\right)
+% ,\ \ \ \ \ \ \ \ \ \ \left(  3,2,6,1\right)  ,\\
+% &  \left(  2,3,1,6\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  2,3,6,1\right)
+% ,\ \ \ \ \ \ \ \ \ \ \left(  2,6,3,1\right)  .
+% \end{align*}
+% This naive definition of a shuffle does not attempt to deal with equal
+% numbers, but suffices for what we shall do in the following.
+
+% A permutation statistic $\operatorname*{st}$ is said to be
+% \textit{shuffle-compatible} if and only if it has the following property: For
+% any two disjoint permutations $\pi$ and $\sigma$, the multiset%
+% \[
+% \left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\text{ is a
+% shuffle of }\pi\text{ and }\sigma\right\}
+% \]
+% depends only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}%
+% \left(  \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert
+% \sigma\right\vert $.
+
+% Our main theorem -- conjectured by Gessel and Zhuang in \cite{part1} -- is:
+
+% \begin{theorem}
+% \label{thm.Epk.shc}The permutation statistic $\operatorname*{Epk}$ is shuffle-compatible.
+% \end{theorem}
+
+% This joins the ranks of a series of similar theorems about other statistics
+% proven in \cite{part1}. In particular, \cite{part1} showed that the statistics
+% $\operatorname*{Des}$ (descent set), $\operatorname*{des}$ (number of
+% descents), $\operatorname*{maj}$ (major index), $\operatorname*{Pk}$ (peak
+% set), $\operatorname*{Lpk}$ (left peak set), $\operatorname*{Rpk}$ (right peak
+% set) and several others are shuffle-compatible, whereas the statistics
+% $\operatorname*{inv}$ (number of inversions), $\operatorname*{des}%
+% +\operatorname*{maj}$ (the sum of the number of descents and the major index)
+% and various others are not. Shuffle-compatibility is not equivalent to
+% defining a subalgebra of descent algebras (for example, $\operatorname*{Epk}$
+% does not define such a subalgebra).
+
+% The proof of Theorem \ref{thm.Epk.shc} relies on a generalization of Stanley's
+% concept of P-partitions and its closest relatives (Stembridge's enriched
+% P-partitions and Petersen's left enriched P-partitions). We refer to
+% \cite{paper} for details.
+
+% \section{Left and right shuffles}
+
+% We can refine the concept of shuffles. Namely, if $\pi$ and $\sigma$ are two
+% disjoint nonempty permutations, then a shuffle of $\pi$ and $\sigma$ is called
+% a \textit{left shuffle} (of $\pi$ and $\sigma$) if it begins with $\pi_{1}$;
+% otherwise it is a \textit{right shuffle}. We can now define two finer versions
+% of shuffle-compatibility:
+
+% \begin{itemize}
+% \item A permutation statistic $\operatorname*{st}$ is said to be
+% \textit{left-shuffle-compatible} if for any two disjoint nonempty permutations
+% $\pi$ and $\sigma$ having the property that%
+% \begin{equation}
+% \text{the first entry of }\pi\text{ is greater than the first entry of }%
+% \sigma, \label{eq.lsc.def-ax}%
+% \end{equation}
+% the multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid
+% \ \tau\text{ is a left shuffle of }\pi\text{ and }\sigma\right\}  $ depends
+% only on $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}\left(
+% \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert \sigma
+% \right\vert $.
+
+% \item A permutation statistic $\operatorname*{st}$ is said to be
+% \textit{right-shuffle-compatible} if for any two disjoint nonempty
+% permutations $\pi$ and $\sigma$ having the property (\ref{eq.lsc.def-ax}), the
+% multiset $\left\{  \operatorname*{st}\left(  \tau\right)  \ \mid\ \tau\text{
+% is a right shuffle of }\pi\text{ and }\sigma\right\}  $ depends only on
+% $\operatorname*{st}\left(  \pi\right)  $, $\operatorname*{st}\left(
+% \sigma\right)  $, $\left\vert \pi\right\vert $ and $\left\vert \sigma
+% \right\vert $.
+% \end{itemize}
+
+% We now claim:
+
+% \begin{theorem}
+% \label{thm.Epk.lsc}The permutation statistic $\operatorname*{Epk}$ is
+% left-shuffle-compatible and right-shuffle-compatible.
+% \end{theorem}
+
+% Our proof of Theorem \ref{thm.Epk.lsc} (again, for details see \cite{paper})
+% involves a detour through $\operatorname*{QSym}$, the ring of quasisymmetric
+% functions. It uses four additional binary operations on $\operatorname*{QSym}%
+% $, introduced in \cite{dimcr}.
+
+% We also prove that the statistics $\operatorname*{Des}$ (descent set),
+% $\operatorname*{des}$ (descent number) and $\operatorname*{Lpk}$ (left peak
+% set) are left-shuffle-compatible and right-shuffle-compatible, but the
+% statistics $\operatorname*{Rpk}$ (right peak set) and $\operatorname*{maj}$
+% (major index) are not.
+
+% \section{Descent statistics and the $\operatorname*{QSym}$ connection}
+
+% The concept of shuffle-compatibility is closely related to the $\mathbb{Q}%
+% $-algebra $\operatorname*{QSym}$ of quasisymmetric functions, as Gessel and
+% Zhuang already observed in \cite{part1}. Let us outline the connection. (We
+% refer to \cite[\S 7.19]{Stanley} or \cite[Chapter 5]{GriRei15} for the
+% definition of $\operatorname*{QSym}$.)
+
+% If $n\in\mathbb{N}$, then each subset $I=\left\{  i_{1}<i_{2}<\cdots
+% <i_{k}\right\}  $ of $\left[  n-1\right]  $ determines a composition of $n$
+% (namely, the composition $\left(  i_{1}-i_{0},i_{2}-i_{1},\ldots,i_{k+1}%
+% -i_{k}\right)  $, where we set $i_{0}=0$ and $i_{k+1}=n$). This latter
+% composition is denoted by $\operatorname*{Comp}I$. This defines a bijection
+% $\operatorname*{Comp}$ from the set of all subsets of $\left[  n-1\right]  $
+% to the set of all compositions of $n$. When this map is applied to the descent
+% set $\operatorname*{Des}\pi$ of an $n$-permutation $\pi$, we denote the
+% resulting composition $\operatorname*{Comp}\left(  \operatorname*{Des}%
+% \pi\right)  $ by $\operatorname*{Comp}\pi$.
+
+% A permutation statistic $\operatorname*{st}$ is said to be a \textit{descent
+% statistic} if and only if $\operatorname*{st}\pi$ (for $\pi$ a permutation)
+% depends only on $\operatorname*{Comp}\pi$. In other words, $\operatorname*{st}%
+% $ is a descent statistic if and only if every two permutations $\pi$ and
+% $\sigma$ satisfying $\operatorname*{Comp}\pi=\operatorname*{Comp}\sigma$
+% satisfy $\operatorname*{st}\pi=\operatorname*{st}\sigma$.
+
+% All shuffle-compatible permutation statistics currently known (including
+% $\operatorname*{Des}$, $\operatorname*{des}$, $\operatorname*{maj}$,
+% $\operatorname*{Lpk}$, $\operatorname*{Rpk}$ and $\operatorname*{Epk}$) are
+% descent statistics. For example, $\operatorname*{Epk}$ is a descent statistic,
+% since every positive integer $n$ and every $n$-permutation $\pi$ satisfy
+% $\operatorname*{Epk}\pi=\left\{  i\in\operatorname*{Des}\pi\cup\left\{
+% n\right\}  \ \mid\ i-1\notin\operatorname*{Des}\pi\right\}  $ (and both
+% $\operatorname*{Des}\pi$ and $n$ can be recovered from $\operatorname*{Comp}%
+% \pi$).
+
+% For any descent statistic $\operatorname*{st}$, we define the \textit{kernel}
+% $\mathcal{K}_{\operatorname*{st}}$ of $\operatorname*{st}$ to be the
+% $\mathbb{Q}$-vector subspace of $\operatorname*{QSym}$ spanned by all elements
+% of the form $F_{\operatorname*{Comp}\pi}-F_{\operatorname*{Comp}\sigma}$,
+% where $\pi$ and $\sigma$ are two permutations of the same size satisfying
+% $\operatorname*{st}\pi=\operatorname*{st}\sigma$, and where $F$ stands for
+% Gessel's fundamental basis of $\operatorname*{QSym}$ (so $F_{\alpha}$ is what
+% is denoted by $L_{\alpha}$ in \cite[Proposition 7.19.1]{Stanley} or
+% \cite[Definition 5.2.4]{GriRei15}). Then, a descent statistic
+% $\operatorname*{st}$ is shuffle-compatible if and only if its kernel
+% $\mathcal{K}_{\operatorname*{st}}$ is an ideal of $\operatorname*{QSym}$.
+% (This is explicitly stated in \cite{paper}, but the idea goes back to
+% \cite{part1}.)
+
+% Thus, shuffle-compatible descent statistics correspond to a certain kind of
+% ideals of $\operatorname*{QSym}$. The quotients of $\operatorname*{QSym}$ by
+% these ideals are called \textit{shuffle algebras} in \cite{part1}.
+
+% In \cite{paper}, we find two spanning sets for the kernel $\mathcal{K}%
+% _{\operatorname*{Epk}}$ of $\operatorname*{Epk}$. One is in terms of the
+% fundamental basis; the other in terms of the monomial basis. Similar
+% descriptions can probably be found for kernels of other prominent descent statistics.
+
+% The quasisymmetric point of view also illuminates left-shuffle-compatibility:
+% We show that a descent statistic $\operatorname*{st}$ is
+% left-shuffle-compatible and right-shuffle-compatible if and only if its kernel
+% $\mathcal{K}_{\operatorname*{st}}$ is an ideal of the \textit{dendriform}
+% algebra $\operatorname*{QSym}$, which relies on the dendriform operations
+% introduced in \cite{dimcr}. This fact, along with certain identities for these
+% dendriform operations, is key to the proof of Theorem \ref{thm.Epk.lsc}.
+
+% While the above results (particularly Theorem \ref{thm.Epk.shc}) can be viewed
+% as a conclusion of \cite{part1}, several questions arise from the work, and
+% much remains to be done.
+
+% \begin{thebibliography}{9}                                                                                                %
+
+
+% \bibitem[1]{part1}\href{http://arxiv.org/abs/1706.00750v2}{Ira M. Gessel, Yan
+% Zhuang, \textit{Shuffle-compatible permutation statistics},
+% arXiv:1706.00750v2}.
+
+% \bibitem[2]{paper}Darij Grinberg, \textit{Shuffle-compatible permutation
+% statistics II: the exterior peak set}.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/algebra/gzshuf2.pdf}
+
+% \bibitem[3]{dimcr}Darij Grinberg, \textit{Dual immaculate creation operators
+% and a dendriform algebra structure on the quasisymmetric functions}, version
+% 6, \href{https://arxiv.org/abs/1410.0079v6}{arXiv:1410.0079v6}. (Version 5 has
+% been published in:
+% \href{https://cms.math.ca/10.4153/CJM-2016-018-8?abfmt=ltx}{Canad. J. Math.
+% \textbf{69} (2017), 21--53}.)
+
+% \bibitem[4]{GriRei15}Darij Grinberg, Victor Reiner, \textit{Hopf algebras in
+% Combinatorics}, August 22, 2016. arXiv preprint
+% \href{http://www.arxiv.org/abs/1409.8356v4}{\texttt{arXiv:1409.8356v4}}.
+% \newline A version which is more often updated can be found at
+% \url{http://www.math.umn.edu/~reiner/Classes/HopfComb.pdf} .
+
+% \bibitem[5]{Stanley}Richard Stanley, \textit{Enumerative Combinatorics, volume
+% 2}, First edition 2001.
+% \end{thebibliography}
+\date{12 July 2018 \\ Dartmouth College}
+
+\begin{document}
+
+\frame{\titlepage
+\textbf{slides: \red \url{http://www.cip.ifi.lmu.de/~grinberg/algebra/dartmouth18.pdf}} \\
+\textbf{paper: \red \url{http://www.cip.ifi.lmu.de/~grinberg/algebra/gzshuf2.pdf}} \\
+\textbf{project: \red \url{https://github.com/darijgr/gzshuf}}
+}
+
+% \item \href{http://arxiv.org/abs/1409.8356}{\red Darij Grinberg, Victor Reiner, \textit{Hopf Algebras in Combinatorics}, arXiv:1409.8356}.
+% \item M. Hazewinkel, N. Gubareni, V.V. Kirichenko, \textit{Algebras, rings and modules. Lie algebras and Hopf algebras}, AMS 2010.
+
+\begin{frame}
+\fti{Section 1}
+\begin{center}
+{\LARGE \bf Section 1} \\
+\noindent\rule[0.5ex]{\linewidth}{1pt}
+{\Large \bf Shuffle-compatibility}
+\end{center}
+\vspace{1cm}
+Reference:
+\begin{itemize}
+\item \href{https://arxiv.org/abs/1706.00750}{\red Ira M. Gessel, Yan Zhuang, \textit{Shuffle-compatible permutation statistics}, arXiv:1706.00750, Adv. in Math. \textbf{332} (2018), pp. 85--141}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\fti{Permutations \& permutation statistics: Definitions 1}
+
+\begin{itemize}
+
+\item This project spun off from a paper by Ira Gessel and Yan Zhuang
+({\red \arxiv{1706.00750}}). \\
+We prove a conjecture (shuffle-compatibility of $\Epk$)
+and study a stronger version of shuffle-compatibility.
+
+\pause
+
+\item Let $\NN = \set{0, 1, 2, \ldots}$ and $\ive{n} = \set{1, 2, \ldots, n}$.
+
+\item For $n \in \NN$, an \defn{$n$-permutation} means an $n$-tuple of
+        distinct positive integers (``letters''). \\
+        Example: $\tup{3, 1, 7}$ is a $3$-permutation, but
+                 $\tup{2, 1, 2}$ is not.
+
+\pause
+
+\item A \defn{permutation} means an $n$-permutation for some $n$. \\ \pause
+      If $\pi$ is an $n$-permutation, then \defn{$\abs{\pi} := n$}. \\ \pause
+      We say that $\pi$ is \defn{nonempty} if $n > 0$.
+
+\pause
+
+\item If $\pi$ is an $n$-permutation and $i \in \set{1, 2, \ldots, n}$,
+      then \defn{$\pi_i$} denotes the $i$-th entry of $\pi$.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\fti{Permutations \& permutation statistics: Definitions 2}
+
+\begin{itemize}
+
+\item Two $n$-permutations $\alpha$ and $\beta$ (with the same $n$)
+      are \defn{order-equivalent} if all $i, j \in \set{1, 2, \ldots, n}$
+      satisfy $\tup{\alpha_i < \alpha_j} \Longleftrightarrow
+      \tup{\beta_i < \beta_j}$.
+
+\item Order-equivalence is an equivalence relation on permutations.
+      Its equivalence classes are called \defn{order-equivalence
+      classes}.
+
+\pause
+
+\item A \defn{permutation statistic} (henceforth just \defn{statistic})
+      is a map $\st$ from the set
+      of all permutations (to anywhere) that is constant on each
+      order-equivalence class. \\
+      \textbf{Intuition:} A statistic computes some ``fingerprint''
+      of a permutation that only depends on the relative order of its
+      letters. \pause \\
+      \textbf{Note.} A statistic need not be integer-valued!
+      It can be set-valued, or list-valued for example.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\fti{Examples of permutation statistics, 1: descents et al}
+
+\begin{itemize}
+
+\item If $\pi$ is an $n$-permutation, then a \defn{descent} of $\pi$
+      means an $i \in \set{1, 2, \ldots, n-1}$ such that
+      $\pi_i > \pi_{i+1}$.
+
+\pause
+
+\item The \defn{descent set $\Des \pi$} of a permutation $\pi$ is
+      the set of all descents of $\pi$. \\
+      Thus, \defn{$\Des$} is a statistic. \\
+      \textbf{Example:} $\Des \tup{3, 1, 5, 2, 4} = \set{1, 3}$.
+
+\pause
+
+\item The \defn{descent number $\des \pi$} of a permutation $\pi$
+      is the number of all descents of $\pi$: that is,
+      $\des \pi = \abs{\Des \pi}$. \\
+      Thus, \defn{$\des$} is a statistic. \\
+      \textbf{Example:} $\des \tup{3, 1, 5, 2, 4} = 2$.
+
+\pause
+
+\item The \defn{major index $\maj \pi$} of a permutation $\pi$
+      is the \textbf{sum} of all descents of $\pi$. \\
+      Thus, \defn{$\maj$} is a statistic. \\
+      \textbf{Example:} $\maj \tup{3, 1, 5, 2, 4} = 1 + 3 = 4$.
+
+\pause
+
+\item The \defn{Coxeter length} $\operatorname{inv}$
+      (i.e., \defn{number of inversions})
+      and the \defn{set of inversions} are statistics, too.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\fti{Examples of permutation statistics, 2: peaks}
+
+\begin{itemize}
+
+\item If $\pi$ is an $n$-permutation, then a \defn{peak} of $\pi$
+      means an $i \in \set{2, 3, \ldots, n-1}$ such that
+      $\pi_{i-1} < \pi_i > \pi_{i+1}$. \\
+      (Thus, peaks can only exist if $n \geq 3$. \\
+      The name refers to the plot of $\pi$, where peaks look
+      like this: $/\backslash$.)
+
+\pause
+
+\item The \defn{peak set $\Pk \pi$} of a permutation $\pi$ is
+      the set of all peaks of $\pi$. \\
+      Thus, \defn{$\Pk$} is a statistic. \\
+      \textbf{Examples:}
+      \begin{itemize}
+      \item $\Pk \tup{3, 1, 5, 2, 4} = \set{3}$.
+      \item $\Pk \tup{1, 3, 2, 5, 4, 6} = \set{2, 4}$.
+      \item $\Pk \tup{3, 2} = \set{}$.
+      \end{itemize}
+
+\pause
+
+\item The \defn{peak number $\pk \pi$} of a permutation $\pi$
+      is the number of all peaks of $\pi$: that is,
+      $\pk \pi = \abs{\Pk \pi}$. \\
+      Thus, \defn{$\pk$} is a statistic. \\
+      \textbf{Example:} $\pk \tup{3, 1, 5, 2, 4} = 1$.
+
+\end{itemize}
+\vspace{10cm}
+\end{frame}
+
+\begin{frame}
+\fti{Examples of permutation statistics, 3: left peaks}
+
+\begin{itemize}
+
+\item If $\pi$ is an $n$-permutation, then a \defn{left peak} of $\pi$
+      means an $i \in \set{1, 2, \ldots, n-1}$ such that
+      $\pi_{i-1} < \pi_i > \pi_{i+1}$, where we set \defn{$\pi_0 = 0$}. \\
+      (Thus, left peaks are the same as peaks, except that $1$ counts
+      as a left peak if $\pi_1 > \pi_2$.)
+
+\item The \defn{left peak set $\Lpk \pi$} of a permutation $\pi$ is
+      the set of all left peaks of $\pi$. \\
+      Thus, \defn{$\Lpk$} is a statistic. \\
+      \textbf{Examples:}
+      \begin{itemize}
+      \item $\Lpk \tup{3, 1, 5, 2, 4} = \set{1, 3}$.
+      \item $\Lpk \tup{1, 3, 2, 5, 4, 6} = \set{2, 4}$.
+      \item $\Lpk \tup{3, 2} = \set{1}$.
+      \end{itemize}
+
+\item The \defn{left peak number $\lpk \pi$} of a permutation $\pi$
+      is the number of all left peaks of $\pi$: that is,
+      $\lpk \pi = \abs{\Lpk \pi}$. \\
+      Thus, \defn{$\lpk$} is a statistic. \\
+      \textbf{Example:} $\lpk \tup{3, 1, 5, 2, 4} = 2$.
+
+\end{itemize}
+\vspace{10cm}
+\end{frame}
+
+\begin{frame}
+\fti{Examples of permutation statistics, 4: right peaks}
+
+\begin{itemize}
+
+\item If $\pi$ is an $n$-permutation, then a \defn{right peak} of $\pi$
+      means an $i \in \set{2, 3, \ldots, n}$ such that
+      $\pi_{i-1} < \pi_i > \pi_{i+1}$, where we set \defn{$\pi_{n+1} = 0$}. \\
+      (Thus, right peaks are the same as peaks, except that $n$ counts
+      as a right peak if $\pi_{n-1} < \pi_n$.)
+
+\item The \defn{right peak set $\Rpk \pi$} of a permutation $\pi$ is
+      the set of all right peaks of $\pi$. \\
+      Thus, \defn{$\Rpk$} is a statistic. \\
+      \textbf{Examples:}
+      \begin{itemize}
+      \item $\Rpk \tup{3, 1, 5, 2, 4} = \set{3, 5}$.
+      \item $\Rpk \tup{1, 3, 2, 5, 4, 6} = \set{2, 4, 6}$.
+      \item $\Rpk \tup{3, 2} = \set{}$.
+      \end{itemize}
+
+\item The \defn{right peak number $\rpk \pi$} of a permutation $\pi$
+      is the number of all right peaks of $\pi$: that is,
+      $\rpk \pi = \abs{\Rpk \pi}$. \\
+      Thus, \defn{$\rpk$} is a statistic. \\
+      \textbf{Example:} $\rpk \tup{3, 1, 5, 2, 4} = 2$.
+
+\end{itemize}
+\vspace{10cm}
+\end{frame}
+
+\begin{frame}
+\fti{Examples of permutation statistics, 5: exterior peaks}
+
+\begin{itemize}
+
+\item If $\pi$ is an $n$-permutation, then an \defn{exterior peak} of $\pi$
+      means an $i \in \set{1, 2, \ldots, n}$ such that
+      $\pi_{i-1} < \pi_i > \pi_{i+1}$, where we set \defn{$\pi_0 = 0$ and $\pi_{n+1} = 0$}. \\
+      (Thus, exterior peaks are the same as peaks, except that
+      $1$ counts if $\pi_1 > \pi_2$, and
+      $n$ counts if $\pi_{n-1} < \pi_n$.)
+
+\item The \defn{exterior peak set $\Epk \pi$} of a permutation $\pi$ is
+      the set of all exterior peaks of $\pi$. \\
+      Thus, \defn{$\Epk$} is a statistic. \\
+      \textbf{Examples:}
+      \begin{itemize}
+      \item $\Epk \tup{3, 1, 5, 2, 4} = \set{1, 3, 5}$.
+      \item $\Epk \tup{1, 3, 2, 5, 4, 6} = \set{2, 4, 6}$.
+      \item $\Epk \tup{3, 2} = \set{1}$.
+      \end{itemize}
+
+\item Thus, $\Epk \pi = \Lpk \pi \cup \Rpk \pi$ if $n \geq 2$.
+
+\item The \defn{exterior peak number $\epk \pi$} of a permutation $\pi$
+      is the number of all exterior peaks of $\pi$: that is,
+      $\epk \pi = \abs{\Epk \pi}$. \\
+      Thus, \defn{$\epk$} is a statistic. \\
+      \textbf{Example:} $\epk \tup{3, 1, 5, 2, 4} = 3$.
+
+\end{itemize}
+\vspace{10cm}
+\end{frame}
+
+\begin{frame}
+\fti{Shuffles of permutations}
+
+\begin{itemize}
+
+\item Let $\pi$ and $\sigma$ be two permutations.
+
+\item We say that $\pi$ and $\sigma$ are \defn{disjoint} if they have
+      no letter in common.
+
+\pause
+
+\item Assume that $\pi$ and $\sigma$ are disjoint. Set
+      $m = \abs{\pi}$ and $n = \abs{\sigma}$.
+      An $\tup{m+n}$-permutation $\tau$ is called a \defn{shuffle} of
+      $\pi$ and $\sigma$ if both $\pi$ and $\sigma$ appear as
+      subsequences of $\tau$. \\
+      (And thus, no other letters can appear in $\tau$.)
+
+\item We let $S \tup{\pi, \sigma}$ be the set of all shuffles
+      of $\pi$ and $\sigma$.
+
+\item \textbf{Example:}
+      \begin{align*}
+      S \tup{ {\red \tup{4, 1}} , {\blue \tup{2, 5}} }
+      &= \{ \tup{ {\red 4}, {\red 1}, {\blue 2}, {\blue 5} } ,
+            \tup{ {\red 4}, {\blue 2}, {\red 1}, {\blue 5} } ,
+            \tup{ {\red 4}, {\blue 2}, {\blue 5}, {\red 1} } , \\
+      & \qquad
+            \tup{ {\blue 2}, {\red 4}, {\red 1}, {\blue 5} } ,
+            \tup{ {\blue 2}, {\red 4}, {\blue 5}, {\red 1} } ,
+            \tup{ {\blue 2}, {\blue 5}, {\red 4}, {\red 1} }  \} .
+      \end{align*}
+
+\pause
+
+\item Observe that $\pi$ and $\sigma$ have $\binom{m+n}{m}$
+      shuffles, in bijection with $m$-element subsets of
+      $\set{1, 2, \ldots, m+n}$.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\fti{Shuffle-compatible statistics: definition}
+
+\begin{itemize}
+
+\item A statistic $\st$ is said to be \defn{shuffle-compatible}
+      if for any two disjoint permutations $\pi$ and $\sigma$, the
+      multiset
+      \[
+      \set{ \st\tau \mid \tau\in S\tup{\pi, \sigma} }_{\text{multiset}}
+      \]
+      depends only on $\st \pi$, $\st \sigma$, $\abs{\pi}$ and
+      $\abs{\sigma}$.
+
+\pause
+
+\item In other words, $\st$ is shuffle-compatible if and only
+      the distribution of
+      $\st$ on the set $S \tup{ \pi , \sigma }$
+      stays unchaged if $\pi$ and $\sigma$ are replaced by two
+      other disjoint permutations of the same size and same $\st$-values.
+      \pause \\
+      In particular, it has to stay unchanged if $\pi$ and $\sigma$
+      are replaced by two permutations order-equivalent to them:
+      e.g., $\st$ must have the same distribution
+      on the three sets
+      \[
+      S \tup{ {\red \tup{4, 1}} , {\blue \tup{2, 5}} },
+      \qquad S \tup{ {\red \tup{2, 1}} , {\blue \tup{3, 5}} } ,
+      \qquad S \tup{ {\red \tup{9, 8}} , {\blue \tup{2, 3}} } .
+      \]
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\fti{Shuffle-compatible statistics: results of Gessel and Zhuang}
+
+\begin{itemize}
+
+\item Gessel and Zhuang, in {\red \arxiv{1706.00750}}, prove that
+      various important statistics are shuffle-compatible (but some
+      are not).
+
+\pause
+
+\item Statistics they show to be \textbf{shuffle-compatible}: $\Des$, $\des$,
+      $\maj$, $\Pk$, $\Lpk$, $\Rpk$, $\lpk$, $\rpk$, $\epk$,
+      and various others.
+
+\pause
+
+\item Statistics that are \textbf{not shuffle-compatible}:
+      $\operatorname{inv}$, $\des + \maj$, $\maj_2$ (sending $\pi$
+      to the sum of the squares of its descents),
+      $\tup{\Pk, \des}$ (sending $\pi$ to $\tup{\Pk\pi, \des\pi}$),
+      and others.
+
+\pause 
+
+\item Their proofs use a mixture of enumerative combinatorics
+      (including some known formulas of MacMahon, Stanley, ...),
+      quasisymmetric functions, Hopf algebra theory,
+      P-partitions (and variants by Stembridge and Petersen),
+      Eulerian polynomials (based on earlier work by Zhuang,
+      and even earlier work by Foata and Strehl).
+
+\pause
+
+\item \textbf{Theorem (G.).} The statistic $\Epk$ is
+      shuffle-compatible (as conjectured in Gessel/Zhuang).
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\fti{LR-shuffle-compatibility}
+
+\begin{itemize}
+
+\item We further introduce a finer version of
+      shuffle-compatibility: ``LR-shuffle-compatibility''.
+
+\item Given two disjoint nonempty permutations $\pi$ and $\sigma$,
+      \begin{itemize}
+      \item
+      a \defn{left shuffle} of $\pi$ and $\sigma$ is a shuffle
+      of $\pi$ and $\sigma$ that starts with
+      \only<1>{a letter of $\pi$;}%
+      \only<2->{$\pi_1$;}
+      \item
+      a \defn{right shuffle} of $\pi$ and $\sigma$ is a shuffle
+      of $\pi$ and $\sigma$ that starts with
+      \only<1>{a letter of $\sigma$.}%
+      \only<2->{$\sigma_1$.}
+      \end{itemize}
+
+\pause \pause
+\item We let $S_{\blue \prec} \tup{\pi, \sigma}$ be the set of all {\blue left} shuffles of $\pi$
+      and $\sigma$. \\
+      We let $S_{\blue \succ} \tup{\pi, \sigma}$ be the set of all {\blue right} shuffles of $\pi$
+      and $\sigma$.
+
+\pause
+
+% \only<2>{
+\item A statistic $\st$ is said to be \defn{LR-shuffle-compatible}
+      if for any two disjoint nonempty permutations $\pi$ and $\sigma$,
+      the multisets
+      \[
+      \set{ \st\tau \mid \tau\in S_{\blue \prec} \tup{\pi, \sigma} }_{\text{multiset}}
+      \quad \text{and} \quad
+      \set{ \st\tau \mid \tau\in S_{\blue \succ} \tup{\pi, \sigma} }_{\text{multiset}}
+      \]
+      depend only on $\st \pi$, $\st \sigma$, $\abs{\pi}$,
+      $\abs{\sigma}$ {\blue and the truth value of $\pi_1 > \sigma_1$}.
+% }
+
+% \only<3>{
+% \item Equivalently: }
+
+% \only<4->{
+% \item A statistic $\st$ is said to be \defn{LR-shuffle-compatible}
+      % if for any two disjoint nonempty permutations $\pi$ and $\sigma$
+      % {\blue satisfying $\pi_1 > \sigma_1$},
+      % the multisets
+      % \[
+      % \set{ \st\tau \mid \tau\in S_{\blue \prec} \tup{\pi, \sigma} }_{\text{multiset}}
+      % \quad \text{and} \quad
+      % \set{ \st\tau \mid \tau\in S_{\blue \succ} \tup{\pi, \sigma} }_{\text{multiset}}
+      % \]
+      % depend only on $\st \pi$, $\st \sigma$, $\abs{\pi}$,
+      % $\abs{\sigma}$.
+% }
+
+% \pause\pause
+\pause
+
+\item \textbf{Theorem (G.).} $\Des$, $\des$, $\Lpk$ and $\Epk$ are
+      LR-shuffle-compatible. \pause
+      (But not $\maj$ or $\Rpk$ or $\Pk$.)
+
+\end{itemize}
+\vspace{10cm}
+
+\end{frame}
+
+\begin{frame}
+\fti{LR-shuffle-compatibility: alternative definition}
+
+\begin{itemize}
+
+\item The ``LR'' in ``LR-shuffle-compatibility'' stands for
+      ``left and right''. \pause Indeed:
+
+\item \only<2>{A statistic $\st$ is said to be \defn{left-shuffle-compatible}
+      if for any two disjoint nonempty permutations $\pi$ and $\sigma$
+      such that
+      \[
+      \pi_1 > \sigma_1 ,
+      \]
+      the multiset
+      \[
+      \set{ \st\tau \mid \tau\in S_{\blue \prec} \tup{\pi, \sigma} }_{\text{multiset}}
+      \]
+      depends only on $\st \pi$, $\st \sigma$, $\abs{\pi}$ and
+      $\abs{\sigma}$.
+      }
+      \only<3-4>{
+      A statistic $\st$ is said to be \defn{right-shuffle-compatible}
+      if for any two disjoint nonempty permutations $\pi$ and $\sigma$
+      such that
+      \[
+      \pi_1 > \sigma_1 ,
+      \]
+      the multiset
+      \[
+      \set{ \st\tau \mid \tau\in S_{\blue \succ} \tup{\pi, \sigma} }_{\text{multiset}}
+      \]
+      depends only on $\st \pi$, $\st \sigma$, $\abs{\pi}$ and
+      $\abs{\sigma}$.
+      }
+
+\pause \pause
+
+\item \textbf{Proposition.} A permutation statistic $\st$ is
+      LR-shuffle-compatible if and only if it is both
+      left-shuffle-compatible and right-shuffle-compatible.
+
+\end{itemize}
+\vspace{10cm}
+
+\end{frame}
+
+\begin{frame}
+\fti{Section 2}
+\begin{center}
+{\LARGE \bf Section 2} \\
+\noindent\rule[0.5ex]{\linewidth}{1pt}
+{\Large \bf Methods of proof}
+\end{center}
+\vspace{1cm}
+References:
+\begin{itemize}
+\item \href{https://github.com/darijgr/gzshuf}{\red Darij Grinberg, \textit{Shuffle-compatible permutation statistics II: the exterior peak set}}.
+\item \href{http://www.ams.org/journals/tran/1997-349-02/S0002-9947-97-01804-7/}{\red John R. Stembridge, \textit{Enriched P-partitions}, Trans. Amer. Math. Soc. 349 (1997), no. 2, pp. 763--788}.
+\item \href{https://doi.org/10.1016/j.aim.2006.05.0160}{\red T. Kyle Petersen, \textit{Enriched P-partitions and peak algebras}, Adv. in Math. 209 (2007), pp. 561--610}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\fti{Roadmap to $\Epk$}
+
+\begin{itemize}
+
+\item Now to the general ideas of our proof that $\Epk$ is shuffle-compatible.
+
+\item Strategy: imitate the classical proofs for $\Des$, $\Pk$ and $\Lpk$,
+      using (yet) another version of enriched $P$-partitions.
+
+\pause
+
+\item More precisely, we define
+      \textbf{$\mathcal{Z}$-enriched $P$-partitions}:
+      a generalization of
+      \begin{itemize}
+      \item $P$-partitions (Stanley 1972);
+      \item enriched $P$-partitions (Stembridge 1997);
+      \item left enriched $P$-partitions (Petersen 2007),
+      \end{itemize}
+      which are used in the proofs for $\Des$, $\Pk$
+      and $\Lpk$, respectively.
+
+\pause
+
+\item The idea is simple, but the proof takes work.
+      Let me just show the highlights without using
+      $P$-partition language.
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\fti{The main identity}
+
+\begin{itemize}
+
+\only<1-2>{
+\item Let $\mathcal{N}$ be the totally ordered set $\set{0 < 1 < 2 < \cdots < \infty}$.
+}\pause
+
+\only<2>{
+\item Let $\operatorname*{Pow}\mathcal{N}$ be the ring of power series
+      over $\QQ$ in the indeterminates $x_0, x_1, x_2, \ldots, x_{\infty}$.}
+      \pause
+
+\item If $n \in \NN$ and if $\Lambda$ is any subset of $\left[
+        n\right]  $, then we define a power series \defn{$K_{n,\Lambda}^{\mathcal{Z}}%
+        \in\operatorname*{Pow}\mathcal{N}$} by%
+        \[
+        K_{n,\Lambda}^{\mathcal{Z}}
+        = \sum_{g} 2^{k\tup{g}} x_{g_1} x_{g_2} \cdots x_{g_n} ,
+        \qquad \text{where}
+        \] \vspace{-0.4cm}
+        \begin{itemize}
+        \item the sum is over all weakly increasing $n$-tuples
+              $g = \tup{0 \leq g_1 \leq g_2 \leq \cdots \leq g_n \leq \infty}$ of
+              elements of $\mathcal{N}$ such that no $i \in \Lambda$ satisfies
+              $g_{i-1} = g_i = g_{i+1}$
+              (where we set $g_0 = 0$ and $g_{n+1} = \infty$);
+        \item we let $k \tup{g}$ be the number of \textbf{distinct} entries
+              of this $n$-tuple $g$, not counting those that equal $0$ or $\infty$.
+        \end{itemize} \pause
+
+\item \textbf{Product formula.} If $\pi$ is an $n$-permutation and $\sigma$
+      is an $m$-permutation, then
+        \[
+        K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}\cdot K_{m,\operatorname*{Epk}%
+        \sigma}^{\mathcal{Z}}=\sum_{\tau\in S\left(  \pi,\sigma\right)  }%
+        K_{n+m,\operatorname*{Epk}\tau}^{\mathcal{Z}}.
+        \] \pause
+
+\item Proof idea: $K_{n,\Epk\pi}^{\mathcal{Z}}$ is the generating function of
+      {$\mathcal{Z}$-enriched $P$-partitions}
+      for a certain totally ordered set $P$.
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\fti{Lacunar subsets and linear independence}
+
+\begin{itemize}
+
+\item A set $S$ of integers is called \defn{lacunar} if it contains
+      no two consecutive integers. (Some call this ``sparse''.)
+
+\item \textbf{Well-known fact:} The number of lacunar subsets of
+      $\ive{n}$ is the Fibonacci number $f_{n+1}$.
+
+\pause
+
+\item \textbf{Lemma.}
+      For each nonempty permutation $\pi$, the set $\Epk \pi$ is a nonempty
+      lacunar subset of $\ive{n}$. \\
+      (And conversely -- although we don't need it --,
+      any such subset has the form $\Epk \pi$ for some $\pi$.)
+
+\pause
+
+\item \textbf{Lemma.}
+      The family
+        \[
+        \left(  K_{n,\Lambda}^{\mathcal{Z}}\right)  _{n\in\mathbb{N};\ \Lambda
+        \subseteq\left[  n\right]  \text{ is lacunar and nonempty}}%
+        \]
+        is $\mathbb{Q}$-linearly independent.
+
+\item These lemmas, and the above product formula, prove the
+      shuffle-compatibility of $\Epk$.
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\fti{LR-shuffle-compatibility redux}
+
+\begin{itemize}
+
+\item Now to the proofs of LR-shuffle-compatibility. \pause
+
+\item Recall again the definitions:
+
+\item We let $S_{\blue \prec} \tup{\pi, \sigma}$ be the set of all {\blue left} shuffles of $\pi$
+      and $\sigma$ (= the shuffles that {\blue start with $\pi_1$}). \\
+      We let $S_{\blue \succ} \tup{\pi, \sigma}$ be the set of all {\blue right} shuffles of $\pi$
+      and $\sigma$ (= the shuffles that {\blue start with $\sigma_1$}).
+
+\pause
+
+\item A statistic $\st$ is said to be \defn{LR-shuffle-compatible}
+      if for any two disjoint nonempty permutations $\pi$ and $\sigma$,
+      the multisets
+      \[
+      \set{ \st\tau \mid \tau\in S_{\blue \prec} \tup{\pi, \sigma} }_{\text{multiset}}
+      \quad \text{and} \quad
+      \set{ \st\tau \mid \tau\in S_{\blue \succ} \tup{\pi, \sigma} }_{\text{multiset}}
+      \]
+      depend only on $\st \pi$, $\st \sigma$, $\abs{\pi}$,
+      $\abs{\sigma}$ {\blue and the truth value of $\pi_1 > \sigma_1$}.
+
+\pause
+\item We claim that $\Des$, $\des$, $\Lpk$ and $\Epk$ are LR-shuffle-compatible.
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\fti{Head-graft-compatibility}
+
+\begin{itemize}
+
+\item Crucial observation:
+      \begin{align*}
+      &\tup{\text{LR-shuffle-compatible}} \\
+      \Longleftrightarrow
+      &\tup{\text{shuffle-compatible}} \wedge
+      \only<1>{\tup{\text{head-graft-compatible}}}
+      \only<2->{\underbrace{\tup{\text{head-graft-compatible}}}_{\text{easy-to-check property}}} .
+      \end{align*}
+\pause \pause
+
+\item A permutation statistic $\st$ is said to be
+      \defn{head-graft-compatible} if for any nonempty permutation $\pi$ and any
+      letter $a$ that does not appear in $\pi$, the element
+      $\operatorname*{st} \left(  a:\pi\right)  $
+      depends only on $\operatorname*{st}\left(  \pi\right)$,
+      $\left\vert \pi\right\vert $ and on the truth value of $a > \pi_1$. \\
+      Here,
+      $a : \pi$ is the permutation obtained from $\pi$ by appending $a$ at the front:
+      \[
+      \pi = \tup{\pi_1, \pi_2, \ldots, \pi_n} \qquad \Longrightarrow \qquad
+      a : \pi = \tup{a, \pi_1, \pi_2, \ldots, \pi_n} .
+      \]
+      
+\pause
+\only<4>{
+\item For example, $\Epk$ is head-graft-compatible, since
+      \[
+        \operatorname*{Epk}\left(  a:\pi\right)
+        =
+        \begin{cases}
+        \operatorname*{Epk}\pi+1, & \text{if not }a>\pi_{1};\\
+        \left(  \tup{\operatorname*{Epk}\pi+1\right)  \setminus\left\{  2\right\} } \cup \set{1} , &
+        \text{if }a>\pi_{1} .
+        \end{cases}
+      \]
+}
+\only<5>{
+\item Likewise, $\Des$, $\Lpk$ and $\des$ are head-graft-compatible.
+}
+\only<6->{
+\item \textbf{Theorem (G.).}
+      A statistic $\st$ is LR-shuffle-compatible \textbf{if and only if}
+      it is shuffle-compatible and head-graft-compatible.
+}
+\only<7>{
+\item Hence, $\Epk$, $\Des$, $\Lpk$ and $\des$ are LR-shuffle-compatible.
+}
+
+\end{itemize}
+\vspace{10cm}
+\end{frame}
+
+\begin{frame}
+\fti{Proof idea for $\Longleftarrow$}
+
+\begin{itemize}
+
+\item \textbf{Theorem.}
+      A statistic $\st$ is LR-shuffle-compatible \textbf{if and only if}
+      it is shuffle-compatible and head-graft-compatible.
+
+\pause
+\item Main idea of the proof of $\Longleftarrow$: \\
+      If $\pi$ is an $n$-permutation with $n > 0$, then let
+      $\pi_{\sim1}$ be the $\left(  n-1\right)$-permutation
+      $\left(  \pi_{2},\pi_{3},\ldots,\pi_{n}\right)  $. \\
+      \pause
+      If $\pi$ and $\sigma$ are two disjoint permutations,
+      then
+      \begin{align*}
+      S_{\prec}\left(  \pi,\sigma\right) &=S_{\succ}\left( \sigma,\pi\right) ; \\
+      S_{\prec}\left( \pi,\sigma\right) &=S_{\succ}\left(  \pi_{\sim1},\pi_{1}:\sigma\right) 
+      \qquad \text{ if $\pi$ is nonempty}; \\
+      S_{\succ}\left(  \pi,\sigma\right) &=S_{\prec}\left(  \sigma_{1}:\pi,\sigma_{\sim 1}\right)
+      \qquad \text{ if $\sigma$ is nonempty}.
+      \end{align*}
+      These allow for an inductive argument.
+\pause
+
+\item Note that the concept of LR-shuffle-compatibility is
+      not invariant under reversal: $\st$ can be
+      LR-shuffle-compatible while $\st \circ \rev$ is not,
+      where
+      \[
+      \rev \tup{\pi_1, \pi_2, \ldots, \pi_n}
+      = \tup{\pi_n, \pi_{n-1}, \ldots, \pi_1} .
+      \]
+      For example, $\Lpk$ is LR-shuffle-compatible, but
+      $\Rpk$ is not.
+
+\end{itemize}
+\vspace{10cm}
+\end{frame}
+
+\begin{frame}
+\fti{Section 3}
+\begin{center}
+{\LARGE \bf Section 3} \\
+\noindent\rule[0.5ex]{\linewidth}{1pt}
+{\Large \bf The $\QSym$ connection}
+\end{center}
+\vspace{1cm}
+References:
+\begin{itemize}
+\item \href{https://arxiv.org/abs/1706.00750}{\red Ira M. Gessel, Yan Zhuang, \textit{Shuffle-compatible permutation statistics}, arXiv:1706.00750}.
+\item \href{http://arxiv.org/abs/1409.8356}{\red Darij Grinberg, Victor Reiner, \textit{Hopf Algebras in Combinatorics}, arXiv:1409.8356},
+      and various other texts on combinatorial Hopf algebras.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\fti{Descent statistics}
+
+\begin{itemize}
+
+\item Gessel and Zhuang prove \textbf{most} of their shuffle-compatibilities
+      algebraically. Their methods involve combinatorial Hopf
+      algebras ($\QSym$ and $\NSym$).
+
+\item These methods work for \textbf{descent statistics} only.
+      What is a descent statistic?
+
+\pause
+
+\item A \defn{descent statistic} is a statistic $\st$ such that
+      $\st \pi$ depends only on $\abs{\pi}$ and $\Des\pi$
+      (in other words: if $\pi$ and $\sigma$ are two
+      $n$-permutations with $\Des\pi = \Des\sigma$, then
+      $\st\pi = \st\sigma$). \\
+      \textbf{Intuition:} A descent statistic is a statistic
+      which ``factors through $\Des$ in each size''.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\fti{Compositions \& descent compositions: definitions}
+
+\begin{itemize}
+      
+\item A \defn{composition} is a finite list of positive integers.
+      \\
+      A \defn{composition of $n \in \NN$} is a composition whose
+      entries sum to $n$. \pause
+
+\item For example, $\left(1,3,2\right)$ is a composition of $6$.
+
+\pause
+
+\item Let $n \in \NN$, and let $\ive{n-1} = \set{1, 2, \ldots, n-1}$.
+      \\
+      \only<3>{Then, there are mutually inverse bijections
+      \begin{align*}
+        \Des : \set{\text{compositions of } n}
+               &\to \set{\text{subsets of } \ive{n-1} }, \\
+               \tup{i_1, i_2, \ldots, i_k}
+               &\mapsto \set{i_1 + i_2 + \cdots + i_j \mid 1 \leq j \leq k-1 }
+      \end{align*}
+      and
+      \begin{align*}
+        \Comp : \set{\text{subsets of } \ive{n-1} }
+               &\to \set{\text{compositions of } n}, \\
+               \set{s_1 < s_2 < \cdots < s_k}
+               &\mapsto \tup{s_1 - s_0, s_2 - s_1, \ldots, s_{k+1} - s_k }
+      \end{align*}
+      (using the notations $s_0 = 0$ and $s_{k+1} = n$).}
+      \only<4,5,6,7>{Then, there are mutually inverse bijections
+      $\Des$ and $\Comp$ between $\set{\text{subsets of } \ive{n-1} }$
+      and $\set{\text{compositions of } n}$. \\
+      If $\pi$ is an $n$-permutation, then $\Comp\tup{\Des \pi}$ is
+      called the \defn{descent composition} of $\pi$, and is written
+      \defn{$\Comp\pi$}.
+      }
+
+\only<5,6>{
+\item Thus, a descent statistic is a statistic $\st$ that factors through
+      $\Comp$ (that is, $\st\pi$ depends only on $\Comp\pi$).
+}
+\only<6,7>{
+\item If $\st$ is a descent statistic, then we use the notation
+      \defn{$\st \alpha$} (where $\alpha$ is a composition) for $\st \pi$,
+      where $\pi$ is any permutation with $\Comp \pi = \alpha$.
+}
+\only<7>{
+\item \textbf{Warning:}
+      \begin{align*}
+      \Des\tup{\tup{1, 5, 2} \text{ the composition}} &= \set{1, 6} ; \\
+      \Des\tup{\tup{1, 5, 2} \text{ the permutation}} &= \set{2} .
+      \end{align*}
+      Same for other statistics!
+      Context must disambiguate.
+}
+      
+
+\end{itemize}
+
+\vspace{10cm}
+
+\end{frame}
+
+\begin{frame}
+\fti{Descent statistics: examples}
+
+\begin{itemize}
+
+\item Almost all of our statistics so far are descent statistics.
+     Examples:
+
+\pause
+
+\item $\Des$, $\des$ and $\maj$ are descent statistics.
+
+\pause
+
+\item $\Pk$ is a descent statistic: If $\pi$ is an $n$-permutation,
+      then
+      \[
+      \Pk \pi = \tup{\Des \pi} \setminus \tup{\tup{\Des \pi \cup \set{0}} + 1} ,
+      \]
+      where for any set $K$ of integers and any integer $a$
+      we set \defn{$K + a = \set{k + a \mid k \in K}$}.
+
+\item Similarly, $\Lpk$, $\Rpk$ and $\Epk$ are descent statistics.
+
+\pause
+
+\only<4>{
+\item $\inv$ is not a descent statistic:
+      The permutations $\tup{2,1,3}$ and $\tup{3,1,2}$ have the same
+      descents, but different numbers of inversions.
+}
+\pause
+
+\item \textbf{Question (Gessel \& Zhuang).}
+      Is every shuffle-compatible statistic a descent statistic?
+      \pause \\
+      \textbf{Answer (Ezgi Kantarc{\i} O\u{g}uz,
+      {\red \arxiv{1807.01398v1}}):} No.
+
+\pause
+\item \textbf{However:} Every LR-shuffle-compatible statistic is
+      a descent statistic. \pause \\
+      (Better yet, every head-graft-compatible statistic is
+      a descent statistic.)
+
+\end{itemize}
+
+\vspace{10cm}
+\end{frame}
+
+\begin{frame}
+\fti{Quasisymmetric functions, part 1: definition}
+
+\begin{itemize}
+
+\item Consider the ring $\QQ\left[\left[x_1,x_2,x_3,\ldots\right]\right]$
+      of formal power series in countably many indeterminates.
+
+\pause
+
+\item A formal power series $f$ is said to be \defn{bounded-degree} if
+      the monomials it contains are bounded (from above) in degree.
+
+\pause
+
+\item A formal power series $f \in \QQ\left[\left[x_1,x_2,x_3,\ldots\right]\right]$ is said to be \defn{quasisymmetric} if its coefficients in front of $x_{i_1}^{a_1} x_{i_2}^{a_2} \cdots x_{i_k}^{a_k}$ and $x_{j_1}^{a_1} x_{j_2}^{a_2} \cdots x_{j_k}^{a_k}$ are equal whenever $i_1 < i_2 < \cdots < i_k$ and $j_1 < j_2 < \cdots < j_k$.
+
+\item For example:
+\begin{itemize}
+\item Every symmetric power series is quasisymmetric.
+
+\item $\sum\limits_{i<j} x_i^2 x_j = x_1^2 x_2 + x_1^2 x_3 + x_2^2 x_3 + x_1^2 x_4 + \cdots$ is quasisymmetric, but not symmetric.
+
+\end{itemize}
+
+\pause
+
+\item Let \defn{$\QSym$} be the set of all quasisymmetric bounded-degree power series in $\QQ\left[\left[x_1,x_2,x_3,\ldots\right]\right]$. This is a $\QQ$-subalgebra, called the \defn{ring of quasisymmetric functions} over $\QQ$. (Gessel, 1980s.)
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\fti{Quasisymmetric functions, part 2: the monomial basis}
+
+\begin{itemize}
+
+\item For every composition
+      $\alpha = \left(\alpha_1, \alpha_2, \ldots, \alpha_k\right)$, define
+\begin{align*}
+M_\alpha &= \sum\limits_{i_1 < i_2 < \cdots < i_k} x_{i_1}^{\alpha_1} x_{i_2}^{\alpha_2} \cdots x_{i_k}^{\alpha_k} \\
+&= \text{sum of all monomials whose nonzero exponents } \\
+& \qquad \text{are } \alpha_1, \alpha_2, \ldots, \alpha_k \text{ in \textbf{this} order}.
+\end{align*}
+This is a homogeneous power series of degree \defn{$\abs{\alpha}$} (the \defn{size} of $\alpha$, defined by $\abs{\alpha} := \alpha_1 + \alpha_2 + \cdots + \alpha_k$).
+
+\only<1>{\item Examples:
+\begin{itemize}
+\item $M_{\left(\right)} = 1$.
+\item $M_{\left(1,1\right)} = \sum\limits_{i<j} x_i x_j = x_1 x_2 + x_1 x_3 + x_2 x_3 + x_1 x_4 + x_2 x_4 + \cdots$.
+\item $M_{\left(2,1\right)} = \sum\limits_{i<j} x_i^2 x_j = x_1^2 x_2 + x_1^2 x_3 + x_2^2 x_3 + \cdots$.
+\item $M_{\left(3\right)} = \sum\limits_i x_i^3 = x_1^3 + x_2^3 + x_3^3 + \cdots$.
+\end{itemize}
+%Note: $m_{\left(2,1\right)} = M_{\left(2,1\right)} + M_{\left(1,2\right)}$.
+}
+\only<2>{
+\item The family $\left(M_\alpha\right)_{\alpha \text{ is a composition}}$ is a basis of the $\QQ$-vector space $\QSym$, called the \defn{monomial basis} (or $M$-basis).
+}
+
+\end{itemize}
+
+\vspace{4cm}
+
+\end{frame}
+
+\begin{frame}
+\fti{Quasisymmetric functions, part 3: the fundamental basis}
+
+\begin{itemize}
+
+\item For every composition
+      $\alpha = \left(\alpha_1, \alpha_2, \ldots, \alpha_k\right)$, define
+\begin{align*}
+F_\alpha &= \sum\limits_{\substack{i_1 \leq i_2 \leq \cdots \leq i_n;\\ i_j < i_{j+1} \text{ for all } j \in \Des\alpha}} x_{i_1} x_{i_2} \cdots x_{i_n} \\
+&= \sum\limits_{\substack{\beta \text{ is a composition of } n; \\ \Des \beta \supseteq \Des \alpha}} M_\beta , \qquad \text{where } n = \abs{\alpha} .
+\end{align*}
+This is a homogeneous power series of degree $\abs{\alpha}$ again.
+
+\only<1>{\item Examples:
+\begin{itemize}
+\item $F_{\left(\right)} = 1$.
+\item $F_{\left(1,1\right)} = \sum\limits_{i<j} x_i x_j = x_1 x_2 + x_1 x_3 + x_2 x_3 + x_1 x_4 + x_2 x_4 + \cdots$.
+\item $F_{\left(2,1\right)} = \sum\limits_{i \leq j < k} x_i x_j x_k$.
+\item $F_{\left(3\right)} = \sum\limits_{i \leq j \leq k} x_i x_j x_k$.
+\end{itemize}
+}
+\only<2>{
+\item The family $\left(F_\alpha\right)_{\alpha \text{ is a composition}}$ is a basis of the $\QQ$-vector space $\QSym$, called the \defn{fundamental basis} (or $F$-basis). \\
+Sometimes, $F_\alpha$ is also denoted $L_\alpha$.
+}
+\only<3>{
+\item What connects $\QSym$ with shuffles of permutations is the following fact:
+      \\
+      \textbf{Theorem.} If $\pi$ and $\sigma$ are two disjoint permutations,
+      then
+      \[
+      F_{\Comp \pi} \cdot F_{\Comp \sigma}
+      = \sum\limits_{\tau \in S\tup{\pi, \sigma}} F_{\Comp \tau} .
+      \]
+}
+
+\end{itemize}
+\vspace{10cm}
+\end{frame}
+
+\begin{frame}
+\fti{The kernel criterion for shuffle-compatibility}
+
+\begin{itemize}
+
+\item If $\st$ is a descent statistic, then two compositions
+      $\alpha$ and $\beta$ are said to be \defn{$\st$-equivalent}
+      if $\abs{\alpha} = \abs{\beta}$ and $\st\alpha = \st\beta$.
+      \\ (Remember: $\st\alpha$ means $\st\pi$ for any permutation
+      $\pi$ satisfying $\Comp\pi = \alpha$.)
+
+\pause
+
+\item The \defn{kernel $\calK_{\st}$} of a descent statistic $\st$
+      is the $\QQ$-vector subspace of $\QSym$ spanned by all
+      differences of the form $F_\alpha - F_\beta$, with $\alpha$
+      and $\beta$ being two $\st$-equivalent compositions:
+      \[
+      \calK_{\st} = \left< F_\alpha - F_\beta \ 
+                              \mid \ \abs{\alpha} = \abs{\beta} \text{ and }
+                                   \st \alpha = \st \beta \right>_\QQ .
+      \]
+
+\pause
+
+\item \textbf{Theorem.} The descent statistic $\st$ is
+      shuffle-compatible if and only if $\calK_{\st}$ is an
+      ideal of $\QSym$. \\
+      (This is essentially due to Gessel \& Zhuang.)
+
+\pause
+\item Since $\Epk$ is shuffle-compatible, its kernel $\calK_{\Epk}$
+      is an ideal of $\QSym$.
+      How can we describe it?
+
+\item Two ways: using the $F$-basis and using the $M$-basis.
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\fti{The kernel $\calK_{\Epk}$ in terms of the $F$-basis}
+
+\begin{itemize}
+
+\item If $J=\left(  j_{1},j_{2},\ldots,j_{m}\right)  $ and $K$
+are two compositions, then we write \defn{$J\rightarrow K$} if there exists an
+$\ell\in\left\{  2,3,\ldots,m\right\}  $ such that $j_{\ell}>2$ and $K=\left(
+j_{1},j_{2},\ldots,j_{\ell-1},1,j_{\ell}-1,j_{\ell+1},j_{\ell+2},\ldots
+,j_{m}\right)  $. \\
+(In other words, we write $J\rightarrow K$ if $K$ can be
+obtained from $J$ by \textquotedblleft splitting\textquotedblright\ some
+non-initial entry
+$j_{\ell}>2$ into two consecutive entries $1$ and $j_{\ell}-1$.)
+
+\item \textbf{Example.} Here are all instances of the $\to$ relation
+on compositions of size $\leq 5$:
+\begin{align*}
+\left(  1,3\right)  &\rightarrow\left(  1,1,2\right)  , \qquad
+\left(  1,4\right)    \rightarrow\left(  1,1,3\right)  ,\\
+\left(  1,3,1\right)   &\rightarrow\left(  1,1,2,1\right)  ,\qquad
+\left(  1,1,3\right)   \rightarrow\left(  1,1,1,2\right)  ,\\
+\left(  2,3\right)  & \rightarrow\left(  2,1,2\right)  .
+\end{align*}
+
+\item \textbf{Proposition.}
+The ideal $\mathcal{K}_{\operatorname*{Epk}}$ of $\operatorname*{QSym}$ is
+spanned (as a $\mathbb{Q}$-vector space) by all differences of the form
+$F_{J}-F_{K}$, where $J$ and $K$ are two compositions satisfying $J\rightarrow
+K$.
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\fti{The kernel $\calK_{\Epk}$ in terms of the $M$-basis}
+
+\begin{itemize}
+
+\item If $J=\left(  j_{1},j_{2},\ldots,j_{m}\right)  $ and $K$
+are two compositions, then we write \defn{$J\underset{M}{\rightarrow}K$} if
+there exists an $\ell\in\left\{  2,3,\ldots,m\right\}  $ such that $j_{\ell
+}>2$ and $K=\left(  j_{1},j_{2},\ldots,j_{\ell-1},2,j_{\ell}-2,j_{\ell
++1},j_{\ell+2},\ldots,j_{m}\right)  $. (In other words, we write
+$J\underset{M}{\rightarrow}K$ if $K$ can be obtained from $J$ by
+\textquotedblleft splitting\textquotedblright\ some non-initial entry
+$j_{\ell}>2$ into
+two consecutive entries $2$ and $j_{\ell}-2$.)
+
+\item \textbf{Example.} Here are all instances of the $\underset{M}{\rightarrow}$ relation
+on compositions of size $\leq 5$:
+\begin{align*}
+\left(  1,3\right)  &\underset{M}{\rightarrow}\left(  1,2,1\right)  ,\qquad
+\left(  1,4\right)    \underset{M}{\rightarrow}\left(  1,2,2\right)  ,\\
+\left(  1,3,1\right)   &  \underset{M}{\rightarrow}\left(  1,2,1,1\right)  ,\qquad
+\left(  1,1,3\right)    \underset{M}{\rightarrow}\left(  1,1,2,1\right)  ,\\
+\left(  2,3\right)   &  \underset{M}{\rightarrow}\left(  2,2,1\right)  .
+\end{align*}
+
+\item \textbf{Proposition.}
+The ideal $\mathcal{K}_{\operatorname*{Epk}}$ of $\operatorname*{QSym}$ is
+spanned (as a $\mathbb{Q}$-vector space) by all sums of the form $M_{J}+M_{K}%
+$, where $J$ and $K$ are two compositions satisfying
+$J\underset{M}{\rightarrow}K$.
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\fti{What about other statistics?}
+
+\begin{itemize}
+
+\item \textbf{Question.}
+      Do other descent statistics allow for similar descriptions of
+      $\calK_{\st}$ ? \\
+      (See the paper for some experimental results.)
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\fti{What does LR-shuffle-compatibility mean algebraically?}
+
+\begin{itemize}
+
+\only<1>{
+\item If shuffle-compatible descent statistics induce ideals of $\QSym$,
+      then what do LR-shuffle-compatible descent statistics induce?
+      \begin{align*} \vspace{-1.8pc}
+      \tup{\text{shuffle-compatible des. statistics}}
+        &\leftrightarrow \tup{\text{(some) ideals of $\QSym$}};\\
+      \tup{\text{LR-shuffle-compatible des. statistics}}
+        &\leftrightarrow \ ??
+      \end{align*}
+}
+
+\pause
+\item We will answer this question using the \textit{dendriform algebra}
+      structure on $\QSym$. \\ \pause
+      This structure first appeared in: \\
+      {\red \href{http://www.cip.ifi.lmu.de/~grinberg/algebra/dimcreation.pdf}{\red Darij Grinberg, \textit{Dual immaculate creation operators and a dendriform algebra structure on the quasisymmetric functions}, Canad. J. Math. 69 (2017), pp. 21--53.}}
+      \\
+      But the ideas go back to:
+      \begin{itemize}
+      \item
+      {\red \href{http://www.sciencedirect.com/science/article/pii/0001870877900421}{Gl\^anffrwd P. Thomas, \textit{Frames, Young tableaux, and Baxter sequences}, Advances in Mathematics, Volume 26, Issue 3, December 1977, Pages 275--289}}.
+      \item
+      {\red \href{http://arxiv.org/abs/math/0510218}{Jean-Christophe Novelli, Jean-Yves Thibon,
+        \textit{Construction of dendriform trialgebras}, arXiv:math/0510218}}.
+      \end{itemize}
+      Something similar also appeared in:
+      {\red \href{https://doi.org/10.1016/j.jpaa.2009.06.001}{Aristophanes Dimakis, Folkert M\"uller-Hoissen,
+      \textit{Quasi-symmetric functions and the KP hierarchy},
+      Journal of Pure and Applied Algebra, Volume 214, Issue 4, April 2010, Pages 449--460}}.
+
+\end{itemize}
+
+\vspace{9cm}
+
+\end{frame}
+
+\begin{frame}
+\fti{Dendriform structure on $\QSym$, part 1}
+
+\begin{itemize}
+
+\item For any monomial $\mathfrak{m}$, let $\Supp \mathfrak{m}$
+denote the set $\left\{i \mid x_i \text{ appears in } \mathfrak{m}\right\}$.
+
+\item \textbf{Example.} $\Supp \left(x_3^5 x_6 x_8\right) = \left\{3,6,8\right\}$.
+
+\only<2>{
+\item We define a binary operation $\left.  \prec\right.$ on the
+$\QQ$-vector space $\Powser$ as follows:
+
+\begin{itemize}
+\item On monomials, it should be given by
+\[
+\mathfrak{m}\left.  \prec\right.  \mathfrak{n}=\left\{
+\begin{array}
+[c]{c}%
+\mathfrak{m}\cdot\mathfrak{n},\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(
+\operatorname*{Supp}\mathfrak{m}\right)  <\min\left(  \operatorname*{Supp}%
+\mathfrak{n}\right)  ;\\
+0,\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(  \operatorname*{Supp}%
+\mathfrak{m}\right)  \geq\min\left(  \operatorname*{Supp}\mathfrak{n}\right)
+\end{array}
+\right.
+\]
+for any two monomials $\mathfrak{m}$ and $\mathfrak{n}$.
+\item It should be $\QQ$-bilinear.
+\item It should be continuous (i.e., its $\QQ$-bilinearity also
+applies to infinite $\QQ$-linear combinations).
+\end{itemize}
+
+\item Well-definedness is pretty clear.
+
+\item \textbf{Example.} $\left(x_2^2 x_4\right) \left.\prec\right. \left(x_3^2 x_5\right) = x_2^2 x_3^2 x_4 x_5$, but
+$\left(x_2^2 x_4\right) \left.\prec\right. \left(x_2^2 x_5\right) = 0$.
+}
+\only<3>{
+\item We define a binary operation $\left.  \succeq\right.$ on the
+$\QQ$-vector space $\Powser$ as follows:
+
+\begin{itemize}
+\item On monomials, it should be given by
+\[
+\mathfrak{m}\left.  \succeq\right.  \mathfrak{n}=\left\{
+\begin{array}
+[c]{c}%
+\mathfrak{m}\cdot\mathfrak{n},\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(
+\operatorname*{Supp}\mathfrak{m}\right) \geq \min\left(  \operatorname*{Supp}%
+\mathfrak{n}\right)  ;\\
+0,\ \ \ \ \ \ \ \ \ \ \text{if }\min\left(  \operatorname*{Supp}%
+\mathfrak{m}\right) < \min\left(  \operatorname*{Supp}\mathfrak{n}\right)
+\end{array}
+\right.
+\]
+for any two monomials $\mathfrak{m}$ and $\mathfrak{n}$.
+\item It should be $\QQ$-bilinear.
+\item It should be continuous (i.e., its $\QQ$-bilinearity also
+applies to infinite $\QQ$-linear combinations).
+\end{itemize}
+
+\item Well-definedness is pretty clear.
+
+\item \textbf{Example.} $\left(x_2^2 x_4\right) \left.\succeq\right. \left(x_3^2 x_5\right) = 0$, but
+$\left(x_2^2 x_4\right) \left.\succeq\right. \left(x_2^2 x_5\right) = x_2^4 x_4 x_5$.
+}
+
+
+\end{itemize}
+
+\vspace{9cm}
+
+\end{frame}
+
+
+\begin{frame}
+\fti{Dendriform structure on $\QSym$, part 2}
+
+\begin{itemize}
+
+\item We now have defined two binary operations $\left.\prec\right.$
+and $\left.\succeq\right.$ on $\Powser$. They satisfy:
+\begin{align*}
+a\left.  \prec\right.  b+a \left.  \succeq\right.b  &  =ab;\\
+\left(  a\left.  \prec\right.  b\right)  \left.  \prec\right.  c  &  =a\left.
+\prec\right.  \left(  bc\right)  ;\\
+\left(  a \left.  \succeq\right.  b\right)  \left.  \prec\right.  c
+&  =a \left.  \succeq\right. \left(  b\left.  \prec\right.
+c\right)  ;\\
+a \left.  \succeq\right.  \left(  b \left.  \succeq\right.
+c\right)   &  =\left(  ab\right)  \left.  \succeq\right.  c.
+\end{align*}
+
+\pause
+
+\item This says that $\left(\Powser, \left.\prec\right., \left.\succeq\right.\right)$
+is a \textit{dendriform algebra} in the sense of Loday
+(see, e.g., {\red \href{http://arxiv.org/abs/1101.0267}{Zinbiel,
+\textit{Encyclopedia of types of algebras 2010},
+arXiv:1101.0267}}).
+
+\pause
+
+\item $\QSym$ is closed under both operations $\prec$ and $\succeq$.
+Thus, $\QSym$ becomes a dendriform subalgebra of $\Powser$.
+
+\end{itemize}
+
+\vspace{9cm}
+
+\end{frame}
+
+\begin{frame}
+\fti{The kernel criterion for LR-shuffle-compatibility}
+
+\begin{itemize}
+
+\item Recall the \textbf{Theorem:} The descent statistic $\st$ is
+      shuffle-compatible if and only if $\calK_{\st}$ is an
+      ideal of $\QSym$.
+
+\pause
+\item Similarly, \textbf{Theorem:} The descent statistic $\st$ is
+      LR-shuffle-compatible if and only if %$\calK_{\st}$ satisfies
+      \begin{align*}
+      \QSym \prec \calK_{\st}
+      \subseteq \calK_{\st} \qquad &\text{ and } \qquad \calK_{\st} \prec \QSym
+      \subseteq \calK_{\st} \qquad \text{ and } \\
+      \QSym \succeq \calK_{\st}
+      \subseteq \calK_{\st} \qquad &\text{ and } \qquad \calK_{\st} \succeq \QSym
+      \subseteq \calK_{\st}
+      \end{align*}
+      (that is, $\calK_{\st}$ is an ideal of the \textbf{dendriform}
+      algebra $\QSym$).
+
+\pause
+
+\item Thus, for example, $\mathcal{K}_{\Epk}$ is an ideal of the \textbf{dendriform}
+      algebra $\QSym$, and the quotient
+      $\QSym / \mathcal{K}_{\Epk}$ is a dendriform algebra.
+\pause
+
+\item This actually inspired the (combinatorial) proof of
+      LR-shuffle-compatibility hinted at above.
+
+\end{itemize}
+
+\vspace{10cm}
+
+\end{frame}
+
+\begin{frame}
+\fti{A few questions}
+
+\begin{itemize}
+
+\item \textbf{Question.}
+      What mileage do we get out of $\calZ$-enriched
+      $\tup{P,\gamma}$-partitions for other choices of
+      $\calN$ and $\calZ$ than the ones used in the known proofs?
+
+\item \textbf{Question.}
+      What ring do the $K^{\calZ}_{n,\Lambda}$ span?
+
+\item \textbf{Question.}
+      Hsiao and Petersen have generalized enriched
+      $\tup{P, \gamma}$-partitions to ``colored
+      $\tup{P, \gamma}$-partitions'' (with $\set{+,-}$
+      replaced by an $m$-element set).
+      Does this generalize our results?
+
+\item \textbf{Question.}
+      How do the kernels $\mathcal{K}_{\st}$ look like for
+      $\st = \Pk, \Lpk, \ldots$?
+
+\item \textbf{Question.}
+      Are the quotients $\QSym / \mathcal{K}_{\st}$ for
+      $\st = \des, \Lpk, \Epk$ known dendriform algebras?
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\fti{Section 4}
+\begin{center}
+{\LARGE \bf Section 4} \\
+\noindent\rule[0.5ex]{\linewidth}{1pt}
+{\Large \bf Quadri-compatibility (work in progress)}
+\end{center}
+\vspace{1cm}
+References:
+\begin{itemize}
+\item a forthcoming preprint.
+\item {\red \href{https://doi.org/10.1016/j.jpaa.2004.01.002}{Marcelo Aguiar, Jean-Louis Loday, \textit{Quadri-algebras}, Journal of Pure and Applied Algebra, Volume 191 (2004), Issue 3, Pages 205--221}}.
+\item {\red \href{https://arxiv.org/abs/1504.06056}{Loïc Foissy, \textit{Free quadri-algebras and dual quadri-algebras}, arXiv:1504.06056}}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\fti{WIP: Quadri-compatibility, 1: definition}
+
+\begin{itemize}
+
+\item We can refine LR-shuffle-compatibility even further.
+
+\item Given two disjoint nonempty permutations
+      $\pi = \tup{\pi_1, \pi_2, \ldots, \pi_n}$ and
+      $\sigma = \tup{\sigma_1, \sigma_2, \ldots, \sigma_m}$,
+      define sets $S_{\blue i, j} \tup{\pi, \sigma}$ for all
+      $i, j \in \set{1, 2}$ as follows:
+      \begin{align*}
+      S_{\blue 1, 1} \tup{\pi, \sigma} &= \set{ \tau \in S \tup{\pi, \sigma} \  \mid \  \tau_1 = \pi_1 \text{ and } \tau_{n+m} = \pi_n }; \\
+      S_{\blue 1, 2} \tup{\pi, \sigma} &= \set{ \tau \in S \tup{\pi, \sigma} \  \mid \  \tau_1 = \pi_1 \text{ and } \tau_{n+m} = \sigma_m }; \\
+      S_{\blue 2, 1} \tup{\pi, \sigma} &= \set{ \tau \in S \tup{\pi, \sigma} \  \mid \  \tau_1 = \sigma_1 \text{ and } \tau_{n+m} = \pi_n }; \\
+      S_{\blue 2, 2} \tup{\pi, \sigma} &= \set{ \tau \in S \tup{\pi, \sigma} \  \mid \  \tau_1 = \sigma_1 \text{ and } \tau_{n+m} = \sigma_m }.
+      \end{align*}
+
+\pause 
+\item A statistic $\st$ is said to be \defn{quadri-compatible}
+      if for any two disjoint nonempty permutations $\pi$ and $\sigma$
+      and any $i, j \in \set{1, 2}$,
+      the multiset
+      \[
+      \set{ \st\tau \mid \tau\in S_{\blue i, j} \tup{\pi, \sigma} }_{\text{multiset}}
+      \]
+      depends only on $\st \pi$, $\st \sigma$, $\abs{\pi}$,
+      $\abs{\sigma}$, {\blue $i$, $j$, the truth value of $\pi_1 > \sigma_1$,
+      and the truth value of $\pi_n > \sigma_m$}.
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\fti{WIP: Quadri-compatibility, 2: criterion}
+
+\begin{itemize}
+
+\item A permutation statistic $\st$ is said to be
+      \defn{tail-graft-compatible} if for any nonempty permutation
+      $\pi = \tup{\pi_1, \pi_2, \ldots, \pi_n}$ and any
+      letter $a$ that does not appear in $\pi$, the element
+      $\operatorname*{st} \left( \pi : a \right)  $
+      depends only on $\operatorname*{st}\left(  \pi\right)$,
+      $\left\vert \pi\right\vert $ and on the truth value of $a > \pi_n$. \\
+      Here,
+      $\pi : a$ is the permutation obtained from $\pi$ by appending $a$ at the end:
+      \[
+      \pi = \tup{\pi_1, \pi_2, \ldots, \pi_n} \qquad \Longrightarrow \qquad
+      \pi : a = \tup{a, \pi_1, \pi_2, \ldots, \pi_n, a} .
+      \]
+      
+\pause
+\item \textbf{(Almost-)Theorem (G.)}
+      A statistic $\st$ is quadri-compatible \textbf{if and only if}
+      it is shuffle-compatible, head-graft-compatible
+      and tail-graft-compatible.
+
+\item My proof uses both induction and $\QSym$ and still needs to be
+      written up. (Hopefully it survives the process.)
+
+\pause
+\item Hence, $\Des$, $\des$, and $\Epk$ are
+      quadri-compatible. \pause
+      (But not $\maj$ or $\Lpk$ or $\Rpk$ or $\Pk$.)
+\pause
+
+\item The proof (so far) uses a refined version of dendriform algebras:
+      the \emph{quadri-algebras} of Aguiar and Loday
+      ({\red \arxiv{math/0309171}}, {\red \arxiv{1504.06056}}).
+
+\end{itemize}
+\vspace{10cm}
+
+\end{frame}
+
+
+
+% \begin{frame}
+% \fti{}
+
+% \begin{itemize}
+
+% \item 
+      
+
+% \item 
+      
+
+% \item 
+      
+
+% \item 
+      
+
+% \item 
+      
+
+% \end{itemize}
+
+% \end{frame}
+
+
+\begin{frame}
+\fti{Thanks}
+
+\textbf{Thanks} to Ira Gessel and Yan Zhuang for initiating this direction
+(and for helpful discussions). \\
+Thank you for attending!
+
+\vspace{3cm}
+
+\textbf{slides: \red \url{http://www.cip.ifi.lmu.de/~grinberg/algebra/dartmouth18.pdf}} \\
+\textbf{paper: \red \url{http://www.cip.ifi.lmu.de/~grinberg/algebra/gzshuf2.pdf}} \\
+\textbf{project: \red \url{https://github.com/darijgr/gzshuf}}
+
+\end{frame}
+
+\end{document}

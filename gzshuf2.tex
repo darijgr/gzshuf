@@ -202,7 +202,7 @@ Section \ref{sect.dendri}) are merely outlined.
 
 \subsection*{Acknowledgments}
 
-We thank Yan Zhuang and Ira Gessel for helpful conversations and a few
+We thank Yan Zhuang, Ira Gessel and Sara Billey for helpful conversations and
 corrections. The SageMath computer algebra system \cite{SageMath} has been
 used in finding some of the results below.
 
@@ -5825,8 +5825,79 @@ K_{n,\operatorname{Epk}\pi}^{\mathcal{Z}}=\sum_{\substack{g:\left[  n\right]  \r
 \end{verlong}
 \end{definition}
 
-Corollary \ref{cor.prod2} now leads directly to the following multiplication rule
-(an analogue of \cite[(3.1)]{Stembr97}):
+\begin{remark}
+\label{rmk.KnL.concrete}Let $n\in\mathbb{N}$. Let $\Lambda$ be any subset of
+$\left[  n\right]  $. It is easy to see that if $g:\left[  n\right]
+\rightarrow\mathcal{N}$ is a weakly increasing map, and if $i\in\left[
+n\right]  $, then $i\in\operatorname*{FE}\left(  g\right)  $ holds if and only
+if we don't have $g\left(  i-1\right)  =g\left(  i\right)  =g\left(
+i+1\right)  $, where we use the convention that $g\left(  0\right)  =0$ and
+$g\left(  n+1\right)  =\infty$. Hence, a weakly increasing map $g:\left[
+n\right]  \rightarrow\mathcal{N}$ satisfies $\Lambda\subseteq
+\operatorname*{FE}\left(  g\right)  $ if and only if no $i\in\Lambda$
+satisfies $g\left(  i-1\right)  =g\left(  i\right)  =g\left(  i+1\right)  $,
+where we use the convention that $g\left(  0\right)  =0$ and $g\left(
+n+1\right)  =\infty$. Thus, (\ref{eq.def.KnL.1}) can be rewritten as follows:%
+\begin{align}
+K_{n,\Lambda}^{\mathcal{Z}}  &  =\sum_{\substack{g:\left[  n\right]
+\rightarrow\mathcal{N}\text{ is}\\\text{weakly increasing;}\\\text{no }%
+i\in\Lambda\text{ satisfies }g\left(  i-1\right)  =g\left(  i\right)
+=g\left(  i+1\right)  \\\text{(where we set }g\left(  0\right)  =0\text{ and
+}g\left(  n+1\right)  =\infty\text{)}}}2^{\left\vert g\left(  \left[
+n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }%
+\mathbf{x}_{g}\nonumber\\
+&  =\sum_{\substack{\left(  g_{1},g_{2},\ldots,g_{n}\right)  \in
+\mathcal{N}^{n};\\0\preccurlyeq g_{1}\preccurlyeq g_{2}\preccurlyeq
+\cdots\preccurlyeq g_{n}\preccurlyeq\infty;\\\text{no }i\in\Lambda\text{
+satisfies }g_{i-1}=g_{i}=g_{i+1}\\\text{(where we set }g_{0}=0\text{ and
+}g_{n+1}=\infty\text{)}}}2^{\left\vert \left\{  g_{1},g_{2},\ldots
+,g_{n}\right\}  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }x_{g_{1}%
+}x_{g_{2}}\cdots x_{g_{n}} \label{eq.rmk.KnL.concrete.2}%
+\end{align}
+(here, we have substituted $\left(  g_{1},g_{2},\ldots,g_{n}\right)  $ for
+$\left(  g\left(  1\right)  ,g\left(  2\right)  ,\ldots,g\left(  n\right)
+\right)  $ in the sum). For example,
+\begin{align*}
+K_{3,\left\{  1,3\right\}  }^{\mathcal{Z}}  &  =\sum_{\substack{\left(
+g_{1},g_{2},g_{3}\right)  \in\mathcal{N}^{3};\\0\preccurlyeq g_{1}\preccurlyeq
+g_{2}\preccurlyeq g_{3}\preccurlyeq\infty;\\\text{no }i\in\left\{
+1,3\right\}  \text{ satisfies }g_{i-1}=g_{i}=g_{i+1}\\\text{(where we set
+}g_{0}=0\text{ and }g_{4}=\infty\text{)}}}2^{\left\vert \left\{  g_{1}%
+,g_{2},g_{3}\right\}  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }%
+x_{g_{1}}x_{g_{2}}x_{g_{3}}\\
+&  =\sum_{\substack{\left(  g_{1},g_{2},g_{3}\right)  \in\mathcal{N}%
+^{3};\\0\preccurlyeq g_{1}\preccurlyeq g_{2}\preccurlyeq g_{3}\preccurlyeq
+\infty;\\\text{neither }0=g_{1}=g_{2}\text{ nor }g_{2}=g_{3}=\infty\text{
+holds}}}2^{\left\vert \left\{  g_{1},g_{2},g_{3}\right\}  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }x_{g_{1}}x_{g_{2}}x_{g_{3}}.
+\end{align*}
+
+
+As a consequence of (\ref{eq.rmk.KnL.concrete.2}), we see that if we
+substitute $0$ for $x_{0}$ and for $x_{\infty}$, then $K_{n,\Lambda
+}^{\mathcal{Z}}$ becomes the power series%
+\begin{align*}
+&  \sum_{\substack{\left(  g_{1},g_{2},\ldots,g_{n}\right)  \in\mathcal{N}%
+^{n};\\0\preccurlyeq g_{1}\preccurlyeq g_{2}\preccurlyeq\cdots\preccurlyeq
+g_{n}\preccurlyeq\infty;\\\text{no }i\in\Lambda\text{ satisfies }g_{i-1}%
+=g_{i}=g_{i+1}\\\text{(where we set }g_{0}=0\text{ and }g_{n+1}=\infty
+\text{);}\\\text{none of the }g_{i}\text{ equals }0\text{ or }\infty
+}}2^{\left\vert \left\{  g_{1},g_{2},\ldots,g_{n}\right\}  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }x_{g_{1}}x_{g_{2}}\cdots x_{g_{n}}\\
+&  =\sum_{\substack{\left(  g_{1},g_{2},\ldots,g_{n}\right)  \in\left\{
+1,2,3,\ldots\right\}  ^{\infty};\\g_{1}\preccurlyeq g_{2}\preccurlyeq
+\cdots\preccurlyeq g_{n};\\\text{no }i\in\Lambda\setminus\left\{  1,n\right\}
+\text{ satisfies }g_{i-1}=g_{i}=g_{i+1}}}2^{\left\vert \left\{  g_{1}%
+,g_{2},\ldots,g_{n}\right\}  \right\vert }x_{g_{1}}x_{g_{2}}\cdots x_{g_{n}}%
+\end{align*}
+in the indeterminates $x_{1},x_{2},x_{3},\ldots$. This is called the
+\textquotedblleft shifted quasi-symmetric function $\Theta_{\Lambda
+\setminus\left\{  1,n\right\}  }^{n}\left(  X\right)  $\textquotedblright\ in
+\cite[(3.2)]{BilHai95}.
+\end{remark}
+
+Corollary \ref{cor.prod2} now leads directly to the following multiplication
+rule (an analogue of \cite[(3.1)]{Stembr97}):
 
 \begin{corollary}
 \label{cor.KnEpk-prodrule}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $\pi$
@@ -5839,6 +5910,25 @@ K_{n+m,\operatorname*{Epk}\tau}^{\mathcal{Z}}.
 \]
 
 \end{corollary}
+
+\begin{example}
+Applying Corollary \ref{cor.KnEpk-prodrule} to $n=2$, $m=1$, $\pi=\left(
+1,2\right)  $ and $\sigma=\left(  3\right)  $, we obtain%
+\[
+K_{2,\operatorname*{Epk}\left(  1,2\right)  }^{\mathcal{Z}}\cdot
+K_{1,\operatorname*{Epk}\left(  3\right)  }^{\mathcal{Z}}%
+=K_{3,\operatorname*{Epk}\left(  3,1,2\right)  }^{\mathcal{Z}}%
++K_{3,\operatorname*{Epk}\left(  1,3,2\right)  }^{\mathcal{Z}}%
++K_{3,\operatorname*{Epk}\left(  1,2,3\right)  }^{\mathcal{Z}}.
+\]
+In other words,%
+\[
+K_{2,\left\{  2\right\}  }^{\mathcal{Z}}\cdot K_{1,\left\{  1\right\}
+}^{\mathcal{Z}}=K_{3,\left\{  1,3\right\}  }^{\mathcal{Z}}+K_{3,\left\{
+2\right\}  }^{\mathcal{Z}}+K_{3,\left\{  3\right\}  }^{\mathcal{Z}}.
+\]
+
+\end{example}
 
 \begin{proof}
 [Proof of Corollary \ref{cor.KnEpk-prodrule}.]From (\ref{eq.def.KnL.2}), we
@@ -7068,6 +7158,36 @@ y\right)  $.
 \end{enumerate}
 
 Is this a useful concept, and can it be used to study permutation statistics?
+\end{question}
+
+
+
+\begin{question}
+Corollary \ref{cor.KnEpk-prodrule} provides a formula for rewriting a product
+of the form $K_{n,\Lambda}^{\mathcal{Z}}\cdot K_{m,\Omega}^{\mathcal{Z}}$ as a
+$\mathbb{Q}$-linear combination of $K_{n+m,\Xi}^{\mathcal{Z}}$'s when
+$\Lambda\in\mathbf{L}_{n}$ and $\Omega\in\mathbf{L}_{m}$ (because any such
+$\Lambda$ and $\Omega$ can be written as $\Lambda=\operatorname*{Epk}\pi$ and
+$\Omega=\operatorname*{Epk}\sigma$ for appropriate permutations $\pi$ and
+$\sigma$). Thus, in particular, any such product belongs to the $\mathbb{Q}%
+$-linear span of the $K_{n+m,\Xi}^{\mathcal{Z}}$'s. Is this still true if
+$\Lambda$ and $\Omega$ are arbitrary subsets of $\left[  n\right]  $ and
+$\left[  m\right]  $ rather than having to belong to $\mathbf{L}_{n}$ and to
+$\mathbf{L}_{m}$ ? Computations with SageMath suggest that the answer is
+\textquotedblleft yes\textquotedblright. For example,%
+\begin{align*}
+K_{2,\left\{  1,2\right\}  }^{\mathcal{Z}}\cdot K_{1,\left\{  1\right\}
+}^{\mathcal{Z}}  & =K_{3,\left\{  2\right\}  }^{\mathcal{Z}}+2\cdot
+K_{3,\left\{  1,3\right\}  }^{\mathcal{Z}}\ \ \ \ \ \ \ \ \ \ \text{and}\\
+K_{2,\varnothing}^{\mathcal{Z}}\cdot K_{1,\left\{  1\right\}  }^{\mathcal{Z}}
+& =K_{3,\varnothing}^{\mathcal{Z}}+K_{3,\left\{  2\right\}  }^{\mathcal{Z}%
+}+K_{3,\left\{  1,3\right\}  }^{\mathcal{Z}}=K_{3,\left\{  1\right\}
+}^{\mathcal{Z}}+K_{3,\left\{  2\right\}  }^{\mathcal{Z}}+K_{3,\left\{
+3\right\}  }^{\mathcal{Z}}.
+\end{align*}
+Note that the $\mathbb{Q}$-linear span of the $K_{n+m,\Xi}^{\mathcal{Z}}$'s
+for all $\Xi\subseteq\left[  n+m\right]  $ is (generally) larger than that of
+the $K_{n+m,\Xi}^{\mathcal{Z}}$'s with $\Xi\in\mathbf{L}_{n+m}$.
 \end{question}
 
 \section{\label{sect.LR}LR-shuffle-compatibility}
@@ -15684,6 +15804,11 @@ $\operatorname*{QSym}$ either. Proposition \ref{prop.Pk.dend} is now proven.
 \textit{The peak algebra and the descent algebras of types B and D},
 Trans. Amer. Math. Soc. \textbf{356} (2004), pp. 2781--2824,
 \url{https://doi.org/10.1090/S0002-9947-04-03541-X} .
+
+\bibitem[BilHai95]{BilHai95}%
+\href{https://doi.org/10.1090/S0894-0347-1995-1290232-1}{Sara Billey, Mark
+Haiman, \textit{Schubert polynomials for the classical groups}, J. Amer. Math.
+Soc. \textbf{8} (1995), pp. 443--482}.
 
 \bibitem[EbMaPa07]{EbMaPa07}%
 \href{https://doi.org/10.1016/j.jalgebra.2007.12.013}{Kurusch Ebrahimi-Fard,

@@ -1411,7 +1411,7 @@ P,\gamma\right)  $-partition where $\mathcal{N}=\mathbb{N}$ and $\mathcal{Z}%
 -0\right\}  $; this definition is equivalent to Petersen's
 \cite[Definition 3.4.1]{Peters06} up to some differences of notation
 (in particular, Petersen assumes that the ground set of $P$ is already
-a subset of $\mathbb{P}$, and that the labelling $\gamma$ is the
+a subset of $\mathbb{P}$, and that the labeling $\gamma$ is the
 canonical inclusion map $ P \to \mathbb{P}$; also, he identifies the elements
 $+0, -1, +1, -2, +2, \ldots$ of
 $\left(  \mathcal{N}\times\left\{  +,-\right\}  \right)  \setminus\left\{
@@ -13219,9 +13219,13 @@ We shall show this proof after first establishing some auxiliary facts.
 
 Throughout this section, the
 notion of a ``labelled poset'' will be understood in the sense
-of \cite[Definition 5.2.1]{HopfComb};
-thus, a labelled poset needs no labelling, but instead its underlying
-set must be a finite set of integers.
+of \cite[Definition 5.2.1]{HopfComb}:
+Namely, a \textit{labelled poset} simply means a poset whose underlying
+set is a finite subset of $\ZZ$ (but whose order is not necessarily
+inherited from $\ZZ$).
+Thus, a labelled poset is not equipped with a map that serves as its
+labelling,
+but instead its underlying set must be a finite set of integers.
 
 Let us first recall a well-known fact about posets:
 
@@ -13465,11 +13469,23 @@ Lemma~\ref{lem.poset.add-rel.part2}. Thus,
 Lemma~\ref{lem.poset.add-rel.part2} is proven.
 \end{proof}
 
+For our next results, we need the following notation:
+
+\begin{definition} \label{def.labelled-poset.min}
 A \textit{minimum element} of a poset $P$ means an element
 $m \in P$ such that every $p \in P$ satisfies $m \leq p$.
 This is not the same as a minimal element.
-A minimum element of a poset $P$ is unique if it exists; it is denoted by
-$\min P$.
+A minimum element of a poset $P$ is unique if it exists;
+it is denoted by $\min P$.
+
+This notation overrides the notation $\min S$ for a nonempty
+finite subset $S$ of $\ZZ$.
+Thus, if $P$ is a labelled poset that has a minimum element,
+then $\min P$ shall denote this minimum element,
+not the smallest element of $P$ as a subset of $\ZZ$.
+(For example, if $P$ is the labelled poset $\left\{6 < 2 < 3 < 4\right\}$,
+then $\min P$ shall mean $6$, not $2$.)
+\end{definition}
 
 The following fact is an analogue of \cite[Lemma 5.2.17]{HopfComb}:
 
@@ -13490,7 +13506,8 @@ resulting labelled poset by $P\left.  \succeq\right.  Q$. Then, $F_{P}\left(
 =F_{P\left.  \succeq\right.  Q}\left(  \mathbf{x}\right)  $.
 \end{proposition}
 
-Note that we are using the notation $\min P$ for the minimum element
+Let us recall that (as agreed in Definition~\ref{def.labelled-poset.min})
+we are using the notation $\min P$ for the minimum element
 of the \textbf{poset} $P$; not the smallest element of $P$ as a subset
 of $\ZZ$. The same applies to the notation $\min Q$.
 

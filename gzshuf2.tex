@@ -6641,7 +6641,7 @@ $\mathbb{Q}$-linearly independent.
 
 Let us agree that if $g\in G$, then we will set $g\left(  0\right)  =0$ and
 $g\left(  n+1\right)  =\infty$. Hence, $g\left(  i\right)  $ will be a
-well-defined value of $\mathcal{N}$ for each $i\in\left\{  0,1,\ldots
+well-defined element of $\mathcal{N}$ for each $i\in\left\{  0,1,\ldots
 ,n+1\right\}  $.
 
 If $g\in G$, then we let $\operatorname*{Stag}\left(  g\right)  $ be the
@@ -9068,7 +9068,7 @@ Before we can prove this, we need three lemmas:
 \label{lem.LRcomp.head-l1}Let $\operatorname*{st}$ be a head-graft-compatible
 permutation statistic. If $\alpha$ and $\beta$ are two permutations satisfying
 $\operatorname*{Des}\alpha=\operatorname*{Des}\beta$ and $\left\vert
-\alpha\right\vert =\left\vert \beta\right\vert $, then, $\operatorname*{st}%
+\alpha\right\vert =\left\vert \beta\right\vert $, then $\operatorname*{st}%
 \left(  \alpha\right)  =\operatorname*{st}\left(  \beta\right)  $.
 \end{lemma}
 
@@ -9139,8 +9139,8 @@ $\operatorname*{Des}\alpha=\operatorname*{Des}\beta$). Thus, their left hand
 sides are equal as well. In other words, $\operatorname*{Des}\left(
 \alpha_{\sim1}\right)  =\operatorname*{Des}\left(  \beta_{\sim1}\right)  $.
 
-Moreover, $\left\vert \alpha_{\sim1}\right\vert =\underbrace{\left\vert
-\alpha\right\vert }_{=N}-1=N-1$. Hence, the induction hypothesis reveals that
+Moreover, $\left\vert \alpha_{\sim1}\right\vert =N-1$.
+Hence, the induction hypothesis reveals that
 we can apply Claim 1 to $\alpha_{\sim1}$ and $\beta_{\sim1}$ instead of
 $\alpha$ and $\beta$. We thus obtain $\operatorname*{st}\left(  \alpha_{\sim
 1}\right)  =\operatorname*{st}\left(  \beta_{\sim1}\right)  $.
@@ -10789,9 +10789,10 @@ a,a+1,\ldots,b\right\}  $. (This is an empty set if $a>b$.)
 It is easy to see that every composition $J$ of size $n>0$ satisfies%
 \begin{equation}
 \left[  \max\left(  \operatorname*{Epk}J\right)  ,n-1\right]  \subseteq
-\operatorname*{Des}J \label{pf.prop.K.Epk.F.2}%
+\operatorname*{Des}J . \label{pf.prop.K.Epk.F.2}
 \end{equation}
-\footnote{\textit{Proof of (\ref{pf.prop.K.Epk.F.2}):} Let $J$ be a
+
+[\textit{Proof of (\ref{pf.prop.K.Epk.F.2}):} Let $J$ be a
 composition of size $n>0$. We shall show that $\left[  \max\left(
 \operatorname*{Epk}J\right)  ,n-1\right]  \subseteq\operatorname*{Des}J$.
 \par
@@ -10840,7 +10841,7 @@ Thus, $r+1$ is a $q\in\left[  \max\left(  \operatorname*{Epk}J\right)
 ,n-1\right]  $ satisfying $q\notin\operatorname*{Des}J$. This contradicts the
 fact that $r$ is the \textbf{largest} such $q$ (since $r+1$ is clearly larger
 than $r$). This contradiction proves that our assumption was wrong; thus,
-(\ref{pf.prop.K.Epk.F.2}) is proven.}.
+(\ref{pf.prop.K.Epk.F.2}) is proven.]
 
 For each $n\in\mathbb{N}$ and each subset $S$ of $\left[  n-1\right]  $, we
 define a subset $S^{\circ}$ of $\left[  n-1\right]  $ as follows:%
@@ -13344,6 +13345,12 @@ Lemma~\ref{lem.poset.add-rel.part2}. Thus,
 Lemma~\ref{lem.poset.add-rel.part2} is proven.
 \end{proof}
 
+A \textit{minimum element} of a poset $P$ means an element
+$m \in P$ such that every $p \in P$ satisfies $m \leq p$.
+This is not the same as a minimal element.
+A minimum element of a poset $P$ is unique if it exists; it is denoted by
+$\min P$.
+
 The following fact is an analogue of \cite[Lemma 5.2.17]{HopfComb}:
 
 \begin{proposition}
@@ -13363,9 +13370,9 @@ resulting labelled poset by $P\left.  \succeq\right.  Q$. Then, $F_{P}\left(
 =F_{P\left.  \succeq\right.  Q}\left(  \mathbf{x}\right)  $.
 \end{proposition}
 
-Note that a \textit{minimum element} of a poset $P$ means an element
-$m \in P$ such that every $p \in P$ satisfies $m \leq p$.
-This is not the same as a minimal element.
+Note that we are using the notation $\min P$ for the minimum element
+of the \textbf{poset} $P$; not the smallest element of $P$ as a subset
+of $\ZZ$. The same applies to the notation $\min Q$.
 
 \begin{proof}[Proof of Proposition~\ref{prop.dendri.4.1.lem} (sketched).]
 We imitate the proof of \cite[Lemma 5.2.17]{HopfComb}:

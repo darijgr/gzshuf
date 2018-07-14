@@ -938,7 +938,9 @@ Next, let us introduce a total order on the finite subsets of $\mathbb{Z}$:
 denote the \textit{symmetric difference} of $A$ and $B$. This is the set
 $\left(  A\cup B\right)  \setminus\left(  A\cap B\right)  =\left(  A\setminus
 B\right)  \cup\left(  B\setminus A\right)  $. It is well-known that the binary
-operation $\bigtriangleup$ on sets is associative. If $A$ and $B$ are two
+operation $\bigtriangleup$ on sets is associative.
+
+If $A$ and $B$ are two
 distinct sets, then the set $A\bigtriangleup B$ is nonempty. Also, if
 $A\in\mathbf{P}$ and $B\in\mathbf{P}$, then $A\bigtriangleup B\in\mathbf{P}$.
 Thus, if $A$ and $B$ are two distinct sets in $\mathbf{P}$, then $\min\left(
@@ -12907,8 +12909,10 @@ Then, we hope to have%
 P\left.  \prec\right.  Q,\varepsilon\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
 \Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  \left.  \succeq\right.
 \Gamma_{\mathcal{Z}}\left(  Q,\delta\right)   &  =\Gamma_{\mathcal{Z}}\left(
-P\left.  \succeq\right.  Q,\varepsilon\right)  .
+P\left.  \succ\right.  Q,\varepsilon\right)  ,
 \end{align*}
+assuming a simple condition on $\min P$ and $\min Q$
+(say, $\gamma\left(\min P\right) <_{\ZZ} \delta\left(\min Q\right)$).
 \end{question}
 \end{vershort}
 
@@ -15035,9 +15039,10 @@ elements by $\min P$ and $\min Q$, respectively. Define two posets $P\left.
 P\left.  \prec\right.  Q,\varepsilon\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
 \Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  \left.  \succeq\right.
 \Gamma_{\mathcal{Z}}\left(  Q,\delta\right)   &  =\Gamma_{\mathcal{Z}}\left(
-P\left.  \succeq\right.  Q,\varepsilon\right)  .
+P\left.  \succ\right.  Q,\varepsilon\right) ,
 \end{align*}
-
+assuming a simple condition on $\min P$ and $\min Q$
+(say, $\gamma\left(\min P\right) <_{\ZZ} \delta\left(\min Q\right)$).
 
 Ideally, this would be a generalization of Proposition
 \ref{prop.dendri.4.1.lem}.

@@ -270,7 +270,7 @@ permutations this way.
 
 \begin{definition}
 Let $n\in\mathbb{N}$. Two $n$-permutations $\alpha$ and $\beta$ are said to be
-\textit{order-equivalent} if they have the following property: For every two
+\textit{order-isomorphic} if they have the following property: For every two
 integers $i,j\in\left[  n\right]  $, we have $\alpha\left(  i\right)
 <\alpha\left(  j\right)  $ if and only if $\beta\left(  i\right)
 <\beta\left(  j\right)  $.
@@ -279,7 +279,7 @@ integers $i,j\in\left[  n\right]  $, we have $\alpha\left(  i\right)
 \begin{definition}
 \textbf{(a)} A \textit{permutation statistic} is a map $\operatorname*{st}$
 from the set of all permutations to an arbitrary set that has the following
-property: Whenever $\alpha$ and $\beta$ are two order-equivalent permutations,
+property: Whenever $\alpha$ and $\beta$ are two order-isomorphic permutations,
 we have $\operatorname*{st}\left(  \alpha\right)  =\operatorname*{st}\left(
 \beta\right)  $.
 
@@ -300,7 +300,7 @@ if its letters are $1,2,\ldots,n$ (in some order). The standard $n$%
 from this set to itself).
 
 It is easy to see that for each $n$-permutation $\sigma$, there exists a
-\textbf{unique} standard $n$-permutation $\pi$ order-equivalent to $\sigma$.
+\textbf{unique} standard $n$-permutation $\pi$ order-isomorphic to $\sigma$.
 Thus, a permutation statistic is uniquely determined by its values on standard
 permutations. Consequently, we can view permutation statistics as statistics
 defined on standard permutations, i.e., on permutations in the usual sense of
@@ -1754,7 +1754,7 @@ P\right)  }\Gamma_{\mathcal{Z}}\left(  w,\gamma\right)  .
 \begin{definition}
 Let $P$ be any set. Let $A$ be a totally ordered set. Let $\gamma:P\rightarrow
 A$ and $\delta:P\rightarrow A$ be two maps. We say that $\gamma$ and $\delta$
-are \textit{order-equivalent} if the following holds: For every pair $\left(
+are \textit{order-isomorphic} if the following holds: For every pair $\left(
 p,q\right)  \in P\times P$, we have $\gamma\left(  p\right)  \leq\gamma\left(
 q\right)  $ if and only if $\delta\left(  p\right)  \leq\delta\left(
 q\right)  $.
@@ -1763,7 +1763,7 @@ q\right)  $.
 \begin{lemma} \label{lem.ord-eq-Ppar}
 Let $\left(P, \alpha\right)$ and $\left(P, \beta\right)$ be two labeled posets
 with the same ground poset $P$.
-Assume that the maps $\alpha$ and $\beta$ are order-equivalent. Then:
+Assume that the maps $\alpha$ and $\beta$ are order-isomorphic. Then:
 
 \textbf{(a)} We have
 $\mathcal{E}\left(P, \alpha\right) = \mathcal{E}\left(P, \beta\right)$.
@@ -1787,7 +1787,7 @@ equivalences:
   \left( \beta\left(x\right) < \beta\left(y\right) \right) .
 \end{align*}
 (Indeed, the first of these equivalences holds because $\alpha$ and $\beta$
-are order-equivalent; the second is the contrapositive of the first; the
+are order-isomorphic; the second is the contrapositive of the first; the
 third is obtained from the second by swapping $x$ with $y$.)
 
 Hence, the conditions ``$\alpha\left(x\right) > \alpha\left(y\right)$''
@@ -1864,8 +1864,8 @@ and whose order relation is defined by the following rules:
 \right)  $ be two labeled posets. Let $\left(  P\sqcup Q,\varepsilon\right)  $
 be a labeled poset whose ground poset $P\sqcup Q$ is the disjoint union of $P$
 and $Q$, and whose labeling $\varepsilon$ is such that the restriction of
-$\varepsilon$ to $P$ is order-equivalent to $\gamma$ and such that the
-restriction of $\varepsilon$ to $Q$ is order-equivalent to $\delta$. Then,%
+$\varepsilon$ to $P$ is order-isomorphic to $\gamma$ and such that the
+restriction of $\varepsilon$ to $Q$ is order-isomorphic to $\delta$. Then,%
 \[
 \Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  \Gamma_{\mathcal{Z}}\left(
 Q,\delta\right)  =\Gamma_{\mathcal{Z}}\left(  P\sqcup Q,\varepsilon\right)  .
@@ -1879,7 +1879,7 @@ $P$ and $Q$ are disjoint; thus, we can identify $P\sqcup Q$ with the union
 $P\cup Q$.
 Let us make this identification.
 
-The restriction $\varepsilon\mid_P$ of $\varepsilon$ to $P$ is order-equivalent
+The restriction $\varepsilon\mid_P$ of $\varepsilon$ to $P$ is order-isomorphic
 to $\gamma$. Hence, Lemma \ref{lem.ord-eq-Ppar} \textbf{(a)} (applied to
 $\alpha = \varepsilon\mid_P$ and $\beta = \gamma$) yields
 $\mathcal{E}\left(P, \varepsilon\mid_P\right)
@@ -8340,7 +8340,7 @@ $\sigma$ and larger than all entries of $\sigma^{\prime}$. Consider such an
 $N$. Let $n=\left\vert \pi\right\vert $; thus, $\pi=\left(  \pi_{1},\pi
 _{2},\ldots,\pi_{n}\right)  $. Let $\gamma$ be the permutation $\left(
 \pi_{1}+N,\pi_{2}+N,\ldots,\pi_{n}+N\right)  $. This permutation $\gamma$ is
-order-equivalent to $\pi$, but is disjoint from $\sigma$ (since all its
+order-isomorphic to $\pi$, but is disjoint from $\sigma$ (since all its
 entries are $>N$, while all the entries of $\sigma$ are $<N$) and disjoint
 from $\sigma^{\prime}$ (for similar reasons). Also, $\gamma_{1}%
 =\underbrace{\pi_{1}}_{>0}+N>N>\sigma_{1}$ (since $N$ is larger than all
@@ -8348,11 +8348,11 @@ entries of $\sigma$), so that $\left[  \gamma_{1}%
 >\sigma_{1}\right]  =1$. Similarly, $\left[  \gamma_{1}>\sigma_{1}^{\prime
 }\right]  =1$.
 
-The permutation $\gamma$ is order-equivalent to $\pi$. Thus,
+The permutation $\gamma$ is order-isomorphic to $\pi$. Thus,
 $\operatorname*{st}\left(  \gamma\right)  =\operatorname*{st}\left(
 \pi\right)  $ (since $\operatorname*{st}$ is a permutation statistic) and
 $\left\vert \gamma\right\vert =\left\vert \pi\right\vert $. The permutation
-$\gamma$ is furthermore nonempty (since it is order-equivalent to the nonempty
+$\gamma$ is furthermore nonempty (since it is order-isomorphic to the nonempty
 permutation $\pi$). Also, $\operatorname*{st}\left(  \gamma\right)
 =\operatorname*{st}\left(  \pi\right)  =\operatorname*{st}\left(  \pi^{\prime
 }\right)  $ and $\left\vert \gamma\right\vert =\left\vert \pi\right\vert
@@ -8439,7 +8439,7 @@ $m=\left\vert \sigma\right\vert $. Thus, $\sigma=\left(  \sigma_{1},\sigma
 _{2},\ldots,\sigma_{m}\right)  $.
 Let $\delta$ be the permutation $\left(  \sigma_{1}+N,\sigma_{2}%
 +N,\ldots,\sigma_{m}+N\right)  $. This permutation $\delta$ is
-order-equivalent to $\sigma$, but is disjoint from $\pi$ (since all its
+order-isomorphic to $\sigma$, but is disjoint from $\pi$ (since all its
 entries are $>N$, while all the entries of $\pi$ are $<N$) and disjoint from
 $\pi^{\prime}$ (for similar reasons). Also, $\delta_{1}=\underbrace{\sigma
 _{1}}_{>0}+N>N>\pi_{1}$ (since $N$ is larger than all entries of $\pi$),
@@ -8447,11 +8447,11 @@ so that we don't have $\pi_{1}>\delta_{1}$. Thus,
 $\left[  \pi_{1}>\delta_{1}\right]  =0$. Similarly, $\left[  \pi_{1}^{\prime
 }>\delta_{1}\right]  =0$.
 
-The permutation $\delta$ is order-equivalent to $\sigma$. Thus,
+The permutation $\delta$ is order-isomorphic to $\sigma$. Thus,
 $\operatorname*{st}\left(  \delta\right)  =\operatorname*{st}\left(
 \sigma\right)  $ (since $\operatorname*{st}$ is a permutation statistic) and
 $\left\vert \delta\right\vert =\left\vert \sigma\right\vert $. The permutation
-$\delta$ is furthermore nonempty (since it is order-equivalent to the nonempty
+$\delta$ is furthermore nonempty (since it is order-isomorphic to the nonempty
 permutation $\sigma$). Also, $\operatorname*{st}\left(  \delta\right)
 =\operatorname*{st}\left(  \sigma\right)  =\operatorname*{st}\left(
 \sigma^{\prime}\right)  $ and $\left\vert \delta\right\vert =\left\vert
@@ -9021,7 +9021,7 @@ a^{\prime}:\pi^{\prime}\right)  $.
 \end{statement}
 
 [\textit{Proof of Claim 3:} The $1$-permutations $\left(  a\right)  $ and
-$\left(  a^{\prime}\right)  $ are order-equivalent. Thus, $\operatorname*{st}%
+$\left(  a^{\prime}\right)  $ are order-isomorphic. Thus, $\operatorname*{st}%
 \left(  \left(  a\right)  \right)  =\operatorname*{st}\left(  \left(
 a^{\prime}\right)  \right)  $ (since $\operatorname*{st}$ is a permutation
 statistic). Also, $\left\vert \left(  a\right)  \right\vert =1=\left\vert
@@ -9227,7 +9227,7 @@ Let $\alpha$ and $\beta$ be as in Claim 1, and assume that $\left\vert
 If $N=1$, then this holds\footnote{\textit{Proof.} Assume that $N=1$. Thus,
 $\alpha$ and $\beta$ are $1$-permutations (since $\left\vert \alpha\right\vert
 =N=1$ and $\left\vert \beta\right\vert =\left\vert \alpha\right\vert =N=1$)
-and thus are order-equivalent. Hence, $\operatorname*{st}\left(
+and thus are order-isomorphic. Hence, $\operatorname*{st}\left(
 \alpha\right)  =\operatorname*{st}\left(  \beta\right)  $ (since
 $\operatorname*{st}$ is a permutation statistic).}. Hence, for the rest of
 this proof, we WLOG assume that $N\neq1$. Hence, $N\geq2$ (since $N$ is a
@@ -9426,7 +9426,7 @@ a^{\prime}:\pi^{\prime}\right)  $.
 \end{statement}
 
 [\textit{Proof of Claim 2:} The $1$-permutations $\left(  a\right)  $ and
-$\left(  a^{\prime}\right)  $ are order-equivalent. Thus, $\operatorname*{st}%
+$\left(  a^{\prime}\right)  $ are order-isomorphic. Thus, $\operatorname*{st}%
 \left(  \left(  a\right)  \right)  =\operatorname*{st}\left(  \left(
 a^{\prime}\right)  \right)  $ (since $\operatorname*{st}$ is a permutation statistic).
 
@@ -9495,7 +9495,7 @@ show an auxiliary statement:
 
 \begin{statement}
 \textit{Claim 3:} Let $\pi$, $\pi^{\prime}$ and $\sigma$ be three
-permutations. Assume that $\pi$ and $\pi^{\prime}$ are order-equivalent.
+permutations. Assume that $\pi$ and $\pi^{\prime}$ are order-isomorphic.
 Assume that $\pi$ and $\sigma$ are disjoint. Assume that $\pi^{\prime}$ and
 $\sigma$ are disjoint. Then,%
 \[
@@ -9509,7 +9509,7 @@ $\sigma$ are disjoint. Then,%
 
 [\textit{Proof of Claim 3:} We have $\left\vert \pi\right\vert =\left\vert
 \pi^{\prime}\right\vert $ (since $\pi$ and $\pi^{\prime}$ are
-order-equivalent). Define $n\in\mathbb{N}$ by $n=\left\vert \pi\right\vert
+order-isomorphic). Define $n\in\mathbb{N}$ by $n=\left\vert \pi\right\vert
 =\left\vert \pi^{\prime}\right\vert $. Let $X$ be the codomain of
 $\operatorname*{st}$. Lemma \ref{lem.LRcomp.head-l2} shows that there exists a
 map
@@ -9525,7 +9525,7 @@ Consider this map $F_{n}$.
 
 We know that $\operatorname*{Des}$ is a permutation statistic. Thus,
 $\operatorname*{Des}\pi=\operatorname*{Des}\left(  \pi^{\prime}\right)  $
-(since $\pi$ and $\pi^{\prime}$ are order-equivalent). Also, $\left\vert
+(since $\pi$ and $\pi^{\prime}$ are order-isomorphic). Also, $\left\vert
 \pi\right\vert =\left\vert \pi^{\prime}\right\vert $, $\operatorname*{Des}%
 \sigma=\operatorname*{Des}\sigma$ and $\left\vert \sigma\right\vert
 =\left\vert \sigma\right\vert $. Hence, Lemma \ref{lem.LRcomp.head-l3}
@@ -9632,18 +9632,18 @@ $N$. From $n=\left\vert \pi^{\prime}\right\vert $, we obtain $\pi^{\prime
 }=\left(  \pi_{1}^{\prime},\pi_{2}^{\prime},\ldots,\pi_{n}^{\prime}\right)  $.
 Let $\gamma$ be the permutation $\left(  \pi_{1}^{\prime}+N,\pi_{2}^{\prime
 }+N,\ldots,\pi_{n}^{\prime}+N\right)  $. This permutation $\gamma$ is
-order-equivalent to $\pi^{\prime}$, but is disjoint from $\sigma$ (since all
+order-isomorphic to $\pi^{\prime}$, but is disjoint from $\sigma$ (since all
 its entries are $>N$, while all the entries of $\sigma$ are $<N$) and disjoint
 from $\sigma^{\prime}$ (for similar reasons). Also, $\gamma_{1}%
 =\underbrace{\pi_{1}^{\prime}}_{>0}+N>N>\sigma_{1}$, so that $\left[
 \gamma_{1}>\sigma_{1}\right]  =1$. Similarly, $\left[  \gamma_{1}>\sigma
 _{1}^{\prime}\right]  =1$.
 
-The permutation $\gamma$ is order-equivalent to $\pi^{\prime}$. Thus,
+The permutation $\gamma$ is order-isomorphic to $\pi^{\prime}$. Thus,
 $\operatorname*{st}\left(  \gamma\right)  =\operatorname*{st}\left(
 \pi^{\prime}\right)  $ (since $\operatorname*{st}$ is a permutation statistic)
 and $\left\vert \gamma\right\vert =\left\vert \pi^{\prime}\right\vert $. The
-permutation $\gamma$ is furthermore nonempty (since it is order-equivalent to
+permutation $\gamma$ is furthermore nonempty (since it is order-isomorphic to
 the nonempty permutation $\pi^{\prime}$). Also, $\operatorname*{st}\left(
 \gamma\right)  =\operatorname*{st}\left(  \pi^{\prime}\right)
 =\operatorname*{st}\left(  \pi\right)  $ and $\left\vert \gamma\right\vert

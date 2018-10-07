@@ -6176,6 +6176,141 @@ x_{3}\right]  \left(  3+5x_{0}^{2}x_{3}+6x_{0}+9x_{\infty}\right)  =5$ and
 $\left[  x_{0}^{2}x_{3}\right]  \left(  x_{1}-x_{\infty}\right)  =0$.)
 \end{definition}
 
+\begin{vershort}
+\begin{lemma}
+\label{lem.KnL.coeff}Let $n\in\mathbb{N}$.
+
+\textbf{(a)} If $g$ and $h$ are two weakly increasing maps $\left[  n\right]
+\rightarrow\mathcal{N}$, then
+\[
+\left(\text{we have $\xx_g = \xx_h$ if and only if $g = h$}\right) .
+\]
+
+
+\textbf{(b)} Let $R\in\mathbf{L}_{n}$. Let $h:\left[  n\right]  \rightarrow
+\mathcal{N}$ be a weakly increasing map. Then,%
+\[
+\left[  \mathbf{x}_{h}\right]  \left(  K_{n,R}^{\mathcal{Z}}\right)  =%
+\begin{cases}
+2^{\left\vert h\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  \right\vert }, & \text{if }R\subseteq\operatorname*{FE}\left(
+h\right)  ;\\
+0, & \text{otherwise}%
+\end{cases}
+.
+\]
+
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.KnL.coeff}.]\textbf{(a)} A weakly increasing map
+$g:\left[  n\right]  \rightarrow\mathcal{N}$ can be uniquely reconstructed
+from the \textbf{multiset} $\left\{  g\left(  1\right)  ,g\left(  2\right)
+,\ldots,g\left(  n\right)  \right\}  _{\operatorname*{multi}}$ of its values
+(because it is weakly increasing, so there is only one way in which these
+values can be ordered). Hence, a weakly increasing map $g:\left[  n\right]
+\rightarrow\mathcal{N}$ can be uniquely reconstructed from the monomial
+$\mathbf{x}_{g}$ (since this monomial
+$\mathbf{x}_{g}=x_{g\left(1\right)}x_{g\left(2\right)}\cdots
+x_{g\left(n\right)}$
+encodes the multiset $\left\{  g\left(  1\right)  ,g\left(
+2\right)  ,\ldots,g\left(  n\right)  \right\}  _{\operatorname*{multi}}$). In
+other words, if $g$ and $h$ are two weakly increasing maps $\left[  n\right]
+\rightarrow\mathcal{N}$, then $\mathbf{x}_{g}=\mathbf{x}_{h}$ holds if and
+only if $g=h$. This proves Lemma \ref{lem.KnL.coeff} \textbf{(a)}.
+
+\textbf{(b)} The definition of $K_{n,R}^{\mathcal{Z}}$ yields%
+\[
+K_{n,R}^{\mathcal{Z}}=\sum_{\substack{g:\left[  n\right]  \rightarrow
+\mathcal{N}\text{ is}\\\text{weakly increasing;}\\R\subseteq\operatorname*{FE}%
+\left(  g\right)  }}2^{\left\vert g\left(  \left[  n\right]  \right)
+\cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}.
+\]
+Thus,%
+\begin{align*}
+\left[  \mathbf{x}_{h}\right]  \left(  K_{n,R}^{\mathcal{Z}}\right)   &
+=\left[  \mathbf{x}_{h}\right]  \left(  \sum_{\substack{g:\left[  n\right]
+\rightarrow\mathcal{N}\text{ is}\\\text{weakly increasing;}\\R\subseteq
+\operatorname*{FE}\left(  g\right)  }}2^{\left\vert g\left(  \left[  n\right]
+\right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }\mathbf{x}_{g}\right)
+\\
+&  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing;}\\R\subseteq\operatorname*{FE}\left(  g\right)
+}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }\underbrace{\left[  \mathbf{x}_{h}\right]
+\left(  \mathbf{x}_{g}\right)  }_{\substack{=%
+\begin{cases}
+1, & \text{if }\mathbf{x}_{g}=\mathbf{x}_{h};\\
+0, & \text{if }\mathbf{x}_{g}\neq\mathbf{x}_{h}%
+\end{cases}
+\\\text{(since }\mathbf{x}_{h}\text{ and }\mathbf{x}_{g}\text{ are two
+monomials)}}}\\
+&  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing;}\\R\subseteq\operatorname*{FE}\left(  g\right)
+}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }\underbrace{%
+\begin{cases}
+1, & \text{if }\mathbf{x}_{g}=\mathbf{x}_{h};\\
+0, & \text{if }\mathbf{x}_{g}\neq\mathbf{x}_{h}%
+\end{cases}
+}_{\substack{=%
+\begin{cases}
+1, & \text{if }g=h;\\
+0, & \text{if }g\neq h
+\end{cases}
+\\\text{(by Lemma \ref{lem.KnL.coeff} \textbf{(a)})}}}\\
+&  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing;}\\R\subseteq\operatorname*{FE}\left(  g\right)
+}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }%
+\begin{cases}
+1, & \text{if }g=h;\\
+0, & \text{if }g\neq h
+\end{cases}
+\\
+&  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing;}\\R\subseteq\operatorname*{FE}\left(  g\right)
+;\\g=h}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }.
+\end{align*}
+The sum on the right hand side of this equality has a unique addend (namely,
+its addend for $g=h$, which is $2^{\left\vert h\left(  \left[  n\right]
+\right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }$) when
+$R\subseteq\operatorname*{FE}\left(  h\right)  $; otherwise it is an empty
+sum. Hence, this sum simplifies as follows:%
+\[
+\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing;}\\R\subseteq\operatorname*{FE}\left(  g\right)
+;\\g=h}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }=%
+\begin{cases}
+2^{\left\vert h\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  \right\vert }, & \text{if }R\subseteq\operatorname*{FE}\left(
+h\right)  ;\\
+0, & \text{otherwise}%
+\end{cases}
+.
+\]
+Hence,%
+\[
+\left[  \mathbf{x}_{h}\right]  \left(  K_{n,R}^{\mathcal{Z}}\right)
+=\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
+is}\\\text{weakly increasing;}\\R\subseteq\operatorname*{FE}\left(  g\right)
+;\\g=h}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
+1,2,3,\ldots\right\}  \right\vert }=%
+\begin{cases}
+2^{\left\vert h\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
+\right\}  \right\vert }, & \text{if }R\subseteq\operatorname*{FE}\left(
+h\right)  ;\\
+0, & \text{otherwise}%
+\end{cases}
+.
+\]
+This proves Lemma \ref{lem.KnL.coeff} \textbf{(b)}.
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
 \begin{lemma}
 \label{lem.KnL.coeff}Let $n\in\mathbb{N}$.
 
@@ -6330,6 +6465,7 @@ h\right)  ;\\
 \]
 This proves Lemma \ref{lem.KnL.coeff} \textbf{(b)}.
 \end{proof}
+\end{verlong}
 
 \begin{proof}
 [First proof of Proposition \ref{prop.KnL.lindep}.]Recall Definition

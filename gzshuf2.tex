@@ -1518,8 +1518,9 @@ negative, and }\gamma\left(  x\right)  >\gamma\left(  y\right)  \right)
 It is easy to see that this relation $<_{f}$ is the smaller relation of a
 total order on the set $P$
 (indeed, it is transitive, irreflexive and asymmetric, and
-every two distinct elements $x$ and $y$ satisfy either $x<_{f}y$ or $y<_{f}%
-x$). Denote this total order by $\mathbf{w}_{f}$. Thus, $\mathbf{w}_{f}$ is a
+every two distinct elements $x$ and $y$ satisfy either $x<_{f}y$ or
+$y<_{f}x$).
+Denote this total order by $\mathbf{w}_{f}$. Thus, $\mathbf{w}_{f}$ is a
 total order on the set $P$.
 
 This total order $\mathbf{w}_{f}$ is a linear extension of $P$.
@@ -11811,7 +11812,8 @@ entry) is always tantamount to adding a new element to $\operatorname*{Des}J$.
 It suffices to show that the conditions under which an entry of a composition
 $J$ can be split in the definition of the relation $\underset{M}{\rightarrow}$
 are precisely the conditions $k\notin C$, $k-1\in C$ and $k+1\notin
-C\cup\left\{  n\right\}  $ on $C=\operatorname*{Des}J$. This is
+C\cup\left\{  n\right\}  $ on $C=\operatorname*{Des}J$, where $k+1$ denotes
+the new element that we are adding to $\operatorname{Des}J$. This is
 straightforward.}. Thus,%
 \begin{align*}
 &  \left\langle M_{\operatorname*{Comp}C}+M_{\operatorname*{Comp}D}%
@@ -11877,7 +11879,9 @@ entry) is always tantamount to adding a new element to $\operatorname*{Des}J$.
 It suffices to show that the conditions under which an entry of a composition
 $J$ can be split in the definition of the relation $\rightarrow$ are precisely
 the conditions $k\notin C$, $k-1\in C$ and $k+1\notin C\cup\left\{  n\right\}
-$ on $C=\operatorname*{Des}J$. This is straightforward.}. Thus,%
+$ on $C=\operatorname*{Des}J$, where $k$ denotes
+the new element that we are adding to $\operatorname{Des}J$.
+This is straightforward.}. Thus,%
 \begin{align*}
 &  \left\langle F_{\operatorname*{Comp}C}-F_{\operatorname*{Comp}D}%
 \ \mid\ C\text{ and }D\text{ are subsets of }\left[  n-1\right]  \right. \\
@@ -12924,7 +12928,7 @@ interacts with some additional structure on $\operatorname*{QSym}$, viz. the
 \succeq\right.  $ and the \textquotedblleft runic\textquotedblright%
 \ operations $\bel$ and $\tvi$. These operations were introduced in
 \cite{dimcr}. Our study shall lead us back to the notions of
-left-shuffle-compatibility\ and right-shuffle-compatibility from Section
+left-shuffle-compatibility and right-shuffle-compatibility from Section
 \ref{sect.LR}. We shall reprove that $\operatorname*{Epk}$ is
 left-shuffle-compatible and right-shuffle-compatible; similar studies can
 probably be made for other descent statistics.
@@ -13266,7 +13270,18 @@ as sets).
 
 If we add a relation to a labelled poset $R$, obtaining a new labelled
 poset $R^{\prime}$, then how do the $R^{\prime}$-partitions differ from
-the $R$-partitions? The following two lemmas answer this question:
+the $R$-partitions?
+The following two lemmas answer this question:\footnote{We are
+going to use the following notation:
+If $P$ is a poset, then we let $\leq_P$, $<_P$, $\geq_P$
+and $>_P$ denote the smaller-or-equal relation of $P$, the
+smaller relation of $P$, the greater-or-equal relation
+of $P$, and the greater relation of $P$, respectively.
+Thus, in particular, $\leq_{\ZZ}$, $<_{\ZZ}$, $\geq_{\ZZ}$
+and $>_{\ZZ}$ denote the usual smaller-or-equal, smaller,
+greater-or-equal and greater relations of the totally
+ordered set $\ZZ$ of integers.
+(For example, $a \leq_{\ZZ} b$ if and only if $b - a \in \NN$.)}
 
 \begin{lemma}
 \label{lem.poset.add-rel.part1}
@@ -13283,7 +13298,7 @@ $f \left(u\right) < f\left(v\right)$.
 \begin{proof}[Proof of Lemma~\ref{lem.poset.add-rel.part1}.]
 The \textquotedblleft only
 if\textquotedblright\ direction is obvious (since $u<v$ in $R^{\prime}$ and
-$u>_{\mathbb{Z}}v$). It thus remains to prove the \textquotedblleft
+$u>_{\ZZ}v$). It thus remains to prove the \textquotedblleft
 if\textquotedblright\ direction. So let us assume that $f\left(  u\right)
 <f\left(  v\right)  $. We must then show that $f$ is an $R^{\prime}$-partition.
 
@@ -13305,11 +13320,11 @@ $R$ to $\mathbb{Z}$.
 Now, we have%
 \[
 \left(  \text{if }i\in R^{\prime}\text{ and }j\in R^{\prime}\text{ satisfy
-}i<j\text{ in }R^{\prime}\text{ and }i<_{\mathbb{Z}}j\text{, then }f\left(
+}i<j\text{ in }R^{\prime}\text{ and }i<_{\ZZ}j\text{, then }f\left(
 i\right)  \leq f\left(  j\right)  \right)
 \]
 \footnote{\textit{Proof.} Let $i\in R^{\prime}$ and $j\in R^{\prime}$ be such
-that $i<j$ in $R$ and $i<_{\mathbb{Z}}j$. We must prove that $f\left(
+that $i<j$ in $R$ and $i<_{\ZZ}j$. We must prove that $f\left(
 i\right)  \leq f\left(  j\right)  $.
 \par
 We have $i\in R^{\prime}=R$ and $j\in R^{\prime}=R$.
@@ -13321,7 +13336,7 @@ satisfy $x\leq u$ and $v\leq y$ in $R$. Applying this to $\left(  x,y\right)
 either already satisfy $i<j$ in $R$, or satisfy $i\leq u$ and $v\leq j$ in
 $R$. In the first of these two cases, we immediately obtain $f\left(
 i\right)  \leq f\left(  j\right)  $, because $f$ is an $R$-partition (and
-because $i<j$ in $R$ and $i<_{\mathbb{Z}}j$). Hence, we can WLOG assume that
+because $i<j$ in $R$ and $i<_{\ZZ}j$). Hence, we can WLOG assume that
 we are in the second case. In other words, we have $i\leq u$ and $v\leq j$ in
 $R$. In particular, $i\leq u$ in $R$ and therefore $f\left(  i\right)  \leq
 f\left(  u\right)  $ (since the map $f$ is weakly increasing). Similarly,
@@ -13330,11 +13345,11 @@ f\left(  u\right)  <f\left(  v\right)  \leq f\left(  j\right)  $, so that
 $f\left(  i\right)  \leq f\left(  j\right)  $, qed.} and%
 \[
 \left(  \text{if }i\in R^{\prime}\text{ and }j\in R^{\prime}\text{ satisfy
-}i<j\text{ in }R^{\prime}\text{ and }i>_{\mathbb{Z}}j\text{, then }f\left(
+}i<j\text{ in }R^{\prime}\text{ and }i>_{\ZZ}j\text{, then }f\left(
 i\right)  <f\left(  j\right)  \right)
 \]
 \footnote{\textit{Proof.} Let $i\in R^{\prime}$ and $j\in R^{\prime}$ be such
-that $i<j$ in $R$ and $i>_{\mathbb{Z}}j$. We must prove that $f\left(
+that $i<j$ in $R$ and $i>_{\ZZ}j$. We must prove that $f\left(
 i\right)  <f\left(  j\right)  $.
 \par
 We have $i\in R^{\prime}=R$ and $j\in R^{\prime}=R$.
@@ -13346,7 +13361,7 @@ satisfy $x\leq u$ and $v\leq y$ in $R$. Applying this to $\left(  x,y\right)
 either already satisfy $i<j$ in $R$, or satisfy $i\leq u$ and $v\leq j$ in
 $R$. In the first of these two cases, we immediately obtain $f\left(
 i\right)  <f\left(  j\right)  $, because $f$ is an $R$-partition (and because
-$i<j$ in $R$ and $i>_{\mathbb{Z}}j$). Hence, we can WLOG assume that we are in
+$i<j$ in $R$ and $i>_{\ZZ}j$). Hence, we can WLOG assume that we are in
 the second case. In other words, we have $i\leq u$ and $v\leq j$ in $R$. In
 particular, $i\leq u$ in $R$ and therefore $f\left(  i\right)  \leq f\left(
 u\right)  $ (since the map $f$ is weakly increasing). Similarly, $f\left(
@@ -13374,7 +13389,7 @@ $f \left(u\right) \leq f\left(v\right)$.
 \begin{proof}[Proof of Lemma~\ref{lem.poset.add-rel.part2}.]
 The \textquotedblleft only
 if\textquotedblright\ direction is obvious (since $u<v$ in $R^{\prime}$ and
-$u<_{\mathbb{Z}}v$). It thus remains to prove the \textquotedblleft
+$u<_{\ZZ}v$). It thus remains to prove the \textquotedblleft
 if\textquotedblright\ direction. So let us assume that $f\left(  u\right)
 \leq f\left(  v\right)  $. We must then show that $f$ is an $R^{\prime}$-partition.
 
@@ -13396,11 +13411,11 @@ $R$ to $\mathbb{Z}$.
 Now, we have%
 \[
 \left(  \text{if }i\in R^{\prime}\text{ and }j\in R^{\prime}\text{ satisfy
-}i<j\text{ in }R^{\prime}\text{ and }i<_{\mathbb{Z}}j\text{, then }f\left(
+}i<j\text{ in }R^{\prime}\text{ and }i<_{\ZZ}j\text{, then }f\left(
 i\right)  \leq f\left(  j\right)  \right)
 \]
 \footnote{\textit{Proof.} Let $i\in R^{\prime}$ and $j\in R^{\prime}$ be such
-that $i<j$ in $R$ and $i<_{\mathbb{Z}}j$. We must prove that $f\left(
+that $i<j$ in $R$ and $i<_{\ZZ}j$. We must prove that $f\left(
 i\right)  \leq f\left(  j\right)  $.
 \par
 We have $i\in R^{\prime}=R$ and $j\in R^{\prime}=R$.
@@ -13412,7 +13427,7 @@ satisfy $x\leq u$ and $v\leq y$ in $R$. Applying this to $\left(  x,y\right)
 either already satisfy $i<j$ in $R$, or satisfy $i\leq u$ and $v\leq j$ in
 $R$. In the first of these two cases, we immediately obtain $f\left(
 i\right)  \leq f\left(  j\right)  $, because $f$ is an $R$-partition (and
-because $i<j$ in $R$ and $i<_{\mathbb{Z}}j$). Hence, we can WLOG assume that
+because $i<j$ in $R$ and $i<_{\ZZ}j$). Hence, we can WLOG assume that
 we are in the second case. In other words, we have $i\leq u$ and $v\leq j$ in
 $R$. In particular, $i\leq u$ in $R$ and therefore $f\left(  i\right)  \leq
 f\left(  u\right)  $ (since the map $f$ is weakly increasing). Similarly,
@@ -13421,11 +13436,11 @@ f\left(  u\right)  \leq f\left(  v\right)  \leq f\left(  j\right)  $, so that
 $f\left(  i\right)  \leq f\left(  j\right)  $, qed.} and%
 \[
 \left(  \text{if }i\in R^{\prime}\text{ and }j\in R^{\prime}\text{ satisfy
-}i<j\text{ in }R^{\prime}\text{ and }i>_{\mathbb{Z}}j\text{, then }f\left(
+}i<j\text{ in }R^{\prime}\text{ and }i>_{\ZZ}j\text{, then }f\left(
 i\right)  <f\left(  j\right)  \right)
 \]
 \footnote{\textit{Proof.} Let $i\in R^{\prime}$ and $j\in R^{\prime}$ be such
-that $i<j$ in $R$ and $i>_{\mathbb{Z}}j$. We must prove that $f\left(
+that $i<j$ in $R$ and $i>_{\ZZ}j$. We must prove that $f\left(
 i\right)  <f\left(  j\right)  $.
 \par
 Assume the contrary. Thus, $f\left(  i\right)  \geq f\left(  j\right)  $, so
@@ -13440,7 +13455,7 @@ satisfy $x\leq u$ and $v\leq y$ in $R$. Applying this to $\left(  x,y\right)
 either already satisfy $i<j$ in $R$, or satisfy $i\leq u$ and $v\leq j$ in
 $R$. In the first of these two cases, we immediately obtain $f\left(
 i\right)  <f\left(  j\right)  $, because $f$ is an $R$-partition (and because
-$i<j$ in $R$ and $i>_{\mathbb{Z}}j$). Hence, we can WLOG assume that we are in
+$i<j$ in $R$ and $i>_{\ZZ}j$). Hence, we can WLOG assume that we are in
 the second case. In other words, we have $i\leq u$ and $v\leq j$ in $R$. In
 particular, $i\leq u$ in $R$ and therefore $f\left(  i\right)  \leq f\left(
 u\right)  $ (since the map $f$ is weakly increasing). Similarly, $f\left(
@@ -13451,22 +13466,22 @@ equalities (since its left and right hand sides are equal). In other words, we
 have $f\left(  i\right)  =f\left(  u\right)  =f\left(  v\right)  =f\left(
 j\right)  =f\left(  i\right)  $.
 \par
-If we had $i>_{\mathbb{Z}}u$, then we would have $i\neq u$ and therefore $i<u$
-in $R$ (since $i\leq u$ in $R$). Therefore, if we had $i>_{\mathbb{Z}}u$, then
+If we had $i>_{\ZZ}u$, then we would have $i\neq u$ and therefore $i<u$
+in $R$ (since $i\leq u$ in $R$). Therefore, if we had $i>_{\ZZ}u$, then
 we would have $f\left(  i\right)  <f\left(  u\right)  $ (since $i<u$ in $R$,
 but $f$ is an $R$-partition), which would contradict $f\left(  i\right)
-=f\left(  u\right)  $. Hence, we cannot have $i>_{\mathbb{Z}}u$. Thus,
-$i\leq_{\mathbb{Z}}u$.
+=f\left(  u\right)  $. Hence, we cannot have $i>_{\ZZ}u$. Thus,
+$i\leq_{\ZZ}u$.
 \par
-If we had $v>_{\mathbb{Z}}j$, then we would have $v\neq j$ and therefore $v<j$
-in $R$ (since $v\leq j$ in $R$). Therefore, if we had $v>_{\mathbb{Z}}j$, then
+If we had $v>_{\ZZ}j$, then we would have $v\neq j$ and therefore $v<j$
+in $R$ (since $v\leq j$ in $R$). Therefore, if we had $v>_{\ZZ}j$, then
 we would have $f\left(  v\right)  <f\left(  j\right)  $ (since $v<j$ in $R$,
 but $f$ is an $R$-partition), which would contradict $f\left(  v\right)
-=f\left(  j\right)  $. Hence, we cannot have $v>_{\mathbb{Z}}j$. Thus,
-$v\leq_{\mathbb{Z}}j$.
+=f\left(  j\right)  $. Hence, we cannot have $v>_{\ZZ}j$. Thus,
+$v\leq_{\ZZ}j$.
 \par
-Now, $i\leq_{\mathbb{Z}}u<_{\mathbb{Z}}v\leq_{\mathbb{Z}}j$. This contradicts
-$i>_{\mathbb{Z}}j$. This contradiction shows that our assumption was wrong,
+Now, $i\leq_{\ZZ}u<_{\ZZ}v\leq_{\ZZ}j$. This contradicts
+$i>_{\ZZ}j$. This contradiction shows that our assumption was wrong,
 qed.}. These two statements entail that $f$ is an $R^{\prime}$-partition (by
 the definition of an $R^{\prime}$-partition). This concludes the proof of the
 \textquotedblleft if\textquotedblright\ direction of
@@ -13497,7 +13512,7 @@ The following fact is an analogue of \cite[Lemma 5.2.17]{HopfComb}:
 \begin{proposition}
 \label{prop.dendri.4.1.lem}We shall use the notations of \cite[Section
 5.2]{HopfComb}. Let $P$ and $Q$ be two disjoint labelled posets, each of which
-has a minimum element. Assume that $\min P>_{\mathbb{Z}}\min Q$. Consider the
+has a minimum element. Assume that $\min P>_{\ZZ}\min Q$. Consider the
 disjoint union $P\sqcup Q$ of $P$ and $Q$.
 
 \textbf{(a)} Add a further relation $\min P<\min Q$ to $P\sqcup Q$; denote the
@@ -13664,9 +13679,10 @@ before $v$ in the list $w$.
 
 We shall also use the following notation: If $w$ is a list of elements of some
 set $U$, and if $V$ is a subset of $U$, then $w\mid_{V}$ means the result of
-removing all entries from $w$ that don't belong to $V$. For example, $\left(
-2,7,1,6,3,4\right)  \mid_{\left\{  1,2,4,5,6\right\}  }=\left(
-2,1,6,4\right)  $.
+removing all entries from $w$ that don't belong to $V$. For example,
+$\left. \left(
+2,7,1,6,3,4\right)  \mid_{\left\{  1,2,4,5,6\right\}  } \right.
+=\left( 2,1,6,4\right)  $.
 
 Now, consider our two posets $P$ and $Q$. Recall that a linear extension of
 $P\sqcup Q$ is simply a list $\left(  w_{1},w_{2},\ldots,w_{n}\right)  $ of
@@ -13703,8 +13719,9 @@ $w\mid_{Q}$ are subsequences of $w$, and their sizes add up to the size of
 $w$). Therefore, if $w$ is a linear extension of $P\sqcup Q$, then
 $w\in\bigcup_{\pi\in\mathcal{L}\left(  P\right)  ;\ \sigma\in\mathcal{L}%
 \left(  Q\right)  }S\left(  \pi,\sigma\right)  $ (because $w\in S\left(
-\pi,\sigma\right)  $ for $\pi=w\mid_{P}\in\mathcal{L}\left(  P\right)  $ and
-$\sigma=w\mid_{Q}\in\mathcal{L}\left(  Q\right)  $).
+\pi,\sigma\right)  $ for
+$\pi = \left. w\mid_{P}\right. \in\mathcal{L}\left(  P\right)  $ and
+$\sigma = \left. w\mid_{Q} \right. \in\mathcal{L}\left(  Q\right)  $).
 
 \item Conversely, any $w\in\bigcup_{\pi\in\mathcal{L}\left(  P\right)
 ;\ \sigma\in\mathcal{L}\left(  Q\right)  }S\left(  \pi,\sigma\right)  $ is a
@@ -13732,7 +13749,7 @@ pairs $\left(  \pi,\sigma\right)  $ are disjoint).
 \pi,\sigma\right)  $ for some $\pi\in\mathcal{L}\left(  P\right)  $ and
 $\sigma\in\mathcal{L}\left(  Q\right)  $, then we can uniquely reconstruct
 $\left(  \pi,\sigma\right)  $ from $w$ (namely, $\left(  \pi,\sigma\right)  $
-is given by $\pi=w\mid_{P}$ and $\sigma=w\mid_{Q}$). Thus, the the sets
+is given by $\pi=w\mid_{P}$ and $\sigma=w\mid_{Q}$). Thus, the sets
 $S\left(  \pi,\sigma\right)  $ for distinct pairs $\left(  \pi,\sigma\right)
 $ are disjoint. This proves Observation 2.]
 
@@ -13978,7 +13995,7 @@ F_{w}\left(  \mathbf{x}\right)  \label{pf.cor.dendri.4.1.FR}%
 (by \cite[Theorem 5.2.11]{HopfComb}).
 
 Now, $\pi_{1}>\sigma_{1}$ in $\mathbb{Z}$. In other words, $\pi_{1}%
->_{\mathbb{Z}}\sigma_{1}$. In other words, $\min P>_{\mathbb{Z}}\min Q$ (since
+>_{\ZZ}\sigma_{1}$. In other words, $\min P>_{\ZZ}\min Q$ (since
 $\min P=\pi_{1}$ and $\min Q=\sigma_{1}$). Thus,
 \begin{align*}
 & \underbrace{F_{\operatorname*{Comp}\pi}}_{=F_{P}\left(  \mathbf{x}\right)
@@ -15863,7 +15880,7 @@ version 6, \texttt{\href{https://arxiv.org/abs/1410.0079v6}{arXiv:1410.0079v6}%
 Grinberg, \textit{Shuffle-compatible permutation statistics II: the exterior
 peak set [detailed version]}, detailed version of the present paper}. Also
 available as an ancillary file at
-\href{https://arxiv.org/abs/1806.04114v2}{arXiv:1806.04114v2}.
+\href{https://arxiv.org/abs/1806.04114v3}{arXiv:1806.04114v3}.
 \end{vershort}
 
 \begin{verlong}
@@ -15873,7 +15890,7 @@ available as an ancillary file at
 \href{http://www.cip.ifi.lmu.de/~grinberg/algebra/gzshuf2.pdf}{Darij Grinberg,
 \textit{Shuffle-compatible permutation statistics II: the exterior peak set},
 standard version of the present paper}. Also available as
-\href{https://arxiv.org/abs/1806.04114v2}{arXiv:1806.04114v2}.
+\href{https://arxiv.org/abs/1806.04114v3}{arXiv:1806.04114v3}.
 \end{verlong}
 
 \bibitem[GriRei18]{HopfComb}Darij Grinberg, Victor Reiner, \textit{Hopf

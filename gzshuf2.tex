@@ -121,8 +121,6 @@
 \newcommand{\ev}{\operatorname{ev}}
 \newcommand{\Comp}{\operatorname{Comp}}
 \newcommand{\QSym}{\operatorname{QSym}}
-\newcommand{\bdd}{\operatorname{bdd}}
-\newcommand{\Bdd}{\Powser_{\bdd}}
 \newcommand{\bD}{\mathbf{D}}
 \newcommand{\bk}{\mathbf{k}}
 \newcommand{\Nplus}{\mathbb{N}_{+}}
@@ -203,7 +201,8 @@ Section \ref{sect.dendri}) are merely outlined.
 \subsection*{Acknowledgments}
 
 We thank Yan Zhuang, Ira Gessel and Sara Billey for helpful conversations and
-corrections. The SageMath computer algebra system \cite{SageMath} has been
+corrections. An anonymous referee has also helpfully pointed out mistakes.
+The SageMath computer algebra system \cite{SageMath} has been
 used in finding some of the results below.
 
 \subsection{Remark on alternative versions}
@@ -778,7 +777,8 @@ For example,%
 \begin{align*}
 \mathbf{L}_{0}  &  =\left\{  \varnothing\right\}
 ;\ \ \ \ \ \ \ \ \ \ \mathbf{L}_{1}=\left\{  \left\{  1\right\}  \right\}
-;\ \ \ \ \ \ \ \ \ \ \mathbf{L}_{2}=\left\{  \left\{  2\right\}  \right\}  ;\\
+;\ \ \ \ \ \ \ \ \ \ \mathbf{L}_{2}
+=\left\{ \left\{ 1 \right\} , \left\{  2\right\}  \right\}  ;\\
 \mathbf{L}_{3}  &  =\left\{  \left\{  1\right\}  ,\left\{  2\right\}
 ,\left\{  3\right\}  ,\left\{  1,3\right\}  \right\}  .
 \end{align*}
@@ -1353,7 +1353,7 @@ c \are[dr] & & d \are[dl] \\
 \]
 (that is, the ground set of $P$ is $\left\{ a, b, c, d \right\}$, and
 its order relation is given by $a < c < b$ and $a < d < b$).
-Let $\gamma:P\rightarrow\mathbb{Z}$ be a set that satisfies
+Let $\gamma:P\rightarrow\mathbb{Z}$ be a map that satisfies
 $\gamma\left(  a\right)  <\gamma\left(  b\right)  <\gamma\left(  c\right)
 <\gamma\left(  d\right)  $ (for example, $\gamma$ could be the map that sends
 $a,b,c,d$ to $2,3,5,7$, respectively).
@@ -1993,7 +1993,8 @@ f\mid_{P},f\mid_{Q}\right)  \text{,}\\
 \prod_{p\in P}x_{\left\vert g\left(  p\right)  \right\vert }\right)
 }_{= \sum_{f\in\mathcal{E}\left(  P,\gamma\right)  }%
 \prod_{p\in P}x_{\left\vert f\left(  p\right)  \right\vert }
-= \Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  }\underbrace{\left(
+= \Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  }
+\ \cdot \ \underbrace{\left(
 \sum_{h\in\mathcal{E}\left(  Q,\delta\right)  }\prod_{p\in Q}x_{\left\vert
 h\left(  p\right)  \right\vert }\right)  }_{
 = \sum_{f\in\mathcal{E}\left(  Q,\delta\right)  }\prod_{p\in Q}x_{\left\vert

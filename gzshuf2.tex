@@ -22,7 +22,7 @@
 % -------------------------------------------------------------
 % One of my pet peeves with amsthm is its use of italics in the theorem and
 % proposition environments; this makes math and text indistinguishable in said
-% enviroments. To avoid this, I redefine the enviroments to use the standard
+% environments. To avoid this, I redefine the environments to use the standard
 % font and to use a hanging indent, along with a bold vertical bar to its
 % left, to distinguish these environments from surrounding text. (Along with
 % the advantage of distinguishing math from text, this also allows nesting
@@ -92,14 +92,6 @@
 \newenvironment{question}[1][]
 {\begin{quest}[#1]\begin{leftbar}}
 {\end{leftbar}\end{quest}}
-\newtheorem{warn}[theo]{Warning}
-\newenvironment{warning}[1][]
-{\begin{warn}[#1]\begin{leftbar}}
-{\end{leftbar}\end{warn}}
-\newtheorem{conj}[theo]{Conjecture}
-\newenvironment{conjecture}[1][]
-{\begin{conj}[#1]\begin{leftbar}}
-{\end{leftbar}\end{conj}}
 \newtheorem{exmp}[theo]{Example}
 \newenvironment{example}[1][]
 {\begin{exmp}[#1]\begin{leftbar}}
@@ -108,7 +100,6 @@
 \iffalse
 \newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 \newenvironment{convention}[1][Convention]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
-\newenvironment{warning}[1][Warning]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 \newenvironment{question}[1][Question]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 \fi
 \newenvironment{verlong}{}{}
@@ -118,7 +109,6 @@
 \includecomment{vershort}
 \excludecomment{noncompile}
 \newcommand{\id}{\operatorname{id}}
-\newcommand{\ev}{\operatorname{ev}}
 \newcommand{\Comp}{\operatorname{Comp}}
 \newcommand{\QSym}{\operatorname{QSym}}
 \newcommand{\bD}{\mathbf{D}}
@@ -462,7 +452,7 @@ n-1\right]  $, we have the equivalence $\left(  \pi_{i}\geq\pi_{i+1}\right)
 \]
 
 
-On the other hand, $\pi_{n}\in\left[  n\right]  $, so that $\pi_{n}%
+On the other hand, $\pi_{n}\in\mathbb{P}$, so that $\pi_{n}%
 >0=\pi_{n+1}$. Hence, $n$ is an element of the set $\left\{  i\in\left\{
 n\right\}  \ \mid\ \pi_{i}>\pi_{i+1}\right\}  $. Clearly, this set cannot have
 any other element (since it is a subset of $\left\{  n\right\}  $); thus,
@@ -484,12 +474,13 @@ n\right\}  }=\operatorname{Des}\pi\cup\left\{  n\right\}  .
 \end{align}
 
 
-On the other hand, $\pi_{1}\in\left[  n\right]  $, so that $\pi_{1}>0=\pi_{0}%
+On the other hand, $\pi_{1}\in\mathbb{P}$, so that $\pi_{1}>0=\pi_{0}%
 $. Hence, we do not have $\pi_{0}\geq\pi_{1}$. Thus, $0$ is not an element of
 the set $\left\{  i\in\left\{  0\right\}  \ \mid\ \pi_{i}\geq\pi
-_{i+1}\right\}  $. Clearly, this set cannot have any other element (since it a
-subset of $\left\{  0\right\}  $); thus, $\left\{  i\in\left\{  0\right\}
-\ \mid\ \pi_{i}\geq\pi_{i+1}\right\}  =\varnothing$.
+_{i+1}\right\}  $. Clearly, this set cannot have any other element (since it
+is a subset of $\left\{  0\right\}  $); thus,
+$\left\{  i\in\left\{  0\right\} \ \mid\ \pi_{i}\geq\pi_{i+1}\right\}
+=\varnothing$.
 
 But $\left\{  0,1,\ldots,n-1\right\}  =\left\{  0\right\}  \cup\left[
 n-1\right]  $, so that
@@ -820,8 +811,9 @@ Hence, $\mathbf{L}_{n}$ is the set of all nonempty lacunar subsets of $\left[
 n\right]  $ (by the definition of $\mathbf{L}_{n}$).
 
 The set $\operatorname{Epk}\pi$ is lacunar (since two consecutive integers
-cannot both be exterior peaks of $\pi$), and is also nonempty (since $\pi
-^{-1}\left(  n\right)  $ is an exterior peak of $\pi$).
+cannot both be exterior peaks of $\pi$), and is also nonempty (because
+if we choose $i \in \left[n\right]$ such that $\pi\left(i\right)$ is the
+largest letter of $\pi$, then $i$ is an exterior peak of $\pi$).
 \begin{verlong}
 
 [An alternative reason for the nonemptiness of $\operatorname{Epk}\pi$ is the
@@ -1144,7 +1136,7 @@ distinct) and $\min\left(  A\bigtriangleup B\right)  \in A$. In other words,
 $A<B$ (by the definition of the relation $<$). Hence, either $A<B$ or $B<A$.
 Thus, our claim (that either $A<B$ or $B<A$) is proven in Case 1.
 \par
-Let us first consider Case 2. In this case, we have $\min\left(
+Let us now consider Case 2. In this case, we have $\min\left(
 A\bigtriangleup B\right)  \in B$. Hence, $\min\left(
 \underbrace{B\bigtriangleup A}_{=A\bigtriangleup B}\right)  =\min\left(
 A\bigtriangleup B\right)  \in B$. Thus, $B\neq A$ (since $A$ and $B$ are
@@ -1733,7 +1725,12 @@ P,\gamma\right)  }\prod_{p\in P}x_{\left\vert f\left(  p\right)  \right\vert
 }.
 \]
 This is easily seen to be convergent in the usual topology on
-$\operatorname*{Pow}\mathcal{N}$.
+$\operatorname*{Pow}\mathcal{N}$
+(that is, the topology of coefficientwise convergence%
+\footnote{This is the topology obtained by regarding
+$\operatorname*{Pow}\mathcal{N}$ as a Cartesian product of
+infinitely many copies of $\mathbb{Q}$ (each endowed with the
+discrete topology), corresponding to the monomials.}).
 (Indeed, for every monomial $\mathfrak{m}$ in $\operatorname*{Pow}\mathcal{N}$,
 there exist at most $\left|P\right|! \cdot 2^{\left|P\right|}$ many
 $f \in \mathcal{E} \left(P, \gamma\right)$ satisfying
@@ -2141,7 +2138,7 @@ This proves Proposition \ref{prop.Gamma=Gamma}.
 
 For the following corollary, let us recall that a bijective poset
 homomorphism is not necessarily an isomorphism of posets (since its
-inverse may and may not be a poset homomorphism).
+inverse may or may not be a poset homomorphism).
 
 \begin{corollary}
 \label{cor.fund-lem2}Let $\left(  P,\gamma\right)  $ be a labeled poset. Let
@@ -2349,16 +2346,16 @@ $\sigma$ are disjoint permutations, this entails that the letters of $\tau$
 are the letters of $\pi$ and the letters of $\sigma$. Hence, the image
 $\tau\left(  \left[  n+m\right]  \right)  $ of the map $\tau$ is the union
 $\pi\left(  \left[  n\right]  \right)  \cup\sigma\left(  \left[  m\right]
-\right)  $. But the image $\varepsilon\left(  \left[  n\right]  \cup\left[
+\right)  $. But the image $\varepsilon\left(  \left[  n\right]  \sqcup\left[
 m\right]  \right)  $ is the same union $\pi\left(  \left[  n\right]  \right)
 \cup\sigma\left(  \left[  m\right]  \right)  $ (by the definition of
-$\varepsilon$). Hence, $\varepsilon\left(  \left[  n\right]  \cup\left[
+$\varepsilon$). Hence, $\varepsilon\left(  \left[  n\right]  \sqcup\left[
 m\right]  \right)  =\tau\left(  \left[  n+m\right]  \right)  $. Also,
-$\varepsilon:\left[  n\right]  \cup\left[  m\right]  \rightarrow\left\{
+$\varepsilon:\left[  n\right]  \sqcup\left[  m\right]  \rightarrow\left\{
 1,2,3,\ldots\right\}  $ and $\tau:\left[  n+m\right]  \rightarrow\left\{
 1,2,3,\ldots\right\}  $ are injective maps (indeed, $\tau$ is injective since
 $\tau$ is a permutation). Hence, Observation 0 (applied to $U=\left[
-n\right]  \cup\left[  m\right]  $, $V=\left[  n+m\right]  $, $W=\left\{
+n\right]  \sqcup\left[  m\right]  $, $V=\left[  n+m\right]  $, $W=\left\{
 1,2,3,\ldots\right\}  $, $\alpha=\varepsilon$ and $\beta=\tau$) shows that
 there exists a unique bijective map $\lambda:\left[  n\right]  \sqcup\left[
 m\right]  \rightarrow\left[  n+m\right]  $ satisfying $\varepsilon=\tau
@@ -2512,7 +2509,7 @@ Thus, roughly speaking, a map from a subset of $\ZZ$ to a totally
 ordered set is \textit{V-shaped}
 if and only if it is strictly decreasing up until a certain value of its
 argument, and then strictly increasing afterwards.
-For example, the $6$-permutation $\left(5, 1, 2, 3, 4\right)$ is V-shaped
+For example, the $5$-permutation $\left(5, 1, 2, 3, 4\right)$ is V-shaped
 (keep in mind that we regard $n$-permutations as injective maps
 $\left[n\right] \to \mathbb{P}$), whereas the $4$-permutation
 $\left(3, 1, 4, 2\right)$ is not.
@@ -6008,7 +6005,7 @@ a finite set, then%
 . \label{pf.lem.KnL.iex.1}%
 \end{equation}
 
-
+Let $g:\left[  n\right]  \rightarrow \mathcal{N}$ be a weakly increasing map.
 Let $\Lambda$ be a subset of $\left[  n\right]  $. The subsets $Q$ of
 $\Lambda$ satisfying $Q\cap\operatorname*{FE}\left(  g\right)  =\varnothing$
 are precisely the subsets of $\Lambda\setminus\operatorname*{FE}\left(
@@ -6016,20 +6013,20 @@ g\right)  $. Therefore,
 \begin{align}
 \sum_{\substack{Q\subseteq\Lambda;\\Q\cap\operatorname*{FE}\left(  g\right)
 =\varnothing}}\left(  -1\right)  ^{\left\vert Q\right\vert }  &
-=\sum_{Q\subseteq\Lambda\setminus\operatorname*{FE}\left(  G\right)  }\left(
+=\sum_{Q\subseteq\Lambda\setminus\operatorname*{FE}\left(  g\right)  }\left(
 -1\right)  ^{\left\vert Q\right\vert }=%
 \begin{cases}
-1, & \text{if }\Lambda\setminus\operatorname*{FE}\left(  G\right)
+1, & \text{if }\Lambda\setminus\operatorname*{FE}\left(  g\right)
 =\varnothing;\\
-0, & \text{if }\Lambda\setminus\operatorname*{FE}\left(  G\right)
+0, & \text{if }\Lambda\setminus\operatorname*{FE}\left(  g\right)
 \neq\varnothing
 \end{cases}
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.lem.KnL.iex.1})}\right)
 \nonumber\\
 &  =%
 \begin{cases}
-1, & \text{if }\Lambda\subseteq\operatorname*{FE}\left(  G\right)  ;\\
-0, & \text{if }\Lambda\not \subseteq \operatorname*{FE}\left(  G\right)
+1, & \text{if }\Lambda\subseteq\operatorname*{FE}\left(  g\right)  ;\\
+0, & \text{if }\Lambda\not \subseteq \operatorname*{FE}\left(  g\right)
 \end{cases}
 . \label{pf.lem.KnL.iex.2}%
 \end{align}
@@ -6039,19 +6036,20 @@ Also, the subsets $Q$ of $\Lambda$ satisfying $Q\subseteq\operatorname*{FE}%
 \begin{equation}
 \sum_{\substack{Q\subseteq\Lambda;\\Q\subseteq\operatorname*{FE}\left(
 g\right)  }}\left(  -1\right)  ^{\left\vert Q\right\vert }=\sum_{Q\subseteq
-\Lambda\cap\operatorname*{FE}\left(  G\right)  }\left(  -1\right)
+\Lambda\cap\operatorname*{FE}\left(  g\right)  }\left(  -1\right)
 ^{\left\vert Q\right\vert }=%
 \begin{cases}
-1, & \text{if }\Lambda\cap\operatorname*{FE}\left(  G\right)  =\varnothing;\\
-0, & \text{if }\Lambda\cap\operatorname*{FE}\left(  G\right)  \neq\varnothing
+1, & \text{if }\Lambda\cap\operatorname*{FE}\left(  g\right)  =\varnothing;\\
+0, & \text{if }\Lambda\cap\operatorname*{FE}\left(  g\right)  \neq\varnothing
 \end{cases}
 \label{pf.lem.KnL.iex.3}%
 \end{equation}
 (by (\ref{pf.lem.KnL.iex.1})).
 
-Now, forget that we fixed $\Lambda$. We thus have proven
-(\ref{pf.lem.KnL.iex.2}) and (\ref{pf.lem.KnL.iex.3}) for each subset
-$\Lambda$ of $\left[  n\right]  $.
+Now, forget that we fixed $g$ and $\Lambda$. We thus have proven
+(\ref{pf.lem.KnL.iex.2}) and (\ref{pf.lem.KnL.iex.3}) for each
+weakly increasing map $g:\left[  n\right]  \rightarrow \mathcal{N}$
+and each subset $\Lambda$ of $\left[  n\right]  $.
 
 \textbf{(a)} Let $\Lambda$ be a subset of $\left[  n\right]  $. Then,%
 \begin{align*}
@@ -6072,8 +6070,8 @@ is}\\\text{weakly increasing}}}\underbrace{\left(  \sum_{\substack{Q\subseteq
 \Lambda;\\Q\cap\operatorname*{FE}\left(  g\right)  =\varnothing}}\left(
 -1\right)  ^{\left\vert Q\right\vert }\right)  }_{\substack{=%
 \begin{cases}
-1, & \text{if }\Lambda\subseteq\operatorname*{FE}\left(  G\right)  ;\\
-0, & \text{if }\Lambda\not \subseteq \operatorname*{FE}\left(  G\right)
+1, & \text{if }\Lambda\subseteq\operatorname*{FE}\left(  g\right)  ;\\
+0, & \text{if }\Lambda\not \subseteq \operatorname*{FE}\left(  g\right)
 \end{cases}
 \\\text{(by (\ref{pf.lem.KnL.iex.2}))}}}2^{\left\vert g\left(  \left[
 n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }%
@@ -6081,8 +6079,8 @@ n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }%
 &  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
 is}\\\text{weakly increasing}}}%
 \begin{cases}
-1, & \text{if }\Lambda\subseteq\operatorname*{FE}\left(  G\right)  ;\\
-0, & \text{if }\Lambda\not \subseteq \operatorname*{FE}\left(  G\right)
+1, & \text{if }\Lambda\subseteq\operatorname*{FE}\left(  g\right)  ;\\
+0, & \text{if }\Lambda\not \subseteq \operatorname*{FE}\left(  g\right)
 \end{cases}
 2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
 \right\}  \right\vert }\mathbf{x}_{g}\\
@@ -6120,8 +6118,8 @@ is}\\\text{weakly increasing}}}\underbrace{\left(  \sum_{\substack{Q\subseteq
 \Lambda;\\Q\subseteq\operatorname*{FE}\left(  g\right)  }}\left(  -1\right)
 ^{\left\vert Q\right\vert }\right)  }_{\substack{=%
 \begin{cases}
-1, & \text{if }\Lambda\cap\operatorname*{FE}\left(  G\right)  =\varnothing;\\
-0, & \text{if }\Lambda\cap\operatorname*{FE}\left(  G\right)  \neq\varnothing
+1, & \text{if }\Lambda\cap\operatorname*{FE}\left(  g\right)  =\varnothing;\\
+0, & \text{if }\Lambda\cap\operatorname*{FE}\left(  g\right)  \neq\varnothing
 \end{cases}
 \\\text{(by (\ref{pf.lem.KnL.iex.3}))}}}2^{\left\vert g\left(  \left[
 n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }%
@@ -6129,11 +6127,11 @@ n\right]  \right)  \cap\left\{  1,2,3,\ldots\right\}  \right\vert }%
 &  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
 is}\\\text{weakly increasing}}}%
 \begin{cases}
-1, & \text{if }\Lambda\cap\operatorname*{FE}\left(  G\right)  =\varnothing;\\
-0, & \text{if }\Lambda\cap\operatorname*{FE}\left(  G\right)  \neq\varnothing
+1, & \text{if }\Lambda\cap\operatorname*{FE}\left(  g\right)  =\varnothing;\\
+0, & \text{if }\Lambda\cap\operatorname*{FE}\left(  g\right)  \neq\varnothing
 \end{cases}
-2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,\ldots
-\right\}  \right\vert }\mathbf{x}_{g}\\
+\ \ 2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{  1,2,3,
+\ldots\right\}  \right\vert }\mathbf{x}_{g}\\
 &  =\sum_{\substack{g:\left[  n\right]  \rightarrow\mathcal{N}\text{
 is}\\\text{weakly increasing;}\\\Lambda\cap\operatorname*{FE}\left(  g\right)
 =\varnothing}}2^{\left\vert g\left(  \left[  n\right]  \right)  \cap\left\{
@@ -6857,10 +6855,10 @@ Let $V$ and $W$ be two vector spaces over a field $\mathbb{F}$. Let $\left(
 v_{h}\right)  _{h\in H}\in V^{H}$ be a family of vectors in $V$. Let
 $\phi:V\rightarrow W$ be an injective $\mathbb{F}$-linear map. Then, the
 syzygies of the families $\left(  v_{h}\right)  _{h\in H}\in V^{H}$ and
-$\left(  f\left(  v_{h}\right)  \right)  _{h\in H}\in W^{H}$ are in bijection.
+$\left(  \phi\left(  v_{h}\right)  \right)  _{h\in H}\in W^{H}$ are in bijection.
 (Actually, these syzygies, when regarded as families of scalars, are literally
 the same.) In particular, the family $\left(  v_{h}\right)  _{h\in H}$ is
-$\mathbb{F}$-linearly independent if and only if the family $\left(  f\left(
+$\mathbb{F}$-linearly independent if and only if the family $\left(  \phi\left(
 v_{h}\right)  \right)  _{h\in H}$ is $\mathbb{F}$-linearly independent.}).
 Hence, in order to prove Claim 2, it suffices to prove the following claim:
 
@@ -6993,7 +6991,17 @@ G;\\\operatorname*{Stag}\left(  g\right)  \supseteq\left[  n+1\right]
 }}\left[  g\right]  $ does not appear in the family $\left(  \widetilde{L}%
 _{\Lambda}\right)  _{\Lambda\subseteq\left[  n\right]  \text{ is lacunar}}$,
 since no lacunar subset $\Lambda$ of $\left[  n\right]  $ satisfies
-$\Lambda\cup\left(  \Lambda+1\right)  =\left[  n+1\right]  $. Hence, the
+$\Lambda\cup\left(  \Lambda+1\right)  =\left[  n+1\right]  $ \ \ \ \ %
+\footnote{The easiest way to see this is as follows: If $\Lambda$ is a
+lacunar subset of $\left[n\right]$, then the sets $\Lambda$ and
+$\Lambda+1$ are disjoint (since $\Lambda$ is lacunar), and thus their
+union $\Lambda\cup\left(  \Lambda+1\right)$ has size
+$\left|\Lambda\right| + \left|\Lambda+1\right| =
+2 \left|\Lambda\right|$ (since $\left|\Lambda+1\right| =
+\left|\Lambda\right|$), which is even. But the set $\left[n+1\right]$
+has size $n+1$, which is odd (since $n$ is even). Thus,
+$\Lambda\cup\left(  \Lambda+1\right)$ cannot equal $\left[n+1\right]$
+in this case.}. Hence, the
 syzygy $\sum_{\substack{g\in G;\\\operatorname*{Stag}\left(  g\right)
 \supseteq\left[  n+1\right]  }}\left[  g\right]  =0$ of the family $\left(
 \sum_{\substack{g\in G;\\\operatorname*{Stag}\left(  g\right)  \supseteq
@@ -7258,7 +7266,7 @@ equivalent to $\operatorname{Epk}$.
 
 We have now shown that the statistics $\left(  \operatorname{Lpk}%
 ,\operatorname{val}\right)  $, $\left(  \operatorname{Lpk}%
-,\operatorname{udr}\right)  $ and $\left(  \operatorname{Pk}%
+,\operatorname{udr}\right)  $ and $\left(  \operatorname*{Pk}%
 ,\operatorname{udr}\right)  $ are equivalent to $\operatorname{Epk}$. Thus,
 \cite[Theorem 3.2]{part1} shows that they are shuffle-compatible (since
 $\operatorname{Epk}$ is shuffle-compatible). This proves Remark
@@ -7812,7 +7820,7 @@ $\pi^{\prime}=\left(  3,4\right)  $ and $a^{\prime}=2$, then we do have%
 \ \ \ \ \ \ \ \ \ \ \left[  a>\pi_{1}\right]  =\left[  a^{\prime}>\pi
 _{1}^{\prime}\right]
 \]
-but we don't have $\operatorname*{Pk}\left(  a:\pi\right)  =\operatorname{Pk}%
+but we don't have $\operatorname*{Pk}\left(  a:\pi\right)  =\operatorname*{Pk}%
 \left(  a^{\prime}:\pi^{\prime}\right)  $ (in fact, $\operatorname*{Pk}\left(
 a:\pi\right)  =\operatorname*{Pk}\left(  2,3,1\right)  =\left\{  2\right\}  $
 whereas $\operatorname*{Pk}\left(  a^{\prime}:\pi^{\prime}\right)
@@ -9477,11 +9485,11 @@ such that every $n$-permutation $\tau$ satisfies $\operatorname{st} \tau
 
 Let $Z$ be any subset of $\left[  n-1\right]  $. Then, it is well-known that
 there exists some $n$-permutation $\tau$ satisfying $Z=\operatorname{Des}
-\tau$. Pick any such $\tau$. Then, $\operatorname{st} \tau   $
+\tau$. Pick any such $\tau$. Then, $\operatorname{st} \tau$
 does not depend on the choice of $\tau$ (because if $\alpha$ and $\beta$ are
 two different $n$-permutations $\tau$ satisfying $Z=\operatorname{Des}\tau$,
 then Lemma \ref{lem.LRcomp.head-l1} yields
-$\operatorname{st} \alpha \alpha = \operatorname{st} \beta$).
+$\operatorname{st} \alpha = \operatorname{st} \beta$).
 Hence, we can set
 $F_{n}\left(  Z\right)  $ to be $\operatorname{st} \tau$.
 
@@ -9578,14 +9586,31 @@ a^{\prime}:\pi^{\prime}\right)  $.
 [\textit{Proof of Claim 2:} The $1$-permutations $\left(  a\right)  $ and
 $\left(  a^{\prime}\right)  $ are order-isomorphic. Thus, $\operatorname{st}
 \left(  \left(  a\right)  \right)  =\operatorname{st}\left(  \left(
-a^{\prime}\right)  \right)  $ (since $\operatorname{st}$ is a permutation statistic).
+a^{\prime}\right)  \right)  $ (since $\operatorname{st}$ is a permutation
+statistic).
+
+We have assumed that $a$ does not appear in $\pi$. Hence, in
+particular, $a \neq \pi_1$. Thus, $\pi_1>a$ is true if and only if
+$a>\pi_1$ is false (since the third possibility, $a = \pi_1$,
+is precluded by the preceding sentence).
+Thus, $\left[\pi_1>a\right] = \left[a>\pi_1 \text{ is false}\right]
+= 1 - \left[a>\pi_1\right]$.
+Similarly, $\left[\pi^\prime_1>a^\prime\right]
+= 1 - \left[a^\prime>\pi^\prime_1\right]$.
+Now,
+\[
+\left[\pi_1>a\right]
+= 1 - \underbrace{\left[  a>\pi_{1}\right]}_{= \left[  a^{\prime}>\pi_{1}^{\prime}\right]}
+= 1 - \left[  a^{\prime}>\pi_{1}^{\prime}\right]
+= \left[\pi^\prime_1>a^\prime\right].
+\]
 
 The $1$-permutations $\left(  a\right)  $ and $\left(  a^{\prime}\right)  $
 satisfy $\left(  a\right)  _{1}=a$ and $\left(  a^{\prime}\right)
-_{1}=a^{\prime}$. Thus, the inequality $\left[  a>\pi_{1}\right]  =\left[
-a^{\prime}>\pi_{1}^{\prime}\right]  $ (which is true by assumption) rewrites
-as $\left[  \left(  a\right)  _{1}>\pi_{1}\right]  =\left[  \left(  a^{\prime
-}\right)  _{1}>\pi_{1}^{\prime}\right]  $. Also, $\operatorname{st}\left(
+_{1}=a^{\prime}$. Thus, the inequality $\left[\pi_1>a\right]
+= \left[\pi^\prime_1>a^\prime\right]$ (which we have just shown) rewrites
+as $\left[  \pi_1 > \left(  a\right)  _{1}\right]  =\left[  \pi^\prime_1
+> \left(  a^{\prime}\right)  _{1}\right]  $. Also, $\operatorname{st}\left(
 \left(  a\right)  \right)  =\operatorname{st}\left(  \left(  a^{\prime
 }\right)  \right)  $ and $\left\vert \left(  a\right)  \right\vert
 =1=\left\vert \left(  a^{\prime}\right)  \right\vert $. Also, the
@@ -9733,15 +9758,7 @@ Then,
 
 \end{statement}
 
-[\textit{Proof of Claim 4:} Recall that $S\left(  \pi,\sigma\right)  =S\left(
-\sigma,\pi\right)  $ and $S\left(  \pi^{\prime},\sigma^{\prime}\right)
-=S\left(  \sigma^{\prime},\pi^{\prime}\right)  $. Hence, Claim 4 does not
-change if we swap $\pi$ with $\sigma$ while simultaneously swapping
-$\pi^{\prime}$ with $\sigma^{\prime}$. Thus, we WLOG assume that $\pi_{1}%
-\geq\sigma_{1}$ (since otherwise, we can ensure this by performing these
-swaps). But $\pi_{1}\neq\sigma_{1}$ (since $\pi$ and $\sigma$ are disjoint).
-Combining this with $\pi_{1}\geq\sigma_{1}$, we obtain $\pi_{1}>\sigma_{1}$.
-
+[\textit{Proof of Claim 4:}
 Define $n\in\mathbb{N}$ by $n=\left\vert \pi\right\vert =\left\vert
 \pi^{\prime}\right\vert $. Define $m\in\mathbb{N}$ by $m=\left\vert
 \sigma\right\vert =\left\vert \sigma^{\prime}\right\vert $.
@@ -9775,6 +9792,15 @@ that $m\neq0$.
 The permutations $\pi$ and $\pi^{\prime}$ are nonempty (since $\left\vert
 \pi\right\vert =\left\vert \pi^{\prime}\right\vert =n\neq0$). Similarly, the
 permutations $\sigma$ and $\sigma^{\prime}$ are nonempty.
+
+Recall that $S\left(  \pi,\sigma\right)  =S\left(
+\sigma,\pi\right)  $ and $S\left(  \pi^{\prime},\sigma^{\prime}\right)
+=S\left(  \sigma^{\prime},\pi^{\prime}\right)  $. Hence, Claim 4 does not
+change if we swap $\pi$ with $\sigma$ while simultaneously swapping
+$\pi^{\prime}$ with $\sigma^{\prime}$. Thus, we WLOG assume that $\pi_{1}%
+\geq\sigma_{1}$ (since otherwise, we can ensure this by performing these
+swaps). But $\pi_{1}\neq\sigma_{1}$ (since $\pi$ and $\sigma$ are disjoint).
+Combining this with $\pi_{1}\geq\sigma_{1}$, we obtain $\pi_{1}>\sigma_{1}$.
 
 There clearly exists a positive integer $N$ that is larger than all entries of
 $\sigma$ and larger than all entries of $\sigma^{\prime}$. Consider such an
@@ -11125,7 +11151,7 @@ than $r$). This contradiction proves that our assumption was wrong; thus,
 (\ref{pf.prop.K.Epk.F.2}) is proven.]
 
 For each $n\in\mathbb{N}$ and each subset $S$ of $\left[  n-1\right]  $, we
-define a subset $S^{\circ}$ of $\left[  n-1\right]  $ as follows:%
+define a subset $S_{n}^{\circ}$ of $\left[  n-1\right]  $ as follows:%
 \[
 S_{n}^{\circ}=\left\{  s\in S\ \mid\ s-1\notin S\text{ or }\left[
 s,n-1\right]  \subseteq S\right\}  .
@@ -11146,12 +11172,23 @@ T\cup\left[  \max T,n-1\right]  , & \text{if }n\notin T
 
 
 \begin{statement}
-\textit{Claim 3:} Let $n\in\mathbb{N}$. Let $J$ be a composition of size $n$.
-Then, $\left(  \operatorname{Des}J\right)  _{n}^{\circ}=\rho_{n}\left(
-\operatorname{Epk}J\right)  $.
+\textit{Claim 3:} Let $n$ be a positive integer.
+Let $J$ be a composition of size $n$.
+Then, $\left(  \operatorname{Des}J\right)  _{n}^{\circ}
+=\rho_{n}\left( \operatorname{Epk}J\right)  $.
 \end{statement}
 
-[\textit{Proof of Claim 3:} Let $g\in\left(  \operatorname{Des}J\right)
+[\textit{Proof of Claim 3:}
+Proposition \ref{prop.Epk-lac} yields
+$\operatorname{Epk}J\in\mathbf{L}_{n}$ (since
+$\operatorname{Epk}J = \operatorname{Epk}\pi$
+for an appropriate $n$-permutation $\pi$).
+Since $n$ is positive, this entails that
+$\operatorname{Epk}J$ is nonempty (by the definition of
+$\mathbf{L}_{n}$). Thus, $\rho_{n}\left( \operatorname{Epk}J\right)$
+is well-defined.
+
+Let $g\in\left(  \operatorname{Des}J\right)
 _{n}^{\circ}$. We shall show that $g\in\rho_{n}\left(  \operatorname{Epk}
 J\right)  $.
 
@@ -11322,7 +11359,12 @@ $\left(  \operatorname{Des}J\right)  _{n}^{\circ}=\left(  \operatorname{Des}%
 K\right)  _{n}^{\circ}$.
 \end{statement}
 
-[\textit{Proof of Claim 4:} Claim 3 yields $\left(  \operatorname{Des}%
+[\textit{Proof of Claim 4:} If $n=0$, then $J=K$ (since there is only
+one composition of $0$), and thus Claim 4 is obvious in this case.
+Hence, for the rest of this proof, we WLOG assume that $n\neq0$.
+Hence, $n$ is a positive integer.
+
+Thus, Claim 3 yields $\left(  \operatorname{Des}%
 J\right)  _{n}^{\circ}=\rho_{n}\left(  \operatorname{Epk}J\right)  $ and
 similarly $\left(  \operatorname{Des}K\right)  _{n}^{\circ}=\rho_{n}\left(
 \operatorname{Epk}K\right)  $. Hence,%
@@ -12263,7 +12305,7 @@ is M-binomial.
 It is easy to see that the statistics $\operatorname{Des}$ and
 $\operatorname{des}$ are M-binomial as well.
 Computations using SageMath suggest that the statistics
-$\operatorname{Lpk}$, $\operatorname{Rpk}$, $\operatorname{Pk}$,
+$\operatorname{Lpk}$, $\operatorname{Rpk}$, $\operatorname*{Pk}$,
 $\operatorname{Val}$,
 $\operatorname{pk}$, $\operatorname{lpk}$, $\operatorname{rpk}$
 and $\operatorname{val}$
@@ -13064,7 +13106,7 @@ that each of the posets $P$ and $Q$ has a (global) minimum element; denote these
 elements by $\min P$ and $\min Q$, respectively.
 Let $P \left. \prec \right. Q$ be the poset obtained by adding
 the relation $\min P<\min Q$ to $P\sqcup Q$.
-Let $P \left. \succ \right. Q$ be the poset obtained by adding
+Let $P \left. \succeq \right. Q$ be the poset obtained by adding
 the relation $\min P>\min Q$ to $P\sqcup Q$.
 Then, we hope to have%
 \begin{align*}
@@ -13073,7 +13115,7 @@ Then, we hope to have%
 P\left.  \prec\right.  Q,\varepsilon\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
 \Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  \left.  \succeq\right.
 \Gamma_{\mathcal{Z}}\left(  Q,\delta\right)   &  =\Gamma_{\mathcal{Z}}\left(
-P\left.  \succ\right.  Q,\varepsilon\right)  ,
+P\left.  \succeq\right.  Q,\varepsilon\right)  ,
 \end{align*}
 assuming a simple condition on $\min P$ and $\min Q$
 (say, $\gamma\left(\min P\right) <_{\ZZ} \delta\left(\min Q\right)$).
@@ -13483,7 +13525,7 @@ Now, we have%
 i\right)  \leq f\left(  j\right)  \right)
 \]
 \footnote{\textit{Proof.} Let $i\in R^{\prime}$ and $j\in R^{\prime}$ be such
-that $i<j$ in $R$ and $i<_{\ZZ}j$. We must prove that $f\left(
+that $i<j$ in $R^\prime$ and $i<_{\ZZ}j$. We must prove that $f\left(
 i\right)  \leq f\left(  j\right)  $.
 \par
 We have $i\in R^{\prime}=R$ and $j\in R^{\prime}=R$.
@@ -13508,7 +13550,7 @@ $f\left(  i\right)  \leq f\left(  j\right)  $, qed.} and%
 i\right)  <f\left(  j\right)  \right)
 \]
 \footnote{\textit{Proof.} Let $i\in R^{\prime}$ and $j\in R^{\prime}$ be such
-that $i<j$ in $R$ and $i>_{\ZZ}j$. We must prove that $f\left(
+that $i<j$ in $R^\prime$ and $i>_{\ZZ}j$. We must prove that $f\left(
 i\right)  <f\left(  j\right)  $.
 \par
 We have $i\in R^{\prime}=R$ and $j\in R^{\prime}=R$.
@@ -13574,7 +13616,7 @@ Now, we have%
 i\right)  \leq f\left(  j\right)  \right)
 \]
 \footnote{\textit{Proof.} Let $i\in R^{\prime}$ and $j\in R^{\prime}$ be such
-that $i<j$ in $R$ and $i<_{\ZZ}j$. We must prove that $f\left(
+that $i<j$ in $R^\prime$ and $i<_{\ZZ}j$. We must prove that $f\left(
 i\right)  \leq f\left(  j\right)  $.
 \par
 We have $i\in R^{\prime}=R$ and $j\in R^{\prime}=R$.
@@ -13599,7 +13641,7 @@ $f\left(  i\right)  \leq f\left(  j\right)  $, qed.} and%
 i\right)  <f\left(  j\right)  \right)
 \]
 \footnote{\textit{Proof.} Let $i\in R^{\prime}$ and $j\in R^{\prime}$ be such
-that $i<j$ in $R$ and $i>_{\ZZ}j$. We must prove that $f\left(
+that $i<j$ in $R^\prime$ and $i>_{\ZZ}j$. We must prove that $f\left(
 i\right)  <f\left(  j\right)  $.
 \par
 Assume the contrary. Thus, $f\left(  i\right)  \geq f\left(  j\right)  $, so
@@ -13864,7 +13906,7 @@ appears before $y$ in the list $w$.
 appears before $y$ in the list $w$.
 \end{itemize}
 
-In other words, a linear extension $P\sqcup Q$ is a list $w$ of all elements
+In other words, a linear extension of $P\sqcup Q$ is a list $w$ of all elements
 of $P\sqcup Q$ such that $w\mid_{P}$ is a linear extension of $P$ and
 $w\mid_{Q}$ is a linear extension of $Q$.
 
@@ -14115,7 +14157,7 @@ minimum element is $\min Q=\sigma_{1}$. Also, \cite[Proposition 5.2.10]%
 
 The posets $P$ and $Q$ are disjoint (since the permutations $\pi$ and $\sigma$
 are disjoint). Define three labelled posets $P\sqcup Q$, $P\left.
-\prec\right.  Q$ and $P\left.  \succ\right.  Q$ as in Proposition
+\prec\right.  Q$ and $P\left.  \succeq\right.  Q$ as in Proposition
 \ref{prop.dendri.4.1.lem}.
 
 Lemma \ref{lem.dendri.4.1.lem2} \textbf{(a)} yields $\mathcal{L}\left(
@@ -14315,7 +14357,8 @@ _{\substack{\subseteq M\\\text{(since }M\text{ is a }\left.  \prec\right.
 }M\text{ is a }\left.  \succeq\right.  \text{-ideal of }\operatorname*{QSym}%
 \text{)}}}\subseteq M+M\subseteq M.
 \end{align*}
-In other words, $M$ is an ideal of $\operatorname*{QSym}$. This proves
+In other words, $M$ is an ideal of $\operatorname*{QSym}$
+(since $\operatorname*{QSym}$ is commutative). This proves
 Proposition \ref{prop.ideal-crit3}.
 \end{proof}
 
@@ -14649,7 +14692,7 @@ is an ideal of $\operatorname*{QSym}$ if and only if $\operatorname{st}$ is
 shuffle-compatible. It is natural to ask whether similar combinatorial
 interpretations exist for when the kernel $\mathcal{K}_{\operatorname{st}}$
 of a descent statistic $\operatorname{st}$ is a $\tvi$-ideal, a $\bel$-ideal,
-a $\left.  \prec\right.  $-ideals or a $\left.  \succeq\right.  $-ideal. In
+a $\left.  \prec\right.  $-ideal or a $\left.  \succeq\right.  $-ideal. In
 this section, we shall prove such interpretations.
 
 Now, let us define two further variants of LR-shuffle-compatibility (to be
@@ -15095,7 +15138,7 @@ left-shuffle-compatible and right-shuffle-compatible.
 \end{corollary}
 
 Corollary \ref{cor.dendri.Epk} follows by combining Theorem
-\ref{thm.LRcomp.Pks} \textbf{(c)} with Theorem \ref{prop.LRcomp.equivs}. But
+\ref{thm.LRcomp.Pks} \textbf{(c)} with Proposition \ref{prop.LRcomp.equivs}. But
 we can also give a proof using Theorem \ref{thm.dendri.K.ideal}:
 
 \begin{proof}
@@ -15214,7 +15257,7 @@ elements by $\min P$ and $\min Q$, respectively. Define two posets $P\left.
 P\left.  \prec\right.  Q,\varepsilon\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
 \Gamma_{\mathcal{Z}}\left(  P,\gamma\right)  \left.  \succeq\right.
 \Gamma_{\mathcal{Z}}\left(  Q,\delta\right)   &  =\Gamma_{\mathcal{Z}}\left(
-P\left.  \succ\right.  Q,\varepsilon\right) ,
+P\left.  \succeq\right.  Q,\varepsilon\right) ,
 \end{align*}
 assuming a simple condition on $\min P$ and $\min Q$
 (say, $\gamma\left(\min P\right) <_{\ZZ} \delta\left(\min Q\right)$).

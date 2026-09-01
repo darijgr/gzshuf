@@ -137,17 +137,17 @@
 
 \title{Shuffle-compatible permutation statistics II: the exterior peak set}
 \author{Darij Grinberg}
-\date{\today}
+\date{31 August 2026}
 \maketitle
 \tableofcontents
 
 \section*{***}
 
 This paper is a continuation of the work \cite{part1} by Gessel and Zhuang
-(but can be read independently from the latter). It is devoted to the study of
+(but can be read independently of the latter). It is devoted to the study of
 shuffle-compatibility of permutation statistics -- a concept introduced in
-\cite{part1}, although various instances of it have appeared throughout the
-literature before.
+\cite{part1}, although various instances of it had appeared earlier across
+the literature.
 
 In Section \ref{sect.notations}, we introduce the notations that we will need
 throughout this paper. In Section \ref{sect.Zenri}, we prove that the exterior
@@ -12835,7 +12835,7 @@ on the ring $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 \end{array}
 \right.  ;
 \end{align*}
-and then requiring that they all be $\mathbf{k}$-bilinear and continuous (so
+and then requiring that they both be $\mathbf{k}$-bilinear and continuous (so
 their action on pairs of arbitrary power series can be computed by
 \textquotedblleft opening the parentheses\textquotedblright). These operations
 $\left.  \prec\right.  $ and $\left.  \succeq\right.  $ restrict to the subset
@@ -13138,7 +13138,10 @@ probably be made for other descent statistics.
 
 We begin with some definitions. We will use some notations from \cite{dimcr},
 but we set $\mathbf{k}=\mathbb{Q}$ because we are working over the ring
-$\mathbb{Q}$ in this paper. Monomials always mean formal expressions of the
+$\mathbb{Q}$ in this paper. We agree that $\max\varnothing$ is understood as
+$0$, while $\min\varnothing$ is understood as $\infty$ (a formal symbol that
+is larger than any integer).
+Monomials always mean formal expressions of the
 form $x_{1}^{a_{1}}x_{2}^{a_{2}}x_{3}^{a_{3}}\cdots$ with $a_{1}+a_{2}%
 +a_{3}+\cdots<\infty$ (see \cite[Section 2]{dimcr} for details). If
 $\mathfrak{m}$ is a monomial, then $\operatorname*{Supp}\mathfrak{m}$ will
@@ -13299,7 +13302,8 @@ $. Then,%
 \bel  a\right)  b_{\left(  2\right)  }=a\left.  \prec\right.  b
 \]
 for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
-\right]  $ and $b\in\operatorname*{QSym}$.
+\right]  $ and $b\in\operatorname*{QSym}$ such that the constant term
+of $a$ is $0$.
 \end{theorem}
 
 \begin{theorem}
@@ -13354,7 +13358,8 @@ $\operatorname*{QSym}$. Then,%
 a\right)  b_{\left[  2\right]  }=-a\mathfrak{\left.  \succeq\right.  }b
 \]
 for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
-\right]  $ and $b\in\operatorname*{QSym}$.
+\right]  $ and $b\in\operatorname*{QSym}$ such that the constant term
+of $a$ is $0$.
 \end{theorem}
 
 \begin{theorem}
@@ -13373,7 +13378,12 @@ for any $a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.beldend.Del'}.]Let us use Sweedler's notation, too.
+[Proof of Theorem \ref{thm.beldend.Del'}.]Let
+$a\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
+\right]  $ and $b\in\operatorname*{QSym}$ be such that the constant term
+of $a$ is $0$.
+
+Let us use Sweedler's notation, too.
 From $\sum_{\left(  b\right)  }b_{\left[  1\right]  }\otimes b_{\left[
 2\right]  }=\Delta\left(  b\right)  -1\otimes b=\sum_{\left(  b\right)
 }b_{\left(  1\right)  }\otimes b_{\left(  2\right)  }-1\otimes b$, we have%
@@ -14256,21 +14266,25 @@ right $\ast$-ideal.
 \begin{theorem}
 \label{thm.ideal-crit2}Let $M$ be an ideal of $\operatorname*{QSym}$. Let
 $A=\operatorname*{QSym}$.
+Let $A^+$ denote the $\mathbf{k}$-submodule of $A$ consisting of those
+quasisymmetric functions whose constant term is $0$.
 
-\textbf{(a)} If $A\bel  M\subseteq M$, then $M\left.  \prec\right.  A\subseteq
-M$.
+\textbf{(a)} If $A\bel  M\subseteq M$ and $M \subseteq A^+$,
+then $M\left.  \prec\right.  A\subseteq M$.
 
 \textbf{(b)} If $A\tvi  M\subseteq M$, then $A\left.  \succeq\right.
 M\subseteq M$.
 
-\textbf{(c)} If $A\tvi  M\subseteq M$ and $A\bel  M\subseteq M$, then $M$ is a
+\textbf{(c)} If $A\tvi  M\subseteq M$ and $A\bel  M\subseteq M$
+and $M \subseteq A^+$, then $M$ is a
 $\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
 $\operatorname*{QSym}$.
 \end{theorem}
 
 \begin{proof}
 [Proof of Theorem \ref{thm.ideal-crit2}.]\textbf{(a)} Assume that
-$A\bel  M\subseteq M$. If $a\in M$ and $b\in A$, then%
+$A\bel  M\subseteq M$. If $a\in M$ and $b\in A$, then the constant term
+of $a$ is $0$ (since $a \in M \subseteq A^+$), and we have
 \begin{align*}
 a\left.  \prec\right.  b  &  =\sum_{\left(  b\right)  }\left(
 \underbrace{S\left(  b_{\left(  1\right)  }\right)  }_{\in A}%
@@ -14510,7 +14524,7 @@ this is still sufficient, since $\ell>1$).]
 2, with the only difference that now we need to use Claim 3 instead of Claim 1.]
 
 Combining Claim 2 and Claim 4, we conclude that $\mathcal{K}%
-_{\operatorname{Epk}}$ is a $\tvi  $-ideal of $A=\operatorname*{QSym}$.
+_{\operatorname{Epk}}$ is a $\tvi$-ideal of $A=\operatorname*{QSym}$.
 
 \begin{statement}
 \textit{Claim 5:} Let $J$ and $K$ be two nonempty compositions satisfying
@@ -14663,9 +14677,26 @@ A\subseteq\mathcal{K}_{\operatorname{Epk}}$.
 6, with the only difference that now we need to use Claim 7 instead of Claim 5.]
 
 Combining Claim 6 and Claim 8, we conclude that $\mathcal{K}%
-_{\operatorname{Epk}}$ is a $\bel  $-ideal of $A=\operatorname*{QSym}$.
+_{\operatorname{Epk}}$ is a $\bel$-ideal of $A=\operatorname*{QSym}$.
 
-Finally, Theorem \ref{thm.ideal-crit2} \textbf{(c)} (applied to $M=\mathcal{K}%
+Let $A^+$ denote the $\mathbf{k}$-submodule of $A$ consisting of those
+quasisymmetric functions whose constant term is $0$.
+It is easy to see that $\mathcal{K}_{\operatorname{Epk}} \subseteq A^+$
+\ \ \ \ \footnote{\textit{Proof.} It suffices to show that for any
+two $\operatorname{Epk}$-equivalent compositions $J$ and $K$,
+the difference $F_J - F_K$ belongs to $A^+$ (since these differences
+span $\mathcal{K}_{\operatorname{Epk}}$).
+But this is easy: If $J$ and $K$ are two $\operatorname{Epk}$-equivalent
+compositions, then $J$ and $K$ are either both empty (in which case
+$F_J - F_K = F_{\varnothing} - F_{\varnothing} = 0 \in A^+$) or both
+nonempty (in which case $F_J$ and $F_K$ and therefore also $F_J - F_K$
+are homogeneous of positive degree, whence $F_J - F_K \in A^+$ again).}.
+Furthermore, $A \tvi \mathcal{K}_{\operatorname{Epk}} \subseteq
+\mathcal{K}_{\operatorname{Epk}}$ (since $\mathcal{K}_{\operatorname{Epk}}$
+is a $\tvi$-ideal of $A$) and $A \bel \mathcal{K}_{\operatorname{Epk}} \subseteq
+\mathcal{K}_{\operatorname{Epk}}$ (since $\mathcal{K}_{\operatorname{Epk}}$
+is a $\bel$-ideal of $A$). Thus,
+Theorem \ref{thm.ideal-crit2} \textbf{(c)} (applied to $M=\mathcal{K}%
 _{\operatorname{Epk}}$) shows that $\mathcal{K}_{\operatorname{Epk}}$ is a
 $\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
 $\operatorname*{QSym}$.
@@ -15579,6 +15610,9 @@ _{\operatorname{Epk}}$ is a $\tvi$-ideal of $A$.
 Combining Claim 6 and Claim 8, we conclude that $\mathcal{K}%
 _{\operatorname{Epk}}$ is a $\bel$-ideal of $A$.
 
+As in the first proof above, we can show that
+$\mathcal{K}_{\operatorname{Epk}} \subseteq A^+$.
+
 Thus, Theorem \ref{thm.ideal-crit2} \textbf{(c)} (applied to $M=\mathcal{K}%
 _{\operatorname{Epk}}$) shows that $\mathcal{K}_{\operatorname{Epk}}$ is a
 $\left.  \prec\right.  $-ideal and a $\left.  \succeq\right.  $-ideal of
@@ -15929,11 +15963,11 @@ To prove that $\mathcal{K}_{\operatorname*{Rpk}}$ is not a $\left.
 $m\in\mathcal{K}_{\operatorname*{Rpk}}$ and some $a\in\operatorname*{QSym}$
 such that $m\left.  \prec\right.  a\notin\mathcal{K}_{\operatorname*{Rpk}}$.
 For example, we can take $m=F_{\left(  1,2\right)  }-F_{\left(  3\right)  }$
-and $a=F_{\left(  1\right)  }$; then,
+and $a=F_{\left(  2\right)  }$; then,
 \[
-m\left.  \prec\right.  a=F_{\left(  3,2\right)  }+F_{\left(  2,3\right)
-}+F_{\left(  2,2,1\right)  }-F_{\left(  1,2,2\right)  }-F_{\left(
-1,1,3\right)  }-F_{\left(  1,1,2,1\right)  }\notin\mathcal{K}%
+m\left.  \prec\right.  a=-F_{\left(  3,2\right)  }-F_{\left(  2,3\right)
+}-F_{\left(  2,2,1\right)  }+F_{\left(  1,2,2\right)  }+F_{\left(
+1,1,3\right)  }+F_{\left(  1,1,2,1\right)  }\notin\mathcal{K}%
 _{\operatorname*{Rpk}}.
 \]
 The same values of $m$ and $a$ also satisfy $m\left.  \succeq\right.
@@ -16018,11 +16052,11 @@ To prove that $\mathcal{K}_{\operatorname*{Pk}}$ is not a $\left.
 $m\in\mathcal{K}_{\operatorname*{Pk}}$ and some $a\in\operatorname*{QSym}$
 such that $m\left.  \prec\right.  a\notin\mathcal{K}_{\operatorname*{Pk}}$.
 For example, we can take $m=F_{\left(  1,2\right)  }-F_{\left(  3\right)  }$
-and $a=F_{\left(  1\right)  }$; then,
+and $a=F_{\left(  2\right)  }$; then,
 \[
-m\left.  \prec\right.  a=F_{\left(  3,2\right)  }+F_{\left(  2,3\right)
-}+F_{\left(  2,2,1\right)  }-F_{\left(  1,2,2\right)  }-F_{\left(
-1,1,3\right)  }-F_{\left(  1,1,2,1\right)  }\notin\mathcal{K}%
+m\left.  \prec\right.  a=-F_{\left(  3,2\right)  }-F_{\left(  2,3\right)
+}-F_{\left(  2,2,1\right)  }+F_{\left(  1,2,2\right)  }+F_{\left(
+1,1,3\right)  }+F_{\left(  1,1,2,1\right)  }\notin\mathcal{K}%
 _{\operatorname*{Pk}}.
 \]
 The same values of $m$ and $a$ also satisfy $m\left.  \succeq\right.
@@ -16067,7 +16101,7 @@ permutation statistics}, Advances in Mathematics, Volume 332, 9 July 2018, pp.
 
 \bibitem[Grinbe16]{dimcr}Darij Grinberg, \textit{Dual immaculate creation
 operators and a dendriform algebra structure on the quasisymmetric functions},
-version 6, \texttt{\href{https://arxiv.org/abs/1410.0079v10}{arXiv:1410.0079v10}%
+version 10, \texttt{\href{https://arxiv.org/abs/1410.0079v10}{arXiv:1410.0079v10}%
 }. (Version 5 has been published in:
 \href{https://cms.math.ca/10.4153/CJM-2016-018-8?abfmt=ltx}{Canad. J. Math.
 \textbf{69} (2017), 21--53}.)

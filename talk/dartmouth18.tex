@@ -787,10 +787,10 @@ and study a stronger version of shuffle-compatibility.
 
 \pause
 
-\item In other words, $\st$ is shuffle-compatible if and only
+\item In other words, $\st$ is shuffle-compatible if and only if
       the distribution of
       $\st$ on the set $S \tup{ \pi , \sigma }$
-      stays unchaged if $\pi$ and $\sigma$ are replaced by two
+      stays unchanged if $\pi$ and $\sigma$ are replaced by two
       other disjoint permutations of the same size and same $\st$-values.
       \pause \\
       In particular, it has to stay unchanged if $\pi$ and $\sigma$
@@ -1049,7 +1049,7 @@ References:
         \end{itemize} \pause
 
 \item \textbf{Product formula.} If $\pi$ is an $n$-permutation and $\sigma$
-      is an $m$-permutation, then
+      is an $m$-permutation such that $\pi$ and $\sigma$ are disjoint, then
         \[
         K_{n,\operatorname*{Epk}\pi}^{\mathcal{Z}}\cdot K_{m,\operatorname*{Epk}%
         \sigma}^{\mathcal{Z}}=\sum_{\tau\in S\left(  \pi,\sigma\right)  }%
@@ -1074,7 +1074,7 @@ References:
       no two consecutive integers. (Some call this ``sparse''.)
 
 \item \textbf{Well-known fact:} The number of lacunar subsets of
-      $\ive{n}$ is the Fibonacci number $f_{n+1}$.
+      $\ive{n}$ is the Fibonacci number $f_{n+2}$.
 
 \pause
 
@@ -1523,7 +1523,7 @@ Sometimes, $F_\alpha$ is also denoted $L_\alpha$.
 
 \pause
 
-\item \textbf{Theorem.} The descent statistic $\st$ is
+\item \textbf{Theorem.} A descent statistic $\st$ is
       shuffle-compatible if and only if $\calK_{\st}$ is an
       ideal of $\QSym$. \\
       (This is essentially due to Gessel \& Zhuang.)
@@ -1784,12 +1784,12 @@ Thus, $\QSym$ becomes a dendriform subalgebra of $\Powser$.
 
 \begin{itemize}
 
-\item Recall the \textbf{Theorem:} The descent statistic $\st$ is
+\item Recall the \textbf{Theorem:} A descent statistic $\st$ is
       shuffle-compatible if and only if $\calK_{\st}$ is an
       ideal of $\QSym$.
 
 \pause
-\item Similarly, \textbf{Theorem:} The descent statistic $\st$ is
+\item Similarly, \textbf{Theorem:} A descent statistic $\st$ is
       LR-shuffle-compatible if and only if %$\calK_{\st}$ satisfies
       \begin{align*}
       \QSym \prec \calK_{\st}
@@ -1839,7 +1839,7 @@ Thus, $\QSym$ becomes a dendriform subalgebra of $\Powser$.
       Does this generalize our results?
 
 \item \textbf{Question.}
-      How do the kernels $\mathcal{K}_{\st}$ look like for
+      What do the kernels $\mathcal{K}_{\st}$ look like for
       $\st = \Pk, \Lpk, \ldots$?
 
 \item \textbf{Question.}
@@ -1917,7 +1917,7 @@ References:
       $\pi : a$ is the permutation obtained from $\pi$ by appending $a$ at the end:
       \[
       \pi = \tup{\pi_1, \pi_2, \ldots, \pi_n} \qquad \Longrightarrow \qquad
-      \pi : a = \tup{a, \pi_1, \pi_2, \ldots, \pi_n, a} .
+      \pi : a = \tup{\pi_1, \pi_2, \ldots, \pi_n, a} .
       \]
       
 \pause

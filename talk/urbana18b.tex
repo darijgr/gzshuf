@@ -310,7 +310,7 @@ Example: $\tup{3, 1, 7}$ is a $3$-permutation, but
 \item The \defn{major index $\maj \pi$} of a permutation $\pi$
       is the \textbf{sum} of all descents of $\pi$. \\
       Thus, \defn{$\maj$} is a statistic. \\
-      \textbf{Example:} $\des \tup{3, 1, 5, 2, 4} = 4$.
+      \textbf{Example:} $\maj \tup{3, 1, 5, 2, 4} = 4$.
 
 \pause
 
@@ -510,11 +510,11 @@ Example: $\tup{3, 1, 7}$ is a $3$-permutation, but
 
 \pause
 
-\item In other words, $\st$ is shuffle-compatible if and only
+\item In other words, $\st$ is shuffle-compatible if and only if
       the distribution of
       $\st$ on the set $S \tup{ \pi , \sigma }$
-      stays unchaged if $\pi$ and $\sigma$ are replaced by two
-      other permutations of the same size and same $\st$-values.
+      stays unchanged if $\pi$ and $\sigma$ are replaced by two
+      other disjoint permutations of the same size and same $\st$-values.
       \pause \\
       In particular, it has to stay unchanged if $\pi$ and $\sigma$
       are replaced by two permutations order-equivalent to them:
@@ -1171,7 +1171,7 @@ Sometimes, $F_\alpha$ is also denoted $L_\alpha$.
 
 \pause
 
-\item \textbf{Theorem.} The descent statistic $\st$ is
+\item \textbf{Theorem.} A descent statistic $\st$ is
       shuffle-compatible if and only if $\calK_{\st}$ is an
       ideal of $\QSym$.
 
@@ -1823,7 +1823,7 @@ K_{n+m,\operatorname*{Epk}\tau}^{\mathcal{Z}}.
       no two consecutive integers.
 
 \item \textbf{Well-known fact:} The number of lacunar subsets of
-      $\ive{n}$ is the Fibonacci number $f_{n+1}$.
+      $\ive{n}$ is the Fibonacci number $f_{n+2}$.
 
 \pause
 
@@ -2186,7 +2186,7 @@ Thus, $\QSym$ becomes a dendriform subalgebra of $\Powser$.
 \begin{itemize}
 
 \only<1>{
-\item Recall the \textbf{Theorem:} The descent statistic $\st$ is
+\item Recall the \textbf{Theorem:} A descent statistic $\st$ is
       shuffle-compatible if and only if $\calK_{\st}$ is an
       ideal of $\QSym$.
 }
@@ -2194,12 +2194,12 @@ Thus, $\QSym$ becomes a dendriform subalgebra of $\Powser$.
 \only<2-5>{
 \item Similarly, we have:
       \begin{itemize}
-      \item \textbf{Theorem.} The descent statistic $\st$ is
+      \item \textbf{Theorem.} A descent statistic $\st$ is
       left-shuffle-compatible if and only if $\calK_{\st}$ is a
       $\prec$-ideal of $\QSym$ (that is: $\QSym \prec \calK_{\st}
       \subseteq \calK_{\st}$ and $\calK_{\st} \prec \QSym
       \subseteq \calK_{\st}$).
-      \item \textbf{Theorem.} The descent statistic $\st$ is
+      \item \textbf{Theorem.} A descent statistic $\st$ is
       right-shuffle-compatible if and only if $\calK_{\st}$ is a
       $\succeq$-ideal of $\QSym$ (that is: $\QSym \succeq \calK_{\st}
       \subseteq \calK_{\st}$ and $\calK_{\st} \succeq \QSym
@@ -2397,7 +2397,7 @@ for any composition $\alpha = \tup{\alpha_1, \alpha_2, \ldots, \alpha_k}$
 and any $a \in \Powser$, where
 \[
 M'_{\alpha_p, \alpha_{p-1}, \ldots, \alpha_1}
-= \sum_{i_1 \leq i_2 \leq \cdots \leq i_p} x_{i_1}^{\alpha_1} x_{i_2}^{\alpha_2} \cdots x_{i_p}^{\alpha_p} .
+= \sum_{i_1 \leq i_2 \leq \cdots \leq i_p} x_{i_1}^{\alpha_p} x_{i_2}^{\alpha_{p-1}} \cdots x_{i_p}^{\alpha_1} .
 \]
 }
 
